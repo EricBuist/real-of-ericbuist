@@ -1,0 +1,229 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.1//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>16.6 Copie de DVD Video</TITLE>
+<META NAME="description" CONTENT="16.6 Copie de DVD Video">
+<META NAME="keywords" CONTENT="cdwriting">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cdwriting.css">
+
+<LINK REL="previous" HREF="node79.html">
+<LINK REL="up" HREF="node74.html">
+<LINK REL="next" HREF="node81.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2247"
+  HREF="node81.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2241"
+  HREF="node74.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2237"
+  HREF="node79.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2243"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2245"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html2248"
+  HREF="node81.html">17. Création d'un disque</A>
+<B> monter:</B> <A NAME="tex2html2242"
+  HREF="node74.html">16. La copie de</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2238"
+  HREF="node79.html">16.5 Stockage de disques</A>
+ &nbsp; <B>  <A NAME="tex2html2244"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2246"
+  HREF="node106.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Sous-sections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html2249"
+  HREF="node80.html#SECTION07361000000000000000"><SPAN CLASS="arabic">16</SPAN>.<SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">1</SPAN> Décryptage du DVD</A>
+<LI><A NAME="tex2html2250"
+  HREF="node80.html#SECTION07362000000000000000"><SPAN CLASS="arabic">16</SPAN>.<SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">2</SPAN> Transcodage du DVD</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION07360000000000000000">
+<SPAN CLASS="arabic">16</SPAN>.<SPAN CLASS="arabic">6</SPAN> Copie de DVD Video</A>
+</H1>
+
+<P>
+<TABLE BORDER="1">
+<TR><TD VALIGN="top">
+<DIV STYLE="text-align:center; color:red"> Attention!
+</DIV><P>
+Le décryptage CSS sous Linux est sujet à de nombreux débats légaux et
+l'utilisation des librairies de décryptage pour lire des disques
+légalement achetés pourrait être illégale dans certains pays.</TD></TR></TABLE> 
+<P>
+La protection anticopie du DVD Vidéo pose de nombreux problèmes sous
+Linux, car aucun développeur n'a accès à une clé pour effectuer le
+décryptage de façon complètement légale. Actuellement, le code de
+décryptage CSS se fonde sur la librairie
+libdvdcss<A NAME="3474"></A> [<A HREF="node105.html#url:libdvdcss">URL43</A>] qui
+semble pouvoir être épargnée des poursuites judiciaires en raison de
+son incapacité à copier des DVD directement. Cette librairie très
+simple fournit un certain nombre de fonctions permettant à une
+application, et non à un utilisateur, de lire un DVD crypté. La
+librairie libdvdread<A NAME="3476"></A> [<A HREF="node105.html#url:libdvdread">URL44</A>]
+permet quant à elle la lecture et l'analyse de DVD et peut, si elle la
+trouve, utiliser libdvdcss. Encore une fois, aucune fonction de copie
+n'est fournie à l'utilisateur!
+Les lecteurs DVD tels que Xine, MPlayer et autres utilisent ces
+librairies, ou des versions modifiées de ces dernières, pour lire les
+DVD, cryptés ou pas, mais pas pour les copier.
+
+<P>
+Outre le décryptage, le transcodage cause aussi de nombreuses
+difficultés, car les outils disponibles sont en ligne de commande et
+très complexes à comprendre et à utiliser. Il n'existe aucun outil
+semblable à DVD Shrink capable de manipuler les fichiers VOB afin de
+les recompresser pour faire tenir un DVD double couche sur un
+DVD-5. Finalement, pour la gravure, l'option <TT>-dvd-video</TT> doit
+être passée à <TT>mkisofs</TT> pour créer les structures DVD-Video
+nécessaires [<A HREF="node105.html#url:burndvdvideolinux">URL85</A>].
+Malgré tout, la copie de DVD Video reste possible sous Linux.
+
+<P>
+
+<H2><A NAME="SECTION07361000000000000000">
+<SPAN CLASS="arabic">16</SPAN>.<SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">1</SPAN> Décryptage du DVD</A>
+</H2>
+
+<P>
+L'utilitaire
+VOBCopy<A NAME="3482"></A> [<A HREF="node105.html#url:vobcopy">URL70</A>] permet de
+copier les fichiers VOB d'un DVD. La commande <TT>vobcopy -i
+  /mnt/dvd -m</TT> recopie les fichiers VOB d'un DVD monté dans
+<TT>/mnt/dvd</TT> sans les modifier, effectuant le décryptage si
+nécessaire. Dans le répertoire courant, un répertoire ayant le nom du
+film sur DVD sera créé et tous les fichiers du répertoire
+<TT>VIDEO_TS</TT> du DVD rippé seront copiés tels quels. Cela permet
+de rejouer le DVD décrypté avec tout logiciel sous Linux, qu'il
+supporte le décryptage ou non, et de graver les VOB sur un DVD-5 si
+leur taille fait 4.36 Go ou moins.
+Ces fichiers doivent être placés dans un répertoire nommé
+<TT>VIDEO_TS</TT> pour respecter la structure DVD. Il est par exemple
+possible de renommer le répertoire créé par VOBCopy pour qu'il
+corresponde à la structure DVD. Optionnellement, il est possible de
+copier les autres répertoires du DVD afin de réaliser une copie
+(presque) parfaite.
+Vous devez ensuite utiliser
+<TT>mkisofs</TT> avec l'option <TT>-dvd-video</TT> pour créer une
+image ISO du DVD.
+
+<P>
+Le logiciel DVDBackup<A NAME="3491"></A> [<A HREF="node105.html#url:dvdbackup">URL25</A>]
+représente une autre solution, similaire à VOBCopy, pour copier des
+fichiers vidéo avec décryptage CSS. Encore une fois, aucune
+recompression n'est effectuée si bien que seuls des DVD-5 peuvent être
+gravés directement.
+
+<P>
+
+<H2><A NAME="SECTION07362000000000000000">
+<SPAN CLASS="arabic">16</SPAN>.<SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">2</SPAN> Transcodage du DVD</A>
+</H2>
+
+<P>
+Si le DVD fait plus de 4.36 Go ou si vous ne possédez pas un graveur
+DVD, il vous faudra transcoder le contenu du disque afin de le stocker
+sur un support plus petit, comme un CD. Il est certes possible
+d'utiliser le transcodage pour recompresser un DVD double couche pour
+le faire entrer sur un DVD de 4.36Go, mais cette technique supprimera
+tous les menus du DVD et interdira le choix d'une langue et des
+sous-titres, à moins de tout reconstruire à la main, ce qui constitue
+un
+travail considérable avec les outils fournis sous Linux! Deux outils de
+transcodage à peu près équivalents sont disponibles: MEncoder inclus
+avec le lecteur MPlayer<A NAME="3495"></A> [<A HREF="node105.html#url:mplayer">URL49</A>] ou
+transcode<A NAME="3497"></A> [<A HREF="node105.html#url:transcode">URL67</A>].
+Ces logiciels s'avèrent des couteaux suisses capables d'utiliser
+plusieurs utilitaires de conversion et de les combiner.
+Plutôt qu'utiliser Transcode directement, il est possible d'utiliser
+dvd&#58;&#58;rip<A NAME="3499"></A> [<A HREF="node105.html#url:dvdrip">URL21</A>],
+une interface graphique spécialisée dans le ripping de DVD. 
+Le site [<A HREF="node105.html#url:riptrans">URL84</A>] explique
+comment transformer des DVD en format DivX
+en utilisant dvd&#58;&#58;rip ou MEncoder.
+Malheureusement, bien que le ripping DVD soit possible sous Linux, les
+logiciels disponibles ne comportent pas de paramètres relatifs à la
+détection des erreurs sur le DVD. Il se peut donc que ces logiciels ne
+puissent pas réagir aussi bien aux erreurs que les logiciels sous
+Windows.
+
+<P>
+Une solution plus ou moins intéressante consiste à utiliser
+Wine<A NAME="3502"></A> [<A HREF="node105.html#url:wine">URL72</A>] pour exécuter DVD Shrink sous Linux
+[<A HREF="node105.html#url:linuxshrink">URL91</A>]. Malheureusement, Wine est un lgociel plutôt
+instable. Si certaines versions de DVD Shrink fonctionne avec
+certaines versions de Wine, de présentes ou futures versions de DVD Shrink
+pourraient cesser de fonctionner avec de présentes ou futures versions
+de Wine! La capacité
+de Wine à faire tourner DVD Shrink ou tout autre logiciel Windows un
+tant soit peu évolué dépend même de son mode d'obtention; Wine réagira
+différemment selon qu'il a été compilé depuis le code source ou
+téléchargé en version précompilée. Bien que la situation se soit
+améliorée avec les années, la complexité inhérente à la réplication
+d'un environnement Windows laisse croire que des problèmes sont à
+prévoir.
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2247"
+  HREF="node81.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2241"
+  HREF="node74.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2237"
+  HREF="node79.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2243"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2245"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html2248"
+  HREF="node81.html">17. Création d'un disque</A>
+<B> monter:</B> <A NAME="tex2html2242"
+  HREF="node74.html">16. La copie de</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2238"
+  HREF="node79.html">16.5 Stockage de disques</A>
+ &nbsp; <B>  <A NAME="tex2html2244"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2246"
+  HREF="node106.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Eric Buist
+2005-11-13
+</ADDRESS>
+</BODY>
+</HTML>

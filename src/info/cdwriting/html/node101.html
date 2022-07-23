@@ -1,0 +1,253 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.1//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>C. Les bits</TITLE>
+<META NAME="description" CONTENT="C. Les bits">
+<META NAME="keywords" CONTENT="cdwriting">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cdwriting.css">
+
+<LINK REL="next" HREF="node103.html">
+<LINK REL="previous" HREF="node97.html">
+<LINK REL="up" HREF="node65.html">
+<LINK REL="next" HREF="node102.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2598"
+  HREF="node102.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2592"
+  HREF="node65.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2586"
+  HREF="node100.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2594"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2596"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html2599"
+  HREF="node102.html">C.1 Les bits et</A>
+<B> monter:</B> <A NAME="tex2html2593"
+  HREF="node65.html">III. La gravure de</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2587"
+  HREF="node100.html">B.3 Solutions pour le</A>
+ &nbsp; <B>  <A NAME="tex2html2595"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2597"
+  HREF="node106.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION07900000000000000000"></A>
+<A NAME="chap:bits"></A>
+<A NAME="4525"></A>
+<BR>
+C. Les bits
+</H1>
+
+<P>
+Le bit constitue l'unité fondamentale de l'ordinateur. 
+Il peut prendre deux valeurs, soient 0 ou 1, fermé ou ouvert, 
+éteint ou allumé. Le processeur effectue tous les calculs 
+sur des bits. En mémoire ainsi que sur le disque dur, les 
+bits sont stockés par groupes de huit pour plus de facilité. 
+8 bits forment un octet (<SPAN  CLASS="textit">byte</SPAN>). Les valeurs binaires s'expriment 
+sous forme de chaînes de 0 et de 1. Pour exprimer 1, 2 et 3, 
+on écrira 1, 10 et 11. Pour calculer la valeur maximale 
+possible sur un nombre de bits donné, on utilise l'exposant. 
+Cette valeur correspond à deux élevé à la puissance du nombre de bits. 
+Ainsi, <SPAN CLASS="MATH">2<SUP>8</SUP>=256</SPAN>, il existera 
+256 valeurs possibles pour un octet (8 bits). Les valeurs varieront entre
+0 et 255. Si on utilise un bit pour le signe, le nombre 
+est positif si le bit est 0 et négatif s'il égale 1, 
+les nombres varieront de -128 à 127. Dans le cas d'un nombre 
+sur 16 bits, appelé mot (deux octets). Il prendra 65536 
+valeurs possibles. Le nombre variera entre 0 et 65535. S'il 
+est signé, il variera de -32768 à 32767. Le nombre de bits 
+influence ainsi la taille du nombre qu'il est possible d'exprimer. 
+
+<P>
+<BR><P></P>
+<DIV ALIGN="CENTER"><A NAME="4532"></A>
+<TABLE>
+<CAPTION><STRONG>Tableau C.1:</STRONG>
+Les différents types de données</CAPTION>
+<TR><TD>
+  <DIV ALIGN="CENTER">
+<TABLE CELLPADDING=3 BORDER="1" ALIGN="CENTER">
+<TR><TD ALIGN="CENTER">Type</TD>
+<TD ALIGN="CENTER">Bits</TD>
+<TD ALIGN="RIGHT">Min</TD>
+<TD ALIGN="RIGHT">Max</TD>
+</TR>
+<TR><TD ALIGN="CENTER">Octet non-signé</TD>
+<TD ALIGN="CENTER">8</TD>
+<TD ALIGN="RIGHT">0</TD>
+<TD ALIGN="RIGHT">255</TD>
+</TR>
+<TR><TD ALIGN="CENTER">Octet signé</TD>
+<TD ALIGN="CENTER">8</TD>
+<TD ALIGN="RIGHT">-128</TD>
+<TD ALIGN="RIGHT">127</TD>
+</TR>
+<TR><TD ALIGN="CENTER">Mot non-signé</TD>
+<TD ALIGN="CENTER">16</TD>
+<TD ALIGN="RIGHT">0</TD>
+<TD ALIGN="RIGHT">65535</TD>
+</TR>
+<TR><TD ALIGN="CENTER">Mot signé</TD>
+<TD ALIGN="CENTER">16</TD>
+<TD ALIGN="RIGHT">-32768</TD>
+<TD ALIGN="RIGHT">32767</TD>
+</TR>
+<TR><TD ALIGN="CENTER">Mot long non-signé</TD>
+<TD ALIGN="CENTER">32</TD>
+<TD ALIGN="RIGHT">0</TD>
+<TD ALIGN="RIGHT">4294967296</TD>
+</TR>
+<TR><TD ALIGN="CENTER">Mot long signé</TD>
+<TD ALIGN="CENTER">32</TD>
+<TD ALIGN="RIGHT">-2147483648</TD>
+<TD ALIGN="RIGHT">2147483647</TD>
+</TR>
+</TABLE>
+    
+    <A NAME="tab:datatypes"></A>
+  
+</DIV></TD></TR>
+</TABLE>
+</DIV><P></P>
+<BR>
+
+<P>
+Si on effectue le même exposant pour 24 bits, on se rend compte 
+de la raison du mode graphique 16 millions de couleurs. Le nombre 
+maximal exprimable sur 32 bits s'élève à quatre
+milliards.
+
+<P>
+Le kilooctet correspond à 1024 octets. Pourquoi 
+1024 plutôt que 1000? Le processeur calcule plus rapidement 
+une division d'une puissance en base 2. 
+<SPAN CLASS="MATH">2<SUP>10</SUP></SPAN> donne justement la valeur 1024.
+
+<P>
+<BR><P></P>
+<DIV ALIGN="CENTER"><A NAME="4547"></A>
+<TABLE>
+<CAPTION><STRONG>Tableau C.2:</STRONG>
+Unités de mesure en informatique</CAPTION>
+<TR><TD>
+  <DIV ALIGN="CENTER">
+<TABLE CELLPADDING=3 BORDER="1" ALIGN="CENTER">
+<TR><TD ALIGN="CENTER">Unité</TD>
+<TD ALIGN="RIGHT">Valeur réelle</TD>
+<TD ALIGN="RIGHT">Valeur estimée</TD>
+</TR>
+<TR><TD ALIGN="CENTER">Octet</TD>
+<TD ALIGN="RIGHT">1</TD>
+<TD ALIGN="RIGHT">1</TD>
+</TR>
+<TR><TD ALIGN="CENTER">Kilo-octet</TD>
+<TD ALIGN="RIGHT"><SPAN CLASS="MATH">2<SUP>10</SUP>=1024</SPAN></TD>
+<TD ALIGN="RIGHT"><SPAN CLASS="MATH">10<SUP>3</SUP>=1000</SPAN></TD>
+</TR>
+<TR><TD ALIGN="CENTER">Méga-octet</TD>
+<TD ALIGN="RIGHT"><!-- MATH
+ $2^{20}=1048576$
+ -->
+<SPAN CLASS="MATH">2<SUP>20</SUP>=1048576</SPAN></TD>
+<TD ALIGN="RIGHT"><SPAN CLASS="MATH">10<SUP>6</SUP>=1000000</SPAN></TD>
+</TR>
+<TR><TD ALIGN="CENTER">Giga-octet</TD>
+<TD ALIGN="RIGHT"><!-- MATH
+ $2^{30}=1073741824$
+ -->
+<SPAN CLASS="MATH">2<SUP>30</SUP>=1073741824</SPAN></TD>
+<TD ALIGN="RIGHT"><!-- MATH
+ $10^9=1000000000$
+ -->
+<SPAN CLASS="MATH">10<SUP>9</SUP>=1000000000</SPAN></TD>
+</TR>
+<TR><TD ALIGN="CENTER">Tera-octet</TD>
+<TD ALIGN="RIGHT"><SPAN CLASS="MATH">2<SUP>40</SUP></SPAN></TD>
+<TD ALIGN="RIGHT"><SPAN CLASS="MATH">10<SUP>12</SUP></SPAN></TD>
+</TR>
+</TABLE>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Les capacités sont exprimées en octets. Remarquez que chaque unité
+    est environ mille fois supérieure à l'unité précédente.
+    
+    <A NAME="tab:units"></A>
+  
+</DIV></TD></TR>
+</TABLE>
+</DIV><P></P>
+<BR>
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Sous-sections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html2600"
+  HREF="node102.html">C.<SPAN CLASS="arabic">1</SPAN> Les bits et les bytes</A>
+</UL>
+<!--End of Table of Child-Links-->
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2598"
+  HREF="node102.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2592"
+  HREF="node65.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2586"
+  HREF="node100.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2594"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2596"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html2599"
+  HREF="node102.html">C.1 Les bits et</A>
+<B> monter:</B> <A NAME="tex2html2593"
+  HREF="node65.html">III. La gravure de</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2587"
+  HREF="node100.html">B.3 Solutions pour le</A>
+ &nbsp; <B>  <A NAME="tex2html2595"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2597"
+  HREF="node106.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Eric Buist
+2005-11-13
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.1//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>17. Création d'un disque de données</TITLE>
+<META NAME="description" CONTENT="17. Création d'un disque de données">
+<META NAME="keywords" CONTENT="cdwriting">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cdwriting.css">
+
+<LINK REL="next" HREF="node84.html">
+<LINK REL="previous" HREF="node74.html">
+<LINK REL="up" HREF="node65.html">
+<LINK REL="next" HREF="node82.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2263"
+  HREF="node82.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2257"
+  HREF="node65.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2251"
+  HREF="node80.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2259"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2261"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html2264"
+  HREF="node82.html">17.1 Préparation et formatage</A>
+<B> monter:</B> <A NAME="tex2html2258"
+  HREF="node65.html">III. La gravure de</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2252"
+  HREF="node80.html">16.6 Copie de DVD</A>
+ &nbsp; <B>  <A NAME="tex2html2260"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2262"
+  HREF="node106.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION07400000000000000000">
+<SPAN CLASS="arabic">17</SPAN>. Création d'un disque de données</A>
+</H1>
+
+<P>
+La création d'un CD ou d'un DVD de données sous Linux est similaire à
+celle sous
+Windows, avec quelques options en plus. Lors de la préparation des
+données, on tiendra compte des particularités des extensions
+Rock Ridge<A NAME="3659"></A>
+(optionnel) et les autres phases consisteront en incantations
+apparemment redoutablement complexes mais qui sont toujours les mêmes
+et qui peuvent donc être automatisées dans des scripts.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Sous-sections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html2265"
+  HREF="node82.html"><SPAN CLASS="arabic">17</SPAN>.<SPAN CLASS="arabic">1</SPAN> Préparation et formatage de la structure de données</A>
+<LI><A NAME="tex2html2266"
+  HREF="node83.html"><SPAN CLASS="arabic">17</SPAN>.<SPAN CLASS="arabic">2</SPAN> Configuration du logiciel de gravure</A>
+<UL>
+<LI><A NAME="tex2html2267"
+  HREF="node83.html#SECTION07421000000000000000"><SPAN CLASS="arabic">17</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN> Création de l'image ISO</A>
+<UL>
+<LI><A NAME="tex2html2268"
+  HREF="node83.html#SECTION07421100000000000000"><SPAN CLASS="arabic">17</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">1</SPAN> Appel de base</A>
+<LI><A NAME="tex2html2269"
+  HREF="node83.html#SECTION07421200000000000000"><SPAN CLASS="arabic">17</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">2</SPAN> Les points de greffe</A>
+<LI><A NAME="tex2html2270"
+  HREF="node83.html#SECTION07421300000000000000"><SPAN CLASS="arabic">17</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">3</SPAN> Support multi-plateforme</A>
+<LI><A NAME="tex2html2271"
+  HREF="node83.html#SECTION07421400000000000000"><SPAN CLASS="arabic">17</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">4</SPAN> Le filtrage du contenu</A>
+</UL>
+<LI><A NAME="tex2html2272"
+  HREF="node83.html#SECTION07422000000000000000"><SPAN CLASS="arabic">17</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN> Création d'images UDF</A>
+<LI><A NAME="tex2html2273"
+  HREF="node83.html#SECTION07423000000000000000"><SPAN CLASS="arabic">17</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">3</SPAN> Appel de CDRecord ou CDRDAO</A>
+<LI><A NAME="tex2html2274"
+  HREF="node83.html#SECTION07424000000000000000"><SPAN CLASS="arabic">17</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">4</SPAN> Gravure de DVD</A>
+<LI><A NAME="tex2html2275"
+  HREF="node83.html#SECTION07425000000000000000"><SPAN CLASS="arabic">17</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">5</SPAN> Ajout d'une nouvelle session sur un CD</A>
+<LI><A NAME="tex2html2276"
+  HREF="node83.html#SECTION07426000000000000000"><SPAN CLASS="arabic">17</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">6</SPAN> Gravure à la volée</A>
+</UL></UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
+<ADDRESS>
+Eric Buist
+2005-11-13
+</ADDRESS>
+</BODY>
+</HTML>

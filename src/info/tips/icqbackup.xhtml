@@ -1,0 +1,336 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         Sauvegarde de la liste de contacts ICQ
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css"
+      href="../../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../../index.xhtml" class="parents">Le
+               royaume de Eric Buist</a> &gt;&gt; <a
+               href="../index.xhtml"
+               class="parents">Informatique</a> &gt;&gt;
+               Quelques-unes de mes recherches personnelles
+               &gt;&gt; <a href="index.xhtml" class="parents">Trucs
+               et astuces</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../../sitemap.xhtml" class="sitemap">Plan
+               du site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+            </td>
+            <td class="thispage">
+               Sauvegarde de la liste de contacts ICQ
+            </td>
+            <td class="rightsibling">
+               <a href="inetspeed.xhtml"
+               class="rightsibling">Optimiser la vitesse de
+               connexion Internet</a> &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         Sauvegarde de la liste de contacts ICQ
+      </h1>
+      <p>
+         ICQ constitue un excellent logiciel de communication
+         permettant d'échanger en temps réel des messages entre
+         utilisateurs possédant le programme. Lors de la connexion
+         à Internet, ICQ se charge (ou vous le chargez) et déclare
+         au serveur que vous êtes online. Il demande ensuite au
+         serveur qui de votre liste de contacts est online et
+         permet d'envoyer des messages instantanés à ces personnes.
+         Merveilleux, non? Vous pouvez ajouter autant
+         d'utilisateurs que vous voulez à la liste de contacts.
+      </p>
+      <p>
+         Tout va bien jusqu'au jour où vous ouvrez la machine et
+         rien ne va plus. Windows a fucké et vous devez tout
+         réinstaller. Ce qui a par le fait même effacé la liste de
+         contacts ICQ! Quand il y en a plus d'une centaine, de ces
+         contacts, c'est long à reconstituer, et extrêmement
+         ennuyeux. De plus, il arrive fréquemment que vous deviez
+         recréer le numéro ICQ (UIN pour Unique ICQ Number), ce qui
+         est aussi ennuyeux pour les utilisateurs qui vous ont mis
+         sur leurs listes de contacts. Il faudrait donc prévenir
+         ces maux, non?
+      </p>
+      <h1>
+         Sauvegarde de l'UIN
+      </h1>
+      <p>
+         <img src="icq.png"
+         alt="La fenêtre de ICQ, avec l'UIN en haut" />
+      </p>
+      <p>
+         Commençons par le premier problème, celui du numéro ICQ.
+         Un bout de papier ou un éditeur de texte sera le seul
+         outil nécessaire pour solutionner ce potentiel problème.
+         Vous n'avez qu'à noter le numéro ICQ (UIN) et, si vous ne
+         le connaissez pas par coeur, le mot de passe que vous avez
+         saisi lors de l'enregistrement. Le numéro ICQ se trouve
+         dans le barre de titre de la fenêtre ICQ qui apparaît lors
+         d'un double-clic sur la fameuse fleur, symbole de ICQ.
+         Quant au mot de passe, si vous l'avez oublié, c'est très
+         dommage, car vous devrez recréer un nouveau compte ICQ, à
+         moins que la procédure de récupération du mot de passe
+         (que je n'ai jamais testée) ne fonctionne.
+      </p>
+      <p>
+         Lors d'une réinstallation de ICQ, probablement précédée
+         d'une longue et pénible réinstallation de Windows, au lieu
+         de créer un nouvel UIN, vous en choisirez un existant.
+         Expérons que vous n'avez pas perdu votre papier ou que
+         vous avez sauvegardé le fichier en lieu sûr, sinon tout
+         s'arrête là... Ensuite, l'installation finie, vous aurez
+         retrouvé votre identité précédente. Mais votre état
+         virtuel équivaut à peu près à l'amnésie. Votre liste de
+         contacts, comme vous l'aurez constaté en jurant peut-être,
+         aura disparu! Quoi faire pour empêcher pareil drame de se
+         produire? Eh bien, il existe un moyen!
+      </p>
+      <h1>
+         Sauvegarde de la liste de contacts au complet sur une
+         machine à un utilisateur
+      </h1>
+      <p>
+         Là, les choses se compliquent déjà un peu. Vous devrez
+         sauvegarder votre UIN, soit sur un bout de papier, soit
+         dans un fichier mis en lieu sûr (disquette, CD-ROM, ZIP,
+         ...) et le mot de passe. Avant le désastre, vous devrez
+         effectuer périodiquement la sauvegarde de la liste de
+         contacts. Cela s'effectue en sauvegardant la base de
+         données ICQ. Pour y parvenir, vous devrez localiser
+         l'endroit où est installé ICQ sur votre disque dur. On
+         peut souvent trouver ça dans <tt>Program Files</tt>, mais
+         cela peut changer. Les sous-répertoires de ICQ, eux, ne
+         changent pas. Vous devrez archiver <tt>db99a</tt>,
+         <tt>db99b</tt>, <tt>2000a</tt> ou <tt>2000b</tt> selon la
+         version utilisée. Si vous disposez de plusieurs de ces
+         répertoires, c'est normal. Cela signifie simplement que
+         vous avez upgradé ICQ quelques fois. Sauvegardez le
+         répertoire le plus récent, ie plus grand dans l'ordre
+         alphabétique. Vous pouvez même, sans danger, supprimer les
+         autres répertoires. Votre disque vous en sera peut-être
+         reconnaissant! Le répertoire <tt>pictures</tt> est aussi
+         important, car il contient peut-être votre photo! Les
+         répertoires <tt>chats</tt> et <tt>sounds</tt> peuvent
+         aussi être sauvegardés.
+      </p>
+      <p>
+         Et maintenant, c'est quoi archiver? Eh bien, cela signifie
+         stocker les données sur un média permanent et amovible,
+         sous une forme ou une autre. J'opte toujours pour la forme
+         compressée qui évite d'utiliser trop d'espace de stockage.
+         On peut utiliser WinZIP, WinRar, WinAce ou tout autre
+         gadget pour compresser les fichiers, en autant qu'il soit
+         fiable... et qu'il puisse splitter l'archive sur plusieurs
+         disquettes! Quoi? Plusieurs disquettes! Eh oui, à moins
+         que...
+      </p>
+      <p>
+         Le problème avec la database ICQ, c'est qu'elle gonfle
+         avec le temps, comme une culture de bactéries virtuelle
+         qui envahit le disque, lentement. L'historique des
+         messages constitue la cause première de ce grossissement.
+         Quoi faire? Eh bien, outre refaire toute la liste de
+         contacts, j'ai mis la main sur une excellente façon de
+         diminuer de façon drastique la taille de la base de
+         données. Le DB Converter, fourni avec ICQ, peut convertir
+         mais aussi "réparer" une base de données ICQ. Lors de la
+         "conversion", qui n'en est pas une dans ce cas, on peut
+         spécifier à partir de quelle date les messages de
+         l'historique seront effacés. Pourquoi ne pas tout
+         simplement enlever tous ces messages? Voici donc la
+         procédure à suivre.
+      </p>
+      <ol>
+         <li>
+            Fermez le logiciel ICQ s'il est en marche. Le DB
+            Converter ne démarrera pas si ICQ fonctionne.
+         </li>
+         <li>
+            Dans le Menu Démarrer, choisissez Programmes, ICQ puis
+            ICQ Database Converter. Le programme, ressemblant à ce
+            qui suit, va surgir.<br />
+             <img src="icqdbconvertstart.png"
+            alt="ICQ Database Converter de ICQ 2000b" />
+         </li>
+         <li>
+            Sélectionnez l'utilisateur à traiter, puis No History.
+         </li>
+         <li>
+            Cliquez sur Next et la magie s'opère.<br />
+             <img src="icqdbconverting.png"
+            alt="ICQ Database Converter en action" />
+         </li>
+         <li>
+            Lorsque tout est fini, cliquez sur Next, puis sur Done
+            et le tour est joué. ICQ redémarre et la liste
+            réapparaît, inchangée mais liée à une base de données
+            allégée. Vous pourriez aussi réutiliser le programme
+            pour appliquer l'opération aux autres utilisateurs du
+            système. Notez que le mot de passe ICQ, si la haute
+            sécurité est active pour un utilisateur donné, n'est
+            pas requis pour effectuer la suppression de cette
+            manière.
+         </li>
+      </ol>
+      <p>
+         La récupération est un peu plus complexe. Premièrement, il
+         faudra réinstaller ICQ et utiliser l'UIN que vous aurez
+         pris soin de noter. Cette étape est très semblable à celle
+         de la procédure pour ne récupérer que son identité. Mais
+         cette fois, on va opérer notre "patient" pour lui faire
+         recouvrer la mémoire! Cela exigera, après avoir installé
+         avec succès, de restaurer les fichiers dans les
+         répertoires adéquats de ICQ nouvellement installé. Cela
+         devra se faire lorsque ICQ est fermé pour prévenir tout
+         conflit et problème de fichiers ouverts. Au prochain
+         démarrage de ICQ, la liste de contacts réapparaîtra!
+      </p>
+      <h1>
+         Sauvegarde de listes de contacts multiples
+      </h1>
+      <p>
+         Comme certains le savent déjà, ICQ permet de disposer de
+         plusieurs utilisateurs (UIN) sur la même machine. Cette
+         fonctionnalité s'adresse tout particulièrement aux
+         utilisateurs d'ordinateurs communs qui veulent disposer
+         d'une liste de contacts privée tout en permettant
+         l'utilisation de ICQ par d'autres personnes sur la même
+         machine. Mais que faire pour sauvegarder tout le fatras?
+      </p>
+      <p>
+         Vous devrez disposer de non pas TOUS les mots de passee,
+         mais UN SEUL! J'ai mis au point cette méthode, car je ne
+         connaissais pas les mots de passe des autres membres de ma
+         famille et attendre qu'ils viennent eux-mêmes saisir le
+         mot de passe ralentirait la réinstallation de Windows déjà
+         trop longue à mon goût. Alors, vous devrez posséder un
+         numéro UIN et un mot de passe. Le meilleur moyen consiste
+         à s'enregistrer soi-même sur la machine ou ajouter son
+         numéro UIN dans le système de façon temporaire lors de la
+         restauration.
+      </p>
+      <h2>
+         Sauvegarde de la liste
+      </h2>
+      <p>
+         Outre les répertoires de la base de données, des photos et
+         des sons, exposés dans l'autre section, vous devrez
+         inclure le répertoire <tt>uin</tt>. Le répertoire de la
+         base de données et le répertoire <tt>uin</tt> constituent
+         en fait les seuls répertoires à sauvegarder
+         obligatoirement. Maintenant, pour que vous n'ayez pas à
+         ajouter un à un chaque utilisateur lors de la
+         restauration, il va falloir jouer un peu dans la Base de
+         Registre. Puisque vous n'avez pas à y écrire, rien à
+         craindre.
+      </p>
+      <ol>
+         <li>
+            Dans le Menu Démarrer, choisissez Exécuter, puis tapez
+            <tt>regedit</tt>.
+         </li>
+         <li>
+            <img src="regedit.png" alt="Regedit" /><br />
+             Dans le panneau de gauche se trouve une espèce
+            d'arborescence similaire à l'Explorateur Windows. Vous
+            devrez y ouvrir la clé
+            <tt>HKEY_CURRENT_USER\Software\Mirabilis\ICQ\Owners</tt>.
+         </li>
+         <li>
+            <img src="regediticq.png"
+            alt="La clé Owners sélectionnée" /><br />
+             Dans le menu Registre, choisissez Exporter un fichier
+            du Registre puis spécifiez un nom de fichier qui
+            prendra l'extension <tt>.reg</tt>. Ce fichier contient,
+            en plus des utilisateurs sur le système, les
+            préférences associées à chacun.
+         </li>
+      </ol>
+      <h2>
+         Restauration des listes sauvegardées
+      </h2>
+      <ol>
+         <li>
+            Réinstallez ICQ, si ce n'est déjà fait.
+         </li>
+         <li>
+            Ajoutez le "UIN maître", ie celui que vous connaissez.
+            Vous aurez besoin du mot de passe pour accomplir cette
+            opération. Si jamais vous ne connaissez aucun UIN sur
+            cette machine, vous pouvez utilisez votre propre UIN ou
+            en créer un.
+         </li>
+         <li>
+            Fermez ICQ, très important, car changements dans les
+            paramètres effectués de façon externe à ICQ. Pourrait
+            débousoller le programme et le faire planter si fait
+            lorsqu'il fonctionne!
+         </li>
+         <li>
+            Dans l'Explorateur, double-cliquez sur le fichier avec
+            extension <tt>.reg</tt> obtenu par exportation de la
+            Base de Registre. Cela va importer le fichier et le
+            fusionner avec la Base de Registre actuelle. Ce qui
+            aura pour effet d'ajouter tous les autres utilisateurs.
+         </li>
+         <li>
+            Restaurez les répertoires <tt>uin</tt>, base de
+            données, photos, chats, sounds, ...
+         </li>
+         <li>
+            Ouvrir ICQ et supprimer l'UIN maître s'il est
+            temporaire. S'il est permanent, on le laissera là,
+            naturellement! La suppression peut être locale, ce qui
+            sera le cas si vous agissez avec votre UIN usuel. Si
+            vous avez enregistré un UIN pour la cause, supprimez-le
+            du serveur, cela évitera un numéro inutilisé.
+         </li>
+      </ol>
+      <p>
+         Fiou! Un peu tordu, non? Ici, je ne peux pas introduire
+         les bases de l'archivage et de la sauvegarde, ce serait
+         trop fastidieux. Vous devrez aussi chercher un peu pour
+         les ajouts et suppressions d'UIN. Lorsque vous connaîtrez
+         ces rudiments, vous serez en mesure d'effectuer la
+         sauvegarde en question.
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

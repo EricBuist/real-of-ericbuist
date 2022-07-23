@@ -1,0 +1,756 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         La sélection des pièces
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css"
+      href="../../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../../index.xhtml" class="parents">Le
+               royaume de Eric Buist</a> &gt;&gt; <a
+               href="../index.xhtml"
+               class="parents">Informatique</a> &gt;&gt;
+               Configuration informatique &gt;&gt; <a
+               href="index.xhtml" class="parents">Le Salvator,
+               successeur du Faucon de Fer</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../../sitemap.xhtml" class="sitemap">Plan
+               du site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+            </td>
+            <td class="thispage">
+               La sélection des pièces
+            </td>
+            <td class="rightsibling">
+               <a href="get.xhtml" class="rightsibling">L'achat des
+               pièces</a> &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         La sélection des pièces
+      </h1>
+      <p>
+         La construction de mon système a débuté par de longues
+         recherches pour la sélection des pièces. Cette sélection
+         est importante, car elle affectera le prix de la machine,
+         ses caractéristiques pendant tout son cycle de vie et bien
+         évidemment la compatibilité avec Linux. J'ai fait ma
+         première sélection de pièces en mai 2005, pour aider mon
+         frère lors de l'achat de sa machine. J'ai commis quelques
+         erreurs qui ont réduit l'évolutivité du système et ses
+         fonctionnalités, mais cela m'a permis d'apprendre et
+         d'améliorer ma propre future machine. Malgré tout, le
+         système de mon frère fonctionne assez bien (après
+         remplacement du câble IDE Asus défectueux par un vieux
+         câble que j'avais) et convient à ses besoins, exception
+         faite de la carte réseau intégrée qui lui fera sans doute
+         des misères pour toute la durée de vie de la carte mère.
+      </p>
+      <p>
+         Sélectionner les composantes d'un système peut vite se
+         transformer en un complexe problème d'optimisation dont la
+         solution ne peut être trouvée à moins de consacrer un
+         temps interminable à explorer toutes les possibilités de
+         façon exhaustive. Sur cette page, je vais donc commencer
+         par fixer diverses variables afin de réduire l'espace des
+         solutions après quoi j'exposerai la méthode que j'ai
+         utilisée pour choisir les autres pièces.
+      </p>
+      <ul>
+         <li>
+            <a href="#evident">Quelques choix évidents</a>
+         </li>
+         <li>
+            <a href="#intelamd">Le dilemme fondamental: Intel ou
+            AMD</a>
+         </li>
+         <li>
+            <a href="#sound">Le dilemme de la carte son</a>
+         </li>
+      </ul>
+      <h2>
+         <a name="evident" id="evident">Quelques choix évidents</a>
+      </h2>
+      <p>
+         Fixons d'abord les variables les plus simples qui
+         s'adonneront être les périphériques internes de la
+         machine. J'entends par <i>périphériques internes</i> des
+         composantes qui sont greffées sur le coeur du système et
+         qui peuvent être remplacées relativement facilement. Les
+         <i>périphériques externes</i>, comme le clavier, la
+         souris, l'écran, l'imprimante et le numériseur ne sont pas
+         concernés ici, car je ne les remplaçais pas.
+      </p>
+      <p>
+         Le lecteur de disquettes est la première pièce à
+         déterminer. En raison de la faible performance de ces
+         lecteurs, de la faible diversité de l'offre et de son
+         utilisation de plus en plus occasionnelle, le choix du
+         lecteur se réduit à une variable binaire: un lecteur de
+         disquettes ou pas de lecteur. J'ai choisi de mettre un
+         lecteur en raison de son faible coût et pour garantir la
+         polyvalence de mon système. Je ne sais jamais quand
+         j'aurai besoin de relire une de mes vieilles disquettes!
+         Une disquette s'avéra aussi très utile pour l'installation
+         de Windows XP avec les pilotes Serial ATA.
+      </p>
+      <p>
+         Ensuite, venons-en au graveur. Il y a davantage de choix
+         de ce côté, mais dans les graveurs pas trop chers, il y a
+         beaucoup de similitude. J'appliquai ici un raisonnement à
+         base de cas: puisque mon lecteur DVD <a
+         href="http://www.lge.com">LG</a> avait si bien fonctionné
+         sur ma précédente machine, j'adoptai un graveur LG. Ce
+         même raisonnement me mena à choisir LG comme marque de
+         lecteur DVD secondaire. Pourquoi un graveur et un lecteur?
+         Cela facilite la copie de disques et permet de ménager le
+         graveur qui sert davantage à écrire qu'à lire. Comme
+         graveur, j'aurais aussi pu essayer un autre <a
+         href="http://www.pioneer.com">Pioneer</a>, un <a
+         href="http://www.plextor.com">Plextor</a> (marque
+         reconnue) ou peut-être un <a
+         href="http://www.sony.ca">Sony</a>. Comme lecteur,
+         j'aurais pu opter pour un Sony ou, à la limite, un <a
+         href="http://www.liteon.com">Lite-on</a>.
+      </p>
+      <p>
+         Un autre raisonnement à base de cas me mena à choisir une
+         carte son <a href="http://www.creative.com">Creative</a>
+         Audigy 2 ZS qui a été un choix judicieux pour la machine
+         de mon frère. Plus tard, je remis ce choix en question et
+         décidai d'essayer la carte son intégrée à la carte mère.
+         Comme je ne fais pas de la composition musicale, cette
+         carte pouvait fort bien suffire et en plus, elle me
+         donnerait la possibilité d'avoir des ports audio avant,
+         sur mon boîtier d'ordinateur.
+      </p>
+      <p>
+         Pour ce qui est du boîtier, je choisis la marque <a
+         href="http://www.antec.com">Antec</a>, car souvent, le
+         bloc d'alimentation est inclus avec le boîtier et je
+         souhaitais avoir un bloc de marque Antec. Je ne sais plus
+         où j'ai appris que c'était une excellente marque, mais le
+         vendeur a proposé un tel bloc pour la machine de mon
+         frère. De plus, les machines du département d'informatique
+         à l'Université de Montréal sont dans des boîtiers Antec.
+         Je choisis le LifeStyle Sonata II pour sa couleur noire,
+         ses ports USB et Firewire avant (mais la carte mère
+         n'aurait pas de port Firewire...) et sa conception
+         minimisant le bruit. Toutefois, je craignais avec raison
+         que le guide à air, les rails et les plateaux me posent
+         des difficultés pour le montage du système. Ces
+         difficultés ont été surmontables, mais il me fallut du
+         temps pour bien comprendre les mécanismes de rétention
+         afin de monter la machine correctement. À défaut de
+         pouvoir voir tous les détails, un modèle mental précis du
+         système est nécessaire pour pouvoir installer une seule
+         pièce dans une machine avec une chance de succès
+         acceptable. Pour monter un système complet, j'estime que,
+         dans mon cas, ce modèle mental est indispensable. Sans
+         lui, il y aura une accumulation d'erreurs qui rendront la
+         machine instable, d'une façon ou d'une autre.
+      </p>
+      <p>
+         Il reste à présent le modem. Ce dernier, bien que
+         secondaire, permet d'envoyer des télécopies et devrait
+         idéalement pouvoir fonctionner sous Linux. Cela limite
+         grandement, en 2005, l'offre, car la plupart des Winmodems
+         ne fonctionnent pas sous Linux tandis que certains
+         fonctionnent quelques temps puis cessent de fonctionner en
+         raison de l'interruption du développement du pilote. C'est
+         pourquoi je décidai, après de courtes mais frustrantes
+         recherches sur Internet, d'investir dans un modem hardware
+         qui allait se balader de machine en machine pendant
+         quelques années. J'espérais que ce modem passerait dans
+         deux ou trois machines, voire davantage.
+      </p>
+      <p>
+         Quant au synthoniseur TV, comme prévu, je comptais
+         récupérer ma carte PCI <a
+         href="http://www.hauppage.com">Hauppage</a> WinTV PVR-150.
+         Malheureusement, dans les prochaines étapes de l'achat de
+         la machine, la possibilité de transfert serait remise en
+         question et il se pouvait que la seule alternative
+         abordable consiste à acheter un nouveau synthoniseur,
+         modèle USB, s'installant sans ouvrir le boîtier et ce
+         modèle USB ne serait pas supporté sous Linux. Fort
+         heureusement, je parvins à trouver un système me
+         permettant le transfert.
+      </p>
+      <p>
+         Quant à la carte graphique, j'optai pour une <a
+         href="http://www.nvidia.com">NVIDIA</a> en raison de la
+         disponibilité d'un pilote pour Linux fonctionnant très
+         bien. J'aurais pu tenter ma chance avec une carte de
+         marque <a href="http://www.atitech.com">ATI</a>, puisque
+         la firme fournit aussi un pilote pour Linux. Toutefois,
+         par le passé, je n'ai rencontré que des difficultés avec
+         ce pilote. Le pilote ATI à code source fermé comme celui
+         de NVIDIA, lors de son installation, démarrait un
+         utilitaire qui recréait un tout nouveau fichier de
+         configuration pour <a
+         href="http://www.xfree86.org">XFree86</a>, l'environnement
+         graphique de Linux. Or, ce fichier contient des
+         informations non pas seulement au sujet de la carte
+         graphique mais également sur le clavier et la souris. Si
+         le pilote d'ATI n'a pas été suffisamment amélioré depuis
+         cet essai, les ajustements que je pourrais avoir faits
+         pour par exemple rendre fonctionnels les boutons latéraux
+         de ma souris IntelliMouse risquaient d'être perdus, non
+         pas seulement une fois mais à chaque réinstallation du
+         pilote ATI! Il faut prendre en compte le fait que ce
+         pilote devra être réinstallé non pas à chaque mise à jour
+         de ce dernier mais à chaque mise à jour du noyau en raison
+         d'un module de noyau propre à ATI. Pire encore, j'ai déjà
+         conseillé à un ami détenteur d'une ATI All-In-Wonder
+         Radeon 8500 DV d'utiliser ce pilote et cela n'a pas
+         fonctionné du tout sous <a
+         href="http://www.mandrivalinux.com">Mandrake</a> 9. Il a
+         dû revenir au pilote ATI standard de XFree86 et se passer
+         de la 3D jusqu'à la sortie d'une version ultérieure de
+         Mandrake, la 9.2 si je me souviens bien. Les pilotes
+         actuels de XFree86 et de <a
+         href="http://www.x.org">Xorg</a> ne supportent pas la 3D
+         des nouvelles cartes ATI si bien que je pourrais ne plus
+         avoir d'accélération 3D du tout. Il est possible qu'une
+         carte ATI fonctionne très bien, mais je n'avais pas du
+         tout envie d'essayer en raison de la faible différence de
+         prix et de performance entre ATI et NVIDIA. L'avantage
+         d'un TV Out à composantes présent sur les ATI mais absent
+         sur les NVIDIA était compensé par le fait que je
+         n'utiliserais jamais ce connecteur et par la possibilité
+         de brancher un adaptateur dans le port DVI-I de la NVIDIA
+         pour avoir une sortie par composantes au besoin. Bien
+         évidemment, je choisis une carte PCI Express, car tant
+         qu'à opter pour AGP, autant récupérer <a
+         href="../pvr.xhtml">ma carte GeForce FX 5200 achetée en
+         septembre 2005</a>. Je sélectionnai une carte d'environ
+         150$, de marque <a href="http://www.asus.com">Asus</a>
+         pour correspondre avec ma carte mère, ce qui me mena à
+         prendre une GeForce 6600 avec 256Mo de mémoire vidéo. Je
+         choisis le modèle <i>Silent</i>, car il est dépourvu de
+         tout ventilateur susceptible de s'encrasser et d'être
+         difficile à remplacer en cas de problème.
+      </p>
+      <p>
+         Au cas où je serais contraint de prendre une ATI par la
+         disponibilité des produits en magasin, je choisis une
+         candidate de cette marque comme deuxième choix de carte
+         graphique. Je constatai alors avec surprise que les
+         modèles PCI Express offerts par ATI étaient très coûteux,
+         plus de 250$! Je parvins à réduire ce coût en prenant une
+         carte graphique de marque Asus avec une puce Radeon, elle
+         aussi dotée de 256Mo de mémoire vidéo. Comme prix de
+         consolation si je devais prendre ce choix, la carte
+         coûterait moins cher que la NVIDIA.
+      </p>
+      <h2>
+         <a name="intelamd" id="intelamd">Le dilemme fondamental:
+         Intel ou AMD</a>
+      </h2>
+      <h3>
+         AMD, un processeur intéressant, mais une carte mère qui
+         l'est moins
+      </h3>
+      <p>
+         Venons-en maintenant au coeur du système qui inclut la
+         carte mère, le processeur et la mémoire. Le choix du coeur
+         est très délicat, car tout dépend de la carte mère
+         choisie. Remplacer la pièce fondamentale qu'est la carte
+         mère nécessite le réassemblage de toute la machine et la
+         réinstallation des systèmes d'exploitation.
+      </p>
+      <p>
+         Initialement, je souhaitais un processeur AMD. Je
+         découvris pendant la sélection du système de mon frère que
+         deux types de liaison à la carte mère étaient possibles:
+         Socket 754 ou Socket 939. Je n'explorai pas suffisamment
+         le cas du Socket 939 dans le cadre de la sélection de la
+         machine de mon frère, car le site du magasin où il acheta
+         le système était plutôt mal fait et extraire l'information
+         était difficile. Avec le temps, par contre, je compris que
+         l'idéal était bel et bien de choisir un Socket 939, plus
+         cher que le Socket 754 mais plus performant et surtout
+         plus évolutif. Les processeurs AMD ont comme propriété
+         intéressante d'intégrer le contrôleur mémoire à même la
+         puce. Cela nécessite une liaison plus rapide entre le
+         processeur et la carte mère, liaison qui est fournie par
+         le HyperTransport. C'est peut-être en raison de cette
+         intégration du contrôleur mémoire et de l'HyperTransport
+         que le cache des AMD est significativement plus petit que
+         le cache des Intel. Craintif à l'idée d'avoir un cache de
+         seulement 512k, j'ai tenté de crinquer ça à 1Mo, mais cela
+         augmentait significativement le coût de la puce. J'estime
+         toutefois qu'il vaut mieux prendre un processeur avec une
+         cadence plus petite mais un cache plus grand. Avec le bon
+         système de refroidissement, il est toujours possible
+         d'augmenter la cadence (<i>overclocking</i>) tandis qu'on
+         ne peut pas booster le cache.
+      </p>
+      <p>
+         AMD est aussi le pionnier de la technologie x86_64 qui
+         permet d'exécuter du code 32 bits sans réduction de
+         performance. Avec le x86_64, le processeur peut exécuter
+         un système d'exploitation 32 bits tout à fait ordinaire.
+         En fait, en 2005, beaucoup de AMD64 étaient condamnés à ce
+         mode 32 bits, car Windows XP Professionnel Édition x64
+         n'était pas largement diffusé et beaucoup de périphériques
+         ne sont pas compatibles avec ce système. Dans mon cas,
+         utiliser la version 64 bits de Windows XP me contraignait
+         à remplacer mon numériseur et mon synthoniseur TV. Seul
+         Linux, à ce moment-là, permettait de pleinement utiliser
+         un AMD64 d'une façon abordable.
+      </p>
+      <p>
+         Pour compliquer le problème, j'ajoutai une contrainte: je
+         veux un double coeur! Un processeur double coeur (<i>dual
+         core</i>) comporte deux unités de traitement distinctes
+         sur la même puce. Ces unités peuvent travailler en
+         parallèle si bien qu'un processeur à deux coeurs se
+         présente aux yeux du système d'exploitation comme deux
+         processeurs. Cela accroît les capacités multitâches de la
+         machine. Enfin, Windows allait cesser de rusher sitôt que
+         deux applications ou plus étaient en marche! Parmi les
+         candidats possibles de processeurs AMD figurèrent le 3700+
+         cadencé à 2.2GHz, avec 1Mo de mémoire cache. Pour les x2
+         (double coeur), le 4400+ cadencé à 2.2GHz avec 1Mo de
+         mémoire cache m'intéressait, mais son prix me faisait
+         beaucoup hésiter.
+      </p>
+      <p>
+         Pour ce qui est de la mémoire, il suffit encore une fois
+         d'ajuster la quantité selon le prix et de prendre de la
+         non ECC, à moins de choisir la carte mère pour qu'elle
+         soit compatible avec la ECC. Pour des performances
+         maximales, il vaut mieux opter pour de la DDR 400MHz. Il
+         faut également choisir la marque, les plus connues étant
+         <a href="http://www.kingston.com">Kingston</a> et <a
+         href="http://www.corsair.com">Corsair</a>. Je choisis un
+         kit de 1Go de Kingston comprenant deux barrettes de 512Mo
+         destinées à être utilisées en mode double canaux. Dans ce
+         mode, la carte mère utilise les deux barrettes en
+         parallèle de façon à maximiser la performance.
+      </p>
+      <p>
+         Jusque-là, tout va bien. Il suffit de choisir un
+         processeur convenant à son budget. C'est un simple
+         problème linéaire: augmenter cadence et cache jusqu'à
+         atteindre un prix-seuil. Ajoutons quelques variables pour
+         pimenter un peu les choses. Après tout, un problème ne
+         doit jamais être simple à résoudre, sinon on ne pourrait
+         pas le qualifier de problème.
+      </p>
+      <p>
+         Alors donc, vient le moment de sélectionner la carte mère.
+         Je me rendis compte que c'était l'opération la plus
+         complexe et la plus frustrante de la planification du
+         système, surtout si j'incluais la compatibilité avec Linux
+         comme contrainte de sélection et que je souhaitais
+         <i>garantir</i> la compatibilité. Je ne connaissais aucun
+         magasin qui offrait une telle garantie si bien que je
+         devais effectuer beaucoup de recherches pour maximiser mes
+         chances de succès. D'abord, l'espace des cartes mères
+         était trop vaste pour que je puisse l'explorer si bien que
+         je le réduisis encore une fois en fixant des variables,
+         par raisonnement à base de cas. À quelques reprises, j'ai
+         entendu dire que Asus était une bonne marque de carte mère
+         et il y a de telles cartes mère dans le département
+         d'informatique, à l'Université de Montréal. J'allais donc
+         opter pour une carte Asus, mais j'admis aussi comme
+         candidate la marque <a
+         href="http://www.giga-byte.com">Gigabyte</a> puisque j'ai
+         une carte de cette marque et elle fonctionne très bien.
+      </p>
+      <p>
+         Il faut maintenant classer les cartes Socket 939 et
+         choisir celle ayant le plus haut rang. Comme premier
+         critère de classification, je choisis le jeu de puces, car
+         il influence grandement les fonctions de la carte et
+         surtout la compatibilité avec Linux. Asus proposait, en
+         2005, des cartes mère avec quatre jeux de puces: VIA,
+         NVIDIA, ATI et SiS. J'éliminai ATI après avoir vécu tant
+         de problèmes de compatibilité Linux avec ma carte
+         graphique et j'éliminai SiS, car l'offre semblait trop
+         marginale; il n'y avait qu'une carte mère SiS. Restait à
+         choisir entre VIA et NVIDIA.
+      </p>
+      <p>
+         Initialement, j'éliminai NVIDIA pour deux raisons
+         principales. D'abord, le contrôleur <a
+         href="../../info/sata.xhtml">Serial ATA</a> intégré,
+         permettant la gestion du disque dur, était mal supporté
+         par Linux en raison de la faible coopération de NVIDIA à
+         la rédaction d'un pilote approprié. Le pilote disponible
+         en 2005 était jugé beta et je me rendis vite compte, après
+         de longues recherches, qu'aucune information n'était
+         disponible pour savoir si quelqu'un sur la planète avait
+         réussi à faire fonctionner son disque dur Serial ATA
+         correctement sous Linux avec le jeu de puces nForce4. Ce
+         n'est qu'en mai 2006 que je découvris un premier cas de
+         machine NVIDIA avec disques durs Serial ATA fonctionnant
+         sous Linux. En examinant le nouveau serveur de fichiers
+         sur lequel mon compte au département d'informatique à
+         l'Université de Montréal fut déplacé, je constatai avec
+         joie, en utilisant <tt>cat /proc/cpuinfo</tt> que la
+         machine était équipée d'un puissant Athlon 64 x2 4800+
+         avec plusieurs disques durs SATA (<tt>df -H</tt> affichait
+         l'espace libre sur des périphériques SCSI du genre
+         <tt>/dev/sda1</tt>). Un <tt>cat /etc/modprobe.conf</tt> me
+         confirma que le contrôleur SATA était géré par
+         <tt>sata_nv</tt> et <tt>/sbin/lspci</tt> m'afficha des
+         ponts PCI Express. Puisque seuls les jeux de puces nForce
+         4 ont le PCI Express, cela montre que le pilote
+         <tt>sata_nv</tt>, du moins celui du noyau 2.6.16, permet
+         d'utiliser le contrôleur SATA des cartes nForce 4!
+      </p>
+      <p>
+         Cette première raison de ne pas utiliser une carte mère à
+         base de nForce n'est donc pas tout à fait valable. Il y a
+         par contre une seconde raison: la plate-forme nForce de
+         NVIDIA propose une carte réseau avec un pare-feu matériel.
+         Cela peut sembler attrayant à prime abord, car cela
+         diminue la consommation de temps de processeur, mais à
+         quoi bon puisque le pare-feu est parfois défectueux et
+         bloque tout, même lorsqu'il est désactivé. Mon frère a un
+         tel pare-feu matériel et jamais il n'a pu accéder aux
+         ordinateurs de notre réseau chez moi, même après
+         désactivation et désinstallation du pare-feu. Aucune
+         manipulation ne put y changer quoi que ce soit et des
+         recherches sur Internet m'apprirent que certains avaient
+         aussi vécu ce problème et n'avaient rien pu faire d'autre
+         qu'utiliser une autre carte réseau. J'ai même lu un cas où
+         un utilisateur avait retourné sa carte mère dont le
+         pare-feu bloquait des accès réseau au manufacturier, avait
+         obtenu une carte de remplacement et la nouvelle carte
+         fonctionnait!
+      </p>
+      <p>
+         Pour éviter d'avoir à installer ma carte mère plusieurs
+         fois et attendre de longues semaines pour une carte de
+         remplacement, du moins pour diminuer la probabilité de ces
+         désagréments puisqu'on ne peut les éviter dans l'absolu,
+         j'optai donc pour un jeu de puces VIA. C'est alors que je
+         me vis confronté à un choix déchirant et frustrant. Avec
+         la carte mère Asus A8V ou même A8V Deluxe, je disposais
+         d'un contrôleur Serial ATA complètement compatible avec
+         Linux mais au prix d'un lourd sacrifice du nouveau bus PCI
+         Express! Avec la A8V-E SE ou même la A8V-E Deluxe d'Asus,
+         j'obtenais certes le PCI Express, mais je perdais la
+         possibilité, dans le présent et peut-être même dans le
+         futur, d'incorporer un processeur AMD à double coeur. Pire
+         encore, le contrôleur Serial ATA du southbridge VT8237R de
+         la A8V-E n'est pas totalement compatible avec Serial ATA
+         II et l'interface d'accès diffère du contrôleur intégré au
+         VT8237 de la A8V, la carte qui ne supportait pas PCI
+         Express! J'ai lu quelque part qu'avec le VT8237R, il est
+         possible d'installer Windows XP sans disquette Serial ATA.
+         Puisque Windows n'intègre aucun pilote SATA, ceci ne peut
+         s'expliquer que par la présence d'une émulation PATA sur
+         le VT8237R qui est absente sur le VT8237. Ainsi, Linux
+         pourrait peut-être fonctionner en mode d'émulation PATA.
+         Mais l'incompatibilité avec SATA II ne demeure pas moins
+         une limitation importante. L'incompatibilité avec SATA II
+         pourrait réduire considérablement mes possibilités en cas
+         de panne de disque dur dans quelques années; il est
+         possible que l'offre en disques SATA soit réduite par
+         comparaison avec les disques SATA II. Le changement
+         d'interface, quant à lui, pourrait suffire à me priver de
+         Linux pour quelques mois, voire quelques années! En effet,
+         si le contrôleur Serial ATA n'est pas supporté, mon disque
+         dur ne sera pas détecté et utilisable par Linux. J'ai
+         regardé du côté de Gigabyte et l'offre n'était guère
+         mieux.
+      </p>
+      <p>
+         Il restait un dernier espoir avec la carte mère Asus
+         A8V-MX qui a un southbridge VIA VT8251 enfin compatible
+         AHCI: plus de problèmes avec Serial ATA sous Linux!
+         Malheureusement, cette carte n'avait que deux fentes à
+         mémoire DDR comparativement à quatre pour les autres
+         candidates et l'extensibilité et la performance se
+         trouvaient réduites par la présente d'une fente AGP que je
+         n'utiliserais pas, prévoyant remplacer ma carte graphique
+         pour une PCI Express.
+      </p>
+      <p>
+         En contrepartie, l'offre des cartes mère avec jeu de puces
+         NVIDIA nForce est beaucoup plus complète et diversifiée.
+         Pas mal toutes ces cartes peuvent accueillir un processeur
+         à double coeur, disposent d'un contrôleur Serial ATA II,
+         la série nForce 4 est prête pour le PCI Express et
+         plusieurs benchmarks sur Internet classent les cartes
+         NVIDIA au-dessus des cartes VIA. Conclusion: si je voulais
+         un système AMD de performance maximale, je devais opter
+         pour une carte à jeu de puces NVIDIA. La Asus A8N32-SLI
+         Deluxe était le meilleur choix, quoiqu'un peu coûteuse. Je
+         songeai également à la Asus A8N-SLI Prenium. Je ne retins
+         que les cartes avec deux cartes réseau afin de pouvoir me
+         départir du fichu pare-feu en cas de défaut de
+         fonctionnement sans ajouter une carte PCI. Comme je
+         prévoyais à ce moment-là utiliser une carte son Audigy 2
+         ZS, un fax/modem ainsi que mon ancien synthoniseur TV, mes
+         trois fentes PCI étaient déjà occupées, donc pas question
+         d'intégrer une carte réseau PCI pour remplacer la carte
+         intégrée défectueuse. Pour la même raison, je ne voulais
+         pas intégrer un contrôleur Serial ATA PCI afin de
+         remplacer le contrôleur intégré en cas d'incompatibilité
+         avec Linux. Outre les problèmes avec Serial ATA et le
+         pare-feu, je lus quelques histoires peu rassurantes à
+         propos d'instabilités sous Linux lorsqu'un noyau
+         multi-processeurs (SMP) était mis en oeuvre. Sans noyau
+         SMP, le processeur a double coeur ne servirait à rien! Il
+         fonctionnerait alors comme un processeur à simple coeur.
+         Ces problèmes apparaissaient avec l'utilisation du pilote
+         closed source de carte graphique NVIDIA et il y a
+         actuellement au moins deux versions de ces pilotes devant
+         eux; il se peut donc qu'ils soient éradiqués.
+      </p>
+      <p>
+         Je lus aussi quelques mauvaises choses au sujet de la
+         carte son: le pilote audio libre n'exploite pas toutes les
+         fonctionnalités de la puce sonore. En particulier, il ne
+         permet pas le mixage audio en matériel, se rabattant
+         plutôt sur le mixage logiciel effectué par le module dmix
+         de ALSA. Par contre, cela n'aurait été qu'un problème
+         mineur pour moi, car je prévoyais supplanter cette puce
+         sonore avec une carte son Sound Blaster Audigy 2 ZS.
+      </p>
+      <p>
+         Je regardai aussi du côté de Gigabyte et ne trouvai rien
+         de mieux. Le fabricant offrait les mêmes jeux de puces
+         qu'Asus.
+      </p>
+      <h3>
+         Intel, un processeur moins intéressant, mais une carte
+         mère davantage susceptible de convenir
+      </h3>
+      <p>
+         Je finis par me résigner à choisir un système Intel plutôt
+         qu'attendre indéfiniment un hypothétique jeu de puces VIA
+         avec southbridge VT8251 et compatible AMD64, ou l'adoption
+         encore plus hypothétique de AHCI par NVIDIA. Je souhaitais
+         profiter du temps des fêtes de 2005 à 2006 pour monter la
+         machine et résoudre les (nombreux) problèmes matériels et
+         logiciels avant le début d'une nouvelle session. Quelques
+         mois plus tard, je regrettai un peu ce choix conservateur;
+         peut-être aurait-il été judicieux de prendre le risque
+         d'acheter une carte mère nForce...
+      </p>
+      <p>
+         Alors, comme mode de liaison, il y avait deux choix en
+         2005: Socket 478 et LGA775. Il y a aussi la possibilité
+         d'utiliser un adaptateur spécial pour intégrer des
+         processeurs Pentium M normalement utilisés dans les
+         portables. J'écartai cette option, car je considérais un
+         adaptateur comme un hack, une patch qui n'a pas lieu
+         d'être pour un système neuf. Utiliser un Pentium M (Socket
+         479) pour recycler une vieille carte Socket 478 est, par
+         contre, une idée envisageable. Je me rendrais également
+         compte qu'avec un LGA775, l'installation du dissipateur de
+         chaleur serait nettement facilitée. La simplicité
+         d'installation est un critère à considérer dans le cas de
+         l'assemblage de sa première machine.
+      </p>
+      <p>
+         Étant donné que le contrôleur de mémoire n'est pas sur le
+         processeur, Intel a compensé la parte de vitesse en
+         accroissant la vitesse de la mémoire, ce qui a donné
+         naissance à la DDR2. Intel a aussi fait un clone de la
+         technologie AMD64 qui est baptisée EMT64.
+      </p>
+      <p>
+         Encore une fois, je considérai le cas du double coeur.
+         Contrairement aux AMD Athlon64 x2, les Pentium D à double
+         coeur étaient abordables en 2005 et comportaient un cache
+         de 2Mo, 1Mo par coeur. Je dus sacrifier 0.2GHz (2.8GHz
+         plutôt que 3GHz) afin d'obtenir un prix raisonnable.
+      </p>
+      <p>
+         Quant à la mémoire, il me fallut prendre de la DDR2 qui
+         n'est pas tellement plus chère que la DDR, à moins de
+         prendre de la 667MHz. Je pris de la 533MHz plutôt que de
+         la 400MHz, car la différence de prix était minime et
+         certaines cartes mère candidates ne supportaient pas la
+         DDR2 400MHz. Comme dans le cas d'AMD, je choisis un kit
+         Kingston de 1Go de mémoire destiné à être installé en
+         double canaux.
+      </p>
+      <p>
+         Pour la carte mère, il existe de nombreux jeux de puces et
+         pour une stabilité maximale, il vaut mieux en choisir un
+         de marque Intel. Ainsi, le processeur et le jeu de puces
+         sont fabriqués par la même entreprise. Alors, un lecteur
+         initié pourrait me poser la question suivante: pourquoi ne
+         pas prendre une carte mère de marque Intel plutôt que de
+         marque Asus? Par exemple, j'aurais pu prendre la Intel
+         D945PVSLKR ou la Intel D955XBKLKR. C'est en effet une
+         bonne question et, s'il n'y avait pas cette satanée carte
+         réseau Gigabit et ce bon vieux fauteur de trouble de
+         Linux, une carte mère Intel serait un choix très
+         judicieux. De toute façon, si je retire la compatibilité
+         avec Linux de ma liste de critères de sélection, j'en
+         reviens à choisir un processeur AMD avec une carte mère
+         dont le jeu de puces est fabriqué par NVIDIA. Les cartes
+         réseau Gigabit Intel ont posé des difficultés, au
+         département d'informatique de l'Université de Montréal,
+         lors du passage à <a
+         href="http://fedora.redhat.com">Fedora Core</a> 4. Le
+         problème de compatibilité avec cette distribution de
+         Linux, dont j'ignore la nature exacte, s'avéra insoluble,
+         car les techniciens du département furent contraints
+         d'ajouter des cartes réseau PCI dans les machines
+         touchées. Comme il se pouvait que mes trois fentes PCI
+         soient occupées (TV tuner, modem 56k et carte son),
+         ajouter une carte réseau pour remplacer l'interface réseau
+         de la carte mère qui devrait normalement bien fonctionner
+         n'est pas une solution très intéressante.
+      </p>
+      <p>
+         Il y a beaucoup de jeux de puces Intel et le choix est
+         difficile. J'ai sélectionné les cartes P5LD2 (Deluxe) et
+         P5WD2 (Deluxe) d'Asus en fonction de la liste des cartes
+         populaires sur le site de MicroBytes. J'écartai la P5WD2,
+         car elle était trop coûteuse inutilement. Je dus prendre
+         la P5LD2, car la P5LD2 Deluxe était en rupture de stock, à
+         moins de prendre le modèle haut de gamme avec Wifi et TV.
+         Il est important d'établir un compromis, car trop de
+         fonctionnalités sur la carte mère accroissent la
+         consommation énergétique. Si mon bloc d'alimentation de
+         450W, inclus avec mon boîtier Antec, ne suffisait pas, il
+         me faudrait en acheter un autre et je serais coincé avec
+         un bloc d'alimentation inutile. Du côté Gigabyte, j'aurais
+         pu opter pour la GA-81945P Pro qui ressemble à la P5LD2
+         d'Asus ou la GA-81955X Royal qui est semblable à la Asus
+         P5WD2. Les cartes Gigabyte ont une carte réseau Broadcom
+         plutôt que Marvell ou Intel. Il se peut que cela
+         fonctionne sous Linux, mais je suis moins certain qu'avec
+         la Marvell. Il se peut aussi que les cartes Intel Gigabit
+         fonctionnent désormais très bien, que ce ne soit qu'un
+         bogue sous Fedora Core 4 qui ait empêché le fonctionnement
+         dans le passé. En bref, j'ai presque le même degré
+         d'incertitude de fonctionnement avec la Gigabyte que la
+         Intel pour ce qui est de la carte réseau. Une Gigabyte
+         pourrait par contre être plus avantageuse qu'une Intel au
+         niveau du prix.
+      </p>
+      <p>
+         Il se pouvait malheureusement que je ne puisse pas obtenir
+         autre chose que des cartes mères Intel, avec une carte
+         réseau Intel Gigabit susceptible de ne pas bien
+         fonctionner sous Fedora Core 4. Cela me mena à la
+         possibilité de prendre une carte AGP plutôt que PCI
+         Express. Avoir cinq fentes PCI me permettrait alors de
+         désactiver toutes ces maudites composantes intégrées
+         (contrôleur Serial ATA, carte son, carte réseau, etc.) et
+         de les remplacer par des cartes PCI davantage susceptibles
+         de fonctionner parfaitement sous Linux. Par contre, cette
+         alternative me priverait du PCI Express en plus
+         d'accroître le prix de ma machine. Il était envisageable
+         que l'argent sauvé en récupérant ma vieille carte
+         graphique ne compense pas toutes les cartes PCI à acheter.
+      </p>
+      <h2>
+         <a name="sound" id="sound">Le dilemme de la carte son</a>
+      </h2>
+      <p>
+         Au dilemme Intel/AMD vint s'ajouter un second choix
+         crucial à effectuer pour la construction de ma
+         configuration: ajouter une carte son PCI Creative Audigy 2
+         ZS (ou peut-être un modèle Platinum de haute gamme) ou
+         utiliser le codec audio Realtek intégré à la carte mère?
+         Mon esprit fut d'abord fermé à l'idée d'utiliser autre
+         chose, comme carte son, qu'une Creative. Toutefois, en y
+         réfléchissant bien, la carte son intégrée apporte des
+         avantages significatifs. En libérant une fente PCI, je
+         m'allouais une marge de manoeuvre en cas d'incompatibilité
+         d'une pièce de ma carte mère avec Linux. Par exemple si,
+         en fin de compte, l'adaptateur réseau Marvell ne
+         fonctionne pas sous Linux ou si je me retrouve par malheur
+         avec un adaptateur Intel qui s'avère trop compliqué ou
+         impossible à configurer pour Linux, je pourrai planter une
+         carte réseau PCI (ma vieille carte Realtek, par exemple)
+         et bénéficier d'une configuration fonctionnant sous Linux.
+         Il existe certes quelques cartes réseau PCI Express, mais
+         ces cartes étaient peu répandues et plutôt chères en 2005.
+         Je trouvais aberrant de devoir payer une centaine de
+         dollars pour une telle carte simplement parce que le
+         constructeur de ma carte mère a décidé que Windows était
+         la seule plate-forme possible et la multiplicité des
+         systèmes d'exploitation n'était due qu'à la multiplicité
+         des versions de Windows! De plus, la carte réseau PCI
+         Express que je pourrais trouver risquerait de ne pas
+         fonctionner, elle aussi, sous Linux!
+      </p>
+      <p>
+         Utiliser la carte son interne, outre libérer une fente
+         PCI, permettrait aussi, avec un peu de chance, de
+         bénéficier d'entrées/sorties audio sur l'avant de mon
+         boîtier, sans faire l'achat d'un nouveau boîtier FrontX.
+         Comme je voulais que les ports <a
+         href="../frontusb.xhtml">USB avant</a> de ma vieille
+         machine, installés de haute lutte, demeurent fonctionnels,
+         je ne pouvais pas récupérer mon ancien boîtier de toute
+         façon beige plutôt que noir. Les cartes sons Creative ont
+         comme fâcheuse propriété de ne pas contenir de connecteurs
+         audio internes. La seule façon d'obtenir des
+         entrées/sorties à l'avant du boîtier est d'acheter un
+         LiveDrive! qui ne vient qu'avec les modèles Platinum de
+         haute gamme.
+      </p>
+      <p>
+         Par contre, la qualité du codec audio Realtek pourrait
+         être inférieure à celle d'une véritable carte son. Est-ce
+         que ce sera perceptible? Est-ce que la carte son intégrée
+         va nécessiter davantage de cycles de calcul pour le
+         processeur? Si tel est le cas, il se peut que le son saute
+         à rien et ce sera très agaçant. Le plus gros problème
+         réside dans la compatibilité avec Linux. Le codec audio
+         pourrait ne pas fonctionner du tout tandis que la carte
+         Sound Blaster a une haute probabilité de fonctionner
+         correctement.
+      </p>
+      <p>
+         Après maintes hésitations, j'ai décidé d'essayer le codec
+         audio, quitte à ajouter une carte son par après en cas de
+         problèmes. Je prévoyais, si le codec ne fonctionnait pas
+         sous Linux, utiliser ma vieille Sound Blaster Live! en
+         attendant des jours meilleurs.
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

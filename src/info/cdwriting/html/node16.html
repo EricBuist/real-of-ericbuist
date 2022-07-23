@@ -1,0 +1,226 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.1//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>2.5 Types d'images CD</TITLE>
+<META NAME="description" CONTENT="2.5 Types d'images CD">
+<META NAME="keywords" CONTENT="cdwriting">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cdwriting.css">
+
+<LINK REL="next" HREF="node17.html">
+<LINK REL="previous" HREF="node15.html">
+<LINK REL="up" HREF="node11.html">
+<LINK REL="next" HREF="node17.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1042"
+  HREF="node17.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1036"
+  HREF="node11.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1030"
+  HREF="node15.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1038"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1040"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html1043"
+  HREF="node17.html">2.6 Méthodes d'écriture de</A>
+<B> monter:</B> <A NAME="tex2html1037"
+  HREF="node11.html">2. La technologie CD</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html1031"
+  HREF="node15.html">2.4 Systèmes de fichiers</A>
+ &nbsp; <B>  <A NAME="tex2html1039"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1041"
+  HREF="node106.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Sous-sections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html1044"
+  HREF="node16.html#SECTION05151000000000000000"><SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">5</SPAN>.<SPAN CLASS="arabic">1</SPAN> Image ISO</A>
+<LI><A NAME="tex2html1045"
+  HREF="node16.html#SECTION05152000000000000000"><SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">5</SPAN>.<SPAN CLASS="arabic">2</SPAN> Image BIN/CUE</A>
+<LI><A NAME="tex2html1046"
+  HREF="node16.html#SECTION05153000000000000000"><SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">5</SPAN>.<SPAN CLASS="arabic">3</SPAN> Formats propriétaires</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION05150000000000000000">
+<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">5</SPAN> Types d'images CD</A>
+</H1>
+
+<P>
+Avant d'être gravées, les données doivent être formatées en fonction du
+système de fichiers choisi pour le CD. Le résultat de ce formatage est
+ensuite regroupé dans un fichier appelé image CD. Cette image, parfois
+cachée ou créée à la volée par le logiciel de gravure, constitue une
+copie exacte, sur
+disque dur ou en mémoire, du CD à graver. Grâce à elle, il est
+possible de regraver
+exactement le même disque, avec les mêmes dates de fichiers ou les
+mêmes chansons. Il est parfois également envisageable de stocker des
+images CD sur DVD pour sauvegarde ou de transférer ces dernières vers
+une autre machine. Le système d'exploitation Linux est en effet
+distributé de cette façon. L'utilisateur télécharge de gros fichiers
+représentant les images CD ou DVD et utilise son logiciel de gravure
+pour
+construire des disques d'installation amorçables permettant de mettre
+en place le système Linux sur toute machine dotée d'un lecteur CD et
+capable de le supporter. Sans image de ce genre, la création d'un
+disque Linux fonctionnel ne serait possible que sous un système Linux,
+ce qui compliquerait grandement le passage à Linux depuis Windows.
+Malheureusement, ces images se présentent en
+plusieurs formats dont le plus courant s'avère l'ISO.
+
+<P>
+
+<H2><A NAME="SECTION05151000000000000000"></A>
+<A NAME="419"></A>
+<BR>
+<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">5</SPAN>.<SPAN CLASS="arabic">1</SPAN> Image ISO
+</H2>
+
+<P>
+Cette image CD ou DVD se présente sous la forme d'un gros fichier
+<TT>.iso</TT> qui peut être gravé par à peu près tous les logiciels de
+gravure modernes. La création de ces images est effectuée à l'aide de
+tout bon logiciel de gravure, mais certains logiciels ajoutent des
+informations propriétaires qu'il n'est pas possible de paramétrer ou
+de supprimer. L'utilitaire <TT>mkisofs</TT> sous Linux constitue sans
+doute le meilleur système de création d'ISO, offrant un contrôle
+total sur tous les aspects, excepté UDF. Une image ISO ne peut
+contenir qu'une piste CD au format ISO&nbsp;9660 ou UDF; il n'est pas
+possible de l'utiliser pour stocker un CD Audio. Aucune information au
+sujet du mode de gravure n'est spécifiée de façon standard, le mode
+peut être fixé au moment de la gravure. Toutefois, certains logiciels
+ajoutent l'information du mode à l'image ISO. Ce type d'image est le
+plus courant et le plus standard. C'est aussi le seul format standard
+utilisable pour le DVD.
+
+<P>
+
+<H2><A NAME="SECTION05152000000000000000"></A>
+<A NAME="423"></A>
+<BR>
+<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">5</SPAN>.<SPAN CLASS="arabic">2</SPAN> Image BIN/CUE
+</H2>
+
+<P>
+Utilisé par
+CDRWIN<A NAME="424"></A> [<A HREF="node105.html#url:cdrwin">URL37</A>],
+une image BIN/CUE se présente sous la forme de deux fichiers: un
+fichier <TT>.bin</TT> et un fichier <TT>.cue</TT>. Le fichier
+<TT>.bin</TT> contient l'image CD en tant que telle tandis que le
+fichier <TT>.cue</TT> contient l'information sur le type d'image
+BIN. Le fichier CUE est généralement très simple et peut, dans le cas
+d'un CD de données, être recréé en cas de perte du fichier. Un fichier
+<TT>.cue</TT> typique ressemble à ceci:
+
+<P>
+
+<DIV CLASS="alltt" ALIGN="LEFT">
+<TT>
+ 
+<BR>
+FILE &#34;fichier.bin&#34; BINARY
+<BR>&nbsp;&nbsp;TRACK 01 MODE2/2352
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;INDEX 01 00:00:00
+<BR></TT>
+</DIV>
+
+<P>
+Il peut être nécessaire de remplacer <TT>MODE2/2352</TT> par
+<TT>MODE1/2048</TT> ou <TT>MODE2/2048</TT> pour pouvoir relire le
+fichier <TT>.bin</TT> correspondant. Avant de graver un CD en
+utilisant un fichier <TT>.cue</TT> ainsi reconstitué, il vaut mieux
+effectuer une extraction de fichiers depuis l'image afin de tester
+son bon fonctionnement, ce qui évite de gaspiller un ou plusieurs
+disques. Le format BIN/CUE est plutôt rarement utilisé et ne
+comporte que l'avantage de pouvoir stocker des CD Audio sous forme
+d'images disques.
+
+<P>
+
+<H2><A NAME="SECTION05153000000000000000">
+<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">5</SPAN>.<SPAN CLASS="arabic">3</SPAN> Formats propriétaires</A>
+</H2>
+
+<P>
+Les formats propriétaires sont à exclure pour toute sauvegarde, car
+un seul logiciel peut les relire et il n'est habituellement pas
+possible de convertir en ISO. Dans quelques années, le logiciel en
+question pourrait avoir disparu et ne plus être supporté par le nouvel
+environnement logiciel. Sans un vieux système datant de plusieurs
+années, il ne serait alors plus possible d'exploiter le contenu
+sauvegardé. Un DVD pourrait certes contenir sept images CD, mais ces
+images ne seraient plus que des boîtes noires. Parmi les formats
+d'images propriétaires figurent celui de Padus DiskJuggler ainsi que
+celui de CloneCD. Le format CloneCD ressemble au format BIN/CUE et il
+serait sans doute possible de convertir le fichier de méta-données,
+mais dans le cas de DiskJuggler, le format est bel et bien
+propriétaire. Easy CD Creator et Nero utilisaient eux aussi des
+formats propriétaires, mais les versions actuelles produisent à
+présent des images ISO.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1042"
+  HREF="node17.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1036"
+  HREF="node11.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1030"
+  HREF="node15.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1038"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1040"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html1043"
+  HREF="node17.html">2.6 Méthodes d'écriture de</A>
+<B> monter:</B> <A NAME="tex2html1037"
+  HREF="node11.html">2. La technologie CD</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html1031"
+  HREF="node15.html">2.4 Systèmes de fichiers</A>
+ &nbsp; <B>  <A NAME="tex2html1039"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1041"
+  HREF="node106.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Eric Buist
+2005-11-13
+</ADDRESS>
+</BODY>
+</HTML>

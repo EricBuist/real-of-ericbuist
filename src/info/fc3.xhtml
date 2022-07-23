@@ -1,0 +1,1028 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         Passage à Fedora Core 3
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css" href="../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../index.xhtml" class="parents">Le royaume
+               de Eric Buist</a> &gt;&gt; <a href="index.xhtml"
+               class="parents">Informatique</a> &gt;&gt;
+               Configuration informatique
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../sitemap.xhtml" class="sitemap">Plan du
+               site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="mdk101.xhtml"
+               class="leftsibling">Passage à Mandrake 10.1</a>
+            </td>
+            <td class="thispage">
+               Passage à Fedora Core 3
+            </td>
+            <td class="rightsibling">
+               <a href="frontusb.xhtml"
+               class="rightsibling">Installation de ports USB
+               avant: un voyage en enfer cybernétique</a> &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         Passage à Fedora Core 3
+      </h1>
+      <ul>
+         <li>
+            <a href="#why">Le cancer de Mandrake 10.1</a>
+         </li>
+         <li>
+            <a href="#mdvle">Mandriva Linux 2005 Limited
+            Edition</a>
+         </li>
+         <li>
+            <a href="#get">Obtenir Fedora Core 3</a>
+         </li>
+         <li>
+            <a href="#install">Installation</a>
+         </li>
+         <li>
+            <a href="#accents">Régression: problème avec les
+            accents!</a>
+         </li>
+         <li>
+            <a href="#mousebuttons">Les boutons latéraux de la
+            souris</a>
+         </li>
+         <li>
+            <a href="#usbkey">Problème avec ma clé USB</a>
+         </li>
+         <li>
+            <a href="#ipv6">Internet est encore lent!</a>
+         </li>
+         <li>
+            <a href="#alsamidi">Configuration MIDI pour ALSA avec
+            Sound Blaster Live!</a>
+         </li>
+         <li>
+            <a href="#keys">Gestion des touches spéciales</a>
+         </li>
+         <li>
+            <a href="#conc">Conclusion</a>
+         </li>
+      </ul>
+      <h2>
+         <a>Le cancer de Mandrake 10.1</a>
+      </h2>
+      <p>
+         Le bogue m'ayant incité à quitter Mandrake 10.1 est
+         malheureusement assez subtil et il me faudra bon nombre de
+         mots pour le faire comprendre à un lecteur ne l'ayant
+         jamais rencontré. En bref, un paquetage posait problème et
+         Mandrake ne fournissait aucune mise à jour, à moins de
+         reconfigurer URPMI d'une façon inacceptable.
+      </p>
+      <p>
+         Le bogue est en fait lié à <a
+         href="../info/latex.xhtml">LaTeX</a>, un système de
+         préparation de documents spécialement adapté pour les
+         articles scientifiques contenant beaucoup de notation
+         mathématique. LaTeX peut également fonctionne pour
+         d'autres types de documents comme des lettres et je m'en
+         sers même pour écrire mon journal intime! En guise
+         d'exemple, mon <a href="../info/cdwriting">didacticiel sur
+         la gravure de CD/DVD</a> a été écrit grâce à ce logiciel.
+      </p>
+      <p>
+         Un document LaTeX consiste en un simple fichier texte
+         auquel est associé par convention l'extension
+         <tt>.tex</tt>. Ce fichier contient le texte qui doit être
+         formaté ainsi que diverses séquences de contrôle
+         permettant d'indiquer comment le formater. Par exemple,
+         des commandes sont disponibles pour créer des sections,
+         mettre en évidence, ... Deux processus sont disponibles
+         pour transformer un tel document dans un format plus
+         courant, à savoir le Portable Document Format (PDF) qui
+         peut être pris en charge par Adobe Reader.
+      </p>
+      <ul>
+         <li>
+            Le programme pdfLaTeX permet de traiter le fichier
+            <tt>.tex</tt> pour en faire un fichier <tt>.pdf</tt>
+            directement. Cette approche est de loin la plus simple
+            et donne les meilleurs résultats. Le PDF produit
+            comporte des fontes de qualité et ne nécessite l'usage
+            que d'un seul programme pour être créé.
+            Malheureusement, certaines extensions LaTeX (par
+            exemple PSTricks permettant de créer des schémas
+            élaborés) ne sont pas compatibles avec pdfLaTeX. Un
+            document qui les utilise ne peut être transformé en PDF
+            directement.
+         </li>
+         <li>
+            La procédure classique consiste à utiliser
+            <tt>latex</tt> pour transformer le fichier
+            <tt>.tex</tt> en fichier DVI. Le fichier DVI est
+            ensuite converti, par <tt>dvips</tt>, dans un autre
+            format intermédiaire appelé PostScript. Le langage
+            PostScript définit un jeu d'instructions interprété par
+            une imprimante (ou un logiciel spécial) afin de
+            produire une page affichable à l'écran. Grâce à
+            l'utilitaire <tt>ps2pdf</tt>, ce fichier PostScript
+            dont la lecture n'est pas toujours aisée est transformé
+            en fichier PDF tout à fait portable. Ouf! Sachez qu'il
+            faut parfois répéter ce processus plusieurs fois
+            pendant la construction d'un document LaTeX complexe
+            dont l'aperçu final n'est visible que sous Adobe
+            Reader, avec le format PDF!
+         </li>
+      </ul>
+      Bien que la plupart des documents LaTeX avec lesquels je
+      travaille peuvent être traités avec pdfLaTeX, une petite
+      minorité nécessite la procédure classique. Or, sous Mandrake
+      10.1, il s'adonne que <tt>ps2pdf</tt> ne fonctionne pas
+      correctement! Lorsque le document à formater utilise la fonte
+      Times pour le corps du texte et la fonte Courier pour les
+      polices à chasse fixe, le programme se comporte mal et
+      produit du texte Courier trop rapproché. La fonte Times est
+      beaucoup utilisée en publication et les caractères son plus
+      épais qu'avec la fonte par défaut appelée Computer Modern, si
+      bien que plusieurs de mes documents LaTeX, dont certains ne
+      pouvant être traités par pdfLaTeX, sont dans cette fonte! 
+      <p>
+         <tt>ps2pdf</tt> est un script shell qui utilise en interne
+         l'interpréteur PostScript <a
+         href="http://www.cs.wisc.edu/~ghost/">GhostScript</a>.
+         C'est GhostScript qui est responsable du subtil bogue
+         présent sous Mandrake 10.1. Plutôt qu'incorporer la
+         version standard de GNU, Mandrakesoft utilisa la version
+         <a href="http://www.cups.org/ghostscript.php">ESP</a>.
+         Cette version est mieux adaptée au système <a
+         href="http://www.cups.org">Common UNIX Printing System
+         (CUPS)</a> permettant le support simplifié des imprimantes
+         sous UNIX/Linux. CUPS reçoit, comme tout système
+         d'impression UNIX/Linux, des fichiers PostScript. Ces
+         fichiers sont convertis grâce à un pilote spécial pour
+         GhostScript. ESP GhostScript contient d'office ce pilote
+         tandis que GNU GhostScript doit être patché pour l'y
+         incorporer. C'est pourquoi Mandrake a choisi ESP
+         GhostScript.
+      </p>
+      <p>
+         Le bogue se trouve dans ESP, car la même version (GNU) sur
+         les systèmes Fedora Core 3 de mon université fonctionne
+         parfaitement. Ainsi, pour résoudre le bogue, il me fallait
+         une mise à jour de ESP GhostScript ou un passage à GNU
+         GhostScript. Toutefois, Mandrake cherche à transformer sa
+         distribution en produit commercial et de nouvelles
+         fonctionnalités n'apparaissent que lorsqu'un nouvelle
+         version est produite. Une mise à jour de version d'un
+         paquetage est considérée, on dirait, comem un ajout de
+         fonctionnalité et n'arrive que rarement, voire jamais!
+         C'est ce défaut qui m'a poussé à passer de <a
+         href="mdk101.xhtml">Mandrake 10.0 à 10.1</a>. Outre
+         attendre la 10.2 ou tenter de télécharger le GhostScript
+         de Cooker, il n'y avait aucune autre solution que la
+         longue et douteuse procédure suivante.
+      </p>
+      <ol>
+         <li>
+            Désinstaller le RPM de GhostScript
+         </li>
+         <li>
+            Télécharger GNU GhostScript
+         </li>
+         <li>
+            Veiller à appliquer la patch pour CUPS, ce qui
+            impliquera possiblement de télécharger le code source
+            de CUPS!
+         </li>
+         <li>
+            Recompiler GhostScript et gosser jusqu'à ce que la
+            patch CUPS fonctionne parfaitement. J'ai fait cela sous
+            Red Hat 9 et ce fut un véritable combat de coqs!
+         </li>
+         <li>
+            Si CUPS ne fonctionne plus après la manoeuvre, me
+            passer de l'imprimante (n'imprimer que sous Windows!)
+            ou le recompiler lui aussi!
+         </li>
+      </ol>
+      Un logiciel nommé <a
+      href="http://www.pstoedit.net">pstoedit</a> peut remplacer
+      partiellement <tt>ps2pdf</tt>, mais il ne traite pas les
+      méta-données produites par <tt>dvips</tt> destinée à
+      <tt>ps2pdf</tt>. Entre autres, cela empêche les informations
+      PDF (auteur, sujet, ...) d'apparaître. 
+      <p>
+         Le bogue GhostScript était la raison principale de ma mise
+         à jour, l'autre raison étant la curiosité de voir GNOME
+         2.8 et KDE 3.3.
+      </p>
+      <h2>
+         <a name="mdvle" id="mdvle">Mandriva Linux 2005 Limited
+         Edition</a>
+      </h2>
+      <p>
+         L'année 2005 a vu survenir bien des changements chez
+         Mandrake. D'abord, la firme française a acheté la société
+         Connectiva et a changé son nom pour témoigner de cette
+         fusion. Mandrake se nomme à présent Mandriva. Jusqu'à la
+         version 10.1, une nouvelle version de Mandriva Linux
+         sortait environ aux six mois. En 2005, le cycle fut rendu
+         annuel et une version de transition appelée 2005 Limited
+         Edition serait disponible.
+      </p>
+      <p>
+         Premier inconvénient: cette version n'est disponible que
+         pour les membres du MandrivaClub ou par le biais du
+         MandrivaStore. Toutefois, je me trouvais dans le club et
+         pour rentabiliser mon abonnement, j'avais estimé qu'il me
+         fallait obtenir au moins deux Linux commerciaux Mandriva.
+         Eh bien la 2005 LE serait le second, 10.1 Powerpack étant
+         le premier. Vendredi, 15 avril 2005, j'ai appris que
+         Mandriva Linux édition limitée 2005 était sortie. Cette
+         distribution promettait GNOME 2.8, KDE 3.3 et une version
+         plus à jour de GhostScript qui ne causerait plus les
+         problèmes de fontes rencontrés avec ESP GhostScript sous
+         Mandrake 10.1. Je voulais ainsi mettre la main sur ce
+         nouveau Linux et je pus le faire par BitTorrent, comme
+         j'ai fait avec 10.1.
+      </p>
+      <p>
+         Le téléchargement dura plus de trois heures, menaçant bien
+         entendu de me faire dépasser la limite de 10Go de
+         Vidéotron (Une grande vigilence s'imposait!) et je dus le
+         terminer le lendemain matin. Je vérifiai que l'image ISO
+         obtenue avait la bonne somme de contrôle, en testant la
+         somme MD5 et SHA1. Je gravai cette version Powerpack sur
+         DVD+R puis vérifiai le contenu du disque. Tout était fin
+         prêt pour tenter la réinstallation. La première chose qui
+         m'a frappé a été l'absence du nouveau nom Mandriva dans la
+         distribution: ils utilisaient encore Mandrake. Le fichier
+         <tt>VERSION</tt>, à la racine du CD, contenait
+      </p>
+<pre>
+Mandrakelinux 10.2 cooker-Powerpack-i586-Limited-Edition-2005 20050413 10:07
+</pre>
+      et Cooker est le nom de code de la branche en développement
+      actif de Mandriva. Cela créa une légère réticence chez moi,
+      mais je la réprimai et tentai l'installation. Il faut après
+      tout garder l'esprit un tant soit peu ouvert. 
+      <p>
+         La procédure se passa très bien, sauf la sélection des
+         paquetages qui fut très longue. Comme sous 10.1, je ne vis
+         pas la case à cocher pour sélectionner les paquetages
+         individuels, l'installation commença, mais cette fois, le
+         bouton <b>Annuler</b> ne répondit pas. Il me fallut
+         utiliser reset et recommencer l'installation, après bien
+         entendu avoir reformaté ma partition Ext3fs pour supprimer
+         les déchets produits par le reset. À la seconde tentative,
+         je trouvai le bouton.
+      </p>
+      <p>
+         Après l'installation, Mandriva m'offrit de faire une mise
+         à jour que j'acceptai. L'installeur me demanda de
+         sélectionner un miroir parmi une liste. Je ne me souviens
+         plus si j'en ai pris un au hasard ou si j'ai laissé celui
+         sélectionné sans le changer, mais les deux reviennent à
+         peu près au même. Comme sous 10.1, il prit un temps
+         considérable à se relier au site, mais il y parvint. La
+         mise à jour dura très longtemps, car on aurait dit qu'il
+         téléchargeait tout de nouveau!
+      </p>
+      <p>
+         Lorsque ce fut enfin fini, je fus amené à redémarrer la
+         machine et je vis Mandrake apparaître. Le démarrage fut
+         long, plus long que sous Mandrake 10.1. Je me retrouvai
+         finalement sous X et un assistant me demanda si j'étais
+         dans le MandrakeClub. Je dis <b>Oui</b> et on me fit
+         entrer mon identifiant et mon mot de passe. Toutefois, le
+         clavier ne répondait pas. Agacé par ces bogues stupides
+         qui sont tellement nombreux que j'en viens à croire que
+         c'est une tentative ratée d'humour noir, je dus cliquer
+         sur <b>Annuler</b> puis KDE démarra. Le démarrage de KDE
+         dura au moins vingt secondes, sinon trente! J'essayai de
+         double-cliquer sur MandrakeOnline pour le configurer, il
+         se plaignit d'un problème de connexion Internet.
+         Décidément, MandrakeOnline ne fonctionnerait pas mieux que
+         sous 10.1! Ou il y avait un problème de configuration
+         Internet.
+      </p>
+      <p>
+         Première chose: démarrer une Konsole pour vérifier
+         Internet avec un Ping. Alt-F2 suivi de <tt>konsole</tt>
+         puis Enter ne provoqua absolument aucun effet. Un second
+         essai ne fut guère plus fructueux. Une tentative de
+         cliquer sur l'icône de la console ne provoqua aucun effet.
+         Choqué, je fermai ma session et redémarrai sous GNOME. En
+         passant, KDE souffre toujours du bogue de pointeur de
+         souris: seuls de petits curseurs sont offerts et aucun
+         moyen de les agrandir! GNOME 2.8 permet toujours le
+         changement du curseur par le biais du fichier
+         <tt>.Xresources</tt>, comme je le faisais sous Red Hat 9.
+      </p>
+      <p>
+         Sous GNOME, je pus obtenir un GNOME-Terminal dont je
+         grossis la police à Monospace 18. Internet fonctionnait,
+         c'était MandrakeOnline qui boguait. Il était temps de
+         commencer à recopier les fichiers de configuration issus
+         de Mandrake 10.1. Cela me permettrait de gagner un temps
+         fou avec les problèmes de fontes. Je commençai par
+         Firefox, le navigateur Web. Ce dernier ne semblait pas
+         installé! Choqué, étant certain de l'avoir sélectionné
+         parmi les paquetages à installer, vérifiai s'il était
+         installé et oui il était là! Je découvris que l'exécutable
+         <tt>firefox</tt> avait été renommé
+         <tt>mozilla-firefox</tt>. Firefox démarra et fonctionna
+         bien, mais Thunderbird (client e-mail) ne voulut JAMAIS
+         démarrer!
+      </p>
+      <p>
+         Je tentai de le démarrer depuis la console et obtins des
+         messages d'erreur répétitifs à propos de symboles
+         introuvables dans <tt>rpnp.so</tt>. Le paquetage
+         RealPlayer prit le bord puis une nouvelle tentative eut
+         lieu: boucle infinie! Aucun message d'erreur. Après un
+         temps considérable, il finissait par afficher quelque
+         chose à propos de GConf qui avait ouvert un trop grand
+         nombre de fichiers. Je finis par tenter de démarrer
+         <tt>konsole</tt> depuis la fenêtre du GNOME-Terminal et
+         obtins ceci:
+      </p>
+<pre>
+konsole: symbol lookup error: /usr/lib/libkdeinit_konsole.so: undefined symbol: _ZN19KAcceleratorManager10setNoAccelEP7QWidget
+</pre>
+      Il semblait donc qu'il y ait des incompatibilités entre les
+      différents exécutables contenus dans la distribution.
+      Mandriva Linux 2005 Limited Edition portait bien son nom:
+      c'était une édition <i>limitée</i>! Limitée en distribution
+      mais aussi en fonctionnalités! Cela me choque beaucoup de
+      constater à quel point le système Linux s'éait détérioré
+      depuis que Red Hat était devenu commercial. 
+      <p>
+         Il y aurait certes eu moyen de faire fonctionner
+         ThunderBird en désinstallant le RPM Mandrake et en
+         réinstallant la version que j'avais sous 10.1, venue du
+         site officiel de Mozilla, mais pour Konsole, que
+         pouvais-je faire? Recompiler KDE au grand complet! Il
+         semble que de plus en plus d'applications Mandrake
+         nécessitent ce traitement: supprimer le RPM, télécharger
+         depuis le site officiel, recompiler. Mozilla (pour le
+         mettre à jour), GhostScript (pour pouvoir transformer des
+         PostScript issus de LaTeX en PDF) et maintenant tout le
+         système KDE pour que la Konsole fonctionne.
+      </p>
+      <p>
+         J'aurais pu me passer de cette Konsole puisque je
+         travaillais sous GNOME, mais qui me disait que d'autres
+         programmes n'allaient pas me faire faux bond dans le
+         futur?
+      </p>
+      <p>
+         En effet, je découvris ultérieurement que XMMS
+         fonctionnait lui aussi très mal. Son démarrage prenait
+         plus de trente secondes et il se bloquait périodiquement,
+         nécessitant plusieurs secondes avant de daigner répondre
+         de nouveau. XMMS est le lecteur MP3 Linux le plus proche
+         de Winamp. Pour moi, il est tout simplement indispensable,
+         car les autres lecteurs utilisent des raccourcis clavier
+         totalement différents, ou pas de raccourcis clavier du
+         tout!
+      </p>
+      <p>
+         Le bogue du pointeur de souris noir revint en force et
+         possiblement le problème DRI connu sous 10.1. Je n'ai pas
+         gardé ce Linux suffisamment longtemps pour vérifier. Bien
+         entendu, on ne s'étonnera pas d'apprendre que mon TV Tuner
+         ne fonctionnait pas.
+      </p>
+      <p>
+         Je tentai, avant de tout supprimer, d'envoyer des emssages
+         sur le forum MandrivaClub. J'appris que j'étais
+         pratiquement le seul à éprouver ce genre de difficultés et
+         que j'allais sans doute devoir changer ma configuration
+         matérielle et acheter la distribution sur MandrivaStore
+         pour que cela fonctionne!
+      </p>
+      <p>
+         Je découvris, au fil de mes recherches, que le système
+         avait installé des éléments de KDE 3.4 pendant la mise à
+         jour et ces éléments étaient incompatibles avec KDE 3.3.
+         Il y avait donc eu un mauvais choix de miroir qui avait
+         endommagé mon installation. Je tentai de supprimer le
+         paquetage fautif (pour la console KDE) avec
+         <tt>urpme</tt>, le logiciel me demanda confirmation, puis
+         il me signala qu'il devait supprimer un nombre multiple de
+         paquetages, à peu près tout KDE! C'est alors que je rendis
+         les armes. Il fallait retourner à 10.1 ou changer de
+         machine, c'était aussi dingue que ça!
+      </p>
+      <p>
+         Voici mes hypothèses tentant d'expliquer pourquoi cela a
+         si mal fonctionné. Je place ces hypothèses en ordre
+         décroissant de plausibilité.
+      </p>
+      <ul>
+         <li>
+            Lors de la mise à jour, les miroirs offerts pointaient
+            sur Cooker plutôt que Mandriva 2005 LE. Ainsi, j'aurais
+            téléchargé les mises à jour de Cooker, un Linux de test
+            destiné aux développeurs uniquement. Ceci est appuyé
+            par le message d'erreur mystérieux affiché par
+            Gnome-Terminal lors du démarrage de la Konsole.
+         </li>
+         <li>
+            Il y a une multitude de versions de ce Mandriva Linux
+            2005 et seul MandrivaStore détient la bonne. J'aurais
+            téléchargé la mauvaise version en prenant le DVD
+            MandrivaClub et il me faudrait acheter le disque pour
+            pouvoir avoir la bonne. Autre alternative: l'emprunter
+            de quelqu'un qui l'aurait, mais je ne connaissais pas
+            une telle personne. J'aurais aussi pu tenter de le
+            télécharger sur <a
+            href="http://www.emule-project.org">eMule</a>/<a
+            href="http://www.xmule.ws">xMule</a>, mais le
+            téléchargement se serait fait à moins de 5k/s et
+            j'aurais pu me retrouver avec une version Release
+            Candidate ou un tout autre logiciel, voire un clip
+            vidéo sans intérêt!
+         </li>
+         <li>
+            Mandriva 2005 LE ne fonctionne que sur les machines
+            récentes de plus de 2GHz. Cela expliquerait pourquoi
+            ouvrir XMMS était si long, mais cela ne fournit aucune
+            justification au fait que Thunderbird et Konsole
+            refusaient de démarrer.
+         </li>
+         <li>
+            Il est possible que quelque chose se soit mêlé pendant
+            les transferts de paquets IP nécessaires au
+            téléchargement de l'ISO Mandriva ou des mises à jour,
+            en raison de ma passerelle Windows XP. Peut-être
+            aurait-il fallu que je branche mon ordinateur
+            directement sur le modem câble pour que cela fonctionne
+            correctement, et ce, à chaque fois que je mettrais
+            Mandriva à jour! Seul un routeur indépendant de la
+            machine familiale saurait éliminer cette variable
+            qu'est Windows XP et qui surgit périodiquement pendant
+            les tentatives de résolution de problèmes.
+         </li>
+         <li>
+            Ceci est une hypothèse forte et peu probable, mais
+            puisque j'y ai pensé, je vais l'exposer. La plupart des
+            utilisateurs débutants se préoccupent peu de quels
+            programmes ils utilisent pour leurs tâches
+            quotidiennes, surtout dans un environnement exautique
+            comme Linux. Ils cliquent sur l'icône du courrier
+            électronique et se débrouillent avec ce qui apparaît,
+            que ce soit KMail, Mozilla, Thunderbird, Sylpheed,
+            Pine, ... Si cela ne fonctionne pas, ils effectuent la
+            tâche sous Windows, n'hésitant pas à redémarrer la
+            machine aussi souvent que nécessaire pour alterner
+            entre les deux systèmes ou disposant d'une vieille
+            machine Windows et d'une machine récente Linux, ou vice
+            versa. Si on se fie à ça, est-ce que cela vaut la peine
+            que <i>tous</i> les programmes soient intégrés et
+            fonctionnent? Peut-être pas. Ce serait à moi, Linuxien
+            avancé, de m'adapter à un nouveau programme qui ne
+            supporte que POP3 pour les e-mails (en me créant un
+            nouveau compte ailleurs qu'à l'Université de Montréal)
+            ou qui n'utilise que la souris! Alternativement, je
+            pourrais utiliser le courrier Web comme Hotmail ou
+            commuter plus souvent entre Linux et Windows.
+         </li>
+      </ul>
+      Il est plutôt malheureux que Mandriva 2005 souffre de ces
+      bogues, car cela m'a à prime abord semblé une excellente
+      distribution. Il est possible qu'avec une configuration
+      matérielle plus simple (modem-câble directement branché à ma
+      machine, carte 2D seulement intégrée à la carte mère,
+      peut-être autre chose.), ça aurait fonctionné pour moi. 
+      <h2>
+         <a name="get" id="get">Obtenir Fedora Core 3</a>
+      </h2>
+      <p>
+         Déçu, je suis retourné sous Windows, décidé à y rester
+         jusqu'à avoir téléchargé Fedora Core 3. Malheureusement,
+         jamais BitTorrent ne voulut fonctionner et le
+         téléchargement FTP serait beaucoup trop lent. Il
+         téléchargeait très lentement et ne voulait pas utiliser
+         mes ports 12345 et 12346 que j'ai configurés sur la
+         machine Buist pour rediriger vers mon ordinateur. Sans ces
+         ports entrants, BitTorrent ne pourrait télécharger
+         efficacement.
+      </p>
+      <p>
+         J'essayai avec <a
+         href="http://azureus.sourceforge.net">Azureus</a> et ça ne
+         fonctionna pas davantage! Il me fit tester le port 12345
+         et déclara un échec. Il semblait impérativement falloir me
+         brancher directement sur la machine Buist pour télécharger
+         Linux, avec un longissime transfert réseau vers ma machine
+         de l'image ISO pour la graver sur DVD.
+      </p>
+      <p>
+         J'ai fini par redémarrer sous Mandrake/Mandriva Cooker
+         10.2/2005LE afin d'utiliser le client BitTorrent et le
+         téléchargement put enfin avoir lieu!
+      </p>
+      <h2>
+         <a name="install" id="install">Installation</a>
+      </h2>
+      <p>
+         Samedi, 16 avril 2005, j'ai pu terminer le téléchargement
+         de Fedora Core 3 et l'installer. Ça semblait assez stable,
+         mais il y avait plusieurs éléments à configurer. Après
+         avoir ajusté les fontes par copie des fichiers de mon
+         ancien Mandrake 10.1 avec légères adaptations, j'eus à
+         faire un grand nombre de mises à jour. Cela prit plus de
+         deux heures à télécharger et à installer et se termina le
+         lendemain. Je tombai ensuite sur <a
+         href="http://www.fedorafaq.org">Fedora FAQ</a> où j'obtins
+         un fichier de configuration Yellowdog Updater Modified
+         (YUM), ajoutant plusieurs miroirs au système de mise à
+         jour de paquetages. Cela me permit d'incorporer le support
+         MP3 à XMMS et d'obtenir Flash, sans recompiler quoi que ce
+         soit. <a href="http://linux-ntfs.org">Linux-NTFS</a> me
+         donna comme sous Red Hat 9 le support NTFS lecture seule.
+         Je n'ai jamais pu avoir mieux que ça sous Linux.
+      </p>
+      <p>
+         Je dus installer Adobe Acrobat manuellement pour avoir la
+         version 7. Après l'installation, pour pouvoir visualiser
+         des fichiers PDF sous Mozilla Firefox, j'ai exécuté le
+         script
+         <tt>/usr/local/Adobe/Acrobat7.0/Browser/install_browser_plugin</tt>
+         afin d'installer le plug-in pour Mozilla. L'emplacement de
+         Mozilla est <tt>/usr/lib/mozilla</tt> et un fichier du nom
+         de <tt>nppdf.so</tt> se trouve ajouté par le script dans
+         le sous-répertoire <tt>plugins</tt>.
+      </p>
+      <p>
+         Java s'installa sans misères, plugin Mozilla/Firefox
+         inclus. Je dus créer un répertoire <tt>/usr/java</tt> et
+         m'y placer afin d'y exécuter le script d'installation de
+         JDK 1.5. Cela copia un paquet de fichier dans
+         l'emplacement choisi et après, je dus faire en sorte que
+         la variable <tt>JAVA_HOME</tt> soit créée et que
+         <tt>$JAVA_HOME/bin</tt> soit ajoutée à la variable
+         <tt>PATH</tt>. Je dus pour cela créer un fichier
+         <tt>/etc/profile.d/java.sh</tt> contenant les instructions
+         nécessaires. Bien entendu, pour le plug-in Mozilla, je dus
+         créer le lien symbolique manuellement avec une commande du
+         genre
+      </p>
+<pre>
+ln -s $JAVA_HOME/jre/plugin/i386/ns7/libjavaplugin_oji.so /usr/lib/mozilla/plugins/libjavaplugin_oji.so
+</pre>
+      <p>
+         Après une période de désespoir, pensant que je ne pourrais
+         ravoir le support NTFS par exemple, tout semblait se
+         placer et bien aller. Je pus configurer Samba,
+         l'imprimante, des éléments de GNOME, tout cela par le
+         biais d'interfaces graphiques qui fonctionnèrent très
+         bien. Les mises à jour Fedora ont fait passer Firefox à
+         1.0.2 et Thunderbird à 1.0.2 sans aucun mal! Pas besoin de
+         supprimer les paquetages et d'installer les versions du
+         site officiel de Mozilla.
+      </p>
+      <p>
+         Comme sous Mandrake 10.1, j'eus droit au bogue du pointeur
+         noir que je pus corriger simplement en activant le curseur
+         logiciel. Le système cessa de geler inopinément lorsque ce
+         réglage fut effectué. Le MTRR se trouve bien configuré et
+         l'accélération 2D/3D fonctionne. Le TV Tuner, lui, demeure
+         désespérément inopérant.
+      </p>
+      <p>
+         En passant de 24 bits à 16 bits pour la profondeur des
+         couleurs, je pus grandement améliorer la performance du 3D
+         et possiblement aider à faire cesser les plantages qui
+         continuèrent même après avoir résolu le bogue du pointeur
+         noir. Pour ce faire, dans <tt>/etc/X11/xorg.conf</tt>,
+         section <tt>Screen</tt>, j'ai changé <tt>DefaultDepth
+         24</tt> pour <tt>DefaultDepth 16</tt>.
+      </p>
+      <p>
+         Je trouvai bien dommage que sous GNU Emacs, <a
+         href="http://www.gnu.org/software/auctex/">AucTeX</a> ne
+         soit pas installé. Cette extension fournit des macros
+         facilitant l'édition de fichiers LaTeX et, dans le temps,
+         était plutôt longue à installer et à configurer. Tel ne
+         fut pas mon soulagement de trouver, sur le site du
+         logiciel, un RPM pour Fedora Core 3!
+      </p>
+      <h2>
+         <a name="accents" id="accents">Régression: problème avec
+         les accents!</a>
+      </h2>
+      <p>
+         Quoi de plus frustrant que de se rendre compte que les
+         concepteurs de distributions Linux ne tiennent compte que
+         des américains. Dimanche après-midi, 17 avril 2005, c'est
+         bien cela que je crus découvrir sous Fedora Core 3. Ça
+         recommença à mal aller lorsque je découvris qu'aucun
+         accent n'apparaissait dans les noms de fichiers. Je
+         trouvais cela déplorable que ce problème soit encore
+         revenu et je pensai bien abandonner Linux si aucune
+         solution ne s'offrait à moi. S'ils en sont encore là, il
+         n'y a plus rien à espérer.
+      </p>
+      <p>
+         Le système utilise l'encodage courant qui est défini en
+         même temps que la langue courante pour afficher les noms
+         de fichiers. Par défaut, Fedora Core utilise UTF-8. Chaque
+         caractère est formé d'une chaîne d'un ou plusieurs octets.
+         UTF-8 est une version sur 8 bits du standard Unicode qui
+         supporte à peu près toutes les langues courantes. Les
+         partitions Ext2fs/Ext3fs (système de fichiers natif de
+         Linux) ne contiennent aucune information quant à
+         l'encodage. Les noms de fichiers ne sont que des chaînes
+         de caractères que le système lit comme il veut. Sous
+         Mandrake 10.1, j'utilisais l'encodage ISO Latin 1 pour mes
+         noms de fichiers. Dans cet encodage, chaque caractère ne
+         prend qu'un octet, mais seuls un sous-ensemble très
+         restreint de UTF-8 peut être représenté. Ceci inclut les
+         caractères accentués usuels en Français. Mes partitions
+         Ext3fs de données étaient donc encodées en Latin 1. Il
+         allait donc falloir tout reconvertir les noms ISO Latin 1
+         en UTF-8 si je voulais un système Unicode. Dans le cas de
+         NTFS, le système de fichiers de Windows NT/2000/XP, il
+         fallut que je change <tt>/etc/fstab</tt> pour que les
+         choses fonctionnent. Je dus remplacer l'option
+         <tt>nls=iso8859-15</tt> inspirée de Mandrake par
+         <tt>nls=utf8</tt>
+      </p>
+      <p>
+         Toutefois, lorsque je lus un fichier depuis un CD, je me
+         rendis compte que les accents là aussi étaient tordus. Je
+         passai au moins une demi-heure, sinon plus, à changer
+         <tt>/etc/fstab</tt> afin de l'obliger à afficher les
+         accents. Il n'y eut tout simplement rien à faire. Il
+         semblait que le système ignorait l'option <tt>utf8</tt>
+         suggérée par <a
+         href="http://hektor.umcs.lublin.pl/~mikosmul/computing/articles/linux-unicode.html">Introduction
+         to Unicode - Using Unicode in Linux</a> par Michael
+         Kosmulski. Bogue dans le noyau, pensai-je. Cela serait
+         long avant que ça disparaisse, peut-être pas avant Fedora
+         Core 4.
+      </p>
+      <p>
+         Au prix de désespoir et de frustration, je finis par
+         comprendre pourquoi cela fonctionnait aussi mal: Rock
+         Ridge! Mon CD testé contenait du Rock Ridge, l'extension
+         Linux à ISO9660 (norme pour la structure de fichiers des
+         CD) et, comme Ext2/Ext3, ce système ne contient pas
+         d'informations sur l'encodage. Lorsque je montais le CD,
+         Rock Ridge prenait la priorité sur Joliet (extension
+         ISO9660 pour Windows qui utilise Unicode) et le système
+         tentait de lire comme du Unicode ce qui était en fait du
+         Latin 1! Un montage avec une option désactivant Rock Ridge
+         me confirma cette hypothèse.
+      </p>
+      <p>
+         La seule solution, puisque je ne voulais pas regraver tous
+         mes CD Rock Ridge, a été de désactiver le UTF-8 en
+         modifiant <tt>/etc/sysconfig/i18n</tt>, comme je l'avais
+         fait sous Red Hat 9. Dommage que Unicode soit arrivé trop
+         tard, car avec UTF-8, il aurait évité tout ce casse-tête
+         d'encodages multiples qui m'en a fait arracher, des
+         cheveux.
+      </p>
+      <h2>
+         <a name="mousebuttons" id="mousebuttons">Les boutons
+         latéraux de la souris</a>
+      </h2>
+      <p>
+         Les souris IntelliMouse Optical et IntelliMouse Explorer
+         comportent cinq boutons: un bouton gauche, un bouton
+         centre qui est en plus une roulette de défilement, un
+         bouton droit et deux boutons latéraux. Sous Mandrake, avec
+         Firefox, les boutons latéraux fonctionnaient comme sous
+         Windows, permettant de passer à la page précédente et à la
+         page suivante. Sous Fedora Core 3, nada! Je décidai qu'il
+         fallait que ces boutons fonctionnent, si bien qu'une
+         bataille virtuelle dut avoir lieu!
+      </p>
+      <p>
+         En me fondant sur la documentation de Xorg, trouvée avec
+         <tt>man</tt> et par Internet, je dus ainsi modifier
+         <tt>/etc/X11/xorg.conf</tt>, section <tt>InputDevice</tt>
+         consacrée à la souris (<tt>Driver "mouse"</tt>). Je
+         conservai l'option <tt>Device</tt> déjà donnée, mais je
+         remplaçai le protocole <tt>IMPS/2</tt> par
+         <tt>ExplorerPS/2</tt>, comme sous Mandrake. Ensuite, je
+         dus indiquer que ma souris avait 7 boutons (gauche,
+         milieu, droit, côté gauche, côté droit, roulette vers le
+         haut, roulette vers le bas) et associer les deux derniers
+         à la roulette.
+      </p>
+      <p>
+         La première tentative échoua, car j'oubliai de mettre la
+         ligne <tt>Device</tt>, Xorg refusa de démarrer et la
+         machine planta. Je dus la faire démarrer sur le niveau
+         d'exécution 1 (en passant 1 au noyau depuis GRUB),
+         modifier le fichier et taper <tt>init 5</tt> pour repasser
+         au niveau 5, faisant redémarrer Xorg. Je craignais de plus
+         en plus que ces plantages trop fréquents ne soient dûs à
+         une mauvaise gestion d'une de mes composantes matérielles,
+         en particulier la carte graphique. Il se pouvait de plus
+         en plus que je sois contraint de la changer ou de
+         retourner à Mandrake 10.1 et garder cette distribution
+         pour tout le temps. GhostScript ne fonctionnerait pas et
+         il me faudrait le recompiler depuis le code source si je
+         voulais produire des PDF avec la procédure
+         <tt>latex/dvips/ps2pdf</tt>. Je préférerais ce travail que
+         de m'acheter une nouvelle carte graphique, attendre six
+         mois (ou davantage) qu'elle soit supportée sous Linux et
+         endurer tout ce temps sous Windows!
+      </p>
+      <p>
+         Afin que les boutons de côté soient utilisables, il faut
+         que les boutons de la roulette soient les derniers et en
+         fait, ce sont les boutons 4 et 5 plutôt que 6 et 7. Il me
+         fallut donc réordonner les boutons pour que cela finisse
+         par fonctionner!
+      </p>
+      <p>
+         En résumé, voici mes paramètres pour la souris.
+      </p>
+<pre>
+Section "InputDevice"
+        Identifier  "Mouse0"
+        Driver      "mouse"
+#       Option      "Protocol" "IMPS/2"
+        Option      "Device" "/dev/input/mice"
+#       Option      "ZAxisMapping" "4 5"
+#       Option      "Emulate3Buttons" "yes"
+   Option       "Protocol" "ExplorerPS/2"
+   Option       "Buttons"  "7"
+   Option       "ZAxisMapping" "6 7"
+EndSection
+</pre>
+      Pour réordonner les boutons, je dus ajouter ceci à
+      <tt>/etc/X11/Xmodmap</tt>: 
+<pre>
+pointer = 1 2 3 6 7 4 5
+</pre>
+      Et voilà: la souris fonctionna! Après un redémarrage du
+      serveur X bien entendu. 
+      <h2>
+         <a name="usbkey" id="usbkey">Problème avec ma clé USB</a>
+      </h2>
+      <p>
+         De temps en temps, Fedora Core 3 plantait. Je pensai
+         pendant longtemps que c'était dû à la carte graphique mal
+         supportée par Xorg, mais une autre hypothèse est venue
+         s'ajouter. Le noyau 2.6.11-1.14, le plus récent noyau
+         Fedora Core 3 en mai 2005, ne supporte pas correctement
+         les clés USB! Si la clé était insérée, puis retirée sans
+         éteindre le système au préalable, soit Linux gelait à un
+         moment aléatoire, soit il affichait un Kernel Panic lors
+         de la fermeture. Ainsi, le caractère amovible de la clé
+         USB n'était plus pris en charge; il fallait redémarrer
+         pour la retirer!
+      </p>
+      <p>
+         Je trouvai cela plutôt frustrant, surtout que j'ai investi
+         pas mal de temps et d'argent pour ajouter des <a
+         href="frontusb.xhtml">ports USB avant</a> sur ma machine.
+         Quel que soit le port utilisé, le bogue se présentait. Il
+         semblait falloir essayer diverses autres distributions
+         Linux et choisir parmi autre chose que Mandriva ou Fedora
+         Core, à moins de reculer et conserver une ancienne
+         version, par exemple Mandrake 10.1 ou Red Hat 9. Cette
+         possibilité ne me plaisait pas, car plus le temps
+         avancerait, plus j'allais devoir recompiler des librairies
+         et applications pour installer le moindre élément!
+      </p>
+      <p>
+         En cherchant <tt>Kernel Panic with Fedora Core 3 USB
+         key</tt> sur <a href="http://www.google.ca">Google</a>, je
+         tombai sur une bogue reporté sur le Bugzilla de Red Hat Le
+         <a
+         href="https://bugzilla.redhat.com/bugzilla-old/show_bug.cgi?id=155472">bogue
+         155472</a> constitue exactement ce problème particulier!
+         Malheureusement, la seule solution en mai 2005 consistait
+         à installer un noyau non officiel, le <a
+         href="http://people.redhat.com/davej/kernels/Fedora/FC3/RPMS.kernel/">2.6.11-1.25</a>.
+         Pour une raison incompréhensible, ce noyau n'était pas
+         encore devenu une mise à jour officielle.
+      </p>
+      <p>
+         La seule solution était ainsi de le télécharger et de
+         l'installer, mais cela me supprimerait le support NTFS. Le
+         projet Linux-NTFS ne contient en effet aucun RPM pour ce
+         nouveau noyau. Avant d'entreprendre la conversion de ma
+         partition Windows XP en FAT32 pour régler le problème pour
+         de bon, je tentai de consulter <a
+         href="http://linux-ntfs.sourceforge.net">Linux-NTFS</a> et
+         découvris une façon de recompiler le module.
+      </p>
+      <p>
+         Pour réparer mon système, je dus télécharger plusieurs
+         éléments. D'abord, sur la page <a
+         href="http://people.redhat.com/davej/kernels/Fedora/FC3/RPMS.kernel/">2.6.11-1.25</a>,
+         j'obtins <tt>kernel-2.6.11-1.25_FC3.i686.rpm</tt> et
+         <tt>kernel-doc-2.6.11-1.25_FC3.noarch.rpm</tt>. Je pus
+         alors installer le nouveau noyau:
+      </p>
+<pre>
+rpm -ivh kernel-2.6.11-1.25_FC3.i686.rpm kernel-doc-2.6.11-1.25_FC3.noarch.rpm
+</pre>
+      Ensuite, j'utilisai le lien <tt>Parent Directory</tt> et
+      sélectionnai <tt>SRPMS.kernel</tt>. De là, je pus obtenir
+      <tt>kernel-2.6.11-1.25_FC3.src.rpm</tt>, un élément
+      nécessaire seulement pour reconstruire le module NTFS.
+      Ensuite, sur <a
+      href="http://linux-ntfs.sourceforge.net">Linux-NTFS</a>, je
+      cliquai sur <b>NTFS RPMs</b> puis <b>Build Your Own</b>. Il
+      me fallut télécharger un script depuis ce site et suivre les
+      instructions pour obtenir un RPM pour mon module NTFS. 
+      <p>
+         Finalement, je redémarrai mon système pour activer ce
+         nouveau noyau. Tout fonctionna ensuite à merveille et ma
+         clé USB redevint utilisable sous Linux!
+      </p>
+      <p>
+         Mardi, 24 mai 2005, une nouvelle mise à jour pour le noyau
+         est apparue. Je l'ai installée et elle n'a pas fait
+         ressurgir le bogue USB. Ainsi, à présent, le noyau le plus
+         récent de Fedora Core 3 ne souffre plus de ce bogue des
+         plus déplaisants.
+      </p>
+      <h2>
+         <a name="ipv6" id="ipv6">Internet est encore lent!</a>
+      </h2>
+      <p>
+         Ce bogue, apparu sous <a href="mdk10.xhtml">Mandrake
+         10.0</a>, a refait surface sous Fedora Core 3. Chaque
+         recherche sur Google était devenue désespérément lente,
+         mais je pensais que la cause venait des sites contactés.
+         Mardi soir, 7 juin 2005, j'ai eu de la misère avec un
+         transfert FTP, j'ai essayé de faire des recherches pour
+         trouver des informations et le réseau répondait
+         particulièrement mal. À bout de patience, j'ai fini par
+         redémarrer sous Windows, mon transfert FTP s'est terminé
+         en un éclair et les recherches sur Google étaient beaucoup
+         plus rapides.
+      </p>
+      <p>
+         Afin de tenter de résoudre ce problème qui semble résulter
+         d'une forme d'incompatibilité entre le support IPv6 du
+         noyau 2.6 et les DNS de Vidéotron, j'ai ajouté la ligne
+         suivante à <tt>/etc/modprobe.conf</tt>.
+      </p>
+<pre>
+alias net-pf-10 off
+</pre>
+      <p>
+         Après un redémarrage, cela <i>semble</i> avoir amélioré la
+         situation.
+      </p>
+      <h2>
+         <a name="alsamidi" id="alsamidi">Configuration MIDI pour
+         ALSA avec Sound Blaster Live!</a>
+      </h2>
+      <p>
+         Bien que je n'aie découvert cette astuce qu'après mon
+         passage à <a href="fc4.xhtml">Fedora Core 4</a>, elle
+         fonctionne aussi sous Fedora Core 3 et de façon identique.
+         Le pilote EMU10k1 pour ALSA, supportant les cartes
+         Creative Sound Blaster Live!, supporte non seulement le
+         son numérique mais aussi la musique MIDI. Toutefois, par
+         défaut, si le pilote reçoit des données MIDI, il ne joue
+         rien! C'est pourquoi <tt>aplaymidi</tt> ne joue rien
+         lorsqu'il est appelé.
+      </p>
+      <p>
+         Pour résoudre ce problème, il suffit de charger une banque
+         d'instruments (SoundFont) sur la puce EMU10k1 de la carte
+         son. Une telle banque peut être trouvée sur le CD
+         accompagnant la carte son et chargée par la commande
+         <tt>asfxload</tt>. Pour que le MIDI fonctionne en
+         permanence, il suffit d'ajouter la ligne
+      </p>
+<pre>
+asfxload /usr/local/share/8MBGMSFX.SF2
+</pre>
+      <p>
+         dans le fichier <tt>/etc/rc.d/rc.local</tt> après avoir
+         copié le fichier <tt>8MBGMSFX.SF2</tt> à l'endroit
+         approprié. Bien entendu, tout autre fichier SoundFont
+         pourrait être employé.
+      </p>
+      <h2>
+         <a name="keys" id="keys">Gestion des touches spéciales</a>
+      </h2>
+      <p>
+         Plusieurs claviers, dont le mien, sont dotés de touches
+         spéciales qui sont par défaut inutilisables sous Linux.
+         Remédier à cela a exigé pour moi plusieurs étapes.
+         D'abord, j'ai remarqué que chaque fois que j'appuyais sur
+         une de ces touches, une entrée était inscrite dans le
+         journal système. En regardant ces entrées, j'ai pu obtenir
+         les scan codes de ces touches. J'ai ensuite utilisé
+         <tt>setkeycodes</tt> pour associer des key codes à ces
+         scan codes. Pour ce faire, dans le cas de mon clavier
+         Compaq Easy Access, j'ai ajouté la ligne suivante dans
+         <tt>/etc/rc.d/rc.local</tt>:
+      </p>
+<pre>
+setkeycodes e023 129 e01f 130 e01a 131 e01e 132 e013 133 e014 134 e015 135 e01b 136
+</pre>
+      <p>
+         Après cet ajustement, appuyer sur mes touches spéciales
+         faisait réagir <tt>xev</tt>. Cela m'a permis de relier ces
+         key codes à des événements Xorg. Pour ce faire, j'ai
+         ajouté les lignes suivantes à <tt>/etc/X11/Xmodmap</tt>:
+      </p>
+<pre>
+keycode 133 = XF86WWW
+keycode 134 = XF86HomePage
+keycode 135 = XF86Search
+keycode 140 = XF86Mail
+keycode 248 = XF86Community
+keycode 191 = XF86Market
+keycode 192 = XF86Meeting
+keycode 122 = XF86News
+</pre>
+      <p>
+         Il me fallut tâtonner avec <tt>xev</tt> pour trouver les
+         bons codes. Finalement, j'ai pu utiliser ces touches
+         normalement sous Xorg et leur associer des fonctions grâce
+         à GNOME.
+      </p>
+      <h2>
+         <a name="conc" id="conc">Conclusion</a>
+      </h2>
+      <p>
+         Fedora Core 3 m'a amené des problèmes, pas autant que
+         Mandriva 2005 LE mais beaucoup malgré tout. J'eus assez de
+         difficultés que je songeais ne plus mettre Linux à jour
+         jusqu'à la mort de ma machine! J'allais conserver Fedora
+         Core 3 le plus longtemps possible et endurer les possibles
+         bogues. Lorsque je changerais d'ordinateur, je prévoyais
+         passer au AMD64, si bien qu'il me faudra une nouvelle
+         version Linux, 64 bits. Toutefois, cette mise à jour
+         matérielle n'était pas prévue avant un bon bout de temps,
+         non pas seulement à cause des coûts mais à cause des
+         problèmes divers de compatibilité logicielle qu'elle
+         entraînerait.
+      </p>
+      <p>
+         La prochaine mise à jour Linux, s'il y en a une, ne se
+         ferait pas de la même façon. Je prévoyais réaménager les
+         partitions de mon disque dur au moment voulu afin de
+         dispoer d'une nouvelle zone dans laquelle je pourrais
+         tester le nouveau système. Les tests pourraient alors
+         durer des semaines, voire des mois, sans perturber mon
+         travail quotidien sous Linux. De cette façon, j'espérais
+         diminuer le stress et la frustration engendrés par une
+         mise à jour Linux contemporaine.
+      </p>
+      <p>
+         Le nouvel arrangement comporterait une partition primaire
+         pour Windows, une seconde pour mon Linux de travail et une
+         troisième pour mon Linux de test. La configuration de la
+         partition étendue resterait identique, mais la taille des
+         partitions logiques diminuerait pour percer le trou de
+         20Go nécessaire à la zone de test. Avec mon disque dur de
+         120Go, un tel gaspillage d'espace pourrait être toléré. Ce
+         qui n'était pas possible avec mon ancien 30Go.
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

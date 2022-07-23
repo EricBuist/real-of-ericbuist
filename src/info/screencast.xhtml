@@ -1,0 +1,573 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         Capture vidéo de l'écran
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css" href="../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../index.xhtml" class="parents">Le royaume
+               de Eric Buist</a> &gt;&gt; <a href="index.xhtml"
+               class="parents">Informatique</a> &gt;&gt;
+               Quelques-unes de mes recherches personnelles
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../sitemap.xhtml" class="sitemap">Plan du
+               site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="grub-uefi.xhtml"
+               class="leftsibling">GRUB et l'UEFI: peuvent-ils être
+               réunis?</a>
+            </td>
+            <td class="thispage">
+               Capture vidéo de l'écran
+            </td>
+            <td class="rightsibling">
+            </td>
+         </tr>
+      </table>
+      <h1>
+         Capture vidéo de l'écran
+      </h1>
+      <p>
+         Il arrive dans certains cas que l'on souhaite enregistrer
+         une vidéo des actions accomplies sur un ordinateur. La
+         raison la plus évidente est la construction de
+         didacticiels audio-visuels, mais plusieurs joueurs
+         s'amusent à enregistrer leurs prouesses virtuelles, les
+         commente et les diffuse sur YouTube. On peut même, de nos
+         jours, retrouver des vidéos couvrant l'intégralité de
+         certains jeux. On appelle cela un playthrough. Bien
+         entendu, il faut éviter ce genre de vidéos si on souhaite
+         jouer soi-même au jeu en question; c'est le meilleur moyen
+         de gâcher le jeu!
+      </p>
+      <p>
+         L'idée semble simple, mais l'appliquer ne l'est pas,
+         surtout quand on veut comme moi le faire sous Windows,
+         Linux, Mac et des appareils mobiles, et pouvoir exporter
+         le résultat sur YouTube! Sur cette page, je vais regrouper
+         toutes les méthodes de capture que je connais, de la plus
+         simple et naïve à la plus versatile. Je me concentre ici
+         sur le côté technique, le comment. Il faut bien entendu
+         réfléchir au contenu à enregistrer, pour que le résultat
+         soit intéressant à regarder et à entendre, mais ceci est
+         une toute autre histoire, totalement indépendante de la
+         solution technique mise en oeuvre pour l'enregistrement.
+      </p>
+      <p>
+         On peut séparer le procédé de capture en deux phases:
+         l'enregistrement proprement dit qui doit se faire au sein
+         du système d'exploitation ou sur l'appareil capable de
+         diffuser le contenu à capter, et le transcodage en
+         préparation à la diffusion, qui n'a pas nécessairement à
+         être fait sur l'appareil d'origine. Il arrive parfois
+         qu'une phase d'assemblage soit nécessaire pour aboutir au
+         résultat final.
+      </p>
+      <p>
+         Je vais commencer par regrouper les méthodes
+         d'enregistrement pour ensuite me concentrer sur le
+         transcodage.
+      </p>
+      <ul class="pagemenu">
+         <li>
+            <a href="#record">Enregistrement</a>
+         </li>
+         <ul>
+            <li>
+               <a href="#camera">La méthode simple et naïve de la
+               caméra</a>
+            </li>
+            <li>
+               <a href="#vm">Le truc de la machine virtuelle</a>
+            </li>
+            <li>
+               <a href="#win">Ordinateur exécutant Windows de
+               Microsoft</a>
+            </li>
+            <li>
+               <a href="#lin">Ordinateur exécutant Linux</a>
+            </li>
+            <li>
+               <a href="#mac">Ordinateur Macintosh</a>
+            </li>
+            <li>
+               <a href="#android">Qu'en est-il d'Android?</a>
+            </li>
+            <li>
+               <a href="#pvr">Enregistreur numérique</a>
+            </li>
+         </ul>
+         <li>
+            <a href="#encode">Encodage</a>
+         </li>
+         <ul>
+            <li>
+               <a href="#virtualdub">VirtualDub</a>
+            </li>
+            <li>
+               <a href="#handbrake">HandBrake</a>
+            </li>
+            <li>
+               <a href="#edit">Éditeurs vidéos</a>
+            </li>
+         </ul>
+      </ul>
+      <h1>
+         <a id="record" name="record">Enregistrement</a>
+      </h1>
+      <p>
+         Il existe plusieurs méthodes permettant d'enregistrer le
+         contenu diffusé par un appareil. La plupart sont
+         spécialisées pour un appareil et un système d'exploitation
+         donnés. Il existe aussi des méthodes générales, mais elles
+         peuvent provoquer des pertes de qualité.
+      </p>
+      <h2>
+         <a id="camera" name="camera">La méthode simple et naïve de
+         la caméra</a>
+      </h2>
+      <p>
+         Il y a une méthode simple et universelle qui, bien que
+         donnant souvent de mauvais résultats, est trop simple pour
+         ne pas la mentionner! Il suffit d'utiliser n'importe quel
+         caméscope numérique pour tout simplement filmer l'écran de
+         l'appareil en train de diffuser le contenu à capter! Une
+         simple caméra d'appareil-photo ou d'appareil mobile peut
+         faire l'affaire, du moment que l'appareil source soit doté
+         d'un écran à cristaux liquides. Avec un affichage
+         cathodique (en voie de disparition de toute façon),
+         l'image résultante est tout simplement affreuse. Bien
+         entendu, il ne faut pas s'attendre à des miracles de cette
+         méthode. Au minimum, on utilisera un trépied pour
+         stabiliser la caméra, mais il faudra prendre garde de ne
+         pas se placer entre la caméra et l'écran.
+      </p>
+      <p>
+         Cette méthode est parfois la seule disponible, par exemple
+         pour capter la séquence d'amorçage d'un ordinateur ou
+         filmer les ratés d'une installation de systèmes
+         d'exploitation impossibles à reproduire dans une machine
+         virtuelle. Il est aussi possible de l'utiliser pour capter
+         l'interaction tactile avec un appareil mobile si cette
+         interaction fournit des informations importantes.
+      </p>
+      <h2>
+         <a id="vm" name="vm">Le truc de la machine virtuelle</a>
+      </h2>
+      <p>
+         Si vous avez déjà été tenté d'utiliser une caméra
+         numérique pour filmer l'écran pendant l'installation d'un
+         système d'exploitation, par exemple pour construire un
+         didacticiel vidéo montrant comment installer Linux,
+         oubliez cette idée! Avant d'en arriver là, installez
+         simplement un logiciel du genre <a
+         href="https://www.virtualbox.org/">VirtualBox</a> sur un
+         ordinateur et installez le système d'exploitation dans une
+         machine virtuelle tandis qu'un logiciel de capture
+         s'exécutant sur l'hôte capte toutes les actions! La
+         technique fonctionne très bien et malgré les problèmes
+         dont souffrent les gestionnaires de machines virtuelles,
+         les fonctionnalités de ces derniers suffiront amplement à
+         réaliser une installation.
+      </p>
+      <h2>
+         <a id="win" name="win">Ordinateur exécutant Windows de
+         Microsoft</a>
+      </h2>
+      <p>
+         Pour capter le contenu diffusé sur l'écran d'un
+         ordinateur, rien de mieux qu'utiliser un logiciel capable
+         d'intercepter le contenu à la source, avant qu'il soit
+         envoyé à l'écran. C'est beaucoup plus efficace et cela
+         n'implique aucun équipement additionnel autre que
+         l'ordinateur lui-même. Il faut bien entendu se doter d'un
+         logiciel de capture.
+      </p>
+      <p>
+         La plupart des logiciels permettent de capter l'audio en
+         plus de la vidéo. Il est possible de capter l'audio
+         diffusé par les applications ainsi qu'une source audio
+         externe, comme un microphone raccordé à l'ordinateur. Cela
+         permet en particulier de commenter ses exploits lors de
+         l'enregistrement d'un jeu vidéo tout en enregistrant de
+         façon fiable et numérique (donc pas de perte de qualité)
+         les sons produits par le jeu.
+      </p>
+      <p>
+         Le meilleur logiciel que je connais pour accomplir cette
+         tâche, bien que pas gratuit, s'appelle <a
+         href="http://www.fraps.com/">FRAPS</a>. Il est
+         suffisamment puissant pour enregistrer l'action dans un
+         jeu vidéo plein écran mais peut aussi capter le contenu du
+         bureau Windows. Comme le montre la figure suivante, FRAPS
+         permet d'enregistrer l'audio des applications ainsi que
+         celui d'une source externe.
+      </p>
+      <img width="75%" src="fraps.jpg" alt="La fenêtre de FRAPS" />
+      
+      <p>
+         Un autre logiciel que j'ai bien aimé dans le passé est <a
+         href="http://camstudio.org/">CamStudio</a>. Il permet
+         d'enregistrer l'image et le son, à condition de le jumeler
+         avec <a
+         href="http://www.free-codecs.com/download/ffdshow.htm">ffdshow</a>
+         pour bénéficier d'un codec MPEG plutôt que le codec
+         spécifique de CamStudio. Malheureusement, CamStudio
+         souffre de problèmes de performance causant souvent une
+         perte de synchronisation entre le son et l'image. Il faut
+         donc utiliser un autre logiciel pour enregistrer le son
+         séparément et trouver un moyen de démarrer les deux
+         logiciels simultanément puis combiner l'audio et la vidéo,
+         ce qui n'est vraiment pas une mince affaire! Je préfère de
+         loin utiliser FRAPS, qui fait tout le travail
+         correctement.
+      </p>
+      <h2>
+         <a id="lin" name="lin">Ordinateur exécutant Linux</a>
+      </h2>
+      <p>
+         Sous Linux, mon logiciel de capture préféré est <a
+         href="http://recordmydesktop.sourceforge.net/">RecordMyDesktop</a>.
+         Il permet d'enregistrer ce qui se passe à l'écran ainsi
+         que l'audio provenant d'une source externe. La version
+         originale est en ligne de commande, mais il existe un
+         frontend, GTK-RecordMyDesktop, offrant une interface
+         graphique. Le logiciel fonctionne très bien, mais une
+         longue phase d'encodage se produit après la fin de chaque
+         capture. Les fichiers produits sont dans le format Ogg
+         Theora qui ne m'a jamais donné de bons résultats lors de
+         transferts sur YouTube. J'ai été obligé de recoder les
+         captures avec un autre logiciel pour pouvoir les
+         transférer.
+      </p>
+      <p>
+         L'image suivante montre la fenêtre principale de
+         l'application: très simple, pas d'options obscures qui ne
+         fonctionnent pas. <img class="floatright" width="75%"
+         src="gtk-recordmydesktop-main.jpg"
+         alt="Fenêtre principale de GTK-RecordMyDesktop" /> Trop
+         simple, en fait. Heureusement pas, car il y a un bouton
+         <strong>Avancé</strong> donnant accès à une foule
+         d'options pour paramétriser la vidéo et l'audio.
+         Malheureusement, aucune option ne permet d'influencer le
+         format des fichiers produits.
+      </p>
+      <h2>
+         <a id="mac" name="mac">Ordinateur Macintosh</a>
+      </h2>
+      <p>
+         Il existe <a
+         href="http://mac.appstorm.net/roundups/utilities-roundups/10-screen-recording-tools-for-mac/">plusieurs
+         applications de capture vidéo pour Mac OS X</a>. La
+         plupart ne sont pas gratuites, mais elles ne sont pas très
+         coûteuses. Les applications gratuites limitent
+         malheureusement les fonctionnalités ou la durée des
+         captures. J'ai par contre trouvé de quoi faire mon bonheur
+         sur le App Store: <a
+         href="https://itunes.apple.com/ca/app/screen-record-pro/id453940810?mt=12">Screen
+         Record Pro</a>. Très simple, ce petit outil permet de
+         capter la vidéo et le son. En plus, les fichiers produits
+         sont lisibles dans QuickTimes et d'une taille raisonnable
+         pour un transfert direct vers YouTube.
+      </p>
+      <h2>
+         <a id="android" name="android">Qu'en est-il d'Android?</a>
+      </h2>
+      <p>
+         Les possesseurs d'appareils Android rootés peuvent essayer
+         <a
+         href="https://play.google.com/store/apps/details?id=com.ms.screencast&amp;hl=fr">Screencast
+         Video Recorder</a> qui semble offrir de bonnes
+         performances. La version 2.0 est capable de capter l'audio
+         en plus de l'image. Étant donné que ma tablette Android
+         n'est pas rootée, je ne peux pas expérimenter avec cet
+         outil.
+      </p>
+      <p>
+         Malheureusement, c'est la <a
+         href="http://www.phonearena.com/news/Heres-how-to-record-screen-video-on-Android_id28727">sule
+         façon connue de capter la vidéo sous Android</a>. Elle ne
+         fonctionne ni sur les appareils non rootés, ni sur les
+         Galaxy Nexus de Samsung, ni sur les appareils à base de
+         Tegra 2 ou 3! Donc les appareils récents sont exclus, mais
+         les vieux aussi puisqu'il faut un processeur assez
+         puissant pour traiter toute l'information! Ainsi, l'idéal
+         est malheureusemenet d'utiliser la méthode suivante, qui
+         est coûteuse et difficile à mettre en oeuvre.
+      </p>
+      <h2>
+         <a id="pvr" name="pvr">Enregistreur numérique</a>
+      </h2>
+      <p>
+         Ceci est la méthode la plus générale mais aussi la plus
+         compliquée à mettre en oeuvre. Elle consiste à enregistrer
+         physiquement, avec un appareil dédié, le signal vidéo
+         produit par un autre appareil. C'est pratiquement la seule
+         méthode fiable pour enregistrer le contenu produit par une
+         console de jeux ou un appareil mobile. Pour que cela
+         fonctionne, il faut connecter ensemble trois composantes
+         différentes: l'appareil source diffusant le contenu, un
+         enregistreur qui convertit le signal vidéo en données
+         numériques, et un ordinateur pour capter et stocker ces
+         données.
+      </p>
+      <p>
+         Bien entendu, cette méthode coûteuse n'est à utiliser
+         qu'en dernier recours. L'enregistreur à lui seul coûte
+         plusieurs centaines de dollars et il faut mettre en place
+         la connexion entre les composantes.
+      </p>
+      <p>
+         L'appareil source peut être pratiquement n'importe quoi,
+         allant du petit iPod à la PlayStation en passant par une
+         Wii, une XBox, un téléphone cellulaire ou un ordinateur
+         portatif. De nos jours, la sortie vidéo la plus courante
+         est la prise HDMI. Les consoles de jeux offrent
+         habituellement la sortie par composantes en plus du HDMI.
+         Dans le cas d'un iPod, il faut se procurer un câble
+         spécial convertissant le connecteur dédié d'Apple vers une
+         prise composite ou composantes. Beaucoup d'appareils
+         Android sont dépourvus de sortie vidéo, empêchant
+         l'utilisation de cette technique. Mais certains
+         fournissent une sortie HDMI.
+      </p>
+      <p>
+         L'enregistreur le plus versatile que j'ai utilisé est le
+         <a
+         href="http://www.hauppauge.com/site/products/data_hdpvr.html">HD
+         PVR de Hauppauge</a>. Il accepte un signal composite,
+         S-Video ou composante, et peut aussi traiter l'audio sous
+         forme analogique ou numérique. Malheureusement, aucune
+         entrée HDMI n'est offerte. Le HD PVR ne se contente pas de
+         traiter le signal vidéo; il peut le retransmettre par ses
+         sorties vidéo et audio. Cela permet d'utiliser l'appareil
+         comme un enregistreur numérique. Il laisse passer le
+         signal vers un téléviseur, permettant d'utiliser sa source
+         audio-visuelle normalement mais autorise un enregistrement
+         à tout moment. Le HD PVR est relié à l'ordinateur par USB
+         2, ce qui en fait un appareil relativement portable. La
+         taille du boîtier de l'appareil ainsi que la nécessité de
+         brancher plusieurs fils pour le mettre en oeuvre en
+         réduisent bien entendu sa portabilité.
+      </p>
+      <p>
+         Pour compenser l'absence d'entrée HDMI sur mon HD PVR, je
+         serais tenté d'essayer avec un <a
+         href="http://www.monoprice.com/products/product.asp?c_id=101&amp;cp_id=10114&amp;cs_id=1011410&amp;p_id=8125&amp;seq=1&amp;format=2">convertisseur
+         HDMI vers composantes</a>; ça existe et celui sur
+         Monoprice semble même pouvoir s'accomoder d'un signal
+         protégé contre la copie! Ainsi, si Vidéotron commence à
+         faire ça cochon en désactivant la sortie par composantes,
+         je pourrais faire mieux que me taper la tête sur les murs.
+      </p>
+      <p>
+         Le <a
+         href="http://www.blackmagicdesign.com/products/intensity/models/">Intensity
+         Pro de BlackMagic</a> offre pour sa part une entrée HDMI
+         en plus de composantes, ce qui en fait un appareil très
+         intéressant que j'aimerais bien essayer éventuellement.
+         Quel est l'avantage par rapport au HD PVR jumelé avec le
+         convertisseur? Eh bien le signal vidéo demeure numérique
+         tout au long du traitement. Il n'y a ainsi aucune perte de
+         qualité. Ce n'est pas nécessaire du tout pour capter une
+         partie de Angry Birds ou de Bad Piggies, mais c'est un
+         atout pour enregistrer un film HD ou d'un jeu sur console.
+         Le Intensity est offert en plusieurs modèles: une version
+         PCI Express pour ordinateurs de bureau, une autre USB 3 et
+         une Thunderbolt (principalement pour les utilisateurs de
+         Mac puisque très peu de PC en 2012 étaient dotés de
+         Thunderbolt). J'ai ressenti la tentation démoniaque de
+         remplacer mon HD PVR par cet appareil... jusqu'à lire
+         qu'il ne permet pas de capter du contenu protégé contre la
+         copie. Ainsi, le Intensity risque fort bien d'échouer à la
+         tâche si on tente de l'utiliser pour enregistrer des films
+         diffusés par un terminal de cablodistribution ou récepteur
+         de TV satellite. Mais il pourra sans problème capter la
+         sortie d'un appareil mobile.
+      </p>
+      <p>
+         Pour une solution n'offrant que le composite ou le
+         S-Video, on peut se tourner vers le WinTV HVR de
+         Hauppauge. Ça peut fonctionner parfaitement pour
+         enregistrer le contenu diffusé par un appareil mobile,
+         mais bien évidemment, ce sera insuffisant pour capter la
+         sortie d'une console de jeux de façon convainquante.
+      </p>
+      <p>
+         L'ordinateur, ça peut être n'importe quoi, du moment qu'il
+         supporte l'enregistreur choisi. Il faut bien entendu un
+         disque dur avec plusieurs giga-octets libres, surtout pour
+         enregistrer du contenu HD provenant d'une console de jeux.
+      </p>
+      <h1>
+         <a id="encode" name="encode">Encodage</a>
+      </h1>
+      <p>
+         Souvent, le résultat de la capture est un fichier trop
+         gros ou dans un format incompatible avec son usage pour
+         lequel on le destine. En particulier, FRAPS produit des
+         fichiers volumineux tandis que RecordMyDesktop donne du
+         contenu dans le format Theora à peu près inutilisable à
+         part sous Linux! Si vous utilisez une caméra numérique
+         pour toute étape de la capture, ce sera pire! Ces
+         appareils produisent du contenu dans des formats pas
+         toujours valides et il faut souvent traiter le contenu
+         pour espérer un transfert correct sur YouTube. C'est
+         encore pire quand on essaie de combiner du contenu
+         provenant de plusieurs sources! Il faut donc la plupart du
+         temps traiter la capture brute. Parfois, un simple
+         transcodage suffit tandis que d'autres, il est nécessaire
+         de retrancher des portions de vidéo, d'incruster du texte
+         pour ajouter des précisions, juxtaposer plusieurs segments
+         de vidéo. Dans ce temps-là, des logiciels d'édition vidéo
+         sont nécessaires, et ils ne sont pas disponibles pour
+         toutes les plateformes!
+      </p>
+      <h2>
+         <a id="virtualdub" name="virtualdub">VirtualDub</a>
+      </h2>
+      <p>
+         C'est sans doute la meilleure solution sous Windows. <a
+         href="http://www.virtualdub.org/">VirtualDub</a> permet de
+         traiter des fichiers dans le format AVI afin de les
+         transcoder et de choisir un segment de fichier à retenir.
+         Il est couramment combiné à l'outil <a
+         href="http://avisynth.org/mediawiki/Main_Page">AviSynth</a>
+         pour appliquer des filtres sur la vidéo.
+      </p>
+      <p>
+         L'image suivante montre la fenêtre principale du logiciel
+         dans laquelle une vidéo captée avec FRAPS a été ouverte.
+         Il est possible de visualiser la vidéo ou de sauter à
+         n'importe quel moment de celle-ci.
+      </p>
+      <p>
+         <img src="virtualdub-main.jpg" width="75%"
+         alt="Fenêtre principale de VirtualDub" />
+      </p>
+      <p>
+         Pour traiter une capture de FRAPS, il faut activer les
+         commandes <strong>Full processing mode</strong> des menus
+         <strong>Video</strong> et <strong>Audio</strong>. Ensuite,
+         il est possible d'ajuster la compression audio et vidéo
+         depuis les commandes <strong>Compression</strong> des
+         mêmes menus. Les deux images suivantes montrent les
+         options de compression. Bien entendu, les encodages
+         disponibles dépendent des codecs installés.
+      </p>
+      <p>
+         <img src="virtualdub-videoCompression.jpg" width="60%"
+         alt="Options de compression vidéo offertes par VirtualDub" />
+         <img src="virtualdub-audioCompression.jpg" width="60%"
+         alt="Options de compression audio offertes par VirtualDub" />
+      </p>
+      <p>
+         Les réglages faits, il suffit de sauvegarder le résultat
+         en utilisant la commande <strong>Save as AVI</strong> du
+         menu <strong>File</strong>.
+      </p>
+      <h2>
+         <a id="handbrake" name="handbrake">HandBrake</a>
+      </h2>
+      <p>
+         Le logiciel <a href="http://handbrake.fr/">HandBrake</a>
+         permet de transcoder, sous Windows, Linux ou Mac. Je l'ai
+         utilisé avec succès à quelques reprises. L'installation
+         sous Ubuntu 12.10 m'a causé quelques difficultés, mais le
+         logiciel un coup installé fonctionne très bien. Voici un
+         exemple de fenêtre produit par ce dernier:
+      </p>
+      <p>
+         <img width="75%" src="handbrake-main.jpg"
+         alt="Fenêtre principale de HandBrake" />
+      </p>
+      <p>
+         La dernière fois que j'ai tenté de construire une vidéo
+         sous Mac OS X, j'ai utilisé MEncoder pour traiter le
+         produit de mon appareil-photo numérique et le combiner
+         avec l'audio produit par mon H2N. Ça a été si compliqué
+         que je n'ai plus envie de retenter le coup! Mais avec
+         HandBrake, l'opération semble très facile et se verra sans
+         doute décernée un tutoriel vidéo un bon jour!
+      </p>
+      <h2>
+         <a id="edit" name="edit">Éditeurs vidéos</a>
+      </h2>
+      <p>
+         Dans certains cas, il ne suffit pas de transcoder. Il faut
+         retrancher des segments de vidéo qui ne sont pas
+         souhaités, ajouter des incrustations, combiner du matériel
+         provenant de plusieurs sources (par exemple une caméra et
+         un logiciel de capture), etc. Dans de tels cas, les
+         transcodeurs ne font tout simplement pas le poids! Il faut
+         plutôt utiliser de véritables éditeurs vidéo.
+         Malheureusement, ces logiciels ne sont pas gratuits, pas
+         disponibles pour toutes les plateformes et surtout, pas
+         égaux.
+      </p>
+      <p>
+         Il y a deux références incontestées dans ce domaine: <a
+         href="http://www.adobe.com/fr/products/premiere.html">Premiere
+         de Adobe</a> et <a
+         href="http://www.apple.com/ca/fr/finalcutpro/">Final Cut
+         de Apple</a>. Le premier est très gourmand en ressources
+         et offre une interface utilisateur inutilisable pour moi,
+         car les caractères sont minuscules et il est
+         <em>impossible</em> de les agrandir, à moins d'abaisser la
+         résolution de l'écran! Le second n'est disponible que pour
+         Mac, mais je pourrai éventuellement l'essayer puisque je
+         possède maintenant un Hackintosh fonctionnel.
+      </p>
+      <p>
+         Final Cut et Premiere sont coûteux, mais il existe des
+         versions grand public plus abordables: Premiere Elements
+         et Final Cut Express. Les deux outils héritent des
+         limitations de leurs grands frères, bien évidemment. Ça me
+         prendrait toujours une loupe pour utiliser Premiere
+         Elements et j'aurai besoin de mon Hackintosh (et peut-être
+         même d'un vrai Mac) pour Final Cut Express!
+      </p>
+      <p>
+         Il en existe d'autres, plein d'autres, mais ils sont
+         souvent uniquement pour Windows et parfois instables. Pour
+         le moment, <a
+         href="http://www.corel.com/corel/product/index.jsp?pid=prod4650075&amp;cid=catalog50008&amp;segid=6100016&amp;storeKey=ca&amp;languageCode=en">VideoStudio
+         de Corel</a> me semble un bon choix.
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

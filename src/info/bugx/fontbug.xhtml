@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         La naissance du bugX
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css"
+      href="../../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../../index.xhtml" class="parents">Le
+               royaume de Eric Buist</a> &gt;&gt; <a
+               href="../index.xhtml"
+               class="parents">Informatique</a> &gt;&gt; Problèmes
+               marquants &gt;&gt; <a href="index.xhtml"
+               class="parents">Le bugX</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../../sitemap.xhtml" class="sitemap">Plan
+               du site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+            </td>
+            <td class="thispage">
+               La naissance du bugX
+            </td>
+            <td class="rightsibling">
+               <a href="impact1.xhtml"
+               class="rightsibling">Premiers impacts
+               psychologiques</a> &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         La naissance du bugX
+      </h1>
+      <p>
+         Au début juin 2000, le moment de mon inscription à
+         l'université est venu. Il m'a donc fallu me rendre sur le
+         campus pour une rencontre d'informations. Après cet
+         événement, il était possible d'effectuer l'inscription sur
+         place, par le biais des ordinateurs. J'aurais aussi bien
+         pu la faire à partir de chez moi, mais j'ai finalement
+         décidé de l'effectuer sur place, ce qui me permettrait
+         d'obtenir de l'aide en cas de problèmes. Et des problèmes,
+         il y en a eu... Le bugX!!!
+      </p>
+      <p>
+         La première machine sur laquelle j'ai tenté d'accéder au
+         site Web de l'université ne fonctionnait pas normalement.
+         En fait, comme je le sais à présent, il n'y avait pas de
+         session ouverte. Sans compte utilisateur, il est
+         impossible, naturellement, de résoudre le problème. Il m'a
+         donc fallu passer à une autre machine qui, heureusement
+         (peut-être malheureusement, on verra pourquoi...), a
+         fonctionné. Mais...
+      </p>
+      <p>
+         La résolution 1152x864, qui est parmi celles supérieures
+         ou égales à 1024x768, se caractérise par des polices de
+         caractères petites et des pointeurs de souris minuscules.
+         Pour une personne avec une vision de 100%, pas de
+         problèmes. Pour moi, beaucoup de problèmes. Je m'étais dit
+         que la combinaison de touches Ctrl+Alt+Plus allait me
+         sauver la vie, mais il n'en fut rien. Cette combinaison
+         permet, sous X, de basculer d'une résolution d'écran à
+         l'autre, à condition que <tt>/etc/X11/XF86Config</tt>
+         contienne plus d'une résolution pour le serveur X utilisé.
+         Par malheur, ce n'était pas le cas. Ce qui signifie, dans
+         la langue de Molière, que la combinaison de touches
+         demeura sans effet.
+      </p>
+      <p>
+         Je suis parvenu, bien que moins facilement que sur ma
+         propre machine, à positionner le pointeur de la souris sur
+         Guichet étudiant - cours puis je suis entré dans la
+         section voulue. La petite taille des polices m'a très vite
+         fait peur. Finalement, il a fallu qu'on m'aide à effectuer
+         l'inscription, car il était presque impossible pour moi de
+         lire le texte écrit sur la page Web affichée par Netscape.
+      </p>
+      <p>
+         Sachant que j'allais être aux prises avec ce problème pour
+         la durée de mes études, j'ai voulu savoir si chaque
+         étudiant disposait d'un compte usager grâce auquel il
+         devenait possible de modifier des paramètres d'affichage.
+         Heureusement, la réponse est affirmative! Mais il reste
+         encore un problème...
+      </p>
+      <p>
+         Sous Linux, on peut faire beaucoup, peut-être même plus
+         que sous Windows. La difficulté première, c'est de savoir
+         comment le faire! Il faut parfois lire des tonnes de
+         howtos pour découvrir ne serait-ce que l'ombre d'un
+         indice. Et parfois, il ne reste que la force, le pouvoir
+         Open Source, comme je l'appelle! Le grossissement
+         généralisé des polices constitue justement une de ces
+         manipulations ne faisant pas partie de ma somme de
+         connaissances.
+      </p>
+      <p>
+         Sur ma propre machine Linux, résoudre ce problème est
+         d'une simplicité enfantine. Il me suffit d'ouvrir une
+         session en tant que root et de modifier le fichier
+         <tt>/etc/X11/XF86Config</tt> pour modifier la ligne
+         spécifiant la résolution. En 800x600, je suis en business
+         et pas de bogue! Mais que faire quand on ne peut pas
+         devenir root et que la modification du paramètre ne peut
+         pas se faire de façon localisée? Il existe trois
+         solutions.
+      </p>
+      <ul>
+         <li>
+            Un changement d'université qui implique une possibilité
+            de contourner le bogue. Toutefois, il peut fort bien
+            arriver que le problème se manifeste de nouveau dans le
+            nouvel établissement, me menant à un découragement
+            propice à un abandon total et irrémédiable de l'étude
+            de l'informatique.
+         </li>
+         <li>
+            Tenter de demander de l'aide et risquer de me retrouver
+            avec un ordinateur réservé seulement pour moi. Puisque
+            d'autres étudiants pourront utiliser le poste lorsque
+            je ne serai pas là, cela mènera à des constantes
+            inquiétudes sur la disponibilité de la machine. Le lieu
+            de l'ordinateur pourra aussi être gênant si des cours
+            se déroulent dans le local en question ou si un TP a
+            lieu pour moi dans un autre local. De plus, une mise à
+            jour de la configuration de toutes les machines
+            pourrait écraser les modifications, m'obligeant ainsi à
+            tout recommencer. Finalement, cette solution ne me
+            permettra pas de faire face à un problème similaire qui
+            pourrait se manifester dans un environnement de travail
+            privé, en bref une compagnie.
+         </li>
+         <li>
+            Découvrir une solution pour modifier les paramètres en
+            restant utilisateur. Cela impliquera un laps de temps
+            avec le bogue au-dessus de ma tête, tel une épée de
+            Damoclès, ainsi que la crainte d'une preuve irréfutable
+            de la proposition suivante: «Il n'y a aucune solution
+            au bugX.» Il sera nécessaire, pour minimiser l'impact
+            psychologique d'un tel état de faits, de mettre au
+            point des palliatifs qui ne résoudront que
+            partiellement le problème. Toutefois, lorsque j'aurai
+            en main la solution, cela aura augmenté ma somme de
+            connaissances et me donnera un moyen à toute épreuve de
+            faire face à un problème similaire dans un autre
+            milieu.
+         </li>
+      </ul>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

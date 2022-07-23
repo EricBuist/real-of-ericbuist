@@ -1,0 +1,507 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         Choix des pièces
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css"
+      href="../../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../../index.xhtml" class="parents">Le
+               royaume de Eric Buist</a> &gt;&gt; <a
+               href="../index.xhtml"
+               class="parents">Informatique</a> &gt;&gt;
+               Configuration informatique &gt;&gt; <a
+               href="index.xhtml" class="parents">Le Drake</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../../sitemap.xhtml" class="sitemap">Plan
+               du site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+            </td>
+            <td class="thispage">
+               Choix des pièces
+            </td>
+            <td class="rightsibling">
+               <a href="asm.xhtml"
+               class="rightsibling">Assemblage</a> &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         Choix des pièces
+      </h1>
+      <p>
+         Comme toujours, le choix de la carte mère n'est pas facile
+         pour obtenir un système sur lequel il est possible
+         d'installer Linux et surtout Mac OS X sans problèmes. Mais
+         je ne voulais pas obtenir la compatibilité avec Mac OS X
+         au détriment de la performance. Cette fois, même la tour
+         fut difficile à choisir, car je voulais quelque chose
+         offrant des ports USB 3 à l'avant.
+      </p>
+      <ul class="pagemenu">
+         <li>
+            <a href="#cpu">Le processeur</a>
+         </li>
+         <li>
+            <a href="#mb">Carte mère</a>
+         </li>
+         <li>
+            <a href="#case">Le boîtier</a>
+         </li>
+         <li>
+            <a href="#cg">Carte graphique ou non?</a>
+         </li>
+         <li>
+            <a href="#hd">Stockage</a>
+         </li>
+         <li>
+            <a href="#ram">Mémoire</a>
+         </li>
+         <li>
+            <a href="#psu">Bloc d'alimentation</a>
+         </li>
+      </ul>
+      <h1>
+         <a id="cpu" name="cpu">Le processeur</a>
+      </h1>
+      <p>
+         D'abord, Intel ou AMD? Je choisis Intel, car c'était
+         crucial pour avoir la moindre chance de pouvoir installer
+         Mac OS X. De plus, les processeurs Intel consomment moins
+         d'énergie et sont plus performants que leur pendants AMD
+         avec plus de coeurs.
+      </p>
+      <p>
+         Je choisis la gamme de processeurs la plus commune, sur
+         puce LGA1155. Il existait trois grandes catégories en
+         2012: les Core i3, i5 et i7. J'optai pour un i7,
+         quadri-coeur avec 8Mo de cache et démultiplicateur non
+         verrouillé. Cela veut dire que je pourrais overclocker la
+         machine autant que je veux, du moins autant que le système
+         de refroidissement installé le permet. J'estime ne pas
+         pouvoir aller bien loin avec le ventilateur inclus. Si je
+         veux m'aventurer dans l'overclocking, j'aurai besoin d'un
+         ventilateur plus gros, voire d'un système de
+         refroidissement liquide, mais ça peut se faire plus tard.
+      </p>
+      <p>
+         Après avoir choisi la marque Intel et la famille Core i7
+         LGA1155, je devais prendre une déchirante décision:
+         2<sup>e</sup> génération appelée Sandy Bridge ou
+         3<sup>e</sup> génération nommée Ivy Bridge? Les
+         processeurs Ivy Bridge sont construits sur des circuits de
+         taille plus petite que ceux des processeurs Sandy. Ils
+         consomment moins d'énergie et sont un peu plus
+         performants. De plus, un processeur Ivy Bridge est
+         nécessaire pour bénéficier du PCI Express 3.0. Avec un
+         Sandy Bridge, on aura du PCI Express 2.0. Mais au moment
+         où j'achetai le Drake, aucun ordinateur Apple n'était
+         disponible avec un processeur Ivy Bridge si bien que Lion,
+         leur système le plus récent, ne prenait pas Ivy Bridge en
+         charge. Par contre, une patch non officielle existait pour
+         permettre l'utilisation d'un processeur Ivy Bridge.
+      </p>
+      <p>
+         C'est ainsi que je dus faire un choix entre performance et
+         compatibilité Mac OS X. J'optai au final pour Ivy Bridge
+         en raison d'autres contraintes de carte mère et la
+         possibilité qu'au final, Mac OS X soit inutilisable pour
+         moi.
+      </p>
+      <h1>
+         <a id="mb" name="mb">Carte mère</a>
+      </h1>
+      <p>
+         Je trouvais que Linux restreignait mon choix de carte
+         mère, mais de nos jours, tel n'est plus le cas. L'accès au
+         processeur est standard, les contrôleurs SATA pour les
+         disques sont adressés par AHCI, le USB par OHCI/EHCI/xHCI
+         et il n'y a plus de soucis par rapport aux ports IDE et
+         série, car il n'y en a plus! Les dernières variables sont
+         l'audio et l'interface réseau. Non de nos jours, c'est Mac
+         OS X qui impose la plus grande restriction quant aux
+         cartes mères. L'endroit à consulter pour obtenir des
+         informations à ce sujet est <a
+         href="http://www.hackintosh.com/">Hackintosh.com</a>. On y
+         trouve des guides d'achat et d'installation assez
+         complets.
+      </p>
+      <p>
+         Au moment d'acheter mon ordinateur, il y avait très peu
+         d'informations au sujet des processeurs Ivy Bridge. Les
+         cartes les plus prometteuses étaient de marque Gigabyte,
+         mais cette entreprise a beaucoup tarder à adopter l'UEFI.
+         Il y avait aussi une liste de cartes Asus, mais c'était
+         encore moins certain pour Mac OS X, surtout pour ce qui
+         est de la gestion d'énergie et la possibilité de mettre la
+         machine en mode sommeil. De plus, seuls certains modèles
+         étaient couverts. Par exemple, la P8Z77 de Asus faisait
+         partie de la liste, mais sa petite soeur moins coûteuse
+         P8Z77-V LX n'y était pas. Par contre, je trouvai un post
+         de forum selon lequel une installation de Mac OS X aurait
+         réussi sur une P8Z77-V LX.
+      </p>
+      <p>
+         J'ai exploré la possibilité d'opter pour une Sandy Bridge,
+         ce qui me permettait de prendre un chipset Z68 au lieu de
+         Z77, mais les cartes Gigabyte à base de Z68 sont
+         dépourvues d'UEFI. On y trouve plutôt un BIOS configurable
+         à l'aide d'une application sous Windows!!! J'ai trouvé ça
+         tellement aberrant que ça m'a dissuadé d'opter pour une
+         Gigabyte. Les nouvelles cartes à base de Z77 sont certes
+         dotées d'UEFI, mais des cas de plantage ont été rapportés.
+         L'implantation UEFI de la compagnie n'est sans doute pas
+         tout à fait mature, pas autant que celles d'Asus ou MSI
+         qui l'ont adoptée depuis plus longtemps.
+      </p>
+      <p>
+         Pourquoi l'UEFI? Pour obtenir une interface de
+         configuration du système plus conviviale, une meilleure
+         certitude quant à la possibilité de démarrer la machine
+         depuis n'importe quel disque dur installé ou même d'une
+         clé USB, la possibilité de faire des diagnostics avec un
+         shell pré-amorçage, la prise en charge de disques de plus
+         de 3To et... la curiosité.
+      </p>
+      <p>
+         Ces frustrantes recherches me menèrent à bien des
+         incertitudes. Si le systèm Mac OS X était si sensible au
+         processeur et à la carte mère, ça se pouvait bien qu'il
+         n'aime pas ma combinaison. Je devais donc prendre un
+         risque, à moins d'opter pour un ancien modèle de
+         processeur ou de carte mère qui ne serait plus disponible
+         aujourd'hui! Je choisis donc la P8Z77-V LX pour laquelle
+         j'avais lu des posts favorables, et optai pour le Ivy
+         Bridge puisque Mountain Lion va certes le prendre en
+         charge! Justement, Apple a sorti en 2012 des MacBook sous
+         Ivy Bridge, de superbes machines qui m'ont fait saliver.
+         Il n'aurait pas fallu que je voie ça en juin, avant
+         d'acheter le Drake...
+      </p>
+      <p>
+         Il y avait d'autres éléments à considérer aussi: la
+         connectique. Les cartes Gigabyte Z77 de base étaient
+         dépourvues de toute connexion audio numérique. Lorsque mes
+         haut-parleurs me lâcheront, ce qui peut bien entendu
+         arriver puisqu'ils datent de 2003, je voudrais avoir la
+         possibilité de les remplacer par un système compatible
+         avec S/PDIF. Il faut pour ça que la puce audio ait une
+         telle sortie. La P8Z77-V LX de Asus offrait cette sortie
+         audio numérique en plus d'autres choses pas mal
+         intéressantes comme les ports USB 3, SATA 3 6Gb/s, un port
+         Gigabit Ethernet, l'audio 5.1, la possibilité de
+         paramétrer la vitesse des ventilateurs, etc.
+      </p>
+      <h1>
+         <a id="case" name="case">Le boîtier</a>
+      </h1>
+      <p>
+         Celui-là m'a posé beaucoup de problèmes, car je souhaitais
+         obtenir un boîtier offrant des ports USB 3 à l'avant. Je
+         découvris avec déception que la plupart des boîtiers
+         n'offraient que des ports USB 2, rendant les ports USB 3
+         de ma carte mère difficiles à utiliser. Autre difficulté:
+         il fallait que le boîtier puisse accueillir un ou
+         plusieurs disques SSD de 2.5", avec ou idéalement sans
+         adaptateur 2.5" vers 3.5". Le problème est que les
+         adaptateurs pour SSD que j'ai vus ne peuvent être fixés au
+         boîtier que par des vis latérales tandis que certains
+         boîtiers offrent des plateaux sur lesquels les disques
+         sont vissés par en-dessous. J'ai eu ce problème avec ma
+         tour Antec (voir <a href="../ssd.xhtml">mon histoire
+         d'installation de SSD</a>).
+      </p>
+      <p>
+         J'ai cherché longtemps, j'ai fini par trouver des boîtiers
+         avec de tels ports, mais ils étaient soit très coûteux
+         (plus de 200$ pour la tour!), soit venaient avec des
+         surprises que je ne voulais pas. Par exemple, le
+         VN400A1W2N Commander de Thermaltake m'a semblé très
+         intéressant pour le prix, mais j'ai lu dans les revues
+         qu'il était trop petit de sorte qu'il était difficile d'y
+         installer son système. Je me suis penché sur le VO30001N2N
+         Level 10 GTS de la même compagnie. Je l'ai trouvé bien
+         intéressant, car il offrait le USB 3 et les plateaux à
+         disques durs permettaient de brancher les SSD autant que
+         les disques durs conventionnels. Par contre, je n'aimais
+         pas beaucoup l'apparence du boîtier, avec ses plateaux à
+         disques qui ressortaient à l'avant. De plus, les plateaux
+         sont conçus pour insérer et retirer facilement des disques
+         de sorte que les branchements sont effectués dans la tour
+         et il y a un mécanisme de passage du signal permettant de
+         simplement glisser les disques. Mais un tel mécanisme
+         ajoute une variable. Si le disque ne fonctionne pas, ça
+         peut être le câble SATA comme le boîtier!
+      </p>
+      <p>
+         Le Defender Gaming de Ultra m'a beaucoup intéressé. J'ai
+         fait beaucoup de recherches à son sujet, car il offrait
+         les ports USB 3 et me plaisait bien avec ses lignes rouges
+         et sa couleur noire. Par contre, je découvris en poussant
+         plus loin que les disques étaient vissés sur des plateaux
+         de sorte que ça pourrait fort bien arriver que ce soit
+         vissé par en-dessous, encore! J'ai cherché beaucoup pour
+         essayer de trouver et ne pus jamais obtenir de certitude!
+      </p>
+      <p>
+         Toute la famille des boîtiers CoolerMaster passa au peigne
+         fin, du moins ceux offerts par TigerDirect et NewEgg. Il y
+         en avait certains, coûteux, avec les ports USB 3 tandis
+         que ceux en bas de 100$ n'en avaient pas. Si je retournais
+         voir aujourd'hui, peut-être en trouverais-je plusieurs et
+         serais bien triste, voire tenté de remplacer mon boîtier
+         actuel. Je ne le ferai pas pour éviter de me faire
+         souffrir inutilement!
+      </p>
+      <p>
+         Le boîtier Antec One m'intéressa au plus haut point,
+         offrant pour 50$ les ports USB 3. Mais je lus plus tard
+         que certains boîtiers Antec, dont le Nine Undred,
+         comportent des pièges. Il est en particulier impossible
+         d'installer un SSD sans retirer la carte mère et pour
+         certains boîtiers, il faut retirer plusieurs vis
+         simplement pour accéder aux disques durs. Je voulus donc
+         éviter ça.
+      </p>
+      <p>
+         J'explorai la famille des Corsair et fus amèrement déçu:
+         aucun boîtier n'offrait de baie 3.5" nécessaire pour
+         installer mon lecteur de cartes qui se trouvait dans ma
+         vieille machine. Puis je découvris des boîtiers offrant du
+         pseudo USB 3! Il y avait certes un port, mais il fallait
+         le raccorder en faisant passer un fil à travers le
+         boîtier, par une fente de carte d'extension puis le
+         raccorder à l'arrière, à l'extérieur du boîtier! Ce
+         contournement est dû au fait que le standard USB 3 ne
+         prescrivait aucun format pour les connecteurs internes!
+         Des fabricants de cartes mères ont proposé un format, mais
+         il se peut qu'il y ait des variantes. C'est peut-être pour
+         ça que les tours avec USB 3 étaient si rares en juillet
+         2012.
+      </p>
+      <p>
+         J'ai trouvé ça pas mal difficile de rechercher une tour en
+         ligne. J'aurais bien aimé pouvoir examiner ces boîtiers,
+         les palper, en tester les mécanismes, mais il m'aurait
+         pour cela fallu aller le chercher en magasin et le
+         trimbaler dans le métro, ce qui n'aurait pas été très
+         plaisant. Si j'avais fait ainsi, mon choix final de tour
+         aurait probablement été différent.
+      </p>
+      <p>
+         Au bout du rouleau, sur le point d'abandonner mon projet,
+         j'optai pour une tour toute simple: la 335U de
+         CoolerMaster. Je lui adjoignis un lecteur de cartes
+         offrant des ports USB 3. Je découvris cette «merveille»
+         sur NewEgg; on verra plus tard que ce n'était pas si
+         merveilleux que ça...
+      </p>
+      <h1>
+         <a id="cg" name="cg">Carte graphique ou non?</a>
+      </h1>
+      <p>
+         Lorsque j'ai assemblé le <a
+         href="../salvator/index.xhtml">Salvator</a> en 2005, j'ai
+         été confronté à un dilemme: carte son dédiée ou puce audio
+         intégrée? J'ai fini par opter pour la puce intégrée, en
+         partie à cause du mauvais coup que Creative m'a fait en
+         produisant la série X-Fi totalement incompatible avec
+         Linux; je ne leur ai toujours pas pardonné ça! Je me suis
+         ensuite rendu compte que c'était un bon choix, que la puce
+         audio sur la carte mère suffisait amplement à mes besoins,
+         à part peut-être pour enregistrer des sons. Mais pour ça,
+         il y a le <a
+         href="http://www.zoom.co.jp/products/h2n/">H2n de
+         Zoom</a>, mais c'est une autre histoire.
+      </p>
+      <p>
+         Eh bien en 2012, je fus confronté à un second dilemme du
+         genre: acheter une carte graphique NVIDIA ou utiliser la
+         puce Intel HD 4000 intégrée au processeur? J'ai fait
+         quelques recherches et suis tombé sur un <a
+         href="http://www.tomshardware.com/forum/356184-33-intel-4000-integrated-chip-super-nvidia-geforce-610m">comparatif</a>
+         laissant croire que la puce Intel peut compétitionner avec
+         certaines cartes graphiques NVIDIA de base. N'étant pas
+         prêt à investir plusieurs centaines de dollars dans une
+         carte graphique, je risquais fort bien de me retrouver
+         avec une carte inférieure à la puce Intel! Je choisis donc
+         d'essayer la puce Intel, sachant que je pourrais plus tard
+         ajouter une carte graphique au besoin. La slot PCI Express
+         3.0 x16 de ma carte mère le permettra! Je pourrais même en
+         installer deux en parallèle!
+      </p>
+      <p>
+         Un autre facteur décisif en faveur de la puce graphique
+         était le fait qu'un pilote <em>open source</em> existait
+         pour Linux. Non seulement ce pilote fonctionne bien, mais
+         selon <a
+         href="http://www.phoronix.com/scan.php?page=article&amp;item=intel_hd4000_ivybridge&amp;num=1">Phoronix</a>,
+         il offre des performances intéressantes. Le pilote d'Intel
+         prend en charge XRandR 1.3, permettant l'utilisation
+         d'écrans multiples beaucoup plus facilement que les
+         versions du pilote fermé de NVIDIA que j'utilisais sur le
+         Salvator. À présent que le pilote NVIDIA prend lui aussi
+         XRandR 1.3 en charge, le pilote d'Intel n'a plus cet
+         avantage. Je voudrais éventuellement migrer vers une
+         configuration à deux écrans, lorsque mon bureau de travail
+         le permettra, alors c'était à y penser.
+      </p>
+      <p>
+         Je ne voulais pas investir trop dans une carte graphique,
+         car elle ne me servirait que peu. Les jeux exigeant une
+         carte graphique coûteuse sont très riches en détails
+         visuels et, la plupart du temps, difficiles à jouer pour
+         moi, exigeant de la rapidité, de l'adresse ou de
+         l'observation. Le problème est que je découvre cela après
+         l'achat du jeu, et c'est terriblement frustrant de me
+         trouver bloquant après deux ou trois niveaux, peu importe
+         le nombre d'essais tentés pour progresser! Par contre, il
+         y a une autre application potentielle qui pourrait,
+         éventuellement, justifier l'achat d'une carte graphique:
+         du calcul parallèle. Des interfaces comme CUDA et OpenCL
+         permettent de déléguer une partie du traitement de
+         l'information à la carte graphique, ce qui est utile pour
+         accélérer certaines opérations comme le rendu d'images de
+         synthèse et, pourquoi pas, le traitement de signal audio
+         numérique.
+      </p>
+      <h1>
+         <a id="hd" name="hd">Stockage</a>
+      </h1>
+      <p>
+         Mon idée initiale était de récupérer le SSD que j'avais
+         installé dans le Salvator pour tester, y installer Windows
+         7, et ajouter deux autres SSD: un pour Linux, un pour Mac
+         OS X! Pour rappel, un SSD, pour Solid State Drive, est un
+         disque sans aucune pièce mobile. C'est un peu comme une
+         grosse clé USB, avec une capacité suffisante pour
+         accueillir un système d'exploitation et même des données
+         simples et une performance surpassant celle des disques
+         durs conventionnels! Je me rendis progressivement compte
+         que cette idée était un gaspillage de ressources, car seul
+         Windows a besoin de plusieurs dizaines de giga-octets pour
+         s'étendre comme un gros matou en manque d'énergie qui fait
+         du poil partout. Linux et probablement même Mac OS X
+         peuvent se contenter d'un espace de 20Go, à moins bien
+         entendu d'installer des gros logiciels de la mort qui sont
+         de toute façon trop spécialisés pour mes besoins. Ainsi,
+         je songeai installer Linux et Mac OS X sur le même SSD,
+         mais je fus tiraillé par la possibilité que Mac OS X exige
+         une GPT tandis que Linux fera des chicis et voudra une
+         MBR, ou Mac OS X se plaindra de voir une partition Linux
+         sur <em>son</em> disque, etc. De plus, si l'installation
+         de Mac OS X sur le même SSD que Linux échoue, je me
+         mettrai à soupçonner que c'est la partition Linux qui
+         interfère tandis que ce ne sera probablement même pas le
+         cas. À noter qu'<strong>aucune</strong> de ces craintes
+         n'est justifiée: Linux et Mac OS X peuvent cohabiter en
+         harmonie sur un SSD pourvu d'une GPT!
+      </p>
+      <p>
+         J'ai fini par opter pour une solution évolutive. J'allais
+         commencer avec un premier SSD et tenter d'y loger Windows
+         et Linux comme j'avais fait sur le Salvator. Plus tard,
+         j'essaierais Mac OS X sur un vieux disque dur de 200Go et,
+         en cas de succès, lui achèterais un petit SSD, genre 32Go,
+         pas trop cher. Rien n'empêche ensuite d'ajouter un autre
+         SSD pour Linux, l'y déplacer et agrandir la partition de
+         Windows. C'est l'avantage d'un ordinateur de table par
+         rapport à un laptop; il est possible de faire évoluer la
+         configuration. En fin de compte, la configuration a évolué
+         dans une autre direction, comme on verra plus loin.
+      </p>
+      <p>
+         J'ai adjoint à mon SSD un disque dur ordinaire d'un
+         terra-octet pour le stockage des données. Mon idée
+         initiale était d'en mettre un gros de 3To ou plus pour
+         m'amuser avec les GPT et l'UEFI, question de voir si ça va
+         vraiment fonctionner et me permettre d'utiliser tout
+         l'espace. Mais un tel disque coûtait plus de 200$ et, à
+         bien y penser, je n'avais pas besoin d'autant d'espace.
+         Encore une fois, si je retournais voir quelques mois plus
+         tard, je trouverais possiblement un foisonnement de
+         disques de plus de 3To et des SSD de taille suffisamment
+         grande pour me laisser bouche bée! Apple proposait déjà,
+         en août 2012, un SSD de 512Go en option pour son MacBook
+         Pro (super cher mais disponible!), alors il n'est pas
+         impossible, dans un an ou deux, qu'on trouve des SSD d'un
+         terra-octet, voire plus gros encore!
+      </p>
+      <h1>
+         <a id="ram" name="ram">Mémoire</a>
+      </h1>
+      <p>
+         Qu'en est-il de la mémoire? Eh bien j'ai voulu équilibrer
+         vitesse avec capacité. Étant donné que j'envisageais
+         installer des machines virtuelles, j'optai pour 16Go de
+         mémoire DDR3. Je choisis de la 1600MHz, prenant soin de
+         vérifier que la carte mère pouvait bien l'utiliser à sa
+         vitesse maximale. Afin de profiter du double canal tout en
+         permettant une expansion future sans gaspiller des
+         barrettes, j'ai pris deux barrettes de 8Go. De cette
+         façon, si un jour je voulais monter à 32Go (allez savoir
+         pourquoi, mais on sait jamais...), je pourrais simplement
+         ajouter deux autres barrettes de 8Go.
+      </p>
+      <h1>
+         <a id="psu" name="psu">Bloc d'alimentation</a>
+      </h1>
+      <p>
+         Encore une fois, j'ai tenté d'équilibrer performance et
+         prix. Je ne voulais pas aller dans l'extravagance avec un
+         bloc de 1500W pourvu de tellement de connecteurs que ça
+         encombrerait le boîtier au point de bloquer la
+         ventilation! Je voulais rester dans les tours moyennes,
+         non pas migrer vers une tour de grande taille ou un rack,
+         car mon espace de travail serait trop encombré par ce
+         genre de monstres. J'ai plutôt opté pour un 750W à un prix
+         raisonnable. J'ai constaté plus tard que j'avais eu ce
+         bloc à rabais et qu'il était de plus haute gamme que je
+         pensais. Avec ses NEUF connecteurs SATA et SIX Molex,
+         ainsi que deux jeux de connecteurs PCI Express, je ne suis
+         pas près de manquer de branchements! Sur ce bloc, je
+         pourrais raccorder non pas deux mais QUATRE cartes
+         graphiques nécessitant un connecteur auxiliaire à 8
+         broches! Ou bien existe-t-il réellement des cartes
+         graphiques si gourmandes en énergie qu'il leur faudrait
+         deux connecteurs à huit broches? Si tel est le cas, je
+         pourrais m'en offrir deux et les brancher! Mais à quoi
+         bon?
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.1//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>18. La création de CD Audio</TITLE>
+<META NAME="description" CONTENT="18. La création de CD Audio">
+<META NAME="keywords" CONTENT="cdwriting">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cdwriting.css">
+
+<LINK REL="next" HREF="node90.html">
+<LINK REL="previous" HREF="node81.html">
+<LINK REL="up" HREF="node65.html">
+<LINK REL="next" HREF="node85.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2325"
+  HREF="node85.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2319"
+  HREF="node65.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2313"
+  HREF="node83.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2321"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2323"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html2326"
+  HREF="node85.html">18.1 L'obtention des fichiers</A>
+<B> monter:</B> <A NAME="tex2html2320"
+  HREF="node65.html">III. La gravure de</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2314"
+  HREF="node83.html">17.2 Configuration du logiciel</A>
+ &nbsp; <B>  <A NAME="tex2html2322"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2324"
+  HREF="node106.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION07500000000000000000">
+<SPAN CLASS="arabic">18</SPAN>. La création de CD Audio</A>
+</H1>
+
+<P>
+La gravure de CD Audio sous Linux se passe de façon semblable à celle
+sous Windows. Vous créez, téléchargez ou enregistrez un certain nombre
+de fichiers audio puis vous les ordonnez pour former une
+compilation. Ensuite, les fichiers devront être décodés puis gravés
+sur un disque. Pour obtenir un disque Disk-At-Once sans pauses entre
+les chansons, nous utiliserons ici CDRDAO pour effectuer la gravure.
+Malheureusement, sans scripts ou interface graphique,
+l'opération exigerait plusieurs retranscriptions fastidieuses, autant
+pour ordonner les pistes que créer la TOC destinée à CDRDAO. Le même
+phénomène se produira avec CDRecord qui exige de recevoir chaque
+fichier audio sur la ligne de commande!
+Le logiciel k3b<A NAME="4019"></A> [<A HREF="node105.html#url:k3b">URL39</A>] constitue sans doute la
+meilleure solution pour les CD Audio. Cette interface graphique
+effectue l'ordonnancement et le décodage des fichiers musicaux et
+utilise CDRDAO pour la gravure.
+Il est aussi possible de construire des scripts pour automatiser
+CDRDAO sans devoir utiliser une interface graphique.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Sous-sections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html2327"
+  HREF="node85.html"><SPAN CLASS="arabic">18</SPAN>.<SPAN CLASS="arabic">1</SPAN> L'obtention des fichiers sonores</A>
+<UL>
+<LI><A NAME="tex2html2328"
+  HREF="node85.html#SECTION07511000000000000000"><SPAN CLASS="arabic">18</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">1</SPAN> Extraction audio</A>
+<LI><A NAME="tex2html2329"
+  HREF="node85.html#SECTION07512000000000000000"><SPAN CLASS="arabic">18</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">2</SPAN> Téléchargement</A>
+<LI><A NAME="tex2html2330"
+  HREF="node85.html#SECTION07513000000000000000"><SPAN CLASS="arabic">18</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">3</SPAN> Conversion</A>
+<LI><A NAME="tex2html2331"
+  HREF="node85.html#SECTION07514000000000000000"><SPAN CLASS="arabic">18</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">4</SPAN> Échantillonnage</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html2332"
+  HREF="node86.html"><SPAN CLASS="arabic">18</SPAN>.<SPAN CLASS="arabic">2</SPAN> La méthode du moine copiste</A>
+<LI><A NAME="tex2html2333"
+  HREF="node87.html"><SPAN CLASS="arabic">18</SPAN>.<SPAN CLASS="arabic">3</SPAN> Pourquoi créer des CD Audio sous Linux?</A>
+<LI><A NAME="tex2html2334"
+  HREF="node88.html"><SPAN CLASS="arabic">18</SPAN>.<SPAN CLASS="arabic">4</SPAN> Cas particulier des compilations de MP3/Ogg</A>
+<LI><A NAME="tex2html2335"
+  HREF="node89.html"><SPAN CLASS="arabic">18</SPAN>.<SPAN CLASS="arabic">5</SPAN> Cas de l'espace disque insuffisant</A>
+</UL>
+<!--End of Table of Child-Links-->
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2325"
+  HREF="node85.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2319"
+  HREF="node65.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2313"
+  HREF="node83.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2321"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2323"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html2326"
+  HREF="node85.html">18.1 L'obtention des fichiers</A>
+<B> monter:</B> <A NAME="tex2html2320"
+  HREF="node65.html">III. La gravure de</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2314"
+  HREF="node83.html">17.2 Configuration du logiciel</A>
+ &nbsp; <B>  <A NAME="tex2html2322"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2324"
+  HREF="node106.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Eric Buist
+2005-11-13
+</ADDRESS>
+</BODY>
+</HTML>

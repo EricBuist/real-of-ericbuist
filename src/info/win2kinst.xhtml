@@ -1,0 +1,251 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         Préparation du système et installation de Windows 2000
+         Professionnel
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css" href="../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../index.xhtml" class="parents">Le royaume
+               de Eric Buist</a> &gt;&gt; <a href="index.xhtml"
+               class="parents">Informatique</a> &gt;&gt;
+               Configuration informatique
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../sitemap.xhtml" class="sitemap">Plan du
+               site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="rebirth.xhtml"
+               class="leftsibling">La renaissance de ma quête
+               Linux</a>
+            </td>
+            <td class="thispage">
+               Préparation du système et installation de Windows
+               2000 Professionnel
+            </td>
+            <td class="rightsibling">
+               <a href="rh71.xhtml"
+               class="rightsibling">Installation de Red Hat Linux
+               7.1</a> &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         Préparation du système et installation de Windows 2000
+         Professionnel
+      </h1>
+      <h2>
+         Partionnement du disque dur
+      </h2>
+      <p>
+         On ne peut pas installer un système à amorçage multiple et
+         espérer réussir à faire fonctionner tout cela sans
+         effectuer des modifications au niveau des partitions du
+         disque dur. Savoir quoi modifier relève de l'expérience et
+         un peu de l'intuition. Il arrive de commettre des erreurs
+         et la réparation peut s'avérer longue et/ou...
+         destructrice! Mais c'est le risque du métier et il faut
+         bien l'assumer. Le comment, au moins, trouve sa réponse
+         fixe: Partition Magic! C'est le seul logiciel que je
+         connaisse à pouvoir redimensionner de façon fiable une
+         partition, sans perte de données ou presque...
+      </p>
+      <p>
+         Lorsque mon ordinateur est arrivé, il comportait une
+         partition primaire FAT32 active d'environ 20 gig et une
+         partition étendue comprenant une seule partition logique
+         FAT32 englobant le reste du disque. Bon, qu'est-ce que
+         c'est ça? Le disque dur est une mémoire de masse, un
+         gigantesque tableau dont chaque cellule est indexable par
+         une adresse numérique. En réalité, le tableau est en
+         plusieurs dimensions (tête, cylindre, secteur, ...), mais
+         on n'a pas besoin de cela pour partitionner! On sépare
+         ensuite ce gigantesque tableau en sous-tableaux qui
+         contiendront chacun d'eux un système de fichiers.
+         Finalement, un système de fichiers peut abriter des
+         données et/ou un système d'exploitation.
+      </p>
+      <p>
+         Au début du disque se trouve une table indiquant le début,
+         la taille et le type de chacune des partitions, on appelle
+         cela la table des partitions. Mais puisqu'on ne souhaite
+         pas que cette table soit infiniment grande, on limite le
+         nombre de partitions à quatre, pas plus mais possiblement
+         moins. Une partition primaire fait partie de ces
+         quatre-là. Elle contient un système de fichiers: FAT,
+         FAT32, NTFS, HPFS, ext2fs ou autre, un seul pas plus!
+         Finalement, la table des partitions contient le Master
+         Boot Record (MBR), un petit programme qui a pour tâche
+         principale de se brancher sur une des quatre partitions
+         primaires. On nomme la partition qui détient le privilège
+         de se trouver branchée la partition active.
+      </p>
+      <p>
+         Parmi les quatre partitions primaires peut figurer une et
+         une seule partition étendue. Cette dernier comporte un
+         nombre aussi élevé qu'on le veut de partitions que l'on
+         qualifie de logiques. Ces partitions ont la propriété de
+         ne pas être activables et elles ne peuvent pas dans ce cas
+         contenir le code d'amorce d'un système d'exploitation.
+         Pour que Windows NT/2000 ou Linux puissent être installés
+         dans une partition logique, ce qui est faisable, il faut
+         placer le gestionnaire d'amorçage, LILO ou le gestionnaire
+         de Windows NT, dans le MBR s'il est assez petit ou sur une
+         partition active primaire.
+      </p>
+      <p>
+         Bon, il fallait maintenant une stratégie de modification
+         pas trop longue à appliquer et la plus fiable possible. La
+         première étape consistait à défragmenter la partition
+         primaire active, ie. le lecteur C:. En effet, une
+         partition primaire active a, sous DOS/Windows, la
+         propriété de devenir le lecteur C:. La défragmentation
+         permet de maximiser les chances que le redimensionnement
+         ne cause pas de pertes de données dues à une erreur de la
+         part de Partition Magic. Le redimensionnement crée ensuite
+         un trou, une zone non allouée sur le disque. J'ai
+         redimensionné le C: de façon à ce qu'une zone de 10 gig
+         soit non allouée.
+      </p>
+      <p>
+         Dans cette zone, j'ai ensuite créé une partition primaire
+         de type NTFS de 5 gig, une partition Linux Swap logique de
+         128 MB (ce qui a occasionné un agrandissement vers la
+         gauche de la partition étendue), et le reste est devenu
+         une partition primaire en ext2fs, le système de fichiers
+         de Linux. L'opération s'est conclue en activant la
+         partition NTFS.
+      </p>
+      <h2>
+         La tortueuse installation
+      </h2>
+      <p>
+         Ensuite, il fallait amorcer le CD de Windows 2000. Pour ce
+         faire, il m'a fallu modifier le Setup du BIOS pour placer
+         le CD-ROM comme deuxième périphérique d'amorçage.
+         Malheureusement, cette manoeuvre n'eut aucun effet, car le
+         DVD-ROM est branché comme esclave (slave) sur le graveur,
+         qui est Secondary Master. Toute tentative pour faire
+         amorcer le CD dans le lecteur demeurant vaine, il m'a
+         fallu insérer le CD de Windows 2000 dans le graveur,
+         redémarrer puis encore des problèmes!
+      </p>
+      <p>
+         Le système m'écrivait toujours <tt>Système d'exploitation
+         manquant</tt> et cela s'arrêtait là. Toutefois, en haut du
+         message, on me disait d'appuyer sur une touche pour
+         démarrer le programme d'installation. Il me fallut
+         redémarrer pour le faire et le programme a démarré.
+      </p>
+      <p>
+         Il m'a demandé où installer Windows 2000, j'ai choisi la
+         partition NTFS créée à cet effet et il a fini par
+         commencer à la formater. Il a ensuite installé des
+         fichiers et a redémarré. Toutefois, au lieu de basculer
+         dans la suite du programme d'installation, il se
+         contentait de m'afficher <tt>Système d'exploitation
+         manquant</tt>! Je tentai de recommencer l'installation,
+         toujours le même pitoyable résultat. Je tentai ensuite
+         dans le programme d'installation de supprimer la partition
+         NTFS, ce qui eut pour effet d'activer la partition FAT32
+         contenant Windows 98 puis je la recréai. À ce moment, je
+         croyais que Partition Magic avait créé une partition NTFS
+         invalide et Windows 2000 n'aimait pas du tout...
+         Décidément, il serait temps que je mette la main sur la
+         version 6 de ce programme...
+      </p>
+      <p>
+         Le redémarrage a affiché le gestionnaire d'amorçage de
+         Windows 2000 puis ensuite il a basculé en mode graphique
+         pour poursuivre l'installation. Après quelques réglages,
+         on me demande le numéro de série. Minutieusement, je tape
+         chacun des caractères de ce long code puis j'active le
+         bouton <tt>Suivant</tt> pour recevoir le très choquant
+         message d'erreur <tt>Numéro de série invalide</tt>! Je
+         tentai plusieurs variations du code, sans succès. Je ne
+         voulais pas arrêter l'installation en attente de ce
+         numéro, alors j'ai tenté d'en trouver un nouveau sur
+         Internet. <a
+         href="http://astalavista.box.sk">astalavista.box.sk</a> ne
+         donna aucun résultat, mais <a
+         href="http://www.metacrawler.com">MetaCrawler</a> me donna
+         une page avec un tel numéro. Par une chance infinie, je
+         retrouvai le même que j'avais sur le CD, un chiffre
+         modifié. Je m'étais donc trompé lors de la transcription
+         et cela avait failli me faire oublier le système
+         d'exploitation! Le numéro de série passa et je pus
+         continuer.
+      </p>
+      <p>
+         Malheureusement, l'installation réseau fut un flop, car
+         Windows 2000 cherchait à se connecter à un domaine et non
+         au groupe de travail Buist Group instauré par mon <a
+         href="hw/icsbug.xhtml">Partage de connexion Internet</a>.
+         Il parvint heureusement à terminer l'installation et je me
+         retrouvai finalement dans l'Explorateur, version Windows
+         2000!
+      </p>
+      <p>
+         J'installai ensuite les pilotes de carte son, carte
+         graphique, modem, clavier Multimedia, je configurai les
+         lecteurs en mode Ultra DMA, changeai les lettres du
+         lecteur de CD-ROM et du graveur, installai de nouvelles
+         applications, installai l'imprimante, tout semblait
+         fonctionner pour le moment, jusqu'à ce que je tente
+         d'imprimer quelque chose. Une erreur se manifesta dès
+         l'impression et dans le Gestionnaire de Périphériques, il
+         n'y avait aucun port parallèle.
+      </p>
+      <p>
+         Je tentai d'en installer un manuellement, mais il ne le
+         détectait pas du tout et je dus lui spécifier manuellement
+         son adresse et son IRQ! Mais même muni de ces
+         informations, Windows ne voulait toujours pas imprimer! Je
+         tentai de modifier des paramètres d'imprimante, rien à
+         faire. Je modifiai le type de port parallèle dans le BIOS
+         pour le mettre à Normal, rien. Il fallut le configurer à
+         ECP+EPP et fort heureusement, cela ne perturbe pas, en
+         tout cas pour le moment, Windows 98!
+      </p>
+      <p>
+         L'installation était enfin terminée, restait à continuer
+         la configuration. Mais la curiosité me poussait à tenter
+         ce mardi soir, 1 mai 2001, le même jour que Windows 2000,
+         celle de Linux.
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

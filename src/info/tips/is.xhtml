@@ -1,0 +1,1584 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         Partage d'une connexion Internet
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css"
+      href="../../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../../index.xhtml" class="parents">Le
+               royaume de Eric Buist</a> &gt;&gt; <a
+               href="../index.xhtml"
+               class="parents">Informatique</a> &gt;&gt;
+               Quelques-unes de mes recherches personnelles
+               &gt;&gt; <a href="index.xhtml" class="parents">Trucs
+               et astuces</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../../sitemap.xhtml" class="sitemap">Plan
+               du site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="linemail.xhtml"
+               class="leftsibling">Envoyer/recevoir du courrier
+               sous Linux</a>
+            </td>
+            <td class="thispage">
+               Partage d'une connexion Internet
+            </td>
+            <td class="rightsibling">
+               <a href="duplex.xhtml"
+               class="rightsibling">Impression recto-verso</a>
+               &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         Partage d'une connexion Internet
+      </h1>
+      <p>
+         Une connexion Internet constitue certes une bonne chose:
+         elle donne à un ordinateur accès à des informations et des
+         fichiers de tous types et permet d'envoyer et recevoir du
+         courrier électronique. Toutefois, avec le nombre croissant
+         de personnes disposant de plusieurs machines, une seule
+         connexion peut ne pas suffire. Le problème devient encore
+         plus tordu dans le cas de plusieurs personnes utilisant
+         les ordinateurs. Un partage devient nécessaire pour que
+         chacun puisse utiliser Internet, à moins qu'il soit
+         possible d'une façon ou d'une autre d'offrir à chaque
+         ordinateur un accès au réseau. Il existe différentes
+         façons de parvenir à cet objectif et chacune comporte
+         avantages et inconvénients.
+      </p>
+      <p>
+         Nous aborderons d'abord les différents modes de partage
+         possibles. Nous enchaînerons ensuite avec la procédure de
+         mise en place d'un partage de connexion pour finalement
+         nous concentrer sur le cas particulier de deux machines.
+      </p>
+      <ul>
+         <li>
+            <a href="#is">Modes de partage Internet</a>
+         </li>
+         <li>
+            <a href="#isi">Mise en place du partage Internet</a>
+         </li>
+         <li>
+            <a href="#twocomp">Cas particulier de deux machines</a>
+         </li>
+      </ul>
+      <h2>
+         <a id="is" name="is">Modes de partage Internet</a>
+      </h2>
+      <p>
+         Cette partie décrit de façon théorique les différentes
+         méthodes de partage d'une connexion Internet. Elle ne
+         s'avère pas nécessaire pour effectuer l'installation
+         proprement dite mais peut aider à résoudre ou au moins
+         comprendre certains problèmes qui pourront émerger lors de
+         l'installation ou plus souvent après cette dernière.
+      </p>
+      <p>
+         Connecter une machine à Internet consiste à lui associer
+         une adresse de type IP (Internet Protocol). Avec IPv4,
+         cette adresse est composée de quatre nombres entre 0 et
+         255 permettant d'identifier la machine au sein d'Internet.
+         Les adresses sont plus longues avec IPv6, la nouvelle
+         génération d'IP, mais le principe demeure le même.
+         Souvent, l'adresse IP est dynamique, c'est-à-dire qu'elle
+         varie d'une connexion à l'autre.
+      </p>
+      <p>
+         Pour communiquer sur Internet, un ordinateur envoie et
+         reçoit des paquets IP dont le contenu adhère aux
+         protocoles UDP (Uniform Datagram Protocol) ou TCP
+         (Transport Control Protocol). Le protocole UDP transmet
+         des paquets sans établir de connexion entre deux machines
+         tandis que TCP supporte la notion de connexion.
+      </p>
+      <p>
+         Afin de permettre l'existence de plusieurs services sur
+         une même machine, les protocoles de la famille TCP/IP
+         définissent des ports. Chaque paquet UDP ou TCP est
+         destiné à une adresse IP et à un port précis. Par exemple,
+         une requête Web est envoyée sur le port 80 tandis qu'une
+         requête FTP passe par le port 21.
+      </p>
+      <ul>
+         <li>
+            <a href="#isp">Partage au niveau serveur</a>
+         </li>
+         <li>
+            <a href="#proxy">Utilisation d'un proxy</a>
+         </li>
+         <li>
+            <a href="#nat">Network Address Translation (NAT)</a>
+         </li>
+      </ul>
+      <h3>
+         <a id="isp" name="isp">Partage au niveau serveur</a>
+      </h3>
+      <p>
+         Le fournisseur Internet offre une connexion à plusieurs
+         clients, et cela de façon simultanée. Il est possible de
+         profiter de cette capacité en reliant plus d'une machine
+         au fournisseur lui-même. Cette technique permet à chaque
+         machine de disposer d'une connexion indépendante à
+         Internet et la tolérance de pannes dépend exclusivement de
+         celle du fournisseur Internet. La configuration s'avère
+         simple, car il suffit de paramétrer plusieurs connexions
+         Internet au lieu d'une seule, rien de plus.
+         Malheureusement, il faudra normalement payer pour chacune
+         des connexions réalisées de cette façon.
+      </p>
+      <p>
+         Dans le cas d'une connexion téléphonique, pour permettre
+         un accès simultané, une ligne par machine sera nécessaire.
+         Ce qui coûte pas mal cher pour la faible performance
+         obtenue. Des connexions non simultanées sont possibles et
+         exigeront un nombre réduit de lignes, mais compliqueront
+         les accès. Un utilisateur désireux d'accéder à Internet
+         devra attendre que sa ligne soit libre pour pouvoir se
+         brancher. On peut minimiser les coûts de cette solution en
+         ayant une prestation au fournisseur par ligne téléphonique
+         utilisée et non par utilisateur, mais encore une fois, ça
+         coûte cher!
+      </p>
+      <p>
+         Pour un partage d'une connexion haute vitesse au niveau du
+         serveur, cela dépend du service utilisé. Si le fournisseur
+         peut accorder plusieurs adresses IP, il est possible
+         d'obtenir un partage n'imposant que peu de contraintes sur
+         les machines, mais ce mode de fonctionnement n'est pas
+         toujours permis.
+      </p>
+      <h3>
+         <a id="proxy" name="proxy">Utilisation d'un proxy</a>
+      </h3>
+      <center>
+         <table width="80%">
+            <caption>
+               Exemple de communication avec un Proxy
+            </caption>
+            <tr>
+               <td align="center">
+                  <img src="proxy.png" />
+               </td>
+            </tr>
+         </table>
+      </center>
+      <p>
+         Dans ce mode de partage, une machine doit être désignée
+         comme serveur, dédié ou non. Un serveur dédié est utilisé
+         uniquement comme tel et est plutôt rare pour un usage
+         domestique. Il existe davantage dans les entreprises qui
+         peuvent se le payer. Le serveur est la seule machine à
+         être reliée directement à Internet par un moyen
+         quelconque, donc à disposer d'une adresse IP. Les autres
+         machines clients se branchent, par le biais d'un réseau
+         local TCP/IP, au serveur. En fait, le proxy dispose de
+         deux IP: une permettant de l'identifier sur Internet et
+         une autre permettant de l'identifier sur le réseau local.
+         Si la connexion Internet s'effectue par une carte réseau,
+         le serveur devra comporter deux cartes de ce type, une
+         reliée à Internet et l'autre, au réseau local interne. À
+         noter que le serveur constitue simplement un ordinateur PC
+         tout à fait anodin auquel on donne ce nom, pas
+         nécessairement une grosse machine avec plusieurs
+         processeurs et de la mémoire à n'en plus finir. Un
+         serveur, par définition, n'est qu'une machine qui offre un
+         certain nombre de services, dans notre cas une connexion
+         Internet. Chaque client du réseau possède également son IP
+         qui n'est toutefois pas valide sur Internet.
+      </p>
+      <p>
+         Lorsqu'un client veut accéder à Internet, il envoie une
+         requête TCP à l'adresse du proxy, sur un port donné. Le
+         serveur écoutant sur ce port reçoit la requête, lance une
+         requête Internet puis fait parvenir le résultat à la
+         machine client, par le port d'où est venue la requête ou
+         celui déterminé par cette dernière.
+      </p>
+      <p>
+         Ce système exige non seulement un serveur proxy mais aussi
+         des machines clients pourvues de logiciels prenant en
+         charge ce type de communication. En effet, en temps
+         normal, pour effectuer un accès à une page Web par
+         exemple, l'ordinateur enverra une requête IP qui
+         contiendra son adresse IP, le port ouvert pour la
+         réception du résultat, l'adresse IP du serveur contacté
+         (souvent obtenu du DNS) ainsi que le port utilisé (80 pour
+         HTTP, mais peut varier). Avec le proxy, le système envoie
+         les données sur le port du proxy HTTP. En effet, il existe
+         des proxy pour chacun des protocoles courants du Web.
+      </p>
+      <p>
+         Heureusement, il existe aussi un protocole de proxy à tout
+         faire que l'on appelle <a
+         href="http://www.socks.permeo.com/">SOCKS</a>. Le client
+         SOCKS se branche sur le port 1080 (par défaut) du serveur
+         proxy et peut alors effectuer une connexion TCP ou UDP à
+         travers ce dernier. Ce qui inclut tous les protocoles
+         courants tels HTTP, FTP, Telnet et même MSN, ICQ et AIM.
+         SOCKS 4 ne supporte que le protocole TCP tandis que SOCKS
+         5 ajoute un mécanisme d'authentification par nom d'usager
+         et mot de passe et le support de UDP.
+      </p>
+      <p>
+         Le proxy HTTP demeure malgré tout utile, car il peut tenir
+         compte de l'utilisation de ce protocole. Ce qui peut
+         impliquer un mécanisme de mise en cache des pages Web pour
+         un accès plus rapide par plusieurs clients.
+      </p>
+      <p>
+         L'implantation d'un proxy est relativement simple et
+         n'impose pas l'ajout d'un pilote bas niveau. Il suffit
+         pour le serveur de créer une socket pour écouter sur les
+         ports adéquats et d'effectuer une validation de façon à ne
+         permettre les connexions au socket que pour les usagers
+         autorisés, à savoir ceux du réseau local. Sans
+         précautions, un proxy pourrait devenir une voie d'accès
+         pour des personnes mal intentionnées désireuses de
+         commettre des actions douteuses sans se faire reconnaître.
+         Heureusement, ces aspects de sécurité sont pris en compte
+         par les logiciels de proxy le moindrement sérieux.
+      </p>
+      <p>
+         L'utilisation du proxy impose des contraintes sur l'accès
+         du client, mais le serveur dispose de toute liberté. Dans
+         le cas d'un serveur non dédié, il sera toujours possible
+         de transférer des fichiers en lien direct (pear-to-pear)
+         ainsi que d'utiliser la téléphonie Internet, comme avec
+         NetMeeting. Il est également possible de mettre en place,
+         sur le serveur, des services Web, courriel, FTP, Telnet,
+         ... Les clients ne bénéficient en aucune façon de cette
+         possibilité, ne pouvant recevoir des paquets sur un port
+         donné.
+      </p>
+      <h3>
+         <a id="nat" name="nat">Network Address Translation
+         (NAT)</a>
+      </h3>
+      <center>
+         <table width="80%">
+            <caption>
+               Exemple de communication avec un serveur NAT
+            </caption>
+            <tr>
+               <td align="center">
+                  <img src="nat.png" />
+               </td>
+            </tr>
+         </table>
+      </center>
+      <p>
+         Ce mode fait lui aussi appel à un serveur qui, cette
+         fois-ci, permettra un accès quasiment direct à Internet
+         pour tous les clients du réseau local bénéficiant du
+         partage Internet. Comme dans le cas du proxy, le serveur
+         dispose d'une IP publique valide sur Internet ainsi que
+         d'une IP locale tandis que les clients ne possèdent qu'une
+         adresse IP locale.
+      </p>
+      <p>
+         Lorsqu'un client effectue une requête Internet, comme un
+         accès à une page Web, le paquet IP contiendra l'adresse IP
+         interne ainsi qu'un port ouvert sur la machine client pour
+         la réception des données. La machine client doit être
+         définie pour utiliser une passerelle, le serveur en
+         l'occurrence. Ce dernier reçoit ce paquet et modifie
+         l'adresse source pour la remplacer par son IP Internet. Il
+         peut également remplacer le numéro du port, tout en
+         conservant la correspondance entre ce port et la client
+         qui a émis la requête. Cette étape constitue une
+         traduction d'adresse et donne en fait son nom à ce mode de
+         partage. Le paquet modifié est finalement envoyé sur
+         Internet puis le résultat arrive, avec un peu de chance et
+         possiblement un peu de temps, au serveur. Ce dernier se
+         rend compte du port utilisé et consulte une table qui lui
+         indique vers quelle adresse IP du réseau interne acheminer
+         le paquet.
+      </p>
+      <p>
+         Cette fois-ci, l'implantation d'un tel serveur exige la
+         mise en place d'un pilote bas niveau, car il faut
+         intercepter les paquets IP, les filtrer et les renvoyer.
+         Le niveau de programmation d'un tel serveur ressemble à
+         celui d'un pare-feu, quoique le pare-feu comporte encore
+         davantage de fonctionnalités de filtrage. Comme dans le
+         cas du proxy, le serveur doit filtrer les paquets entrants
+         afin d'éviter qu'une personne extérieure n'utilise la
+         passerelle NAT pour masquer son identité sur Internet. Le
+         serveur NAT et le pare-feu ayant tous deux à filtrer des
+         paquets IP, ils sont suffisamment complémentaires pour
+         être parfois regroupés dans un même logiciel. Ce qui se
+         produira sous Linux et dans le cas des routeurs.
+      </p>
+      <p>
+         La communication est assurée d'une façon beaucoup plus
+         transparente pour les machines, mais cela implique encore
+         certaines contraintes. Le serveur doit tout d'abord
+         communiquer de la même façon que les clients, il doit
+         passer par le module NAT, exactement comme les autres
+         machines. C'est en tout cas de cette façon que semble
+         fonctionner le Partage de Connexion Internet de Microsoft
+         Windows 98 Deuxième Édition.
+      </p>
+      <center>
+         <table width="80%">
+            <caption>
+               Exemple de tentative d'implantation d'un service sur
+               une machine client
+            </caption>
+            <tr>
+               <td align="center">
+                  <img src="badserver.png" />
+               </td>
+            </tr>
+         </table>
+      </center>
+      <p>
+         Si une machine du réseau interne ouvre un port et écoute
+         en attente de données, il y a de fortes chances pour que
+         les données ne viennent jamais. Comme le montre la figure
+         précédente, le serveur NAT ne se rend pas compte du port
+         ouvert par le client. Ce qui signifie qu'il sera
+         impossible, en temps normal, pour un client de fournir un
+         service Internet. Ce qui interdit par exemple d'utiliser
+         des logiciels de téléphonie Internet et même de transférer
+         des fichiers avec des logiciels tels ICQ et MSN Messenger.
+         Bien qu'il soit possible, sur le serveur NAT, de mettre en
+         place un serveur FTP, l'utilisation de MSN Messenger et de
+         ICQ pour transférer des fichiers ou établir une
+         communication vocale cause problèmes avec le partage.
+      </p>
+      <p>
+         Pour remédier à certains de ces problèmes, on peut
+         utiliser la redirection de ports. Cette stratégie consiste
+         à indiquer au serveur que si un paquet est envoyé au port
+         X, il doit automatiquement l'acheminer au port Y d'une
+         machine Z. Toutefois, cela implique la connaissance des
+         ports utilisés par les programmes et des problèmes
+         surgissent si un petit nombre de ports est utilisable et
+         que plusieurs machines veulent utiliser un même service.
+      </p>
+      <p>
+         L'architecture Universal Plug and Play (<a
+         href="http://www.upnp.org/">UPnP</a>) constitue une
+         solution intéressante à ce problème. Un serveur NAT
+         utilisant cette technologie peut en quelque sorte établir
+         des redirections de ports à la demande d'un client UPnP.
+         Cette technique permet entre autres à MSN Messenger 6 de
+         supporter le transfert de fichiers, même derrière une
+         passerelle de partage Internet.
+      </p>
+      <h2>
+         <a id="isi" name="isi">Mise en place du partage
+         Internet</a>
+      </h2>
+      <p>
+         Puisque l'installation d'un partage au niveau fournisseur
+         s'effectue de la même façon que l'abonnement pour une
+         connexion Internet et que cela coûte cher pour peu
+         d'avantages, je me concentrerai sur le partage avec
+         serveur réseau. Comme vous l'avez peut-être deviné, un
+         réseau local (LAN) s'avère non pas nécessaire mais
+         indispensable! Il faudra effectuer le branchement réseau
+         puis installer un logiciel serveur de connexion Internet
+         sur une et une seule machine qui sera alors désignée comme
+         serveur. Il faudra ensuite configurer les clients pour une
+         connexion au serveur.
+      </p>
+      <ul>
+         <li>
+            <a href="#hwnet">Configuration matérielle du réseau
+            local</a>
+         </li>
+         <li>
+            <a href="#swnet">Configuration logicielle du réseau
+            local</a>
+         </li>
+         <li>
+            <a href="#router">Utilisation d'un routeur</a>
+         </li>
+         <li>
+            <a href="#isset">Logiciels de partage Internet</a>
+         </li>
+         <li>
+            <a href="#clientset">Configuration des clients</a>
+         </li>
+      </ul>
+      <h3>
+         <a id="hwnet" name="hwnet">Configuration matérielle du
+         réseau local</a>
+      </h3>
+      <p>
+         Il existe plusieurs types de ces réseaux et des livres
+         sont consacrés à ce sujet. Je resterai ici au plus simple
+         et commun: un réseau Ethernet. Pour obtenir un tel réseau,
+         les machines doivent disposer de prises dans lesquelles il
+         est possible de brancher un câble Ethernet. Cette prise
+         est souvent fournie par une carte d'extension que l'on
+         appelle NIC pour <i>Network Interface Card</i> (carte
+         d'interface réseau). Cette carte se présente comme une
+         carte PCI pour les ordinateurs de table et s'avère très
+         abordable (une trentaine de dollars). De nos jours, de
+         plus en plus de cartes mères comportent une interface
+         réseau intégrée. Dans ce cas, l'achat d'une carte réseau
+         est superflu, à moins que l'interface intégrée ne
+         fonctionne pas bien. Il existe également des cartes USB
+         qui ont l'avantage de se brancher dans le port USB et ne
+         pas exiger d'ouvrir le boîtier de l'ordinateur. Certains
+         modems câble ou ADSL pour l'Internet haute vitesse se
+         connectent au port USB et émulent une carte réeau usuelle.
+         Malheureusement, de tels dispositifs peuvent causer
+         problème si on ajoute une carte PCI dans l'ordinateur. Il
+         se peut en effet que Windows ne puisse utiliser que des
+         cartes USB dès qu'une telle carte est installée! (?) Des
+         cartes ISA, peu répandues de nos jours, permettent la
+         connexion des vieux ordinateurs tels que les 486. Si vous
+         voulez intégrer un ordinateur portable au réseau, il
+         faudra naturellement une carte de type PCMCIA beaucoup
+         plus coûteuse, à moins que la machine ne comporte une
+         interface réseau intégrée. Dans le cas d'un portable
+         utilisé exclusivement sous Windows, il deviendrait
+         avantageux d'utiliser une carte USB plutôt que d'acheter
+         une carte PCMCIA.
+      </p>
+      <p>
+         Un adaptateur réseau sans fil répondant à la norme 802.11g
+         constitue également une solution très intéressante pour
+         remplacer l'interface réseau, car il permet d'éviter les
+         câbles. Toutefois, à peu près seuls les ordinateurs
+         portables intègrent un tel adaptateur et son achat sous
+         forme de carte PCI est plus coûteux qu'une carte réseau
+         avec fil.
+      </p>
+      <p>
+         Outre le type de réseau utilisé, la vitesse de la carte
+         constitue un second paramètre important. Pour un accès
+         Internet, une carte 10 mégabits/s (Mbps) suffit, mais il
+         existe des cartes 100Mbps (Fast Ethernet) et même 1
+         gigabits/s. Les cartes Ethernet 10/100Mbps tendent à
+         remplacer les cartes 10Mbps et la différence de prix
+         s'avère minime. Notez que 10Mbps implique un taux de
+         transfert de dix millions de bits par seconde et non pas
+         dix millions d'octets par seconde.
+      </p>
+      <p>
+         La prise Ethernet ressemble à une prise téléphonique et
+         vous vous apercevrez vite que le raccordement du câble
+         Ethernet est en tous points similaire à la connexion d'un
+         téléphone dans la prise murale. Toutefois, le connecteur
+         n'est pas le même et on ne doit pas utiliser un fil
+         téléphonique mais plutôt un câble Ethernet, de la paire
+         torsadée non blindée (<i>Unshielded twisted pair</i>,
+         UTP). Il est possible d'en trouver dans tous les bons
+         magasins d'informatique et le prix varie selon la
+         longueur. Le câble UTP doit être terminé par des
+         connecteurs RJ45, un à chaque bout, afin de pouvoir être
+         branchés à une interface réseau. Ce sont ces connecteurs
+         qui provoquent la si grande similitude avec les fils de
+         téléphone. Vous devriez choisir des longueurs standard,
+         car le sertissage constitue une opération ardue qui vous
+         sera facturée si elle doit être effectuée pour obtenir une
+         longueur sur mesure. Selon les bons vieux principes de
+         mécanique, il vaut mieux plus long que trop court, trop
+         que pas assez. Bien entendu, si la longueur requise est
+         réellement importante, il faudra prévoir l'ajout de
+         dispositifs pour renforcer le signal électrique dans les
+         câbles (répéteurs). Pour plus d'informations à propos du
+         sertissage de câbles Ethernet, consultez <a
+         href="http://www.tuplay.com/display.asp?i=41&amp;p=1">Networking
+         Guide: Making Your Own Cable</a>.
+      </p>
+      <p>
+         Maintenant, comment raccorder les machines entre elles?
+         Intuitivement, on pourrait croire que dans le cas de deux
+         ordinateurs seulement, un client et un serveur, brancher
+         les deux cartes réseau ensemble permettrait la liaison.
+         Malheureusement, il n'en est rien, à moins d'utiliser un
+         câble à paire inversée, plus connu sous le nom de
+         cross-over. Les câbles Ethernet ordinaires, de type
+         straight through, sont conçus pour se brancher dans un
+         autre dispositif réseau, tel un concentrateur (hub), un
+         commutateur (switch) ou un routeur (router). Dans le cas
+         de plus de deux ordinateurs, un dispositif central s'avère
+         d'une nécessité absolue. Il n'existe pas de différence
+         physique entre le câble UTP cross-over et
+         straight-through, la démarcation réside dans le
+         branchement des différents fils dans le câble aux
+         connecteurs RJ45 des extrémités.
+      </p>
+      <p>
+         Un autre problème survient pour les heureux possesseurs de
+         la haute vitesse. Le modem est souvent branché à
+         l'ordinateur par une carte réseau, mais si on branche un
+         câble Ethernet dans la carte, il n'y a plus de place pour
+         le modem. On pourrait être tenté de brancher le modem sur
+         le dispositif central, mais cela ne fonctionnera pas dans
+         tous les cas. Avec le service modem câble de Vidéotron,
+         par exemple, le modem semble retenir l'adresse MAC de la
+         carte réseau qui a obtenu une IP et ne permet pas, par la
+         suite, d'effectuer de nouveaux branchements, à moins de
+         débrancher le modem puis le rebrancher, manoeuvre qui
+         enlèvera l'adresse IP de la machine d'origine. Avec le
+         service Bell Sympatico Édition Haute Vitesse, toutefois,
+         il est possible d'effectuer ce branchement et le système
+         accordera une IP par machine. Dans ce cas, on a affaire à
+         une connexion au niveau du serveur sans frais
+         supplémentaires et on peut configurer le gestionnaire
+         d'accès ou tout autre logiciel PPPoE sur les machines
+         clients, il n'y a en fait aucun serveur domestique.
+         Malheureusement, cette technique peut être perçue par Bell
+         et il se peut que la compagnie n'apprécie guère, surtout
+         si plusieurs machines sont branchées. Il est également
+         fort possible que Bell bloque le nombre d'IP accordées.
+         Notez que vous devrez brancher le modem dans le
+         <i>uplink</i> du dispositif central et non pas dans
+         n'importe quel port. Si vous souhaitez brancher le modem
+         dans un autre port du dispositif, ou dans un dispositif
+         central dépourvu de <i>uplink</i>, un câble cross-over
+         sera requis.
+      </p>
+      <p>
+         Lorsqu'il est impossible de brancher le modem dans le
+         dispositif central, il faut alors munir le serveur de non
+         pas une mais deux interfaces réseaux si le modem ne peut
+         être raccordé par USB! La deuxième carte devrait de
+         préférence être de modèle différent sinon de marque
+         différente que la carte déjà dans la machine. Par exemple,
+         si vous disposiez de deux cartes Realtek 8029, comment
+         faire la différence entre celle branchée sur le modem et
+         celle qui est branchée au réseau interne? Parfois, on peut
+         résoudre par tâtonnement, mais il arrive que les logiciels
+         utilisés se mêlent avec deux cartes identiques de ce
+         genre. L'une des cartes réseaux se verra branchée le modem
+         et utilisera soit le TCP/IP avec DHCP dans le cas de
+         Vidéotron, soit le TCP/IP avec PPPoE dans le cas de Bell.
+         La seconde carte sera branchée au réseau interne, soit à
+         un dispositif central par un câble straight-through, soit
+         à une autre carte réseau par un câble cross-over, et son
+         IP lui sera assignée de façon arbitraire. On lui donne par
+         convention l'adresse 192.168.0.1 et le masque de
+         sous-réseau 255.255.255.0. Les adresses 192.168.0.x où x
+         varie entre 1 et 254, constituent des adresses utilisées
+         pour des réseaux locaux internes non reliés à Internet.
+         L'adresse 192.168.0.0 réfère à tout le réseau et est utile
+         pour le routage tandis que l'adresse 192.168.0.255 permet
+         la diffusion (<i>broadcast</i>) vers tous les noeuds du
+         réseau local privé. Ces adresses ne sont pas utilisables
+         sur le réseau des réseaux et ne provoqueront ainsi aucune
+         confusion. Puisque le réseau n'est relié à Internet que
+         par un seul point, le serveur, on nomme ce serveur
+         passerelle (<i>gateway</i>).
+      </p>
+      <p>
+         Comme dispositif central dans lequel seront branchés les
+         câbles Ethernet, il est possible d'utiliser un
+         concentrateur, un commutateur ou un routeur. Pour un
+         réseau domestique, un concentrateur peut suffire. Le coût
+         de l'appareil augmente naturellement avec le nombre de
+         ports qu'il comporte et leur vitesse. Il ne permettra
+         toutefois pas une bonne répartition du débit entre
+         plusieurs machines communiquant simultanément via le
+         réseau. Lorsqu'une carte réseau désire transférer de
+         l'information à une autre carte, le concentrateur envoie
+         cette information à toutes les cartes qui sont raccordées.
+         Le protocole Ethernet spécifie comment les cartes doivent
+         rejeter les messages qui ne leur sont pas destinés et
+         comment gérer les collisions qui se produisent si deux
+         cartes émettent simultanément. Le commutateur, plus
+         dispendieux, permet une meilleure gestion du traffic en
+         n'envoyant les paquets Ethernet qu'à leur destinataire, et
+         non sur tous les ports, contrairement au concentrateur. Le
+         routeur, quant à lui, permet de relier plusieurs réseaux
+         de type différent et, contrairement au concentrateur et au
+         commutateur qui n'agissent qu'au niveau de la couche
+         liaison de données (communication de donnéees dans un même
+         réseau), le routeur peut réaliser la commutation de
+         paquets IP. Il aiguillonne les paquets IP vers le réseau
+         pour lequel il est destiné et peut exercer des
+         transformations sur les paquets. Un routeur peut donc
+         offrir des fonctions matérielles de partage de connexion
+         Internet.
+      </p>
+      <h3>
+         <a id="swnet" name="swnet">Configuration logicielle du
+         réseau local</a>
+      </h3>
+      <p>
+         À tout matériel correspond un logiciel pilote et la carte
+         réseau ne fait pas exception à cette règle. Si vos cartes
+         réseaux ne sont pas trop exotiques, il sera souvent
+         possible d'utiliser les pilotes fournis avec votre système
+         d'exploitation, souvent Windows mais possiblement aussi
+         Linux, MacOS, OS/2, ... Si Windows ne détecte pas votre
+         carte réseau, vous devrez lui fournir un pilote de
+         périphérique livré avec cette carte ou avec la carte mère
+         si l'interface réseau y est intégrée. Cela a été le cas
+         avec ma carte PCMCIA sur mon portable. Lorsque la carte
+         est installée et prise en charge par Windows, elle
+         apparaît dans le <b>Gestionnaire de périphériques</b>.
+      </p>
+      <center>
+         <img src="nic.png" alt="Présence d'une carte réseau" />
+      </center>
+      <p>
+         Sous Windows, après l'installation du pilote, vous devrez
+         vérifier la présence du protocole TCP/IP dans
+         l'application <b>Réseau</b> du <b>Panneau de
+         configuration</b>. Ce protocole s'avère nécessaire pour la
+         communication Internet et il est installé par défaut dans
+         la plupart des cas. Pour la carte réseau reliée au réseau
+         interne (un problème apparaît déjà lors de
+         l'identification des cartes...), on doit assigner
+         manuellement l'adresse IP. La carte reliée à Internet est
+         configurée soit par DHCP, soit par PPPoE.
+      </p>
+      <center>
+         <img src="tcpip.png"
+         alt="Le protocole TCP/IP sélectionné dans l'onglet Configuration de l'icône Réseau du Panneau de configuration de Windows 95/98/ME" />
+         
+         <p>
+            <img src="ipaddr.png"
+            alt="La sélection d'une adresse IP sous Windows 95/98/ME" />
+         </p>
+      </center>
+      <p>
+         Sous Windows 95/98/ME, la configuration d'une IP
+         s'effectue en double-cliquant sur le protocole TCP/IP, en
+         sélectionnant l'onglet <b>Adresse IP</b> puis en activant
+         <b>Spécifier une adresse IP</b>. Il faut alors entrer
+         l'adresse voulue ainsi que le masque de sous-réseau.
+         L'option <b>Obtenir automatiquement une adresse IP</b>
+         permet d'utiliser le DHCP pour obtenir l'adresse. Si vous
+         souhaitez mettre en place un partage de fichiers à travers
+         le réseau local, assurez-vous que <b>Client pour les
+         réseaux Microsoft</b> est installé puis cliquez sur le
+         bouton <b>Partage de fichiers et d'imprimantes</b> puis
+         activez les éléments que vous souhaitez partager. Pour
+         éviter d'avoir à entrer un nom d'usager lors de chaque
+         démarrage, dans la section <b>Ouverture de session réseau
+         principale</b>, sélectionnez <b>Ouverture de session
+         Windows</b>. Vous devrez aussi nommer votre machine et
+         mettre toutes les machines de votre réseau local dans un
+         même groupe de travail, ce qui s'effectue à partir de
+         l'onglet <b>Identification</b>.
+      </p>
+      <center>
+         <img src="netid.png"
+         alt="Identification d'une machine réseau" />
+      </center>
+      <p>
+         Sous Windows 2000, il faut activer le menu
+         <b>Démarrer</b>, l'option <b>Paramètres</b> puis
+         <b>Connexions réseau et accès à distance</b>. Sélectionnez
+         ensuite <b>Connexion au réseau local</b> puis ensuite
+         <b>Propriétés</b>.
+      </p>
+      <p>
+         Sous Windows XP, pour parvenir à cette boîte de
+         propriétés, activez le <b>Panneau de configuration</b>
+         dans le menu <b>Démarrer</b> puis l'option <b>Connections
+         réseau</b>. Vous devrez ensuite double-cliquer sur la
+         carte réseau à configurer.
+      </p>
+      <center>
+         <img src="netprops2k.png"
+         alt="État de la connexion au réseau local" /> 
+         <p>
+            <img src="netprops22k.png"
+            alt="Les propriétés réseau de Windows 2000/XP" />
+         </p>
+      </center>
+      <p>
+         Pour la carte réseau reliée à Internet, il est bon de
+         désactiver la planification de paquets QoS, le Client pour
+         les réseaux Microsoft et le partage de fichiers et
+         d'imprimantes. Le premier réglage permettra de gagner un
+         peu de vitesse Internet tandis que les deux autres
+         augmenteront la sécurité de votre système en empêchant
+         l'accès depuis Internet à vos ressources partagées dans le
+         réseau. Sélectionnez le protocole TCP/IP puis cliquez sur
+         <b>Propriétés</b>. Cette boîte vous permettra alors de
+         modifier l'adresse IP de votre machine et cela, sans
+         exiger un redémarrage système.
+      </p>
+      <center>
+         <img src="ipadr2k.png"
+         alt="Choix de l'adresse IP d'une machine Windows 2000/XP" />
+      </center>
+      <p>
+         Pour le réseau interne, il faut là encore donner un nom à
+         sa machine. Pour y parvenir, cliquez droit sur l'icône
+         <b>Poste de travail</b> puis activez <b>Propriétés</b>.
+         Activez l'onglet <b>Identification réseau</b> puis cliquez
+         sur <b>Propriétés</b>. Vous pourrez alors définir le nom
+         de l'ordinateur ainsi que son groupe de travail.
+      </p>
+      <center>
+         <img src="netid2k.png"
+         alt="Identification réseau sous Windows 2000/XP" />
+      </center>
+      <p>
+         Sous Linux, il faut être chanceux. Si la carte est
+         supportée par un module du noyau, elle sera détectée et
+         utilisée, surtout si c'est une carte PCI. Dans le cas des
+         cartes ISA, il faudra configurer le module adéquat ou, si
+         possible, se simplifier la vie en remplaçant cette vieille
+         carte par une PCI. Étant donné que les cartes PCI sont
+         supportées uniquement par les Pentium, si vous recyclez un
+         vieux 486 comme serveur dédié, vous devrez utiliser une
+         carte ISA ou même deux cartes si vous voulez tenter de
+         partager une connexion haute vitesse. Malheureusement,
+         dans ce cas, il y a des chances que la picouille ne puisse
+         pas supporter le débit, mais c'est une autre affaire... Si
+         la carte n'est supportée par aucun module du noyau,
+         beaucoup de problèmes apparaissent. Vous devrez soit
+         mettre le noyau à jour s'il contient un module capable de
+         prendre la carte en charge ou tenter de trouver un module
+         chez le fabricant de la carte, qui souvent, brille par son
+         absence ou ne fonctionne pas pour les plus récentes
+         versions du noyau. Sans ce module, il reste soit oublier
+         Linux, soit changer la carte réseau, ce qui n'est pas
+         réjouissant avec une carte PCMCIA!
+      </p>
+      <p>
+         Lorsque la carte est trouvée, il faut alors la configurer.
+         Cela peut se faire assez facilement avec l'utilitaire
+         <tt>netconf</tt> sous Red Hat. Il faudra que
+         <tt>linuxconf</tt> soit installé pour pouvoir utiliser
+         <tt>netconf</tt>. <tt>netconfig</tt> existe également sous
+         Red Hat, mais il ne permet qu'une configuration de base,
+         pas un contrôle sur tous les paramètres. Malheureusement,
+         sous Red Hat Linux 7.3, Linuxconf s'avère introuvable. Une
+         solution alternative consiste alors à démarrer
+         <tt>kontrol-panel</tt> qui offre un panneau de
+         configuration comportant une application de configuration
+         réseau. Mandrake, de son côté, offre un Panneau de
+         configuration comportant un onglet Réseau capable
+         d'effectuer les réglages. Les autres distributions offrent
+         probablement un utilitaire équivalent, mais je n'ai pas
+         étudié ce sujet. La configuration permet bien entendu
+         d'utiliser DHCP pour une configuration automatique, mais
+         aussi de spécifier une adresse IP fixe pour le réseau
+         interne.
+      </p>
+      <p>
+         En fait, le processus de configuration réseau se résume à
+         manipuler un certain nombre de fichiers de configuration
+         ainsi que des shell scripts. Le fichier
+         <tt>/etc/hosts</tt> doit contenir les correspondances
+         entre les domaines et les adresses IP. Dans mon cas, ce
+         fichier contient une ligne qui se lit comme suit
+      </p>
+<pre>
+127.0.0.1               faucondefer.ericbuist.com faucondefer
+localhost.localdomain localhost
+   
+</pre>
+      <p>
+         Elle associe l'hôte faucondefer.ericbuist.com à l'adresse
+         127.0.0.1. Il est possible de nommer ainsi les différents
+         noeuds du réseau afin de pouvoir y référer plus
+         facilement. L'hôte spécifié n'a pas besoin d'être valide
+         sur Internet.
+      </p>
+      <p>
+         Pour fixer le nom de l'hôte, la commande <tt>hostname</tt>
+         doit être utilisée. Au démarrage, le nom est lu depuis le
+         fichier <tt>/etc/sysconfig/network</tt> qui contient, dans
+         mon cas, ce qui suit:
+      </p>
+<pre>
+NETWORKING=yes
+HOSTNAME=faucondefer.ericbuist.com
+   
+</pre>
+      <p>
+         Le fichier <tt>/etc/resolv.conf</tt> permet de son côté
+         d'indiquer au système comment déterminer l'IP à partir
+         d'un nom de domaine. Pour effectuer la traduction, Linux
+         passe par le fichier <tt>/etc/hosts</tt> et si le domaine
+         à accéder n'est pas disponible, un serveur DNS est
+         consulté. Le fichier doit contenir une entrée pour chaque
+         DNS utilisé.
+      </p>
+<pre>
+search ericbuist.com
+nameserver 192.168.0.1
+   
+</pre>
+      <p>
+         L'utilitaire <tt>ifconfig</tt> permet quant à lui de
+         configurer les interfaces réseau. Ces interfaces portent
+         les noms de <tt>ethN</tt> où <tt>N</tt> varie entre 0 et
+         un certain entier. L'interface PPP comportera le nom
+         <tt>ppp0</tt>, bien distincte des interfaces Ethernet!
+         <tt>ifconfig</tt> permet de configurer tout ce qui a trait
+         aux interfaces réseau, mais les réglages ne sont pas
+         conservés d'une session Linux à l'autre. Ce programme sera
+         donc invoqué depuis des scripts lors du démarrage.
+      </p>
+      <p>
+         Sous Red Hat et Mandrake, ces scripts se trouvent dans
+         <tt>/etc/sysconfig/network-scripts</tt>. Par exemple, le
+         fichier <tt>ifcfg-eth0</tt> de ce répertoire configure
+         l'interface <tt>eth0</tt> et se lit, dans mon cas, comme
+         suit:
+      </p>
+<pre>
+DEVICE=eth0
+BOOTPROTO=static
+IPADDR=192.168.0.5
+NETMASK=255.255.255.0
+GATEWAY=192.168.0.1
+ONBOOT=yes
+</pre>
+      <p>
+         Pour un DHCP, le <tt>BOOTPROTO</tt> sera <tt>dhcp</tt> et
+         les champs <tt>IPADDR</tt> et <tt>NETMASK</tt> seront
+         vides. Pour configurer un partage de fichiers et
+         d'imprimantes pouvant interagir avec Windows,
+         l'utilisation de Samba s'avère nécessaire. Samba constitue
+         une implantation du protocole SMB utilisé pour effectuer
+         la communication.
+      </p>
+      <p>
+         Il est possible d'accéder aux autres machines Microsoft en
+         utilisant <tt>smbclient</tt>. Pour offrir un partage de
+         fichiers à des machines Windows, vous devrez éditer le
+         fichier <tt>/etc/samba/smb.conf</tt> et démarrer le
+         serveur Samba sur la machine Linux. Le fichier de
+         configuration permet de paramétrer le groupe de travail,
+         le nom de la machine, sa description ainsi que les
+         ressources qu'elle partage. Cette opération n'est pas
+         simple, beaucoup moins intuitive que sous Windows.
+      </p>
+      <p>
+         Tout cela ne constitue qu'un bref aperçu de la
+         configuration manuelle d'un réseau sous Linux. Il vous
+         faudra sans doute examiner les scripts de configuration de
+         votre distribution, lire des howtos ou les deux pour
+         parvenir à un résultat, surtout dans des cas complexes
+         impliquant de paramétrer la carte réseau.
+      </p>
+      <center>
+         <img src="winipcfg.png"
+         alt="Informations IP obtenues sous Windows ME avec Winipcfg" />
+      </center>
+      <p>
+         Pour savoir si les cartes réseaux fonctionnent bien, il
+         existe plusieurs techniques. Sous Windows 95/98/ME, la
+         première chose consiste à vérifier si la carte est bien
+         répertoriée dans la liste fournie par l'utilitaire
+         <tt>winipcfg</tt>, que l'on appelle par la commande
+         <b>Exécuter</b> du menu <b>Démarrer</b>. Si tel n'est pas
+         le cas, il y a un problème de pilote. Si vous utilisez
+         Windows 98 sans la prise en charge de la gestion d'énergie
+         ACPI, vous devrez utiliser le pilote de carte pour Windows
+         95 et non celui pour Windows 98. La gestion ACPI crée une
+         couche d'abstraction du matériel qui ramène tous les
+         périphériques sur une même ligne IRQ au niveau virtuel,
+         tout en permettant l'utilisation en arrière-plan des
+         véritables IRQ. Un pilote qui ne prend pas en charge cet
+         état de fait tentera d'utiliser la carte sur l'IRQ commune
+         et ne parviendra à rien d'autres qu'à reporter son
+         absence, ne pas permettre l'utilisation de TCP/IP ou
+         planter le système. Pour savoir si vous utilisez ou non
+         ACPI, cliquez droit sur le <b>Poste de travail</b> puis
+         activez <b>Propriétés</b>. Dans le <b>Gestionnaire de
+         périphériques</b>, section <b>périphériques système</b>,
+         il devrait y avoir des cossins ACPI si le support est
+         actif, sinon, il y aura <b>Prise en charge de la gestion
+         d'énergie avancée</b> ou quelque chose du genre. Avec
+         Windows 95, ce problème ne se pose pas puisqu'il n'y a pas
+         de support pour l'ACPI.
+      </p>
+      <center>
+         <img src="acpihere.png"
+         alt="Preuve que le support ACPI est présent" />
+      </center>
+      <p>
+         Dans le cas de Sympatico Édition Haute Vitesse,
+         l'installation d'une couche additionnelle s'avère
+         nécessaire. Cette couche permet de doter Windows des
+         fonctions nécessaires pour le protocole PPPoE. Bell
+         propose le Gestionnaire d'Accès, leur propre pilote PPPoE,
+         mais ce dernier inhibe le module de partage de connexion
+         Internet intégré à Windows. Si vous souhaitez utiliser le
+         Gestionnaire d'Accès de Bell, vous devrez utiliser un
+         autre logiciel de partage tel que SyGate.
+      </p>
+      <p>
+         Le logiciel <a
+         href="http://user.cs.tu-berlin.de/~normanb/">RASPPPOE</a>
+         permet quant à lui une intégration plus directe au
+         système. Si vous utilisez Windows XP, vous n'avez pas
+         besoin de ce logiciel, car PPPoE est déjà intégré à ce
+         système. Pour le faire fonctionner, ajoutez simplement une
+         connexion haute vitesse exigeant un nom d'utilisateur et
+         un mot de passe. Dans le <b>Panneau de configuration</b>,
+         activez <b>Connexions réseau</b> et cliquez sur <b>Créer
+         une nouvelle connexion</b>. Spécifiez que vous voulez
+         configurer une connexion Internet, de façon manuelle, puis
+         avec nom d'utilisateur et mot de passe. Naturellement,
+         vous aurez besoin du login et du mot de passe fournis par
+         Bell. Ainsi, sous XP, vous n'aurez pas besoin du
+         Gestionnaire de Bell, en aucun cas!
+      </p>
+      <p>
+         Sous tout autre système, suivez les instructions pour
+         l'installation de RASPPPoE. N'oubliez surtout pas, dans le
+         cas de Windows 98 Deuxième Édition, d'installer la patch
+         pour les drivers NDIS.
+      </p>
+      <p>
+         <a
+         href="http://support.microsoft.com/default.aspx?scid=kb;EN-US;q243199">Q243199
+         - Windows 98 Second Edition Problems with NDIS
+         Intermediate Drivers</a>
+      </p>
+      <p>
+         Vous devrez ensuite utiliser RASPPoE pour créer une
+         connexion d'accès réseau à distance, puis la tester.
+         Internet devrait fonctionner à ce point sur le serveur.
+      </p>
+      <p>
+         Si vous avez assigné des IP statiques à tous les
+         ordinateurs du réseau local, vous pouvez tester le réseau
+         en utilisant la commande <tt>ping</tt>. Par exemple, si
+         vous tapez <tt>ping 192.168.0.1</tt> depuis une machine
+         client, vous obtiendrez, si tout va bien, une réponse du
+         serveur démontrant que la carte fonctionne.
+      </p>
+<pre>
+PING 192.168.0.1 (192.168.0.1) from 192.168.0.2 : 56(84) bytes of data.
+Warning: time of day goes back, taking countermeasures.
+64 bytes from 192.168.0.1: icmp_seq=0 ttl=128 time=2.117 msec
+64 bytes from 192.168.0.1: icmp_seq=1 ttl=128 time=467 usec
+64 bytes from 192.168.0.1: icmp_seq=2 ttl=128 time=456 usec
+64 bytes from 192.168.0.1: icmp_seq=3 ttl=128 time=412 usec
+64 bytes from 192.168.0.1: icmp_seq=4 ttl=128 time=451 usec
+64 bytes from 192.168.0.1: icmp_seq=5 ttl=128 time=454 usec
+64 bytes from 192.168.0.1: icmp_seq=6 ttl=128 time=449 usec
+64 bytes from 192.168.0.1: icmp_seq=7 ttl=128 time=458 usec
+64 bytes from 192.168.0.1: icmp_seq=8 ttl=128 time=449 usec
+64 bytes from 192.168.0.1: icmp_seq=9 ttl=128 time=453 usec
+64 bytes from 192.168.0.1: icmp_seq=10 ttl=128 time=438 usec
+
+--- 192.168.0.1 ping statistics ---
+11 packets transmitted, 11 packets received, 0% packet loss
+round-trip min/avg/max/mdev = 0.412/0.600/2.117/0.480 ms
+   
+</pre>
+      <p>
+         Cet outil est également disponible sous Linux et Windows
+         NT/2000/XP. Pour Windows 2000/XP et probablement Windows
+         NT, l'équivalent de <tt>winipcfg</tt> se nomme
+         <tt>ipconfig</tt>.
+      </p>
+<pre>
+Configuration IP de Windows 2000
+
+Ethernet carte Connexion au réseau locale:
+
+        Suffixe DNS spéc. à la connexion. : 
+        Adresse IP. . . . . . . . . . . . : 192.168.0.2
+        Masque de sous-réseau . . . . . . : 255.255.255.0
+        Passerelle par défaut . . . . . . : 192.168.0.1
+   
+</pre>
+      <p>
+         Sous Linux, il existe plusieurs commandes de statistiques
+         pour les interfaces réseau. Voici un exemple d'appels de
+         ces commandes.
+      </p>
+<pre>
+[eric@faucondefer tips]$ ifconfig
+eth0      Link encap:Ethernet  HWaddr 00:50:BF:1A:6E:96  
+          inet addr:192.168.0.2  Bcast:192.168.0.255  Mask:255.255.255.0
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:20912 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:339 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:1 txqueuelen:100 
+          Interrupt:5 Base address:0xaf00 
+
+lo        Link encap:Local Loopback  
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          UP LOOPBACK RUNNING  MTU:16436  Metric:1
+          RX packets:26 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:26 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+
+[eric@faucondefer tips]$ ip -s link
+1: lo: &lt;LOOPBACK,UP&gt; mtu 16436 qdisc noqueue 
+        link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+        RX: bytes  packets  errors  dropped overrun mcast   
+        1000       26       0       0       0       0      
+        TX: bytes  packets  errors  dropped carrier collsns 
+        1000       26       0       0       0       0      
+        2: eth0: &lt;BROADCAST,MULTICAST,UP&gt; mtu 1500 qdisc pfifo_fast qlen 100
+          link/ether 00:50:bf:1a:6e:96 brd ff:ff:ff:ff:ff:ff
+          RX: bytes  packets  errors  dropped overrun mcast   
+          8113241    20946    0       0       0       0      
+          TX: bytes  packets  errors  dropped carrier collsns 
+          38243      339      0       0       0       1      
+          [eric@faucondefer tips]$ ip -s addr
+          1: lo: &lt;LOOPBACK,UP&gt; mtu 16436 qdisc noqueue 
+            link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+            inet 127.0.0.1/8 brd 127.255.255.255 scope host lo
+            2: eth0: &lt;BROADCAST,MULTICAST,UP&gt; mtu 1500 qdisc pfifo_fast qlen 100
+              link/ether 00:50:bf:1a:6e:96 brd ff:ff:ff:ff:ff:ff
+              inet 192.168.0.2/24 brd 192.168.0.255 scope global eth0
+   
+</pre>
+      <p>
+         Pas d'une très grande utilité mais indique tout de même
+         que l'interface est active et a une adrese IP bien à elle.
+      </p>
+      <h3>
+         <a id="router" name="router">Utilisation d'un routeur</a>
+      </h3>
+      <p>
+         Le routeur est en fait un espèce de serveur dédié
+         permettant d'effectuer le partage Internet de façon
+         matérielle et très simplifiée. L'appareil se présente
+         comme un commutateur disposant d'une prise réseau
+         spécialement conçue pour le raccordement d'un modem haute
+         vitesse, du moment que ce modem n'est pas USB seulement.
+         Le routeur se charge d'établir la connexion Internet et
+         supporte différents protocoles pouvant prendre en charge
+         les fournisseurs haute vitesse courants. La plupart des
+         routeurs utilisent NAT pour effectuer le partage Internet,
+         mais un appareil implantant un proxy est parfaitement
+         imaginable.
+      </p>
+      <p>
+         Un routeur constitue en général un pare-feu en plus d'une
+         passerelle de partage Internet. Il supporte le blocage
+         sélectif de ports ainsi que la redirection. Certains
+         appareils intègrent également un serveur d'impression et
+         même un point d'accès sans fil. Les clients peuvent se
+         connecter en utilisant DHCP (le routeur assigne
+         automatiquement des adresses IP) ou avec des IP statiques.
+         Souvent, le passage aux IP statiques est nécessaire pour
+         bénéficier de la redirection de ports.
+      </p>
+      <p>
+         La grande force d'un routeur réside dans la possibilité de
+         le configurer à distance, depuis n'importe quelle machine
+         du réseau local. En tapant l'adresse IP locale du routeur
+         dans un navigateur Web, l'utilisateur accède à l'interface
+         de configuration. L'interface Web, bien entendu protégée
+         par un mot de passe, permet le paramétrage depuis
+         n'importe quel système d'exploitation. Il est aussi
+         possible de limiter l'accès aux noeuds du réseau local ou
+         de le permettre depuis Internet pour une administration à
+         distance. En général, un appareil ne pouvant se configurer
+         que par une application Windows est à éviter.
+      </p>
+      <p>
+         Un routeur est très robuste, car son logiciel firmware est
+         minimal. Le serveur NAT et le pare-feu ne dépendent pas
+         d'une foule de fichiers pouvant être infectés par des
+         virus. En cas de bogues, le fabricant du routeur peut
+         fournir des mises à jour du firmware. Cet appareil
+         constitue la solution idéale, car il allie la robustesse
+         d'un serveur Linux à la simplicité d'utilisation d'une
+         interface Web.
+      </p>
+      <p>
+         Si vous optez pour un routeur, la configuration du partage
+         en sera simplifiée. Dans le cas contraire, la section
+         suivante de cette page expose les différents logiciels
+         disponibles pour mettre en place le partage.
+      </p>
+      <h3>
+         <a id="isset" name="isset">Logiciels de partage
+         Internet</a>
+      </h3>
+      <p>
+         Vient maintenant le temps de choisir le logiciel qui sera
+         utilisé pour le partage Internet ainsi que la méthode de
+         configuration. J'exposerai ici les principaux logiciels
+         que j'ai expérimentés ou qui peuvent l'être.
+      </p>
+      <h4>
+         WinGate
+      </h4>
+      <p>
+         WinGate constitue un serveur proxy, il s'installe sur une
+         machine Windows et permet un contrôle du serveur à partir
+         d'une autre machine du réseau. Je n'ai jamais expérimenté
+         l'utilisation du programme, mais ce dernier nécessite un
+         logiciel client... pour Windows! Toutefois, ce logiciel ne
+         permet que la configuration correcte des applications pour
+         utiliser le proxy. Sous Linux, il faudra simplement
+         configurer chacun des clients (navigateur Web, client FTP,
+         logiciel de courrier électronique, ...) pour utiliser un
+         proxy SOCKS 4 sur le port 1080. L'usage de SOCKS 4 est
+         plus simple, car elle évite de devoir mettre en place des
+         noms d'usager sur le serveur et je ne sais pas si WinGate
+         supporte SOCKS 5 et à partir de quelle version.
+      </p>
+      <h4>
+         Internet Connection Sharing
+      </h4>
+      <p>
+         Un bien grand nom pour dénoter le logiciel Microsoft ICS
+         inclus dans Windows 98 Deuxième Édition, Windows 2000/XP
+         et Windows Millennium Edition, et probablement dans les
+         versions ultérieures de ce système d'exploitation. Ce
+         logiciel utilise la technique du NAT afin de réaliser un
+         partage Internet qui fonctionne très bien, sauf pour ce
+         qui est du port mapping.
+      </p>
+      <center>
+         <img src="wininst.png"
+         alt="Onglet Installation de Windows de la boîte Ajout/suppression de programmes du Panneau de Configuration" />
+      </center>
+      <p>
+         Pour installer le module de partage, après avoir bien
+         configuré les cartes réseaux du serveur, dans le menu
+         <b>Démarrer</b>, <b>Paramètres</b>, puis <b>Panneau de
+         configuration</b>, sélectionnez <b>Ajout/suppression de
+         programmes</b>, puis <b>Installation de Windows</b>. Le
+         module de partage Internet se trouve parmi la liste des
+         programmes, il faudra cliquer sur <b>Communications</b>
+         puis sur <b>Détails</b> pour obtenir le contenu de la
+         catégorie qui contient le module <b>Partage de connexion
+         Internet</b>. Sous Windows 98 Deuxième Édition, le module
+         se trouve dans <b>Outils Internet</b> tandis qu'il est est
+         déjà installé (pas nécessairement activé) sous Windows
+         2000/XP. L'installation demande de choisir la carte réseau
+         servant à la connexion Internet et puis demande de créer
+         une disquette qui, en fait, n'est pas nécessaire du tout.
+         Notez que si vous avez installé RASPPPOE pour la haute
+         vitesse Bell, vous devrez sélectionner le dial-up adapter
+         et non pas une carte réseau pour l'interface vers
+         Internet. Comme le veut la tradition Microsoft, un
+         redémarrage sera nécessaire puis le module fonctionnera
+         ensuite. Vérifiez bien, avant de configurer les machines
+         clients, que la connexion Internet est toujours
+         fonctionnelle sur le serveur. Si tel n'est pas le cas, il
+         est plus que probable qu'il en sera ainsi sur toute autre
+         machine du réseau.
+      </p>
+      <p>
+         Le port mapping est certes faisable, mais il implique des
+         modifications dans le Registre suivies... d'un redémarrage
+         de Windows! Des utilitaires existent pour effectuer cette
+         configuration de façon plus conviviale, mais aucun ne
+         permet de le faire sans exiger le redémarrage. Le module
+         est intégré au niveau système, tel que le prouve la
+         présence du Partage Internet dans la liste des cartes
+         réseaux du <b>Gestionnaire de périphériques</b>. Il
+         fournit un serveur DHCP qui fonctionne aussi bien pour les
+         clients Windows que Linux. ICS permet un maximum de cinq
+         connexions utilisateur simultanées, ce qui est suffisant
+         pour un usage domestique.
+      </p>
+      <p>
+         Sous Windows 2000/XP, l'installation s'avère quelque peu
+         différente. Dans le menu <b>Démarrer</b>, sélectionnez
+         <b>Paramètres</b> puis <b>Connexions réseau et accès à
+         distance</b>. Dans la fenêtre qui apparaît, vous trouverez
+         une entrée pour chacune des cartes réseaux installées.
+         Cliquez droit sur la carte servant à l'accès Internet puis
+         sélectionnez <b>Propriétés</b>. S'il y a plus d'une
+         interface réseau sur votre système, et seulement dans ce
+         cas, un onglet autre que <b>Général</b> devrait
+         apparaître: accès partagé. Cet onglet contient une case à
+         cocher qui activera le partage.
+      </p>
+      <p>
+         Avec Windows XP, il arrive que le partage soit
+         automatiquement activé durant l'installation. Il faut dans
+         ce cas vérifier qu'aucun pont réseau n'a été créé par la
+         configuration automatique. Un tel pont relierait Internet
+         avec le réseau interne qui est privé, il constitue une
+         aberration, il ne devrait pas être utilisé dans le
+         contexte d'un partage de connexion Internet. Le pont sert
+         à relier deux réseaux pour les rendre accessibles l'un
+         depuis l'autre.
+      </p>
+      <p>
+         Pour retirer le pont, cliquez droit sur ce dernier dans
+         les connexions réseau, puis sélectionnez la commande
+         <b>Supprimer</b>. Le pont sera alors retiré, mais le
+         partage cessera de fonctionner, comme je l'ai expérimenté
+         moi-même. Il faudra désactiver le partage puis le
+         réactiver, sans bien entendu oublier de valider les deux
+         opérations. Il ne suffit pas de cocher et décocher la case
+         du partage sans cliquer sur le bouton <b>OK</b>!
+         Heureusement, l'opération se fera sans aucun redémarrage.
+      </p>
+      <p>
+         Pour ce qui est du pare-feu, il devrait être activé sur la
+         machine serveur ainsi que sur tous les clients. Sous
+         Windows XP avant le Service Pack 2, il fallait toutefois
+         désactiver le pare-feu sur la carte interne afin d'éviter
+         les problèmes de communication. Il se peut qu'un pare-feu
+         tiers, installé sous XP, interfère avec son module de
+         partage Internet. Pensez à désactiver temporairement ce
+         pare-feu en cas de mauvais fonctionnement du partage,
+         quitte à le mettre à jour ou à le remplacer
+         ultérieurement.
+      </p>
+      <h4>
+         SyGate Home Network
+      </h4>
+      <p>
+         Autre logiciel de NATing, son intérêt réside dans sa
+         simplicité d'installation, la possibilité de le faire
+         fonctionner sous Windows 95, Windows 98, Windows 98SE,
+         Windows NT et Windows 2000 et, avantage indéniable, un
+         système de port mapping automatique. SyGate permet
+         également de noter l'activité Internet des machines du
+         réseau, de définir des permissions pour les différentes
+         machines et il fournit également un système permettant le
+         partage avec une seule carte réseau branchée au serveur.
+         Dans ce système, le modem est branché au hub, de même que
+         les cartes réseaux. Le serveur se branche au modem puis
+         remplace la carte réseau visible sur le réseau interne par
+         une interface virtuelle. Je n'ai jamais expérimenté ce
+         système, mais il constitue une innovation de la compagnie
+         et peut s'avérer très intéressant.
+      </p>
+      <p>
+         SyGate a malheureusement du mal à supporter les clients
+         Linux, j'ai éprouvé un nombre incalculable de problèmes
+         avec cela, mais il existe des moyens de remédier. De plus,
+         le logiciel n'est pas inclus avec Windows et il faut donc
+         le télécharger et en faire l'achat. Le nombre de
+         connexions simultanées au serveur dépend de la license
+         obtenue, ainsi que de la somme déboursée...
+      </p>
+      <h4>
+         IPTabless
+      </h4>
+      <p>
+         Je n'ai jamais expérimenté ce type de configuration, mais
+         elle est possible et offre un contrôle maximal sur le
+         partage Internet. La machine sera nulle autre qu'un
+         serveur Linux (avec kernel 2.4) complet et on se penche
+         plus souvent, dans ce cas, vers un serveur dédié. Avec ce
+         type de configuration, il est également possible d'offrir
+         sur le réseau et sur Internet d'autres services tels des
+         adresses de courrier électronique, un serveur Telnet, un
+         serveur FTP, ... IPTables permet d'appliquer des règles
+         sur les paquets IP qui transitent sur la machine Linux. Il
+         constitue un logiciel de firewall et permet également de
+         mettre en place le NATing.
+      </p>
+      <p>
+         La procédure de mise en place s'inspire du <a
+         href="http://www.tldp.org/HOWTO/IP-Masquerade-HOWTO/index.html">IP-Masquerade
+         HOWTO</a>, du <a
+         href="http://www.ecst.csuchico.edu/~dranch/LINUX/TrinityOS/cHTML/TrinityOS-c.html">TrinityOS,
+         chapitre 10</a> et de Barkakati, Naba, <i>RedHat Linux 7.3
+         Secrets</i>, Wiley Publishing, Inc., New York, 2002.
+      </p>
+      <p>
+         Par défaut, Linux n'est pas configuré pour ce genre de
+         services. Pire encore, RedHat 7.3 utilise encore l'ancien
+         système IPChains qui n'autorise pas facilement la
+         redirection de ports. Ainsi, avant d'effectuer le partage,
+         vous devrez inhiber IPChains pour passer à IPTables. Sous
+         RedHat Linux 7.3, la séquence de commandes suivantes
+         devrait suffire, en root.
+      </p>
+<pre>
+/sbin/service ipchains stop
+/sbin/rmmod ipchains
+cd /etc/sysconfig
+mv ipchains ipchains.rm
+/sbin/iptables -P INPUT ACCEPT
+/sbin/iptables -P OUTPUT ACCEPT
+/sbin/iptables -P FORWARD DROP
+/sbin/iptables -A INPUT -s 0/0 -d 0/0 -i lo -j ACCEPT
+/sbin/iptables -A INPUT -p tcp -s 0/0 -d 0/0 --dport 0:1023 --tcp-flags ACK,FIN SYN -j DROP
+/sbin/iptables -A INPUT -p tcp -s 0/0 -d 0/0 --dport 2049 --tcp-flags ACK,FIN SYN -j DROP
+/sbin/iptables -A INPUT -p udp -s 0/0 -d 0/0 --dport 0:1023 -j DROP
+/sbin/iptables -A INPUT -p udp -s 0/0 -d 0/0 --dport 2049 -j DROP
+/sbin/iptables -A INPUT -p tcp -s 0/0 -d 0/0 --dport 6000:6009 --tcp-flags ACK,FIN SYN -j DROP
+/sbin/iptables -A INPUT -p tcp -s 0/0 -d 0/0 --dport 7100 --tcp-flags ACK,FIN SYN -j DROP
+
+/sbin/iptables -A FORWARD -s 0/0 -d 0/0 -i lo -j ACCEPT
+/sbin/iptables -A FORWARD -p tcp -s 0/0 -d 0/0 --dport 0:1023 --tcp-flags ACK,FIN SYN -j DROP
+/sbin/iptables -A FORWARD -p tcp -s 0/0 -d 0/0 --dport 2049 --tcp-flags ACK,FIN SYN -j DROP
+/sbin/iptables -A FORWARD -p udp -s 0/0 -d 0/0 --dport 0:1023 -j DROP
+/sbin/iptables -A FORWARD -p udp -s 0/0 -d 0/0 --dport 2049 -j DROP
+/sbin/iptables -A FORWARD -p tcp -s 0/0 -d 0/0 --dport 6000:6009 --tcp-flags ACK,FIN SYN -j DROP
+/sbin/iptables -A FORWARD -p tcp -s 0/0 -d 0/0 --dport 7100 --tcp-flags ACK,FIN SYN -j DROP
+
+/sbin/service iptables save
+/sbin/service iptables start
+</pre>
+      <p>
+         Tout d'abord, on inhibe le service IPChains, ce qui remet
+         à zéro toutes les chaînes de règles. Ensuite, le module
+         <tt>ipchains</tt> doit être déchargé, ce qui permet le
+         passage des commandes <tt>iptables</tt> au noyau. Ensuite,
+         le fichier <tt>/etc/sysconfig/ipchains</tt> doit être
+         retiré (On conservera une sauvegarde pour des raisons trop
+         bien connues...) afin d'empêcher le chargement d'IPChains
+         au prochain démarrage.
+      </p>
+      <p>
+         Puis les règles de IPChains doivent être manuellement
+         converties en règles de IPTables. Essentiellement, ces
+         règles inhibent toute connexion vers les ports 0 à 1023.
+         Ce qui aura pour effet d'inhiber les serveurs Telnet, FTP,
+         ..., en tout cas sur les ports habituels. Il demeure
+         toujours possible de démarrer un serveur sur les ports
+         supérieurs à 1024, insérer une règle autorisant la
+         connexion sur un port donné. Cette configuration est
+         directement traduite du fichier
+         <tt>/etc/sysconfig/ipchains</tt> de RedHat 7.3, elle peut
+         être adaptée à volonté. La dernière commande sauvegarde
+         les règles en mémoire dans le fichier
+         <tt>/etc/sysconfig/iptables</tt>. Elles seront en vigueur
+         lors du prochain redémarrage de Linux!
+      </p>
+      <p>
+         L'activation effective du partage doit bien entendu
+         s'effectuer en tant que root. Vous devez tout d'abord
+         activer la redirection de paquets IP. Par ce mode,
+         lorsqu'un paquet IP sera envoyé au serveur Linux, un
+         routage sera effectué si ce paquet ne lui est pas destiné.
+         Une commande permet d'activer cette redirection.
+      </p>
+<pre>
+echo "1" &gt; /proc/sys/net/ipv4/ip_forward
+   
+</pre>
+      <p>
+         Pour activer ce mode en permanence sous RedHat ou
+         Mandrake, éditez le fichier
+         <tt>/etc/sysconfig/network</tt> et assurez-vous de la
+         présence de la ligne <tt>FORWARD_IPV4=true</tt>.
+      </p>
+      <p>
+         Il faut ensuite ajouter des règles à IPTables afin de lui
+         indiquer comment traiter les paquets. Encore une fois,
+         quelques commandes sont nécessaires.
+      </p>
+<pre>
+/sbin/iptables -A FORWARD -i eth0 -o ppp0 -m state --state ESTABLISHED,RELATED -j ACCEPT
+/sbin/iptables -A FORWARD -i ppp0 -o eth0 -j ACCEPT
+/sbin/iptables -t nat -A POSTROUTING -o ppp0 -j MASQUERADE
+</pre>
+      <p>
+         On permet ainsi aux paquets en provenance de l'interface
+         <tt>eth0</tt> (réseau interne), d'être redirigé vers
+         l'interface <tt>ppp0</tt> (connexion Internet), ainsi que
+         le transit en sens inverse. Les paquets redirigés et
+         sortants par l'interface <tt>ppp0</tt> subissent le
+         masquerading, c'est-à-dire que leur adresse source est
+         traduite. Bien entendu, il faudra remplacer <tt>ppp0</tt>
+         par <tt>eth0</tt> si vous utilisez une connexion Internet
+         par carte réseau telle que Vidéotron haute vitesse.
+         <tt>eth0</tt> devra être substituée par <tt>eth1</tt> si
+         votre serveur est doté de deux cartes réseau, ce qui sera
+         le cas dans tous les partages de connexions haute vitesse.
+      </p>
+      <p>
+         IPTables permet également de mettre en oeuvre la
+         redirection de ports. Par exemple, si un serveur HTTP
+         tourne sur le port 80 de la machine 192.168.0.25, vous
+         devrez indiquer à votre passerelle sur 192.168.0.1 de
+         rediriger le traffic entrant sur le port 80 vers la
+         machine en question. Supposons que la passerelle a l'IP
+         <tt>extip</tt> sur l'Internet.
+      </p>
+<pre>
+/sbin/iptables -A FORWARD -i ppp0 -o eth0 -p tcp --dport 80 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
+/sbin/iptables -t nat -A PREROUTING -p tcp -d extip -dport 80 -j DNAT --to 192.168.0.25:80
+   
+</pre>
+      <p>
+         Bien entendu, toutes ces règles devront être enregistrées
+         par la commande <tt>/sbin/service iptables save</tt>. Si
+         votre passerelle ne dispose pas d'une IP fixe sur
+         Internet, vous ne pourrez pas sauvegarder les règles
+         liéees à la redirection de port, car elles dépendent de
+         l'IP de la machine. Un script devra alors être exécuté
+         après connexion à Internet et assigner l'IP.
+      </p>
+<pre>
+EXTIP = `/sbin/ifconfig eth0 | perl -n -e "print \$1 if /inet addr:([\d\.]*)/;"`;
+/sbin/iptables -A FORWARD -i ppp0 -o eth0 -p tcp --dport 80 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT
+/sbin/iptables -t nat -A PREROUTING -p tcp -d $EXTIP -dport 80 -j DNAT --to 192.168.0.25:80
+   
+</pre>
+      <p>
+         Tout cela ne constitue qu'un aperçu de la configuration du
+         partage Internet sous Linux. En cas de problèmes,
+         consultez les sources d'informations citées ci-haut.
+      </p>
+      <h3>
+         <a id="clientset" name="clientset">Configuration des
+         clients</a>
+      </h3>
+      <p>
+         Bien entendu, les machines clients nécessitent une
+         configuration particulière afin de connaître le serveur et
+         pouvoir s'y connecter. Si le mode DHCP peut être utilisé,
+         cette étape se fait très simplement, pas besoin du
+         logiciel client de SyGate ou de la disquette fournie avec
+         Windows pour le ICS. Lorsque la carte réseau est
+         configurée pour utiliser DHCP, une requête est envoyée au
+         réseau et le premier serveur DHCP, en l'occurrence le
+         serveur Internet, se doit d'y répondre et d'accorder une
+         IP à la machine client qui a émis cette requête. Avec l'IP
+         vient également les informations telles que la passerelle
+         à utiliser et le DNS primaire.
+      </p>
+      <p>
+         Malheureusement, il arrive que le DHCP ne fonctionne pas,
+         comme avec d'anciennes versions de SyGate et Linux. Il
+         faut alors assigner à la machine récalcitrante une IP de
+         façon manuelle. Pour éviter tout problème, il faut
+         spécifier une adresse non utilisée sur Internet et par
+         aucune machine du réseau. Pour éviter que l'IP utilisée ne
+         soit assignée par le serveur DHCP à une autre machine
+         Windows du réseau, ce qui provoquerait des résultats
+         catastrophiques, il faut prendre certaines précautions. On
+         peut soit assigner des IP statiques à toutes les machines
+         du réseau ou bien spécifier une plage d'adresses qui
+         seront utilisées par le DHCP et spécifier une IP pour la
+         machine Linux hors de cette plage.
+      </p>
+      <p>
+         La passerelle doit être définie comme étant l'adresse IP
+         du serveur et même chose pour le DNS. En cas de problèmes
+         avec Internet, comme ce que j'ai éprouvé avec Linux, il
+         est égalemnt possible de spécifier les DNS du fournisseur
+         Internet. En cas de problèmes DNS, vous pouvez aussi
+         tenter de spécifier l'adresse IP de la passerelle comme
+         serveur WINS.
+      </p>
+      <p>
+         Lorsque tout est prêt, essayez d'effectuer un
+         <tt>ping</tt> sur un site Internet quelconque mais
+         relativement fiable. Notez que certains sites n'acceptent
+         pas les Ping, alors vérifiez sur une machine dotée d'une
+         connexion Internet fiable (le serveur, la machine branchée
+         directement à Internet, par exemple) avant de conclure à
+         un bogue de partage. Si nécessaire, essayez avec un autre
+         site Web. Si le Ping fonctionne sur le serveur et non sur
+         les clients, il y a un problème de configuration du
+         partage. Si un Ping d'un client vers le serveur échoue, il
+         y a un problème réseau. Il se peut que le Ping fonctionne,
+         mais Internet Explorer pourrait ne pas afficher les pages
+         Web sur les machines clients. Pour résoudre ce problème,
+         dans le menu <b>Outils</b> du navigateur, sélectionnez
+         <b>Options Internet</b>. Sous l'onglet <b>Connexion</b>,
+         vous devez indiquer que vous êtes branché à un réseau
+         local et non par ligne téléphonique. Dans les options
+         proxy, indiquez que vous n'utilisez pas de proxy et
+         qu'Internet Explorer doit détecter les paramètres
+         automatiquement. En cas de problèmes persistants, essayez
+         avec un autre navigateur ou démarrez l'Assistant de
+         Connexion Internet. Vous devrez indiquer à cet assistant
+         que vous utilisez une connexion à un réseau local sans nom
+         d'utilisateur et mot de passe, même si votre serveur
+         utilise PPPoE.
+      </p>
+      <h2>
+         <a id="twocomp" name="twocomp">Cas particulier de deux
+         machines</a>
+      </h2>
+      <p>
+         Si vous voulez simplement partager une connexion Internet
+         pour deux machines, que vous venez de lire cette page et
+         que vous vous y perdez totalement, voici un petit résumé
+         pour le cas particulier et plus simple de deux machines.
+      </p>
+      <p>
+         La machine reliée directement à Internet, par modem
+         téléphonique, câble ou ADSL, se nomme un serveur, car elle
+         offrira un service à l'autre machine, une connexion
+         Internet. Les deux machines devront être pourvues d'une
+         carte réseau Ethernet et ces cartes seront reliées soit
+         par un câble cross-over, soit par un hub et deux câbles
+         straight-through. Dans le cas du service Bell Sympatico
+         Édition Haute Vitesse, on branchera le modem HSE sur le
+         hub et on configurera comme si de rien n'était chacune des
+         deux machines individuelleemnt.
+      </p>
+      <p>
+         Dans le cas du modem câble de Vidéotron ou dans la crainte
+         que Belle ne se mette à charger les deux adresses IP, on
+         ajoutera une seconde carte réseau dans une des deux
+         machines et on la reliera au modem. Pour ce qui est de la
+         connexion téléphonique, l'une des deux machines doit
+         posséder un modem téléphonique branché à une prise
+         téléphonique murale puis configurée pour accéder à
+         Internet.
+      </p>
+      <p>
+         Dans tous les cas, sauf HSE (High Speed Edition si vous ne
+         l'avez pas deviné), le serveur comportera deux IP.
+         L'adresses IP externe sera celle attribuée par votre
+         fournisseur d'accès Internet tandis que l'adresse interne
+         est 192.168.0.1 ou tout autre chose du genre. Le masque de
+         sous-réseau interne est 255.255.255.0. Notez que le module
+         de Partage de connexion Internet de Windows effectue cette
+         configuration de façon automatique.
+      </p>
+      <p>
+         Le client aura une seule adresse IP: 192.168.0.2, il
+         utilisera 192.168.0.1 comme passerelle, si tant est que
+         c'est l'adresse du serveur. Son masque de sous-réseau sera
+         le même que celui du serveur, soit 255.255.255.0 et son
+         DNS est soit celui du serveur, soit ceux donnés par le
+         fournisseur d'accès Internet ou obtenus par DHCP par le
+         serveur. La configuration DHCP, si elle fonctionne, permet
+         de configurer tous ces éléments automatiquement.
+      </p>
+      <p>
+         L'installation du logiciel de partage Internet n'est
+         effectuée que sur le serveur, pas sur les autres machines.
+         Et bien entendu, le client n'aura accès à Internet que si
+         le serveur fonctionne, sauf dans le cas du HSE.
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

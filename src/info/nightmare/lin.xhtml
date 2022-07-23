@@ -1,0 +1,1351 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         Linux
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css"
+      href="../../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../../index.xhtml" class="parents">Le
+               royaume de Eric Buist</a> &gt;&gt; <a
+               href="../index.xhtml"
+               class="parents">Informatique</a> &gt;&gt;
+               Configuration informatique &gt;&gt; <a
+               href="index.xhtml" class="parents">Le Nightmare,
+               second du Salvator</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../../sitemap.xhtml" class="sitemap">Plan
+               du site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="win.xhtml"
+               class="leftsibling">Windows XP</a>
+            </td>
+            <td class="thispage">
+               Linux
+            </td>
+            <td class="rightsibling">
+               <a href="md.xhtml"
+               class="rightsibling">MediaDirect</a> &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         Linux
+      </h1>
+      <p>
+         Configurer Linux sur ce portable ne fut pas aisé. J'ai
+         vraiment cru qu'il ne deviendrait pas 100% fonctionnel et
+         cela m'a fait amèrement regretter mon achat.
+         L'installation commença plutôt mal et faillit bousiller
+         mon système. Ensuite, il y eut beaucoup de problèmes de
+         configuration qui faillirent me convaincre de n'avoir que
+         Windows sur la machine. Vendredi, 14 juillet 2006,
+         j'effectuai l'installation et commençai à essayer de
+         configurer le système. Je réussis à obtenir le son et le
+         DMA pour le DVD, mais jamais le Wi-fi ne fonctionna.
+         Samedi matin, je parvins à faire fonctionner le Wi-fi,
+         mais ce fut de haute lutte. Il faudra attendre vendredi,
+         21 juillet 2006, avant que je parvienne à faire
+         fonctionner le Wi-fi presque parfaitement ainsi que
+         l'accélérateur graphique.
+      </p>
+      <p>
+         Il faut dire que j'ai été chanceux, car toutes les pièces
+         pour faire fonctionner le système étaient là. Il
+         s'agissait de les mettre ensemble. Quelques mois plus tôt,
+         le son n'aurait pas fonctionné, le module de noyau n'étant
+         pas encore disponible. Ainsi, avant de renoncer à Linux
+         sur une nouvelle machine, le mieux à faire est d'attendre
+         la prochaine version de sa distribution favorite et de
+         faire des recherches sur le développement des pilotes.
+         Mieux encore est de participer à ce développement, mais
+         pour cela, il faut beaucoup de temps et d'énergie!
+      </p>
+      <p>
+         Je vais présenter les problèmes vécus avec l'installation
+         et surtout la configuration de Linux sur ma machine, le
+         plus possible par ordre de complexité. Pour rassurer ceux
+         qui voudraient appliquer les conseils trouvés ici, et qui
+         s'inspirent de sites Web tels que ceux référés par <a
+         href="http://www.linux-laptop.net">Linux-Laptop</a>, je
+         n'ai pas eu à recompiler le noyau ou <a
+         href="http://www.x.org">X.Org</a> pour arriver à mes fins.
+      </p>
+      <ul>
+         <li>
+            <a href="#prep">Préparatifs</a>
+         </li>
+         <li>
+            <a href="#inst">Installation</a>
+         </li>
+         <li>
+            <a href="#pros">Les bonnes nouvelles</a>
+         </li>
+         <li>
+            <a href="#dma">Lecteur DVD très lent</a>
+         </li>
+         <li>
+            <a href="#lcd">Un bogue très agaçant avec l'écran</a>
+         </li>
+         <li>
+            <a href="#keys">Touches multimédia</a>
+         </li>
+         <li>
+            <a href="#wifi">Le Wi-fi</a>
+         </li>
+         <li>
+            <a href="#modem">Modem 56k</a>
+         </li>
+         <li>
+            <a href="#gma">L'accélérateur graphique</a>
+         </li>
+         <li>
+            <a href="#suspend">Mise en veille et hibernation</a>
+         </li>
+         <li>
+            <a href="#virtualization">Virtualisation: la solution
+            ultime aux problèmes matériels sous Linux</a>
+         </li>
+         <li>
+            <a href="#lspci"><tt>lspci</tt></a>
+         </li>
+      </ul>
+      <h2>
+         <a name="prep" id="prep">Préparatifs</a>
+      </h2>
+      <p>
+         Avant de pouvoir amorcer l'installation de Linux sur une
+         nouvelle machine, il faut vérifier s'il est effective
+         possible d'amorcer le CD d'installation! Mardi soir, 11
+         juillet 2006, j'ai effectué les vérifications dans cette
+         direction. J'ai d'abord testé s'il m'était possible
+         d'amorcer la machine avec un CD amorçable et je constatai
+         avec agacement que non! Je sortis donc le manuel du
+         propriétaire et y lus la procédure pour réinstaller
+         Windows depuis le CD d'installation. Il fallait entrer
+         dans le BIOS pour changer les priorités d'amorçage et pour
+         aller dans le BIOS, il fallait appuyer sur F2 au
+         démarrage, pas Del. Je l'essayai, cela échoua, mais au
+         second essai, j'y parvins. Je pus ainsi modifier le
+         paramètre avant d'amorcer le CD de <a
+         href="http://www.knoppix.net">Knoppix</a>: cela fonctionna
+         presque parfaitement. Il ne trouva pas le Wi-fi, le
+         chargement était très long, mais Linux démarrait et voyait
+         mon disque dur! Pour accélérer le chargement, il faut, au
+         moment du démarrage de Knoppix, taper <tt>knoppix
+         hdc=noprobe</tt> avant d'appuyer sur Enter. Cela permet de
+         gérer le lecteur DVD comme un périphérique Serial ATA
+         plutôt qu'en mode IDE classique et ainsi de bénéficier du
+         DMA. De plus, il n'est pas absolument nécessaire de
+         modifier la priorité d'amorçage de façon permanente: il
+         suffit d'appuyer sur F12 pendant le démarrage pour ensuite
+         choisir d'amorcer depuis le DVD de façon temporaire.
+      </p>
+      <p>
+         Je tentai ensuite d'amorcer le DVD d'installation de
+         Fedora Core 5, ce qui résulta en un bip d'agonie et un
+         écran noir. Je dus, pour éteindre la machine, maintenir le
+         bouton de mise sous tension enfoncé pendant cinq secondes,
+         le système ayant planté bien dur. J'en conclus sans trop
+         m'inquiéter que le portable ne supportait pas la
+         technologie x86_64. Ce n'était pas très grave, mais cela
+         me contraindrait à télécharger la version i386 de Fedora
+         Core 5. J'obtins le DVD, par téléchargement, le lendemain.
+      </p>
+      <p>
+         Vendredi, 14 juillet 2006, je testai le DVD de Fedora Core
+         5 téléchargé et c'est avec soulagement que je constatai
+         qu'il fonctionnait! La prochaine étape consistait donc à
+         réaménager le disque pour créer une place pour Linux.
+         C'est là que je risquais le plus d'endommager les
+         partitions créées par Dell, d'où l'importance d'avoir les
+         disques nécessaires pour réparer les dégâts le cas
+         échéant. Je pris deux risques avec cette machine:
+         j'utilisai <a
+         href="http://www.microapp.com/logiciel_partition_expert_3879.html">Partition
+         Expert</a>, un logiciel que je n'avais jamais employé
+         auparavant, pour redimensionner ma partition Windows et je
+         fis le partitionnement sur batterie! Malgré ce manque
+         flagrant de prudence, tout fonctionna comme sur des
+         roulettes. Je me permis ce genre de risque, car je me
+         foutais un peu de ce qui se trouvait sur le disque. Au
+         pire, j'aurais reformaté et tout réinstallé à neuf. La
+         batterie continua de bien fonctionner au moins une heure
+         après le repartitionnement. En tout, elle a duré au moins
+         trois heures, sinon quatre, et je n'ai pas fait attention:
+         j'ai utilisé le lecteur optique, le Wi-fi et il y a eu pas
+         mal d'accès au disque dur. Si je me contentais d'écrire et
+         même de programmer, probablement que la batterie durerait
+         beaucoup plus longtemps!
+      </p>
+      <p>
+         Suite au repartitionnement, mon disque comportait les
+         trois partitions primaires suivantes: Dell Diagnostic
+         (50Mo), Windows XP (25Go), Linux (25Go) et une partition
+         étendue occupant le reste de l'espace. La partition
+         étendue contenait les partitions logiques suivantes: 1Go
+         de swap et une partition de données en FAT32, accessible
+         par Windows et Linux. Cela exclut la zone HPA abritant
+         MediaDirect.
+      </p>
+      <p>
+         Malgré ce mauvais traitement, Windows daigna toujours
+         démarrer et le bouton MediaDirect fonctionnait encore. Au
+         premier démarrage, MediaDirect m'avait mené dans Windows,
+         mais le système configuré, le bouton me menait dans la
+         version allégée de Windows XP MCE et me permettait de lire
+         des fichiers audio et vidéo sans démarrer tout le système
+         d'exploitation. Je trouvais ça bien, mais ça ne demeure
+         qu'un gadget.
+      </p>
+      <h2>
+         <a name="inst" id="inst">Installation</a>
+      </h2>
+      <p>
+         Puisque le partitionnement avait fonctionné, j'en vins à
+         amorcer l'installation proprement dite, mais un malheur
+         faillit arriver. Le programme détecta une erreur dans ma
+         table des partitions et ne m'offrait qu'une option: tout
+         effacer! J'allais devoir réinstaller Windows suite à
+         l'installation de Linux et cela, sans aucune raison
+         logique! Il se pouvait même, dans le pire cas, que la
+         version OEM de Windows ne reformate le disque et que je ne
+         puisse jamais installer les deux systèmes sur la même
+         machine! Je ne laissai pas le programme d'installation
+         continuer et redémarrai sous Windows. Tout était là! Je
+         redémarrai sous Knoppix pour scanner la table des
+         partitions. Tout était beau si bien que je retentai
+         l'installation et cette fois, cela fonctionna. Mais si
+         c'était à refaire, avant d'appuyer sur Enter à l'écran
+         d'amorçage de l'installeur, j'aurais tapé <tt>linux
+         hdc=noprobe libata.atapi_enable=1</tt> afin de bénéficier
+         du DMA pour le lecteur DVD pendant l'installation.
+      </p>
+      <p>
+         Ce petit soubresaut aurait pu me valoir bien des ennuis,
+         car comme j'ai lu sur un message de forum qui a par la
+         suite disparu, certains pilotes Serial ATA de Linux ne
+         tiennent pas compte de la zone HPA. Ainsi, le
+         repartitionnement aurait pu détruire l'installation de
+         MediaDirect et il fallait encore un autre CD que je n'ai
+         pas pour le remettre en place. En fait, comme je le
+         découvris plus tard, le repartitionnement n'aurait pas pu
+         toucher à MediaDirect et il aurait même été mieux qu'il le
+         fasse, car je finis par mettre la main sur le CD
+         d'installation. Avoir MediaDirect sur une partition
+         ordinaire plutôt que dans la HPA serait mieux, car je
+         pourrais l'amorcer depuis GRUB. Ce problème contourné,
+         l'installation se passa bien quoique ce fut très long en
+         raison du dysfonctionnement du DMA pour le DVD. Je pus
+         ensuite démarrer sous Linux et les ennuis commencèrent.
+      </p>
+      <p>
+         Lorsque Linux démarra, je constatai plusieurs mauvaises
+         choses: l'accès au disque dur était plutôt lent, la carte
+         graphique n'était pas bien détectée, la carte réseau sans
+         fil ne fonctionnait pas, le son non plus et en plus,
+         l'accès au lecteur DVD s'avéra extrêmement lent. Bref, il
+         n'y avait que peu d'espoir d'avoir un Linux nominal sur
+         cette machine.
+      </p>
+      <h2>
+         <a name="pros" id="pros">Les bonnes nouvelles</a>
+      </h2>
+      <p>
+         Faire fonctionner le son a presque été gratuit! Il a suffi
+         d'une mise à jour de noyau (version 2.6.17) pour que cela
+         sonne parfaitement bien. C'est sans doute la meilleure
+         réponse que j'ai eue de cette machine! Pour effectuer la
+         mise à jour du noyau, j'ai utilisé un DVD sur lequel
+         j'avais copié toutes les mises à jour qu'il était possible
+         d'obtenir avec Yum. Cela m'évita d'avoir recours au Wi-fi
+         ou de brancher mon câble réseau dans la prise Ethernet.
+      </p>
+      <p>
+         Toutefois, avec le noyau 2.6.17-1_2174, le son devint
+         moins stable qu'avant. De temps en temps, le son ne
+         fonctionnait pas après que j'aie allumé la machine. Outre
+         le redémarrage, la seule solution que j'ai trouvée
+         consista à fermer ma session de GNOME, décharger le module
+         snd-hda-intel puis le recharger. Je finis par carrément
+         ajouter, dans <tt>/etc/rc.d/rc.local</tt>, les lignes
+         suivantes:
+      </p>
+<pre>
+modprobe -r snd-hda-intel
+modprobe snd-hda-intel
+</pre>
+      <p>
+         La souris aussi «fonctionne» sans difficulté. Il suffit
+         que le paquetage <tt>synaptics</tt> soit installé et que
+         X.Org soit bien configuré, ce qui est le cas par défaut.
+         Bien entendu, cette tablette est loin d'une vraie souris
+         et est assez difficile à utiliser, même avec le pilote
+         pour bien la gérer!
+      </p>
+      <p>
+         La commande <tt>acpi</tt> affiche le niveau de charge de
+         la batterie ainsi qu'une estimation de sa durée restante.
+         <tt>acpi -t</tt> donne la température du système tandis
+         que <tt>acpi -a</tt> affiche l'état de l'adaptateur AC.
+      </p>
+      <p>
+         Le processeur fonctionne très bien et <tt>cat
+         /proc/cpuinfo</tt> affiche bien les deux coeurs si le
+         noyau SMP est utilisé. D'après mes recherches, utiliser
+         SpeedStep pour réguler la fréquence du processeur afin
+         d'économiser l'énergie nécessite la recompilation du
+         noyau, ce dans quoi je ne souhaitais pas me lancer. Malgré
+         tout, l'installation du paquetage <tt>cpufreq-utils</tt>
+         installa la commande <tt>cpufreq-info</tt> qui m'affiche
+         quelque chose de positif: le noyau permet déjà la
+         variation de la fréquence du processeur avec un pilote
+         nommé <tt>centrino</tt>. Au repos, la fréquence est à 1GHz
+         tandis que si je fais travailler la machine, elle grimpe à
+         1.66GHz. Cela permet une certaine économie d'énergie sur
+         batterie. Ce n'est peut-être pas cela, SpeedStep, mais
+         c'est tout de même mieux que rien.
+      </p>
+      <p>
+         Bien que je ne l'aie pas testé puisque je n'ai pas de
+         cartes à lui faire lire, la configuration du lecteur de
+         cartes 5 en 1 de l'Inspiron 6400 est toute simple avec le
+         noyau 2.6.17: il suffit de charger le module adéquat. Pour
+         faire fonctionner le lecteur, j'ajoutai <tt>/sbin/modprobe
+         sdhci</tt> dans <tt>/etc/rc.d/rc.local</tt>. Ce module
+         devrait fonctionner pour bon nombre de lecteurs de cartes
+         pour portables, pas seulement pour le Ricoh de l'Inspiron.
+      </p>
+      <p>
+         Le graveur de DVD a été détecté par CDRecord comme un
+         périphérique MMC. La gravure a fonctionné dans le cas d'un
+         CD-RW basse vitesse et un CD-R. Elle échoua avec un CD-RW
+         haute vitesse tandis que Sonic, sous Windows, réussit à
+         graver un tel disque. Le graveur ne fonctionne donc pas
+         parfaitement et je n'ai pas encore testé avec les DVD.
+      </p>
+      <h2>
+         <a name="dma" id="dma">Lecteur DVD très lent</a>
+      </h2>
+      <p>
+         Je constatai la lenteur intolérable du lecteur DVD en
+         tentant d'installer les mises à jour que j'avais gravées
+         sur DVD avec <tt>rpm -Fvh</tt>. Cela me permettrait de
+         mettre mon système à jour sans utiliser le Wi-fi ou
+         brancher le portable sur la prise réseau. Je n'avais pas
+         envie de brancher le portable au réseau, car cela
+         m'obligerait à n'avoir qu'une machine à la fois sur le
+         réseau et à tout le temps aller sous mon bureau pour
+         rebrancher ou débrancher le Salvator.
+      </p>
+      <p>
+         Pour améliorer les performances du lecteur DVD, je
+         modifiai <tt>/etc/grub.conf</tt> pour passer les options
+         suivantes au noyau: <tt>hdc=noprobe
+         libata.atapi_enable=1</tt>. Cette astuce est décrite sur
+         une <a
+         href="http://domrep-jamaica.blogspot.com/2006/05/new-laptop-dell-inspiron-6400.html">page</a>
+         référée par Linux-Laptop et traitant de l'Inspiron 6400
+         sous Fedora Core 5. J'ai mis l'option
+         <tt>libata.atapi_enable</tt> sans tester si elle était
+         vraiment nécessaire. Un redémarrage plus tard, le lecteur
+         DVD était plus rapide. Mon hypothèse actuelle est que le
+         lecteur est Serial ATA, mais il peut être géré comme un
+         lecteur IDE. En mode IDE, par contre, aucun Ultra-DMA
+         n'est disponible si bien que le lecteur est lent. Il faut
+         donc qu'il soit détecté comme Serial ATA.
+      </p>
+      <p>
+         Les mises à jour ne fonctionnèrent pas du tout, car
+         certains RPM s'avérèrent illisibles et il y avait des
+         problèmes de dépendances. Tout porte à croire que c'est dû
+         à un problème de téléchargement et non une anomalie du
+         lecteur DVD, car je pus installer bon nombre
+         d'applications depuis des DVD. Je dus utiliser <tt>rpm
+         -Fvh</tt> sur différents groupes de RPMs et cela prit un
+         temps fou. Il aurait été beaucoup plus simple d'utiliser
+         Yum que cette méthode!
+      </p>
+      <p>
+         Malheureusement, quelques semaines plus tard, GNOME cessa
+         de monter automatiquement les disques que j'insérais et je
+         dus créer un point de montage manuellement dans
+         <tt>/etc/fstab</tt>, comme je le faisais sous Red Hat 9.
+         Cela continuait de fonctionner avec ma clé USB mais plus
+         avec les CD et DVD. Je ne pus trouver aucune explication
+         au problème, ce qui accrut mon impression d'avoir commis
+         une erreur en achetant cette machine.
+      </p>
+      <h2>
+         <a name="lcd" id="lcd">Un bogue très agaçant avec
+         l'écran</a>
+      </h2>
+      <p>
+         Ce bogue, combiné au problème d'accélération graphique, a
+         failli, samedi le 15 juillet 2006, me convaincre de
+         renoncer à Linux sur ce portable. C'était rendu au point
+         où quand je fermais le couvercle de la machine, l'écran
+         s'éteignait et ne rallumait plus lorsque je rouvrais le
+         couvercle. Il serait choquant que, par inattention, je
+         ferme le couvercle de la machine pour revenir quelques
+         minutes après et devoir tout redémarrer en catastrophe.
+         Par chance, vendredi soir, 21 juillet 2006, j'ai fouillé
+         dans les scripts et découvert une solution très très
+         simple: il suffit, dans le script
+         <tt>/etc/acpi/events/video.conf</tt>, de décommenter les
+         deux lignes qui se trouve là. Cela permet d'activer
+         <tt>vbetool</tt> (paquetage <tt>pm-utils</tt> si jamais il
+         n'est pas installé) lorsque le couvercle est ouvert et ce
+         logiciel réussit à rallumer l'écran!
+      </p>
+      <p>
+         Malheureusement, ce n'était pas tout! Lundi, 4 septembre
+         2006, je découvris que la machine continuait à planter
+         quand je fermais le couvercle. Je pensai initialement que
+         c'était un problème avec le noyau, mais je découvris que
+         le fautif était GNOME. Il me fallut taper
+         <tt>gnome-power-preferences</tt> pour accéder aux
+         préférences de gestion d'énergie de GNOME après quoi je
+         découvris que si la machine était sur batterie, GNOME la
+         mettait en veille si je fermais le couvercle. Par contre,
+         la mise en veille cause problème. Je reconfigurai donc
+         cela pour qu'il éteigne l'écran, de la même façon que
+         lorsque l'ordinateur est branché sur secteur.
+      </p>
+      <h2>
+         <a name="keys" id="keys">Touches multimédia</a>
+      </h2>
+      <p>
+         Pour les touches multimédia, il faut ajouter les lignes
+         suivantes dans <tt>/etc/X11/Xmodmap</tt>:
+      </p>
+<pre>
+keycode 160 = XF86AudioMute
+keycode 174 = XF86AudioLowerVolume
+keycode 176 = XF86AudioRaiseVolume
+keycode 162 = XF86AudioPlay
+keycode 144 = XF86AudioPrev
+keycode 153 = XF86AudioNext
+keycode 164 = XF86AudioStop
+</pre>
+      <p>
+         J'ai obtenu ces codes en utilisant <tt>xev</tt> tandis que
+         les noms d'événements sont dans
+         <tt>/usr/share/X11/XKeysymDB</tt>. La modification de
+         Xmodmap permet de relier ces touches à des événements
+         X.Org, mais malheureusement, ces événements n'ont à priori
+         aucun impact. Il faut donc lier ces touches, dans GNOME ou
+         dans KDE, avec des événements adéquats. Mais lorsque c'est
+         chose faite, les touches fonctionnent et, contrairement au
+         cas de Windows, on peut les configurer comme on veut.
+      </p>
+      <h2>
+         <a name="wifi" id="wifi">Wi-fi</a>
+      </h2>
+      <p>
+         Celui-là a été plutôt compliqué, nécessitant plusieurs
+         éléments, et il ne fonctionne toujours pas parfaitement.
+         Tout d'abord, un module de noyau est nécessaire pour gérer
+         la carte Intel PRO/Wireless 3945. Ce module ne fonctionne
+         qu'avec un logiciel de régulation dont le code source
+         n'est pas disponible. Les deux éléments installés, il faut
+         encore quelques passes-passes pour permettre la connexion
+         WPA qui n'est apparemment pas bien gérée par Fedora Core 5
+         et même Fedora Core 6, du moins avec le module IPW3945. Je
+         vais ici résumer non pas tout ce que j'ai essayé pour
+         configurer cette carte Wi-fi mais plutôt les étapes
+         nécessaires pour la faire fonctionner au mieux sous Fedora
+         Core 5 et 6. Cette procédure fonctionne aussi pour WPA2.
+      </p>
+      <p>
+         Tous les fichiers nécessaires sont accessibles depuis le
+         site <a
+         href="http://ipw3945.sourceforge.net/">IPW3945</a>,
+         sections <b>Requirements</b> et <b>Downloads</b>. La
+         première pièce de ce casse-tête est le micro-code qui se
+         trouve dans un fichier dont le nom ressembla à
+         <tt>ipw3945-ucode-1.13.tgz</tt>. Il faut bien entendu
+         décompacter ce fichier avec <tt>tar -zxf
+         ipw3945-ucode-1.13.tgz</tt> et copier le microcode
+         (fichier <tt>ipw3945.ucode</tt>) au bon endroit afin que
+         le module puisse le charger. Dans le cas de Fedora Core,
+         le fichier va dans <tt>/lib/firmware</tt>.
+      </p>
+      <p>
+         La seconde pièce constitue le logiciel de régulation
+         (<i>regulatory daemon</i>) responsable d'une grande
+         controverse entourant ce pilote et du fait qu'il ne se
+         trouve pas présent dans les distributions de Linux. Le
+         logiciel se trouve dans une archive dont le nom ressemble
+         à <tt>ipw3945d-1.7.22.tgz</tt> et est disponible pour i386
+         et pour x86_64. Encore une fois, il faut décompacter
+         l'archive pour obtenir l'exécutable. Évidemment, nous
+         allons prendre la version i386 (<tt>ipw3945d</tt>) que
+         nous allons copier dans <tt>/sbin</tt>. Il faut aussi
+         copier <tt>ipw3945d-start</tt> et <tt>ipw3945d-stop</tt>
+         dans <tt>/sbin</tt> et les rendre exécutables (<tt>chmod
+         a+x /sbin/ipw3945d-*</tt>). Ces scripts permettent de
+         démarrer le logiciel de régulation en coordination avec le
+         module de noyau que nous allons construire à la prochaine
+         étape. Par exemple, le script de démarrage attend un
+         certain temps que le module se charge puisque le logiciel
+         quitte si le module n'est pas chargé.
+      </p>
+      <p>
+         La prochaine étape est sans doute la plus agaçante du
+         processus, car elle nécessite d'être répétée à chaque fois
+         que le noyau est mis à jour. Il faut tout d'abord
+         s'assurer que le paquetage <tt>kernel-smp-devel</tt> est
+         installé, car il est crucial pour compiler le module. Sous
+         Fedora Core 6, le paquetage <tt>kernel-devel</tt> sera
+         nécessaire puisqu'il n'y a plus de noyau SMP; le
+         multiprocesseur est inclus dans le noyau conventionnel. Le
+         module se trouve dans un fichier dont le nom ressemble à
+         <tt>ipw3945-1.0.12.tgz</tt> et qu'il faut encore une fois
+         décompacter. La compilation est par chance triviale
+         puisque l'extension IEEE802.11 du noyau 2.6.17 est
+         suffisamment récente pour IPW3945. Il suffit donc de taper
+         <tt>make</tt> pour obtenir le module. Pour tester le
+         module, vous pouvez utiliser le script <tt>load</tt>
+         contenu dans l'archive Si tout va bien, la diode
+         indicatrice de connexion Wi-fi devrait se mettre à
+         clignoter. Si cela ne se produit pas, appuyez sur Fn-F2
+         pour commuter la fonction Wi-fi de l'ordinateur. Si cela
+         ne fonctionne toujours pas, il faut vérifier que le
+         processus de régulation est charger (<tt>ps aux | grep
+         ipw3945d</tt>) et que le module est bien inséré (<tt>cat
+         /proc/modules | grep ipw3945</tt>). En cas de problèmes,
+         la consultation du fichier <tt>/var/log/messages</tt> peut
+         fournir des indices. Le test effectué, vous pouvez
+         décharger le module avec <tt>./unload</tt>, car nous
+         allons l'installer dans le système et en simplifier son
+         activation de façon substancielle.
+      </p>
+      <p>
+         Malheureusement, avec le noyau 2.6.18, le module ne
+         compile pas, ce qui est bien entendu un gros problème.
+         Heureusement, il est possible de le contourner de la façon
+         suivante. J'ai effectué la manipulation avec la version
+         1.1.0 du module; elle devrait fonctionner ou ne plus être
+         nécessaire pour les versions ultérieures. Dans la fichier
+         <tt>ipw3945.c</tt>, j'ai simplement ajouté la ligne
+         suivante juste après les instructions <tt>#include</tt>:
+      </p>
+<pre>
+#define IEEE80211_API_VERSION 2
+</pre>
+      <p>
+         Ensuite, la compilation fonctionna! Plus tard, avec Fedora
+         Core 6 par exemple, il s'ajouta la nécessité de remplacer,
+         dans <tt>ipw3945.h</tt>, <tt>linux/config.h</tt> par
+         <tt>linux/autoconf.h</tt>.
+      </p>
+      <p>
+         J'ai également reçu un courrier électronique à propos d'un
+         problème de chargement du module IPW3945 provoquant des
+         erreurs en raison de symboles introuvables. Si cela se
+         produit, il faut vérifier que les modules dépendant de
+         <tt>ipw3945.ko</tt> sont bien chargés. Comme <tt>load</tt>
+         utilise <tt>insmod</tt> plutôt que <tt>modprobe</tt>, ces
+         dépendances ne sont pas nécessairement vérifiées
+         correctement. Il vaut donc la peine, en cas de symboles
+         introuvables, surtout si le module compile sans
+         avertissement, passer à l'étape suivante d'intégration et
+         tenter le chargement avec <tt>modprobe</tt>.
+      </p>
+      <p>
+         En supposant que les étapes précédentes ont fonctionné et
+         que le module compile et se charge correctement, il faut à
+         présent l'installer dans le système en copiant le fichier
+         <tt>ipw3945.ko</tt> dans <tt>/lib/modules/`uname
+         -r`/kernel/drivers/wireless</tt> avant d'appeler
+         <tt>/sbin/depmod -a</tt>. Encore une fois, cette
+         manipulation est à refaire à chaque mise à jour du noyau.
+      </p>
+      <p>
+         Ensuite, une petite modification astucieuse de
+         <tt>/etc/modprobe.conf</tt> est nécessaire. Ajoutez-y donc
+         les lignes suivantes:
+      </p>
+<pre>
+alias eth1 ipw3945
+install ipw3945 /sbin/modprobe --ignore-install ipw3945 ; /sbin/ipw3945d-start
+remove ipw3945 /sbin/ipw3945d-stop ; /sbin/modprobe -r --ignore-remove ipw3945
+</pre>
+      <p>
+         Dès la modification appliquée, <tt>/sbin/modprobe
+         eth1</tt> charge le module IPW3945 et démarre le logiciel
+         de régulation. Ceci est assuré par la clause
+         <tt>install</tt> ajoutée au fichier
+         <tt>modprobe.conf</tt>. De façon similaire,
+         <tt>/sbin/modprobe -r eth1</tt> décharge le module et
+         stoppe le logiciel de régulation.
+      </p>
+      <p>
+         Malheureusement, il y a un bogue qui fait en sorte que le
+         module est chargé au démarrage et pas le logiciel de
+         régulation. Afin de le contourner, j'ai ajouté
+         <tt>/sbin/modprobe -r eth1</tt> dans
+         <tt>/etc/rc.d/rc.local</tt>. Cela décharge le module qui
+         sera rechargé au besoin, plus tard. Mais pour la suite des
+         opérations, il faut que le module soit chargé et que la
+         petite diode clignote.
+      </p>
+      <p>
+         Démarrez ensuite <tt>system-config-network</tt> et
+         ajoutez-y une connexion réseau en cliquant sur le bouton
+         <b>Nouveau</b>. Il faudra indiquer à l'assistant que vous
+         souhaitez configurer une connexion sans fil afin qu'il
+         vous permette de choisir le module nouvellement chargé. Si
+         aucun cryptage n'est utilisé, il suffit de laisser les
+         options telles quelles ou, au pire, spécifier le SSID du
+         point d'accès sans fil. Il sera ensuite possible d'activer
+         la connexion sans fil. Dans le cas d'un cryptage WEP, il
+         faut donner la clé cryptographique du point d'accès. Si la
+         clé est une phrase de passe, vous devez utiliser
+         <tt>s:passphrase</tt> comme clé, où <tt>passphrase</tt>
+         est la phrase de passe employée. Il se peut que cela ne
+         fonctionne pas et qu'il faille transcrire la clé générée
+         par le point d'accès, car <tt>man iwconfig</tt> indique
+         que les phrases de passe ne sont pas supportées.
+      </p>
+      <p>
+         Si vous utilisez WPA, ne spécifiez aucune clé.
+         Malheureusement, l'assistant de configuration ne supporte
+         pas WPA, du moins pas pour cette carte réseau sans fil.
+         C'est très dommage, car cela complique beaucoup les
+         choses. Pour obtenir un lien sécurisé, un logiciel du nom
+         de wpa_supplicant doit s'interfacer avec la carte Wi-fi et
+         ce logiciel doit démarrer au moment du chargement de
+         l'interface réseau sans fil. Comme tout bon logiciel, il
+         se doit d'être configuré! Cela se passe par le biais de
+         deux fichiers. Le premier,
+         <tt>/etc/sysconfig/wpa_supplicant</tt>, paramètre le
+         service wpa_supplicant qui démarre le programme
+         <tt>wpa_supplicant</tt> de façon possiblement automatique.
+         Pour ma part, j'y ai mis les lignes suivantes:
+      </p>
+<pre>
+INTERFACES="-ieth1"
+DRIVERS="-Dwext"
+</pre>
+      <p>
+         Cela indique d'utiliser ETH1 comme interface sans fil et
+         les extensions Wireless du noyau comme pilote. Par chance,
+         IPW3945 est compatible avec les extensions Wireless! Dans
+         le cas contraire, on ne pourrait probablement pas utiliser
+         WPA. Un second fichier, nommé
+         <tt>/etc/wpa_supplicant/wpa_supplicant.conf</tt>, contient
+         les paramètres de session WPA. On y trouve quelque chose
+         du genre
+      </p>
+<pre>
+network={
+        ssid="Secure Session ID"
+        key_mgmt=WPA-PSK
+        psk="Private secret key"
+}
+</pre>
+      <p>
+         Il faudra bien entendu remplir les champs avec les valeurs
+         de votre point d'accès sans fil. Cette entrée est
+         suffisamment générique pour s'adapter à WPA et WPA2. Il
+         est également possible d'ajouter des entrées pour WEP ou
+         pour une connexion non sécurisée. Si vous souhaitez tester
+         le nouveau morceau, utilisez, lorsque la diode Wi-fi
+         clignote, <tt>/sbin/service wpa_supplicant start</tt>. La
+         diode cessera alors de clignoter, indiquant qu'une
+         connexion est enfin établie. <tt>/sbin/service
+         wpa_supplicant stop</tt> stoppera cette connexion.
+      </p>
+      <p>
+         Pour faire démarrer wpa_supplicant au bon moment, il faut
+         malheureusement modifier des scripts de configuration qui
+         se trouvent tous dans
+         <tt>/etc/sysconfig/network-scripts</tt>. Dans
+         <tt>ifcfg-eth1</tt>, généré par l'assistant de
+         configuration du réseau, il faut ajouter <tt>WPA=yes</tt>.
+         Cela permet de conserver un peu de flexibilité dans notre
+         patch: il sera toujours possible de revenir au
+         comportement original en supprimant cette ligne magique.
+         Maintenant, dans <tt>ifup-eth</tt> (un fichier livré avec
+         le système, à modifier avec extrême prudence et les
+         sauvegardes sont de mise!), remplacez la ligne
+         <tt>is_wireless_device ${DEVICE} &amp;&amp; .
+         ./ifup-wireless</tt> par le bout de code suivant:
+      </p>
+<pre>
+is_wireless_device ${DEVICE} &amp;&amp; {
+   if [ "$WPA" = "yes" ] ; then
+      service wpa_supplicant start
+      sleep 2;
+   else
+      . ./ifup-wireless;
+   fi
+}
+</pre>
+      <p>
+         Ceci indique au script que si le périphérique initialisé
+         est sans fil et utilise WPA, il faut charger le service
+         wpa_supplicant plutôt que charger les paramètres avec
+         <tt>ifup-wireless</tt>. Ce qu'il faut savoir, c'est que
+         wpa_supplicant appelle en interne <tt>iwconfig</tt> (ou
+         quelque chose d'équivalent) comme le ferait
+         <tt>ifup-wireless</tt> si bien qu'appeler le script
+         original crée un véritable bordel.
+      </p>
+      <p>
+         Avec cette patch, l'activation fonctionne; reste à réparer
+         la désactivation. Pour ce faire, dans <tt>ifdown-eth</tt>,
+         ajoutez
+      </p>
+<pre>
+if [ "$WPA" = "yes" ] ; then
+   service wpa_supplicant stop
+fi
+</pre>
+      juste avant 
+<pre>
+if [ -n "${WIRELESS_ENC_KEY}" -a -x /sbin/iwconfig ]; then
+    /sbin/iwconfig ${DEVICE} enc 0 &gt;/dev/null 2&gt;&amp;1
+fi
+</pre>
+      <p>
+         Suite à toutes ces manipulations parfois un peu douteuses,
+         il devient possible d'établir la connexion Wi-fi en
+         utilisant <tt>/sbin/ifup eth1</tt>. Cela fonctionne
+         toujours si, avant d'appeler la commande, la diode Wi-fi
+         clignote. Si le module ipw3945 n'est pas chargé, la
+         commande précédente indiquera que l'activation de eth1 est
+         reportée à plus tard et chargera le module. La diode se
+         mettra à clignoter et, après quelques secondes, elle
+         devrait s'allumer complètement. Bien que la console
+         n'affiche aucune information, l'interface eth1 se trouve
+         activée automatiquement et la connexion au réseau
+         s'établit! Lorsque la couche de liaison est enfin en
+         place, le comportement par défaut du système est d'envoyer
+         une requête DHCP pour obtenir une adresse IP locale, une
+         adresse de passerelle, de DNS, etc. Ceci convient à la
+         plupart des routeurs et points d'accès sans fil, aussi
+         bien à la maison que dans une université, un hôtel, un
+         café Internet, etc. Si une IP statique est nécessaire, il
+         faudra encore un peu d'ajustements. Admettons que c'est
+         pas mal plus simple sous Windows...
+      </p>
+      <p>
+         Il arrive également que, lors de transferts de fichiers,
+         la connexion s'interrompe. J'ai découvert qu'elle se
+         rétablissait d'elle-même automatiquement après quelques
+         secondes, mais cela ralentit malgré tout les transferts.
+         Il se peut que le problème survienne lorsque le débit des
+         données est trop élevé tandis que je n'ai trouvé aucune
+         façon simple, n'impliquant pas la recompilation du noyau,
+         pour le limiter de façon générale. Comme l'anomalie ne se
+         manifestait pas sous Windows, cela excluait partiellement
+         mon routeur de l'équation. C'est très dommage, car la
+         connexion sans fil est un atout indéniable, sinon une
+         fonction indispensable, d'un portable moderne. Si ces
+         interruptions devenaient trop fréquentes et
+         problématiques, la patience ou la résignation seraient
+         sans doute les seules bases de solutions. Les solutions
+         possibles seraient: attendre une prochaine évolution,
+         installer une nouvelle carte réseau sans fil, ne pas
+         utiliser le réseau sans fil ou laisser tomber Linux. Dans
+         le premier cas, il faudra attendre la sortie d'un nouveau
+         noyau ou d'une autre distribution davantage compatibles
+         avec la carte Intel. Dans le second cas, il faut également
+         attendre, car le portable n'accepte que les cartes
+         ExpressCard, pas CardBus. Une carte réseau de marque
+         Atheros, non disponible en version ExpressCard en juillet
+         2006, serait l'idéal question Linux. Toutefois, cette
+         solution a un coût et c'est dommage de dupliquer une
+         composante déjà présente dans la machine. La troisième
+         solution consiste à utiliser l'interface Ethernet au lieu
+         du sans fil, ce qui est faisable chez moi depuis que j'ai
+         installé un commutateur dans ma chambre pour avoir un port
+         Ethernet libre. Il serait possible de brancher, dans cette
+         prise Ethernet, un adaptateur Wi-fi qui serait alors
+         transparent. Si la carte réseau filaire fonctionne,
+         l'adaptateur fonctionnera et pourra être configuré via une
+         interface Web! Mais, encore une fois, il y a un coût. La
+         quatrième solution consiste à abandonner Linux et
+         n'utiliser que Windows, ce qui est un peu dommage après
+         tout le travail déjà accompli pour faire fonctionner Linux
+         sur la machine.
+      </p>
+      <h2>
+         <a name="modem" id="modem">Modem 56k</a>
+      </h2>
+      <p>
+         Le portable est doté d'un modem logiciel Connexant que
+         bien des gens ont omis de tester, n'en ayant pas besoin.
+         Il ne semble pas pouvoir fonctionner du tout sous Linux,
+         car le pilote générique de <a
+         href="http://www.linuxant.com/drivers/">Linuxant</a> ne
+         l'a pas trouvé. Au premier essai, j'avais tenté
+         d'installer le pilote via l'installeur générique tandis
+         que lors d'un second essai, j'ai utilisé la procédure
+         manuelle. Cela m'a fait découvrir que le pilote ne permet
+         qu'un débit de 14,4k tandis qu'un autre pilote, commercial
+         celui-là, permettrait le débit de 56k. Il ne semble donc
+         pas possible de faire fonctionner ce modem et il est peu
+         probable que cela change dans le futur puisque la partie
+         matérielle du modem est trop primitive et nécessite un
+         pilote très complexe pour fonctionner. Créer le pilote
+         pour Linux revient pratiquement à reconstruire le modem!
+         Par chance, je n'ai pas besoin d'utiliser cette décevante
+         composante.
+      </p>
+      <p>
+         Si j'avais besoin d'un modem 56k, la meilleure solution
+         serait d'employer un modem externe complètement matériel.
+         Par contre, le modem doit être raccordable à un port USB
+         du portable, pas un port série qui n'est pas disponible
+         sur la machine (à moins d'utiliser un adaptateur USB vers
+         série tout simplement hors de prix), et je ne suis pas
+         certain que de tels modems existent. Un modem externe USB
+         est susceptible d'être logiciel et encore une fois ne
+         fonctionner que sous Windows tandis qu'un modem série,
+         plus ancien, a de plus fortes chances d'être matériel.
+         Dans tous les cas, de consciencieuses vérifications, voire
+         des tests rigoureux, s'imposent avant l'achat! Il se peut
+         même que la seule solution soit d'acheter un produit de
+         seconde main. Mais dans tous les cas, le modem matériel
+         sera beaucoup plus coûteux que le modem logiciel et si
+         c'est uniquement pour expédier des télécopies, peut-être
+         vaudrait-il la peine de considérer des solutions en ligne
+         telles que <a href="http://www.faxaway.com">Faxaway</a>.
+         Le coût de l'abonnement à ce service pourrait fort bien
+         être inférieur au coût du modem matériel considérant la
+         rareté de ces produits en 2006 et les problèmes qui
+         surgiront inévitablement lors de l'envoi de télécopies
+         avec Linux.
+      </p>
+      <h2>
+         <a name="gma" id="gma">L'accélérateur graphique</a>
+      </h2>
+      <p>
+         Cette section ne s'applique pas à des portables pourvus de
+         carte graphique ATI. Pour ces machines-là, il faut
+         configurer <a href="http://www.rpm.livna.org">LIVNA</a> et
+         installer le pilote <tt>fglrx</tt>. Après avoir configuré
+         LIVNA, il suffit d'utiliser <tt>yum install kmod-fglrx-smp
+         xorg-x11-drv-fglrx xorg-x11-drv-fglrx-devel</tt>. Ensuite,
+         il suffit de remplacer <tt>vesa</tt> ou <tt>radeon</tt>
+         par <tt>ati</tt> dans <tt>/etc/X11/xorg.conf</tt> et
+         <i>espérer</i> que cela fonctionne. C'est très simple
+         quand cela fonctionne et cela m'a fait amèrement regretter
+         d'avoir opté pour un accélérateur graphique Intel...
+      </p>
+      <p>
+         En effet, ce bogue de carte graphique aussi me frustra
+         beaucoup. Je découvris une solution samedi, 15 juillet
+         2006, mais elle n'était pas satisfaisante du tout, me
+         privant de toute l'accélération 2D. Je développai une
+         solution définitive mercredi soir, 19 juillet et la testai
+         deux jours plus tard, avec succès. Je vais ici présenter
+         les deux solutions (915resolution ou pilote DRI), car la
+         première est assez simple et pourrait contenter les moins
+         exigeants.
+      </p>
+      <h3>
+         915resolution
+      </h3>
+      <p>
+         Alors, l'accélérateur graphique Intel GMA 950 devrait être
+         (étrangement) géré par le pilote X.Org <tt>i810</tt>, mais
+         ce dernier ne l'accepte pas (puce trop récente) si bien
+         qu'il est nécessaire de se tourner vers le pilote
+         générique <tt>vesa</tt>. Ce dernier n'est pas très
+         performant, car il n'utilise aucune accélération 2D ou 3D.
+         De plus, la résolution se trouve bloquée à 800x600. À
+         première vue, il est impossible d'obtenir la résolution
+         native de 1280x800. Heureusement, un petit utilitaire
+         nommé <a
+         href="http://www.geocities.com/stomljen">915resolution</a>
+         vient à la rescousse! Il permet de hacker le BIOS vidéo de
+         l'accélérateur graphique afin d'autoriser le pilote VESA à
+         obtenir une résolution inhabituelle. Il faut d'abord
+         utiliser l'option <tt>-l</tt> pour obtenir la liste des
+         résolutions disponibles. Par exemple, voici le résultat
+         dans mon cas.
+      </p>
+<pre>
+Intel 800/900 Series VBIOS Hack : version 0.5.2
+
+Chipset: 945GM
+BIOS: TYPE 1
+Mode Table Offset: $C0000 + $269
+Mode Table Entries: 36
+
+Mode 30 : 640x480, 8 bits/pixel
+Mode 32 : 800x600, 8 bits/pixel
+Mode 34 : 1024x768, 8 bits/pixel
+Mode 38 : 1280x1024, 8 bits/pixel
+Mode 3a : 1600x1200, 8 bits/pixel
+Mode 3c : 1920x1440, 8 bits/pixel
+Mode 41 : 640x480, 16 bits/pixel
+Mode 43 : 800x600, 16 bits/pixel
+Mode 45 : 1024x768, 16 bits/pixel
+Mode 49 : 1280x1024, 16 bits/pixel
+Mode 4b : 1600x1200, 16 bits/pixel
+Mode 4d : 1920x1440, 16 bits/pixel
+Mode 50 : 640x480, 32 bits/pixel
+Mode 52 : 800x600, 32 bits/pixel
+Mode 54 : 1024x768, 32 bits/pixel
+Mode 58 : 1280x1024, 32 bits/pixel
+Mode 5a : 1600x1200, 32 bits/pixel
+Mode 5c : 1920x1440, 32 bits/pixel
+</pre>
+      <p>
+         L'utilisation du hack consiste à remplacer un des modes
+         standard dont l'utilisation n'est pas prévue par le mode
+         personnalisé. J'ai remplacé le mode 4d qui ne pourrait
+         même pas être utilisé sur mon LCD Viewsonic dont la
+         résolution native est 1280x1024! Dans mon cas, je dus donc
+         ajouter
+      </p>
+<pre>
+915resolution 4d 1280 800 16
+</pre>
+      dans <tt>/etc/rc.d/rc.local</tt> et modifier
+      <tt>/etc/X11/xorg.conf</tt> pour que la section
+      <tt>Screen</tt> se présente comme suit: 
+<pre>
+Section "Screen"
+        Identifier "Screen0"
+        Device     "Videocard0"
+        Monitor    "Monitor0"
+        DefaultDepth     16
+        SubSection "Display"
+                Viewport   0 0
+                Depth     16
+                Modes    "1280x800" "800x600" "640x480"
+        EndSubSection
+        SubSection "Display"
+                Viewport   0 0
+                Depth     24
+                Modes    "1280x800" "800x600" "640x480"
+        EndSubSection
+EndSection
+</pre>
+      <p>
+         Pour les possesseurs d'un écran SXGA, la résolution native
+         est différente; il faut donc ajuster <tt>xorg.conf</tt> et
+         l'appel à <tt>915resolution</tt> en conséquence! Il est
+         important de configurer <tt>DefaultDepth</tt> sur 16, car
+         en 24 bits, l'affichage tombe en noir et blanc ou le
+         serveur X refuse de démarrer.
+      </p>
+      <h3>
+         Pilote DRM/DRI
+      </h3>
+      <p>
+         Pour une meilleure performance, il faut suivre le conseil
+         donné <a
+         href="http://www.puzzle.ch/samsung_q35.html">ici</a>:
+         installer le pilote i915 téléchargé depuis le site du <a
+         href="http://dri.freedesktop.org/snapshots">projet
+         DRI</a>. Il est composé d'un module de noyau implantant
+         l'interface DRM, une nouvelle version du pilote
+         <tt>i810</tt> ainsi qu'un pilote X.Org pour le DRI.
+         Malheureusement, le module DRM ne compile pas et
+         l'installeur ne fonctionne pas sous Fedora Core 5! Ce
+         n'est que mercredi soir, 19 juillet, que j'ai trouvé une
+         piste de solution et vendredi, 21 juillet, que je l'ai
+         complètement testée avec succès.
+      </p>
+      <p>
+         D'abord, il faut compiler ce satané module DRM. J'ai fait
+         mon test avec la version 2006/03/09, la même que sur le
+         site qui m'a orienté vers cette piste. Pour ce faire, une
+         analyse de l'installeur et des erreurs produites par ce
+         dernier m'a montré qu'il fallait modifier le fichier
+         <tt>drm/linux-core/drm_compat.h</tt>. Ce fichier définit
+         une macro <tt>__put_page</tt> (ligne 173) dans laquelle il
+         faut remplacer <tt>count</tt> par <tt>_count</tt>. Après
+         cette modification très douteuse qui aurait pu produire un
+         module capable de faire planter le noyau, la commande
+         <tt>make</tt>, appelée dans le répertoire
+         <tt>drm/linux-core</tt>, génère le module, si bien entendu
+         <tt>kernel-smp-devel</tt> est installé. Il faut ensuite
+         copier <tt>drm.ko</tt> et <tt>i915.ko</tt> dans
+         <tt>/lib/modules/`uname -r`/kernel/drivers/char/drm</tt>,
+         là où se trouvent les autres fichiers DRM. La
+         réinstallation du pilote DRM est à refaire à chaque mise à
+         jour du noyau.
+      </p>
+      <p>
+         Il faut ensuite deviner où copier les pilotes DRI dont
+         l'emplacement diffère, pour Fedora Core 5, d'une
+         distribution de X.Org standard! Par chance, il suffit
+         qu'une personne ait joué à la devinette une fois: le
+         fichier <tt>i915/i810_drv.so</tt> va dans
+         <tt>/usr/lib/xorg/modules/drivers</tt> tandis que le
+         fichier <tt>i915/i915_dri.so</tt> va dans
+         <tt>/usr/lib/dri</tt>. Il reste encore une manipulation
+         tordue: dans <tt>/etc/X11/xorg.conf</tt>, remplacer
+         <tt>vesa</tt> par <tt>i810</tt> et configurer la section
+         <tt>Screen</tt> comme précédemment, mais vous pouvez
+         régler <tt>DepthColor</tt> sur 24 au lieu de 16. Un
+         redémarrage du serveur X.Org plus tard, la magie devrait
+         s'opérer! Non seulement l'accélération 2D fonctionne mais
+         le 3D aussi!
+      </p>
+      <p>
+         Avec le noyau 2.6.18, il n'est pas nécessaire de compiler
+         le pilote DRM. La première fois que j'ai testé, cela
+         semblait fonctionner, mais l'affichage était revenu en
+         1024x768. Un redémarrage sous l'ancien noyau 2.6.17 me
+         confirma que ce n'était pas dû au noyau si bien que je dus
+         remettre l'appel à <tt>915resolution</tt> dans mon
+         <tt>rc.local</tt>. Cela montre que le pilote <tt>i810</tt>
+         est très mal implanté, ne sachant pas manipuler le BIOS
+         vidéo pour rendre le mode natif d'un écran fonctionnel. Ce
+         n'est pas un problème spécifique à mon portable; bien
+         d'autres machines sont équipées de cette puce graphique
+         d'Intel.
+      </p>
+      <p>
+         Si vous tentez cette astuce et qu'elle ne permet pas
+         d'obtenir la bonne résolution, il est possible d'utiliser
+         915resolution pour forcer le BIOS vidéo à la rendre
+         disponible. Dans mon cas, cela n'a par contre pas été
+         nécessaire au début. Si le serveur ne démarre pas,
+         consultez le fichier log et assurez-vous que tous les
+         fichiers sont au bon endroit. Il est possible que cela
+         fonctionne avec une autre version du pilote DRI et la
+         probabilité de succès dépend de l'accélérateur graphique
+         du portable particulier. La bonne nouvelle, c'est qu'avec
+         X.Org 7.1, tout cela ne sera plus nécessaire, car le
+         pilote adéquat sera intégré! Pour ceux qui veulent faire
+         simple et qui sont patients, attendre est alors une
+         solution.
+      </p>
+      <p>
+         Notez qu'il est aussi possible d'obtenir un <a
+         href="http://downloadfinder.intel.com/scripts-df-external/filter_results.aspx?strTypes=all&amp;ProductID=1862&amp;OSFullName=Linux*&amp;lang=eng&amp;strOSs=39&amp;submit=Go%21">pilote</a>
+         sur le site de Intel, mais ce dernier ne fonctionne
+         qu'avec la distribution Suse. Il n'est donc d'aucun
+         secours pour Fedora Core 5!
+      </p>
+      <p>
+         J'ai aussi essayé d'envoyer une image sur mon écran
+         externe Viewsonic, ce qui fut plus difficile que sous
+         Windows. Il faut pour y arriver modifier le fichier de
+         configuration <tt>/etc/X11/xorg.conf</tt> de la façon
+         suivante. D'abord, j'ai ajouté une section <tt>Screen</tt>
+         correspondant à mon écran externe et ressemblant à ce qui
+         suit.
+      </p>
+<pre>
+Section "Screen"
+        Identifier "Screen1"
+        Device     "Videocard0"
+        Monitor    "Monitor1"
+        DefaultDepth     24
+        SubSection "Display"
+                Viewport   0 0
+                Depth     16
+                Modes    "1280x1024" "1024x768" "800x600" "640x480"
+        EndSubSection
+        SubSection "Display"
+                Viewport   0 0
+                Depth     24
+                Modes    "1280x1024" "1024x768" "800x600" "640x480"
+        EndSubSection
+EndSection
+</pre>
+      <p>
+         Ensuite, je dus définir une section <tt>Monitor</tt> pour
+         spécifier les paramètres de l'écran externe baptisé
+         <tt>monitor1</tt>.
+      </p>
+<pre>
+Section "Monitor"
+        Identifier   "Monitor1"
+        VendorName   "Monitor Vendor"
+        ModelName    "Unknown monitor"
+        Option      "dpms"
+EndSection
+</pre>
+      <p>
+         Ces ajouts peuvent demeurer en permanence dans le fichier
+         de configuration tandis que les changements suivants sont
+         spécifiques à la connexion de l'écran externe. Pour passer
+         sur l'écran externe, il faut, dans la section
+         <tt>ServerLayout</tt>, remplacer <tt>Screen0</tt> par
+         <tt>Screen1</tt> et, dans la section <tt>Device</tt>
+         correspondant à la carte graphique, ajouter la ligne
+         <tt>Option "MonitorLayout" "CRT"</tt>. Un redémarrage du
+         serveur X.Org plus tard, l'écran LCD du portable s'éteint
+         et l'écran externe s'allume. Il existe bien d'autres
+         combinaisons d'options pour par exemple allumer les deux
+         écrans simultanément avec le même contenu, obtenir un
+         bureau étendu sur deux écrans, etc. Il est dommage que
+         rien ne puisse être modifié sans changer le fichier de
+         configuration, car cela amène un risque de commettre des
+         erreurs. Par exemple, si je souhaitais utiliser cette
+         technique pour brancher mon ordinateur à un projecteur
+         pour donner une présentation, il me faudrait, avant de
+         débuter, faire les modifications dans mon fichier de
+         configuration. Toute erreur ferait planter le système et
+         ajouterait du stress à quelque chose qui est déjà
+         stressant! L'idéal serait une commmande du genre
+         <tt>xrandr</tt> pour faire cela. Je décidai donc, en
+         attendant de trouver une solution plus automatisée, de
+         faire de telles présentations sous Windows.
+      </p>
+      <p>
+         Voir <a href="../fc6.html#crt">ma page sur Fedora Core
+         6</a> pour la suite du dossier «écran externe».
+      </p>
+      <h2>
+         <a name="suspend" id="suspend">Mise en veille et
+         hibernation</a>
+      </h2>
+      <p>
+         Si le paquetage <tt>pm-utils</tt> est installé, la
+         commande <tt>pm-suspend</tt> permet de plonger
+         l'ordinateur en mode veille. Dans mon cas, cela fonctionne
+         très bien, mais l'écran demeure noir au retour sans qu'il
+         soit possible de le réveiller. Tout ce qu'il reste alors à
+         faire, c'est d'appuyer sur le bouton de mise sous tension
+         pendant cinq secondes jusqu'à ce que la machine s'éteigne.
+         Le mode veille ne fonctionne donc pas du tout tandis qu'il
+         fonctionne parfaitement sous Windows. J'ai tenté de faire
+         des recherches à ce sujet et aucune solution simple ne
+         fonctionna jamais. La seule façon de résoudre le problème
+         semble de recompiler le noyau avec <a
+         href="http://www.suspend2.net">Suspend 2</a>. Je tentai
+         avec le noyau précompilé de <a
+         href="http://mhensler.de/swsusp/">Matthias Hemsler</a>,
+         cela fonctionna, mais le son boguait: plus de son du tout,
+         même après le démarrage initial. Cette fois-ci, je rendis
+         les armes et m'en remis à la solution simple: la patience,
+         en espérant que Suspend 2 soit intégré à un futur noyau
+         officiel de Linux.
+      </p>
+      <p>
+         Ce bogue m'a frustré, car je trouvais l'amorçage de la
+         machine un peu lent, à cause du disque dur, et j'aurais
+         aimé la plonger en veille prolongée de temps en temps pour
+         raccourcir la séquence. La mise en veille est un atout
+         précieux pour un portable et je perdais cette
+         fonctionnalité à moins de renoncer à Linux. Par contre, ce
+         n'est peut-être pas dû au portable lui-même mais à Linux
+         qui implante mal ACPI. Même sur mon Salvator, le retour de
+         veille ne fonctionnait pas à cause du module de gestion
+         AHCI pour le disque dur. Par contre, mardi, 17 octobre
+         2006, le noyau 2.6.18 apporta une solution à ce problème
+         si bien qu'un nouvel espoir nacquit pour le portable.
+      </p>
+      <p>
+         En effet, le test fut concluant et la mise en veille
+         fonctionna! La mise en veille prolongée n'est toujours pas
+         fonctionnelle (<tt>pm-hibernate</tt> ne réagit pas au lieu
+         de planter), mais c'est tout de même un grand pas. Par
+         contre, le son ne fonctionne pas au retour de veille et il
+         me faut décharger et recharger <tt>snd-hda-intel</tt> pour
+         le récupérer. Il faudra attendre le noyau 2.6.18-1.2849 de
+         Fedora Core 6 pour obtenir une mise en veille prolongée et
+         une hibernation fonctionnelles.
+      </p>
+      <p>
+         Par contre, le noyau 2.6.19 vint de nouveau tout briser.
+         Avec ce nouveau noyau, la machine plantait au moment
+         d'entrer en veille plutôt qu'au moment d'en sortir. Ce
+         problème semblait totalement insoluble et je ne comprenais
+         pas pourquoi. Il n'y a pas de pilote spécifique à Dell
+         pour gérer la machine et pourtant, la mise en veille
+         fonctionne. J'en vins à supposer que l'implantation d'ACPI
+         pour Linux est très partielle, se contentant, même avec le
+         noyau 2.6, d'initialiser le système ACPI sans en tirer
+         partie. Autre hypothèse: un bogue dans le BIOS que Windows
+         contourne avec succès et qui, alors, ne sera jamais
+         corrigé! Heureusement, une mise à jour du BIOS à la
+         révision A12 de la version 0601 vint à bout de cet épineux
+         problème dimanche, 4 mars 2007. J'avais partiellement
+         raison sur le bogue de BIOS, mais il a disparu, à présent.
+         Le même jour, un passage au noyau 2.6.19-1.2911.6.4 de
+         Fedora Core 6 (après le test avec le nouveau BIOS)
+         n'introduisit pas de nouveau problème.
+      </p>
+      <p>
+         Pour que l'hibernation fonctionne correctement, il m'a
+         fallu créer le fichier <tt>/etc/pm/hooks/21res</tt> avec
+         le contenu suivant:
+      </p>
+<pre>
+#!/bin/bash
+
+. /etc/pm/functions
+
+case "$1" in
+        thaw)
+                        /sbin/915resolution 4d 1280 800
+                ;;
+        *)
+                ;;
+esac
+
+exit $?
+</pre>
+      <p>
+         Ce fichier, que j'ai rendu exécutable avec <tt>chmod
+         a+x</tt>, lance 915resolution au retour d'hibernation afin
+         que la résolution 1280x800 soit de nouveau activée.
+      </p>
+      <h2>
+         <a name="virtualization"
+         id="virtualization">Virtualisation: la solution ultime aux
+         problèmes matériels sous Linux</a>
+      </h2>
+      <p>
+         La <i>virtualisation</i> consiste à émuler un ordinateur à
+         l'intérieur d'un programme informatique. Un logiciel
+         appliquant cette technique s'exécute sur un système
+         <i>hôte</i> comme toute autre application et émule un PC
+         complet avec son BIOS, ses périphériques, etc. Il est
+         possible d'y installer n'importe quel système
+         d'exploitation sans subir les contraintes matérielles, car
+         la configuration que voit le système ainsi <i>hébergé</i>
+         s'exécutant dans l'environnement virtuel est standardisée,
+         imposée par le logiciel de virtualisation plutôt que par
+         le fabricant de la machine. En gros, la virtualisation
+         permet d'exécuter un système d'exploitation à l'intérieur
+         d'un autre.
+      </p>
+      <p>
+         Depuis longtemps, je savais qu'il était possible de
+         résoudre les problèmes matériels soulevés par Linux en
+         exécutant Linux à l'intérieur d'une machine virtuelle
+         hébergée par Windows. Le système de Microsoft étant
+         supporté par tous les fabricants de matériel, il n'y a
+         alors plus aucun problème de pilotes! Cette solution
+         semble attrayante, mais elle a de très gros inconvénients.
+         D'abord, la virtualisation ralentit beaucoup le système
+         d'exploitation hébergé et il faut démarrer deux systèmes
+         d'exploitation au lieu d'un, ce qui double le temps
+         d'amorçage! De plus, il faut choisir entre un logiciel de
+         virtualisation coûteux, comme <a
+         href="http://www.vmware.com">VMWare</a>, ou difficile à
+         configurer, <a
+         href="http://bochs.sourceforge.net">Bochs</a> par exemple.
+      </p>
+      <p>
+         Suite à ma très mauvaise journée du samedi, 15 juillet
+         2006, j'envisageais la virtualisation comme une solution
+         possible à mon problème de compatibilité. Deux raisons
+         rendaient cette solution viable: les processeurs Core Duo
+         sont pourvus de fonctionnalités de virtualisation qui
+         pourraient rendre le système hébergé (presque) aussi
+         performant que le système hôte et l'hibernation (appelée
+         mise en veille prolongée sous Windows) pourrait résoudre
+         le problème du temps d'amorçage doublé. En effet, il
+         suffit de démarrer Windows et Linux une fois ensuite de
+         quoi, au lieu d'éteindre la machine, je la plongerais en
+         hibernation pour la rallumer en quelques secondes.
+         Malheureusement, je ne trouvai aucun logiciel susceptible
+         d'exploiter les capacités de virtualisation du processeur.
+         Toutes mes recherches convergèrent vers VMWare ou des
+         versions gratuites (mais limitées) de VMWare. Cette
+         solution s'avéra donc une déception.
+      </p>
+      <p>
+         Je tombai sur une autre solution qui me sembla d'abord
+         très prometteuse: <a
+         href="http://www.colinux.org">CoLinux</a>. Ce logiciel
+         consiste en une machine virtuelle permettant d'exécuter
+         Linux sous Windows. Malheureusement, je découvris vite que
+         la configuration de CoLinux était très complexe et
+         exigeait la lecture de dizaines et de dizaines de pages de
+         documentation! Je finis par abandonner l'idée, non sans
+         une amère déception. Encore une fois, je venais de trouver
+         un logiciel servant davantage à faire perdre son temps
+         qu'à être productif.
+      </p>
+      <p>
+         De toute façon, exécuter Linux à l'intérieur de Windows
+         est un véritable gaspillage de ressources. Autant, dans ce
+         cas, utiliser Windows en mode natif et installer les
+         versions Windows des applications dont j'ai besoin:
+         Firefox, GNU Emacs, etc. <a
+         href="http://www.cygwin.com">Cygwin</a> permet d'obtenir
+         un environnement similaire à Linux si bien que tout est à
+         peu près là pour pouvoir travailler. Bien que je n'aie pas
+         eu à en arriver là, cela demeure une solution envisageable
+         si les problèmes ne cessent d'affluer sous Linux.
+      </p>
+      <h2>
+         <a name="lspci" id="lspci"><tt>lspci</tt></a>
+      </h2>
+      <p>
+         La commande <tt>lspci</tt> de Linux permet d'afficher des
+         informations sur le matériel dans la machine.
+         L'information affichée est très utile pour déterminer les
+         puces exactes de chaque composante si bien qu'il est
+         courant de la partager. Voici donc le résultat de
+         <tt>lspci</tt> sur mon portable.
+      </p>
+<pre>
+00:00.0 Host bridge: Intel Corporation Mobile Memory Controller Hub (rev 03)
+00:02.0 VGA compatible controller: Intel Corporation Mobile Integrated Graphics Controller (rev 03)
+00:02.1 Display controller: Intel Corporation Mobile Integrated Graphics Controller (rev 03)
+00:1b.0 Audio device: Intel Corporation 82801G (ICH7 Family) High Definition Audio Controller (rev 01)
+00:1c.0 PCI bridge: Intel Corporation 82801G (ICH7 Family) PCI Express Port 1 (rev 01)
+00:1c.3 PCI bridge: Intel Corporation 82801G (ICH7 Family) PCI Express Port 4 (rev 01)
+00:1d.0 USB Controller: Intel Corporation 82801G (ICH7 Family) USB UHCI #1 (rev 01)
+00:1d.1 USB Controller: Intel Corporation 82801G (ICH7 Family) USB UHCI #2 (rev 01)
+00:1d.2 USB Controller: Intel Corporation 82801G (ICH7 Family) USB UHCI #3 (rev 01)
+00:1d.3 USB Controller: Intel Corporation 82801G (ICH7 Family) USB UHCI #4 (rev 01)
+00:1d.7 USB Controller: Intel Corporation 82801G (ICH7 Family) USB2 EHCI Controller (rev 01)
+00:1e.0 PCI bridge: Intel Corporation 82801 Mobile PCI Bridge (rev e1)
+00:1f.0 ISA bridge: Intel Corporation 82801GBM (ICH7-M) LPC Interface Bridge (rev 01)
+00:1f.2 IDE interface: Intel Corporation 82801GBM/GHM (ICH7 Family) Serial ATA Storage Controllers cc=IDE (rev 01)
+00:1f.3 SMBus: Intel Corporation 82801G (ICH7 Family) SMBus Controller (rev 01)
+03:00.0 Ethernet controller: Broadcom Corporation BCM4401-B0 100Base-TX (rev 02)
+03:01.0 FireWire (IEEE 1394): Ricoh Co Ltd Unknown device 0832
+03:01.1 Class 0805: Ricoh Co Ltd R5C822 SD/SDIO/MMC/MS/MSPro Host Adapter (rev 19)
+03:01.2 System peripheral: Ricoh Co Ltd Unknown device 0843 (rev 01)
+03:01.3 System peripheral: Ricoh Co Ltd R5C592 Memory Stick Bus Host Adapter (rev 0a)
+03:01.4 System peripheral: Ricoh Co Ltd xD-Picture Card Controller (rev 05)
+0b:00.0 Network controller: Intel Corporation Unknown device 4222 (rev 02)
+</pre>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

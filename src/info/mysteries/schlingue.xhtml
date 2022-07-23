@@ -1,0 +1,330 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         La TV qui schlingue pas fort sous Windows 2000/XP
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css"
+      href="../../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../../index.xhtml" class="parents">Le
+               royaume de Eric Buist</a> &gt;&gt; <a
+               href="../index.xhtml"
+               class="parents">Informatique</a> &gt;&gt; Problèmes
+               marquants &gt;&gt; <a href="index.xhtml"
+               class="parents">Quelques mystères</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../../sitemap.xhtml" class="sitemap">Plan
+               du site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="modeonecdbug.xhtml"
+               class="leftsibling">Un lecteur de CD-ROM qui en
+               arrache!</a>
+            </td>
+            <td class="thispage">
+               La TV qui schlingue pas fort sous Windows 2000/XP
+            </td>
+            <td class="rightsibling">
+               <a href="stop.xhtml" class="rightsibling">La machine
+               qui fait du zèle</a> &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         La TV qui schlingue pas fort sous Windows 2000/XP
+      </h1>
+      <p>
+         La fonction TV-On-Demand du Lecteur ATI livré avec les
+         cartes ATI All-In-Wonder permet d'enregistrer son et image
+         au fur et à mesure qu'ils jouent afin de pouvoir reculer,
+         avancer et interrompre la diffusion d'une émission
+         télévisée, comme si on l'écoutait après l'avoir
+         enregistrée. J'avais commencé à utiliser cette fonction
+         pour enregistrer des émissions qui passaient lors du
+         souper. Avant d'aller manger, j'activais TV-On-Demand puis
+         le souper avait lieu et après cela, je relâchais la pause.
+         Le système rejouait le début de l'émission et en même
+         temps, enregistrait la fin! On peut comparer cela à une
+         file d'attente dans laquelle des données entrent
+         (enregistrement) et sortent (écoute).
+      </p>
+      <p>
+         Malheureusement, une surprise m'attendait sous Windows
+         2000: le son sautait! L'image était correcte, en tout cas
+         selon mon jugement auquel il ne faut pas trop se fier en
+         raison de mon handicap visuel... mais le son, lui,
+         sautait. On entendait des petits glitchs de temps en temps
+         et cela devenait très tannant.
+      </p>
+      <p>
+         Avant l'installation de Windows 2000, j'avais téléchargé
+         le pilote ATI le plus récent afin de pouvoir l'y
+         installer: la version 5.13.1.192. Mais là, il y avait un
+         problème... En plus de cela, un mouvement de souris sous
+         Internet Explorer durant l'enregistrement provoquait un
+         sautillement du son tout à fait intolérable, et cela
+         durait quelques secondes, pas juste à peine une seconde
+         comme les glitchs. Un bon jour, en regardant sur Windows
+         Update, j'ai découvert un pilote d'écran ATI. Je me suis
+         dit que cela pourrait enrayer l'anomalie et je l'ai
+         téléchargé après quelques hésitations. Ce qui m'a fait
+         passer à la version 5.13.1.212 du pilote.
+      </p>
+      <p>
+         La fonction TV-On-Demand semblait mieux travailler, à
+         présent. Un bon soir, je voulais enregistrer les
+         Chroniques du Paranormal de cette façon peu usuelle,
+         j'allumai alors le lecteur TV, activai TV-On-Demand par le
+         bouton Pause, ce qui mit le programme en mode
+         d'enregistrement. Lorsque je revins après le souper, je
+         cliquai sur la pause pour la désactiver et je constatai
+         avec agacement que seul le son continuait à jouer, l'écran
+         TV était noir! Naviguer en reculant ou en avançant dans la
+         bande vidéo virtuelle en expansion ne provoquait aucun
+         résultat, l'écran restait noir et le son continuait à
+         jouer correctement. Je désactivai donc le TV-On-Demand, ce
+         qui fit planter le lecteur ATI et mon émission disparut en
+         fumée.
+      </p>
+      <p>
+         Dimanche, le 29 juillet 2001, je me dis qu'il était temps
+         de faire de quoi et j'ai tenté de tester la capture seule,
+         pas de On-Demand. J'ai donc activé la télévision puis
+         cliqué sur le bouton d'enregistrement. Cela a commencé à
+         enregistrer, tout allait bien. Toutefois, lorsque j'ai
+         arrêté la capture, le lecteur ATI s'est mis dans un état
+         d'attente du Messie capable de me rendre fou! J'ai tenté
+         de fermer le lecteur ATI, ce qui m'a valu un écran bleu et
+         une interruption du système avec un beau message Stop!
+      </p>
+      <p>
+         Après avoir redémarré la machine ainsi stoppée (Windows
+         2000, ne l'oublions pas!), j'ai modifé un paramètre dans
+         le lecteur TV. Au lieu de stocker les fichiers de capture
+         sur le C:, un lecteur NTFS, je les ai placés sur le D:, un
+         lecteur FAT32. Ce qui m'a apporté de meilleurs résultats
+         pour la capture vidéo. Pas de plantage, mais une image
+         floue en résultait, c'était épouvantable!
+      </p>
+      <p>
+         J'ai tenté de réinstaller DirectX 8, rien à faire, cela
+         revenait. Après consultation du site de ATI, j'en ai
+         conclu que Microsoft avait passé un pilote Beta et j'ai
+         réinstallé la version 5.13.1.192, ce qui a permis à la TV
+         de fonctionner, ainsi que le TV-On-Demand!
+      </p>
+      <p>
+         Il y a peut-être ainsi double problème: le pilote ATI
+         nouvelle version qui va mal et un problème de gestion du
+         système NTFS par le lecteur ATI, Dieu sait pourquoi...
+         L'installation de la mise à jour pour la capture de
+         DirectX 8 va peut-être enrayer l'anomalie, mais je
+         laisserai les fichiers vidéo sur le lecteur FAT32, ce qui
+         devait m'épargner des difficultés...
+      </p>
+      <p>
+         Malheureusement, tout cela ne donna rien à la TV schlingue
+         encore. Raison de plus pour me débarrasser,
+         éventuellement, de ce Windows 2000!
+      </p>
+      <p>
+         Je me rendis compte que sous Windows XP, le problème
+         persiste. Lundi soir, le 10 décembre 2001, je voulus
+         utiliser la fonction TV-On-Demand, ce qui me valut encore
+         un son sautant, bien que j'aie installé le pilote le plus
+         récent, ainsi que la patch VIA pour ma carte mère.
+         J'endurai quelques temps, mais finalement, la machine est
+         devenue lente et le lecteur ATI a paralysé le système. Si
+         l'application ne se plante pas, elle ralentit tout ou
+         génère une image noire, rien de plus. C'est donc pire que
+         sous 2000!
+      </p>
+      <p>
+         Pour le moment, il n'existe pas de solution à part endurer
+         ou changer cette carte graphique dont le pilote
+         fonctionnera uniquement sous les noyaux à base MS-DOS,
+         soit Windows 9x/ME. Je regrette donc de plus en plus
+         d'avoir acheté cette carte et j'aurais peut-être obtenu
+         meilleur résultat avec une GeForce munie d'une
+         entrée/sortie TV...
+      </p>
+      <p>
+         La capture vidéo ordinaire sembla fonctionner sans
+         problèmes pendant un bon bout de temps. À plusieurs
+         reprises, je suis parvenu à programmer le lecteur ATI pour
+         qu'il démarre la capture à une heure donnée. Lorsque le
+         fichier MPEG en qualité VCD était prêt, je pouvais le
+         graver sur un CD-RW afin de le visionner dans un lecteur
+         DVD de cinéma-maison. La qualité n'était pas au
+         rendez-vous à cause de l'image floue générée par le signal
+         analogique du câble de <a
+         href="http://www.videotron.ca">Vidéotron</a> dont la
+         qualité sembla avoir décru depuis la disponibilité du
+         Illico numérique, mais au moins, ça fonctionnait!
+      </p>
+      <p>
+         En avril 2004, je me suis acheté un graveur de DVD et j'ai
+         voulu enregistrer mes émissions en qualité DVD. C'est
+         alors que les problèmes sont réapparus. La première
+         tentative de capture échoua, car le lecteur ATI stoppa
+         l'enregistrement sans avertissement, avant la fin du
+         programme. Je découvris que l'espace alloué au lecteur
+         pour la capture avait été réduit à 0, expliquant pourquoi
+         rien ne démarrait. Après avoir modifié ce réglage, je pus
+         enregistrer des émissions d'une demi-heure que j'écoutais
+         directement sur mon ordinateur, jugeant que cela ne valait
+         pas la peine de créer un DVD pour cela.
+      </p>
+      <p>
+         La visualisation des fichiers MPEG-2 était difficile, car
+         aucun logiciel ne me permettait de naviguer dans ces
+         derniers. Le lecteur ATI ne permet pas de se positionner
+         facilement dans le MPEG-2. Un clic sur la barre inférieure
+         change la position, mais c'est si lent que cela ne permet
+         pas de sauter les pauses commerciales. Le positionnement
+         devient presque aléatoire. Sous Linux, j'ai eu plus de
+         chance avec <a
+         href="http://xine.sourceforge.net">Xine</a>, puis avec <a
+         href="http://kaffeine.sourceforge.net">Kaffeine</a>.
+      </p>
+      <p>
+         Une tentative d'enregistrement d'une émission d'une heure
+         eut lieu. Je pus graver le fichier MPEG-2 tel quel sur un
+         DVD+RW grâce à <a href="http://www.ahead.de">Nero 6
+         Ultra</a>, mais dans mon lecteur DVD, l'image était floue
+         et saccadée. Cela devint vite insupportable, je testai le
+         fichier MPEG directement dans mon ordinateur et obtins la
+         même image saccadée. C'était moins accentué, mais c'était
+         saccadée malgré tout. L'image floue s'explique par le
+         signal analogique de mauvaise qualité tandis que l'image
+         saccadée n'a aucune raison d'être! Il semble que le
+         lecteur ATI utilise un codeur MPEG-2 trop gourmand en CPU.
+         Il faudrait un processeur plus puissant que 1GHz pour
+         réussir à faire le codage, autrement des images se
+         perdent.
+      </p>
+      <p>
+         Sous cette hypothèse, je tentai de modifier les paramètres
+         de capture pour passer le bitrate de 8Mbps à 5Mbps. Jeudi,
+         28 janvier 2005, je fis une capture avec ce nouveau
+         réglage. Cela ne régla absolument rien, car le lecteur ATI
+         se mit de nouveau à couper l'enregistrement avant la fin
+         de l'émission. Pourtant, l'espace alloué pour la capture
+         était largement suffisant. J'avais programmé le logiciel
+         pour un enregistrement planifié et pourtant, il coupa sans
+         aucun avertissement! Le fichier MPEG-2 d'environ quinze
+         minutes ne pouvait même pas être gravé sur DVD+RW sans
+         trois à cinq heures de réencodage par Nero!
+      </p>
+      <p>
+         Pour résoudre ce problème, il semble y avoir uniquement
+         deux possibilités: réinstaller Windows 98 (quitte à
+         disposer de Windows 98, Windows XP et Linux sur le même
+         disque) ou changer la carte graphique. La première
+         solution est réellement chiante et ne garantit pas un
+         résultat! Deux versions de Windows nécessitent d'installer
+         plusieurs logiciels en double et de mettre à jour chaque
+         version séparément. Si installer Windows XP exige de
+         garder en plus le vieux Windows 98, à quoi bon? XP n'offre
+         pas grand-chose que 98 n'offre pas s'il faut avoir les
+         deux. Cela n'a aucune importance pour moi de pouvoir
+         exécuter le <a
+         href="http://msdn.microsoft.com/netframework/">.NET
+         SDK</a> puisque je travaille sous <a
+         href="http://java.sun.com">Java</a> et non .NET. Outre
+         .NET SDK, aucun logiciel dont je dispose ne peut tourner
+         que sous XP. Aussi bien n'avoir que 98 et que cela plante
+         tout le temps. Au fond, c'est un système secondaire et
+         j'utilise Linux en priorité. Cela ne vaut pas la peine de
+         réinstaller Windows 98 pour un simple TV tuner.
+      </p>
+      <p>
+         La seconde solution est coûteuse et risque de me priver de
+         Linux pour les mois, voire les années à venir, encore une
+         fois sans garantie de résultats. Chaque nouvelle puce ATI
+         semble causer des difficultés aux développeurs de <a
+         href="http://www.x.org">Xorg</a> et <a
+         href="http://www.xfree86.org">XFree</a> et il se peut
+         qu'éventuellement, il soit long, voire impossible,
+         d'obtenir le support pour une puce donnée. Sans un pilote
+         adéquat, l'environnement graphique Linux sera
+         désespérément lent. Il existe des pilotes closed source
+         fournis par ATI, mais ces derniers risquent de ne
+         fonctionner que sous certaines versions du noyau et
+         certaines versions de X. Un bon jour, je risque de mettre
+         ma distribution à jour et devoir attendre des mois ou
+         revenir à la version précédente pour utiliser ma nouvelle
+         carte graphique. Le remplacement de ma carte graphique
+         pour une autre ATI All-In-Wonder me donnera accès au
+         logiciel CATALYST qui est peut-être moins bogué que le
+         Multimedia Center, mais qui me dit que ce logiciel ne
+         demandera pas encore davantage de ressources CPU? Au bout
+         du compte, je devrai peut-être changer le CPU puis la
+         carte mère suivra pour supporter le nouveau CPU et le AGP
+         8X pris en charge par la carte graphique! Il pourrait
+         ainsi m'en coûter plusieurs centaines de dollars
+         simplement pour enregistrer des émissions! Un magnétoscope
+         à cassettes VHS, voire un enregistreur DVD, est peut-être
+         moins coûteux et a de meilleures garanties de fonctionner!
+      </p>
+      <p>
+         Ma carte actuelle fonctionne très bien, à l'exception du
+         TV Tuner, et ce serait du gaspillage de la mettre dans un
+         placard. Des programmes d'échange sont proposés par ATI,
+         mais ce n'est qu'une source de complications. Après avoir
+         obtenu la nouvelle carte, il faut envoyer la vieille par
+         la poste à ATI. Ce qui risque de coûter cher pour sauver à
+         peine 50$.
+      </p>
+      <p>
+         Bref, la seule solution du moment est d'enregistrer en
+         qualité VCD, ou ne pas enregistrer du tout puisque de
+         toute façon, l'image est floue. Ce dernier bogue ne se
+         résoudra que par l'acquisition d'un terminal Illico que je
+         brancherais sur ma carte graphique. Toutefois, tant que la
+         capture ne fonctionnera pas parfaitement, à quoi bon
+         acheter un terminal Illico puisqu'il y en a déjà un
+         raccordé au téléviseur familial. En guise de terminal
+         numérique, je préférerais de toute façon une solution
+         numérique mur à mur qui me permettrait de contourner
+         totalement cette fichue carte graphique et recevoir du
+         MPEG directement. Peut-être qu'un jour, le port USB ou
+         Ethernet du terminal Illico deviendra fonctionnel et
+         servira à cela.
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

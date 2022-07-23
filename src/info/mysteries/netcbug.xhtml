@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         Une carte réseau très étrange
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css"
+      href="../../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../../index.xhtml" class="parents">Le
+               royaume de Eric Buist</a> &gt;&gt; <a
+               href="../index.xhtml"
+               class="parents">Informatique</a> &gt;&gt; Problèmes
+               marquants &gt;&gt; <a href="index.xhtml"
+               class="parents">Quelques mystères</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../../sitemap.xhtml" class="sitemap">Plan
+               du site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="cdbug.xhtml"
+               class="leftsibling">Un lecteur de CD-ROM ou un
+               ventilateur?</a>
+            </td>
+            <td class="thispage">
+               Une carte réseau très étrange
+            </td>
+            <td class="rightsibling">
+               <a href="acpibug.xhtml" class="rightsibling">Un
+               sommeil profond (problème ACPI intermittent!)</a>
+               &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         Une carte réseau très étrange
+      </h1>
+      <p>
+         Cette carte PCMCIA de marque GVC me cause un tracas
+         infini, car elle m'empêche de passer en Linux pour de bon.
+         C'est une carte de type Fast Ethernet dont le nom ne
+         comporte pas la marque GVC. Elle fonctionne bien sous
+         Windows, avec le pilote livré avec la carte. Sauf que
+         Linux l'aime moins...
+      </p>
+      <p>
+         Elle est détectée et prise en charge par un module du
+         noyau appelé pcnet_cs. Contrairement à Windows, Linux se
+         sert de pilotes généraux et non pas de pilotes spécialisés
+         pour chaque périphérique. Ce phénomène est probablement dû
+         au fait que les compagnies ne perdent pas leur temps et
+         leur argent à développer des pilotes Linux et il faut
+         qu'ils le soient par des développeurs extérieurs. Parfois,
+         la compagnie travaille sur le pilote, mais accorde à ce
+         développement une priorité beaucoup moins grande. On
+         retrouvera notamment ce phénomène de pilotes génériques
+         pour les imprimantes en Linux.
+      </p>
+      <p>
+         Alors, la carte semble fonctionner, il m'est même possible
+         d'accéder à Internet, car le Partage Internet de Windows
+         98SE n'est nul autre qu'un petit serveur DHCP. La machine
+         client reçoit ainsi une IP de façon automatique et peut
+         communiquer au serveur qui relaie si nécessaire les
+         requêtes à Internet. Mais dès le premier transfert de
+         fichier un peu plus sérieux, la connexion ralentit pour
+         finalement s'arrêter! Le transfert ne reprenant pas, je
+         pensai à prime abord que le site devait être mis en cause.
+         Toutefois, le problème se reproduisit, même durant des
+         transferts de fichier sur le réseau interne. Pour faire
+         reprendre le transfert, je devais débrancher la fiche de
+         la carte et la rebrancher, puis attendre quelques secondes
+         que le système se décide à fonctionner de nouveau.
+      </p>
+      <p>
+         Un peu plus tard, je voulus pousser davantage
+         l'investigation et j'examinai avec minutie les scripts de
+         démarrage. J'y appris la commande qui permet, en tout cas
+         sous Red Hat 6.2, d'amorcer la requête DHCP qui fournira
+         l'adresse IP à la carte. J'ai ensuite tenté d'appeler
+         seule cette commande après un plantage de la carte réseau.
+         Après quelques secondes d'attente, le programme a lancé un
+         message d'erreur des plus bizarres : <tt>eth0:
+         trigger_send() called with the transmitter busy</tt>. J'ai
+         fini par trouver qu'en appelant <tt>/sbin/cardctl
+         reset</tt> en root, je peux refaire fonctionner la carte.
+         Mais dans tous les cas, cela rend la machine peu fiable
+         pour son lien Internet et cela va me nuire si j'utilise
+         Telnet ou si je transforme ma machine en terminal X. De
+         plus, je ne pouvais plus me fier aux fichiers transférés
+         et les arrêts étaient si fréquents que cela valait mieux
+         aller effectuer le transfert sous Windows. Ce problème,
+         conjugué au manque d'espace de mon disque dur de 2gig de
+         mon portable, est à l'origine de la partition FAT32
+         occupéant tout le disque et accueillant Windows 98 Seconde
+         Édition. :(
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

@@ -1,0 +1,716 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         Passage à Mandrake 10
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css" href="../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../index.xhtml" class="parents">Le royaume
+               de Eric Buist</a> &gt;&gt; <a href="index.xhtml"
+               class="parents">Informatique</a> &gt;&gt;
+               Configuration informatique
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../sitemap.xhtml" class="sitemap">Plan du
+               site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="sysupdt.xhtml"
+               class="leftsibling">Mise à jour de mon système</a>
+            </td>
+            <td class="thispage">
+               Passage à Mandrake 10
+            </td>
+            <td class="rightsibling">
+               <a href="mdk101.xhtml" class="rightsibling">Passage
+               à Mandrake 10.1</a> &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         Passage à Mandrake 10
+      </h1>
+      <ul>
+         <li>
+            <a href="#why">Pourquoi passer à Mandrake de
+            nouveau</a>
+         </li>
+         <li>
+            <a href="#get">Obtenir Mandrake 10, plus difficile que
+            prévu</a>
+         </li>
+         <li>
+            <a href="#install">Installation</a>
+         </li>
+         <li>
+            <a href="#bugx">Comme d'habitude, le BugX</a>
+         </li>
+         <li>
+            <a href="#hw">Problèmes matériels</a>
+         </li>
+         <li>
+            <a href="#cdr">La gravure de CD pose problèmes</a>
+         </li>
+         <li>
+            <a href="#samba">Problème avec Samba</a>
+         </li>
+         <li>
+            <a href="#java">Problèmes avec Java</a>
+         </li>
+         <li>
+            <a href="#conc">Conclusion</a>
+         </li>
+      </ul>
+      <h2>
+         <a id="why" name="why">Pourquoi passer à Mandrake de
+         nouveau</a>
+      </h2>
+      <p>
+         En février 2004, j'ai appris que la version 9 de la
+         distribution Red Hat constituait la dernière. Une visite
+         sur le site de <a href="http://www.redhat.com">Red Hat</a>
+         me confirma bel et bien qu'il n'y a plus que des produits
+         pour entreprises, des versions payantes de Linux. Outre
+         Red Hat Enterprise Linux, une alternative constitue <a
+         href="http://fedora.redhat.com">Fedora</a> qui constitue
+         en quelque sorte le successeur de Red Hat Linux. Je lus
+         toutefois sur le site de la distribution que cela
+         constituait une plate-forme de test pour le noyau 2.6 et
+         cela me dissuada de l'essayer. Je laissai les choses sur
+         la glace afin de donner priorité à ma seconde session de
+         maîtrise qui me donnait beaucoup de travail, mais je me
+         disais qu'éventuellement, il allait probablement falloir
+         mettre mon Linux à jour et changer de distribution. Mon
+         périple Linux atteignait un point tournant à partir duquel
+         plusieurs choix s'offraient à moi.
+      </p>
+      <ul>
+         <li>
+            Conserver Red Hat Linux 9
+         </li>
+         <li>
+            Changer de distribution pour <a
+            href="http://www.linuxmandrake.com">Mandrake</a>
+         </li>
+         <li>
+            Essayer la distribution <a
+            href="http://www.debian.org">Debian</a>
+         </li>
+         <li>
+            Essayer une des nombreuses distributions moins
+            importantes
+         </li>
+         <li>
+            Me procurer Red Hat Enterprise Linux et l'essayer
+         </li>
+         <li>
+            Renoncer à Linux et ne garder que Windows XP
+         </li>
+      </ul>
+      <p>
+         Je pensai à Debian, car on m'a dit de bonnes choses sur le
+         système de mises à jour Apt, mais j'appris qu'il était
+         ardu à installer. Le programme d'installation ne détecte
+         que le strict minimum du matériel et plusieurs éléments
+         sont à configurer manuellement. Il se peut même qu'il
+         faille recompiler le noyau avant de parvenir à une
+         configuration fonctionnelle. Tout ceci est faisable, mais
+         il faut avoir le temps et la patience de mener à bien la
+         configuration. Quant à Mandrake 10, son intérêt réside
+         dans le noyau 2.6, KDE 3.2 et GNOME 2.4. Mais les bogues
+         dans la version 9, une tentative de résoudre un bogue
+         réseau chez un ami qui avait la 9.2 et le MandrakeClub qui
+         crée une division parmi les utilisateurs Linux Mandrake me
+         dissuadèrent d'essayer cette distribution.
+      </p>
+      <p>
+         Jeudi, 15 avril 2004, je découvris un bogue étrange et
+         fâcheux sous Linux. L'horloge de mon système prenait du
+         retard. Si je laissais ma machine allumée pendant quelques
+         heures, elle pouvait décaler de quelques minutes. Par
+         exemple, sous KDE, c'était écrit 11h tandis qu'en fait, il
+         était 11h10! Je pensai longtemps que c'était la batterie
+         RTC de ma carte mère ou le connecteur ATX de mon power
+         supply, mais en fait, c'était Linux! L'horloge système ne
+         fonctionnait plus correctement. Il se peut que ce bogue
+         soit apparu durant l'été 2003, après le transfert de
+         disque dur qui en a fait voir de toutes les couleurs à mon
+         système Linux. Cette fois-ci, il n'y avait aucune solution
+         à part réinstaller. Bien entendu, je ne voulais pas
+         réinstaller Red Hat 9, car il me faudrait réinstaller ALSA
+         ainsi que beaucoup d'autres mises à jour. Je voulais aussi
+         obtenir le noyau 2.6 afin de bénéficier de meilleures
+         performances.
+      </p>
+      <p>
+         Il semblait bien que Mandrake 10 constituait la
+         distribution la plus puissante du moment et après quelques
+         temps, je me décidai à commencer les recherches.
+      </p>
+      <h2>
+         <a id="get" name="get">Obtenir Mandrake 10, plus difficile
+         que prévu</a>
+      </h2>
+      <p>
+         Sur le site de Mandrake, j'avais vu pour la version 9.2
+         des fichiers <a
+         href="http://bitconjurer.org/BitTorrent/">BitTorrent</a>
+         (extension <tt>.torrent</tt>) permettant de télécharger
+         les ISO. Je me suis dit que ce devait être plus rapide
+         qu'avec FTP et je pouvais en plus éviter d'avoir à faire
+         le download avec Windows; je n'aurais pas besoin de <a
+         href="http://www.speedbit.com">Download Accelerator
+         Plus</a>. J'eus quelques problèmes à faire fonctionner
+         BitTorrent et lorsque j'y parvins, je découvris que sur le
+         site de Mandrake, il n'y avait pas les <tt>.torrent</tt>
+         pour la version 10. Pire encore, il n'y avait pas les ISO!
+         Tout ce que je pus trouver, c'est un mirroir FTP qui
+         offrait la distribution sous la forme d'un gigantesque
+         ensemble de fichiers séparés.
+      </p>
+      <p>
+         Je découvris ainsi la tactique du MandrakeClub. Mandrake
+         offre la version 10 officielle uniquement aux membres du
+         club et les autres doivent attendre, s'abonner ou acheter
+         la version commerciale. Il semble aussi possible
+         d'installer la distribution par le biais d'Internet, mais
+         une telle installation aurait mobilisé ma machine pendant
+         des heures, voire des jours. Pendant le téléchargement, si
+         Linux fonctionne, cela ne m'empêche pas de travailler sur
+         la machine. Mais si Linux s'installe et télécharge à la
+         fois, la machine est inutilisable pendant toute
+         l'opération. La version commerciale coûte plus de cent
+         dollars et vient avec sept à huit CD. Plusieurs logiciels
+         sur ces disques ne me serviront à rien et l'installation
+         sera très longue, soit parce que la sélection des
+         paquetages le sera, soit parce que j'aurai installé
+         beaucoup d'éléments. Par exemple, que puis-je faire avec
+         un logiciel tel que <a
+         href="http://staroffice.com/">StarOffice</a> s'il prend
+         plus de quinze secondes à démarrer parce qu'il tente
+         d'immiter le Bureau et le menu Démarrer de Windows? <a
+         href="http://www.openoffice.org">OpenOffice</a> a le
+         mérite de se comporter davantage comme une application
+         classique. Je suppose que la version PowerPack de Mandrake
+         contient StarOffice, ainsi que d'autres logiciels à code
+         source fermé tels que <a
+         href="http://www.real.com">RealPlayer</a>, <a
+         href="http://www.netscape.com">Netscape</a> 7, <a
+         href="http://www.adobe.com">Acrobat Reader</a>, <a
+         href="http://java.sun.com">J2SDK</a>, ... La plupart de
+         ces logiciels sont disponibles sur Internet, d'autres ne
+         me sont que peu utiles. Peut-être le PowerPack me ferait
+         découvrir un puissant logiciel que j'adorerais par la
+         suite, mais il est possible qu'il faille plus de 20G pour
+         faire tenir le tout, ce qui impliquera de longues
+         manipulation de réaménagement de mon disque dur. Avec un
+         120G, cela commence à être suffisamment long pour faire
+         réfléchir... Il existe en plus plusieurs versions
+         commerciales. La version Discovery semble s'adresser aux
+         non initiés, comme une première distribution Linux. Il
+         risque de manquer des éléments et je n'aimerai pas. La
+         version PowerPack semble le meilleur compromis, mais je
+         n'étais pas certain d'avoir Samba puisqu'ils mentionnent
+         Samba comme point important dans la PowerPack+. Samba
+         permet la communication avec les machines Windows et m'est
+         utile pour effectuer la sauvegarde des fichiers de
+         l'ordinateur familial à partir de ma machine. Payer pour
+         un téléchargement ne me semble pas une bonne idée, car
+         rien ne me dit si cela va vraiment fonctionner. Si la
+         vitesse nominale se trouve sous les 3k/s, cela n'en vaut
+         pas le coup!
+      </p>
+      <p>
+         Sur le site de Mandrake, il était écrit que les images ISO
+         seraient disponibles en début mai. Toutefois, serait-ce
+         vraiment le cas? J'effectuai des recherches sur Internet à
+         maintes reprises à ce sujet, toujours rien. Plusieurs
+         personnes demandaient, sur différents forums, où trouver
+         ces images ISO. Cette pratique diminua mon intérêt pour
+         Mandrake, mais j'aimais mieux essayer Mandrake 10 qu'une
+         autre des options imaginées. J'entamai des recherches pour
+         télécharger Mandrake 10 par FTP et reconstruire les images
+         ISO, aussi bien en mode CD qu'en mode DVD. Vendredi, 23
+         avril 2004, je découvris comment faire fonctionner le
+         script <tt>MakeCD</tt> sous Red Hat 9. Ce script permet de
+         reconstruire les images ISO Mandrake à partir des
+         fichiers. J'utilisai pour le test un CD de Mandrake 9.1
+         trouvé dans un livre voilà quelques temps. Je me disais
+         que si cela avait fonctionné avec la 9.1, il en serait de
+         même avec la 10. Je n'ai pas construit les ISO, juste
+         démarré le script.
+      </p>
+      <p>
+         Je prévoyais attendre à la mi-mai, après quoi je tenterais
+         d'obtenir les fichiers si les images ISO n'étaient
+         toujours pas disponibles. Si rendu en juin 2004, je ne
+         pouvais toujours pas obtenir Linux, je me replierais vers
+         une solution consistant à réinstaller Red Hat 9 ou
+         n'utiliser que Windows XP.
+      </p>
+      <p>
+         Samedi, 1 mai 2004, j'en eus assez d'attendre après ces
+         images ISO et tentai quelque chose pour obtenir Linux. Sur
+         le site de Mandrake, je sélectionnai un mirroir et copiai
+         son adresse dans XEmacs. Je souhaitais passer l'adresse de
+         ce serveur FTP à l'utilitaire <a
+         href="http://www.gnu.org/software/wget/">Wget</a> afin
+         d'effectuer une copie des fichiers de la distribution sur
+         mon système. La commande utilisée fut <tt>wget --mirror
+         &lt;emplacement&gt;/i586</tt>. Je la plaçai dans un petit
+         script plutôt que l'écrire sur la console afin de pouvoir
+         la retaper au cas où je devrais arrêter puis reprendre le
+         téléchargement. Je testai si la reprise fonctionnait et
+         oui! Wget recommence le fichier incomplet créé lors de
+         l'interruption et ne refait pas les téléchargements déjà
+         effectués. Le téléchargement atteignit une vitesse de plus
+         de 300k/s, ce qui me surprit agréablement.
+         Malheureusement, après quelques minutes, je découvris que
+         le fichier <tt>VERSION</tt> contenait <tt>Mandrake 10.0
+         Community</tt>! Ce n'était pas la bonne version! Je
+         supprimai les fichiers puis tentai de trouver un second
+         mirroir. Par chance, il y en a d'autres et j'en trouvai un
+         dont le fichier <tt>VERSION</tt> contenait <tt>Mandrake
+         10.0 Official</tt>. Le téléchargement reprit.
+      </p>
+      <p>
+         Je découvris toutefois, dans le répertoire
+         <tt>Mandrake</tt>, des liens symboliques: <tt>RPMS2</tt>
+         et <tt>RPMS3</tt>. Ne connaissant pas la distribution, je
+         voulus les rendre valides et je dus effectuer du
+         téléchargement additionnel. Il me fallut télécharger
+         <tt>contrib/jpackage/i586</tt> et <tt>contrib/RPMS</tt>
+         qui est un lien symbolique vers <tt>contrib/i586</tt>.
+         Cela dura jusqu'au lendemain et totalisa plus de 6G de
+         fichiers! Avant de faire quoi que ce soit avec les
+         fichiers, je les gravai sur deux DVD-R de sauvegarde.
+         Ainsi, dans un accès de colère et de lassitude, je ne
+         supprimerais pas le fruit de ce téléchargement pour
+         ensuite avoir une idée de génie et le refaire pour la
+         tester!
+      </p>
+      <p>
+         Dimanche, 2 mai 2004, je me battis avec <tt>MakeCD</tt>
+         qui bogua, bloqua, mais ne voulut jamais me fabriquer un
+         jeu complet d'images ISO. Je finis par supprimer les
+         fichiers et me résoudre à réinstaller Red Hat 9 au cours
+         de l'été. Il me fallut une semaine pour parvenir à obtenir
+         un disque DVD de Mandrake 10. Mercredi soir, le 5 mai
+         2004, j'en avais un, mais lors de mon test, le programme
+         d'installation afficha <tt>Mandrake 10.0 Community</tt>.
+         Ce qui fit vite retomber mon enthousiasme. Tout
+         m'indiquait que c'était la bonne version, sauf le
+         programme d'installation. Je trouvai toutefois des
+         screenshots, sur le site de Mandrake, affichant Community,
+         si bien que j'en conclus que c'était cela.
+      </p>
+      <h2>
+         <a id="install" name="install">Installation</a>
+      </h2>
+      <p>
+         Vendredi soir, 7 mai 2004, le moment de l'installation
+         arriva. J'avais bien hâte de voir si mon DVD
+         fonctionnerait vraiment et si la mise à jour serait
+         profitable. Il n'y eut aucun problème technique lors de
+         l'installation, mais la sélection des paquetages fut assez
+         difficile. Le programme ne voulait pas installer tous les
+         paquetages, aucune option ne permettait cela. Le pointeur
+         de souris était très petit et se déplaçait très vite, si
+         bien que j'avais du mal à sélectionner les paquetages.
+         Après presque une demi-heure de préparatifs,
+         l'installation put enfin démarrer et se poursuivit sans
+         aucune difficulté. Le programme d'installation a même
+         détecté mon modem. Il m'afficha qu'il me fallait un pilote
+         propriétaire que je pourrais peut-être trouver sur <a
+         href="http://www.linmodems.org">Linux Winmodem
+         Support</a>. Lorsque l'installation fut terminée, je
+         démarrai sous X et je dus passer par quelques boîtes de
+         dialogue avant d'aboutir à KDE. Tout semblait fonctionner,
+         mais les fontes étaient très petites.
+      </p>
+      <h2>
+         <a id="bugx" name="bugx">Comme d'habitude, le BugX</a>
+      </h2>
+      <p>
+         Changer la fonte sous KDE fut très facile, mais il n'en
+         fut pas de même pour GTK+ 1 et 2. Je dus encore une fois
+         modifier les fichiers <tt>~/.gtkrc</tt> et
+         <tt>~/.gtkrc-2.0</tt> comme je l'avais fait sous Red Hat
+         9. XEmacs aussi me posa quelques problèmes, car je ne
+         parvenais pas à obtenir de nouveau la fonte Lucida 23 ou
+         24. Si j'augmentais la taille à 23 ou 24 points, je ne
+         pouvais qu'obtenir des fontes fixes pas très belles.
+         Samedi, 8 mai 2004, je finis par solutionner le problème
+         en ajoutant la fonte Arial de Windows par le biais de
+         l'outils d'ajout de polices de Mandrake. Mozilla posa
+         problème, car changer la fonte de GTK+ ne lui suffisait
+         pas. Il fallait encore modifier <tt>userChrome.css</tt>
+         comme sous Red Hat 9. Par chance, j'avais noté les
+         modifications à effectuer! J'éprouvai bien entendu des
+         difficultés avec les curseurs de souris et la modification
+         de <tt>.Xresources</tt> ne fonctionna pas. KDE semblait
+         reprendre le contrôle du curseur et me remettait sa petite
+         affaire de rien au lieu du mien. Il me fallut finalement
+         en choisir un parmi les thèmes prédéfinis. Par chance, le
+         choix est plus vaste que sous Windows et le thème YCursor
+         fournit des curseurs suffisamment gros pour mes besoins.
+      </p>
+      <h2>
+         <a id="hw" name="hw">Problèmes matériels</a>
+      </h2>
+      <p>
+         Samedi, 8 mai 2004, j'ai dû faire face à de nombreux
+         bogues Linux dont certains furent matériels. D'abord, le
+         TV Tuner de ma carte graphique ne fonctionnait pas. Je
+         découvris que XawTV n'était pas installé, l'installai,
+         puis constatai que cela ne fonctionnait pas du tout.
+         Mandrake n'a pas intégré ATI.2, car il ne fonctionne
+         qu'avec le module DRM de <a
+         href="http://gatos.sourceforge.net">GATOS</a>. Ce dernier
+         module, que j'ai tenté de télécharger, ne fonctionne
+         qu'avec le noyau 2.4. Toute tentative de compilation dans
+         le noyau 2.6 fut vaine. Il me faudra sans doute attendre
+         des mois avant de pouvoir utiliser le tuner sous Linux de
+         nouveau, à moins de retourner à Red Hat 9, ce que je ne
+         veux pas faire. Il se peut que cela ne fonctionne jamais,
+         car le projet GATOS se concentrera sans doute sur les
+         cartes Radeon plutôt que les vieilles Rage 128. Quant à
+         changer ma carte graphique, ce n'est pas une bonne idée.
+         Ce sera coûteux et il se peut que même le 2D ne soit pas
+         supporté si ma carte trop récente possède un chipset non
+         pris en charge. Ceci pourrait me décourager suffisamment
+         pour que je renonce à Linux pour quelques temps. Mon modem
+         56k ne fonctionne pas pour une raison semblable. Intel ne
+         maintient plus le pilote Linux de ce modem et pour
+         l'utiliser, je serais donc confiné au noyau 2.4. La mise à
+         jour du pilote exigerait la recompilation de sa partie
+         binaire, ce qui est bien entendu pratiquement impossible.
+         Pour effectuer le portage du pilote, il faudrait
+         comprendre le fonctionnement des modules sur noyau 2.4,
+         ceux du noyau 2.6, puis porter la partie source. Ensuite,
+         il faudrait désassembler la partie binaire et effectuer un
+         fastidieux travail de reversed engineering afin de
+         retrouver le mode de fonctionnement du modem pour produire
+         un code assembleur compatible 2.6 qui devrait ensuite être
+         réassemblé. Je ne me crois pas incapable d'un pareil
+         exploit, mais je n'en ai pas le temps et la motivation. De
+         plus, ces manipulations de code binaire constituent sans
+         doute une violation de license et pourraient en plus me
+         valoir, si je réussis et que je mets le code à disposition
+         de tous, un procès dont je n'ai nul besoin. Si j'effectue
+         le portage et je le garde pour moi seul, j'aurai perdu
+         beaucoup de temps pour peu de choses.
+      </p>
+      <p>
+         Ma clé USB posa quelques problèmes, car Mandrake semblait
+         ne pas la détecter. Je me rendis compte que
+         <tt>usbview</tt> n'affichait même plus le scanner et
+         aucune imprimante n'apparaissait dans <tt>/dev</tt>
+         lorsque je l'allumais. Je tentai de modifier
+         <tt>/etc/sysconfig/usb</tt> afin de mettre
+         <tt>STORAGE</tt> à <tt>yes</tt> puis je tapai
+         <tt>/etc/init.d/usb restart</tt>. En vain. Je finis par
+         devoir rebooter et la clé fonctionna, de même que
+         l'imprimante.
+      </p>
+      <p>
+         Je dus ajouter la ligne
+      </p>
+<pre>
+/dev/sda /mnt/usbkey vfat umask=0,iocharset=iso8859-1,codepage=850,user,quiet,noauto 0 0
+</pre>
+      <p>
+         dans <tt>/etc/fstab</tt> afin de pouvoir utiliser la clé
+         en mode utilisateur. Les options <tt>iocharset</tt> et
+         <tt>codepage</tt> ont été inspirées des autres lignes de
+         <tt>/etc/fstab</tt>.
+      </p>
+      <p>
+         La lecture depuis le lecteur DVD s'avéra étrangement lente
+         par moments. Pour tenter de solutionner ce bogue, je
+         désactivai les supermounts, mais il semble qu'en fait, ce
+         soit dû à la fonction de complétion de Bash.
+      </p>
+      <h2>
+         <a id="cdr" name="cdr">La gravure de CD pose problèmes</a>
+      </h2>
+      <p>
+         CDRecord ne voulait tout simplement pas fonctionner. La
+         commande <tt>cdrecord -scanbus</tt> affichait
+      </p>
+<pre>
+Cdrecord-Clone 2.01a27-dvd (i686-pc-linux-gnu) Copyright (C) 1995-2004 Jörg Schilling
+Note: This version is an unofficial (modified) version with DVD support
+Note: and therefore may have bugs that are not present in the original.
+Note: Please send bug reports or support requests to &lt;warly@mandrakesoft.com&gt;.
+Note: The author of cdrecord should not be bothered with problems in this version.
+scsidev: 'ATA:1,0,0'
+devname: 'ATA'
+scsibus: 1 target: 0 lun: 0
+Warning: Using badly designed ATAPI via /dev/hd* interface.
+Linux sg driver version: 3.5.27
+Using libscg version 'schily-0.8'.
+cdrecord: Warning: using inofficial libscg transport code version (warly-scsi-linux-sg.c-1.80-mdk '@(#)scsi-linux-sg.c   1.80 04/03/08 Copyright 1997 J. Schilling').
+scsibus1:
+        1,0,0   100) 'PIONEER ' 'DVD-RW  DVR-107D' '1.09' Removable CD-ROM
+        1,1,0   101) *
+        1,2,0   102) *
+        1,3,0   103) *
+        1,4,0   104) *
+        1,5,0   105) *
+        1,6,0   106) *
+        1,7,0   107) *
+   
+</pre>
+      <p>
+         Je tentai <tt>cdrecord dev=1,0,0 -checkdrive</tt> et
+         j'obtins des erreurs. Après plusieurs recherches, j'appris
+         qu'il fallait utiliser <tt>cdrecord dev=ATA:1,0,0
+         -checkdrive</tt>. Toutefois, les fichiers de configuration
+         dans <tt>/etc/default</tt> étaient ignorés et la seule
+         façon de rendre la commande plus conviviale fut de définir
+         un alias afin d'éviter d'avoir à donner <tt>dev=ATA:1,0,0
+         driveropts=burnfree</tt> lors de chaque appel.
+      </p>
+      <p>
+         J'eus également de la difficulté avec CDRDAO, car
+         <tt>cdrdao scanbus</tt> n'affichait plus rien. Il semble
+         falloir utiliser <tt>/dev/hdc</tt> comme périphérique pour
+         effectuer la gravure. Ces variations sont dûes au noyau
+         2.6 dont le module IDE-SCSI n'est plus nécessaire pour
+         graver des CD.
+      </p>
+      <p>
+         Lors de ma première gravure de CD, j'ai constaté que
+         CDRecord gravait non pas à 4x mais à 0.5x! La gravure sur
+         CD-RW était déjà plutôt lente... Toutefois, d'après le
+         temps pris pour la gravure, cela correspondait à du 4x.
+         Lors de la gravure d'un CD-R à 24x, CDRecord afficha 3x.
+         Il semble que le programme affiche les vitesses en mode
+         DVD. Ceci pourrait être dû au fait que c'est une version
+         patchée pour supporter le DVD. Avec cette version, nul
+         besoin de CDRecord-ProDVD que je croyais nécessaire avant
+         dimanche soir, 16 mai 2004. C'est en écrivant cette
+         section de cette page que je découvris la version patchée!
+      </p>
+      <h2>
+         <a id="samba" name="samba">Problème avec Samba</a>
+      </h2>
+      <p>
+         Dimanche, 9 mai 2004, j'éprouvai des difficultés à
+         effectuer mes sauvegardes hebdomadaires. Pour mes propres
+         fichiers, cela se passa très bien. Toutefois, pour l'accès
+         réseau, rien ne fonctionnait plus. Samba affichait une
+         erreur d'ouverture de session et toute recherche sur
+         Internet fut vaine. La commande <tt>smbclient</tt> se
+         connectait sans difficulté à l'ordinateur familial sous
+         Windows XP tandis que sur une picouille Windows 95, rien à
+         faire. Après plusieurs tentatives de débogage, je
+         découvris que le service <tt>winbind</tt> posait des
+         problèmes de compatibilité Son déchargement fit en sorte
+         que je pouvais me brancher à la picouille mais pas à la
+         machine XP. Je ne me souviens plus exactement comment je
+         parvins à refaire fonctionner le branchement à la machine
+         XP, je crois que ce fut une affaire de mots de passe.
+      </p>
+      <h2>
+         <a id="java" name="java">Problèmes avec Java</a>
+      </h2>
+      <p>
+         Samedi, 8 mai 2004, je tentai d'installer JDK 1.4.2 sur ma
+         nouvelle installation Mandrake. Le programme
+         d'installation afficha des <tt>.</tt> de progression puis
+         stoppa là sans afficher quoi que ce soit. J'essayai
+         plusieurs fois sans résultats puis je dus télécharger une
+         nouvelle fois JDK 1.4.2 sur le site de Sun. Cette fois-ci,
+         je pris la version JDK sans NetBeam et cela fonctionna.
+         Malheureusement, le plug-in Mozilla ne fonctionnait pas.
+         La version Mozilla 1.6 Mandrake semblait incompatible avec
+         ce plug-in, à moins peut-être d'utiliser la version <a
+         href="http://www.blackdown.com">Blackdown</a> de JDK.
+         Heureusement, il n'en fut rien. Le lendemain matin, je
+         découvris que le lien symbolique que j'avais créé pour le
+         plug-in était incorrect et ceci réparé, cela fonctionna.
+         Il y eut des problèmes avec le plug-in <a
+         href="http://www.macromedia.com">Flash</a> que je dus
+         télécharger de nouveau.
+      </p>
+      <h2>
+         <a id="conc" name="conc">Conclusion</a>
+      </h2>
+      <p>
+         Mandrake 10 constitue, somme toute, une très bonne
+         distribution Linux. Son installation est facile et tout le
+         matériel supporté est détecté et pris en charge. Seuls mon
+         TV Tuner et mon modem ne purent fonctionner et aucun moyen
+         alternatif sur Internet ne m'offrit une chance d'y
+         remédier. La configuration de Mandrake 10 tient compte de
+         plusieurs détails qui font la différence. Le fichier
+         <tt>/etc/fstab</tt> contient dès l'installation terminée
+         des points de montage pour toutes les partitions des
+         disques durs de la machine. Dans le cas de partitions
+         FAT32 et NTFS, des options sont ajoutées pour indiquer un
+         encodage ISO 8859-1, ce qui garantit un bon support des
+         noms de fichiers avec des accents. L'option <tt>quiet</tt>
+         pour le FAT32 permet d'éviter de répétitifs messages
+         d'erreur au sujet des permissions.
+      </p>
+      <p>
+         Le thème Galaxy 2 unifie l'apparence des applications,
+         qu'elles soient GNOME ou KDE. Bien que certaines personnes
+         ne le trouvent pas beau, il est toujours possible de le
+         changer. Même les <a
+         href="http://qa.mandrakesoft.com/twiki/bin/view/Main/MandrakeMenu">menus</a>
+         se trouvent gérés par un système commun. Pour chaque
+         entrée de menu, un fichier est créé dans
+         <tt>/usr/lib/menu</tt> et le script <tt>update-menus</tt>
+         configure els menus pour tous les Window Manager.
+      </p>
+      <p>
+         J'ai aussi apprécié le fait que <a
+         href="http://www.atnf.csiro.au/people/rgooch/linux/docs/devfs.html">DevFS</a>
+         soit installé. Plutôt que disposer d'un répertoire
+         <tt>/dev</tt> rempli de fichiers parfois inutiles,
+         <tt>/dev</tt> est construit et mis à jour dynamiquement et
+         ne contient que des liens vers des périphériques
+         existants. Malheureusement, l'écriture n'est pas permise
+         et il ne m'a pas été possible d'inverser <tt>cdrom</tt> et
+         <tt>cdrom1</tt>. En effet, je voudrais que la commande
+         <tt>eject</tt> sans argument ouvre le tiroir de mon
+         lecteur plutôt que mon graveur.
+      </p>
+      <p>
+         Le noyau 2.6 procure une amélioration notable de la
+         performance. Bien que cela ne me soit pas utile pour le
+         moment, USB 2 et FireWire se trouvent parfaitement
+         supportés. L'incorporation d'<a
+         href="http://www.alsa-project.org">ALSA</a> plutôt qu'<a
+         href="http://www.opensound.com/linux.html">OSS</a>
+         facilite la configuration de cartes sons modernes à canaux
+         multiples, comme la Sound Blaster Live! 5.1 et Audigy. Ma
+         carte son a fonctionné aussitôt l'installation terminée et
+         tout était bien configuré, y compris les canaux arrière et
+         centre.
+      </p>
+      <p>
+         Le logiciel <a
+         href="http://xine.sourceforge.net">Xine</a>, pour la
+         lecture de DVD, est installé et semble pouvoir lire les
+         DVD Vidéo sans problèmes. Mandrake 10 vient avec plusieurs
+         autres logiciels comme MPlayer, Totem et X Movie. Il
+         comporte aussi Audacity, un logiciel d'édition audio qui
+         semble potable.
+      </p>
+      <p>
+         Un ajout intéressant constitue la complétion programmable
+         de Bash. Sous le shell, lorsque la touche TAB est
+         utilisée, les premières lettres d'un nom de fichier sont
+         lues et Bash tente de trouver le nom complet. Par exemple,
+         si le répertoire courant contient un fichier du nom de
+         <tt>Test</tt>, la séquence <tt>ls Te</tt> suivie de TAB
+         complètera le nom de fichier et <tt>ls Test</tt> sera
+         affiché. Si la complétion ne peut pas se faire de façon
+         non ambigüe, Bash complète le plus loin qu'il peut et un
+         second appui sur TAB fait surgir une liste de suggestions
+         de noms. Mandrake a configuré Bash de façon à aller plus
+         loin. Selon la commande tapée, des complétions différentes
+         seront proposées. Par exemple, <tt>latex Te</tt> suivi de
+         TAB ne proposera que <tt>Test.tex</tt> (s'il existe) et
+         non pas <tt>Test.dvi</tt>, <tt>Test.aux</tt>,
+         <tt>Test.log</tt>, <tt>Test.bbl</tt>, ... Cela fonctionne
+         pour <tt>latex</tt>, <tt>dvips</tt>, <tt>acroread</tt> et
+         même <tt>javac</tt>! Dans le cas de <tt>java</tt>, il ne
+         complète pas le <tt>.class</tt>, il affiche uniquement le
+         nom de la classe. Au lieu d'afficher des noms de fichiers,
+         une commande telle que <tt>killall</tt> provoque
+         l'affichage de noms de processus! Ces modifications sont
+         dûes au fichier <tt>/etc/bash_completion</tt> et au
+         répertoire <tt>/etc/bash_completion.d</tt> qui ont été
+         repris par Mandrake du code source de Bash.
+      </p>
+      <p>
+         Le plus grand défaut de Mandrake réside à mon avis dans sa
+         mauvaise sélection de paquetages installés et la
+         difficulté à modifier cette sélection pendant
+         l'installation. Mandrake Linux semble adopter un profil
+         bureautique, écartant des outils tels que <a
+         href="http://www.gnuplot.info">Gnuplot</a> et n'incluant
+         même pas <a href="http://www.octave.org">Octave</a>. Bien
+         que j'aie explicitement demandé à Mandrake de m'installer
+         tous les paquetages XMMS, vendredi, 21 mai 2004, je me
+         suis rendu compte que le plug-in DiskWriter n'était pas
+         présent, bien qu'inclus sur le DVD que je m'étais
+         construit. L'outil RPMDrake prend au moins trente secondes
+         pour démarrer et quand il faut le démarrer régulièrement
+         pour compenser les mauvais choix initiaux de l'installer,
+         cela devient agaçant. J'ai songé tenter <tt>rpm -Uvh
+         *.rpm</tt> depuis le répertoire <tt>Mandrake/RPMS</tt> de
+         mon DVD, mais j'estime que cela risque davantage de
+         prendre de longues minutes avant de m'afficher dix pages
+         de messages d'erreur (paquetages en conflit, signatures
+         invalides, installation impossible pour je ne sais quelles
+         raisons, ...) plutôt que d'effectuer quoi que ce soit
+         d'utile.
+      </p>
+      <p>
+         Je trouve aussi les menus de Mandrake trop profonds pour
+         le mode de navigation offert. Quand les menus sont
+         parcours à la souris, cela ne cause aucun problème, mais
+         j'aime bien naviguer avec le clavier. Lorsque le pointeur
+         de souris se trouve à un endroit dans le menu, il a
+         priorité et la sélection change, des sous-menus ouverts se
+         referment et il faut recommencer après avoir déplacé le
+         curseur de souris. Parfois, ce problème rend même
+         difficiles de simples tâches comme quitter KDE.
+      </p>
+      <p>
+         Au point de vue technique, Mandrake 10 apporte peu de
+         nouveautés. Ce qui ne fonctionnait pas sous Red Hat 9 ne
+         fonctionne pas sous Mandrake 10, aussi simple que ça. Le
+         module NTFS du kernel est toujours en lecture seule,
+         l'écriture UDF n'est toujours pas supportée de façon
+         standard et les utilitaires pour écriture de CD-RW en mode
+         incrémental ne sont toujours pas présents. Ces lacunes ne
+         sont pas dûes à Mandrake mais sans doute plutôt au manque
+         de développeurs capables de les combler et possiblement à
+         la difficulté d'accès à certaines spécifications. Mandrake
+         a accompli un bon travail et, après avoir fait mon deuil
+         de mon TV Tuner et de mon modem, et constaté les
+         meilleures performances du noyau 2.6, j'ai décidé de
+         conserver Mandrake 10 et ne pas revenir à Red Hat 9.
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

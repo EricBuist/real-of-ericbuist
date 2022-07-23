@@ -1,0 +1,230 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.1//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>B.2 Solutions pour l'utilisateur</TITLE>
+<META NAME="description" CONTENT="B.2 Solutions pour l'utilisateur">
+<META NAME="keywords" CONTENT="cdwriting">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cdwriting.css">
+
+<LINK REL="next" HREF="node100.html">
+<LINK REL="previous" HREF="node98.html">
+<LINK REL="up" HREF="node97.html">
+<LINK REL="next" HREF="node100.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2566"
+  HREF="node100.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2560"
+  HREF="node97.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2554"
+  HREF="node98.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2562"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2564"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html2567"
+  HREF="node100.html">B.3 Solutions pour le</A>
+<B> monter:</B> <A NAME="tex2html2561"
+  HREF="node97.html">B. Problème de gravure</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2555"
+  HREF="node98.html">B.1 Le problème de</A>
+ &nbsp; <B>  <A NAME="tex2html2563"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2565"
+  HREF="node106.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Sous-sections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html2568"
+  HREF="node99.html#SECTION07821000000000000000">B.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN> Mise à jour</A>
+<LI><A NAME="tex2html2569"
+  HREF="node99.html#SECTION07822000000000000000">B.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN> Graver depuis un shell root</A>
+<LI><A NAME="tex2html2570"
+  HREF="node99.html#SECTION07823000000000000000">B.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">3</SPAN> Revenir au noyau 2.6.7</A>
+<LI><A NAME="tex2html2571"
+  HREF="node99.html#SECTION07824000000000000000">B.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">4</SPAN> Modifier le noyau 2.6.8 ou supérieur</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION07820000000000000000">
+B.<SPAN CLASS="arabic">2</SPAN> Solutions pour l'utilisateur</A>
+</H1>
+
+<P>
+Malheureusement, l'utilisateur désireux de graver des CD ou des DVD
+sous Linux
+n'a accès qu'à des solutions partielles ou décevantes. La solution la
+plus simple consiste à démarrer le logiciel de graveur dans un shell
+en mode super-utilisateur. Un retour au noyau 2.6.7 peut également
+enrayer l'anomalie. Il est aussi envisageable de modifier le code
+source du noyau 2.6.8 pour supprimer la patch de sécurité empêchant la
+gravure de fonctionner.
+
+<P>
+
+<H2><A NAME="SECTION07821000000000000000">
+B.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN> Mise à jour</A>
+</H2>
+
+<P>
+Il est possible et à espérer que les concepteurs de distributions, du
+noyau et de logiciels réagiront favorablement face à ce problème et
+fourniront, si ce n'est déjà fait, des solutions. Il vaut donc la
+peine de tenter une mise à jour des logiciels touchés. L'idéal est de
+mettre votre distribution à jour, ce qui incluera tous les logiciels,
+mais ce n'est pas toujours souhaité. Les éléments à mettre à jour sont
+le noyau Linux, CDRecord, CDRDAO et DVD+RW-tools (incluant
+Growisofs). Le bogue peut également toucher des logiciels d'extraction
+audio et de ripping DVD qui devront, eux aussi, être mis à jour.
+
+<P>
+
+<H2><A NAME="SECTION07822000000000000000">
+B.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN> Graver depuis un shell root</A>
+</H2>
+
+<P>
+Avant d'exécuter toute commande de gravure, vous devrez taper la
+commande <TT>su</TT> dans un terminal. Votre mot de passe
+super-utilisateur vous sera alors demandé et, en cas de bon mot de
+passe, vous atteindrez un shell root. De là, vous pourrez graver des
+CD/DVD comme avant l'avénement du noyau 2.6.8. Si vous utilisez k3b ou
+autre logiciel graphique, vous devrez le démarrer depuis ce shell
+root. La gravure terminée, le shell peut être refermé avec
+<TT>exit</TT>.
+
+<P>
+Cette solution est acceptable, car elle est simple et ne pose pas
+de problèmes majeurs pour un utilisateur domestique. Elle est
+décevante, car elle exige de l'utilisateur de connaître le mot de
+passe root, ce qui n'est pas acceptable dans un grand réseau. Démarrer
+un logiciel à interface graphique sous l'utilisateur root rend plutôt
+caduc le système multi-utilisateurs de Linux. L'apparence de k3b et
+ses réglages seront dictés par l'usager root et non personnalisé pour
+les différents utilisateurs du système. C'est parce que plusieurs
+logiciels commerciaux ont forcé à démarrer des logiciels en mode
+administrateur de cette façon que le système multi-utilisateurs de
+Windows&nbsp;XP est moins convivial que celui de Linux.
+
+<P>
+
+<H2><A NAME="SECTION07823000000000000000">
+B.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">3</SPAN> Revenir au noyau 2.6.7</A>
+</H2>
+
+<P>
+Cette solution permet au moins à l'usager de graver sans connaître le
+mot de passe root, mais elle implique de remplacer le noyau Linux pour
+une ancienne version et conserver cette version pour les mois à
+venir. Nous ne pouvons supposer que les distributeurs Linux fourniront
+un noyau 2.6.7 précompilé pour les utilisateurs désireux de faire de
+la gravure dans toutes les versions futures de leurs moutures. Si le
+développement de solutions permanentes tarde trop à venir, il
+deviendra nécessaire de recompiler le noyau manuellement pour pouvoir
+graver sous
+Linux! La recompilation du noyau, sans être très compliquée, prend du
+temps et nécessite un peu de tâtonnement pour trouver les bons
+paramètres. Sans une bonne connaissance du système, il est à prévoir
+qu'elle devra être réalisée plusieurs fois avant de réussir. Par
+exemple, il est
+possible d'oublier d'inclure le module réseau (l'environnement
+graphique X ne fonctionnera même plus).
+Un autre cas courant consiste à oublier le module VIA, ce qui empêche
+d'activer le mode Ultra-DMA sur certaines machines.
+
+<P>
+
+<H2><A NAME="SECTION07824000000000000000">
+B.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">4</SPAN> Modifier le noyau 2.6.8 ou supérieur</A>
+</H2>
+
+<P>
+Il semble possible de patcher le noyau 2.6.8 et possiblement les
+versions ultérieures afin d'enrayer ce bogue [<A HREF="node105.html#url:268patch">URL82</A>].
+La vérification effectuée pour le droit d'accès aux commandes se
+trouvent dans le fichier <TT>drivers/block/scsi_ioctl.c</TT>.
+Dans la fonction <TT>sg_io</TT>, il suffirait de supprimer les lignes
+suivantes:
+
+<P>
+
+<DIV CLASS="alltt" ALIGN="LEFT">
+<TT>
+ 
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (verify_command(file, cmd))
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return -EPERM;
+<BR></TT>
+</DIV>
+
+<P>
+Malheureusement, après avoir effectué cette (dangereuse) modification,
+il faudra recompiler le noyau. Cette solution, bien que possible,
+n'est pas idéale, car elle supprime la correction de sécurité et
+permet de nouveau à un processus en mode utilisateur d'endommager le
+matériel. Si les virus sous Linux venaient à proliférer, ils
+utiliseraient certes cette faille! Elle est donc à exclure dans le cas
+d'un système au sein d'une entreprise.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2566"
+  HREF="node100.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2560"
+  HREF="node97.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2554"
+  HREF="node98.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2562"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2564"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html2567"
+  HREF="node100.html">B.3 Solutions pour le</A>
+<B> monter:</B> <A NAME="tex2html2561"
+  HREF="node97.html">B. Problème de gravure</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2555"
+  HREF="node98.html">B.1 Le problème de</A>
+ &nbsp; <B>  <A NAME="tex2html2563"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2565"
+  HREF="node106.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Eric Buist
+2005-11-13
+</ADDRESS>
+</BODY>
+</HTML>

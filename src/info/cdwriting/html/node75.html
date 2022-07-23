@@ -1,0 +1,314 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.1//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>16.1 Extraction de l'image</TITLE>
+<META NAME="description" CONTENT="16.1 Extraction de l'image">
+<META NAME="keywords" CONTENT="cdwriting">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cdwriting.css">
+
+<LINK REL="next" HREF="node76.html">
+<LINK REL="previous" HREF="node74.html">
+<LINK REL="up" HREF="node74.html">
+<LINK REL="next" HREF="node76.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2174"
+  HREF="node76.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2168"
+  HREF="node74.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2162"
+  HREF="node74.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2170"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2172"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html2175"
+  HREF="node76.html">16.2 Gravure de l'image</A>
+<B> monter:</B> <A NAME="tex2html2169"
+  HREF="node74.html">16. La copie de</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2163"
+  HREF="node74.html">16. La copie de</A>
+ &nbsp; <B>  <A NAME="tex2html2171"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2173"
+  HREF="node106.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Sous-sections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html2176"
+  HREF="node75.html#SECTION07311000000000000000"><SPAN CLASS="arabic">16</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">1</SPAN> Copie physique directe</A>
+<LI><A NAME="tex2html2177"
+  HREF="node75.html#SECTION07312000000000000000"><SPAN CLASS="arabic">16</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">2</SPAN> Copie physique analytique</A>
+<LI><A NAME="tex2html2178"
+  HREF="node75.html#SECTION07313000000000000000"><SPAN CLASS="arabic">16</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">3</SPAN> Copie logique</A>
+<LI><A NAME="tex2html2179"
+  HREF="node75.html#SECTION07314000000000000000"><SPAN CLASS="arabic">16</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">4</SPAN> Test de validité</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION07310000000000000000">
+<SPAN CLASS="arabic">16</SPAN>.<SPAN CLASS="arabic">1</SPAN> Extraction de l'image</A>
+</H1>
+
+<P>
+Il existe plusieurs techniques d'extraction, dont la copie physique
+directe ou analytique et la copie logique. La copie physique
+directe consiste à lire le disque comme un gros fichier et à stocker son
+contenu tel quel sur le disque dur. La copie physique analytique tient
+compte de la structure du disque et en plus de son contenu brut, établit
+la procédure requise pour le regraver; cela correspond à la copie
+physique sous Windows. Finalement, la copie logique
+consiste à lire les fichiers et à reformer une image ISO toute neuve.
+
+<P>
+<TABLE BORDER="1">
+<TR><TD VALIGN="top">
+<DIV STYLE="text-align:center; color:red"> Attention!
+</DIV><P>
+Dans la plupart des cas, vous devrez stocker l'image extraite, la
+plupart du temps temporaire, sur votre disque dur. La copie à la volée
+d'un lecteur vers un graveur est plus difficile sous
+Linux. Assurez-vous de disposer de l'espace disque nécessaire, à
+savoir au moins un giga-octet (5 giga-octets pour un DVD), dans la
+partition du répertoire courant
+où vous amorcez la gravure.
+Si vous copiez une image DVD sur disque dur, assurez-vous d'utiliser
+une partition autre que FAT32, car le module FAT32 du noyau Linux ne
+supporte pas les fichiers de taille supérieure à 4 Go.</TD></TR></TABLE> 
+<P>
+
+<H2><A NAME="SECTION07311000000000000000">
+<SPAN CLASS="arabic">16</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">1</SPAN> Copie physique directe</A>
+</H2>
+
+<P>
+Cette technique très simple se résume en une seule commande:
+
+<P>
+<TT>dd if=/dev/cdrom of=&nbsp;/cd.iso</TT>
+
+<P>
+Toutefois, elle ne fonctionnera pas à
+tous les coups. Cette méthode considère le fichier spécial
+<TT>/dev/cdrom</TT><A NAME="3505"></A>, correspondant
+à votre lecteur CD/DVD, comme un
+fichier ISO, une image de CD ou de DVD. Cette hypothèse ne sera vraie
+que dans
+le cas d'un disque monosession, car dans le cas d'un disque
+multisession, on a plusieurs images ISO chaînées les unes aux
+autres. De plus, si vous lisez un disque gravé en mode Track-At-Once de
+cette façon, une erreur de lecture surviendra lorsque
+<TT>dd</TT>
+tentera de lire les derniers octets de la piste, qui sont en fait
+illisibles. Malgré cette erreur, l'image ISO sera utilisable, il est
+donc bon de la tester même si la copie semble avoir échoué.
+Cette technique peut fonctionner dans certains cas de disques sans
+protections contre la copie, mais pour éviter de jeter un disque
+inscriptible
+inutilement, vous devriez tester la validité de l'image
+extraite ou la graver sur un disque réinscriptible.
+La copie physique directe fonctionne également pour un DVD s'il
+ne contient aucun cryptage CSS. Puisque tout le contenu du disque se
+trouve encodé dans un image ISO UDF et que le multisession est
+rarement supporté par  les lecteurs DVD, s'il n'en était pas de CSS,
+la copie de DVD serait un jeu d'enfant sous Linux!
+Cette méthode n'étant pas très fiable, ne l'utilisez pas à
+la volée. Copiez plutôt le fichier sur le disque dur pour l'examiner
+avant de graver.
+
+<P>
+
+<H2><A NAME="SECTION07312000000000000000">
+<SPAN CLASS="arabic">16</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">2</SPAN> Copie physique analytique</A>
+</H2>
+
+<P>
+Que faire avec un CD Audio ou un Video CD? Utiliser
+CDRDAO pour réaliser l'extraction. En fait, vous pouvez réaliser
+directement la copie sans conserver l'image extraite. La commande
+<TT>cdrdao read-cd -v 1 -datafile cd.bin cd.toc</TT> créera une image
+intitulée <TT>cd.bin</TT> et une table des matières <TT>cd.toc</TT>
+dans le répertoire courant. Le fichier BIN contient les données brutes
+du disque, qui ne correspondent pas toujours à une image ISO, tandis
+que le fichier TOC contient une version ASCII de la table du
+contenu. Cette table peut éventuellement être examinée afin
+d'effectuer des analyses structurelles d'un disque. Si vous tentez de
+dupliquer un disque susceptible de comporter une protection anti-copie
+(les jeux en tête), ajoutez l'option <TT>-read-raw</TT> à la commande
+<TT>cdrdao</TT>. Cette option permettra de lire tous les codes de
+détection et de correction d'erreurs ainsi que les subcodes, en
+supposant que votre lecteur ou votre graveur peuvent les lire. Si
+votre
+graveur supporte le mode RAW+96, le disque devrait pouvoir être
+dupliqué dans toute son intégralité et dans toute sa
+complexité. Seules  les zones inaccessibles au graveur (exploitées par
+la protection des CD Sony Playstation<A NAME="3400"></A>) ou les médias
+incompatibles (par
+exemple les GD-ROM utilisés par les consoles Sega
+Dreamcast<A NAME="3401"></A>) résisteront
+réellement à <TT>cdrdao</TT>, en tout cas en théorie.
+Si CDRDAO ne parvient pas à lire un disque protégé, essayez avec votre
+graveur plutôt que votre lecteur. Le graveur est en général un
+meilleur lecteur qu'un lecteur!
+Pour réaliser la
+copie directement avec CDRDAO, utilisez la commande <TT>cdrdao copy
+  -v 1</TT> après avoir inséré le CD source dans votre graveur. Le CD de
+destination vous sera demandé après la lecture.
+
+<P>
+Malheureusement, cette méthode ne fonctionne pas avec un DVD, car
+CDRDAO ne supporte que les CD. Heureusement, la structure du DVD est
+suffisamment normalisée pour qu'il ne soit pas nécessaire d'effectuer
+une analyse approfondie pour la copie . Le seule problème réside dans
+CSS.
+
+<P>
+
+<H2><A NAME="SECTION07313000000000000000">
+<SPAN CLASS="arabic">16</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">3</SPAN> Copie logique</A>
+</H2>
+
+<P>
+Elle consiste à lire le disque fichiers par fichiers et bâtir une
+nouvelle image ISO qui pourra être gravée. Toute
+protection contre la copie sera effacée et si cette méthode est
+utilisée pour copier un produit protégé, la copie ne sera pas
+fonctionnelle. Toutefois, cette technique permet de régénérer le
+système de fichiers et optimiser les performances du disque dans le
+cas d'un multisession devenu lent à cause du trop grand nombre de
+sessions.
+
+<P>
+Tout d'abord, insérez le disque source dans le lecteur et montez-le
+avec la commande <TT>mount /mnt/cdrom</TT>. Le contenu du disque
+deviendra alors lisible comme une partie du système de fichiers
+Linux. Vous pourrez ensuite utiliser l'utilitaire mkisofs
+pour recréer une image neuve.
+
+<P>
+
+<DIV CLASS="alltt" ALIGN="LEFT">
+<TT>
+ 
+<BR>
+mkisofs -r -J -o ~/cd.iso -V volcd /mnt/cdrom/
+<BR></TT>
+</DIV>
+
+<P>
+Cette commande active tout d'abord les extensions Rock&nbsp;Ridge, ce qui
+permet de recopier les attributs Linux (droits d'accès, liens
+symboliques, ...) dans la nouvelle image. Si vous copiez un disque
+Windows, vous pouvez omettre cette option. L'option <TT>-J</TT>, quant
+à elle, devrait toujours être activée, car elle fournit à Windows des
+noms longs pour les fichiers. Sans elle, votre disque apparaîtra avec
+des noms 8&#58;3 sous Windows. L'option
+<TT>-o</TT> indique le nom du futur fichier image. L'option <TT>-V
+  volcd</TT> permet de définir le nom du volume qui sera affiché sous
+Windows, dans l'Explorateur. Ce nom devrait correspondre à celui du CD
+original, que vous pourrez obtenir avec le script <TT>cdinfo.sh</TT>
+que nous avons vu en&nbsp;<A HREF="node72.html#sec:tocread">15.2</A>.
+Finalement, vous devez spécifier quel
+répertoire sera intégré sur le disque.
+
+<P>
+
+<H2><A NAME="SECTION07314000000000000000">
+<SPAN CLASS="arabic">16</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">4</SPAN> Test de validité</A>
+</H2>
+
+<P>
+Après avoir lu le disque, vous disposez d'une image ISO.
+Dans le cas de la copie physique analytique, la
+structure pourrait être différente, par exemple avec un CD Audio.
+Si la TOC ne contient qu'une seule
+référence au fichier BIN, il y a de fortes chances pour que ce fichier
+corresponde à une image ISO valide. Dans le cas contraire, tout
+pourrait en aller autrement.
+
+<P>
+Pour vérifier si une image ISO est valide, vous devrez la monter
+dans le système de fichiers. Pour ce faire, utilisez en root la
+commande 
+
+<P>
+
+<DIV CLASS="alltt" ALIGN="LEFT">
+<TT>
+ 
+<BR>
+mount -t iso9660 -o ro,loop=/dev/loop0 cd.iso testcd
+<BR></TT>
+</DIV>
+
+<P>
+Assurez-vous d'avoir créé le répertoire <TT>testcd</TT>
+avant d'appeler la commande. Vous pouvez alors examiner le contenu de
+l'image, puis ensuite utilisez <TT>umount testcd</TT> pour démonter
+cette image. Dans le cas d'un DVD, si la commande ne fonctionne pas,
+essayez de remplacer <TT>iso9660</TT> par <TT>udf</TT>. Un disque DVD
+pourrait ne contenir que du UDF et non de l'ISO&nbsp;9660.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2174"
+  HREF="node76.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2168"
+  HREF="node74.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2162"
+  HREF="node74.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2170"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2172"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html2175"
+  HREF="node76.html">16.2 Gravure de l'image</A>
+<B> monter:</B> <A NAME="tex2html2169"
+  HREF="node74.html">16. La copie de</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2163"
+  HREF="node74.html">16. La copie de</A>
+ &nbsp; <B>  <A NAME="tex2html2171"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2173"
+  HREF="node106.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Eric Buist
+2005-11-13
+</ADDRESS>
+</BODY>
+</HTML>

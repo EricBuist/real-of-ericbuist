@@ -1,0 +1,527 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         Le démon du subwoofer
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css"
+      href="../../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../../index.xhtml" class="parents">Le
+               royaume de Eric Buist</a> &gt;&gt; <a
+               href="../index.xhtml"
+               class="parents">Informatique</a> &gt;&gt; Problèmes
+               marquants &gt;&gt; <a href="../resolved.xhtml"
+               class="parents">Quelques bogues résolus</a> &gt;&gt;
+               <a href="index.xhtml" class="parents">Bogues
+               matériels résolus</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../../sitemap.xhtml" class="sitemap">Plan
+               du site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="printerbug.xhtml"
+               class="leftsibling">Une imprimante qui fait la
+               folle</a>
+            </td>
+            <td class="thispage">
+               Le démon du subwoofer
+            </td>
+            <td class="rightsibling">
+               <a href="psbomb.xhtml" class="rightsibling">La bombe
+               du power supply</a> &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         Le démon du subwoofer
+      </h1>
+      <p>
+         Lundi après-midi, le 9 décembre 2002, j'étais en train
+         d'écouter de la musique quand tout à coup, je me rendis
+         compte que mon haut-parleur gauche ne fonctionnait plus.
+         Il avait cessé d'émettre du son, subitement, sans
+         grichement. Je me levai, tendis le bras, débranchai le fil
+         du haut-parleur gauche du minijack puis l'y rebranchai. La
+         musique se remit à jouer dans le haut-parleur, comme si de
+         rien n'était. Cela fonctionna pendant quelques minutes
+         pour ensuite s'arrêter de nouveau. Après les premières
+         remises en route, le haut-parleur gauche ne se remettait
+         plus à jouer. Toutefois, débrancher et rebrancher un autre
+         fil du système pouvait rétablir le haut-parleur!
+      </p>
+      <p>
+         Avant de poursuivre, il me faut décrire le système
+         lui-même. Les Logitech SoundMan X1 sont un ensemble de
+         deux haut-parleurs avec sub (système dit 2.1) alimentés
+         par courant électrique. Le sub est pourvu d'un fil
+         d'alimentation non détachable et le transformateur est
+         interne. Il est doté de trois connecteurs minijack 1/8":
+         une entrée audio stéréo, une sortie audio mono vers le
+         haut-parleur gauche et une sortie audio stéréo pour
+         écouteurs. Il comporte également un connecteur DIN
+         (semblable aux connecteurs de claviers et de souris)
+         permettant de raccorder le haut-parleur droit. Ce DIN sert
+         à transmettre l'information sonore et un faible courant
+         pour alimenter une diode placée sur le haut-parleur qui
+         contient aussi une molette de contrôle du volume. Le
+         subwoofer est doté d'un bouton de réglage des graves et
+         des aigus. Les fils ne sont pas détachables des
+         haut-parleurs eux-mêmes, à moins, peut-être, de les
+         démonter!
+      </p>
+      <p>
+         Lundi, 9 décembre 2002, je découvrais qu'il m'était
+         possible de rétablir le signal dans le haut-parleur gauche
+         en débranchant puis en rebranchant plusieurs fois la fiche
+         du haut-parleur en question. La durée de rétablissement
+         variait entre quelques secondes et quelques minutes.
+         Inévitablement, le son s'arrêtait et ne repartait plus. Le
+         haut-parleur droit et le subwoofer continuaient à jouer
+         comme si de rien n'était et si je réglais la balance de
+         mon lecteur MP3 sur la gauche, seul le subwoofer jouait.
+         Toutefois, si j'interrompais la musique et la redémarrais,
+         le haut-parleur ne se remettait pas à jouer. Même chose si
+         je débranchais puis rebranchais la fiche dans ma carte
+         son. Apparemment, le problème venait des haut-parleurs,
+         mais un bogue de carte son ne demeurait pas à exclure dans
+         les analyses préliminaires.
+      </p>
+      <p>
+         Au cours de la semaine, je découvris que la durée de
+         fonctionnement correct du haut-parleur gauche était
+         conditionnée par le type d'intervention effectuée pour
+         «réparer» le système. Si je débranchais puis rebranchais
+         le fil du haut-parleur gauche dans le sub, il me fallait
+         l'effectuer plusieurs fois puis le haut-parleur gauche
+         fonctionnait quelques secondes. Si je rebranchais le fil
+         d'entrée audio dans le sub, alors le haut-parleur pouvait
+         fonctionner plus longtemps! Avec cette technique, un
+         maximum de deux heures a pu être obtenu, mais la plupart
+         du temps, le fonctionnement correct ne durait que quelques
+         minutes, donc il fallait jouer souvent, très souvent, avec
+         les fils. Cela me boguait beaucoup, car je remarquais
+         immédiatement la perte du haut-parleur et le système
+         semblait jouer moins fort.
+      </p>
+      <p>
+         Les choses devenaient on ne peut plus étrange quand je
+         faisais entrer le connecteur DIN en scène. Si les
+         haut-parleurs jouaient de la musique et que je débranchais
+         ce connecteur, le sub et le haut-parleur gauche se
+         mettaient infailliblement à jouer à volume maximal! Même
+         si le haut-parleur gauche ne fonctionnait pas avant le
+         débranchement, il était «ressuscité» lorsque le DIN
+         n'alimentait plus le haut-parleur droit! Après le
+         rebranchement du DIN, le son revenait à un volume normal,
+         dans les deux haut-parleurs. Entre le 9 et le 13 décembre
+         2002, je n'osai pas effectuer beaucoup de tests avec le
+         DIN, car je craignais que le volume maximal, entraînant
+         une forte distorsion sonore, finisse par faire sauter mon
+         subwoofer. Dans ce cas, mon système serait totalement fini
+         et toute remise en fonction serait impossible. De plus,
+         j'étais en période d'étude pour mes examens de fin de
+         session Automne 2002 et je dus cesser d'écouter de la
+         musique pour éviter que mes haut-parleurs n'absorbent
+         toute ma concentration. Je tentai tout de même, lorsque le
+         haut-parleur gauche se tut, de couper le son, de
+         débrancher et rebrancher le DIN puis de rétablir le son.
+         J'obtins le même effet qu'avec le fil d'entrée audio.
+         Durant une autre anomalie de fonctionnement du
+         haut-parleur, je tentai de brancher des écouteurs stéréo
+         dans la sortie prévue à cet effet et le signal se faisait
+         entendre dans les deux oreilles, pas juste dans la droite.
+         Plus étrange encore: lorsque je débranchai les écouteurs,
+         le son se fit entendre dans le haut-parleur gauche pendant
+         quelques secondes. Le bogue n'était pas relié directement
+         à un fil, comme le montre ce dernier test. Puisqu'il était
+         possible de rétablir le haut-parleur gauche de toutes ces
+         façons, il me semblait bien que le problème se trouvait
+         dans le subwoofer, d'où son appellation de démon du
+         subwoofer!
+      </p>
+      <p>
+         Vendredi, le 13 décembre 2002, j'envoyai un e-mail
+         concernant ce problème à un ami étudiant en électronique.
+         Il me suggéra certains tests qui n'apportèrent aucune
+         information supplémentaire. Je tentai, sur ses conseils,
+         de taper sur mon bureau près du haut-parleur «malade» et
+         n'obtins aucun grichement, aucune reprise du son. Je
+         tentai de le faire près du subwoofer, mais je n'obtins
+         aucun résultat. À ce moment-là, si je débranchais et
+         rebranchais le haut-parleur gauche, absolument rien ne se
+         produisait, pas un grichement. Vendredi soir, 13 décembre
+         2002, je découvris une variante de la technique de
+         rebranchement de l'entrée audio, que je nommerai
+         <i>friture par va-et-vient</i>. Je débranchai le fil
+         d'entrée audio, puis fis entrer le connecteur
+         partiellement dans le minijack pour ensuite l'en refaire
+         sortir puis l'y rentrer de nouveau. Ce va-et-vient rapide
+         provoquait des grichements dans le haut-parleur droit puis
+         finalement dans le gauche! Lorsque le haut-parleur gauche
+         avait bien frituré, je rebranchais complètement le fil et
+         le son fonctionnait. La friture par va-et-vient permit de
+         faire fonctionner le haut-parleur gauche pendant toute la
+         fin de semaine, mais lundi, 16 décembre 2002, il stoppa de
+         nouveau. L'efficacité de cette technique serait par la
+         suite appelée à décroître.
+      </p>
+      <p>
+         Jusque-là, je croyais que débrancher l'alimentation
+         électrique du sub puis la rebrancher ne produisait aucun
+         rétablissement du haut-parleur gauche. Toutefois, il me
+         faut me pencher et me rendre sous mon bureau de travail
+         pour atteindre la fiche. Lundi, 16 décembre 2002, je
+         parvins à le faire de façon à pouvoir entendre le
+         haut-parleur juste après le rebranchement et il jouait,
+         mais il se tut très rapidement.
+      </p>
+      <p>
+         Ainsi, que ce soit le débranchement et le rebranchement
+         d'un fil, la coupure et le rétablissement de
+         l'alimentation électrique, le passage en mode silencieux
+         par branchement des écouteurs, le haut-parleur gauche se
+         remettait à fonctionner après un changement de mode du
+         subwoofer. La technique était d'autant plus efficace que
+         le changement de mode était important. Pourtant, comment
+         expliquer que l'alimentation électrique n'ait pas un effet
+         de reset et que la coupure et le rétablissement de
+         l'entrée audio soit si prometteuse comme technique
+         palliative? Le premier cas restait inexpliqué, mais
+         j'avais des hypothèses sur le second. Lorsque je
+         débranchais l'entrée audio, le subwoofer se mettait en
+         mode veille, car il dispose d'un auto-off. Si le fil audio
+         est branché et que l'ordinateur fonctionne, la carte son
+         envoie possiblement un faible signal inaudible. Un bon
+         jour, je tentai de brasser le subwoofer en marche et des
+         grichements se firent entendre dans le haut-parleur
+         gauche, le problème se trouvait bien là.
+      </p>
+      <p>
+         Lundi, 16 décembre 2002, je consultai également ma
+         garantie pour le système. Logitech offrait une garantie de
+         trois ans et j'avais acheté ces haut-parleurs en juin
+         2000. Après ces trois ans, un programme Protection Plus
+         entrait en vigueur. Il me serait donc possible de faire
+         réparer ces haut-parleurs, donc pourquoi ne l'ai-je pas
+         fait? Tout d'abord, le problème était intermittent, donc
+         plutôt difficile à cerner et le système réparé pouvait
+         bien ne fonctionner que quelques jours ou quelques
+         semaines avant que le haut-parleur gauche ne se taise de
+         nouveau. Il allait falloir apporter le kit de
+         haut-parleurs chez Bureau en Gros, où j'en ai fait
+         l'achat, le magasin allait envoyer le tout à la compagnie
+         Logitech, il y aurait probablement des semaines, voire des
+         mois d'attente. Pendant tout ce temps, il me serait
+         impossible d'écouter de la musique sur mon ordinateur
+         tandis que je pouvais le faire malgré un système
+         partiellement fonctionnel si je découvrais une façon de
+         prolonger les périodes de stabilité. Je pensais finalement
+         m'acheter de nouveaux haut-parleurs, possiblement un
+         système 5.1 (deux haut-parleurs avant, deux arrière, un
+         central et un subwoofer) qui exploiterait mieux ma Sound
+         Blaster Live!. L'autre système, le SoundMan X1, pourrait
+         alors passer des mois et des mois en attente de réparation
+         et cela ne me ferait pas un pli! Mais pour le moment,
+         j'aimais mieux faire durer mes haut-parleurs actuels pour
+         réfléchir davantage à quoi acheter et à quel prix.
+      </p>
+      <p>
+         Je tentai de brancher les haut-parleurs sur mon DiskMan
+         afin de pouvoir éliminer ma carte son du problème. Par
+         bonheur, puisque je ne n'avais pas envie de changer de
+         carte son pour les coûts et les potentiels problèmes avec
+         Linux que cela amènerait, le haut-parleur gauche cessa de
+         fonctionner après quelques secondes. Samedi, le 21
+         décembre 2002, je tentai de brancher un vieux microphone
+         mono dans l'entrée audio du subwoofer. Je dus mettre le
+         volume au maximum pour pouvoir entendre et lorsque je
+         tapotais sur le micro, le son se faisait entendre dans les
+         deux haut-parleurs! Je me rendis compte, après coup, que
+         ce test était extrêmement biaisé. Tout d'abord, ma source
+         de signal monophonique pouvait influer sur l'état du
+         subwoofer, provoquant un rétablissement du haut-parleur
+         gauche. Ensuite, le simple fait de brancher le micro
+         provoquait de la friture et possiblement un rétablissement
+         du signal! Il m'aurait fallu attendre quelques minutes
+         voir si le haut-parleur cesserait de fonctionner avec le
+         micro.
+      </p>
+      <p>
+         Toutefois, ce test orienta mes recherches. Il semblait
+         falloir un certain type de signal pour rendre de nouveau
+         fonctionnel le haut-parleur gauche. Y avait-il en lien
+         entre un grichement provoqué par le va-et-vient de la
+         fiche dans l'entrée audio et les tapotements d'un vieux
+         microphone? Ce n'était pas évident! Pourquoi le
+         branchement des écouteurs et leur débranchement avait lui
+         aussi permis de rétablir le haut-parleur? Tout me restait
+         mystérieux, nébuleux, il ne semblait pas y avoir de
+         solution. Il se pouvait également qu'il faille un certain
+         temps d'arrêt de fonctionnement du subwoofer pour que le
+         haut-parleur gauche se remette à fonctionner. Mais dans ce
+         cas, le gauche devrait toujours être fonctionnel à chaque
+         démarrage de l'ordinateur! Or, ce n'était pas le cas.
+      </p>
+      <p>
+         J'émis l'hypothèse que ma Sound Blaster Live! envoyait un
+         signal trop fort dans mes haut-parleurs, ce qui les avait
+         endommagés à long terme. En effet, avec mon portable
+         Toshiba, il me fallait pratiquement mettre le volume des
+         haut-parleurs au maximum pour avoir un bon son tandis
+         qu'avec ma Sound Blaster Live!, la moitié suffisait
+         amplement! Ce constat, je le réalisai plus tard, était
+         également biaisé par la molette de contrôle du volume de
+         mon portable! Cette hypothèse fut réfutée par mon ami
+         étudiant en électronique. Le subwoofer constitue un
+         amplificateur de puissance, il augmente un peu la tension
+         mais surtout l'intensité du courant. Ces amplificateurs,
+         dits de classe AB, possèdent la propriété d'accepter un
+         signal de haute amplitude (tension). Des problèmes
+         pourraient se produire uniquement si l'impédance du
+         subwoofer était trop élevée, dans ce cas la carte son
+         pourrait envoyer un courant trop élevé. Toutefois, ce cas
+         n'est pas probable, car mes haut-parleurs sont conçus pour
+         être branchés à un ordinateur.
+      </p>
+      <p>
+         Mardi, 24 décembre 2002, je tentai de brasser le
+         haut-parleur gauche pendant que l'ordinateur était éteint
+         et il ne se produisit aucun effet; aucune pièce mobile
+         dans le boîtier! Je fis de même avec le subwoofer et
+         n'obtins pas d'effet. Je le retournai de façon à ce que
+         les fiches se trouvent face à moins puis me rendis compte
+         que toute la surface était égratignée. Il était improbable
+         que j'aie pu faire cela juste en débranchant et en
+         rebranchant des fils. En y regardant de plus près, je
+         constatai la présence d'un autocollant transparent qui
+         recouvrait possiblement, lorsque le sub était emballé, les
+         fiches. Il se peut que j'aie planté les fils dans
+         l'adhésif sans le savoir, que cela ait très bien
+         fonctionné jusqu'au 9 décembre 2002. Le plastique pouvait
+         avoir gondolé, ajoutant une petite épaisseur capable de
+         nuire au contact. Je retirai donc l'autocollant, mais je
+         ne rallumai pas la machine pour tester.
+      </p>
+      <p>
+         Le test se fit jeudi, le 26 décembre 2002 et comme tous
+         les précédents, il fut de nouveau infructueux! J'imaginai
+         toutefois un nouveau test qui me permettrait de savoir si
+         le problème proviendrait du subwoofer ou du fil d'entrée
+         audio. En effet, il se pouvait toujours que le bogue se
+         situe dans ce fil et je ne disposais pas d'un autre fil
+         compatible pour tester. Puisque lorsque je débranchais le
+         DIN du haut-parleur droit et que je produisais un son avec
+         l'ordinateur, il se produisait toujours un son dans le
+         gauche, il y avait lieu de croire que le droit agissait
+         comme un espèce de chef d'orchestre qui balançait le son
+         des canaux entre les deux haut-parleurs. Lorsque ce DIN
+         était débranché, les deux canaux seraient alors mélangés
+         et envoyés par le subwoofer au haut-parleur gauche. Ainsi,
+         ce que j'entendais dans le haut-parleur gauche quand
+         j'émettais un beep pouvait fort bien constituer le son
+         destiné au haut-parleur droit! Le test consistait à
+         n'envoyer un signal que dans le haut-parleur gauche. Pour
+         ce faire, il me fallut effectuer un réglage dans le mixer
+         logiciel de ma carte son, plus précisément dans KMix sous
+         Linux. Ensuite, je débranchai le DIN et provoquai
+         l'émission d'un beep. Un tel beep est facile à produire,
+         il suffit d'appuyer sur retour arrière sur une ligne vide
+         dans Konsole et ce n'est qu'une façon parmi des millions
+         d'autres! Si le subwoofer et le haut-parleur n'avaient
+         émis aucun son, cela aurait impliqué que le son ne se
+         rendait pas au circuit principal du subwoofer, donc le
+         problème aurait était réduit au minijack ou au fil.
+         Malheureusement, cela ne se passa pas ainsi: le
+         haut-parleur gauche émit un beep, comme si de rien
+         n'était! Le <i>test de balance</i> n'était donc pas, lui
+         non plus, concluant. Toutefois, après rebranchement du
+         DIN, les haut-parleurs fonctionnèrent numéro 1 pendant
+         deux semaines!
+      </p>
+      <p>
+         Mercredi, 15 janvier 2003, le problème refit surface, au
+         moment où je croyais qu'il avait disparu pour de bon!
+         Cette fois, contrairement à la première vague, le
+         haut-parleur gauche gricha avant de se taire complètement.
+         Pendant toute la vague de récidives, il ne gricha plus, il
+         se tut d'un coup sec comme avant. Je tentai de débrancher
+         et rebrancher le haut-parleur gauche et il se remit à
+         jouer correctement jusqu'au lendemain. Jeudi, 16 janvier
+         2003, le haut-parleur gauche fluctuau pour ensuite
+         s'éteindre complètement.
+      </p>
+      <p>
+         Dimanche, le 19 janvier 2003, lorsque le haut-parleur
+         gauche cessa de fonctionner pour la 1001<sup>e</sup> fois,
+         je tentai de cogner sur le sub, comme on frappe à une
+         porte. Le son se rétablit dans le haut-parleur gauche, si
+         bien que je baptisai ma nouvelle technique le <i>coup du
+         knock-knock</i>. Je découvris que la technique était plus
+         efficace si je frappais dans en-desous du sub près des
+         connecteurs ou dans le haut sur l'avant de l'appareil.
+         Toutefois, cette technique s'avéra vite inefficace et la
+         friture par va-et-vient semblait bel et bien la seule
+         technique fonctionnant réellement. Toutefois, cette
+         stratégie impliquait de brancher et débrancher et pouvait,
+         à moyen terme, endommager davantage les connexions et
+         rendre le système totalement dysfonctionnel.
+      </p>
+      <p>
+         Lundi, le 20 janvier 2003, j'en eus assez et je me
+         résignai à utiliser la technique que j'avais imaginée
+         depuis le début mais qui ne me plaisait pas du tout. Je
+         réglai la balance du mixer complètement à droite afin que
+         le haut-parleur gauche ne se fasse plus entendre et ne
+         fonctionne plus du tout au lieu de partiellement. Je finis
+         par abaisser le volume au minimum, lassé d'entendre
+         uniquement le droit, préférant ne plus avoir de son du
+         tout!
+      </p>
+      <p>
+         Mardi, 21 janvier 2003, j'en vins à tenter autre chose. Je
+         refis le test de balance, mais cette fois, j'envoyai un
+         signal uniquement dans le canal de droite. J'entendis
+         alors, au lieu d'un beep à volume maximal, un beep à
+         volume normal! Je tentai encore une fois de régler la
+         balance à gauche et j'obtins un beep à volume maximal.
+         Après cette manipulation inhabituelle, l'anomalie se
+         résorba. Je baptisai ma technique l'<i>émission alternée
+         sans DIN</i>.
+      </p>
+      <p>
+         Jeudi, le 6 février 2003, le démon revint et je tentai
+         d'effectuer ma technique d'émission alternée sans DIN,
+         cette fois en débranchant le haut-parleur gauche pour
+         qu'elle soit silencieuse. Malheureusement, cette technique
+         ne fonctionna pas. Mardi, le 11 février, j'appliquai de
+         nouveau la technique originale en utilisant un beep plus
+         long. Le haut-parleur gauche fonctionna pendant plus d'un
+         mois et la technique, bien que mauvaise à long terme pour
+         le subwoofer, peut être réutilisée! Je tentai également
+         d'appliquer la technique tout en faisant jouer un MP3 pour
+         que du son soit émis pendant que je réglais la balance,
+         mais cela ne produisit aucun effet.
+      </p>
+      <p>
+         Maintenant, voici la procédure détaillée de l'émission
+         alternée sans DIN. <b>Attention</b>: cette technique
+         pourrait ne pas fonctionner en cas de bogue similaire sur
+         un système de haut-parleurs et pourrait même endommage le
+         subwoofer si elle est appliquée trop souvent. Son usage
+         est à vos risques!
+      </p>
+      <ol>
+         <li>
+            Lorsque le haut-parleur gauche cesse de fonctionner,
+            débrancher le fil liant le subwoofer au haut-parleur
+            droit, un connecteur DIN semblable à un port de clavier
+            ou de souris. Attention de ne débrancher que le DIN et
+            pas d'autres fils, sinon la période d'efficacité sera
+            diminuée! Eh non, je n'invente pas, c'est bien ce qui
+            est arrivé le 6 février et cela n'a fonctionné que
+            jusqu'au 11.
+         </li>
+         <li>
+            Produire, à l'aide d'une application ou de toute source
+            audio, un signal sonore d'une durée d'environ trois
+            secondes. Le son ou la musique devraient s'entendre
+            dans le haut-parleur gauche, à volume maximal et avec
+            forte distorsion.
+         </li>
+         <li>
+            Stopper le son et utiliser le mixer de Windows ou Linux
+            pour ajuster la balance à gauche complètement puis
+            reproduire un signal sonore d'une durée de trois
+            secondes environ. Le son se fera de nouveau entendre à
+            volume maximal.
+         </li>
+         <li>
+            Stopper le son et utiliser le mixer pour ajuster la
+            balance complètement à droite. Produire encore une fois
+            un signal sonore de trois secondes environ, ce signal
+            se fera entendre à volume réduit dans le haut-parleur
+            gauche.
+         </li>
+         <li>
+            Stopper le son et utiliser le mixer pour ajuster la
+            balance complètement à gauche (eh oui, encore!).
+            Produire encore une fois un signal sonore de trois
+            secondes environ, ce signal se fera entendre à volume
+            maximal dans le haut-parleur gauche.
+         </li>
+         <li>
+            Stopper le son et utiliser le mixer pour ajuster la
+            balance au centre. Produire une nouvelle fois le signal
+            sonore qui se fera entendre dans le haut-parleur gauche
+            à volume maximal.
+         </li>
+         <li>
+            Rebrancher le DIN et tester le système. Si le son
+            semble plus faible dans le haut-parleur gauche que dans
+            le droit, débrancher et rebrancher le haut-parleur
+            gauche. Le système devrait fonctionner correctement
+            pour environ un mois!
+         </li>
+      </ol>
+      <p>
+         Pourquoi cela fonctionne? Je n'en sais rien. J'ai pensé à
+         certaines hypothèses spéculatives de champs magnétiques
+         induits, mais il me semble qu'un champ induit par un
+         signal audio ne serait pas suffisamment puissant pour
+         déplacer une pièce de métal. Comme je l'ai constaté
+         vendredi, 3 mai 2003, jouer avec le DIN dans la fiche
+         provoque des grichements dans les deux haut-parleurs et il
+         se peut que le problème se situe au niveau du connecteur.
+         Toutefois, cela n'explique pas l'efficacité de la friture
+         par va-et-vient et il est possible que la carte de
+         circuits imprimés sur laquelle sont possiblement soudés
+         les connecteurs soit en cause.
+      </p>
+      <p>
+         Après quelques temps, le bogue est revenu et le
+         haut-parleur s'est même mis à gricher! Je ne voulais pas
+         réutiliser l'émission alternée sans DIN, car je prévoyais
+         amener les haut-parleurs où je les ai achetés pour la
+         garantie. Malheureusement, celle-ci avait expiré et
+         l'extension d'un an ne fonctionna pas, car la compagnie
+         l'offrant avait enregistré que ma garantie Logitech était
+         d'un an. Heureusement, les Altec Lansing 5100 que j'ai
+         achetés remplacent très bien les Logitech et je dispose
+         maintenant d'un système 5.1!
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

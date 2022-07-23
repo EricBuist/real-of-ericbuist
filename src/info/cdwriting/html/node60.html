@@ -1,0 +1,532 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.1//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>12.1 Préparation et formatage de la structure de données</TITLE>
+<META NAME="description" CONTENT="12.1 Préparation et formatage de la structure de données">
+<META NAME="keywords" CONTENT="cdwriting">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cdwriting.css">
+
+<LINK REL="next" HREF="node61.html">
+<LINK REL="previous" HREF="node59.html">
+<LINK REL="up" HREF="node59.html">
+<LINK REL="next" HREF="node61.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1855"
+  HREF="node61.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1849"
+  HREF="node59.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1843"
+  HREF="node59.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1851"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1853"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html1856"
+  HREF="node61.html">12.2 Configuration du logiciel</A>
+<B> monter:</B> <A NAME="tex2html1850"
+  HREF="node59.html">12. Création d'un CD</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html1844"
+  HREF="node59.html">12. Création d'un CD</A>
+ &nbsp; <B>  <A NAME="tex2html1852"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1854"
+  HREF="node106.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Sous-sections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html1857"
+  HREF="node60.html#SECTION06411000000000000000"><SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">1</SPAN> Extraction audio</A>
+<LI><A NAME="tex2html1858"
+  HREF="node60.html#SECTION06412000000000000000"><SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">2</SPAN> Téléchargement</A>
+<LI><A NAME="tex2html1859"
+  HREF="node60.html#SECTION06413000000000000000"><SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">3</SPAN> Conversion</A>
+<LI><A NAME="tex2html1860"
+  HREF="node60.html#SECTION06414000000000000000"><SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">4</SPAN> Échantillonnage</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION06410000000000000000">
+<SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">1</SPAN> Préparation et formatage de la structure de données</A>
+</H1>
+
+<P>
+Premièment, 
+il vous faut des chansons ou toutes autres données audio à 
+graver, et cela, dans un format compatible avec le logiciel de
+gravure. Le format idéal est le
+WAV PCM. Toutefois, les logiciels de gravure actuels supportent
+l'importation directe de fichiers MP3.
+Si les données se trouvent sur des
+sources analogiques, telles que de vieux vinyles, des cassettes vidéo ou
+des cassettes audio, une longue opération d'échantillonnage vous
+attend. Si les données 
+se trouvent en un autre format, tels que du MIDI<A NAME="2556"></A>, du
+MOD<A NAME="2557"></A>, du 
+RealAudio<A NAME="2558"></A> ou malheureusement du Ogg
+Vorbis<A NAME="2559"></A> ou du FLAC<A NAME="2560"></A>, il faudra les
+convertir en WAV; les
+logiciels de gravure courants ne savent pas les importer directement.
+Il est possible de calculer 
+qu'il faut environ 850 Mo pour graver un disque plein de 80 minutes
+avec succès lorsque
+tous les fichiers audio sont convertis en WAV PCM. 
+
+<P>
+
+<H2><A NAME="SECTION06411000000000000000">
+<SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">1</SPAN> Extraction audio</A>
+</H2>
+
+<P>
+Il existe plusieurs logiciels pour accomplir pareille 
+tâche, par exemple
+CDEX<A NAME="2563"></A> [<A HREF="node105.html#url:cdex">URL11</A>],
+qui est <SPAN  CLASS="textit">open source</SPAN> et permet en plus de l'extraction un
+encodage au format MP3 ou Ogg Vorbis. Ce qui en fait un très bon outil
+pour
+l'extraction audio en masse et le stockage à long terme d'albums en
+vue de se créer un <SPAN  CLASS="textit">juke-box</SPAN> personnel à partir de CD Audio de
+votre collection.
+
+<P>
+Easy CD Creator permet lui aussi de réaliser une telle
+extraction. Insérez tout d'abord un CD Audio dans votre lecteur ou
+votre graveur puis démarrez le logiciel.
+Activez la commande 
+<SPAN  CLASS="textbf">Disque -&gt;
+
+Informations sur le disque</SPAN> et sélectionnez le
+lecteur 
+qui contient votre disque dans la boîte de dialogue qui 
+suit.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:selectedaudiotrack"></A><A NAME="2699"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 12.1:</STRONG>
+Les informations sur un CD Audio</CAPTION>
+<TR><TD>&nbsp;
+<BR>
+
+    <DIV ALIGN="CENTER">
+<IMG
+ WIDTH="778" HEIGHT="543" ALIGN="BOTTOM" BORDER="0"
+ SRC="selectedaudiotrack.png"
+ ALT="2697">
+    
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+Quelque chose de semblable à la
+figure&nbsp;<A HREF="#fig:selectedaudiotrack">12.1</A> va apparaître.
+Vous aviez vu cette boîte lors de 
+l'<A HREF="node58.html#sec:addsession">ajout d'une sesssion</A>
+et elle vous 
+avait permis de savoir si le disque était toujours ouvert. 
+Maintenant, vous remarquez normalement qu'il est fermé. Sélectionnez 
+la piste à extraire puis appuyez sur le bouton <SPAN  CLASS="textbf">Conversion audio</SPAN>. 
+Il vous sera demandé l'emplacement dans lequel vous voulez 
+stocker le fichier WAV résultant. 
+
+<P>
+
+<H2><A NAME="SECTION06412000000000000000"></A>
+<A NAME="sec:winaudiodownload"></A>
+<BR>
+<SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">2</SPAN> Téléchargement
+</H2>
+
+<P>
+Il existe plusieurs logiciels permettant le téléchargement de la
+musique sous Windows. eMule [<A HREF="node105.html#url:emule">URL31</A>] constitue le logiciel
+qui fonctionnait le mieux en 2004. Bien que très lent, il permet
+toujours d'obtenir des fichiers musicaux. KaZaA [<A HREF="node105.html#url:kazaa">URL40</A>]
+fonctionne toujours en 2004, mais il encombre l'ordinateur de nombreux
+spywares et en installe automatiquement de façon périodique. La
+suppression de KaZaA peut grandement alléger une machine Windows!
+KaZaA Lite a existé quelques temps, mais il n'est plus disponible sur
+le Web gratuitement. Le logiciel Shareaza [<TT><A NAME="tex2html34"
+  HREF="url:shareaza">url:shareaza</A></TT>]
+constitue lui aussi un bon logiciel d'échange de
+fichiers. Malheureusement, ces logiciels P2P sont sujets à des
+problèmes légaux et tendent à disparaître. Au moment où vous lirez ces
+lignes, il se peut que les logiciels cités ci-haut soient désuets,
+remplacés par de nouveaux.
+
+<P>
+Il arrive de temps en temps que les fichiers téléchargés doivent être
+traités avant d'être gravés.
+Par exemple, plusieurs personnes utilisent les logiciels
+AlbumWrap<A NAME="2582"></A> [<A HREF="node105.html#url:albumwrap">URL5</A>] ou
+Mp3Wrap<A NAME="2584"></A> [<A HREF="node105.html#url:mp3wrap">URL48</A>]
+pour regrouper tous les fichiers MP3 représentant les chansons
+d'un album en un seul gros fichier.
+Le logiciel Mp3Splt<A NAME="2586"></A> [<A HREF="node105.html#url:mp3splt">URL47</A>]
+permet de scinder de tels fichiers sans les
+décoder et les ré-encoder.
+Il permet également de scinder les fichiers MP3 à des endroits
+arbitraires, toujours sans décoder.
+
+<P>
+
+<H2><A NAME="SECTION06413000000000000000">
+<SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">3</SPAN> Conversion</A>
+</H2>
+
+<P>
+Souvent, les données musicales proviendront de fichiers MP3<A NAME="2589"></A>. 
+ Easy CD Creator et Nero sont en général
+capables d'ouvrir de tels fichiers, mais il peut arriver qu'il ne les
+lise pas tous. Il existe 
+plusieurs variantes de MP3<A NAME="2592"></A>, car certains programmes les
+fabriquent de façon non standard.
+Il est aussi impossible, avec
+Easy CD Creator ou Nero, d'importer des fichiers Ogg
+Vorbis ou FLAC
+directement.
+Avec des formats musicaux ou des formats sonores moins communs,
+l'importation n'est pas possible.
+Mais puisque Winamp [<A HREF="node105.html#url:winamp">URL71</A>] les lit tous, 
+il est possible de s'en servir pour convertir les fichiers
+incompatibles en WAV.
+
+<P>
+Winamp, en plus de décoder les MP3, est un excellent 
+lecteur audio universel. Quant à Winamp&nbsp;3, la fonction de décodage ne
+permet apparemment plus de produire des fichiers WAV, nous allons donc
+nous restreindre à la version&nbsp;2. Avec la version&nbsp;5 du lecteur MP3, le
+décodage WAV est heureusement de retour.
+Grâce à des <SPAN  CLASS="textit">plug-ins</SPAN>, 
+Winamp peut être étendu à volonté. On peut 
+lui ajouter des nouveaux formats, des effets à appliquer sur 
+le flux audio avant de l'envoyer non pas à la carte son, mais 
+à un <SPAN  CLASS="textit">plug-in</SPAN> de sortie qui lui, l'enverra à la carte 
+son si tel est son destin. Un plug-in permet d'envoyer le flux audio
+dans un ensemble de fichiers WAV, ce qui permet d'utiliser Winamp
+comme outil de conversion.
+Puisque 
+le logiciel peut décoder et jouer des MOD, on pourrait aussi 
+s'en servir dans ce cas. Il semble même possible de lire les fichiers
+MIDI grâce à un plug-in Winamp.
+
+<P>
+Le plus simple consiste à créer une <SPAN  CLASS="textit">playlist</SPAN>. Dans notre 
+langue, cela signifie programmer Winamp pour qu'il joue les fichiers
+que vous voulez, dans l'ordre désiré. Au bas de la fenêtre
+<SPAN  CLASS="textbf">playlist</SPAN> de
+Winamp, il est possible d'accéder à différents boutons permettant de
+contrôler la playlist. Il est possible d'ajouter des fichiers en
+utilisant le bouton <SPAN  CLASS="textbf">Add</SPAN> ou d'en supprimer en supprimant
+<SPAN  CLASS="textbf">Rem</SPAN>.
+
+<P>
+Il faudra déplacer des éléments avec la 
+souris pour obtenir l'ordre désiré ou utiilser une fonction de
+ Winamp pour les réordonner.
+Les boutons, en bas de la fenêtre <SPAN  CLASS="textbf">playlist</SPAN>, 
+permettent de modifier la liste. Par exemple, le bouton misc fait 
+surgir un menu qui contient sort list -&gt;
+
+randomize.
+Cela permet de brasser les fichiers 
+et de leur donner un ordre aléatoire. Vous pouvez aussi 
+les classer de nouveau par ordre alphabétique. Ce qui 
+s'avère très utile si vous avez des MP3 d'un CD Audio 
+original. Par exemple, les fichiers pourraient s'appeler <TT>01 - a.mp3</TT>, 
+<TT>02 - b.mp3</TT> et ainsi de suite. Il serait fastidieux de
+devoir les remettre en ordre à la souris, un par un, non? 
+Vous pouvez aussi demander à Winamp de classer les fichiers 
+d'après le nom sur le disque, ce qui est très utile si l'ID3 des MP3
+n'adhère pas à une convention uniforme.
+
+<P>
+Lorsque la <SPAN  CLASS="textit">playlist</SPAN> est prête, cela signifie que si vous la 
+faisiez jouer depuis le début, vous obtiendriez les pistes 
+dans le bon ordre, comme avec le vrai CD que vous escomptez 
+produire. Il faut maintenant effectuer quelques préparatifs. 
+Tout d'abord, le disque dure-il vraiment 74 ou 80 minutes? En parcourant 
+chaque élément, c'est-à-dire, en les 
+sélectionnant tour à tour, Winamp lira la durée 
+de chacun et affichera le total dans le coin inférieur droit 
+de la fenêtre <SPAN  CLASS="textbf">playlist</SPAN>. Si vous dépassez 
+<SPAN  CLASS="textbf">1&#58;14</SPAN> (74 minutes) ou <SPAN  CLASS="textbf">1&#58;20</SPAN> (80
+minutes), il faudra couper! 
+Le balayage peut s'effectuer au clavier: il suffit de cliquer sur 
+le premier titre (ou d'appuyer sur la touche <SPAN  CLASS="textbf">Home</SPAN>), la piste 1,
+puis de maintenir enfoncée 
+la flèche vers le bas du clavier jusqu'à arriver 
+au bas de la liste.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:shufflerepeat"></A><A NAME="2723"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 12.2:</STRONG>
+Fenêtre principale de Winamp, les boutons <SPAN  CLASS="textbf">Shuffle</SPAN>
+  et <SPAN  CLASS="textbf">Repeat</SPAN> ont été désactivés</CAPTION>
+<TR><TD>&nbsp;
+<BR>
+
+    <DIV ALIGN="CENTER">
+<IMG
+ WIDTH="550" HEIGHT="232" ALIGN="BOTTOM" BORDER="0"
+ SRC="shufflerepeat.png"
+ ALT="2721">
+    
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+Ensuite, les modes <SPAN  CLASS="textbf">Repeat</SPAN> (touche <SPAN  CLASS="textbf">R</SPAN>)
+et <SPAN  CLASS="textbf">Shuffle</SPAN> (touche <SPAN  CLASS="textbf">S</SPAN>) doivent être 
+inactifs, comme sur la figure&nbsp;<A HREF="#fig:shufflerepeat">12.2</A>.
+Chaque chanson sera ainsi convertie une et une seule fois, dans
+l'ordre désiré.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:dspeffectsdisabled"></A><A NAME="2741"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 12.3:</STRONG>
+Désactivation des effets DSP indésirables</CAPTION>
+<TR><TD>&nbsp;
+<BR>
+
+    <DIV ALIGN="CENTER">
+<IMG
+ WIDTH="449" HEIGHT="364" ALIGN="BOTTOM" BORDER="0"
+ SRC="dspeffectsdisabled.png"
+ ALT="2739">
+    
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+Maintenant, il faut modifier quelque peu les options. Dans le menu 
+<SPAN  CLASS="textbf">Winamp</SPAN>, activez <SPAN  CLASS="textbf">Options -&gt;
+
+Preferences</SPAN> ou
+utilisez la combinaison de touches <SPAN  CLASS="textbf">Ctrl-P</SPAN>.
+Une boîte 
+de dialogue va apparaître. Sélectionnez <SPAN  CLASS="textbf">DSP/Effect</SPAN> 
+dans le panneau de gauche, puis <SPAN  CLASS="textbf">(None)</SPAN> dans celui de droite 
+qui va surgir, voir figure&nbsp;<A HREF="#fig:dspeffectsdisabled">12.3</A>.
+Vous pouvez, si vous le souhaitez vraiment, utiliser 
+un <SPAN  CLASS="textit">plug-in</SPAN> d'effet tel que DFX, mais ces effets pourraient
+donner des résultats indésirables sur le CD Audio.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:outputselect"></A><A NAME="2756"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 12.4:</STRONG>
+Sélection de la sortie audio</CAPTION>
+<TR><TD>&nbsp;
+<BR>
+
+    <DIV ALIGN="CENTER">
+<IMG
+ WIDTH="449" HEIGHT="364" ALIGN="BOTTOM" BORDER="0"
+ SRC="outputselect.png"
+ ALT="2754">
+    
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+Ensuite, le plus important: changer la sortie.
+Dans le panneau de gauche, choisissez <SPAN  CLASS="textbf">Output</SPAN>, puis
+<SPAN  CLASS="textbf">Disk Writer</SPAN> dans celui de droite, comme sur la
+figure&nbsp;<A HREF="#fig:outputselect">12.4</A>.
+Il faut ensuite, dans l'Explorateur, 
+créer un répertoire qui abritera les WAV décodés. Ceci permet d'éviter
+de mêler les fichiers WAV de plusieurs CD Audio et rend la suppression
+des WAV plus simple, lorsque tout est fini.
+Le répertoire créé, 
+cliquez sur <SPAN  CLASS="textbf">Configure</SPAN> dans la fenêtre des 
+préférences Winamp. Une fenêtre semblable à la
+figure&nbsp;<A HREF="#fig:configureoutput">12.5</A> surgira alors.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:configureoutput"></A><A NAME="2768"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 12.5:</STRONG>
+Configuration des paramètres pour le <SPAN  CLASS="textit">plug-in</SPAN> de
+  sortie</CAPTION>
+<TR><TD>&nbsp;
+<BR>
+
+    <DIV ALIGN="CENTER">
+<IMG
+ WIDTH="516" HEIGHT="218" ALIGN="BOTTOM" BORDER="0"
+ SRC="configureoutput.png"
+ ALT="2766">
+    
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+Cliquez sur le bouton au-dessous de <SPAN  CLASS="textbf">Output directory</SPAN> et
+spécifiez le nom du répertoire créé pour stocker les WAV. Activez
+ensuite la case à cocher <SPAN  CLASS="textbf">Convert to format</SPAN>. Si le format ne
+constitue pas <SPAN  CLASS="textbf">PCM, 44,100 kHz; 16 bits; Stéréo</SPAN>, cliquez sur
+<SPAN  CLASS="textbf">...</SPAN> pour qu'il en soit ainsi. De cette façon, si vous tombez
+sur un MP3 à 48kHz, il sera converti à la fréquence CD sans
+intervention de votre part. Assurez-vous également que le
+<SPAN  CLASS="textbf">Output file mode</SPAN> soit défini à <SPAN  CLASS="textbf">Force WAV file</SPAN>, car
+Easy CD Creator ne sait pas traiter les fichiers WMA.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:decoding"></A><A NAME="2785"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 12.6:</STRONG>
+Winamp en action, en train de décoder une liste de MP3</CAPTION>
+<TR><TD>&nbsp;
+<BR>
+
+    <DIV ALIGN="CENTER">
+<IMG
+ WIDTH="550" HEIGHT="232" ALIGN="BOTTOM" BORDER="0"
+ SRC="decoding.png"
+ ALT="2783">
+    
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+Enfin, tout est prêt. Fermez les préférences et 
+double-cliquez sur le premier fichier 
+pour faire démarrer la lecture de la <SPAN  CLASS="textit">playlist</SPAN> depuis le
+début. Vous pouvez aussi activer le premier titre avec la touche
+<SPAN  CLASS="textbf">Home</SPAN> puis utiliser la touche <SPAN  CLASS="textbf">X</SPAN> pour amorcer la lecture.
+Comme sur la figure&nbsp;<A HREF="#fig:decoding">12.6</A>, vous verrez
+Winamp décoder les fichiers.
+
+<P>
+Maintenant que c'est fait, il faut redonner à  Winamp son 
+état initial, sinon lorsque vous voudrez écouter de la musique
+en utilisant le programme, vous aurez une belle surprise! Le plus important 
+est de remettre le paramètre <SPAN  CLASS="textbf">Output</SPAN> sur <SPAN  CLASS="textbf">waveOut</SPAN> ou
+<SPAN  CLASS="textbf">DirectSound</SPAN>.
+
+<P>
+Les fichiers WMA posent malheureusement problème, car Winamp les
+décode directement vers la carte son plutôt que les passer dans son
+système de plug-ins. Le logiciel Advanced WMA Workshop
+[<A HREF="node105.html#url:advwma">URL3</A>] permet
+heureusement de convertir de tels fichiers WMA en fichier MP3 ou WAV.
+
+<P>
+Le décodage terminé, il peut y avoir des 
+traitements numériques à effectuer sur les WAV.
+Les manipulations numériques peuvent être diverses, 
+simples ou complexes. On peut par exemple appliquer une normalisation 
+sur tous les fichiers pour uniformiser le volume ou corriger 
+des fichiers qui ne seraient pas à la bonne fréquence, 
+8 bit ou mono. Mais ces manipulations sont facultatives 
+et peuvent, en cas d'abus, altérer la qualité du signal numérique.
+Winamp ne permettant pas l'édition numérique, il faut utiliser un
+logiciel tel que Sound Forge ou Audacity pour les effectuer.
+
+<P>
+Détail très intéressant:
+chaque fichier décodé est numéroté. On 
+retrouve les fichiers <TT>01- xxx.wav</TT>, <TT>02- yyy.wav</TT>, ... où 
+<TT>xxx</TT> et <TT>yyy</TT> sont des noms de fichiers se trouvant
+dans votre <SPAN  CLASS="textit">playlist</SPAN>! 
+Classés en ordre alphabétique, une pareille 
+structure redonne exactement l'ordre de la playlist, donc l'ordre du
+CD. Il sera donc 
+simple d'insérer cela dans une structure audio, juste 
+par glisser-déplacer.
+
+<P>
+
+<H2><A NAME="SECTION06414000000000000000">
+<SPAN CLASS="arabic">12</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">4</SPAN> Échantillonnage</A>
+</H2>
+
+<P>
+Seul un logiciel d'édition sonore permet d'échantillonner et de
+traiter le signal de toutes les manières possibles. Des logiciels de
+gravure comme Easy CD Creator ou Nero disposent certes d'un module
+d'échantillonnage, de même que Windows, mais ce module ne permettra
+pas toujours d'effectuer toutes les tâches. Il existe plusieurs
+logiciels d'étition sonore tels qu'Audacity [<A HREF="node105.html#url:audacity">URL7</A>],
+Adobe Audition (autrefois CoolEdit Pro) [<A HREF="node105.html#url:audition">URL1</A>],
+Sony Sound Forge [<A HREF="node105.html#url:soundforge">URL61</A>], ...
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1855"
+  HREF="node61.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1849"
+  HREF="node59.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1843"
+  HREF="node59.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1851"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1853"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html1856"
+  HREF="node61.html">12.2 Configuration du logiciel</A>
+<B> monter:</B> <A NAME="tex2html1850"
+  HREF="node59.html">12. Création d'un CD</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html1844"
+  HREF="node59.html">12. Création d'un CD</A>
+ &nbsp; <B>  <A NAME="tex2html1852"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1854"
+  HREF="node106.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Eric Buist
+2005-11-13
+</ADDRESS>
+</BODY>
+</HTML>

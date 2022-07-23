@@ -1,0 +1,181 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.1//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>7.3 Et dans le cas de Linux?</TITLE>
+<META NAME="description" CONTENT="7.3 Et dans le cas de Linux?">
+<META NAME="keywords" CONTENT="cdwriting">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cdwriting.css">
+
+<LINK REL="previous" HREF="node37.html">
+<LINK REL="up" HREF="node35.html">
+<LINK REL="next" HREF="node39.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1465"
+  HREF="node39.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1459"
+  HREF="node35.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1455"
+  HREF="node37.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1461"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1463"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html1466"
+  HREF="node39.html">8. Et si cela</A>
+<B> monter:</B> <A NAME="tex2html1460"
+  HREF="node35.html">7. Création de la</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html1456"
+  HREF="node37.html">7.2 Logiciels de création</A>
+ &nbsp; <B>  <A NAME="tex2html1462"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1464"
+  HREF="node106.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION05630000000000000000">
+<SPAN CLASS="arabic">7</SPAN>.<SPAN CLASS="arabic">3</SPAN> Et dans le cas de Linux?</A>
+</H1>
+
+<P>
+Avec Linux, c'est encore pire, car il n'existe aucun véritable
+logiciel de conception d'étiquettes à CD/DVD. Il existe quelques logiciels
+de graphisme vectoriel, mais leurs fonctionnalités n'atteignent pas le
+niveau des grands logiciels pour Windows et la conformité aux gabarits
+des jaquettes posera encore davantage de problèmes! Le problème des
+marges et positionnement est omniprésent, de même que l'importation
+des titres des chansons ou d'un résumé des données.
+Pour pimenter encore davantage les choses, ajoutons que certaines
+imprimantes ne sont pas supportées par les gestionnaires d'impression
+Linux!
+
+<P>
+The Gimp<A NAME="1398"></A> [<A HREF="node105.html#url:gimp">URL64</A>] constitue un éditeur
+graphique très complet rivalisant presque avec le titan Adobe
+Photoshop. Fonctionnant sous Linux comme sous Windows, il propose
+plusieurs outils de manipulation d'images et peut imprimer à des
+positions définies par l'utilisateur sur le papier. Malheureusement,
+ce logiciel est sans doute trop général pour permettre la création de
+jaquettes de façon efficace. En utilisant les calques astucieusement,
+il sera certes possible de créer des gabarits pour la dimension des
+étiquettes, mais l'outil étant bitmap, l'édition sera plus difficile
+qu'avec un outil vectoriel. Sans précautions spéciales, vous ne
+pourrez pas déplacer les objects de la jaquette comme bon vous
+semblera après les avoir collés et relâchés dans l'image. Il faudra
+également entrer manuellement les informations du disque. Toutefois,
+le système de plug-ins du Gimp pourrait permettre la création d'une
+extension rendant ce logiciel parfaitement capable de réaliser ces
+tâches.
+
+<P>
+OpenOffice.org<A NAME="1400"></A> [<A HREF="node105.html#url:openoffice">URL54</A>]
+constitue une
+excellente suite bureautique open source qui contient, entre autres
+choses, un logiciel d'imagerie vectorielle. Bien que ce logiciel ne
+soit pas aussi puissant que les logiciels vectoriels commerciaux, il
+pourrait permettre la création d'étiquettes de CD. Contrairement à
+Gimp, il sera plus facile de modifier le travail en cours, mais moins
+d'effets sont disponibles pour la manipulation des images. Le problème
+de la saisie des dimensions du support ainsi que les informations du
+disque demeure encore à résoudre, mais l'extensibilité
+d'OpenOffice.org autoriserait l'adjonction d'un plug-in éventuel pour
+cette tâche.
+
+<P>
+cdlabelgen<A NAME="1402"></A> [<A HREF="node105.html#url:cdlabelgen">URL12</A>]
+constitue une bonne tentative de création d'un outil automatique de
+création de jaquettes. À partir d'une ligne de commande, il serait
+capable de créer les encarts des CD, pas les étiquettes rondes. Il
+génère un fichier PostScript couleurs en sortie. Malheureusement, le
+logiciel ne traite pas les informations CD-Text des disques audio,
+n'effectue pas de requêtes CDDB et n'est utilisable que par
+l'intermédiaire d'une interface Web qui vous oblige à envoyer sur le
+serveur tout le contenu de vos jaquettes! Le code source, en Perl,
+génère des fichiers PostScript invalides qui produisent des erreurs
+avec l'interpréteur GhostScript.
+
+<P>
+Disc-Cover<A NAME="1404"></A> [<A HREF="node105.html#url:disccover">URL20</A>]
+constitue une autre tentative de logiciel. Ce script Perl génère des
+jaquettes de CD en utilisant le système <SPAN CLASS="logo,LaTeX">L<SUP><SMALL>A</SMALL></SUP>T<SMALL>E</SMALL>X</SPAN> qui est suffisamment
+stable pour générer du PostScript et du PDF standard. Malheureusement,
+pour que les pistes soient inscrites sur les encarts de vos
+compilations, vous devez soumettre le nom des chansons de ces
+dernières sur le site de FreeDB! Il semble bien que Disc-Cover n'ait
+été conçu que pour créer des jaquettes pour remplacer des étuis perdus
+de CD originaux. Les compilations personnelles ne sont pas couvertes,
+à moins, bien entendu, de saisir les noms des chansons manuellement.
+
+<P>
+Ainsi, dans tous les cas, il faut beaucoup de manipulations et de
+patience pour obtenir des résultats ou
+soumettre des données sur
+Internet pour créer une simple jaquette de CD et ce n'est pas toujours
+désirable. Aucun logiciel ne permet de créer les étiquettes rondes
+avec suffisamment de flexibilité et aucun ne supporte directement les
+formats d'étiquettes conçues pour les CD, comme les Neato ou les
+Avery.
+Pour la résolution des problèmes d'imprimante, il faut être
+chanceux ou acheter son imprimante en fonction de la compatibilité
+Linux. Il existe plusieurs imprimantes pouvant fonctionner sous ce
+système, comme les HP et les Epson. Les Lexmark, bien que peu
+coûteuses, sont à éviter pour la compatibilité Linux.
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1465"
+  HREF="node39.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1459"
+  HREF="node35.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1455"
+  HREF="node37.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1461"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1463"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html1466"
+  HREF="node39.html">8. Et si cela</A>
+<B> monter:</B> <A NAME="tex2html1460"
+  HREF="node35.html">7. Création de la</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html1456"
+  HREF="node37.html">7.2 Logiciels de création</A>
+ &nbsp; <B>  <A NAME="tex2html1462"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1464"
+  HREF="node106.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Eric Buist
+2005-11-13
+</ADDRESS>
+</BODY>
+</HTML>

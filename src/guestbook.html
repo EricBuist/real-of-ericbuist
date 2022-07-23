@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+  <title>Livre d'or</title>
+<style type="text/css">
+/*<![CDATA[*/
+      body {
+      background-image: url(back.jpg);
+      background-color: #00FFFF
+      }
+      p {
+      color: black
+      }
+      a {
+      color: brown
+      }
+/*]]>*/
+</style>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="author" content="Eric Buist" />
+  <link rel="stylesheet" type="text/css" href="main.css" />
+</head>
+
+<body>
+
+<form action="/cgi-sys/guestbook.cgi" target="guestwindow" accept-charset="UTF-8">
+<input type="hidden" name="user" value="o112899"/>
+<input type="hidden" name="action" value="addguest"/>
+<input type="hidden" name="basehref" value="http://ericbuist.com"/>
+<input type="hidden" name="template" value="default"/>
+Nom: <input type="text" name="name"/><br/>
+Email: <input type="text" name="email"/><br/>
+Url: <input type="text" name="url"/><br/>
+Commentaires: <textarea name="comments"></textarea><br/>
+<input type="submit" value="Signer le livre d'or"/>
+</form>
+</body>
+</html>

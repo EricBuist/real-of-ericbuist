@@ -1,0 +1,489 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         Assemblage: première partie
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css"
+      href="../../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../../index.xhtml" class="parents">Le
+               royaume de Eric Buist</a> &gt;&gt; <a
+               href="../index.xhtml"
+               class="parents">Informatique</a> &gt;&gt;
+               Configuration informatique &gt;&gt; <a
+               href="index.xhtml" class="parents">Oméga</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../../sitemap.xhtml" class="sitemap">Plan
+               du site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="parts.xhtml"
+               class="leftsibling">Choix des pièces</a>
+            </td>
+            <td class="thispage">
+               Assemblage: première partie
+            </td>
+            <td class="rightsibling">
+               <a href="win10.xhtml"
+               class="rightsibling">Installation de Windows 10</a>
+               &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         Assemblage: première partie
+      </h1>
+      <p>
+         J'ai reçu presque toutes les pièces pour ma machine
+         mercredi, le 24 mars 2021. Par contre, il m'a fallu
+         attendre mercredi, 31 mars, pour la carte mère. Ces deux
+         soirs, je n'ai eu le temps que d'examiner la tour et la
+         carte mère. L'assemblage proprement dit a eu lieu
+         vendredi, 2 avril 2021.
+      </p>
+
+      <ul>
+        <li><a href="#case">Exploration du boîtier</a></li>
+        <li><a href="#cpu">Processeur</a></li>
+        <li><a href="#nvme">Le SSD NVMe</a></li>
+        <li><a href="#ram">La mémoire</a></li>
+        <li><a href="#mb">Carte mère</a></li>
+        <li><a href="#fans">Branchement des ventilateurs</a></li>
+        <li><a href="#psu">Bloc d'alimentation</a></li>
+        <li><a href="#phase1">Finalisation de la phase 1</a></li>
+      </ul>
+      
+      <h2>
+         <a name="case" id="case">Exploration du boîtier</a>
+      </h2>
+      <p>
+         J'ai reçu le boîtier mercredi, 24 mars 2021. Par contre,
+         en raison de travaux dans mon secteur, Purolator n'a pas
+         pu le livrer chez moi. Il m'a fallu aller chercher ça,
+         ainsi qu'une boîte de pièces, à quelques rues de chez moi.
+         Ramener cette grosse tour à pied ne fut pas très plaisant,
+         mais j'ai fini par l'avoir.
+      </p>
+      <p>
+         <img width="60%" src="emptyCase.jpg"
+         alt="La tour vide, juste après le déballage" />
+      </p>
+      <p>
+         Cette image montre le boîtier en acier avec le panneau
+         latéral vitré. À l'intérieur, on peut apercevoir le
+         ventilateur arrière. Il y a aussi deux autres ventilateurs
+         à l'avant. Mais où peut bien aller le lecteur optique, où
+         sont les ports USB, le bouton de mise sous tension, etc.?
+      </p>
+      <p>
+         <img src="emptyCaseOpen.jpg" width="60%"
+         alt="Porte avant du boîtier ouverte" />
+      </p>
+      <p>
+         L'ouverture de la porte révèle des grilles permettant de
+         laisser passer l'air. La grille du haut est amovible,
+         permettant de livrer passage à un éventuel lecteur
+         optique. Mais comment ce lecteur va-t-il tenir dans la
+         tour? Je ne savais pas, et la documentation venant avec le
+         boîtier ne me permit pas de savoir.
+      </p>
+      <p>
+         <img src="caseTop.jpg" width="60%"
+         alt="Dessus du boîtier, avec les boutons et ports USB" />
+      </p>
+      <p>
+         C'est sur le dessus de la tour que je trouvai des
+         connecteurs audio, un port USB C, le bouton de mise sous
+         tension et quatre, oui quetre, ports USB. Les deux
+         premiers ports sont USB 2, les deux autres USB 3. Bien
+         évidemment, ces ports ne pourront fonctionner que si on
+         peut les raccorder à une carte mère. Autre fait
+         intéressant: le bouton de réinitialisation, il peut être
+         actionné sans utiliser un stylo, ce qui n'était pas le cas
+         avec mon ancienne tour Cooler Master.
+      </p>
+      <p>
+         <img src="insideCase.jpg" width="60%"
+         alt="L'intérieur du boîtier" />
+      </p>
+      <p>
+         Le panneau latéral est super facile à retirer, pas besoin
+         de tournevis. Sur l'image ci-dessus, on peut voir
+         l'intérieur de la tour, avec le support où sera fixée la
+         carte mère, les fentes par lesquelles peuvent sortir les
+         cartes d'extension et l'ouverture par laquelle la carte
+         mère laissera passer les ports d'entrées/sorties.
+      </p>
+      <p>
+         <img src="caseRightSide.jpg" width="60%"
+         alt="Le panneau droit ouvert" />
+      </p>
+      <p>
+         L'autre panneau, opaque, de ce boîtier, est également
+         facile à ôter. Il révèle les emplacements pour disques
+         (seulement deux, un peu décevant vu la taille de ce
+         mastodonte). Il y a là des supports amovibles, mais ce
+         n'est pas clair ce qu'on peut fixer là-dessus, peut-être
+         des SSD additionnels. Il y a un support non amovibles,
+         dont on ne peut pas accéder aux vis; je ne suis pas
+         parvenu à en déterminer son utilité. On trouver là
+         plusieurs attaches à vélcro qui peuvent servir à fixer des
+         câbles. On remarque également la qualité de ces panneaux,
+         apparemment en acier, rigides, contrairement à ces taules
+         qui ploient qu'on trouve dans bon nombre de boîtiers.
+      </p>
+      <p>
+         <img src="caseDiskTrays.jpg" width="60%"
+         alt="Accès à la cage des disques" />
+      </p>
+      <p>
+         L'accès à la cage des disques semble à priori difficile,
+         obstrué par une languette de plastique. Cette languette
+         s'enlève facilement, permettant non pas seulement
+         d'accéder à la cage mais aussi aux câbles du bloc
+         d'alimentation, qui est dans un tunnel au bas du boîtier.
+         Le tunnel permet de dissimuler le bloc (et surtout
+         l'entralac de câbles qui en sort) quand on regarde à
+         l'intérieur de la tour par le panneau transparent.
+      </p>
+      <p>
+         Ce mercredi soir, je ne pus qu'examiner le boîtier et
+         vérifier que j'avais bien toutes les pièces commandées. Il
+         me manquait la carte mère pour aller plus loin.
+      </p>
+      <h2>
+         <a name="cpu" id="cpu">Processeur</a>
+      </h2>
+      <p>
+         J'ai eu la carte mère le 31 mars 2021. J'ai envisagé
+         l'installer dans le boîtier le soir même, mais j'ai manqué
+         de temps et jugé bon ne pas précipiter les choses,
+         attendre la fin de semaine. Je n'ai pu, ce soir-là,
+         qu'examiner la carte, localiser les connecteurs et la
+         ranger.
+      </p>
+      <p>
+         Vendredi, 2 avril 2021, j'ai commencé par installer
+         quelques pièces sur la carte mère, avant de la poser dans
+         le boîtier. Le processeur est installé sur un connecteur
+         particulier de la carte mère. On accède à ce connecteur en
+         basculant un petit levier à sa droite, ce qui révèle une
+         grille de minuscules contacts électriques.
+      </p>
+      <p>
+         <img src="LGA1200.JPG" width="50%"
+         alt="Emplacement LGA1200 pour processeur" />
+      </p>
+      <p>
+         Je ne parvenais pas à savoir exactement dans quelle
+         orientation le placer. Je ne trouvais pas de petit
+         triangle sur un des coins. Finalement, j'ai mis ça de
+         sorte à ce que l'inscription Intel soit à l'endroit et il
+         y avait deux encoches qui s'alignaient. L'image ci-dessous
+         montre le processeur posé sur la carte mère.
+      </p>
+      <p>
+         <img src="cpuInstalled.JPG" width="50%"
+         alt="Processeur installé sur le connecteur LGA" />
+      </p>
+      <p>
+         Le processeur est fixé en abaissant le couvercle et en
+         engageant le petit levier. Le mécanisme exerce une
+         pression qui maintient le contact électrique entre le
+         processeur et la carte mère.
+      </p>
+      <p>
+         <img src="cpuInstalled2.JPG" width="50%"
+         alt="Couvercle du processeur refermé, puce en place" />
+      </p>
+      <h2>
+         <a name="nvme" id="nvme">Le SSD NVMe</a>
+      </h2>
+      <p>
+         Après avoir fixé le processeur, il m'a semblé judicieux
+         d'installer le SSD, surtout que je n'avais jamais eu entre
+         les mains ce genre de disques NVMe. Le SSD se présente
+         sous la forme d'une petite carte d'extension qui s'enfiche
+         directement dans la carte mère. L'image ci-dessous montre
+         le disque déballé.
+      </p>
+      <p>
+         <img src="nvmeSSD.JPG" width="50%"
+         alt="Le SSD NVMe de format M2" />
+      </p>
+      <p>
+         Sur le côté gauche, on peut apercevoir un connecteur qui
+         va s'enficher dans la carte mère. Le côté droit présente
+         une encoche dans laquelle une vis viendra se placer pour fixer
+         le disque. L'image ci-dessous montre le SSD installé.
+      </p>
+      <p>
+         <img src="nvmeSSDInstalled.JPG" width="50%"
+         alt="Le disque NVMe en place sur la carte mère" />
+      </p>
+      <h2>
+         <a name="ram" id="ram">La mémoire</a>
+      </h2>
+      <p>
+         La mémoire, j'eus du trouble un peu. Il y avait un seul
+         côté doté d'un levier; l'autre c'était fixe. Mais à force
+         d'essayer, j'ai pu faire entrer fermement les deux
+         barrettes dans les fentes.
+      </p>
+      <p>
+         Il est important, pour une performance optimale,
+         d'enficher les barrettes dans les fentes de la même
+         couleur. Si j'avais utilisé les deux premières fentes (la
+         noire et la blanche), la machine aurait fonctionné quand
+         même mais pas en double canal. Utiliser les deux fentes
+         noires a permis de bénéficier du mode double canal qui
+         double la performance de la mémoire. L'image ci-dessous
+         montre les deux barrettes installées.
+      </p>
+      <p>
+         <img src="ram.JPG" width="50%"
+         alt="La mémoire installée" />
+      </p>
+      <h2>
+         <a name="mb" id="mb">Carte mère</a>
+      </h2>
+      <p>
+         D'abord avant de poser la carte mère dans le boîtier, il
+         faut y installer le panneau d'entrées/sorties. C'est un
+         petit morceau de métal, livré avec la carte mère, avec des
+         ouvertures pour les ports USB, PS/2, HDMI, audio, etc.
+         Parfois, il reste de petites tiges de métal après le
+         panneau qui rendent les connexions difficiles, voire
+         impossibles. J'ai oublié cette fois de prendre la
+         précaution de couper ces petites tiges et ça m'a posé du
+         trouble par la suite. J'ai eu du mal à dégager l'ouverture
+         du port USB C, la carte mère en place, mais j'ai fini par
+         réussir avec une pince et un peu de patience. L'image
+         suivante montre le panneau installé dans la tour.
+      </p>
+      <p>
+         <img src="ioShield.JPG" width="50%"
+         alt="Panneau d'entrées/sorties installé dans le boîtier" />
+      </p>
+      <p>
+         Installer la carte mère dans la tour m'a posé du trouble,
+         parce que j'avais les mauvaises vis. J'ai fini par trouver
+         les bonnes vis (dans les accessoires venant avec le
+         boîtier, il y avait des petites vis pour les SSD et un peu
+         plus grosses pour les standoffs de la carte mère, et les
+         deux faisaient dans les standoffs). L'image suivante
+         montre la carte mère installée.
+      </p>
+      <p>
+         <img src="mbInstalled.JPG" width="50%"
+         alt="Carte mère installée dans le boîtier" />
+      </p>
+      <p>
+         Les fils des boutons me causèrent de la misère, car il n'y
+         avait pas de connecteur comme avec l'autre carte mère.
+         Fallait brancher les petits fils de la tour directement
+         dans la carte mère. Ces fils permettent de raccorder le
+         bouton de mise sous tension de sorte à ce qu'il allume la
+         machine, le bouton de réinitialisation et la DEL
+         d'activité sur l'avant de la tour. La tour n'offrait
+         aucun fil pour une diode d'activité du disque dur. Outre
+         les fils des boutons, il y avait un connecteur USB 2 et un
+         USB 3 à brancher, pour faire fonctionner les ports USB sur
+         le dessus de la tour. Le port USB C demeurera inactif pour
+         le moment parce que la carte mère n'offre pas de
+         connecteur pour ça. Peut-être ça pourrait se régler avec
+         une carte PCI Express, on verra plus tard. L'image
+         suivante donne un exemple de ces fils.
+      </p>
+      <p>
+         <img src="mbWires.JPG" width="50%"
+         alt="Fils raccordant la carte mère au boîtier" />
+      </p>
+      <h2>
+         <a id="fans" name="fans">Branchement des ventilateurs</a>
+      </h2>
+      <p>
+         Le mécanisme du dissipateur de chaleur pour processeurs
+         Intel n'a pas changé depuis des années, ce qui est une
+         bonne chose. Il suffit de placer l'assemblage sur le
+         processeur, aligner les tiges dans les trous et appuyer
+         pour engager les quatre clips. On branche ensuite le
+         ventilateur à la carte mère via le connecteur à quatre
+         broches. L'image ci-dessous montre le dissipateur
+         installé.
+      </p>
+      <p>
+         <img src="cpuFan.JPG" width="50%"
+         alt="Dissipateur de chaleur installé sur le processeur" />
+      </p>
+      <p>
+         Pour ce qui est des autres ventilateurs, le boîtier
+         Fractal Design offre un contrôleur intégré qui permet de
+         raccorder plusieurs ventilateurs à un même connecteur sur
+         la carte mère. Le peu d'instructions venant avec le
+         boîtier suggère de brancher le câble d'entrée sur le
+         connecteur de ventilateur à processeur et brancher le
+         ventilateur à processeur sur le premier connecteur de
+         sortie du contrôleur. Le contrôleur offre plusieurs
+         connecteurs à 4 et à 3 broches. Plutôt que faire ainsi,
+         j'ai branché le contrôleur sur le connecteur de
+         ventilateur à boîtier, pour que la vitesse du ventilateur
+         à processeur soit contrôlable indépendamment des autres.
+         Outre brancher les ventilateurs sur le contrôleur, il faut
+         aussi raccorder ce dernier à un connecteur SATA du bloc
+         d'alimentation. L'image ci-dessous montre le contrôleur
+         qui se trouve derrière le panneau opaque, en haut.
+      </p>
+      <p>
+         <img src="fanHub.JPG" width="50%"
+         alt="Contrôleur de ventilateurs Fractal Design" />
+      </p>
+      <h2>
+         <a id="psu" name="psu">Bloc d'alimentation</a>
+      </h2>
+      <p>
+         En quoi le bloc d'alimentation est-il modulaire? Comme le
+         montre l'image suivante, les câbles raccordés à la carte
+         mère et aux périphériques sont amovibles. Je ne suis pas
+         certain que les connecteurs sur le bloc d'alimentation
+         sont standards, mais le bout des câbles qui se branche
+         dans les périphériques l'est.
+      </p>
+      <p>
+         <img src="modularPsu.JPG" width="50%"
+         alt="Bloc d'alimentation modulaire, avec aucun câble branché" />
+      </p>
+      <p>
+         Cela comporte quelques avantages, dont la possibilité de
+         ne brancher que les câbles nécessaires. Inutile de
+         brancher un câble offrant des connecteurs Molex si aucun
+         périphérique dans la machine ne s'en sert. On pourrait
+         aussi imaginer la possibilité de choisir entre 3
+         connecteurs Molex ou 3 connecteurs SATA additionnels,
+         selon le câble branché dans le connecteur, mais je n'ai
+         pas cette option sur mon bloc actuel.
+      </p>
+      <p>
+         En pratique, le bloc d'alimentation modulaire, ce n'était
+         pas l'idée du siècle avec cette tour-là. Le bloc est
+         installé dans un tunnel de sorte qu'il est difficile de
+         passer sa main dedans pour aller brancher les câbles SUR
+         le transformateur. J'ai songé brancher les câbles
+         d'alimentation en-dehors de la tour. Non, fonctionne pas,
+         les câbles sont trop courts pour ça. En plus, pratiquement
+         tous les câbles ont été utilisés, si bien que l'aspect
+         modulaire devient d'un intérêt limité.
+      </p>
+      <p>
+         Passer certains câbles fut un défi. Il fallait qu'ils
+         passent dans un trou pour aller de l'arrière de la carte
+         mère vers l'avant. Le câble reliant le contrôleur de
+         ventilateurs à la carte mère était trop court, j'ai eu du
+         mal à trouver une façon de le passer, et ce n'était pas
+         correct; ça m'empêchait de poser la carte graphique! J'ai
+         dû passer le câble en arrière de la carte mère et le
+         refaire sortir par en bas, ça a été bien juste. Faut dire
+         que ce câble partait du connecteur System Fan en bas de la
+         carte mère pour remonter jusqu'au contrôleur intégré à la
+         tour.
+      </p>
+      <h2>
+         <a id="phase1" name="phase1">Finalisation de la phase
+         1</a>
+      </h2>
+      <p>
+         Puis est venu le temps de faire de quoi qui fait mal:
+         charcuter ma machine, qui fonctionne, pour faire allumer
+         la nouvelle. Oui oui, fallait que j'enlève la carte
+         graphique pour la mettre dans la nouvelle machine, parce
+         que j'ai mal choisi mon processeur. J'ai eu du mal à
+         brancher le connecteur PCI Express de 6+2 pins sur la
+         carte, j'ai bien cru que ça ne ferait pas, qu'il allait me
+         falloir mettre tout ça sur la glace en attente d'un foutu
+         adaptateur. J'ai songé que j'aurais été aussi bien prendre
+         la carte graphique de mon HTPC à la place; elle n'a pas
+         besoin de connecteur supplémentaire. Mais non, j'ai fini
+         par pouvoir brancher ça.
+      </p>
+      <p>
+         Après ça, étant donné que j'étais installé dans le salon
+         pour l'assemblage, j'ai branché la machine sur ma TV pour
+         tester. La première tentative d'allumer ça ne fit rien.
+         Oups! Avant de désespérer, j'ai par chance pensé au
+         commutateur sur le bloc d'alimentation. Sans regarder dans
+         quelle position il se trouvait, je le basculai et
+         réessayai. La machine réagit, mais pas sûr qu'elle
+         allumait. Puis j'entendis les ventilateurs se mettre en
+         marche. Ok, on a de quoi mais pas d'image. Puis un moment
+         donné, l'image est apparue!!!!! Oui oui! L'image ci-bas
+         montre la machine, assemblée, avec le panneau remis en
+         place.
+      </p>
+      <p>
+         <img src="phase1Completed.JPG" width="50%"
+         alt="Tour avec la carte mère et la carte graphique installées" />
+      </p>
+      <p>
+         J'ai ensuite fait démarrer Ubuntu là-dessus, en utilisant
+         une clé USB. J'ai voulu tester le SSD avec SMART. eh bien,
+         SMARTMonTools n'était pas installé alors je dus me brancher de
+         quoi dans la carte réseau pour aller sur Internet. Ça a
+         mal été, car mes câbles sont trop courts. J'ai fini par
+         trouver un câble assez long et la machine a pu se brancher à
+         Internet.
+         Eh bien, SMART n'arrive pas à démarrer un test sur le
+         disque NVMe.
+      </p>
+      <p>
+         Après ça, j'ai éteint la machine. J'ai trouvé deux
+         languettes pour boucher le trou que j'ai créé dans mon
+         Drake en lui enlevant la carte graphique puis je l'ai
+         rallumé pour qu'il se reconfigure pas de carte
+         graphique, avec la puce Intel. Des paramètres de l'UEFI se
+         sont réinitialisés et Windows est devenu par défaut, au
+         lieu de Linux. J'ai dû réparer ça. Linux et Windows se
+         sont correctement reconfigurés, mais j'ai eu à
+         manuellement désinstaller le pilote de NVIDIA, pour être
+         sûr que ce soit propre.
+      </p>
+      <p>
+         Voilà qui complète la phase 1 de ce projet. La machine
+         assemblée fonctionnait. Il était temps de lui installer
+         Windows.
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

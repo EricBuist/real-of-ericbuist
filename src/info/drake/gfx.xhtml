@@ -1,0 +1,289 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         Ajout d'une carte graphique
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css"
+      href="../../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../../index.xhtml" class="parents">Le
+               royaume de Eric Buist</a> &gt;&gt; <a
+               href="../index.xhtml"
+               class="parents">Informatique</a> &gt;&gt;
+               Configuration informatique &gt;&gt; <a
+               href="index.xhtml" class="parents">Le Drake</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../../sitemap.xhtml" class="sitemap">Plan
+               du site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="macosxhd.xhtml"
+               class="leftsibling">Mac OS X sur le Drake</a>
+            </td>
+            <td class="thispage">
+               Ajout d'une carte graphique
+            </td>
+            <td class="rightsibling">
+               <a href="benchmark.xhtml"
+               class="rightsibling">Benchmark</a> &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         Ajout d'une carte graphique
+      </h1>
+      <p>
+         Depuis quelques temps, je jouais au jeu Minecraft, plus
+         spécifiquement une variante avec plusieurs ajouts appelés
+         mods. J'ai commencé à éprouver des difficultés sous Ubuntu
+         avec le jeu: l'affichage était saccadé au point que le jeu
+         était désagréable. Sous Windows, c'était encore jouable,
+         mais il a commencé à y avoir des difficultés là aussi dans
+         certaines zones de mon monde.
+      </p>
+      <p>
+         À bien y penser, mon ordinateur était plus déséquilibré.
+         Les problèmes avec Minecraft ne seraient qu'un début;
+         d'autres difficultés graphiques surgiraient plus tard.
+         J'avais un super CPU à quatre coeurs, quasiment le top de
+         la gamme à moins d'aller dans les Xeon ou les trucs
+         extrêmes, avec plein de mémoire, mais la puce graphique de
+         base! Pour remédier à cela, je me suis mis une GeForce GTX
+         650 de NVIDIA, dont le pilote est compatible avec Windows
+         mais aussi Linux. Pour Mac OS X, ça allait
+         <em>probablement</em> fonctionner, mais je m'en foutais un
+         peu rendu au point où j'en étais.
+      </p>
+      <h1>
+         L'installation
+      </h1>
+      <p>
+         Ça s'est un peu mal passé. Je l'ai déballée vendredi
+         matin, 3 août 2013, constaté que le vendeur ne m'a même
+         pas dit la vérité puisque c'est ENCORE une carte à double
+         fente, j'en ai vu plusieurs comme ça lors de mes
+         investigations. Elles sont décidément toutes rendues comme
+         ça: la carte prend DEUX fentes et condamne donc, sur ma
+         carte mère, un des deux connecteurs PCI Express x1; c'est
+         vraiment un MONSTRE! Il faudra sans doute attendre des
+         années qu'ils sortent des cartes mère avec plus
+         d'espacement entre les connecteurs pour accommoder ce
+         nouveau phénomène. Au moins je n'ai pas besoin de deux
+         connecteurs PCI Express x1.
+      </p>
+      <p>
+         Après ça, j'ai eu du mal à rentrer la carte qui était un
+         peu grosse. <img src="gfxinst.jpg"
+         alt="La carte graphique installée" class="floatright" />
+         Les fils dans mon boîtier empêchaient son installation,
+         mais j'ai fini par l'avoir. L'image de droite montre la
+         carte dans le boîtier. J'ai examiné la carte et n'ai
+         trouvé aucun fil destiné à être branché dans un connecteur
+         PCI Express du bloc d'alimentation. En effet, certaines
+         cartes graphiques exigent un apport additionnel de courant
+         12V fourni par un connecteur à six, voire à huit broches!
+         Eh non! Pas celle-là, apparemment. Après l'enfichage de la
+         carte, j'ai procédé au branchement de l'écran. Je devais
+         en effet raccorder mon écran à la carte graphique et non
+         pas à la carte mère!
+      </p>
+      <p>
+         Le branchement de mon écran n'était pas tout à fait
+         ordinaire. Plutôt que raccorder l'écran à la carte
+         graphique directement, via un câble DVI, j'ai utilisé un
+         câble HDMI qui la reliait à un commutateur. La sortie du
+         commutateur était un câble HDMI vers DVI qui allait dans
+         l'écran! Cela me permettait de commuter entre trois
+         sources numériques différentes: mon ordinateur principal,
+         mon vieux Salvator qui servait de serveur Minecraft et
+         l'ultrabook de Nuance que j'utilisais pour travailler.
+         Cette configuration était, en 2012, beaucoup moins
+         coûteuse qu'un commutateur KVM avec ports DVI.
+      </p>
+      <p>
+         C'est pour cette raison que j'ai employé la sortie HDMI de
+         ma nouvelle carte graphique pour mon premier test. Le
+         branchement a été simple et rendu là, je devais allumer la
+         machine et apercevoir une première image. Il n'en fut
+         rien, l'écran demeurant noir. J'entendais les deux
+         ventilateurs de la carte graphique tourner à plein régime
+         et fus une seconde fois déçu; cela allait augmenter
+         significativement le bruit produit par la machine.
+      </p>
+      <p>
+         J'ai essayé de rebrancher l'écran dans le port HDMI de la
+         carte mère et voilà, l'affichage revenait. Ben oui, la
+         carte mère donnait priorité à la Intel HD4000 et se
+         foutait de la carte graphique! J'ai fouillé dans le BIOS à
+         la recherche d'une option pour remédier à ça. Tout ce que
+         je pouvais faire, c'était changer l'adaptateur primaire,
+         qui était fixé sur Auto. Le système aurait dû pouvoir
+         deviner automatiquement, d'après l'écran branché, que la
+         carte graphique devait avoir priorité!
+      </p>
+      <h1>
+         Ça ne fonctionne même pas!
+      </h1>
+      <p>
+         J'ai fini par tenter de brancher l'écran en DVI plutôt
+         qu'en HDMI, mais j'ai eu beau tout essayer, aucun moyen de
+         brancher mon câble DVI dans le connecteur! J'ai essayé
+         avec un adaptateur DVI vers HDMI puis avec un vrai câble
+         DVI, mêmes problèmes. On aurait dit que c'étaient des
+         connecteurs DVI <strong>LÉGÈREMENT</strong> différents,
+         peut-être parce qu'ils sont dual link. Il faudrait encore
+         que je vérifie si une différence existe et que je trouve
+         des adaptateurs si je voulais construire une configuration
+         à plusieurs écrans un jour. J'ai trouvé ça pas mal
+         décevant et choquant. Puis j'ai testé en VGA, encore rien.
+         Je n'avais pas trop envie de ramener ça chez MicroBytes et
+         puis recommencer avec une autre carte pareille et ça
+         semblait cela qui s'en venait. Je jonglais entre amener
+         là-bas toute la tour, tenter d'installer la carte
+         graphique dans mon vieil ordinateur ou encore mettre la
+         vieille carte graphique temporairement dans la nouvelle
+         machine.
+      </p>
+      <p>
+         Bon, est-ce qu'il y a un connecteur PCI Express ou pas?
+         Pour tenter de le savoir, j'ai vérifié le manuel de la
+         carte graphique. Il n'y avait aucune mention d'une étape
+         de branchement.
+      </p>
+      <p>
+         Ne souhaitant pas démonter mon Salvator pour rien et
+         risquer de saboter mon serveur de Minecraft, j'ai décidé
+         de tenter de changer, dans le BIOS, l'adaptateur primaire
+         pour le mettre sur PCI Express. Si la machine refusait
+         ensuite de démarrer, attendant une carte graphique
+         fonctionnelle, là je lui mettrais temporairement celle du
+         Salvator, puis retournerais la nouvelle carte, enfin
+         confiant qu'elle était bien défectueuse. Sinon, je
+         pourrais au moins aller plus loin. Eh bien l'option de
+         BIOS n'eut AUCUN effet. De plus, ni Windows, ni Linux, ne
+         pouvaient détecter la nouvelle carte. Elle recevait du
+         courant, le bruit des ventilateurs en témoignant, mais le
+         circuit logique ne s'activait pas! J'imagine que plusieurs
+         techniciens ont déjà vu ce phénomène bon nombre de fois et
+         riront à la lecture de ces lignes! Je commence à en rire
+         moi aussi!
+      </p>
+      <p>
+         J'ai rouvert le boîtier, décidé à tenter d'enlever puis
+         remettre la carte. Il allait falloir l'enlever un moment
+         donné pour partir avec de toute façon. C'est là que j'ai
+         vu une diode rouge sur la carte (voire l'iamge de droite).
+         <img src="redled.jpg"
+         alt="Diode rouge allumée sur la carte graphique"
+         class="floatright" /> J'ai examiné autour et fini par
+         trouver le connecteur! Voir l'image ci-dessous.
+      </p>
+      <img src="pcixplug.jpg"
+      alt="Connecteur à six broches sur la carte graphique!" /> 
+      <p>
+         Il fallait bel et bien brancher un fil à 6 broches du bloc
+         d'alimentation là-dedans. J'en dénichai un, branchai ça là
+         et remis le contact. La diode rouge est alors devenue
+         verte. Oh! Et là ça a ENFIN fonctionné, en HDMI. Les deux
+         ventilateurs, qui faisaient du bruit à rendre fou avant le
+         branchement du dernier câble, sont devenus silencieux; ils
+         sont à vitesse variable. Les cartes sans ventilateur, ça
+         me réduisait la connectique un peu trop. Je voulais avoir
+         deux sorties DVI pour les écrans multiples. Mais là les
+         DVI, je ne sais même pas s'ils vont fonctionner... L'image
+         ci-dessous montre le connecteur branché. <img
+         src="pcixplugged.jpg"
+         alt="Connecteur PCI Express branché" />
+      </p>
+      <h1>
+         Prise en charge logicielle
+      </h1>
+      <p>
+         Quand Windows 8 a redémarré, j'ai eu un affichage basse
+         résolution. J'ai dû installer le pilote de ASUS/NVIDIA
+         pour remédier à cela. La chose faite, tout semblait
+         fonctionner #1!
+      </p>
+      <p>
+         Sous Ubuntu, même avec le pilote open source Nouveau,
+         Minecraft est jouable, juste de légers lags.
+         Malheureusement, ce pilote a ramené le syndrôme du
+         plantage au retour de veille. À quoi bon pouvoir mettre
+         l'ordinateur en veille s'il faut utiliser le bouton reset
+         pour le redémarrer complètement, au retour de veille. Pour
+         tenter de résoudre ce problème, j'ai installé le pilote
+         spécifique à NVIDIA et la mise en veille fonctionnait
+         parfaitement avec ça! Pour l'installation, j'ai dû exécuté
+         <tt>sudo apt-get install nvidia-current</tt> puis taper
+         <tt>sudo nvidia-xconfig</tt>. Pour ne pas me casser la
+         tête, j'ai ensuite redémarré la machine. J'aurais sans
+         doute pu l'éviter, mais en cas de problèmes, j'aurais fini
+         par redémarrer la machine de toute façon.
+      </p>
+      <h1>
+         À quoi cela va-t-il servir?
+      </h1>
+      <p>
+         Je commençais à douter que la carte serve à court terme,
+         parce que le mod pack <a
+         href="http://www.feed-the-beast.com/">Feed The Beast</a>
+         de Minecraft que mon ami et moi utilisons a perdu des
+         plumes dans sa version la plus récente, nommée Unleashed.
+         Plusieurs mods que j'ai utilisés sont disparus, pas
+         disponibles sous Minecraft 1.5.2. La plus lourde perte est
+         sans doute RedPower, mais la disparition de XyCraft
+         causera aussi de gros problèmes. Mon ami et moi allons
+         peut-être devoir commencer une nouvelle map ou rester avec
+         la vieille version Ultimate du mod pack qui a des bogues.
+         Je n'étais pas sûr d'avoir la motivation de ramasser un
+         tas d'autres ressources sur ma nouvelle map. J'ai conçu
+         une technique impliquant un ordinateur du mod
+         ComputerCraft, qui est relativement facile à construire,
+         mais son efficacité demeure à mesurer. C'est triste et ça
+         va finir par nous faire abandonner le jeu.
+      </p>
+      <p>
+         Mais il y aura d'autres jeux, je suis à peu près sûr. Je
+         voudrais essayer SimCity un jour et trouverai d'autres
+         jeux de construction ou de simulation (il y a un
+         simulateur de manèges que je veux essayer un moment
+         donné). Le GPU peut aussi servir pour l'encodage de
+         vidéos. Et le setup à écrans multiples... Donc ce n'est
+         pas perdu.
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

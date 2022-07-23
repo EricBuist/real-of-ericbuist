@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.1//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>17.1 Préparation et formatage de la structure de données</TITLE>
+<META NAME="description" CONTENT="17.1 Préparation et formatage de la structure de données">
+<META NAME="keywords" CONTENT="cdwriting">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cdwriting.css">
+
+<LINK REL="next" HREF="node83.html">
+<LINK REL="previous" HREF="node81.html">
+<LINK REL="up" HREF="node81.html">
+<LINK REL="next" HREF="node83.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2289"
+  HREF="node83.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2283"
+  HREF="node81.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2277"
+  HREF="node81.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2285"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2287"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html2290"
+  HREF="node83.html">17.2 Configuration du logiciel</A>
+<B> monter:</B> <A NAME="tex2html2284"
+  HREF="node81.html">17. Création d'un disque</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2278"
+  HREF="node81.html">17. Création d'un disque</A>
+ &nbsp; <B>  <A NAME="tex2html2286"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2288"
+  HREF="node106.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION07410000000000000000">
+<SPAN CLASS="arabic">17</SPAN>.<SPAN CLASS="arabic">1</SPAN> Préparation et formatage de la structure de données</A>
+</H1>
+
+<P>
+La complexité de l'opération dépend en partie du contenu de votre
+futur disque. Si vous projetez placer des applications Windows et
+Linux sur le même disque, il faudra vous assurer que le contenu
+Windows n'est pas exécutable sous Linux mais que les applications
+Linux le sont. Il faudra également éviter les arborescences trop
+profondes, car le Joliet<A NAME="3661"></A> ne tolère pas des noms aussi
+long que le
+Rock Ridge et le disque ne fonctionnera pas bien sous Windows si certains
+noms de chemins importants sont tronqués.
+
+<P>
+Si vous envisagez la création d'un disque Windows uniquement, vous
+pouvez alors stocker ses fichiers sur n'importe quel système de
+fichiers, FAT32 ou ext2fs/ext3fs. Ce disque sera lisible sous Linux,
+certes,
+mais son contenu ne sera pas exploitable, sauf la documentation en
+format portable (ASCII, HTML, PDF, ...) et des logiciels Java.
+Des considérations spéciales
+émergent dès que vous placez une application Linux sur votre disque. Il
+est important de vous assurer que cette application bénéficiera du
+droit d'exécution, sinon l'utilisateur devra impérativement recopier
+l'exécutable sur son disque dur, activer le droit d'exécution et
+l'amorcer.
+
+<P>
+Si votre contenu est destiné à Linux et si des applications Linux
+sous forme exécutable se trouvent sur votre disque (Les archives
+compressées ne sont pas considérées comme des programmes exécutables),
+il faudra idéalement développer la structure de votre disque sur une
+partition ext2fs (ou ext3fs) afin de tirer partie de tous les attributs de ce
+système de fichiers. Dans le cas du contenu Linux, vous pouvez
+utiliser toutes les capacités du système ext2fs, à savoir les
+permissions et les liens symboliques. Les liens symboliques devraient
+toutefois pointer vers des fichiers ou des répertoires sur le disque, pas
+à l'extérieur du disque, afin de ne pas nuire à la portabilité.
+
+<P>
+Lors de la préparation de vos données, la commande <TT>du
+  -bchs</TT><A NAME="3663"></A> sera certes une précieuse alliée. L'option
+<TT>b</TT> affiche
+la taille en octets, <TT>c</TT> affiche le total, <TT>h</TT> affiche
+les tailles de façon à les rendre plus facilement
+lisibles. Finalement, l'option <TT>s</TT> indique d'afficher seulement
+le total et non pas tous les fichiers. La taille de votre structure ne
+devra pas dépasser, bien entendu, celle d'un CD ou d'un DVD.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2289"
+  HREF="node83.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2283"
+  HREF="node81.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2277"
+  HREF="node81.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2285"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2287"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html2290"
+  HREF="node83.html">17.2 Configuration du logiciel</A>
+<B> monter:</B> <A NAME="tex2html2284"
+  HREF="node81.html">17. Création d'un disque</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2278"
+  HREF="node81.html">17. Création d'un disque</A>
+ &nbsp; <B>  <A NAME="tex2html2286"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2288"
+  HREF="node106.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Eric Buist
+2005-11-13
+</ADDRESS>
+</BODY>
+</HTML>

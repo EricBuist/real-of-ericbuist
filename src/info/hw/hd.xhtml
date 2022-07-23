@@ -1,0 +1,1269 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         Panne de disque dur sur le Nightmare
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css"
+      href="../../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../../index.xhtml" class="parents">Le
+               royaume de Eric Buist</a> &gt;&gt; <a
+               href="../index.xhtml"
+               class="parents">Informatique</a> &gt;&gt; Problèmes
+               marquants &gt;&gt; <a href="../resolved.xhtml"
+               class="parents">Quelques bogues résolus</a> &gt;&gt;
+               <a href="index.xhtml" class="parents">Bogues
+               matériels résolus</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../../sitemap.xhtml" class="sitemap">Plan
+               du site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="black.xhtml"
+               class="leftsibling">Écran noir et plus rien</a>
+            </td>
+            <td class="thispage">
+               Panne de disque dur sur le Nightmare
+            </td>
+            <td class="rightsibling">
+            </td>
+         </tr>
+      </table>
+      <h1>
+         Panne de disque dur sur le Nightmare
+      </h1>
+      <p>
+         En début mai 2008, j'ai eu deux problèmes matériels avec
+         mon <a href="../nightmare/index.xhtml">Nightmare</a>: le
+         disque dur a rendu l'âme puis le lecteur CD/DVD en a fait
+         autant pendant que je réinstallais le système! Je suis
+         heureusement parvenu à rendre la machine fonctionnelle
+         pendant la fin de semaine si bien que le bogue ne m'a pas
+         empêché d'aller chez Bell Canada la semaine suivante, pour
+         mon doctorat et pour ma bourse du CRSNG.
+      </p>
+      <h1>
+         La découverte du problème: un véritable coup de «chance»
+      </h1>
+      <p>
+         J'ai découvert le problème vendredi, 25 avril 2008, par
+         pur hasard. Pendant l'avant-midi, j'eus l'idée de démarrer
+         la mise à jour vers Ubuntu 8.04, qui était sortie la
+         veille. C'était une très mauvaise idée, car il pouvait
+         arriver comme la fois passée, lors du passage à Ubuntu
+         7.10, que la connexion Internet bogue et que ce soit
+         <i>hyper lent</i>. Malgré tout, poussé par une intuition,
+         je démarrai le processus, et effectivement, ce fut lent, à
+         tel point que ça se bloquait au lieu de télécharger quoi
+         que ce soit! Mais un changement de serveur plus tard,
+         j'avais une connexion plus que raisonnable, tellement
+         raisonnable en fait que je pus télécharger tous les
+         paquets nécessaires pour la mise à jour sur mon <a
+         href="../salvator/index.xhtml">Salvator</a> en 45 minutes.
+         Mon idée était de laisser ça mijoter en arrière-plan
+         tandis que je travaillerais sur mon doctorat. Si ça
+         réussissait, tant mieux, sinon tant pis: j'aurais
+         redémarré le téléchargement le lendemain.
+      </p>
+      <p>
+         Je laissai l'installation d'Ubuntu tourner et jugeai bon
+         de lire un article plutôt que m'acharner à travailler sur
+         la machine tandis qu'elle était affairée à installer les
+         fichiers. Ce fut une bonne idée, car cela m'évita de
+         frustrer et rager que c'était lent à mourir.
+      </p>
+      <p>
+         Lorsque la machine redémarra sous Ubuntu 8.04, tout
+         semblait OK si bien que je réinstallai le pilote de NVIDIA
+         que j'avais ôté avant de commencer, pour m'éviter un
+         plantage de X. Tout continua à bien aller. Content de mon
+         coup, je ne pus résister à la démoniaque tentation de
+         faire la même chose sur mon <i>portable</i>! Oui oui, ça
+         s'était bien passé, alors autant continuer!
+      </p>
+      <p>
+         J'allumai donc la machine et démarrai le téléchargement.
+         Mais cette fois, l'application de mise à jour se bloqua
+         bien net au lieu de fonctionner. Plus j'essayais, plus ça
+         bloquait et plus c'était lent. Je finis par avoir de la
+         misère noire avec la connexion Internet sans fil,
+         désactivai tout ça et repassai en filaire, jurant que
+         j'allais m'acheter une carte réseau sans fil qui a de
+         l'allure pour cette maudite machine de malheur, puis je
+         refis des tentatives. À force de changer de serveur, je
+         finis par faire démarrer le programme de mise à jour qui
+         commença à télécharger à une vitesse raisonnable. Je
+         retournai alors à mon travail de doctorat.
+      </p>
+      <p>
+         Quelques temps plus tard, je constatai que l'écran de
+         veille s'était activé sur le portable et voulus le
+         désactiver pour voir où ça en était. L'écran resta alors
+         obstinément noir. Fatigué par ces incessants problèmes
+         matériels avec Linux, surtout sur ce portable Dell
+         récalcitrant, j'appuyai sur CTRL-ALT-F1 pour aller sur une
+         console puis découvris avec colère que j'avais en fait
+         pressé sur FN-F1. La machine allait entrer en mode
+         d'hibernation! Elle niaiserait avec ça deux ou trois
+         minutes, deux ou trois minutes pour la réveiller, etc. Je
+         voulus donc l'éteindre avec le bouton de mise sous tension
+         pour écourter ce long cycle, mais même le bouton ne
+         répondait pas. Parce que Windows n'est pas là pour dire à
+         la machine de s'éteindre, le bouton ne réagit pas!
+      </p>
+      <p>
+         Je redémarrai le portable et là, je constatai que Linux
+         avait saboté son système de fichiers. Quoi que je fasse,
+         je ne pouvais plus rallumer le portable. Linux amorçait
+         son chargement, puis se mettait à répéter sans cesse un
+         message d'erreur obscur avec des nombres et des lettres
+         incompréhensibles. Après quelques secondes, l'écran
+         ressemblait à ce qui s'affichait lors du passage en
+         hibernation. Peut-être, en fait, ai-je bien appuyé sur
+         CTRL-ALT-F1 et observé ces messages d'erreur avant
+         d'éteindre la machine.
+      </p>
+      <p>
+         J'essayai, j'essayai, rien à faire. Par hasard, je tentai
+         avec Windows XP; ça démarrait. J'essyai d'amorcer avec le
+         CD d'Ubuntu 7.10 Gutsy et ça bloqua ça aussi!!! Le CD, eh
+         bien il était endommagé!!! Je le jetai; il ne fonctionnait
+         même plus. Une copie physique du contenu faite avec mon
+         Salvator me le confirma cruellement. Au moins, pensai-je
+         avec un maigre soulagement, ce n'était pas le lecteur DVD
+         du portable.
+      </p>
+      <p>
+         Je parvins à démarrer le portable sous Knoppix et de là,
+         je fis une inspection du système de fichiers malade, avec
+         la commande <tt>fsck</tt>. Il semblait y avoir un problème
+         avec le disque dur qui faisait boguer le programme
+         d'inspection. Cela prit presque trois heures pour pouvoir
+         terminer le scan et après, la machine ne voulait toujours
+         pas démarrer. Soupçonnant sérieusement le disque dur, je
+         tentai de démarrer le programme de diagnostics de Dell, en
+         maintenant la touche F12 enfoncée au démarrage de la
+         machine et en choisissant Dell Diagnostic dans le menu qui
+         apparaissait. Là, je reçus un message d'erreur
+         incompréhensible par rapport à un DST Short Test du disque
+         dur qui échouait. Au moins, ça collait: c'était le disque
+         dur qui avait rendu l'âme.
+      </p>
+      <p>
+         Je pouvais toujours, à titre de mesure désespérée,
+         n'utiliser que Windows, mais le système risquait aussi
+         d'être tôt ou tard victime de la panne. Il valait donc
+         mieux résoudre le problème complètement au lieu de risquer
+         qu'il empire au mauvais moment.
+      </p>
+      <p>
+         Sans cette mise à jour à Ubuntu 8.04, je n'aurais pas
+         allumé le portable ce jour-là. Je ne l'aurais peut-être
+         allumé que le mardi suivant, chez Bell Canada. C'est là
+         que le problème de disque dur aurait fait surface! Ce
+         bogue n'est pas lié directement à Linux; il aurait surgi
+         tôt ou tard, même avec Windows.
+      </p>
+      <h1>
+         Tentatives de solutions
+      </h1>
+      <p>
+         Ce problème me semblait énorme, si grave que j'envisageais
+         la mise au rebut de cette satanée machine! Je pensais que
+         le disque dur était non standard, spécifique à Dell étant
+         donné qu'il était destiné à un portable. Un nouveau disque
+         serait alors coûteux, l'installation peut-être difficile
+         et hasardeuse et surtout, je me demandais si ça valait la
+         peine vu la quantité de problèmes avec Linux rencontrés
+         sur cette machine. Sur <a
+         href="http://www.powernotebooks.com/">PowerNotebooks</a>,
+         par exemple, je pouvais avoir un portable meilleur que ce
+         Dell et peut-être davantage compatible avec Linux; restait
+         à vérifier plus soigneusement. D'après <a
+         href="http://www.linux-laptop.net/">Linux-Laptop</a>, le
+         Portégé R500 de <a
+         href="http://www.toshiba.ca">Toshiba</a>, plus léger que
+         mon poids lourd Dell, semble pas mal bien géré par Linux,
+         à part quelques problèmes mineurs possiblement réglés sous
+         Ubuntu 8.04. Mais je trouvais dommage de jeter une machine
+         encore fonctionnelle et coûteuses les meilleures
+         solutions.
+      </p>
+      <p>
+         Fort heureusement, je me trompais lourdement pour le
+         disque dur! D'abord, vendredi soir, 25 avril 2008, je
+         tentai de désinstaller le disque et le remettre en place.
+         Il m'a suffi de retirer deux petites vis et de faire
+         glisser le disque hors de son logement. Je l'ai ensuite
+         remis à sa place et remis les vis. L'opération n'a rien
+         changé: le diagnostic était toujours négatif. J'ai profité
+         de l'occastion pour regarder comment la mémoire était
+         fixée. Ça semble pas si monstrueux que ça à changer. Je
+         pourrais donc, si je trouve les barrettes adéquates,
+         passer à 2Go et soulager Eclipse un peu.
+      </p>
+      <p>
+         Après ce test, j'ai voulu effacer le disque dur avec DBAN,
+         histoire d'être certain que le problème ne viendrait pas
+         de Linux qui a tout saboté. DBAN mit une éternité à faire
+         son travail et, vers la fin du processus, il commença à
+         avoir de la misère à lire ou à écrire sur le disque qui
+         émettait des sons suspects. Le lendemain après-midi, j'ai
+         aussi testé le disque avec Fitness Test d'Hitachi. Le
+         logiciel a détecté des secteurs défectueux, m'a offert
+         d'effacer le disque, a pris une éternité puis m'a dit que
+         le disque était défectueux. Il fallait bien s'y résoudre:
+         le disque dur était en train de rendre l'âme.
+      </p>
+      <p>
+         Pendant que Knoppix puis DBAN travaillaient sur mon disque
+         malade, j'ai fait des recherches pour savoir si et où je
+         pourrais trouver un nouveau disque. Apparemment, le format
+         de 2.5" est standard! Il suffit de dénicher un disque SATA
+         et c'est dans la poche! Il y en par exemple chez <a
+         href="http://www.microbytes.com">MicroBytes</a>, <a
+         href="http://www.dytronix.com">Dytronix</a>, etc. Pour ce
+         qui est de la mémoire, je trouvai un <a
+         href="http://www.memorystock.com/dell_inspiron_memory.htm">excellent
+         site</a> indiquant que ma machine acceptait les modules
+         SODIMM PC2-4200 ou PC2-5300 de 512Mo ou 1Go. Il y a de
+         tels modules sur Dytronix, et ça semble standard!
+      </p>
+      <p>
+         Par contre, le problème était que cela prendrait au moins
+         la semaine pour avoir ces pièces et je ne pourrais pas
+         faire fonctionner le portable de façon fiable sans le
+         nouveau disque dur. Anxieux à l'idée de ne pas pouvoir
+         aller chez Bell cette semaine, j'ai cherché des solutions
+         alternatives au cas probable où je ne pourrais pas avoir
+         le disque à temps.
+      </p>
+      <ul>
+         <li>
+            Utiliser le live CD d'Ubuntu. Le disque me permettrait
+            de démarrer Linux sans avoir besoin d'un disque dur,
+            mais ce serait très long à démarrer et je n'aurais pas
+            toutes les applications dont j'avais besoin (Emacs,
+            LaTeX, Java, etc.). J'aurais été obligé de me brancher
+            en SSH pour travailler depuis le serveur de
+            l'université. Heureusement, \texttt{pppoeconf},
+            nécessaire pour configurer la connexion Internet PPPoE
+            là-bas, était présent sur le live CD si bien que je
+            réussirais à établir la liaison avec le modem ADSL.
+         </li>
+         <li>
+            Transférer le contenu du live CD sur ma clé USB et
+            ainsi transformer cette clé en clé Ubuntu live USB. La
+            procédure pour cela est décrite <a
+            href="http://doc.ubuntu-fr.org/live_usb_persistent">ici</a>.
+            Le chargement serait plus rapide et j'aurais la
+            possibilité d'installer quelques applications
+            additionnelles, Java par exemple. Mais cela me
+            forcerait à sacrifier ma clé qui contient une
+            sauvegarde de toutes mes données. Les jours précédents,
+            le malheur avait frappé plusieurs machines, dont le
+            Faucon de Fer pour lequel le bloc d'alimentation avait
+            sauté et la machine de mon frère dont la carte mère
+            avait lâché. J'étais donc réticent à sacrifier un
+            dispositif de sauvegarde. Ma machine pouvait péter peu
+            après et je pourrais alors perdre des données. De plus,
+            il n'était pas garanti que je puisse rendre ma clé USB
+            fonctionnelle comme avant après la manipulation.
+         </li>
+         <li>
+            Installer Linux sur un disque dur externe, mais là, il
+            faut l'avoir, le disque!
+         </li>
+      </ul>
+      <p>
+         Bref, j'étais plutôt coincé. Il ne semblait pas trop y
+         avoir de solutions, à part ne pas y penser. Heureusement,
+         je réussis à avoir un nouveau disque dimanche après-midi,
+         pour 60$. La pièce en main, je retirai l'ancien disque,
+         enlevai la poignée spécifique à Dell après avoir découvert
+         comment c'était fixé, la vissai sur le nouveau disque puis
+         insérai le disque dans la machine. Je redémarrai de
+         nouveau Dell Diagnostic qui ne rapporta aucune erreur,
+         cette fois.
+      </p>
+      <p>
+         Je formatai donc le disque et tentai d'y copier une image
+         de Windows XP faite avec TrueImage d'Acronis. Ce fut un
+         lamentable échec et une lourde perte de temps. TrueImage
+         refusait de lire l'image sur mon DVD si bien que je dus la
+         copier sur le disque dur de la machine avec le live CD
+         d'Ubuntu. Ensuite, TrueImage affirmait que ce n'était pas
+         une image valide! Bref, ça ne fonctionnait pas du tout si
+         bien qu'après avoir jeté les DVD, je dus finalement tout
+         réinstaller avec la méthode traditionnelle!
+      </p>
+      <h1>
+         Et maintenant, le lecteur DVD!
+      </h1>
+      <p>
+         Après avoir réinstallé Windows avec succès, j'ai procédé à
+         l'installation des pilotes. Cela se passait assez bien, je
+         me sentais soulagé que ça fonctionne enfin, mais tandis
+         que je voulais installer Synaptic pour le pavé tactile, la
+         lecture depuis le CD de Dell se bloqua. Ah non, pestai-je,
+         encore un autre CD défectueux! Par chance, j'avais eu la
+         présence d'esprit de faire une sauvegarde de ce CD sur un
+         DVD si bien que je pourrais au pire m'en sauver. Mais ça
+         restait chiant et vraiment désagréable. Je niaisai avec ça
+         un bout, essayai avec d'autres disques puis constatai avec
+         colère que c'étalt le <i>lecteur DVD</i> qui avait
+         sauté!!! Celui-là, il est beaucoup moins standard! Avant
+         la panne, j'ai essayé d'en trouver sur Dytronix, par
+         curiosité: en vain!
+      </p>
+      <p>
+         Je ne pus que laisser le portable à son sort, à installer
+         des mises à jour Windows qui ne serviraient à rien puisque
+         la machine était déjà due à changer. J'en étais rendu au
+         point de croire qu'elle allait sauter, morceau par
+         morceau.
+      </p>
+      <p>
+         Dimanche soir, vers 23h, j'eus l'idée de génie de tester
+         un DVD dans mon lecteur de portable défectueux et là, ça
+         fonctionna! Le lecteur pouvait lire les DVD mais plus les
+         CD. Cela me donna l'idée de graver l'ISO de Ubuntu 8.04,
+         téléchargée la fin de semaine même, sur un DVD+RW au lieu
+         d'un CD. La manoeuvre fonctionna et me permit de démarrer
+         l'ordinateur sous Ubuntu. J'installai Linux le soir même,
+         ajoutai plusieurs mises à jour et installai les paquets
+         dont j'avais besoin. Vers 1h du matin, je disposais d'un
+         système Linux à peu près fonctionnel et me couchai. Le
+         lendemain, j'ai continué à peaufiner la configuration et
+         suis venu à bout d'avoir de quoi de fonctionnel pour
+         mardi, 29 avril 2008! Je pus donc aller chez Bell ce
+         jour-là.
+      </p>
+      <h1>
+         Lecteur DVD, beaucoup plus de mauvaises solutions que de
+         bonnes!
+      </h1>
+      <p>
+         Pour remplacer mon lecteur CD/DVD, je ne disposais que
+         quelques options: soit je m'installais un lecteur USB
+         externe, soit je convertissais un lecteur DVD interne
+         d'ordinateur de bureau en lecteur externe, soit je
+         téléphonais chez Dell pour avoir un nouveau lecteur
+         interne compatible avec la machine. Le lecteur interne
+         converti en externe est la meilleure solution, à mon avis,
+         si elle est compatible avec Linux... Mais pour m'éviter de
+         nouveaux problèmes qui m'auraient fait perdre un temps
+         fou, je dus opter pour le lecteur DVD interne de Dell.
+      </p>
+      <h2>
+         Lecteur externe USB
+      </h2>
+      <p>
+         Cela devrait être la solution idéale puisque le lecteur
+         est utilisable avec d'autres ordinateurs que le portable.
+         Il peut aussi être employé pour installer Linux sur un
+         ordinateur dépourvu de lecteur CD/DVD. Malheureusement, je
+         découvris des indices me menant à croire que ce genre de
+         matériel confine souvent l'utilisateur à Windows! C'est
+         une grande frustration que j'ai vécue là, en ce lundi, 28
+         avril 2008.
+      </p>
+      <p>
+         En effet, chez MicroBytes, ils n'avaient que des lecteurs
+         de marque <a href="http://www.lacie.com">LaCie</a>,
+         incompatibles avec Linux selon le vendeur. Un autre client
+         en avait essayé un et s'était rendu compte que, malgré
+         l'icône du pingouin sur la boîte, seule la fonction
+         Lightscribe permettant d'inscrire des étiquettes sur les
+         disques, était disponible sous Linux. Il était impossible
+         de lire ou graver des disques! Effectivement, le logiciel
+         de LaCie ne permet <i>que</i> la prise en charge de
+         Lightscribe. Le noyau de Linux devrait en principe gérer
+         la communication USB entre le graveur et l'ordinateur, si
+         tant est que l'appareil utilise un protocole standard.
+      </p>
+      <p>
+         Comme j'ai découvert plus tard, il y a de bonnes chances
+         pour que ce soit le cas, car le graveur n'est livré avec
+         aucun pilote pour Windows XP, seulement le logiciel de
+         gravure Easy Media Creator de <a
+         href="http://www.roxio.com">Roxio</a>. Ce dernier logiciel
+         est générique plutôt que spécifique à un graveur précis.
+         Pour la gravure sous Linux, des utilitaires tels que K3b
+         peuvent faire le même travail. Il faut aussi garder à
+         l'esprit que certaines distributions de Linux ne réagiront
+         pas au raccordement du graveur; il faudra monter
+         manuellement le disque inséré, avec la commande
+         <tt>mount</tt>, pour pouvoir en exploiter le contenu,
+         voire utiliser la commande <tt>mknod</tt> pour créer un
+         périphérique dans <tt>/dev</tt> représentant le graveur.
+         Avec Ubuntu, tout cela est presque certainement fait
+         automatiquement!
+      </p>
+      <p>
+         Ainsi, à bien y penser, peut-être que ça aurait
+         fonctionné, mais peut-être pas non plus! Les magasins en
+         ligne offraient malheureusement peu de choix en matière de
+         lecteur USB. Je trouvai un Plextor, sur Dytronix si je me
+         rappelle bien, mais encore une fois, je ne pouvais être
+         certain de la compatibilité avec Linux.
+      </p>
+      <p>
+         Un autre problème était le coût de ces lecteurs USB. Par
+         exemple, le LaCie m'aurait coûté 95$ tandis que j'aurais
+         pu m'en sortir à 50$ ou même moins pour un lecteur interne
+         compatible avec un PC de bureau.
+      </p>
+      <h2>
+         Boîtier pour lecteur USB
+      </h2>
+      <p>
+         Ces dispositifs, appelés <i>drive enclosures</i> en
+         anglais, permettent de convertir un lecteur interne pour
+         PC de bureau en un appareil USB. Malheureusement, la
+         plupart de ces appareils sont destinés uniquement aux
+         disques durs; on les appelle pour cela <i>hard drive
+         enclosures</i>. J'en trouvai une bonne sélection sur <a
+         href="http://www.directcanada.com/">DirectCanada</a>, mais
+         souvent uniquement pour les disques durs et sans garantie
+         de compatibilité avec Linux. Mais encore une fois, tout
+         appareil venant sans pilote spécifique pour Windows est
+         susceptible de fonctionner très bien sous Linux! Comme je
+         l'ai appris plus tard, c'est cela qu'il faut vérifier, en
+         fait, et non pas un rare logo de pingouin sur l'appareil!
+      </p>
+      <p>
+         Ne pouvant trouver de certitude, je tentai de contacter
+         DirectCanada par courrier électronique et appris que les
+         boîtiers acceptant les lecteur CD/DVD avaient la mention
+         5" 1/4 plutôt que 3" 1/2. Mais tous étaient SATA et sans
+         garantie de compatibilité avec Linux si bien que je ne
+         pourrais pas utiliser un de mes lecteurs DVD existants
+         pour tester; je devrais acheter un lecteur DVD SATA pour
+         l'occasion.
+      </p>
+      <p>
+         Par contre, je me rendis compte que la plupart des
+         boîtiers offerts par DirectCanada n'étaient pas en stock.
+         Dytronix, en revanche, offrait une bonne sélection de
+         boîtiers, autant IDE que SATA.
+      </p>
+      <p>
+         Le boîtier USB a l'important avantage de coûter entre 30$
+         et 40$, ce qui diminue le coût du lecteur DVD externe
+         construit en assemblant le boîtier et le lecteur interne
+         ordinaire. Je pensais que le boîtier pouvait accueillir un
+         disque dur et non pas seulement un lecteur DVD. Sous cette
+         (fausse) hypothèse, le boîtier peut aussi être utilisé
+         pour effectuer des transferts de données. Par exemple, si
+         le Faucon de Fer rendait l'âme et que mes parents
+         décidaient d'acheter une machine préassemblée dans une
+         grande surface, je pourrais au pire cas retirer le disque
+         dur du Faucon de Fer, l'installer dans un boîtier USB et
+         brancher le boîtier sur la nouvelle machine. Je pourrais
+         alors copier les données sans désassembler la machine
+         neuve et sans briser la garantie! Pour cela, le boîtier me
+         semblait attrayant, mais je découvris plus tard que je
+         peux faire ce travail de façon bien plus simple avec un
+         adaptateur IDE/SATA vers USB que j'ai fini par me procurer
+         sur <a href="http://www.ncix.com">NCIX</a> en début
+         septembre 2008; ils n'en avaient pas chez Dytronix.
+      </p>
+      <p>
+         Vendredi, 5 septembre 2008, craignant une seconde panne du
+         lecteur DVD de mon portable, je me suis finalement acheté
+         un lecteur DVD externe USB composé d'un lecteur LG IDE (Je
+         ne parvenais pas à obtenir des lecteurs SATA et certains
+         sites listaient des lecteurs IDE comme SATA!) qui peut
+         être installé dans tout ordinateur de bureau ainsi que
+         d'un boîtier Vantec qui fait la connexion entre IDE et USB
+         tout en fournissant du courant électrique à l'appareil.
+         Après avoir installé le lecteur dans le boîtier sans aucun
+         mal, j'ai tenté de l'utiliser avec mon portable. Cela
+         fonctionna très bien, y compris sous Linux. Je pus lire
+         des disques et même graver! Tout me semblait super...
+         jusqu'à ce que je tente d'amorcer un CD avec le lecteur.
+         Le BIOS de la machine ne détecta jamais le lecteur si bien
+         que je ne peux pas m'en servir pour installer Linux. Le
+         lecteur, pour le moment, n'est donc pas très utile et en
+         plus, il est volumineux. J'ai aussi essayé d'amorcer le
+         portable avec un disque dur branché avec l'adaptateur
+         IDE/SATA vers USB acheté en même temps que le lecteur USB:
+         en vain. Par contre, l'amorçage avec mon disque dur
+         externe, dont je décris la naissance <a
+         href="../updhd.xhtml">ici</a>, ainsi que ma clé USB
+         réussit.
+      </p>
+      <h2>
+         Lecteur DVD interne pour portable
+      </h2>
+      <p>
+         Résigné, lundi après-midi, 28 avril 2008, j'ai contacté
+         Dell pour le problème du lecteur DVD. J'ai dû fournir mon
+         code Express Service, l'étiquette de service de ma machine
+         ainsi que mes coordonnées. Le technicien que j'ai eu à
+         l'autre bout du fil m'a fait exécuter le programme de
+         diagnostics de Dell et confirmé la panne du lecteur DVD.
+         Retirer et réinstaller le lecteur, sur les conseils du
+         technicien, n'a rien arrangé comme je m'y attendais après
+         avoir fait ça avec le disque dur. J'ai ensuite fait des
+         recherches sur le site de Dell: que des lecteurs DVD USB
+         externes Iomega, rien d'interne pour portable. Une
+         recherche sur Google plus tard, j'avais le doute que le
+         lecteur Iomega ne soit pas compatible avec Linux, lui non
+         plus! Je dus donc téléphoner au service pièces et main
+         d'oeuvre de Dell et là, je pus commander le nouveau
+         lecteur. Cela me coûta 60$ pour le nouveau lecteur et 15$
+         de frais d'expédition.
+      </p>
+      <p>
+         Je reçus le lecteur mercredi, 30 avril 2008, plus tôt que
+         je m'attendais. L'installation consista simplement à
+         retirer l'ancien en le sortant de son logement puis à
+         insérer le nouveau. Le nouveau lecteur fonctionna
+         parfaitement.
+      </p>
+      <h1>
+         La machine ne s'en remettra jamais complètement
+      </h1>
+      <p>
+         Le nouveau lecteur DVD est assez ordinaire, car certains
+         disques provoquent des erreurs de lecture tandis qu'ils
+         fonctionnent bien dans mon ordinateur de table. À terme,
+         je pourrais en venir à être obligé de faire plusieurs
+         copies des disques, jusqu'à trouver une marque qui
+         fonctionne. Si je veux essayer avec un autre lecteur
+         interne, ce n'est pas chez Dell que je le trouverai; je
+         devrais m'essayer sur DirectCanada ou ailleurs, avec la
+         possibilité que le format ou le connecteur soient
+         incorrects. Mais d'après les photos que j'ai vues sur les
+         sites, le format semble le même!
+      </p>
+      <p>
+         Un problème d'écran externe est apparu peu après que j'aie
+         remis la machine sur pied. Tandis que je travaillais chez
+         Bell Canada, le portable raccordé à un écran cathodique
+         là-bas, l'écran s'éteignit et ne ralluma jamais tant et
+         aussi longtemps que je ne redémarrai pas le portable.
+         Linux semblait détecter l'écran, mais il n'y envoyait que
+         du noir. De plus, quand je démarre le système avec l'écran
+         externe branché, l'affichage clignote quelques fois
+         pendant que GNOME s'initialise. Le bogue se reproduit
+         environ une fois par jour pour le moment. J'ai pu
+         reproduire les clignotements d'affichage sur mon écran
+         plat, chez moi, mais pas la coupure de l'affichage. Il se
+         peut donc que ce soit l'écran chez Bell ou, au pire, que
+         ce soit un bogue avec Ubuntu 8.04.
+      </p>
+      <p>
+         Par contre, un ami possédant un portable semblable au
+         mien, avec une carte graphique ATI au lieu d'Intel,
+         éprouve un problème du même genre, mais il n'a pas
+         d'affichage du tout sur l'écran externe, y compris sous
+         Windows XP, avec le pilote d'ATI. Je crains que mon
+         problème converge vers le mien, mais je trouve bien utile
+         de travailler avec un écran de 21" au lieu du 15" intégré.
+         De même, le branchement à un écran externe est
+         indispensable pour faire des présentations à l'aide du
+         portable.
+      </p>
+      <p>
+         Cette fois-ci, il n'y a aucune solution raisonnable. Le
+         mieux que j'ai trouvé est une carte ExpressCard à 200$ qui
+         me fournirait une carte graphique intégrée en plus d'une
+         carte son et d'une carte réseau qui ne me serviraient à
+         rien. En plus de son prix trop élevé, le périphérique
+         dépend d'un pilote pour Windows seulement! Toute autre
+         recherche pour des interfaces entre VGA et ExpressCard,
+         PCMCIA ou USB m'ont donné des produits trop coûteux ne
+         fonctionnant que sous Windows. Si jamais l'affichage sur
+         écran externe ne fonctionne plus, il me faudra donc m'en
+         passer ou changer le portable.
+      </p>
+      <p>
+         L'outil de diagnostic de Dell n'a rien révélé, ce qui
+         pourrait signifier que le problème est causé par Ubuntu
+         8.04. Mais pourtant, si je démarre l'ordinateur avec un CD
+         de Ubuntu 7.10, écran externe branché, l'affichage
+         clignote comme avec Ubuntu 8.04. Sur l'écran intégré,
+         l'affichage ne clignote pas.
+      </p>
+      <p>
+         J'ai même regardé le manuel de maintenance de Dell pour
+         mon modèle de machine. Le guide technique explique comment
+         démonter la machine, ce qui aurait pu me permettre de
+         trouver des indices sur une possibilité de connecteur
+         qu'on pourrait ressouder ou changer. Eh non! Le connecteur
+         VGA est intégré dans la carte mère qu'il faut changer en
+         cas de connecteur défectueux!
+      </p>
+      <p>
+         Enfin, depuis le remplacement du disque dur, on dirait que
+         la machine est plus lente, surtout au démarrage. Ce fait
+         est très frustrant au vu des redémarrages imposés par les
+         problèmes d'écran et le mauvais fonctionnement de
+         l'hibernation sous Ubuntu, même avec le paquet uswsusp.
+         Heureusement, désactiver la vérification du système de
+         fichiers FAT32 de ma partition de données au démarrage de
+         Ubuntu a quelque peu allégé ce problème. Sachant qu'en cas
+         de problème avec la partition FAT32, il me faudra presqu'à
+         coup sûr redémarrer sous Windows et refaire l'inspection
+         avec l'utiliaire de Microsoft pour réparer la partition,
+         puis ensuite tout formater en raison de l'échec de la
+         réparation, cette vérification superflue en moins n'est
+         pas une lourde perte!
+      </p>
+      <h1>
+         Encore un nouveau disque dur défectueux!
+      </h1>
+      <p>
+         Durant l'été 2008, j'ai remplacé le nouveau Seagate que je
+         trouvais trop lent par un disque à 7200 tours/min. et j'en
+         ai profité pour augmenter la mémoire par la même occasion.
+         Cette aventure est décrite sur <a
+         href="../updhd.xhtml">cette page</a>. La mise à jour fut
+         fructueuse et le Seagate un peu trop lent se transforma en
+         disque dur externe qui abrita pendant un bon moment une
+         sauvegarde de mes données ainsi que des photos familiales.
+         En raison des mauvaises expériences vécues avec les DVD
+         inscriptibles (ils cessent de fonctionner après quelques
+         mois!), j'appréciais disposer d'une sauvegarde
+         additionnelle sur un support à peu près fiable. Le
+         problème d'écran continua à frapper régulièrement, mais sa
+         fréquence a diminué depuis la mise à jour du pilote vidéo
+         Intel à la version 2.3 et presque disparu depuis la
+         désactivation de l'extinction automatique de l'écran après
+         un certain délai d'inactivité. En bref, le portable tenait
+         le coup!
+      </p>
+      <p>
+         Mais les choses n'en restèrent pas là! Vendredi, 12
+         septembre 2008, j'allumai mon portable pour y configurer
+         quelque chose. Tout se passa merveilleusement bien. Plus
+         tard, je dus rallumer la machine pour faire une
+         vérification et là, le système se mit à faire une
+         inspection de ma partition de données, convertie du FAT32
+         vers le Ext3 pendant l'été. C'était un test de routine qui
+         ne pouvait que réussir étant donné qu'aucun plantage ou
+         arrêt brutal n'avaient eu lieu depuis la dernière
+         inspection. Mais cette fois, à ma grande consternation, le
+         test échoua. Une invite s'afficha alors, me demandant de
+         démarrer le test manuellement. Je le fis et je lus avec
+         frustration des messages semblables à ceux qui
+         apparaissaient au moment de la panne de mon disque dur
+         Hitachi original.
+      </p>
+      <p>
+         Ne pouvant y croire, je redémarrai la machine et fis
+         autant d'essais que nécessaire pour aboutir au menu du
+         BIOS. Pour des raisons obscures, la touche F12 ne répond
+         pas toujours au démarrage: encore un autre bobo. Mais cela
+         finit par fonctionner et je pus démarrer l'outil de
+         diagnostics de Dell. Après un temps fou, j'obtins un
+         nouveau message d'erreur indiquant que le disque dur
+         échouait son auto-test. J'étais tout simplement fou
+         furieux!
+      </p>
+      <p>
+         Je trouvais ça complètement anormal que le disque dur
+         rende l'âme après un laps de temps si court et j'avais
+         absolument besoin du portable les deux mardis suivants
+         pour donner une démo pour le cours de simulation de mon
+         directeur de recherche. Sans cette machine de malheur, je
+         serais confronté au Mac de l'étudiant avec qui je faisais
+         la démo et ça promettait d'être assez tortueux, comme
+         démo, avec un système d'exploitation que je ne connais pas
+         du tout et qui ne fournit apparemment aucun raccourci
+         clavier pour accomplir les actions les plus élémentaires.
+         Quand c'est rendu à un point tel que pour supprimer un
+         fichier, il est plus rapide de le faire glisser à la
+         souris vers l'icône de la corbeille qu'appuyer sur une
+         combinaison de touches, il y a vraiment un grave problème
+         d'ergonomie!
+      </p>
+      <p>
+         La seule solution semblait de retirer le disque du
+         portable et de l'envoyer à Seagate pour me prévaloir de la
+         garantie. Mais le disque fonctionnait encore et le système
+         s'amorçait. Je décidai donc de le laisser dans la machine
+         jusqu'à ce qu'il lâche complètement pour être à 100%
+         certain que j'aurais un disque de remplacement, qu'on ne
+         me renverrait pas le même disque! Mais je jugeai bon faire
+         une copie de sauvegarde de tout le système installé sur
+         mon disque. Je copiai cela sur mon disque dur externe que
+         je dus formater bien évidemment. Pour ce faire, je
+         démarrai avec un live CD d'Ubuntu et utilisai l'Éditeur de
+         Partitions, appelé GParted, pour faire des copier/coller
+         des partitions du disque défectueux vers le disque
+         externe. Je fis également quelques ajustements pour que le
+         système sur le disque externe soit amorçable. Cela
+         implique d'installer GRUB sur le disque et de réajuster
+         les identifiants de partitions, dans
+         <tt>/boot/grub/menu.lst</tt> et dans <tt>/etc/fstab</tt>.
+         Ainsi, lorsque le disque mourrait, je pourrais simplement
+         l'échanger avec le disque dans mon boîtier et retrouver un
+         système amorçable. À la limite, je pourrais même démarrer
+         la machine avec le disque externe branché en USB! Une
+         autre possibilité, en dernier recours, était de démarrer à
+         partir du live CD d'Ubuntu.
+      </p>
+      <p>
+         Deux semaines passèrent ainsi. Chaque fois que j'utilisais
+         mon portable, j'étais inquiet quant à la sécurité de mes
+         données et faisais des sauvegardes très souvent. Je
+         craignais que le disque lâche pendant la démo ou pendant
+         une journée de travail chez Bell. Mais si je remettais mon
+         premier disque dur Seagate, je perdrais complètement mon
+         disque dur externe. Je craignais aussi une seconde panne
+         du lecteur optique, à tel point que je sacrifiai la moitié
+         de ma clé USB pour y stocker une distribution live
+         d'Ubuntu. Après plusieurs péripéties, je finis par réussir
+         à amorcer la clé USB et charger Ubuntu depuis cette
+         dernière.
+      </p>
+      <p>
+         Vendredi, 26 septembre 2008, je démarrai la commande
+         <tt>stress</tt> sous Ubuntu de façon à faire travailler le
+         disque sans relâche pendant près de 60 heures d'affilée.
+         La température du disque monta à 62 degrés Celsius, mais
+         aucun plantage n'eut lieu. Le disque fonctionnait encore
+         après ce test plutôt extrême. Je constatai par la suite
+         l'inutilité de ce test, car le disque pouvait toujours
+         sauter; je n'avais fait que précipiter le problème. Qu'il
+         ait fonctionné 60 heures d'affilée sans boguer ne voulait
+         rien dire pour le futur.
+      </p>
+      <p>
+         Lundi, 29 septembre 2008, n'y tenant plus, je contactai
+         Seagate afin de savoir si la garantie s'appliquait à mon
+         cas. J'envoyai les relevés de tests obtenus avec
+         <tt>smartctl</tt> sous Ubuntu. Pour tout résultat, on me
+         conseilla d'effectuer un effacement complet du disque avec
+         SeaTools! Cela promettait de prendre tout l'après-midi et
+         après, peut-être l'auto-test réussirait, mais à quoi bon?
+         Le disque risquait de redevenir défectueux sitôt qu'il
+         contiendrait de nouvelles données! Après l'effacement,
+         j'aurais été obligé de tout recopier les données depuis
+         mon disque dur externe ou peut-être même tout réinstaller!
+         Je trouvais cela vraiment pénible et, à bout de nerfs,
+         j'envisageais envoyer le portable à un technicien pour
+         qu'il passe autant d'heures dessus que nécessaire! J'en
+         avais bien assez de gaspiller mon temps avec cette plaie!
+      </p>
+      <p>
+         Je testai malgré tout SeaTools, mais la version DOS
+         disponible sur Ultimate Boot CD ne détectait même pas mon
+         disque dur! C'était une vieille version adaptée uniquement
+         aux disques Parallel ATA! Fort heureusement, je pus
+         obtenir sur le site de Seagate une version plus récente
+         que je pus graver sur CD-RW; contrairement à ce que je
+         craignais, il n'était pas nécessaire de disposer d'un
+         lecteur de disquettes! C'était une chance, car mon vilain
+         portable, comme bon nombre de machines récentes, n'en
+         avait pas et en obtenir un version USB m'aurait coûté
+         cinquante beaux dollars!
+      </p>
+      <p>
+         SeaTools détecta le disque et le scanna à ma demande. Je
+         lui imposai un scan long qui analysa chaque secteur du
+         disque. Il me lista 22 secteurs défectueux que je lui
+         demandai de réparer. Un second scan rapide échoua si bien
+         que je demandai un nouveau scan complet. SeaTools trouva
+         d'autres secteurs défectueux, 7 si je me rappelle bien,
+         puis les répara. Chaque scan prenant près d'une heure et
+         demi, je ne répétai pas l'expérience une troisième fois.
+      </p>
+      <p>
+         Mais tous les secteurs défectueux se trouvaient à la fin
+         du disque, pas en plein milieu. Je relevai la plus petite
+         adresse LBA où il y avait un secteur défectueux et
+         soustrayai ce nombre du nombre total d'adresses. Cela me
+         donna le nombre de secteurs suspects. Je multipliai ce
+         nombre par 512 octets, la taille d'un secteur que je
+         trouvai après une petite recherche sur Google, afin
+         d'avoir la taille de la zone suspecte à la fin de mon
+         disque. Avec GParted, je redimensionnai ensuite ma
+         partition de données pour exclure cette zone et pus enfin
+         effectuer des inspections fructueuses du système de
+         fichiers sous Linux! La fiabilité de mon système était
+         ainsi restaurée.
+      </p>
+      <p>
+         Mais tant que le disque dur comportait des secteurs
+         défectueux, je ressentais toujours le besoin de garder une
+         copie de son contenu. Mais je ne voulais pas sacrifier mon
+         disque dur externe pour plusieurs mois. Je voulus donc
+         tenter de répéter l'exercice d'exclusion des secteurs
+         défectueux sur mon vieux Hitachi afin de l'utiliser comme
+         dispositif de sauvegarde! Pour cela, je le raccordai à mon
+         PC grâce à un adaptateur IDE/SATA vers USB. La chose
+         faite, je le scannai avec <tt>badblocks</tt>. L'idéal
+         aurait été avec <tt>smartctl -t long</tt>, comme j'avais
+         fait avec mon Seagate avant d'employer SeaTools, mais les
+         commandes SMART ne passaient pas à travers l'adaptateur.
+         Les commandes ne passent pas non plus avec mon boîtier à
+         disque dur, mais je peux contourner le problème en
+         établissant un branchement eSATA entre le disque et la
+         machine, ce que ne permettait pas mon adaptateur IDE/SATA
+         vers USB.
+      </p>
+      <p>
+         La commande <tt>badblocks</tt> ne détecta jamais rien et
+         je l'exécutai plusieurs fois dans des modes différents.
+         C'était juste très long! Je commençais à en avoir plus
+         qu'assez de perdre mon temps avec des disques durs
+         défectueux peut-être à la base, en raison de leur taille
+         trop petite pour la technologie actuelle, que je songeai
+         pour la énième fois depuis le début de l'été 2008 me
+         débarrasser de ce maudit portable pour ne plus jamais
+         racheter d'autre machine de ma vie! Quant au disque dur
+         externe, eh bien je m'en achèterais un externe seulement,
+         pas de boîtier avec un disque ordinaire dedans, et ça
+         finirait là. Le disque coûterait plus cher, viendrait avec
+         des logiciels de sauvegarde totalement inutiles; je
+         casserais les CD, cela me défoulerait! Et le disque, au
+         moins, fonctionnerait parfaitement.
+      </p>
+      <p>
+         Mardi soir, 30 septembre 2008, je branchai le Hitachi sur
+         la carte mère de mon ordinateur de table, à l'aide d'un
+         câble de données SATA. Cela me permit de démarrer un
+         auto-test avec SMART, comme je le faisais sur mon
+         portable. Mais cette fois, le test réussit parfaitement!
+         J'effectuai un test exhaustif qui inspecta tout le disque;
+         il ne trouva aucun bloc défectueux! Je décidai donc de
+         faire une copie de mon Seagate sur ce disque-là et de
+         libérer mon disque dur externe. La copie terminée, je
+         refis un auto-test qui réussit encore!
+      </p>
+      <p>
+         Il semble ainsi que mon portable fait quelque chose de
+         bizarre avec les disques durs qui les rendent défectueux à
+         ses yeux. Pour cette raison, je n'avais envie ni
+         d'investir dans un nouveau disque, ni de remettre le
+         Seagate de 80Go actuellement dans le boîtier pour disque
+         externe. Ce disque n'avait jamais échoué d'auto-test si
+         bien que je ne voulais pas que le portable ne le contamine
+         lui aussi! Mon plan était donc de laisser le Seagate de
+         160Go dans le portable jusqu'à sa mort.
+      </p>
+      <p>
+         Ce disque dur émettait de petits sons suspects, mais tout
+         fonctionnait très bien. Par contre, samedi, 15 novembre
+         2008, après une mise à jour à Ubuntu 8.10, de nouveaux
+         bruits s'étaient ajoutés. Je sentais que la situation
+         empirait, que le disque n'allait pas tenir indéfiniment.
+         Une conférence à Miami, en début décembre, s'approchait
+         dangereusement et je risquais de voir le portable lâcher à
+         ce moment précis! Je ressentis donc l'impérieuse nécessité
+         de prévenir plutôt que guérir.
+      </p>
+      <p>
+         Dimanche matin, 16 novembre 2008, je sortis le Seagate de
+         160Go de mon portable pour le brancher au port SATA du
+         Salvator. Ensuite, j'utilisai ma machine de bureau pour
+         faire une inspection du disque. Cette fois-ci, SMART
+         localisa des secteurs défectueux. Le disque comportait
+         donc bel et bien des défauts; ce n'était pas mon portable
+         qui en imaginait.
+      </p>
+      <p>
+         Ce que je fis ensuite est très discutable, à la limite
+         stupide: je remis le disque dur original Hitachi dans mon
+         portable! La première étape consistait évidemment à
+         transférer le contenu du Seagate vers le Hitachi, ce qui
+         actualiserait bien entendu la sauvegarde effectuée
+         quelques temps auparavant. Malheureusement, le logiciel
+         GParted du live CD de Ubuntu 8.10 ne me permit pas de
+         procéder contrairement à la version sur le live CD
+         d'Ubuntu 8.04. Le problème était que GNOME montait
+         automatiquement les partitions qui se créaient, ce qui
+         dérangeait GParted qui plantait avec des messages
+         d'erreur. Ce bogue très tannant a comme conséquence
+         directe qu'il est impossible d'effectuer avec GParted plus
+         d'une opération à la fois. Habituellement, il est possible
+         de mettre deux ou plusieurs opérations en attente et
+         demander à GParted de les effectuer toutes les unes après
+         les autres. Cela permet de démarrer le processus et de
+         faire autre chose plutôt que surveiller sans cesse le
+         logiciel et lui donner des instructions régulièrement.
+         Mais avec le bogue, il faut vider la file des opérations à
+         chaque étape, attendre que cela finisse pour indiquer au
+         logiciel d'effectuer la suivante et prendre bien soin de
+         démonter les partitions montées automatiquement à chaque
+         étape.
+      </p>
+      <p>
+         Un autre problème, plus grave, est que certaines
+         opérations, comme les transferts de partitions, sont
+         composées de plusieurs étapes: la création de la
+         partition, puis le transfert proprement dit. Mais après la
+         création, GNOME monte la partition et fait échouer le
+         transfert! Il faut alors faire le transfert manuellement
+         avec une ligne de commande. Mais GParted applique
+         certaines astuces pour traiter des cas de figure courants,
+         comme la mise à jour d'informations cruciales pour qu'une
+         partition NTFS copiée demeure amorçable.
+      </p>
+      <p>
+         Ce bogue, présent dans Ubuntu 7.10, absent dans Ubuntu
+         8.04 et de retour dans 8.10, me frustra à un haut point,
+         car je ne voyais plus aucun moyen de procéder à mon
+         transfert autre que me rabattre sur un logiciel commercial
+         comme Partition Magic. Je serais alors contraint, ne
+         possédant pas une version récente du logiciel tenant sur
+         CD, de faire appel à une autre personne pour m'aider. Un
+         ami me ferait attendre des semaines, voire des mois, avant
+         d'avoir le temps de procéder, tandis qu'un technicien me
+         ferait payer une somme astronomique.
+      </p>
+      <p>
+         Par chance, il existait une solution simple: utiliser un
+         live CD de GParted! Je le fis le jour même et cela
+         fonctionna parfaitement! J'aurais aussi pu, bien
+         évidemment, m'essayer avec le live CD d'Ubuntu 8.04 que
+         j'avais encore. Tout n'était donc pas perdu. La copie
+         effectuée, je rendis mon disque Hitachi de nouveau
+         amorçable avant de le mettre de côté. Mais je dus employer
+         le live CD d'Ubuntu pour cela. Rappelons que tous ces
+         démarrages avec des live CD sont très longs et finissent
+         donc par taper sur les nerfs.
+      </p>
+      <p>
+         Ensuite, je tentai de téléphoner chez Dell pour savoir
+         s'il existait d'autres paramètres à prendre en compte que
+         l'interface et les dimensions pour la sélection d'un
+         disque dur de portable. Peut-être était-ce à cause d'une
+         incompatibilité mineure que mon disque de 160Go avait
+         rendu l'âme, peut-être pas. La personne qui me répondit ne
+         put rien pour moi, à part me conseiller de contacter
+         Seagate et de faire des recherches sur le site de
+         Microsoft et sur Google. Microsoft n'a vraiment rien à
+         voir avec tout ça, car ma machine exécute Linux 99% du
+         temps! Quant à Google, je l'ai utilisé plusieurs fois
+         depuis que ce bogue sévit, sans trouver quoi que ce soit
+         de bien concluant. Je ne pouvais obtenir davantage d'aide
+         de Dell, à part si j'achetais une garantie.
+      </p>
+      <p>
+         Livré à moi-même, je poursuivis mon plan jusqu'au bout.
+         J'effaçai donc mon disque avec SeaTools, ce qui se passa
+         sans difficulté. Je lui infligeai une autre inspection et
+         des secteurs défectueux furent encore trouvés. Je lui fis
+         passer une dernière inspection et elle échoua encore.
+         Ainsi, rien ne permettait de réparer les secteurs
+         défectueux; ils revenaient toujours.
+      </p>
+      <p>
+         Puis je transférai le disque Hitachi dans mon portable. Un
+         test dans le BIOS échoua, car il planta à la détection
+         d'erreurs précédentes. Mais un test sous Linux ne révéla
+         aucun problème. J'en fis un long après le court pour
+         vérifier davantage et je ne décelai aucun problème!
+         J'avais bien du mal à y croire, mais les faits parlaient
+         d'eux-mêmes.
+      </p>
+      <p>
+         Mon explication à cela était que le disque, un moment
+         donné, a remplacé les références à des blocs défectueux
+         par d'autres vers de bons blocs qu'il garderait en réserve
+         pour l'occasion. Le disque était ainsi de nouveau
+         fonctionnel et pouvait très bien faire fonctionner mon
+         portable. Avec mon Seagate de 160Go, la réallocation de
+         blocs ne se produisait pas si bien que mon disque dur
+         demeurait défectueux.
+      </p>
+      <p>
+         Je me résolus donc à l'envoyer pour la garantie. Cela
+         demanda d'entrer des informations sur le site Web du
+         fabricant, en particulier le numéro de modèle et de série
+         du disque. Lire ces données sur le disque s'avéra
+         étonnamment ardu pour moi. Tandis que je peinais, je me
+         suis demandé comment un aveugle pourrait procéder pour y
+         arriver. Une telle personne devra installer le disque dans
+         un ordinateur et l'interroger électroniquement. Or je
+         disposais de fichiers contenant des relevés produits par
+         SMART qui incluaient justement ces numéros! Sans hésiter,
+         je retrouvai ces fichiers et copiai/collai l'information!
+         Cela m'épargna quelques minutes et m'évita des erreurs qui
+         auraient pu retarder ou même empêcher le remplacement du
+         disque. Lundi matin, 17 novembre 2008, j'expédiai le
+         disque à Burlington, à l'adresse donnée par le site de
+         Seagate. Le disque aboutit là-bas pendant la journée du
+         mercredi suivant et j'obtins un reçu par courrier
+         électronique vendredi soir.
+      </p>
+      <p>
+         Cette astuce fonctionna une semaine, le temps de
+         travailler avec le portable lundi pour le tester et de
+         passer une (bonne) journée chez Bell mardi. Mais vendredi,
+         22 novembre 2008, le disque dur (Hitachi) merda tandis que
+         je travaillais avec mon portable pour le tester. Pendant
+         une frustrante tentative d'impression d'un document qui
+         faisait planter OpenOffice, la machine se bloqua, essayant
+         sans arrêt de lire un secteur défectueux. Je dus tout
+         redémarrer après quoi j'eus un mal fou à récupérer mon
+         travail. Je perdis même un fichier, mais heureusement, une
+         copie était sur ma machine de bureau et les modifications
+         furent faciles à reconstituer.
+      </p>
+      <p>
+         J'utilisai <tt>smartctl</tt> pour faire passer au disque
+         dur de nouveau défectueux plusieurs inspections longues
+         successives. À chaque fois, SMART trouvait des secteurs
+         défectueux et s'arrêtait. Mais à chaque fois, le premier
+         secteur défectueux était différent et avait un numéro
+         supérieur au précédant. Mais chaque inspection était très
+         longue et éliminait au plus un secteur. Ça promettait de
+         ne jamais finir. Je m'essayai ensuite avec l'outil Fitness
+         Test de Hitachi qui détecta mon disque et le scanna en
+         entier. Il trouva des secteurs défectueux lui aussi,
+         essaya de les réparer mais échoua. Ainsi, il n'y avait
+         rien à faire pour sauver mon disque une seconde fois.
+      </p>
+      <p>
+         Cette réapparition du bogue m'exaspéra au-delà du
+         possible, en tout cas hors des limites de l'acceptable. Je
+         n'en pouvais tout simplement plus, mais ça ne finissait
+         jamais. J'avais juste envie de tout abandonner, lâcher
+         l'informatique, pour ne plus jamais au grand jamais revoir
+         de bogues sans bon sens de même! Mais je ne pouvais pas
+         faire ça, car je ne voyais rien d'autre à faire de mon
+         existence après avoir pris cette direction. Dans ces
+         conditions, et pour être prêt pour Miami, je devais
+         refaire fonctionner la maudite machine!
+      </p>
+      <p>
+         Ma première idée était d'acheter un nouveau portable, le
+         moins cher possible. En trouver un à 500$ ou moins, tel
+         était mon objectif du moment! Je dus vite me rabattre sur
+         des machines réusinées et je me retrouvai avec des
+         configurations vraiment minimales: processeur Celeron,
+         512Mo de mémoire parfois avec Windows Vista pour tout
+         ralentir, 40Go de disque dur, etc. Je risquais d'être
+         coincé avec Windows Vista à cause de la carte réseau sans
+         fil, une carte graphique ATI ou autre chose, sans
+         possibilité de faire grimper ma mémoire pour le rendre
+         assez rapide pour ne pas devenir cinglé. J'abandonnai donc
+         l'idée.
+      </p>
+      <p>
+         Mon idée suivante fut de me procurer un nouveau disque dur
+         à la <a href="http://www.lamaisoninfo.com">Maison de
+         l'Informatique</a>, un magasin près de chez moi.
+         Contrairement à un achat par Internet, je pensais pouvoir
+         l'avoir le jour même, l'installer et tout serait arrangé
+         au pire pour quelques mois. Cela me coûterait de l'argent
+         et peut-être la réinstallation de Windows et Linux, mais
+         ça avait des chances de fonctionner. Je songeai aussi
+         m'acheter, à la place, une clé USB d'au moins 8Go pour
+         remplacer le disque dur. La clé ne me sauterait pas à la
+         figure, elle!
+      </p>
+      <p>
+         Je me rendis compte en y pensant bien que je raisonnais
+         comme si mon Seagate de 160Go ne serait jamais remplacé.
+         Si je tenais compte de cela, le mieux à faire devenait de
+         sacrifier momentanément mon disque dur externe. Au pire,
+         si mon portable faisait caca dans ce disque-là aussi,
+         j'étais susceptible éventuellement d'avoir un disque neuf
+         de 160Go qui se retrouverait dans mon boîtier. De plus,
+         acheter une clé USB pour tenter d'y installer Linux
+         risquait juste de me faire perdre beaucoup de temps.
+         L'installation sur un tel support étant inhabituelle, il
+         se peut que des bogues insoupçonnés avec Ubuntu
+         surgissent, rendant la configuration inutilisable.
+         Windows, pour sa part, refusera catégoriquement de
+         fonctionner sur la clé USB! Ainsi, il valait mieux
+         installer Linux sur un vrai disque dur, intégré au
+         portable.
+      </p>
+      <p>
+         J'effectuai le transfert de données samedi, 23 novembre
+         2008. La veille, un test long avec SMART n'avait révélé
+         aucune erreur si bien que je savais ce disque encore
+         fiable. Pour cela, j'utilisai encore une fois le live CD
+         de GParted. Malheureusement, le démarrage avec le CD
+         échoua, car la machine se bloqua après l'affichage du
+         message <tt>Setting system clock</tt>. Je dus éteindre
+         l'ordinateur en maintenant le bouton de mise sous tension
+         enfoncé, car rien d'autre ne fonctionna. Ce
+         dysfonctionnement laisse croire à un problème de la carte
+         mère, mais la seconde tentative porta fruit. Si j'étais
+         resté coincé, j'aurais essayé avec le live CD d'Ubuntu et,
+         si lui aussi s'était coincé, j'aurais essayé en désespoir
+         de cause d'enlever la pile-bouton puis la remettre en
+         place après avoir attendu quelques minutes. Cela aurait
+         réinitialisé la mémoire CMOS contenant les réglages du
+         BIOS et peut-être sauvé la machine. Sinon, tout aurait été
+         fini, comme ça, pour rien, et j'aurais de nouveau été pris
+         de désespoir.
+      </p>
+      <p>
+         Le transfert ne fut pas facile, car il y avait des
+         secteurs défectueux partout sur le disque Hitachi, à
+         présent! La copie de ma partition Windows se fit sans mal
+         avec GParted, mais ce logiciel échoua avec ma partition
+         Linux. Je savais d'avance qu'il échouerait avec le reste.
+      </p>
+      <p>
+         Je demandai à GParted de vérifier la partition Linux
+         copiée, cela prit du temps, mais il réussit. Par contre,
+         la taille de l'espace occupé de la nouvelle partition
+         était inférieure à celle de l'ancienne partition. Des
+         fichiers s'étaient donc perdus dans le processus et je ne
+         pouvais pas savoir lesquels. Le système Linux qui
+         résulterait de ce transfert douteux risquait de merder un
+         jour ou l'autre, me forçant à tout réinstaller.
+      </p>
+      <p>
+         Je dus donc créer des partitions vides sur mon Seagate de
+         80Go et y copier du contenu avec des commandes du genre
+         <tt>sudo cp -a /media/Ubuntu_/* /media/Ubuntu</tt> depuis
+         le live CD d'Ubuntu. Avec ça, la copie de ma partition
+         d'Ubuntu réussit, car les secteurs défectueux ne
+         correspondaient pas à des fichiers, par grande chance.
+         Ainsi, là où la copie bit à bit de GParted échouait, une
+         copie logique réussit admirablement et me sauva un travail
+         de réinstallation fastidieux.
+      </p>
+      <p>
+         L'option <tt>-a</tt> est nécessaire pour préserver la date
+         et l'heure des fichiers tandis que <tt>sudo</tt> permet en
+         plus, combiné à l'option, de préserver les permissions et
+         les propriétaires. Sans ces précautions, j'aurais tout
+         fait cafouiller mon installation de Linux!
+      </p>
+      <p>
+         Le formatage a par contre modifié les identifiants des
+         partitions tels que retournés par la commande <tt>sudo
+         vol_id</tt>. Je dus donc effectuer des mises à jour dans
+         <tt>/etc/fstab</tt> et <tt>/boot/grub/menu.lst</tt>.
+         Ensuite, je fis la transplantation de disque dur.
+         Malheureusement, j'oubliai un identifiant si bien que ma
+         partition Linux ne s'amorça pas correctement. La
+         correction effectuée, tout fonctionna admirablement bien.
+      </p>
+      <p>
+         Par contre, Windows XP ne pouvait plus lire mes partitions
+         Linux. Le problème est que le formatage nécessaire pour
+         effectuer la copie à travers les secteurs défectueux a
+         créé des inodes de 256 octets au lieu de celles de 128
+         octets qu'il y avait par défaut. Ext2 IFS ne parvenait
+         alors plus à lire quoi que ce soit et la seule solution
+         proposée était d'encore formater! Je décidai de laisser
+         faire et de me passer de l'accès à mes partitions Linux
+         depuis Windows. Étant donné que j'utilise Linux 99% du
+         temps sur cette machine, perdre du temps pour Windows n'en
+         valait pas le coup.
+      </p>
+      <p>
+         Je me suis enfin décidé à acheter une clé USB de 8Go. Je
+         copiai ma partition Linux sur cette clé et m'organisai
+         pour y ajouter mon répertoire de travail et mes données
+         essentielles pour travailler sur mon doctorat et faire ma
+         présentation. La copie effectuée, il restait encore de la
+         place sur la clé. Je la rendis amorçable en installant
+         GRUB, testai et constatai avec étonnement mais aussi avec
+         soulagement que cela fonctionnait! Je pouvais démarrer
+         Linux sans passer par le disque dur. Je disposais ainsi
+         d'une superbe solution de secours. Quoiqu'un peu lent,
+         l'amorçage à partir de cette clé sera toujours possible, à
+         moins que le portable ne cesse complètement de
+         fonctionner.
+      </p>
+      <h1>
+         Conclusion
+      </h1>
+      <p>
+         Obtenir un disque dur pour un portable semble bel et bien
+         plus difficile que prévu. À la lumière des résultats
+         énoncés sur cette page, on dirait que certains paramètres
+         que je ne connais pas doivent être pris en compte lors de
+         l'achat. Il est même possible que seul le fabricant du
+         portable soit à même de fournir un disque compatible, sur
+         lequel il impose un surcoût à moins de proposer une
+         composante reconditionnée.
+      </p>
+      <p>
+         Je ressentais aussi une légère crainte que le message
+         <tt>Setting system block</tt> suivi du plantage ne
+         reparaisse, comme avec le live CD de GParted. Il se
+         pouvait toujours que je sois coincé avec un nouveau bogue,
+         cette fois-ci insurmontable à moins de remplacer la carte
+         mère, ce qui est bien évidemment impensable dans le cas
+         d'un ordinateur portable.
+      </p>
+      <p>
+         Tout cela me choque à un tel point que j'envisage ne plus
+         jamais racheter de portable ou, au pire, opter pour une
+         machine usagée la moins chère possible (500$ au maximum)
+         que je changerai annuellement si nécessaire. Mais dans ce
+         dernier cas, je devrai probablement oublier Linux, car je
+         me retrouverai avec des composantes incompatibles,
+         principalement la carte réseau sans fil et la carte
+         graphique ATI trop commune et si problématique. Comme
+         maigre consolation, j'aurai toujours la possibilité
+         d'exécuter Linux par-dessus Windows grâce à VirtualBox.
+         Mais avec le Celeron dont j'écoperai probablement avec un
+         budget si restreint, ce sera si lent que j'en perdrai
+         probablement les pédales au point d'infliger une rude
+         bastonnade à la pauvre machine impuissante!
+      </p>
+      <p>
+         Comme solution alternative, il y a certes les
+         ultra-portables bas de gamme comme le Eee PC de Asus, mais
+         avec son écran de 7", je risque de finir chez
+         l'ophtalmologiste après mon prochain examen de la vue
+         pendant lequel l'optométriste sera sidéré par à quel point
+         ma vision aura baissé!
+      </p>
+      <p>
+         Il faut ajouter que toutes ces investigations et
+         manipulations me firent perdre beaucoup de temps, même si
+         je faisais autres choses pendant les longs tests et
+         transferts. Certains me recommandèrent de remplacer la
+         machine au complet, mais je ne pus m'y résoudre. Pourtant,
+         ce sera peut-être, en fin de compte, la seule façon de
+         régler le problème pour de bon. J'estime que ma plus
+         grande erreur a été d'essayer d'augmenter la vitesse de la
+         machine en remplaçant le disque dur, durant l'été 2008.
+         C'est en effet ce nouveau disque qui, ayant flanché, m'a
+         causé les nouveaux soucis.
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

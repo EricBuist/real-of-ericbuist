@@ -1,0 +1,51 @@
+table.topnavbar, td.topnavbar {
+  background: navy;
+}
+td.parents, a.parents {
+   background: black;
+   color: white;
+}
+td.contact, a.contact {
+   color: white;
+   background: black;
+}
+td.sitemap, a.sitemap {
+   color: white;
+   background: black;
+}
+td.leftsibling, a.leftsibling {
+   color: red;
+   background: white;
+}
+td.thispage {
+   color: black;
+   background: white;
+   font-weight: bold;
+}
+td.rightsibling, a.rightsibling {
+   color: red;
+   background: white;
+}
+p:first-letter {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+p {
+    text-indent: 20px;
+}
+em {
+    color: blue;
+}
+strong {
+    color: red;
+}
+.floatleft {
+    vertical-align: top-text;
+    float: left;
+    margin-right: 1em;
+}
+.floatright {
+   vertical-align: top-text;
+   float: right;
+   margin-left: 1em
+}

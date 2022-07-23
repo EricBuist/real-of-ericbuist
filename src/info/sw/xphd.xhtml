@@ -1,0 +1,418 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         Une réinstallation de Windows qui tourne au cauchemar
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css"
+      href="../../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../../index.xhtml" class="parents">Le
+               royaume de Eric Buist</a> &gt;&gt; <a
+               href="../index.xhtml"
+               class="parents">Informatique</a> &gt;&gt; Problèmes
+               marquants &gt;&gt; <a href="../resolved.xhtml"
+               class="parents">Quelques bogues résolus</a> &gt;&gt;
+               <a href="index.xhtml" class="parents">Bogues
+               logiciels résolus</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../../sitemap.xhtml" class="sitemap">Plan
+               du site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="kq.xhtml"
+               class="leftsibling">Tentatives de (re)jouer à King's
+               Quest</a>
+            </td>
+            <td class="thispage">
+               Une réinstallation de Windows qui tourne au
+               cauchemar
+            </td>
+            <td class="rightsibling">
+               <a href="labels.xhtml"
+               class="rightsibling">Problèmes multiples pour faire
+               des étiquettes</a> &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         Une réinstallation de Windows qui tourne au cauchemar
+      </h1>
+      <h2>
+         La réinstallation commença pourtant bien
+      </h2>
+      <p>
+         Depuis quelques temps, mon ordinateur sous Windows XP
+         était désespérément lent. Firefox, mon navigateur Internet
+         favori, prenait de deux à trois fois plus de temps à
+         démarrer que sous Linux, l'Explorateur mettait au moins
+         trois secondes avant de se décider à apparaître et me
+         laisser faire quelque chose, la construction de la liste
+         des programmes installés prenait pratiquement une minute,
+         le système mettait du temps avant de répondre aux
+         commandes après démarrage, ... En bref, ça grattait tout
+         le temps et longtemps, presque comme avec mon ancien
+         Pentium 200MHHz!
+      </p>
+      <p>
+         Trois solutions radicales étaient disponibles:
+      </p>
+      <ol>
+         <li>
+            Changer l'ordinateur. Avec un AMD64 3GHz, probablement
+            que tous ces ralentissements seraient éliminés.
+            Toutefois, il faudrait aussi augmenter la vitesse du
+            disque dur (133Mo/s, sinon 166Mo/s ou plus), sinon cela
+            ne donnerait rien.
+         </li>
+         <li>
+            Supprimer Windows complètement. Malheureusement,
+            certaines choses ne fonctionnaient que sous Windows:
+            mon TV Tuner ATI, la recompression de DVD Video (aucun
+            équivalent de <a href="http://www.dvdshrink.org">DVD
+            Shrink</a> pour Linux), l'impression de gros documents
+            avec une Epson Stylus C82 (au moins deux fois plus long
+            sous Linux que sous Windows) et probablement d'autres
+            choses. Bien que je puisse faire pas mal tout avec
+            Linux, certaines tâches demandaient encore Windows.
+         </li>
+         <li>
+            Installer une ancienne version de Windows qui serait
+            plus rapide, Windows 98 par exemple. Pas très
+            intéressant, car le système planterait très souvent.
+         </li>
+      </ol>
+      <p>
+         Le ralentissement s'était accentué depuis l'installation
+         du Service Pack 2. Supprimer la mise à jour SP2 n'était
+         pas la bonne solution, car le système aurait tout le temps
+         cherché à la réinstaller. J'ai entendu dire que SP2
+         causait beaucoup de difficultés, à moins de l'installer
+         avant tout autre programme. C'est samedi, 2 avril 2005 que
+         je tentai de tester cette idée en réinstallant mon Windows
+         XP.
+      </p>
+      <p>
+         La première étape consistant à formater ma partition NTFS
+         se passa bien. Windows s'installa comme un charme,
+         s'ajoutèrent ensuite les deux Service Pack. Comme prévu,
+         le système avait brisé le gestionnaire d'amorçage
+         permettant l'accès à Linux, mais il me fut facile de le
+         réinstaller. Les pilotes pour la carte son, la carte
+         graphique, le modem (qui ne sert pas), le scanner et
+         l'imprimante se firent installer sans histoire.
+      </p>
+      <h2>
+         Quelques éléments exautiques
+      </h2>
+      <p>
+         Avant d'installer ZoomText, je tentai, sous Linux,
+         d'effectuer une sauvegarde de ma partition NTFS. Après
+         démarrage sous Linux, je constatai que toutes mes
+         partitions logiques avaient changé de numéro et je dus
+         corriger mes points de montage pour que le système
+         fonctionne correctement.
+      </p>
+      <p>
+         Vint ensuite le temps de créer l'image disque de mon
+         installation Windows. Pour ce faire, j'utilisai <tt>dd
+         if=/dev/hda1 | gzip &gt; cleanxp.img.gz</tt>. Cela dura
+         très longtemps, au moins une heure, et créa un immense
+         fichier de 12Go!
+      </p>
+      <p>
+         Je retournai sous Windows et tentai de réinstaller <a
+         href="http://www.aisquared.com">ZoomText</a>, le logiciel
+         responsable de plantages dans ma précédente installation.
+         Je prévoyais restaurer mon image disque si ZoomText
+         faisait planter Windows, afin de disposer d'une
+         installation complètement propre. ZoomText ne planta pas,
+         si bien que je n'eus pas l'occasion de tester ma technique
+         d'image disque.
+      </p>
+      <p>
+         J'en étais à présent rendu à installer <a
+         href="http://www.mount-everything.com">Paragon Mount
+         Everything</a>, un petit logiciel qui allait donner accès
+         aux partitions Ext3 à Windows. Grâce à ce logiciel, je
+         pouvais éviter d'avoir du FAT32 sur mon disque dur. Tout
+         est en Ext3 (système natif de Linux), sauf la partition de
+         Windows qui est en NTFS. Je me disais qu'en procédant
+         ainsi, je m'éviterais un fuck up de système de fichiers
+         source de perte de données et de temps. Eh non monsieur!
+      </p>
+      <h2>
+         Apocalypse!
+      </h2>
+      <p>
+         Au démarrage de Paragon Mount Everything, j'obtins un
+         étrange message d'erreur du genre <tt>Crosslinked
+         partitions</tt>! Le logiciel n'affichait aucune de mes
+         partitions étendues, uniquement la partition système
+         Linux. Mes deux partitions de données et celle contenant
+         mes MP3 étaient invisibles pour Mount Everything. Inquiet
+         à l'idée que Windows, Linux, Mount Everything, un virus,
+         le Diable ou Dieu seul sait quoi d'autre ait saccagé tout
+         mon disque dur, je redémarrai sous Linux et me rendis
+         compte avec soulagement que tout était toujours là!
+      </p>
+      <p>
+         Alors, je tentai de réparer ma table des partitions avec
+         <a href="http://www.powerquest.com">PowerQuest</a>
+         Partition Magic pour qu'elle soit correcte aux yeux de
+         Mount Everything. Le logiciel, démarré depuis une
+         disquette système, détecta plusieurs erreurs dans ma table
+         des partitions, les corrigea puis, au lieu d'afficher ma
+         structure de disque habituelle, montra une partition
+         unique du nom de <tt>Error</tt> ayant la taille de tout le
+         disque! Je me dis que le logiciel devait s'accrocher à la
+         table des partitions erronée lue par le BIOS et un
+         redémarrage corrigerait les choses. Je quittai donc
+         Partition Magic et appuyai sur Ctrl-Alt-Del pour
+         redémarrer la machine.
+      </p>
+      <p>
+         L'ordinateur se bloqua au moment d'amorcer la première
+         disquette de Partition Magic. Agacé par la mauvaise
+         fiabilité de ces maudites vieilles disquettes, je tentai
+         de démarrer avec une disquette système et constatai
+         qu'elle aussi ne fonctionnait pas! Le lecteur, pensai-je.
+         Ce ne serait pas drôle à changer, mais ce serait possible
+         et sans coût puisque j'en ai récupéré un d'une vieille
+         picouille voilà quelques temps. Il était possible que
+         j'aie à ôter le devant de ma tour pour réussir à extraire
+         et remplacer ce fichu lecteur. Toutefois, avant d'en
+         arriver là, je tentai un démarrage sans disquette: aucun
+         effet. La machine faisait beep, affichait des informations
+         à propos des périphériques et, au lieu d'amorcer le
+         système d'exploitation, attendait le Messie! L'hypothèse
+         du disque dur sauté commença lentement à s'imposer à mon
+         esprit.
+      </p>
+      <p>
+         Cela fit naître désespoir et frustration en moi. Si, à
+         présent, Windows ou Linux ont le pouvoir de détruire un
+         disque dur de façon apparemment irrémédiable, à quoi bon
+         continuer à les utiliser? Que le système détruise la
+         totalité des données est déjà très frustrant, mais qu'il
+         rende le matériel inopérant est totalement inadmissible.
+         Le coupable, si je le trouve, pensai-je, sera supprimé
+         pour de bon! Je suspectais Windows XP, car c'était sous ce
+         système que les problèmes avaient commencé à se
+         manifester. Il serait remplacé par Windows 98, peu importe
+         les plantages, après l'achat de mon nouveau disque dur!
+      </p>
+      <p>
+         Je tentai une multitude de modifications dans le BIOS,
+         essayant de désactiver le contrôleur IDE, le contrôleur
+         FDC, ... Je ne pouvais pas croire que c'était le disque
+         dur qui avait sauté! Si j'indiquais au BIOS qu'il n'y
+         avait aucun périphérique Primary Master, tout
+         fonctionnait, sauf que je n'avais pas accès au disque dur.
+         Sinon, ça plantait. On aurait dit que le BIOS, même s'il
+         n'avait pas besoin d'accéder au disque, y lisait quelque
+         chose et se plantait là! La diode rouge de mon boîtier
+         attestait bien cet état de fait, restant perpétuellement
+         allumée après le beep de démarrage.
+      </p>
+      <p>
+         Tout semblait peine perdue, le disque dur était fini.
+         Lorsque je collais mon oreille contre le boîtier, il me
+         semblait même entendre des sons bizarres, surtout au
+         démarrage de la machine.
+      </p>
+      <p>
+         Je tentai de laisser la machine éteinte quelques minutes,
+         en me disant que le disque refroidirait et fonctionnerait
+         de nouveau par la suite. Il n'en fut rien. Ce bogue me
+         rendait anxieux, car qui sait si, à ma prochaine
+         installation, il n'allait pas se reproduire. Ça pouvait
+         venir d'une incompatibilité entre Windows XP Service Pack
+         2 et le contrôleur IDE, un virus, Linux, Mount Everything,
+         ... Pour réduire la probabilité de reproduction, j'allais
+         devoir m'acheter un second ordinateur et n'avoir qu'un
+         seul système d'exploitation par machine. Un système aurait
+         Windows, l'autre, Linux tandis qu'une liaison réseau
+         Ethernet permettrait la communication.
+      </p>
+      <p>
+         Il n'y avait aucune issue: il allait bel et bien falloir
+         m'acheter un nouveau disque dur, l'installer dans la
+         machine et réinstaller Windows et Linux! Ça n'en finirait
+         plus, en plus que ce disque n'avait aucune raison de
+         sauter. Comme je le décris dans <a
+         href="../sysupdt.html#hdd">Remplacement du disque dur</a>,
+         l'opération fut assez ardue à cause de la configuration de
+         mon boîtier. Et le remplacement du disque n'était que la
+         solution à court terme...
+      </p>
+      <p>
+         C'était Windows, pensai-je, qui avait fait sauter ça.
+         J'allais le supprimer et ne plus le réinstaller, XP,
+         c'était fini! Non, en fait le problème vient de Partition
+         Magic. C'est lui qui a provoqué <a
+         href="../mysteries/pqmagbug.xhtml">l'apocalypse sur la
+         machine Buist</a>, voilà quelques années, et c'est encore
+         lui qui, maintenant, me coûtait un disque dur!
+      </p>
+      <h2>
+         La résignation ne vient pas!
+      </h2>
+      <p>
+         Entêté jusqu'au point de risquer d'empirer mon cas, j'en
+         vins à ouvrir le boîtier de ma machine et tentai des
+         manipulations matérielles. J'essayai de débrancher et
+         rebrancher le fil IDE: rien. Il faudrait plus pour refaire
+         marcher ce disque... S'il y avait moyen de le refaire
+         marcher.
+      </p>
+      <p>
+         J'essayai de le brancher sur le port IDE secondaire, en me
+         disant que le BIOS ne tenterait d'accéder qu'au Primary
+         Master. Cela devint vite un casse-tête de câbles IDE et je
+         crus que j'allais m'y perdre un moment donné. Il me fallut
+         débrancher mon lecteur et mon graveur DVD pour réutiliser
+         le câble et finalement, je tentai de brancher le graveur
+         DVD comme primary master, car le BIOS voulait toujours
+         accéder au disque dur. En vain: le BIOS trouvait toujours
+         le disque, gossait dessus et plantait. Le graveur DVD
+         n'était pas considéré comme un disque dur par le BIOS. Il
+         semblait bel et bien falloir sortir le disque et
+         l'installer dans une picouille!
+      </p>
+      <p>
+         Avant d'en venir là, je tentai plutôt d'insérer un vieux
+         disque dr 3Go comme Primary Master. Je pus ainsi démarrer
+         et atteindre Partition Magic! Eh oui, la disquette
+         fonctionnait toujours.
+      </p>
+      <h2>
+         Le disque fonctionne peut-être encore!
+      </h2>
+      <p>
+         Le disque de 3Go agissait comme Primary Master tandis que
+         mon Maxtor mort était en Secondary Master. Partition Magic
+         le vit et y trouva de nouveau la partition <tt>Error</tt>.
+         Je tentai de supprimer cette partition pour en recréer de
+         nouvelles. Je perdrais bien entendu tout le contenu du
+         disque et devrais reprendre l'installation de Windows en
+         plus de réinstaller Linux, mais je n'avais pas le choix.
+         Le logiciel afficha un message d'erreur à propos
+         d'arguments invalides. La structure du disque semblait
+         foutue et Partition Magic ne parvenait pas à la réparer!
+         Il restait toujours possible que le circuit imprimé
+         implantant la logique du contrôleur IDE intégré au disque
+         soit fonctionnel tandis que la mécanique du disque se soit
+         détraquée d'une façon ou d'une autre. Mais il me fallait
+         tenter tout ce que je pouvais pour effacer cette fichue
+         table de partitions défectueuse et en recréer une toute
+         neuve! Cela pouvait suffire à ressusciter le disque.
+      </p>
+      <p>
+         FDisk sous Linux pouvait le faire, mais comment accéder à
+         Linux? Avec <a href="http://www.knoppix.net">Knoppix</a>,
+         un système Linux sur CD! Oui mais je n'avais plus de
+         lecteur DVD accessible suite à mes rebranchements.
+      </p>
+      <p>
+         Ainsi, il me fallut éteindre tout, sortir le 3Go et le
+         mettre en Cable Select plutôt que Master. Ensuite, il put
+         se faire brancher sur le même câble IDE que mon Maxtor et
+         le graveur retrouva son câble d'origine. Puisque j'ai
+         configuré mon disque en mode Cable Select, je n'eus pas à
+         le sortir de la machine pour le faire passer de Master à
+         Slave. Il suffisait simplement de le raccorder à la carte
+         mère par le bon connecteur du câble plat IDE. Le 3Go resta
+         Primary Master tandis que le Maxtor se retrouva Primary
+         Slave. Le lecteur DVD ne se fit pas rebrancher tout de
+         suite, car j'avais besoin du câble power pour le 3Go.
+      </p>
+      <p>
+         Je pus ainsi démarrer Knoppix et de là, FDisk. Le logiciel
+         détecta soixante partitions logiques que je fis
+         disparaître en supprimant la partition étendue. Il me fut
+         aussi nécessaire de supprimer une partition logique qui
+         s'était transformée en partition primaire de façon
+         incorrecte. Par miracle, mes installations XP et Linux
+         étaient intactes!
+      </p>
+      <p>
+         Avec précautions, je recréai ma partition étendue et les
+         quatre partitions logiques: le swap, Data, Music et Data3.
+         Je sauvegardai la nouvelle table des partitions,
+         redémarrai et constatai que Partition Magic pouvait
+         désormais lire mon disque de 120Go! Mes manipulations sous
+         Knoppix semblaient satisfaire le logiciel, si bien que je
+         passai à la phase suivante.
+      </p>
+      <p>
+         Je débranchai le 3Go et rendis son statut de maître à mon
+         Maxtor rescapé. La machine daigna redémarrer, mais je la
+         forçai à retourner sous Knoppix. De là, je corrigeai les
+         points de montage dans mon installation Linux et
+         reformatai les partitions logiques afin d'éviter un
+         nouveau désastre. Ces partitions n'avaient pas la même
+         taille qu'originellement et il valait mieux être prudent.
+         Cela me fit perdre quelques données et tous mes MP3, mais
+         il valait mieux perdre des plumes que devoir vivre le
+         désastre une seconde fois. Heureusement, je les ai tous
+         gravés sur CD! Lorsque tout ce nettoyage fut fait, je
+         refermai Knoppix, sortis le 3Go complètement, remis en
+         fonction le lecteur DVD puis tentai un démarrage sous
+         Linux, puis sous Windows.
+      </p>
+      <h2>
+         Une résurrection complète!
+      </h2>
+      <p>
+         La machine fonctionna de nouveau parfaitement et Mount
+         Everything détecta enfin mes partitions Linux dans la zone
+         étendue.
+      </p>
+      <p>
+         Sans connaissance du matériel et possiblement sans Linux,
+         je ne serais jamais venu à bout de ce bogue. Qui aurait pu
+         réussir à trouver? Qui serait allé plus loin que la simple
+         hypothèse de base selon laquelle le disque dur avait rendu
+         l'âme? Combien l'information, obtenue d'un technicien,
+         m'aurait coûté? Je n'en sais rien, mais au moins, le bogue
+         n'était plus et la machine était stable. Ma nouvelle
+         installation XP semblait plus rapide que mon système
+         précédent et j'avais déjà réinstallé AVG, l'anti-virus, la
+         source la plus probable de ralentissement.
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

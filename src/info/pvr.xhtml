@@ -1,0 +1,938 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         Remplacement de mon synthoniseur TV
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css" href="../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../index.xhtml" class="parents">Le royaume
+               de Eric Buist</a> &gt;&gt; <a href="index.xhtml"
+               class="parents">Informatique</a> &gt;&gt;
+               Configuration informatique
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../sitemap.xhtml" class="sitemap">Plan du
+               site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="fc4.xhtml"
+               class="leftsibling">Passage à Fedora Core 4</a>
+            </td>
+            <td class="thispage">
+               Remplacement de mon synthoniseur TV
+            </td>
+            <td class="rightsibling">
+               <a href="salvator/index.xhtml"
+               class="rightsibling">Le Salvator, successeur du
+               Faucon de Fer</a> &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         Remplacement de mon synthoniseur TV
+      </h1>
+      <p>
+         Durant l'été 2005, j'ai commencé à songer remplacer ma
+         carte graphique, ce qui impliquait de changer mon
+         synthoniseur TV intégré à cette carte. Cette mise à jour
+         eut lieu et comme d'habitude, elle nécessita beaucoup de
+         réflexion et la résolution de quelques problèmes
+         techniques.
+      </p>
+      <ul>
+         <li>
+            <a href="#why">Pourquoi remplacer ma carte
+            graphique?</a>
+         </li>
+         <li>
+            <a href="#dvi">Possibilité d'incompatibilité de mon
+            écran LCD!</a>
+         </li>
+         <li>
+            <a href="#choice">Choix final des pièces</a>
+         </li>
+         <li>
+            <a href="#prep">Préparation de la mise à jour</a>
+         </li>
+         <li>
+            <a href="#insth">Installation matérielle</a>
+         </li>
+         <li>
+            <a href="#firsttest">Premier test</a>
+         </li>
+         <li>
+            <a href="#config">Configuration du matériel pour un
+            usage optimal</a>
+         </li>
+         <li>
+            <a href="#tests">Test de la carte graphique</a>
+         </li>
+         <li>
+            <a href="#remote">Le problème de la télécommande</a>
+         </li>
+         <li>
+            <a href="#conc">Remise en question de ma mise à
+            jour</a>
+         </li>
+      </ul>
+      <h2>
+         <a name="why" id="why">Pourquoi remplacer ma carte
+         graphique?</a>
+      </h2>
+      <p>
+         Tout commença après avoir installé <a
+         href="mdk101.html#atibug">Mandrake Linux 10.1</a>: j'eus
+         des problèmes d'affichage et dus effectuer quelques petits
+         ajustements dans la configuration de X.org pour les
+         contourner. Le problème revint à la charge lorsque
+         j'installai <a href="fc3.xhtml">Fedora Core 3 e 4</a>. Il
+         semblait que <a href="http://www.x.org">X.org</a>,
+         l'environnement graphique de Linux, supportait moins bien
+         ma carte graphique que son prédécesseur <a
+         href="http://www.xfree86.org">XFree86</a>.
+      </p>
+      <p>
+         Durant l'été 2005, je réussis à obtenir le jeu <a
+         href="http://thesims2.ea.com">The Sims 2</a> de Electronic
+         Art, car je voulais l'essayer. Malheureusement, ce jeu
+         nécessite une carte graphique suffisamment récente pour
+         supporter les extensions DirectX 9. Je crois qu'une mise à
+         jour de pilote pourrait donner à une <a
+         href="http://www.atitech.com">ATI</a> Rage 128 (ou une
+         All-In-Wonder 128 comme la mienne) la compatibilité
+         nécessaire (peut-être au prix d'une réduction de
+         performance), mais elle ne fut jamais effectuée par le
+         fabricant. Je souhaitais aussi essayer <a
+         href="http://www.mystrevelation.com">Myst IV</a> de
+         Ubisoft (une mauvaise idée, comme je me rendrais compte
+         plus tard...) et ce jeu-là aussi demandait les extensions
+         DirectX 9. Durant ce même été, je tombai sur le jeu King's
+         Quest VIII de Sierra et voulus y jouer. Je rencontrai des
+         <a href="sw/kq.xhtml">problèmes d'affichage</a> qui me
+         rendirent la vie dure et nécessitèrent parfois de
+         désactiver l'accélération 3D.
+      </p>
+      <p>
+         Outre faire tourner des jeux capricieux, une nouvelle
+         carte graphique me donnerait la liaison DVI entre mon
+         ordinateur et mon moniteur ainsi qu'un niveau parfait de
+         compatibilité avec Linux si j'optais pour une carte de
+         marque <a href="http://www.nvidia.com">NVIDIA</a>. De
+         plus, remplacer ma carte graphique me donnerait l'occasion
+         de retirer mon synthoniseur TV ATI qui ne voulut jamais
+         fonctionner sous Linux pour le remplacer par une carte PCI
+         <a href="http://www.hauppage.com">Hauppage</a> WinTV
+         PVR-250 susceptible de fonctionner parfaitement sous
+         Linux! Mais je me questionnais sur la pertinence de cette
+         mise à jour. Ne valait-il pas mieux attendre quelques mois
+         et remplacer mon ordinateur au complet? Plusieurs
+         arguments me permirent de trancher en faveur de la mise à
+         jour.
+      </p>
+      <p>
+         D'abord, le synthoniseur TV Hauppage serait transférable
+         de ma machine actuelle vers la nouvelle sans aucune
+         difficulté. Bien que ma future machine serait compatible
+         PCI Express, elle comporterait également des fentes PCI si
+         bien que la carte serait compatible. Toutefois, puisque je
+         prévoyais une machine PCI Express, je ne devais pas trop
+         investir dans une carte graphique AGP, car elle ne serait
+         pas transférable!
+      </p>
+      <p>
+         De plus, ma nouvelle machine était susceptible de
+         comporter un processeur AMD Athlon 64 tournant sur un
+         chipset VIA et des problèmes de compatibilité entre ces
+         chipsets et les cartes graphiques NVIDIA existaient. Les
+         chipsets VIA comportent un registre nommé RX55 qui cause
+         ces problèmes avec les cartes NVIDIA dont le pilote
+         effectue de nombreux accès à la mémoire. Il en résulte des
+         plantages ou des redémarrages spontanés pendant
+         l'utilisation de jeux ou de logiciels 3D. Une recherche de
+         VIA RX55 sur <a href="http://www.google.ca">Google</a>
+         permet d'obtenir plus d'informations à ce sujet. En
+         incorporant une carte NVIDIA à ma machine actuelle, qui
+         comportait un chipset VIA, je créais justement cette
+         situation à risque et me construisais un terrain
+         d'expérimentation.
+      </p>
+      <p>
+         En cas de problèmes insolubles, j'aurais remis en place ma
+         vieille carte graphique ATI et envisagé l'achat d'un
+         système Intel plutôt qu'AMD. Une autre solution aurait
+         consisté à intégrer une carte ATI All-In-Wonder PCI
+         Express à ma future machine, mais elle risquait
+         d'impliquer de gros sacrifices du côté Linux. Un pilote
+         précompilé et à code source fermé est parfois
+         indispensable pour obtenir ne serait-ce que l'accélération
+         2D et ce pilote, moins bien conçu que celui de NVIDIA,
+         était davantage susceptible de ne pas fonctionner sous
+         certaines versions de Linux. Sans accélération 2D, la
+         machine devient plus lente. Il serait dommage de gaspiller
+         la puissance d'un tout nouveau AMD Athlon 64 x2 à
+         compenser l'incompatibilité de X.org avec ma superbe carte
+         graphique dernier cri, non? Ce serait si aberrant que je
+         songeais me débarrasser de Linux plutôt que tomber dans
+         une telle situation. Bien entendu, une machine sur
+         laquelle je ne peux installer Linux perd à mon avis
+         beaucoup de sa valeur. Ainsi, cette mise à jour de carte
+         graphique pouvait m'orienter dans le choix de ma prochaine
+         machine et m'aider à résoudre un dilemme capital dans le
+         choix entre Intel et AMD.
+      </p>
+      <h2>
+         <a name="dvi" id="dvi">Possibilité d'incompatibilité de
+         mon écran LCD!</a>
+      </h2>
+      <p>
+         Au moment de vérifier les connecteurs DVI sur les cartes
+         graphiques proposées sur le marché, je constatai avec
+         appréhension qu'il y avait un problème potentiel de
+         compatibilité avec mon écran LCD, mon <a
+         href="http://www.viewsonic.com">Viewsonic</a> VG191b que
+         j'ai acheté en 2003. Les candidates proposaient un
+         connecteur DVI-I tandis que mon écran avait un connecteur
+         DVI-D! Ainsi, pour profiter du DVI, j'allais devoir
+         remplacer mon écran, pensai-je.
+      </p>
+      <p>
+         Était-ce si important d'utiliser DVI? Pas si je devais
+         remplacer mon écran! Avant le remplacement de ma carte
+         graphique, le signal vidéo était converti en signal
+         analogique par ma carte ATI et envoyé à l'écran à travers
+         le câble VGA. L'écran, de son côté, devait numériser le
+         signal pour pouvoir déterminer quels pixels allumer ou
+         éteindre sur sa matrice d'affichage. DVI permet d'éviter
+         cette conversion intermédiaire en faisant transiter le
+         signal numérique directement entre la carte graphique et
+         l'écran. Il en résulte une meilleure qualité d'image.
+         Toutefois, s'il fallait changer mon écran pour cela... Je
+         pensai, si tel était le cas, attendre quelques mois, voire
+         quelques années, et me décider à acheter un ordinateur
+         complet, avec écran inclus. Une telle incompatibilité
+         m'aurait démontré la faible modularité des ordinateurs et
+         la nécessité d'acheter un tout-en-un, comme c'est le cas
+         avec les voitures. Je trouvais cela dommage et un peu
+         frustrant.
+      </p>
+      <p>
+         Après quelques recherches, je compris qu'il n'en était
+         heureusement rien! Un connecteur <a
+         href="http://fr.wikipedia.org/wiki/Digital_Video_Interface">DVI-I</a>
+         (<i>Integrated</i>) regroupe la fonction de deux
+         connecteurs: un DVI-D (<i>Digital</i>) et un DVI-A
+         (<i>Analog</i>). Le DVI-A, qui semble totalement en
+         contradiction avec le principe de DVI, sert par exemple à
+         raccorder un adaptateur DVI vers VGA pour transformer un
+         port DVI en un deuxième port VGA. Il serait aussi
+         envisageable, à l'aide d'un adaptateur, de transformer le
+         signal DVI-A en composantes (Y, Pr, Pb) pour un
+         branchement à un téléviseur haute définition.
+      </p>
+      <p>
+         Comme je pus l'attester en comparant le connecteur avec
+         ceux montrés sur Wikipedia, le câble dont je disposais et
+         qui était fourni avec mon écran était de type Digital et
+         simple. À présent, du moins au moment où mon frère a
+         acheté son ordinateur, en mai 2005, Viewsonic ne livre
+         plus que le câble VGA avec ses écrans. Je compris vite
+         qu'un câble double n'était pas nécessaire, car mon écran
+         ne supportait même pas les résolutions qu'il autorise.
+         Ainsi, le verdict était clair: mon écran serait
+         compatible! En plus, je n'aurais même pas à acheter un
+         nouveau câble DVI; une vingtaine de dollars de sauvés!
+      </p>
+      <h2>
+         <a name="choice" id="choice">Choix final des pièces</a>
+      </h2>
+      <p>
+         Mardi, 20 septembre 2005, je passai à l'action et achetai
+         ma nouvelle carte graphique. La marque de la carte importe
+         très peu, seul le chipset compte. J'obtenais le meilleur
+         rapport qualité/prix avec une GeForce FX. Les GeForce 6
+         étaient trop coûteuses compte tenu de l'impossibilité de
+         transférer le produit dans ma prochaine machine, à moins
+         de sacrifier le PCI Express. La carte choisie, une Asus,
+         était compatible AGP 8X, 4X et 2X tout en proposant un
+         connecteur VGA standard, un connecteur DVI-I et un
+         connecteur TV out Composite. Malheureusement, je ne pus
+         obtenir une carte avec sortie S-Video, mais ce n'était pas
+         un gros drame. Il était fort possible que la sortie
+         S-Video ne serve jamais de toute façon. La carte choisie
+         comportait 128Mo de mémoire vidéo DDR, ce qui suffirait
+         amplement à combler mes besoins.
+      </p>
+      <p>
+         Pour le synthoniseur TV, ce fut une autre affaire. Le
+         WinTV PVR-250 n'était pas disponible et il y avait une
+         file d'attente de quarante personnes pour ce produit. Je
+         risquais de devoir attendre des mois pour ce synthoniseur
+         TV et il se pouvait fort bien qu'en réalité, il ne
+         fonctionne pas sous Linux, ou très mal. Alors à quoi bon
+         attendre si longtemps et payer si cher? Je décidai ainsi
+         d'opter pour un produit qui risquait davantage qu'autre
+         chose de ne pas être compatible avec Linux, mais qui, au
+         moins, ferait le travail sous Windows. J'optai pour le
+         WinTV PVR-150 qui avait, malgré tout, encore une bonne
+         petite chance de tourner sous Linux! Il était deux fois
+         moins coûteux que le PVR-250, mais je devais sacrifier la
+         radio FM, ce qui n'était pas très grave au fond.
+      </p>
+      <h2>
+         <a name="prep" id="prep">Préparation de la mise à jour</a>
+      </h2>
+      <p>
+         Je dus attendre jeudi, 22 septembre 2005, avant de
+         procéder à l'installation de mon matériel, car je
+         souhaitais disposer d'un maximum d'énergie mentale pour
+         faire face à un éventuel stress induit par un malheur.
+         Idéalement, j'aurais dû attendre entre deux sessions
+         universitaires pour ce genre de folie, mais je disposais
+         de deux semaines pour effectuer le test, après quoi il ne
+         me serait plus possible de retourner une carte
+         dysfonctionnelle. Je choisis ce jeudi, car le jour même,
+         j'avais imprimé et remis les copies finales de mon mémoire
+         de maîtrise; un poids de moins sur les épaules!
+      </p>
+      <p>
+         La première étape, avant de plonger mes mains dans la
+         machine, fut de préparer l'environnement logiciel pour que
+         la transition ait un maximum de chances de succès. Pour ce
+         faire, je supprimai les pilotes ATI installés. Je
+         commençai par HydraVISION, qui me fournissait un
+         environnement multi-bureaux, pour ensuite m'attaquer à
+         Multimedia Center puis le pilote ATI lui-même.
+      </p>
+      <p>
+         Cette première étape causa problèmes, car au redémarrage,
+         Windows chercha à réinstaller l'ancien pilote et se mit à
+         la recherche de mon CD ATI! Je dus annuler cette requête
+         de CD, accéder au gestionnaire de périphériques,
+         double-cliquer sur la carte graphique et mettre le pilote
+         à jour. C'est par cet assistant que j'indiquai à Windows
+         de charger le pilote graphique de Microsoft plutôt que
+         celui d'ATI!
+      </p>
+      <p>
+         Pour parfaire ma désinstallation, j'utilisai ensuite un
+         logiciel nommé <a
+         href="http://www.drivercleaner.net">Driver Cleaner
+         Pro</a>. Il permet de supprimer les parties résiduelles
+         des pilotes les plus courants. Je lui demandai ainsi de
+         retirer tous les fichiers liés à mes pilotes ATI puis
+         tentai un redémarrage de la machine pour vérifier que tout
+         était toujours fonctionnel. Driver Cleaner Pro avait
+         saboté mon système, car l'écran restait noir. Windows
+         fonctionnait normalement, mais il n'affichait absolument
+         rien! Je dus éteindre ma machine à l'aveuglette, en
+         appuyant sur Alt-F4 puis sur t.
+      </p>
+      <p>
+         Cela ne me choqua pas tant que ça, car au pire,
+         j'utiliserais Windows 98 que j'avais installé quelques
+         temps auparavant pour tester King's Quest VIII en lieu et
+         place de Windows XP que je commençais à trouver de plus en
+         plus lent et agaçant. Dans le but de sauvegarder cette
+         installation de Windows 98, je n'utilisai pas Driver
+         Cleaner Pro une seconde fois! Une fois suffit pour
+         comprendre la leçon. Je me contentai simplement de
+         supprimer les pilotes ATI.
+      </p>
+      <p>
+         En tout, cette phase dura approximativement vingt minutes.
+         Il faut dire que j'ai perdu du temps à rechercher Driver
+         Cleaner Pro que je ne retrouvais plus sur mes CD.
+      </p>
+      <h2>
+         <a name="insth" id="insth">Installation matérielle</a>
+      </h2>
+      <p>
+         Comme d'habitude, la première étape consista à ouvrir le
+         boîtier de ma machine après l'avoir sorti de sous mon
+         bureau et posé par terre. Cela ne posa aucune difficulté
+         particulière. J'enfilai ensuite le bracelet anti-statique
+         que j'avais acheté pour accroître les chances de succès de
+         ma mise à jour. J'ai eu assez peur de devoir remplacer ma
+         machine au complet à cause de la <a
+         href="hw/cpubomb.xhtml">bombe du CPU</a> et cela m'a aidé
+         à réaliser que ce serait possiblement beaucoup plus de
+         trouble que de bénéfices. C'est en raison de cette bombe
+         que j'ai commencé à établir des plans plus précis au sujet
+         de cette mise à jour majeure et augmenter les mesures de
+         vérification lors de chaque nouvelle manipulation
+         matérielle.
+      </p>
+      <p>
+         Je retirai ensuite la vis de rétention de la carte
+         graphique et tentai de retirer la carte sans tout casser.
+         Encore une fois, la clip de la fente AGP me posa problème,
+         mais je savais où forcer pour réussir à déloger la carte.
+         Après tout, je l'avais retirée plusieurs fois pour
+         rétablir le contact électrique de mes modules de mémoire,
+         encore une fois pendant ma tentative de désamorcer ma
+         bombe du CPU. Cela ne m'empêcha tout de même pas de
+         craindre que la clip de plastique ne casse sous l'effet du
+         pliage nécessaire pour dégager la carte. Je pense que la
+         machine fonctionnerait même sans cette clip, mais des
+         problèmes de stabilité par intermittence de contacts
+         électriques pourraient survenir et ne pas être solubles
+         sans remplacer la carte mère! À éviter...
+      </p>
+      <p>
+         La carte finit par se détacher, sans causer de dégâts, si
+         bien que j'entrepris de couper le cordon ombilical qui la
+         reliait encore à mon système. En effet, cette carte ATI
+         était reliée à mon lecteur DVD et à ma carte son. Le
+         signal CD Audio pouvait transiter librement à travers la
+         carte lorsque la TV ne fonctionnait pas. Lorsque la TV
+         était en marche, l'audio était envoyé à la carte son par
+         le câble CD Audio. Il fallait maintenant couper cette
+         connexion pour pouvoir libérer complètement la vieille
+         carte graphique.
+      </p>
+      <p>
+         Contrairement à ce que l'on pourrait croire, c'est cela
+         qui me posa le plus de difficulté et qui me fit perdre un
+         temps fou! Tout d'abord, j'eus du mal à sortir la fiche de
+         la prise sur la carte ATI. Je finis par l'avoir, mais le
+         connecteur de plastique blanc, sur la carte, fut emporté
+         avec le connecteur du fil CD Audio. Il ne restait que les
+         pins sur la carte!
+      </p>
+      <p>
+         Je ne me rendis compte de rien et tentai stupidement de
+         faire entrer l'extrémité débranchée dans un connecteur CD
+         Audio devenue libre de ma carte son. En effet, le fil
+         partant de mon lecteur DVD vers mon ancienne carte
+         graphique devait désormais aboutir directement dans la
+         carte son tandis qu'un fil excédentaire irait dormir dans
+         un pot, dans mon placard. Je ne parvins naturellement
+         jamais à faire entrer le connecteur dans la fiche sur la
+         carte son! Je finis par découvrir, après un temps fou mais
+         avant que la carte son n'y passe, le connecteur ATI resté
+         sur le connecteur du fil et parvins à le retirer. La
+         chance me sourit, car le connecteur ATI n'alla pas valser
+         sur le plancher où je n'aurais sans doute jamais pu le
+         retrouver. Je le remis en place sur ma carte ATI et il
+         tint en place; le débranchement des fils CD Audio n'a rien
+         cassé.
+      </p>
+      <p>
+         Par contre, cela ne me permit pas de brancher le fil CD
+         Audio dans ma carte son pour autant. Il semble que ces
+         fils soient la plupart du temps assymmétriques, mais ce
+         n'est pas toujours le cas. L'image suivante montre
+         l'extrémité destinée à entrer dans le connecteur d'un
+         lecteur CD/DVD.
+      </p>
+      <center>
+         <table>
+            <tr>
+               <td align="center">
+                  <img src="cdconblack.jpg"
+                  alt="Extrémité noire et plate d'un fil CD Audio" />
+               </td>
+            </tr>
+            <caption>
+               Extrémité d'un fil CD Audio destinée à entrer dans
+               un lecteur CD/DVD
+            </caption>
+         </table>
+      </center>
+      <p>
+         L'image suivante présente quant à elle l'extrémité du fil
+         destinée à se brancher sur une carte son. La forme du
+         connecteur est différente de celle du connecteur
+         précédent.
+      </p>
+      <center>
+         <table>
+            <tr>
+               <td align="center">
+                  <img src="cdconwhite.jpg"
+                  alt="Extrémité blanche d'un fil CD Audio, plus petite que l'extrémité noire" />
+               </td>
+            </tr>
+            <caption>
+               Extrémité d'un fil CD Audio destinée à entrer dans
+               un connecteur de carte son
+            </caption>
+         </table>
+      </center>
+      <p>
+         Il semblait étrangement que ma carte son était pourvue de
+         connecteurs noirs plutôt que de connecteurs blancs. Je ne
+         disposais que d'un seul fil CD Audio symmétrique, avec un
+         connecteur noir à chaque bout, si bien que je dus
+         sacrifier une liaision CD Audio. Je sacrifiai celle entre
+         mon lecteur DVD à ma carte son puisque mon lecteur DVD
+         avait de la misère avec les CD Audio pour une raison
+         inconnue. De toute façon, Windows et Linux parviennent à
+         lire les CD Audio par extraction numérique plutôt que par
+         ce câble.
+      </p>
+      <p>
+         Après cette perte de temps avec le fil CD Audio,
+         j'enfichai ma nouvelle carte graphique et ma carte PCI
+         Hauppage. Je veillai soigneusement à ce qu'aucun fil ne se
+         coince entre les cartes d'extension et la carte mère. Je
+         trouvai une vis pour fixer ma carte PCI additionnelle dans
+         les restes d'une vieille picouille démontée en 2004. Je
+         dus essayer plusieurs vis avant d'en trouver une ayant le
+         bon diamètre.
+      </p>
+      <p>
+         L'opération nécessite environ quarante minutes, en raison
+         du tâtonnement causé par le fil CD Audio.
+      </p>
+      <h2>
+         <a name="firsttest" id="firsttest">Premier test</a>
+      </h2>
+      <p>
+         Comme premier test, je branchai ma nouvelle carte
+         graphique sur le connecteur VGA grâce au câble encore
+         accessible sous mon bureau. En effet, à quoi bon sortir
+         mon câble DVI si cette carte ne fonctionnait pas?
+      </p>
+      <p>
+         Après avoir appuyé sur le bouton de mise sous tension,
+         j'entendis un ventilateur plutôt bruyant se mettre en
+         marche. Il semblait forcer, mais il finit par se
+         stabiliser. Sitôt que je vis du texte, j'appuyai sur Del
+         pour bloquer la machine dans le setup du BIOS. Inutile de
+         démarrer sous Windows avant d'avoir rebranché mon écran en
+         DVI. Le bruit de ventilateur qui force se refit entendre
+         et je compris d'où il venait: le fil de mon ventilateur à
+         CPU se coinçait dans les palettes! Avant d'avoir à faire
+         face à un problème qui pourrait, comme le montreraient mes
+         recherches plus tard, devenir une catastrophe, j'éteignis
+         la machine et débranchai le ventilateur à CPU. Je fis un
+         noeud lâche dans le fil pour le rétrécir, comme c'était
+         fait à l'origine, puis je le rebranchai. À présent, il
+         risquait beaucoup moins de se recoincer dans les palettes
+         et de casser. J'avais défait le noeud lors de ma tentative
+         de nettoyage et n'avais pas jugé bon de le refaire. Bien
+         entendu, un noeud serré n'aurait pas atteint les objectifs
+         de rétrécir le fil et aurait même pu le sectionner à long
+         terme! Ainsi, le bruit suspect venait du ventilateur à CPU
+         et non de ma carte graphique qui fonctionna du premier
+         coup, sans aucune difficulté! Si j'avais ignoré le bruit
+         suspect, j'aurais eu à faire face au bogue de ventilateur
+         à la palette cassée plus tôt que dans la réalité.
+      </p>
+      <p>
+         J'éteignis la machine, débranchai le câble VGA et sortis
+         mon câble DVI. Lorsque je rallumai, je constatai avec joie
+         que tout fonctionnait encore! Le passage de l'analogique
+         au numérique s'était fait en douceur, sans aucune forme de
+         difficulté. Un premier démarrage sous Windows eut alors
+         lieu.
+      </p>
+      <p>
+         Windows XP daigna miraculeusement afficher quelque chose,
+         malgré le sabotage infligé par Driver Cleaner Pro. Cela me
+         soulagea, car je n'avais pas trop envie, au fond, de
+         choisir entre la réinstallation de Windows XP et
+         l'utilisation de Windows 98, que je ne rallumerais plus
+         jamais par la suite. Un agaçant assistant surgit et me
+         demanda d'installer des pilotes pour ma carte graphique!
+         Je suivis les étapes et constatai qu'apparemment, Windows
+         n'avait pas de pilote intégré pour ma GeForce FX 5200.
+         Étrange. J'allai voir dans le Gestionnaire de
+         périphériques et trouvai la carte. Il y avait aussi un
+         nouveau périphérique multimédia inconnu. En fait, c'est
+         pour ce périphérique inconnu que Windows ne disposait pas
+         de pilote! Donc, Windows avait bien installé un pilote
+         pour ma carte graphique. Sans me douter que je commettais
+         une erreur mineure, je fermai l'assistant puisque j'allais
+         installer un pilote pour ma carte graphique de toute
+         façon.
+      </p>
+      <h2>
+         <a name="config" id="config">Configuration du matériel
+         pour un usage optimal</a>
+      </h2>
+      <p>
+         Bien entendu, je n'en demeurai pas là. J'insérai le CD
+         fourni par Asus et installai tous les pilotes fournis. Je
+         commençai par le pilote de référence NVIDIA, j'enchaînai
+         avec l'extension Asus du pilote puis le pilote VIA 4in1.
+         Tout se passait super bien. Le pilote me fournissait même
+         le support du multi-bureau que je craignais avoir perdu
+         avec le changement de ma carte ATI! Génial! Je m'attendais
+         à devoir chercher vainement sur un Internet en quête d'un
+         logiciel multi-bureau potable.
+      </p>
+      <p>
+         Cela devint moins génial au moment d'installer le
+         synthoniseur TV. D'abord, l'insertion du CD de Hauppage ne
+         provoqua absolument aucun effet. Je tentai de le parcourir
+         et localisai un programme <tt>setup.exe</tt> que
+         j'exécutai. Ce programme m'indiqua qu'il ne détectait pas
+         mon synthoniseur TV, mais il m'offrit de continuer malgré
+         tout. Je craignais un défaut de fabrication de la carte
+         PCI qui, pourtant, s'affichait dans le gestionnaire de
+         périphérique, mais il me fallait pousser plus loin pour
+         vérifier cette supposition. Je forçai donc le programme
+         d'installation à démarrer. Tout se passa très bien.
+      </p>
+      <p>
+         Je démarrai ensuite WinTV et ce dernier ne put détecter
+         mon synthoniseur TV! Loin de me laisser démonter, je
+         démarrai le gestionnaire de périphériques et localisai la
+         carte PCI inconnue. Je double-cliquai dessus et activai
+         l'onglet <b>Pilote</b>. Un clic sur <b>Mettre à jour le
+         pilote</b> me fournit un assistant que je suivis pas à
+         pas. J'aurais pu (et dû) suivre l'assistant apparu
+         automatiquement au premier démarrage, après l'installation
+         de la carte PCI, pour obtenir un résultat équivalent. Le
+         logiciel détecta mon CD de Hauppage, le parcourut
+         idiotement, mais cela suffit à lui permettre de localiser
+         automatiquement, comme par magie, le pilote! Il
+         l'installa, le synthoniseur TV apparut de façon explicite
+         dans mes contrôleurs audio et vidéo et je refis un test
+         avec WinTV.
+      </p>
+      <p>
+         Cette fois-ci, j'obtins un résultat un peu plus
+         «encourageant»: un joli écran noir! J'étais de plus en
+         plus soupçonneux, mais je ne voulais pas abandonner et
+         retourner la bébelle. Ça <i>devait</i> pouvoir
+         fonctionner! J'essayai avec WinTV 2000: aucun effet.
+         J'essayai de lui faire rechercher les chaînes sur les
+         fréquences US câble plutôt que Canada câble, en vain. Il
+         trouvait les chaînes mais affichait du noir total.
+      </p>
+      <p>
+         À court d'idées, je redémarrai le programme d'installation
+         du CD et, parmi les premiers items, il y avait un décodeur
+         MPEG. Oui, ce devait être ça! Le synthoniseur TV produit
+         du MPEG directement puisqu'il comporte un encodeur
+         matériel. Il fallait donc le décodeur logiciel! Peut-être
+         ne l'avait-il pas installé en raison de l'absence du
+         pilote Hauppage. Je demandai donc au programme de
+         n'installer que cela et la procédure fonctionna! Ensuite,
+         je redémarrai WinTV et obtins une image!
+      </p>
+      <p>
+         Le problème était que la procédure d'installation n'était
+         pas standard et il aurait fallu lire le manuel plus
+         soigneusement avant de rallumer la machine, voire avant
+         d'enficher cette carte. Installer les deux nouvelles
+         cartes en une seule opération n'améliora pas les choses,
+         créant la confusion entre la carte graphique et le
+         synthoniseur au niveau de l'assistant d'ajout de matériel.
+         Le manuel et l'installation des deux cartes séparément ne
+         m'auraient toutefois pas évité de commettre une erreur
+         technique qui allait me causer du souci plus tard...
+      </p>
+      <p>
+         Puisque tout fonctionnait, je branchai le fil de la
+         télécommande à l'arrière de la carte, enfonçant la fiche
+         autant que je pus. J'insérai ensuite les deux piles AAA
+         dans la télécommande et tentai de la faire fonctionner.
+         Absolument rien ne se passait. Je fis quelques autres
+         essais, changeant le sens des piles. En vain. La
+         télécommande ou les piles semblaient défectueuses.
+      </p>
+      <p>
+         Consolation plus qu'appréciable: Linux daigna démarrer! Un
+         programme inconnu reconfigura X.org pour l'adapter à ma
+         nouvelle carte si bien que je n'eus aucune difficulté à
+         démarrer. Par contre, ce programme a totalement saboté mon
+         fichier de configuration <tt>/etc/X11/xorg.conf</tt> dans
+         lequel j'avais apporté des modifications pour les boutons
+         latéraux de la souris. La résolution était également
+         incorrectement réglée à 800x600. Je dus rectifier ces
+         paramètres avant d'obtenir une configuration adéquate...
+         en 2D seulement.
+      </p>
+      <p>
+         Sans 3D, GLXGears, un programme de test très simple, ne
+         pouvait rendre que 500 images par seconde et avait
+         tendance à laguer. Dimanche, 25 septembre 2005, je tentai
+         d'installer le pilote précompilé à code source fermé
+         fourni par <a href="http://www.nvidia.com">NVIDIA</a>. Je
+         dus télécharger un script exécutable sur le site de
+         NVIDIA, l'exécuter, suivre les instructions et modifier
+         <tt>/etc/X11/xorg.conf</tt>. Les modifications se limitent
+         à remplacer <tt>nv</tt> par <tt>nvidia</tt> et à commenter
+         la ligne chargeant le module <tt>dri</tt>. Le pilote
+         NVIDIA réimplémente totalement OpenGL si bien qu'il n'a
+         pas besoin de DRI. Il est raisonnable de penser que NVIDIA
+         réutilise le code OpenGL qui a été écrit pour le pilote
+         Windows. Après l'intervention, GLXGears pouvait rendre
+         entre 1&nbsp;000 et 1&nbsp;200 images par seconde, ce qui
+         était semblable, voire meilleur, qu'avec mon ancienne
+         carte. Bien entendu, il y aurait moyen de faire mieux, par
+         exemple avec une GeForce 6600 PCI Express, mais ce serait
+         au prix d'un changement de machine complet.
+      </p>
+      <h2>
+         <a name="tests" id="tests">Test de la carte graphique</a>
+      </h2>
+      <p>
+         Vendredi soir, 23 septembre 2005, j'ai effectué quelques
+         tests avec ma nouvelle carte graphique. J'ai d'abord
+         installé Asus Smart Doctor dans le but d'obtenir la
+         température du GPU de ma carte graphique. Le matin de ce
+         même jour, j'avais regardé le petit livret venu avec la
+         carte. Il expliquait comment installer la carte dans la
+         machine, ce que je connaissais déjà, mais indiquait que
+         certaines cartes nécessitaient un raccordement direct au
+         bloc d'alimentation, par l'intermédiaire d'un connecteur
+         de lecteurs. Je n'avais pas regardé, la veille, si ma
+         carte avait un tel connecteur et pourtant, tout avait
+         fonctionné #1. Ce raccordement semble nécessaire pour les
+         cartes PCI Express seulement puisque tout fonctionnait
+         sans ce dernier. Toutefois, je craignais que cette
+         alimentation serve à faire tourner un ventilateur et que
+         la machine soit instable si je ne la raccordais pas.
+         Localiser le connecteur sur la carte nécessiterait de
+         longues minutes de tâtonnement, voire le retrait de la
+         carte pour l'examiner de près. Ainsi, pour éviter cela, je
+         souhaitais surveiller la température de la carte et aviser
+         seulement si elle était en croissance constante. Dans ce
+         cas, j'aurais recherché le connecteur d'alimentation. Ce
+         ne fut pas possible d'obtenir le température, mais la
+         machine ne manifesta aucun signe d'instabilité. Je ne
+         tentai donc pas de trouver le connecteur.
+      </p>
+      <p>
+         Avec la nouvelle carte, The Sims 2 fonctionna
+         parfaitement. À présent, je pouvais déplacer la caméra
+         sans devoir endurer un mouvement saccadé et des délais
+         incessants. Le jeu était désormais jouable, quoique très
+         gourmand en ressources systèmes. Les temps de chargement
+         étaient très longs, soulignant à chaque démarrage la
+         désuétude de ce qui fut jadis une très bonne machine. Une
+         machine avec un processeur de 1GHz qui est rendue une
+         picouille, c'est drôle à imaginer mais frustrant de voir
+         ce concept devenir réalité!
+      </p>
+      <p>
+         Je ne manquai pas de réessayer King's Quest VIII. Au
+         début, il ne semblait y avoir aucune amélioration.
+         Certaines options graphiques étaient toujours grisées;
+         aucune nouvelle option, en fait, n'était disponible. Il
+         semblait bien que ce jeu n'était optimal que sur une carte
+         3DFX complètement dépassée. De plus, le dernier niveau, le
+         monde du Soleil, était toujours sombre. Toutefois,
+         contrairement à ma dernière tentative avec ma carte ATI,
+         je pus voir et tuer le serpent dans l'eau. Dans le marais,
+         je parvins également à tuer la sorcière sans revenir en
+         mode 2D comme j'avais dû le faire avec ma carte ATI.
+         Ainsi, ma nouvelle carte graphique avait amélioré la
+         brillance de l'image dans ce jeu particulier.
+      </p>
+      <p>
+         Vendredi, 30 septembre 2005, j'eus et essayai Myst IV. Le
+         jeu fonctionna très bien, mais il me déçut un peu. Je
+         m'attendais à une meilleure fludité 3D que ça. Les
+         déplacements par à-coups me désorientaient et l'affichage
+         était sombre à plusieurs endroits. J'avais l'impression
+         que mon écran ne suffisait pas à la tâche et je remettais
+         constamment en question la généricité d'un affichage à
+         cristaux liquides. Je croyais que ces écrans ne
+         manifestaient des faiblesses que pour le rendu de
+         mouvements rapides. Je ne pensais pas que le spectre des
+         couleurs pouvant être affichées était réduit par rapport
+         aux écrans cathodiques. Il me faudrait l'avis d'un
+         spécialiste en infographie pour pouvoir étayer cette
+         hypothèse des moins encourageantes.
+      </p>
+      <p>
+         Ainsi, tous mes objectifs étaient satisfaits: je pouvais
+         faire tourner les jeux que je voulais essayer, je
+         maximisais le rendement de mon écran LCD grâce au
+         connecteur DVI et la carte fonctionnait parfaitement sous
+         Linux! Toutefois, pour ce qui est du synthoniseur TV,
+         c'était une autre affaire. D'abord, la télécommande ne
+         fonctionnait même pas, trahissant un possible défaut de
+         fabrication. De plus, le synthoniseur s'avérait totalement
+         inutilisable sous Linux! Il semblait que le pilote
+         nécessaire pour le faire fonctionner n'était pas
+         suffisamment maintenu si bien qu'il ne fonctionnait
+         qu'avec d'anciennes versions de Linux, à supposer qu'il
+         fonctionnait vraiment dans le cas du modèle PVR-150.
+         Heureusement, la version 0.4 du pilote résolut le problème
+         et tout finit par fonctionner parfaitement.
+      </p>
+      <h2>
+         <a name="remote" id="remote">Le problème de la
+         télécommande</a>
+      </h2>
+      <p>
+         Vendredi, 23 septembre 2005, j'essayai en vain de régler
+         le problème de la télécommande Hauppage. D'abord, je
+         voulus tester les piles, mais aucune des télécommandes de
+         télévision à ma disposition ne pouvait les accueillir.
+         Toutes prenaient des piles AA tandis que je devais tester
+         des piles AAA! Je prévoyais demander à mon père de les
+         tester avec un voltmètre si mes recherches n'aboutissaient
+         pas. Vérifier le fonctionnement électronique de la
+         télécommande avec un ohmmètre faisait aussi partie des
+         tests éventuels. Toutefois, il fallait veiller à ce que le
+         ohmmètre de mon père soit suffisamment récent pour
+         utiliser du courant 1.5V et non du 5V. Envoyer du 5V dans
+         les bornes d'alimentation des piles grillerait tout
+         puisque chaque pile fournit 1.5V pour un total de 3V!
+      </p>
+      <p>
+         J'essayai de pointer la télécommande d'un côté ou de
+         l'autre du récepteur infrarouge, en vain. Rien ne semblait
+         efficace. C'est seulement peu de temps après m'être couché
+         ce vendredi soir que j'eus une idée qui fut la bonne. Je
+         la testai le lendemain matin, dès que je me levai.
+      </p>
+      <p>
+         Pour ce faire, je dus ouvrir mon boîtier une nouvelle fois
+         avant d'ôter la vis de rétention de la carte PCI Hauppage.
+         À présent, la carte pouvait bouger de haut en bas. Je la
+         fis descendre de quelques millimètres et tentai une
+         nouvelle fois d'enfoncer le connecteur du fil pour la
+         télécommande. Avec un déclic rassurant, il s'enfonça d'un
+         nouveau cran! Laissant toujours le fil branché, je remis
+         en place la vis de rétention de la carte.
+      </p>
+      <p>
+         Le connecteur du fil pour la télécommande était au bord de
+         la languette arrière de la carte PCI si bien que si la
+         carte était vissée trop haut dans le boîtier, le trou
+         était partiellement obstrué par le chassis de mon boîtier
+         d'ordinateur. Il a suffi de déplacer le trou de quelques
+         millimètres pour permettre à la fiche d'entrer
+         entièrement. Ce problème technique n'est pas documenté
+         dans le manuel d'utilisation du produit et est susceptible
+         de se produire avec n'importe quel boîtier ATX.
+      </p>
+      <p>
+         Je dus malheureusement retirer la vis une seconde fois et
+         refaire ce calibrage avec un fil S-Video planté dans la
+         carte. Le connecteur d'entrée S-Video de cette carte
+         présente en effet ce même risque. Il est possible que les
+         nouveaux boîtiers soient faits différemment et que ce
+         problème ne se produise pas. En tout cas, jamais je
+         n'avais entendu parler de telles possibilités auparavant!
+      </p>
+      <p>
+         Après avoir remis la vis de rétention de la carte et
+         refermé mon boîtier, je démarrai Windows et constatai avec
+         soulagement que la télécommande fonctionnait dès lors
+         parfaitement. Appuyer sur TV démarrait le logiciel WinTV
+         2000 et utiliser Power le fermait. Je pus également
+         changer de chaîne sans problème. J'avais bien cru qu'il me
+         serait nécessaire de remplacer mon boîtier ATX pour faire
+         fonctionner cette satanée télécommande!
+      </p>
+      <h2>
+         <a name="conc" id="conc">Remise en question de ma mise à
+         jour</a>
+      </h2>
+      <p>
+         En somme, cette mise à jour a été bénéfique. J'ai pu
+         améliorer la connexion entre mon écran et ma carte
+         graphique et la machine est demeurée stable malgré le fait
+         que j'avais créé la combinaison explosive VIA/NVIDIA. Ceci
+         rendait viable le choix d'un processeur AMD pour ma future
+         machine. La mise à jour me fit également comprendre que
+         dans la réalité, aucun synthoniseur TV ne fonctionnerait
+         jamais très bien sous Linux. Seules de vieilles cartes
+         fonctionnent sans difficulté, et cela sous de vieilles
+         versions de Linux. Avec les nouvelles cartes, il faut
+         inévitablement un module non inclus dans le noyau et ce
+         module peut cesser de compiler d'une version à l'autre du
+         noyau. La coopération des fabricants de ce type de
+         matériel spécialisé, voire une révision complète de
+         l'architecture de capture vidéo de Linux, seraient
+         nécessaires pour observer une amélioration de
+         compatibilité notable.
+      </p>
+      <p>
+         Mais la solution idéale serait de complètement éliminer la
+         nécessité des pilotes spécifiques, autant sous Windows que
+         sous Linux. Si cela a pu être fait avec les lecteurs
+         CD/DVD, les disques durs IDE, les lecteurs de disquettes,
+         le USB (le contrôleur, pas les périphériques!) et le
+         Firewire (encore une fois le contrôleur seulement), il n'y
+         a aucune raison pour que ce ne soit pas possible avec les
+         cartes graphiques, les cartes sons, les imprimantes, les
+         synthoniseurs TV, radio, etc. Le nombre d'opérations que
+         peut effectuer un pilote est fini, car autrement, ce
+         pilote devrait inférer la façon d'accomplir de nouvelles
+         tâches. Si le nombre d'opérations est fini, il est
+         possible d'énumérer toutes les opérations possibles et de
+         les standardiser. Il suffit alors de bien s'entendre sur
+         une interface de programmation, de concevoir cette
+         interface afin qu'elle soit extensible et d'implémenter
+         l'accès à cette interface au sein du système
+         d'exploitation. Mais même le plus brillant de tous les
+         concepteurs de logiciels ne pourrait parvenir à cela seul!
+      </p>
+      <p>
+         Toutefois, il y avait quelques ombres au tableau. Suite à
+         cette mise à jour, le bruit de picouille de mon
+         ventilateur à CPU semblait avoir empiré. Le bruit se
+         faisait entendre plus souvent et je craignais plus que
+         jamais voir le ventilateur cesser subitement de tourner.
+         Dans mes pires scénarios d'horreur imaginaires, les
+         palettes du ventilateur malade se décrochaient et
+         endommageaient la carte mère! Heureusement, de tels
+         incidents sont peu probables, voire impossibles, mais il
+         n'en demeure pas moins que le ventilateur pouvait stopper
+         subitement. Si le processeur grillait plutôt que
+         simplement s'arrêter, une partie de mon investissement ne
+         serait pas rentabilisée. Avoir su que la machine allait
+         sauter quelques semaines après l'achat, j'aurais opté pour
+         une carte PCI Express et remplacé tout le système!
+      </p>
+      <p>
+         Les jeux que je visais à faire tourner s'avérèrent en fait
+         désagréables à jouer. The Sims 2 était très lent et
+         semblait nécessiter la manipulation de trop d'éléments
+         simultanément. J'allais me fatiguer bien assez vite! Quant
+         à Myst IV, le jeu est très peu réactif aux manipulations
+         de l'utilisateur. Un clic à un endroit quelconque ne fait
+         que provoquer un petit son, aucun mouvement. Il faut
+         impérativement trouver LA chose à déplacer ou LE bouton à
+         presser pour que quelque chose se passe. Rien, souvent
+         aucun indice, ne me permettait de trouver ces éléments, à
+         part l'utilisation d'un walkthrough. À plusieurs reprises,
+         je passai de longues minutes à chercher un bouton, un
+         ascenseur, un interrupteur, etc.
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

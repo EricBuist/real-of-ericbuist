@@ -1,0 +1,1065 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         Envoyer/recevoir du courrier sous Linux
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css"
+      href="../../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../../index.xhtml" class="parents">Le
+               royaume de Eric Buist</a> &gt;&gt; <a
+               href="../index.xhtml"
+               class="parents">Informatique</a> &gt;&gt;
+               Quelques-unes de mes recherches personnelles
+               &gt;&gt; <a href="index.xhtml" class="parents">Trucs
+               et astuces</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../../sitemap.xhtml" class="sitemap">Plan
+               du site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="linkeyb.xhtml"
+               class="leftsibling">Configuration du clavier sous
+               Linux</a>
+            </td>
+            <td class="thispage">
+               Envoyer/recevoir du courrier sous Linux
+            </td>
+            <td class="rightsibling">
+               <a href="is.xhtml" class="rightsibling">Partage
+               d'une connexion Internet</a> &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         Envoyer/recevoir du courrier sous Linux
+      </h1>
+      <p>
+         Quoi de plus simple que l'envoi d'un courrier
+         électronique? Il suffit de taper l'adresse de destination,
+         un titre pour le message et le message lui-même puis
+         d'envoyer le message à son ou ses destinataires.
+         Toutefois, configurer sa machine pour lui permettre
+         d'envoyer/recevoir du courriel est légèrement plus
+         complexe. Il arrive de temps en temps que le fournisseur
+         d'accès Internet livre une trousse d'installation qui
+         effectuera la configuration, mais dans certains cas, cette
+         trousse brille par son absence ou fonctionne mal avec une
+         nouvelle version du système d'exploitation. La
+         configuration est dans tous les cas manuelle si votre
+         adresse provient d'une autre organisation que le
+         fournisseur et sous Linux, c'est encore plus manuel!
+      </p>
+      <p>
+         Bien sûr, avant de penser communiquer par courriel, vous
+         devez disposer d'une connexion Internet et la configurer
+         pour Linux. Beaucoup de paramètres sont alors en jeu, dont
+         le type de votre modem. Si vous êtes comme moi malchanceux
+         et que vous disposez d'un Winmodem non supporté par Linux
+         ou de tout autre modem téléphonique déguisé qui cache un
+         Winmodem, comme un <a href="../hw/ham.xhtml">HaM</a>, vous
+         devrez oublier l'alliage Linux/Internet, à moins de
+         disposer d'une connexion haute vitesse qui, elle, passe
+         par une carte réseau qui, si elle n'est pas USB ou très
+         exotique, devrait fonctionner sous Linux.
+      </p>
+      <p>
+         La configuration d'une connexion Internet Linux constitue
+         un sujet en soi, car il y a bien des problèmes qui
+         surgissent, surtout avec une connexion haute vitesse
+         Sympatico ou pire, une connexion téléphonique par lien
+         PPP. Mas c'est faisable et le résultat en vaut le coup:
+         une machine capable non seulement de naviguer sur le Web
+         mais aussi de devenir un serveur Web, FTP, Telnet, News,
+         tout ce que vous voudrez en autant que vous sachiez le
+         configurer! Ce qui n'est pas mon cas puisque juste
+         configurer le courriel a demandé la Lune...
+      </p>
+      <p>
+         Bon, que faut-il savoir pour avoir l'ombre d'une chance de
+         configurer le courriel sous Linux?
+      </p>
+      <ul>
+         <li>
+            Votre adresse e-mail
+         </li>
+         <li>
+            Le nom du serveur de courrier entrant
+         </li>
+         <li>
+            Le type du serveur entrant
+         </li>
+         <li>
+            Le nom du serveur de courrier sortant, mais on peut
+            s'en passer comme vous verrez...
+         </li>
+      </ul>
+      <p>
+         Il existe maintenant de multiples façons pour lire et
+         envoyer du courriel. On peut le faire en mode graphique
+         sous X ou en mode texte, avec ou sans serveur SMTP.
+         Remarquez que sous Windows, le serveur SMTP est
+         obligatoire, car le système ne comporte pas de serveur de
+         courriel intégré. J'ai classé les solutions à ce problème
+         par ordre chronologique de succès d'exploitation. Je parle
+         de succès lorsque la méthode fonctionne de façon
+         logicielle, pas lorsque je l'apprécie!
+      </p>
+      <ul>
+         <li>
+            <a href="#server">Utiliser un système préconfiguré</a>
+         </li>
+         <li>
+            <a href="#mta">Configuration d'un agent de transport de
+            messages</a>
+         </li>
+         <li>
+            <a href="#ns">Utiliser Netscape Communicator</a>
+         </li>
+         <li>
+            <a href="#so">Utiliser StarOffice/OpenOffice</a>
+         </li>
+         <li>
+            <a href="#pine">Utiliser Pine</a>
+         </li>
+         <li>
+            <a href="#sylpheed">Utiliser Sylpheed</a>
+         </li>
+         <li>
+            <a href="#mozilla">Utiliser Mozilla</a>
+         </li>
+      </ul>
+      <p>
+         Je dois aussi mentionner la possibilité d'utiliser KMail,
+         mais puisque ce dernier ne gère que les comptes POP3 et
+         que je ne dispose que de comptes IMAP, je n'ai pu ni
+         l'expérimenter, ni l'exploiter à fond!
+      </p>
+      <h2>
+         <a id="server" name="server">Utiliser un système
+         préconfiguré</a>
+      </h2>
+      <table border="1">
+         <tr>
+            <td>
+               Exemples:
+            </td>
+            <td>
+               <a href="http://www.hotmail.com">Hotmail</a>, <a
+               href="http://www.caramail.com">Caramail</a>, <a
+               href="http://www.moncourrier.ca">MonCourrier</a>, <a
+               href="http://www.courrier.umontreal.ca">Magellan</a>
+               en mode Telnet ou mode Web à l'Université de
+               Montréal, ...
+            </td>
+         </tr>
+         <tr>
+            <td>
+               Avantages:
+            </td>
+            <td>
+               <ul>
+                  <li>
+                     Aucune configuration nécessaire
+                  </li>
+                  <li>
+                     Simple à utiliser et accessible de partout
+                  </li>
+                  <li>
+                     Stockage des messages en ligne, pas de
+                     sauvegarde nécessaire, on retrouve cet
+                     avantage avec IMAP
+                  </li>
+                  <li>
+                     Mise à jour automatique des logiciels
+                  </li>
+                  <li>
+                     Portabilité
+                  </li>
+               </ul>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               Inconvénients:
+            </td>
+            <td>
+               <ul>
+                  <li>
+                     Parfois lent, surtout avec une interface Web
+                     comme Hotmail
+                  </li>
+                  <li>
+                     Tributaire du navigateur utilisé, si c'est
+                     Netscape pour Linux, ça va mal et il n'y a
+                     rien à faire!
+                  </li>
+                  <li>
+                     Aucun contrôle sur l'interface (en tout cas
+                     peu de contrôle)
+                  </li>
+                  <li>
+                     Nécessite souvent d'entrer son nom
+                     d'utilisateur et mot de passe, connexion plus
+                     longue
+                  </li>
+                  <li>
+                     Manque de défis :)
+                  </li>
+               </ul>
+            </td>
+         </tr>
+      </table>
+      <p>
+         Ce mode est le plus facile à utiliser et il est adopté par
+         bien des gens qui ne souhaitent pas se casser la tête avec
+         le courriel. Il constitue une bonne issue de secours dans
+         le cas de programmes récalcitrants comme sous Linux et
+         j'avoue avoir utilisé cette stratégie à quelques reprises
+         lors de mes infructueuses tentatives de faire fonctionner
+         Pine sur ma machine locale.
+      </p>
+      <p>
+         La connexion peut s'effectue par interface Web dans le cas
+         de Hotmail et compagnie, mais aussi parfois par interface
+         texte en mode Telnet. Ce qui en fait un bon moyen de
+         communication, mais en Telnet, si la connexion Internet
+         lâche en cours de route, le message peut se perdre, rien
+         de moins, car il peut ne pas être sauvegardé. En local, si
+         la connexion est interrompue, le message sera sauvegardé
+         et vous pourrez reprendre plus tard.
+      </p>
+      <h2>
+         <a id="mta" name="mta">Configuration d'un agent de
+         transport de messages</a>
+      </h2>
+      <table border="1">
+         <tr>
+            <td>
+               Exemples:
+            </td>
+            <td>
+               Sendmail, Postfix
+            </td>
+         </tr>
+         <tr>
+            <td>
+               Avantages:
+            </td>
+            <td>
+               <ul>
+                  <li>
+                     Permet d'envoyer des courriels avec tout
+                     logiciel Linux de courrier électronique, y
+                     compris GNU Emacs.
+                  </li>
+               </ul>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               Inconvénients:
+            </td>
+            <td>
+               <ul>
+                  <li>
+                     Exige la configuration de l'agent de transport
+                  </li>
+               </ul>
+            </td>
+         </tr>
+      </table>
+      <p>
+         Certains logiciels de courrier électronique sous Linux ne
+         communiquent pas avec le serveur SMTP de votre choix. Ils
+         utilisent plutôt la machine locale comme un serveur SMTP.
+         C'est le cas, par exemple, de la commande <tt>mail</tt> et
+         de GNU Emacs. Pour utiliser ces logiciels pour envoyer du
+         courrier électronique, un agent de transport de messages
+         (message transport agent ou MTA) doit être mis en place.
+         Le MTA le plus répandu consiste sans nul doute Sendmail,
+         mais il est difficile à configurer et ne semble pouvoir
+         fonctionner adéquatement que sur des machines pourvues
+         d'une adresse IP fixe reliée à un nom de domaine. Lorsque
+         Sendmail envoie un message, il ne permet pas de modifier
+         l'adresse de messagerie par défaut d'un usager. Il forme
+         cette adresse en prenant le nom d'usager Linux, par
+         exemple eric, et en lui ajoutant @domaine, où le domaine
+         est obtenu par la commande <tt>hostname</tt> ou d'une
+         façon équivalente. Une telle adresse invalide est rejetée
+         par la plupart des serveurs et aucun message ne parvient à
+         destination.
+      </p>
+      <p>
+         PostFix, de son côté, offre une configuration plus simple
+         et des options pour permettre de l'utiliser sans une IP
+         fixe et un domaine. La procédure de configuration de
+         PostFix exposée ici s'inspire de Nocton, Cyril,
+         <i>Mandrake Linux 9.1</i>, collection Dossier Micro, Micro
+         Application, Paris, 2003. Si PostFix n'est pas activé, ce
+         qui est le cas sous RedHat Linux, il vous faudra le mettre
+         en fonction. Pour ce faire, vous devrez désactiver
+         Sendmail en tapant, en tant qu'usager root, la commande
+         <tt>/etc/init.d/sendmail stop</tt>.
+      </p>
+      <p>
+         La première étape pour rendre PostFix fonctionnel consiste
+         à définir une régle transformant une adresse locale du
+         type eric@faucondefer.buistgroup.ca en adresse accessible
+         depuis l'Internet. Ce qui peut se faire par le biais du
+         fichier <tt>/etc/postfix/canonical</tt>. Ce fichier texte
+         ASCII contient une ligne pour chaque règle de réécriture
+         d'une adresse. Les lignes sont de la forme
+      </p>
+      <p>
+         <i>usager Linux</i> &nbsp;&nbsp;&nbsp; <i>adresse
+         e-mail</i>
+      </p>
+      <p>
+         Il est aussi possible d'utiliser la forme
+      </p>
+      <p>
+         <i>usager Linux</i> &nbsp;&nbsp;&nbsp; <i>Nom complet</i>
+         <tt>&lt;&lt;/tt&gt;<i>adresse e-mail&gt;</i></tt>
+      </p>
+      <p>
+         PostFix n'interprétant pas ce fichier directement lors de
+         chaque chargement, il faut le convertir en format binaire
+         en utilisant la commande <tt>postmap -v
+         hash:/etc/postfix/canonical</tt>. Pour que ce fichier soit
+         utilisé, il vous faut indiquer à PostFix où le trouver en
+         ajoutant la ligne suivante dans
+         <tt>/etc/postfix/main.cf</tt>:
+      </p>
+<pre>
+sender_canonical_maps = hash:/etc/postfix/canonical
+</pre>
+      <p>
+         Une seconde difficulté réside dans le fait que certains
+         serveurs SMTP n'acceptent pas des messages provenant de
+         serveurs SMTP dont le nom de domaine est invalide. Alors,
+         il faudra indiquer à PostFix de relayer les messages vers
+         un serveur SMTP valide en ajoutant la ligne suivant dans
+         <tt>;/etc/postfix/main.cf</tt>:
+      </p>
+      <p>
+         <tt>relayhost =</tt> <i>votre serveur SMTP</i>
+      </p>
+      <p>
+         Pour activer PostFix, tapez <tt>/etc/init.d/postfix
+         start</tt>. Ensuite vient le moment de le tester. Pour ce
+         faire, vous pouvez utiliser la commande <tt>mail</tt>.
+         L'interaction avec cette commande devrait ressembler à ce
+         qui suit. &lt;pre&gt; Subject: Test Ceci est un test Cc:
+         buisteri@iro.umontreal.ca... Connecting to [127.0.0.1] via
+         relay... 220 faucondefer.buistgroup.ca ESMTP Postfix
+         &gt;&gt;&gt; EHLO faucondefer.buistgroup.ca
+         250-faucondefer.buistgroup.ca 250-PIPELINING 250-SIZE
+         10240000 250-VRFY 250-ETRN 250-XVERP 250 8BITMIME
+         &gt;&gt;&gt; MAIL
+         From:&lt;eric@faucondefer.buistgroup.ca&gt; SIZE=62 250 Ok
+         &gt;&gt;&gt; RCPT To:&lt;buisteri@iro.umontreal.ca&gt;
+         &gt;&gt;&gt; DATA 250 Ok 354 End data with
+         &lt;CR&gt;&lt;LF&gt;.&lt;CR&gt;&lt;LF&gt; &gt;&gt;&gt; .
+         250 Ok: queued as 7C08420A2FE buisteri@iro.umontreal.ca...
+         Sent (Ok: queued as 7C08420A2FE) Closing connection to
+         [127.0.0.1] &gt;&gt;&gt; QUIT 221 Bye&lt;/pre&gt;
+      </p>
+      <p>
+         Lors de l'appel de la commande, vous devez bien entendu
+         utiliser une adresse de courrier électronique valide en
+         guise d'argument. Si vous recevez bien un message de test,
+         vous saurez que PostFix fonctionne correctement. Il reste
+         à le configurer pour qu'il démarre lors du démarrage de
+         Linux. Pour ce faire, utilisez les commandes suivantes.
+      </p>
+<pre>
+chkconfig --level 345 postfix on
+chkconfig --level 0126 postfix off
+chkconfig --level 0123456 sendmail off
+</pre>
+      <p>
+         Cette configuration effectuée, vous pourrez utiliser
+         <tt>localhost</tt> comme serveur SMTP dans tous les
+         logiciels de courrier électronique sous Linux.
+      </p>
+      <h2>
+         <a id="ns" name="ns">Utiliser Netscape Communicator</a>
+      </h2>
+      <table border="1">
+         <tr>
+            <td>
+               Version utilisée:
+            </td>
+            <td>
+               4.76
+            </td>
+         </tr>
+         <tr>
+            <td>
+               Avantages:
+            </td>
+            <td>
+               <ul>
+                  <li>
+                     Configuration intégrée
+                  </li>
+                  <li>
+                     Outil complet (courriel, news, carnet
+                     d'adresse) avec gestion des dossiers IMAP
+                  </li>
+                  <li>
+                     Gestion du courriel HTML
+                  </li>
+                  <li>
+                     Mémorisation du mot de passe
+                  </li>
+                  <li>
+                     Portabilité, possibilité d'utilisation sous
+                     Linux et Windows
+                  </li>
+               </ul>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               Inconvénients:
+            </td>
+            <td>
+               <ul>
+                  <li>
+                     Démarrage parfois (souvent?) lent
+                  </li>
+                  <li>
+                     Interface Motif parfois difficile à utiliser
+                     en raison du manque de raccourcis claviers et
+                     de la difficulté à distinguer un bouton radio
+                     sélectionné parmi un groupe.
+                  </li>
+                  <li>
+                     Parfois instable, une fermeture spontanée de
+                     Netscape lors de la rédaction d'un message me
+                     l'a prouvé à la dure!
+                  </li>
+                  <li>
+                     Parfois difficile à utiliser en raison des
+                     exigences souris. Pour supprimer un message,
+                     par exemple, il faut cliquer droit sur ce
+                     dernier, maintenir le bouton enfoncé et
+                     accéder à Delete dans le menu contextuel.
+                  </li>
+                  <li>
+                     Stagné, la version la plus récente (version 6)
+                     fonctionne mal et est lente. Il arrive bien
+                     souvent que dès qu'une version est devenue
+                     trop pesante, elle ne redevienne jamais
+                     utilisable. Il faudra ainsi garder
+                     éternellement la version 4, ce qui empêche
+                     d'évoluer.
+                  </li>
+               </ul>
+            </td>
+         </tr>
+      </table>
+      <p>
+         <img src="nsmail.png" alt="Écran de Netscape Mail" />
+      </p>
+      <p>
+         La configuration de ce logiciel s'effectue à l'aide de la
+         commande Preferences du menu Edit. Dans la branche Mail
+         &amp; Newsgroups, on trouve les branches Identity et Mail
+         Servers. Dans Identity, il est possible de définir son nom
+         et son adresse qui servira d'adresse de retour. Dans Mail
+         Servers entrent les informations techniques. Il vous
+         faudra cliquer sur Add pour ajouter un nouveau serveur,
+         déterminer si c'est un serveur IMAP ou POP3, le nom du
+         serveur, le nom d'usager, si vous voulez enregistrer votre
+         mot de passe et d'autres paramètres du genre. Le serveur
+         SMTP, obligatoire pour Netscape, doit aussi être défini.
+      </p>
+      <p>
+         J'imagine que beaucoup d'utilisateurs vont s'arrêter là,
+         Netscape est relativement simple à utiliser et configurer,
+         mais quand on se fait ennemi de la souris et de
+         l'interface graphique, il devient un enfer sur Terre et
+         c'est pour cela que j'ai voulu poursuivre plus avant mes
+         investigations avant de retourner à Windows et mon
+         familier Outlook Express! Linux est un espoir, un système
+         enfin stable et en plus gratuit! Je ne devais pas le
+         laisser tomber à cause de Netscape!
+      </p>
+      <h2>
+         <a id="so" name="so">Utiliser StarOffice/OpenOffice</a>
+      </h2>
+      <table border="1">
+         <tr>
+            <td>
+               Version utilisée:
+            </td>
+            <td>
+               5.2
+            </td>
+         </tr>
+         <tr>
+            <td>
+               Avantages:
+            </td>
+            <td>
+               <ul>
+                  <li>
+                     Mode graphique et support du HTML
+                  </li>
+                  <li>
+                     Intégration à une suite, interface familière
+                     si on utilise la suite StarOffice
+                  </li>
+                  <li>
+                     Portabilité, StarOffice existe pour Linux et
+                     Windows
+                  </li>
+                  <li>
+                     Solution complète, gestion de comptes
+                     multiples et du carnet d'adresses, ainsi que
+                     des dossiers IMAP
+                  </li>
+               </ul>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               Inconvénients:
+            </td>
+            <td>
+               <ul>
+                  <li>
+                     Démarrage lent
+                  </li>
+                  <li>
+                     Configuration plus complexe
+                  </li>
+                  <li>
+                     Encore une fois tannant à utiliser si on
+                     n'aime pas trop la souris
+                  </li>
+                  <li>
+                     Nécessite un gros téléchargement et
+                     l'installation d'un produit additionnel à
+                     Linux, compliqué pour les débutants
+                  </li>
+               </ul>
+            </td>
+         </tr>
+      </table>
+      <p>
+         <img src="somail.png" alt="Écran de StarOffice Mail" />
+      </p>
+      <p>
+         Pour configurer la bêbite, cliquez droit dans la fenêtre
+         principale de StarOffice et sélectionnez Nouveau puis
+         Compte IMAP ou Compte POP3 selon les besoins. Vous devrez
+         ensuite remplir les paramètres demandés qui regroupent
+         bien entendu le nom du serveur, le nom d'usager, le mot de
+         passe, ... Il est aussi possible de configurer des boîtes
+         d'envoi multiples, ie plusieurs serveurs SMTP. Ce qui
+         permet d'en utiliser un pour certains cas et un autre pour
+         d'autres applications. StarOffice supporte également des
+         comptes plus ésotériques comme un compte VIM ou FTP.
+      </p>
+      <h2>
+         <a id="pine" name="pine">Utiliser Pine</a>
+      </h2>
+      <table border="1">
+         <tr>
+            <td>
+               Version utilisée:
+            </td>
+            <td>
+               4.33
+            </td>
+         </tr>
+         <tr>
+            <td>
+               Avantages:
+            </td>
+            <td>
+               <ul>
+                  <li>
+                     Rapide et simple à utiliser
+                  </li>
+                  <li>
+                     Interface texte, permet de l'utiliser sans
+                     devoir démarrer X
+                  </li>
+                  <li>
+                     Gestion du courriel, des dossiers IMAP et
+                     carnet d'adresse
+                  </li>
+                  <li>
+                     Le carnet d'adresse est stockée en format
+                     texte, ce qui permet des manipulations
+                     potentielles à l'aide de scripts
+                  </li>
+               </ul>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               Inconvénients:
+            </td>
+            <td>
+               <ul>
+                  <li>
+                     Pas évident à configurer
+                  </li>
+                  <li>
+                     Pas de support des effets du HTML et des
+                     images intégrées aux messages
+                  </li>
+                  <li>
+                     Problèmes possibles avec les fichiers joints
+                  </li>
+                  <li>
+                     Rébarbatif, semble un peu vieillot pour ceux
+                     qui aiment mieux les interfaces graphiques
+                  </li>
+                  <li>
+                     Pour moi, difficile à utiliser sous X, car le
+                     programme tourne dans une fenêter de terminal.
+                     Il m'a été jusqu'à présent impossible
+                     d'obtenir une fonte équilibrant taille
+                     correcte et nombre suffisant de caractères par
+                     lignes.
+                  </li>
+               </ul>
+            </td>
+         </tr>
+      </table>
+      <p>
+         Lorsque Pine est configuré, il est assez simple
+         d'utilisation, mais si tel n'est pas le cas... Le problème
+         de Pine est qu'il ne constitue pas un logiciel de courriel
+         complet, mais plutôt un Mail User Agent. Il ne fournit
+         qu'une interface utilisateur, le système ou plus
+         spécifiquement le Mail Transport Agent, se charge
+         d'acheminer le courriel. Le hic, c'est qu'il faut
+         configurer le système et que ce n'est pas simple... Si
+         vous avez configuré PostFix pour pouvoir utiliser
+         <tt>localhost</tt> comme serveur SMTP, vous pouvez
+         utiliser Pine sans configuration spéciale.
+      </p>
+      <p>
+         Pine utilise par défaut Sendmail pour envoyer le courriel,
+         ce qui transforme votre machine Linux en un serveur SMTP.
+         Lorsque vous envoyez un message, le système communique
+         directement avec l'hôte destinataire et lui envoie le
+         message. Le problème consiste en l'adresse de retour qui
+         est formée du nom d'utilisateur et du nom d'hôte de votre
+         machine. Mais le nom d'hôte n'existe généralement pas sur
+         Internet et cela cause problème. Voici un test tout simple
+         qui vous montrera ce qui se passe.
+      </p>
+<pre>
+[eric@faucondefer tips]$ mail -v eric.buist@umontreal.ca
+Subject: Test
+Test
+Cc: 
+eric.buist@umontreal.ca... Connecting to effraie.cc.umontreal.ca. via esmtp...
+220 effraie.CC.UMontreal.CA ESMTP Sendmail 8.11.3/8.8.8; Sun, 3 Jun 2001 15:51:21 -0400 (EDT)
+&gt;&gt;&gt; EHLO faucondefer.buistgroup
+250-effraie.CC.UMontreal.CA Hello modemcable071.233-202-24.mtl.mc.videotron.ca [24.202.233.71], pleased to meet you
+250-ENHANCEDSTATUSCODES
+250-8BITMIME
+250-SIZE 5120000
+250-ONEX
+250-ETRN
+250-XUSR
+250 HELP
+&gt;&gt;&gt; MAIL From:&lt;eric@faucondefer.buistgroup&gt; SIZE=48
+        451 4.1.8 &lt;eric@faucondefer.buistgroup&gt;... unresolvable host name faucondefer.buistgroup, see RFC 1123, sections 5.2.2 and 5.2.18.
+          eric.buist@umontreal.ca... Connecting to ulys.poste.umontreal.ca. via esmtp...
+          220 ulys.POSTE.UMontreal.CA ESMTP Sendmail 8.11.4/8.11.4; Sun, 3 Jun 2001 15:51:21 -0400 (EDT)
+          &gt;&gt;&gt; EHLO faucondefer.buistgroup
+          250-ulys.POSTE.UMontreal.CA Hello modemcable071.233-202-24.mtl.mc.videotron.ca [24.202.233.71], pleased to meet you
+          250-ENHANCEDSTATUSCODES
+          250-8BITMIME
+          250-SIZE 5120000
+          250-ONEX
+          250-ETRN
+          250-XUSR
+          250 HELP
+          &gt;&gt;&gt; MAIL From:&lt;eric@faucondefer.buistgroup&gt; SIZE=48
+            553 5.1.8 &lt;eric@faucondefer.buistgroup&gt;... Domain of sender address eric@faucondefer.buistgroup does not exist
+              /home/eric/.forward: line 1: forwarding to eric.buist@umontreal.ca
+              /home/eric/dead.letter... Saved message in /home/eric/dead.letter
+              Closing connection to ulys.poste.umontreal.ca.
+              &gt;&gt;&gt; QUIT
+              221 2.0.0 ulys.POSTE.UMontreal.CA closing connection
+              Closing connection to effraie.cc.umontreal.ca.
+              &gt;&gt;&gt; QUIT
+              221 2.0.0 effraie.CC.UMontreal.CA closing connection
+              [eric@faucondefer tips]$ 
+   
+</pre>
+      <p>
+         On voit ici que le serveur contacté se plaint que le
+         domaine <tt>faucondefer.buistgroup</tt> n'existe pas. Une
+         solution consiste à remplacer le hostname par un domaine
+         existant, comme <tt>videotron.ca</tt> par exemple. Mais
+         dans tous les cas, il y aura problème puisque l'adresse de
+         retour demeurera invalide. Lorsqu'un message est envoyé
+         sous Pine par défaut, il ne se passe rien, on a
+         l'impression que le message est parti, mais jamais il ne
+         se rend, car le serveur SMTP destination erjette le
+         message. Toutefois, lors des tests, je me suis rendu
+         compte que Hotmail accepte ces messages mal formés. À
+         toute règle, il y a une exception!
+      </p>
+      <p>
+         Pour définir un véritable domaine, démarrez Pine. Appuyez
+         ensuite sur S pour déclencher le mode Setup puis sur C
+         pour activer Config. Vous pouvez de là modifier votre nom,
+         le domaine qui sera utilisé ainsi que le serveur SMTP si
+         vous souhaitez en utiliser un. Lorsque vous aurez fini de
+         configurer le logiciel, tapez E pour sortir du mode de
+         configuration. Envoyez maintenant un message à vous-même,
+         cela devrait fonctionner.
+      </p>
+      <p>
+         Bon, maintenant comment modifier votre adresse de retour
+         pour refléter votre véritable adresse électronique?
+         Malheureusement, Linux s'entête à prendre le nom local de
+         l'utilisateur, lui ajoute un @ et puis le nom d'hôte de
+         votre machine! Il serait imaginable de modifier le
+         hostname de la machine pour lui donner le nom d'hôte de
+         votre adresse e-mail puis de créer un compte qui
+         possèderait le bon nom d'utilisateur pour l'adresse. Par
+         exemple, selon cette technique, je créerais un utilisateur
+         buisteri sur ma machine et je définirais l'hôte comme
+         étant iro.umontreal.ca. Mais dans bien des cas, cette
+         pratique ne permettra qu'à une seule personne d'utiliser
+         le courriel en mode console. Les autres devront se
+         contenter de Netscape ou StarOffice, ce n'est donc pas une
+         manière qui respecte le multi-utilisateur Linux.
+      </p>
+      <p>
+         On va donc ruser pour changer l'adresse source du message,
+         ce qui peut se faire sous Pine en utilisant les Roles.
+         Activez une seconde fois le mode Setup (touche S), puis
+         Rules (R). Comme type de règles, activez R pour Roles.
+         Vous devrez ajouter un nouveau rôle avec Add (A). Ce rôle
+         s'applique pour tou message, donc on ne met rien dans les
+         champs de texte au début. Dans la section Current Folder
+         Type, sélectionnez Any. Les autres sections sont définies
+         à Don't Care afin de généraliser le plus possible cette
+         règle. Ensuite arrive le champ Set From dans lequel vous
+         allez entrer votre véritable adresse de courriel. Tous les
+         autres champs de texte peuvent rester vides. La règle doit
+         s'appliquer pour tout message, que ce soit pour le Reply
+         Use, le Forward Use et le Compose Use. Vous pouvez
+         sélectionner pour ces trois catégories With Confirmation
+         pour savoir quand est utilisée la règle. Validez ensuite
+         le tout avec E, puis un autre E pour revenir au menu
+         principal.
+      </p>
+      <p>
+         Maintenant, lorsque vous taperez C, le logiciel affichera
+         au bas de l'écran un message du genre <tt>Use role
+         "Alternate Role" for Compose ?</tt>, répondez oui et votre
+         adresse source sera correcte.
+      </p>
+      <p>
+         Bon, c'est bien beau tout ça, mais comment faire pour
+         recevoir des messages? On va encore retourner dans Setup.
+         Appuyez sur S puis sur C, le tout consiste à assigner une
+         nouvelle valeur à inbox-path. Mais au lieu d'un chemin
+         local, donnons-lui <tt>{serveur/user=login}</tt> où
+         serveur est le nom du serveur et login constitue votre nom
+         d'usager sur le serveur de courriel IMAP ou POP3! Eh oui,
+         cela va remplacer la boîte de réception locale par la
+         boîte sur le serveur.
+      </p>
+      <p>
+         En mode IMAP, tout cela fonctionne merveilleusement bien,
+         mais pas en POP3. En effet, le protocole POP3 est conçu
+         pour une lecture hors ligne et Pine s'en servira pour lire
+         en ligne. Il ne pourra pas télécharger les messages du
+         serveur vers un dossier local, ni indique s'il y a de
+         nouveaux messages. La connexion sera aussi maintenue tout
+         au long de la lecture des messages, ce qui n'est pas usuel
+         dans le cas du POP3 où on se connecte sur le serveur afin
+         de télécharger les messages uniquement. Pour télécharger
+         des messages du serveur, vous devrez utiliser un autre
+         programme, tel <tt>fetchmail</tt>. Un autre problème: le
+         mot de passe est demandé à chaque ouverture de Pine. Pour
+         remédier, il y aurait probablement moyen de passer le mot
+         de passe dans les paramètres, mais ce serait en clair et
+         donc insécure!
+      </p>
+      <p>
+         Un autre problème: si vous utilisez des dossiers IMAP,
+         vous ne pourrez pas y accéder depuis Pine... à moins
+         que... Eh oui, encore le Setup!!! :) Cette fois, à partir
+         du menu principal, tapez S pour Setup et L pour
+         Collections. Cela mène aux collections de dossiers et on
+         va y en rajouter une seconde! Tapez A pour ajouter une
+         nouvelle collection et remplissez les champs demandés.
+         Vous devrez donner un nom à la collection (nickname), le
+         champ Server contiendra le nom du serveur IMAP suivi d'un
+         / puis de <tt>user=login</tt>. Path et View peuvent
+         demeurer vides. Validez le tout avec CTRL-x puis E. Et
+         voilà, Pine est configuré maintenant!
+      </p>
+      <p>
+         Il reste toutefois un détail si vous utilisez Sendmail
+         plutôt qu'un serveur SMTP. Lorsque vous envoyez quelque
+         chose, Sendmail place le message dans une file d'attente
+         qui est vidée périodiquement. Avant d'éteindre votre
+         ordinateur, vous devriez donc vérifier si cette file est
+         vide. Ce qui se fait en utilisant la commande
+         <tt>mailq</tt>. Voici un exemple d'appel.
+      </p>
+<pre>
+[eric@faucondefer eric]$ mailq
+                /var/spool/mqueue (1 request)
+----Q-ID---- --Size-- -----Q-Time----- ------------Sender/Recipient------------
+f53NOLx01444*    3088 Sun Jun  3 19:24 &lt;eric.buist@UMontreal.CA&gt;
+        8BITMIME
+        &lt;msto@smartnet.ca&gt;
+          [eric@faucondefer eric]$ 
+   
+</pre>
+      <p>
+         On voit ici que la file contient un message et que si on
+         éteignait l'ordinateur, le message pourrait être perdu
+         pour bien longtemps. Un tel message m'est revenu quelques
+         jours plus tard avec message d'erreur du Mail Delivery
+         Subsystem. Et voici un exemple de file vide.
+      </p>
+<pre>
+[eric@faucondefer eric]$ mailq
+/var/spool/mqueue is empty
+[eric@faucondefer eric]$ 
+   
+</pre>
+      <p>
+         Ce qui conclut cette longue aventure au coeur du système
+         de courriel Linux. Il y en aurait beaucoup encore à dire,
+         mais cela ne finirait jamais... Sendmail constitue un
+         logiciel complexe qui fait peur et il y a beaucoup de
+         façons de le configurer. Il doit également exister une
+         façon de définir au niveau système l'adresse e-mail de
+         façon à pouvoir envoyer avec d'autres programmes que Pine.
+         En effet, tout envoi avec Emacs ou KMail en utilisant
+         Sendmail a été couronné d'un échec!
+      </p>
+      <h2>
+         <a id="sylpheed" name="sylpheed">Utiliser Sylpheed</a>
+      </h2>
+      <table border="1">
+         <tr>
+            <td>
+               Version utilisée:
+            </td>
+            <td>
+               0.6.5
+            </td>
+         </tr>
+         <tr>
+            <td>
+               Avantages:
+            </td>
+            <td>
+               <ul>
+                  <li>
+                     Compromis entre une lourde interface graphique
+                     et le mode console
+                  </li>
+                  <li>
+                     Programme léger et efficace, similaire au
+                     point de vue fonctionnalités à Outlook Express
+                  </li>
+                  <li>
+                     Configuration simple, support de POP3 et IMAP
+                  </li>
+                  <li>
+                     Carnet d'adresse
+                  </li>
+                  <li>
+                     Support de plusieurs serveurs SMTP
+                  </li>
+                  <li>
+                     Supporte les messages HTML et les fichiers
+                     joints
+                  </li>
+               </ul>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               Inconvénients:
+            </td>
+            <td>
+               <ul>
+                  <li>
+                     Nécessite l'utilisation de X
+                  </li>
+                  <li>
+                     Version encore préliminaire
+                  </li>
+                  <li>
+                     Impossible d'écrire des messages en HTML, on
+                     peut seulement les lire.
+                  </li>
+                  <li>
+                     Édition difficile, car pas de sauts à la ligne
+                     automatique pendant la rédaction. La seule
+                     façon d'atteindre une zone d'un paragraphe
+                     consiste à cliquer avec la souris pour y
+                     positionner le curseur.
+                  </li>
+                  <li>
+                     Quelques fonctions ne sont pas accessibles au
+                     clavier, mais de toute manière, il en est de
+                     même sous Outlook Express...
+                  </li>
+               </ul>
+            </td>
+         </tr>
+      </table>
+      <p>
+         <img src="syl.png" alt="Écran principal de Sylpheed" />
+      </p>
+      <p>
+         Ce programme permet de consulter son courriel sous X, sa
+         configuration se fait simplement par des boîtes de
+         dialogue. Son installation s'est résumée à le télécharger
+         puis à le compiler en suivant les instructions données
+         avec le package. La configuration s'est faite lors du
+         premier démarrage du programme et peut être modifier par
+         l'intermédiaire du menu Tools.
+      </p>
+      <h2>
+         <a id="mozilla" name="mozilla">Utiliser Mozilla</a>
+      </h2>
+      <table border="1">
+         <tr>
+            <td>
+               Version utilisée:
+            </td>
+            <td>
+               1.0
+            </td>
+         </tr>
+         <tr>
+            <td>
+               Avantages:
+            </td>
+            <td>
+               <ul>
+                  <li>
+                     Plus complet qu'OpenOffice mais plus rapide à
+                     démarrer
+                  </li>
+                  <li>
+                     Support du HTML dans les courriels
+                  </li>
+                  <li>
+                     Navigateur Web intégré et plus stable que
+                     Netscape
+                  </li>
+                  <li>
+                     Peut fonctionner sous Windows et Linux
+                  </li>
+               </ul>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               Inconvénients:
+            </td>
+            <td>
+               <ul>
+                  <li>
+                     Interface encore lourde, quoique plus
+                     accessible que Netscape et plus légère que
+                     OpenOffice.
+                  </li>
+               </ul>
+            </td>
+         </tr>
+      </table>
+      <p>
+         <img src="mozmail.png"
+         alt="Écran principal de Mozilla Mail" />
+      </p>
+      <p>
+         Mozilla constitue un navigateur Open Source sur lequel se
+         basent les nouvelles versions 6 et 7 de Netscape
+         Navigator. Il implante très bien les standards du moment
+         (JavaScript, DHTML, CSS, ...) et bénéficie d'une stabilité
+         supérieure à Netscape 4. Son moteur de rendu HTML peut
+         être mis à la disposition de l'internaute pour
+         envoyer/recevoir des courriels hauts en couleur.
+      </p>
+      <p>
+         Le module de courriel de Mozilla est très complet, plus
+         complet même qu'Outlook Express sous Windows. Ses
+         fonctions HTML sont plus étendues et permettent d'ajouter
+         un peu d'effets spéciaux aux messages. Ce n'est pas du
+         LaTeX, mais c'est tout de même mieux que de l'ASCII pur.
+         J'apprécie tout particulièrement la possibilité d'insérer
+         des passages en fonte fixe <tt>comme celui-ci</tt>, des
+         tableaux et du code HTML défini par l'utilisateur.
+      </p>
+      <p>
+         Mozilla Mail est relativement facile à configurer et
+         supporte les protocoles POP3 et IMAP. Le temps de
+         démarrage est un peu plus long qu'avec Pine, mais ses
+         fonctionnalités en valent la peine. L'utilisation est
+         aussi plus facile que sous Netscape.
+      </p>
+      <p>
+         Mozilla est installé avec toutes les nouvelles
+         distributions de Linux, dont en particulier RedHat 7.3.
+         C'est un outil qui en vaut le coup, il a pu pour moi
+         remplacer Pine, Netscape et même Konqueror qui faisaient
+         des caprices avec les fontes. Mozilla éprouve quelques
+         problèmes occasionnels de ce côté, mais ils sont moins
+         prononcés qu'avec d'autres navigateurs.
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

@@ -1,0 +1,537 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         Impression recto-verso
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css"
+      href="../../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../../index.xhtml" class="parents">Le
+               royaume de Eric Buist</a> &gt;&gt; <a
+               href="../index.xhtml"
+               class="parents">Informatique</a> &gt;&gt;
+               Quelques-unes de mes recherches personnelles
+               &gt;&gt; <a href="index.xhtml" class="parents">Trucs
+               et astuces</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../../sitemap.xhtml" class="sitemap">Plan
+               du site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="is.xhtml"
+               class="leftsibling">Partage d'une connexion
+               Internet</a>
+            </td>
+            <td class="thispage">
+               Impression recto-verso
+            </td>
+            <td class="rightsibling">
+               <a href="webprint.xhtml"
+               class="rightsibling">Impression de pages Web sous
+               Linux</a> &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         Impression recto-verso
+      </h1>
+      <p>
+         N'avez-vous pas déjà souhaité imprimer un document, quel
+         qu'il soit, et constaté avec horreur que celui-ci
+         totalisait une soixantaine de pages ou plus? Beacoup de
+         papier sera utilisé pour cette impression si vous
+         l'effectuez et vous vous dites sûrement qu'il doit y avoir
+         moyen de sauver quelques feuilles, non? Eh bien, outre
+         rétrécir la police et utiliser une loupe pour lire le
+         résultat, ou bien ne pas imprimer du tout, il existe un
+         moyen d'économiser le papier: imprimer recto-verso! Cela
+         ne sauvera pas l'encre, mais prendra moitié moins de
+         papier. Avec le temps, je suis devenu un adepte de cette
+         pratique malgré les problèmes qu'elle peut parfois
+         entraîner.
+      </p>
+      <ul>
+         <li>
+            <a href="#basics">Principe de base</a>
+         </li>
+         <li>
+            <a href="#hw">Problèmes matériel</a>
+         </li>
+         <li>
+            <a href="#sw">Problèmes logiciels</a>
+         </li>
+         <li>
+            <a href="#nosoft">Quand le logiciel ne coopère pas</a>
+         </li>
+      </ul>
+      <h2>
+         <a name="basics" id="basics">Principe de base</a>
+      </h2>
+      <p>
+         Il existe des imprimantes capables de réaliser directement
+         ce type d'impression. On nomme cette fonction le duplexing
+         et elle semble nécessiter une lourde somme d'argent...
+         Pour imprimer recto-verso de façon matérielle, une
+         imprimante doit soit disposer de deux têtes d'impression,
+         une pour chaque côté de page, ou bien être en mesure de
+         retourner la feuille et effectuer une impression en deux
+         passes. L'imprimante HP 8000DN, une imprimante laser
+         coûteuse utilisée à l'Université de Montréal, permet ce
+         genre d'impression. Toutefois, personne n'a envie de
+         débourser des milliers de dollars pour une imprimante
+         domestique et il faut donc se tourner vers d'autres
+         solutions.
+      </p>
+      <p>
+         L'astuce consiste à réaliser manuellement une impression
+         en deux passes. Pour ce faire, on imprime tout d'abord les
+         pages impaires, on retourne le paquet de feuilles
+         résultant sans modifier l'ordre de ces dernières puis on
+         amorce l'impression des pages paires sur l'autre côté. Ce
+         principe est simple, n'importe qui y aurait pensé, mais
+         plusieurs hésiteront à l'essayer! En effet, la réussite
+         d'une telle opération exige de l'expérimentation et la
+         mise en place des feuilles dépend entièrement de
+         l'imprimante utilisée! Il faut également que les logiciels
+         utilisés soient en mesure d'imprimer des pages
+         sélectivement.
+      </p>
+      <h2>
+         <a name="hw" id="hw">Problèmes matériels</a>
+      </h2>
+      <p>
+         L'imprimante constitue le premier problème à traiter dans
+         le cas d'une impression recto-verso. Elle constitue la
+         première source d'erreurs d'impression et nécessite le
+         plus grand nombre d'expérimentations pour parvenir au
+         résultat final. Il existe plusieurs types d'erreur:
+         chargement de la page dans le mauvais sens, bourrage, saut
+         d'une page par l'imprimante, etc. Bon nombre d'erreurs
+         sont causées par l'utilisateur, mais certaines peuvent
+         dépendre de l'imprimante. Un appareil de mauvaise qualité,
+         sautant tout le temps des pages, peut s'avérer incapable
+         d'effectuer une impression recto verso de façon fiable!
+      </p>
+      <p>
+         La gestion des pages dépend grandement du type de
+         dispositif d'alimentation de l'imprimante qui peut être
+         manuel, utiliser un chariot ou être en mesure de charger
+         les feuilles depuis un bac à papier.
+      </p>
+      <h3>
+         Alimentation manuelle
+      </h3>
+      <p>
+         Ce type exige de fournir les feuilles une à une à
+         l'imprimante. Cela permet un contrôle maximal des erreurs
+         de pages, mais cela exige de rester devant l'appareil,
+         prêt à insérer une nouvelle feuille sitôt la page
+         imprimée. Heureusement, toutes les imprimantes disposent,
+         en plus de ce mode, d'un mode d'alimentation automatique
+         beaucoup plus commode.
+      </p>
+      <h3>
+         Alimentation par chariot
+      </h3>
+      <p>
+         Utilisée par les vieilles imprimantes matricielles,
+         l'astuce consiste à utiliser un papier spécial avec des
+         bandes perforées de chaque côté. Un mécanisme
+         d'entraînement s'insère dans ces perforations et permet à
+         la feuille d'avancer. Ce type d'alimentation a pour
+         avantage de permettre une insertion automatique des
+         feuilles tout en évitant les pages sautées. Toutefois, un
+         papier spécial est nécessaire et il faut retirer les
+         bandes perforées après l'impression.
+      </p>
+      <h3>
+         Alimentation automatique
+      </h3>
+      <p>
+         Ce procédé, utilisé par les imprimantes à jet d'encre et
+         probablement par les lasers, permet d'utiliser un paquet
+         de feuilles ordinaire. L'appareil prend une à une les
+         feuilles du paquet et les fait avancer pour y imprimer le
+         contenu. Malheureusement, bien que ce mode fonctionne bien
+         dans la plupart des cas, il arrive que l'imprimante mesure
+         mal l'épaisseur de la feuille et prend deux feuilles
+         plutôt qu'une seule, ce qui s'avère catastrophique en mode
+         recto-verso! Par exemple, si vous imprimez les pages 1, 3,
+         5, 7 et 9 sur un côté des feuilles et puis 2, 4, 6 et 8
+         sur le second et que l'imprimante prend deux feuilles pour
+         la page 2, elle imprimera la page 2 à l'endos de la page 3
+         et les autres pages seront ainsi décalées. Lorsque l'on
+         découvre que l'imprimante pose ce problème, il faut
+         vérifier constamment que les pages sont correctement
+         imprimées, ce qui exige l'ajout de numéros de pages pour
+         plus de facilité.
+      </p>
+      <h3>
+         Modes de chargement automatique du papier
+      </h3>
+      <p>
+         Jusqu'à présent, j'ai vu deux modes de chargement du
+         papier pour les imprimantes à jet d'encre: arrière et
+         avant. Malheureusement, il n'est pas impossible qu'il
+         existe d'autres modes, ou des variantes des modes exposés
+         ci-après. Il faudra donc tester, gaspiller beaucoup de
+         papier et beaucoup d'encre pour pouvoir enfin réussir, à
+         supposer que ce soit possible...
+      </p>
+      <p>
+         Avec le chargement arrière, utilisé par bon nombre
+         d'imprimantes, un bac à feuilles se trouve derrière
+         l'imprimante ou au-dessus. L'imprimante prend toujours la
+         feuille au-dessus de la pile et imprime sur la face vers
+         le haut. Avec ce mode, les feuilles aboutissent au bac de
+         sortie dans l'ordre inverse de leur impression, face
+         imprimée vers le haut. Après avoir imprimé les pages
+         impaires sur une telle imprimante, il suffit de retourner
+         les pages par rapport au bord pour lequel les pages seront
+         tournées dans le document imprimé (souvent le bord le plus
+         long de la feuille) et recharger le tout dans
+         l'imprimante.
+      </p>
+      <p>
+         D'autres imprimantes, comme bon nombre de HP, utilisent le
+         chargement frontal qui pose beaucoup plus de difficultés
+         et de confusion. Avec ce mode, le bac d'entrée est
+         au-dessous du bac de sortie si bien que la feuille suit
+         une trajectoire courbe à l'intérieur de l'imprimante.
+         L'appareil charge toujours la première feuille au-dessus
+         de la pile, mais elle la retourne pour la faire sortir
+         dans le bac au-dessus! Il faut alors que la face à
+         imprimer soit vers le bas plutôt que vers le haut et, à la
+         fin de l'impression, la face imprimée sera vers le haut.
+         Pour réussir une impression recto verso avec une telle
+         imprimante, il est important que les pages impaires soient
+         dans le bon ordre plutôt que l'ordre inverse. Pour
+         imprimer les versos, il faut infliger une rotation de 180
+         degrés aux pages sorties de l'imprimante avant de les
+         charger à nouveau. La face non encore imprimée se retrouve
+         alors vers le bas et l'impression des pages paires, qui
+         doit se faire dans l'ordre inverse de celle des pages
+         impaires, peut commencer! Ce mode a peut-être été
+         développé par HP en prévision d'un adaptateur optionnel
+         permettant l'impression recto verso, mais je n'ai jamais
+         pu obtenir un tel adaptateur en pratique.
+      </p>
+      <h2>
+         <a name="sw" id="sw">Problèmes logiciels</a>
+      </h2>
+      <p>
+         Sans une imprimante capable d'imprimer recto-verso
+         directement ou un pilote d'impression supportant ce genre
+         de travail, les logiciels doivent être en mesure
+         d'effectuer l'impression de pages sélectives, ce qui n'est
+         pas le cas de tous les logiciels, malheureusement. Le
+         bloc-notes, par exemple, ne permet pas ce type
+         d'impression.
+      </p>
+      <ul>
+         <li>
+            <a href="#wrd">Impression de document Word</a>
+         </li>
+         <li>
+            <a href="#so">Impression de document StarWriter</a>
+         </li>
+         <li>
+            <a href="#ps">Impression avec GSView</a>
+         </li>
+         <li>
+            <a href="#pdf">Impression avec Adobe Acrobat Reader</a>
+         </li>
+      </ul>
+      <h3>
+         <a name="wrd" id="wrd">Impression de documents Word</a>
+      </h3>
+      <p>
+         Avant de commencer, il est recommandé de numéroter les
+         pages pour faciliter la vérification de l'ordre des pages.
+         Pour ce faire, ouvrez le document à imprimer, activez la
+         commande Numéros de age... du menu Insertion.
+      </p>
+      <p>
+         <img src="pageno.png"
+         alt="Numérotation des pages sous Word" />
+      </p>
+      <p>
+         Sélectionnez la position et l'alignement des numéros puis
+         validez par OK. Dans les cas simples, cela suffit et
+         chaque page du document se verra attribuer un numéro
+         unique. Il est possible de modifier le type de
+         numérotation, voire même de créer des pages préliminaires
+         avec un système de numérotation différent des pages
+         principales, mais cela amène de nombreuses complications
+         qui font en fait la faiblesse de ce traitement de texte.
+         Il est maintenant temps de passer à l'étape suivante:
+         l'impression.
+      </p>
+      <p>
+         Par bonheur, le logiciel Microsoft Word dispose de la
+         fonction voulue. Pour effectuer le travail, sélectionnez
+         la commande Imprimer du menu Fichier. Une boîte de
+         dialogue apparaîtra et permettra de paramétrer
+         l'impression.
+      </p>
+      <p>
+         <img src="wrdprn.png"
+         alt="La boîte d'impression de Word" />
+      </p>
+      <p>
+         Dans la section Plusieurs pages, sélectionnez Tout ou
+         Pages afin de spécifier quelles pages à imprimer. Dans la
+         section Imprimer, sélectionnez Pages impaires puis validez
+         par le bouton OK. L'impression commence alors, notez que
+         toute modification du document en cours d'impression
+         s'avère risquée, car elle pourrait perturber l'ordre des
+         pages et provoquer des pertes de texte ou des décalages
+         catastrophiques. Pendant l'impression, il est bon de
+         vérifier si tout se passe bien et si toutes les pages sont
+         bien imprimées.
+      </p>
+      <p>
+         Retirez ensuite les feuilles de l'imprimante et réinsérez
+         les feuilles imprimées seulement de façon à ce que
+         l'impression ultérieure s'effectue sur l'endos des
+         feuilles déjà imprimées. Rappelez ensuite la commande
+         Imprimer du menu Fichier, sélectionnez les mêmes
+         paramètres pour la section Plusieurs pages puis dans
+         Imprimer, activez Pages paires. Validez ensuite par OK.
+         Durant l'impression, vérifiez que chaque page paire
+         imprimée correspond bien à sa page impaire. Dans le cas
+         d'un décalage, il faudra recommencer les pages
+         problématiques en utilisant le bouton radio Pages de la
+         boîte de dialogue Imprimer de Word.
+      </p>
+      <h3>
+         <a name="so" id="so">Impression d'un document
+         StarWriter</a>
+      </h3>
+      <p>
+         StarOffice dispose d'un atout majeur par rapport à un
+         logiciel comme Microsoft Office: il est multi-plateforme.
+         De plus, il est gratuit et effectue un travail très
+         semblable à ce que peut accomplir Word. Ouvrez tout
+         d'abord le document à imprimer, qui peut s'avérer un
+         document Word, soit dit en passant. Le même travail
+         qu'avec Word s'impose alors.
+      </p>
+      <p>
+         La numérotation des pages s'avère malheureusement moins
+         simple. Dans le menu Format, sélectionnez Page. Activez
+         l'onglet Page et sélectionnez le type de numérotation
+         voulue.
+      </p>
+      <p>
+         <img src="sopageno.png"
+         alt="Sélection du type de numérotation des pages dans StarOffice" />
+      </p>
+      <p>
+         Selon que vous voulez placer le numéro de page dans
+         l'en-tête ou dans le pied de page, sélectionnez l'onglet
+         voulu puis activez l'option voulue. Cliquez ensuite en
+         haut ou au bas d'une page et alignez, à l'aide des
+         boutons, selon l'emplacement désiré pour le numéro de la
+         page. Ensuite, pour insérer le numéro proprement dit,
+         utilisez la commande Insertion, Instruction de champ,
+         numéro de page. Pour l'impression, utilisez naturellement
+         la commande Imprimer.
+      </p>
+      <p>
+         <img src="soprn.png"
+         alt="Impression à partir de StarOffice" />
+      </p>
+      <p>
+         Il est possible de définir la Zone d'impression, même
+         principe que pour Word, mais où se trouve l'option pour
+         les pages paires et impaires. Sans cette option, il serait
+         nécessaire, pour imprimer les pages impaires, de taper
+         tous les numéros à la main dans la zone de texte Pages, ce
+         qui est un peu long mais tout de même faisable. Avant
+         d'entreprendre une telle aventure, pourquoi ne pas activer
+         le bouton Options...
+      </p>
+      <p>
+         <img src="soprnopts.png"
+         alt="Options d'impression de StarOffice" />
+      </p>
+      <p>
+         Il est possible d'activer Pages de gauche et pages de
+         droite, ce qui pourrait permettre de solutionner le
+         problème, non? Si on se fie au format du livre ordinaire,
+         les pages paires sont à gauche et les pages impaires, à
+         droite. La première phase consistera donc à imprimer les
+         pages de droite puis ensuite on imprimera les pages de
+         gauche.
+      </p>
+      <h3>
+         <a name="ps" id="ps">Imprimer avec GSView</a>
+      </h3>
+      <p>
+         L'impression recto-verso avec GSView ouvre la porte à
+         celle de tout fichier PostScript, quel qu'il soit, ce qui
+         constitue un atout précieux qui fera naître des astuces
+         intéressantes. Encore une fois, l'ouverture du document
+         dans GSView s'avère nécessaire. Il est toutefois possible
+         d'imprimer le fichier sans l'ouvrir en activant la
+         commande Imprimer dès l'ouverture du programme. Un nom de
+         fichier vous sera demandé puis la boîte apparaîtra, elle
+         est très semblable à la boîte standard des options
+         d'impression. Dans la section Print Method, sélectionnez
+         Windows GDI printer. Cette option utilisera le pilote de
+         Windows et vous évitera d'avoir à configurer un pilote
+         GhostScript qui potentiellement sera inexistant pour votre
+         imprimante. Cliquez ensuite sur Select Pages dans la même
+         boîte de dialogue et une autre fenêtre surgira.
+      </p>
+      <p>
+         <img src="gsvprnopts.png"
+         alt="Les options d'impression de GSView" />
+      </p>
+      <p>
+         C'est dans cette fenêtre que vous choisirez quelles pages
+         imprimer, le reste se passe comme avec Word ou StarOffice.
+         Il est impossible d'ajouter, avec GSView, des numéros à
+         chaque page, cela devra être fait par le logiciel
+         produisant le fichier PostScript ou ne pas être fait du
+         tout.
+      </p>
+      <h3>
+         <a name="pdf" id="pdf">Impression avec Adobe Acrobat
+         Reader</a>
+      </h3>
+      <p>
+         Cette méthode s'applique autant pour le logiciel gratuit
+         Adobe Acrobat Reader permettant de lire les PDF que pour
+         Adobe Acrobat qui permet de créer ses propres PDF. Dans le
+         menu Fichier, sélectionnez Ouvrir puis ouvrez le PDF à
+         imprimer. La commande Imprimer devient alors accessible.
+      </p>
+      <p>
+         <img src="pdfprn.png"
+         alt="Boîte de dialogue d'impression du logiciel Adobe Acrobat 5" />
+      </p>
+      <p>
+         La boîte peut varier selon la version du produit utilisée,
+         mais elle contiendra, pour les versions 4 ou supérieures,
+         l'option des pages paires et impaires. Si vous utilisez
+         une version 3 de Adobe Acrobat Reader, vous devrez
+         imprimer une à une chaque page, car il n'y a même pas de
+         sélection d'intervalles de pages!
+      </p>
+      <h2>
+         <a name="nosoft" id="nosoft">Quand le logiciel ne coopère
+         pas</a>
+      </h2>
+      <p>
+         Il arrive parfois que le logiciel utilisé soit dépourvu
+         d'une option de pages paires et impaires et qu'il faille
+         imprimer le document d'un seul coup, pas de recto-verso
+         possible. Les deux cas-type s'avèrent Internet Explorer ou
+         Mozilla/Firefox qui n'est pas en mesure de donner un
+         nombre de pages exact pour une page Web et le Bloc-notes
+         trop primitif pour cela. Dans ce cas, si vous voulez
+         imprimer recto-verso, il vous faudra convertir le document
+         produit afin de l'importer dans l'un des logiciels
+         précédents.
+      </p>
+      <h3>
+         Traitement du HTML
+      </h3>
+      <p>
+         Si vous souhaitez imprimer une page Web, vous pouvez
+         importer la page dans Microsoft Word ou Sun StarOffice
+         afin de pouvoir utiliser les options d'impressions
+         offertes par le programme. Malheureusement, cette
+         importation n'est pas sans conséquences pour le formatage
+         de la page et il se peut que des éléments disparaissent ou
+         changent de place. Cette méthode s'avère toutefois très
+         simple et peut fonctionner.
+      </p>
+      <h3>
+         Traitement des fichiers texte
+      </h3>
+      <p>
+         Un traitement similaire peut être effectué pour les
+         fichiers texte comme des programmes ou de la
+         documentation. Malheureusement, dans le cas d'un programme
+         à plusieurs fichiers, il sera nécessaire d'importer chaque
+         fichier un à un dans le traitement de texte, ce qui est
+         long et pas mal tannant. Une solution très intéressante,
+         quoiqu'exigeant Linux, consiste à utiliser le logiciel
+         a2ps capable de formater le texte et d'en faire un fichier
+         PostScript qui peut être traité par GSView ou transformé
+         en PDF.
+      </p>
+      <h3>
+         La solution universelle: PostScript
+      </h3>
+      <p>
+         Pour régler le problème des pages Web et même des
+         programmes sans avoir à recourir à Linux et a2ps, il
+         existe une astuce des plus simples: télécharger le pilote
+         générique PostScript sur le site de <a
+         href="http://www.adobe.com">Adobe</a> (un peu de recherche
+         est nécessaire), l'installer et configurer cette
+         pseudo-imprimante pour imprimer dans un fichier. Ce
+         fichier prn résultant possède une propriété très
+         intéressante: c'est un fichier PostScript!
+      </p>
+      <p>
+         <img src="ieprn.png"
+         alt="La sélection de l'imprimante PostScript dans Internet Explorer 5.5 sous Windows 2000" />
+      </p>
+      <p>
+         Il est également possible de configurer ce pilote, comme
+         une vraie imprimante, en fait! Malheureusement, cette
+         astuce ne produit pas toujours un fichier utilisable par
+         GSView et cela peut engendrer de mystérieuses anomalies. À
+         noter qu'il ne faut pas configurer cette imprimante pour
+         qu'elle utilise le port de votre véritable imprimante
+         (LPT1 la plupart du temps) sous peine de résultats
+         imprévisibles.
+      </p>
+      <p>
+         Si vous disposez du logiciel Adobe Acrobat, vous pouvez
+         toutefois produire de meilleurs résultats en utilisant PDF
+         Writer comme imprimante. Cela va créer un fichier PDF qui
+         pourra être imprimé et/ou échangé avec d'autres
+         utilisateurs.
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

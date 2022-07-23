@@ -1,0 +1,463 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.1//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>10.5 La copie de DVD Video</TITLE>
+<META NAME="description" CONTENT="10.5 La copie de DVD Video">
+<META NAME="keywords" CONTENT="cdwriting">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cdwriting.css">
+
+<LINK REL="previous" HREF="node54.html">
+<LINK REL="up" HREF="node50.html">
+<LINK REL="next" HREF="node56.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1757"
+  HREF="node56.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1751"
+  HREF="node50.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1747"
+  HREF="node54.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1753"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1755"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html1758"
+  HREF="node56.html">11. Création d'un disque</A>
+<B> monter:</B> <A NAME="tex2html1752"
+  HREF="node50.html">10. Copie d'un CD</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html1748"
+  HREF="node54.html">10.4 Stockage de disques</A>
+ &nbsp; <B>  <A NAME="tex2html1754"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1756"
+  HREF="node106.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Sous-sections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html1759"
+  HREF="node55.html#SECTION06251000000000000000"><SPAN CLASS="arabic">10</SPAN>.<SPAN CLASS="arabic">5</SPAN>.<SPAN CLASS="arabic">1</SPAN> Décryptage du DVD</A>
+<LI><A NAME="tex2html1760"
+  HREF="node55.html#SECTION06252000000000000000"><SPAN CLASS="arabic">10</SPAN>.<SPAN CLASS="arabic">5</SPAN>.<SPAN CLASS="arabic">2</SPAN> Transcodage du DVD</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION06250000000000000000">
+<SPAN CLASS="arabic">10</SPAN>.<SPAN CLASS="arabic">5</SPAN> La copie de DVD Video</A>
+</H1>
+
+<P>
+Plusieurs problèmes surgissent lors de la copie de films sur
+DVD. D'abord, la plupart des disques commercialisés sont cryptés à
+l'aide de la technologie CSS; ce qui empêche toute lecture directe
+depuis le disque. Toute tentative de copie des fichiers VOB du DVD en
+utilisant l'Explorateur se soldera par un échec, à moins que le DVD ne
+soit pas crypté ou qu'un pilote spécial soit utilisé.
+La protection Macrovision empêche quant à elle la
+copie directe du DVD sur une cassette VHS.
+Ensuite, lorsque les données sont sur disque dur,
+elles sont souvent condamnées à y rester puisqu'un support de taille
+suffisante n'est pas accessible. À moins de disposer d'un graveur DVD,
+il ne sera pas possible de graver le film copié tel quel.
+Le second problème surgit avec un DVD
+de plus de 4.7 Go (Il en existe malheureusement beaucoup!) ou pour un
+utilisateur ne disposant pas d'un graveur DVD. Il faut alors convertir
+les données afin de pouvoir les stocker sur un support amovible. Même
+si les films rippés doivent demeurer sur le disque dur, il est bon
+d'en réduire leur taille afin d'éviter l'encombrement et faciliter les
+sauvegardes préventives.
+
+<P>
+
+<H2><A NAME="SECTION06251000000000000000">
+<SPAN CLASS="arabic">10</SPAN>.<SPAN CLASS="arabic">5</SPAN>.<SPAN CLASS="arabic">1</SPAN> Décryptage du DVD</A>
+</H2>
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:dvdshrink"></A><A NAME="1874"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 10.7:</STRONG>
+Écran de bienvenue de DVD Shrink</CAPTION>
+<TR><TD>&nbsp;
+<BR>
+
+    <DIV ALIGN="CENTER">
+<IMG
+ WIDTH="680" HEIGHT="720" ALIGN="BOTTOM" BORDER="0"
+ SRC="dvdshrink.png"
+ ALT="1872">
+    
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+Le décryptage du DVD est effectué à l'aide d'un ripper<A NAME="1736"></A> ou d'un
+pilote spécial. Le ripper permet de lire le disque et de copier
+l'intégralité de son contenu tandis que le pilote fait croire aux
+applications que le DVD n'est pas crypté. Le logiciel DVD
+Shrink<A NAME="1737"></A> (figure&nbsp;<A HREF="#fig:dvdshrink">10.7</A>, [<A HREF="node105.html#url:dvdshrink">URL27</A>])
+contient un ripper qui permet de
+lire des disques cryptés. En plus de
+décrypter le DVD, ce logiciel peut effectuer la seconde étape du traitement
+afin de permettre la gravure du disque sur un DVD<SPAN CLASS="MATH"><IMG
+ WIDTH="20" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$\pm$"></SPAN>R(W).
+Il peut stocker le résultat de l'extraction sur DVD enregistrable ou
+sur disque dur, selon le choix de l'utilisateur.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:dvddecrypter"></A><A NAME="1883"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 10.8:</STRONG>
+Écran de bienvenue de DVD Decrypter</CAPTION>
+<TR><TD>&nbsp;
+<BR>
+
+    <DIV ALIGN="CENTER">
+<IMG
+ WIDTH="729" HEIGHT="466" ALIGN="BOTTOM" BORDER="0"
+ SRC="dvddecrypter.png"
+ ALT="1881">
+    
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+Le logiciel DVD Decrypter<A NAME="1742"></A>
+(figure&nbsp;<A HREF="#fig:dvddecrypter">10.8</A>, [<A HREF="node105.html#url:dvddecrypter">URL26</A>])
+constitue un ripper qui peut réussir à lire certains disques que DVD
+Shrink ne parvient pas à décoder totalement. Lorsque DVD Shrink
+s'interrompt avec un message d'erreur avant d'avoir terminé la copie
+d'un film, il est possible que Decrypter puisse aller plus loin dans
+la copie. Si, peu importe le lecteur utilisé pour lire un certain DVD,
+il n'est pas possible de s'en sortir sans rencontrer un secteur
+défectueux, Decrypter est en mesure de l'ignorer et de poursuivre,
+moyennant certains réglages, le décodage du disque.
+Toutefois, il n'est pas
+en mesure de convertir les VOB pour gravure sur DVD-5. Heureusement, DVD
+Shrink peut prendre des VOB décryptés en entrée et les
+transformer. Il est ainsi possible de combiner DVD Decrypter et DVD
+Shrink pour obtenir une puissante (et gratuite) solution de copie de
+DVD! Mieux encore: étant donné que les VOB ont souvent une taille de
+1 Go, la limite des 4Go ne pose aucun problème.
+Les rippers sont
+assez simples à utiliser de façon générale. Il suffit d'insérer le
+disque dans le lecteur DVD après avoir démarré le logiciel et
+d'appuyer sur un bouton. 
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:dvddecrypterdvd"></A><A NAME="1892"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 10.9:</STRONG>
+DVD Decrypter ayant analysé un disque</CAPTION>
+<TR><TD>&nbsp;
+<BR>
+
+    <DIV ALIGN="CENTER">
+<IMG
+ WIDTH="729" HEIGHT="466" ALIGN="BOTTOM" BORDER="0"
+ SRC="dvddecrypterdvd.png"
+ ALT="1890">
+    
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+Par exemple, sous DVD Decrypter, il suffit d'insérer le disque à
+décoder, sélectionner le lecteur DVD dans la liste <SPAN  CLASS="textbf">Source</SPAN>
+puis les fichiers à décrypter. Comme le montre la
+figure&nbsp;<A HREF="#fig:dvddecrypterdvd">10.9</A>, le logiciel permet de sélectionner quels
+fichiers à ripper et où placer le résultat. Il indique la protection
+présente sur le DVD et son zonage. L'onglet <SPAN  CLASS="textbf">I/O</SPAN> accessible
+dans <SPAN  CLASS="textbf">Tools -&gt;
+
+Settings</SPAN> contient les options nécessaires
+pour ignorer les secteurs défectueux ou réduire le nombre d'essais
+lorsqu'un tel secteur est trouvé.
+Le bouton au bas de la fenêtre
+déclenche le décryptage.
+
+<P>
+Il existe
+plusieurs autres rippers dont certains sont offerts en shareware. DVD
+Shrink et DVD Decrypter sont intéressants, car ils sont gratuits et
+effectuent un excellent travail. Toutefois, DVD Shrink, du moins la
+version utilisée au moment de l'écriture de ces lignes, souffre de la
+limite du 4 Go, ce qui le rend inapte à créer des images ISO DVD.
+Bien entendu, le décryptage exige une
+grande quantité d'espace disque et au moins une demi-heure. Si DVD
+Shrink est utilisé, il faudra
+au moins 4.3Go. Si le décryptage et le transcodage doivent être
+effectués de façon séparée, il faudra plus de 10Go d'espace libre!
+
+<P>
+Il existe aussi des
+pilotes permettant d'effectuer le décryptage de façon
+transparente. Par exemple, SlySoft AnyDVD<A NAME="1753"></A>
+[<A HREF="node105.html#url:anydvd">URL60</A>] constitue un tel
+pilote qui peut être utilisé pour permettre à
+Elby CloneDVD<A NAME="1755"></A> [<A HREF="node105.html#url:clonedvd">URL30</A>] de copier des
+DVD cryptés. CloneDVD constitue un excellent logiciel de copie de DVD,
+mais il n'est pas gratuit et ne sait pas recompresser des DVD
+multicouches; il ne permet que de stocker de tels disques sur deux
+DVD-5.
+Le pilote agit de façon transparente: lorsqu'il est mis
+en marche, tous les DVD apparaîtront non encryptés pour les logiciels
+de lecture et de ripping. Outre le décryptage, ces logiciels offrent
+souvent le dézonage. Grâce à AnyDVD, par exemple, il est possible de
+lire un DVD d'une zone différente du lecteur de la machine, et ce,
+sans changer la zone du lecteur. Il est ainsi possible de l'utiliser
+pour lire un DVD acheté en Europe dans un ordinateur canadien.
+Malheureusement, tous ces drivers
+semblent de type shareware. Ils fonctionneront pendant quelques jours
+ensuite de quoi il faudra enregistrer le produit pour continuer à
+l'utiliser.
+
+<P>
+
+<H2><A NAME="SECTION06252000000000000000">
+<SPAN CLASS="arabic">10</SPAN>.<SPAN CLASS="arabic">5</SPAN>.<SPAN CLASS="arabic">2</SPAN> Transcodage du DVD</A>
+</H2>
+
+<P>
+Lorsque le DVD est décrypté, il faut stocker son contenu sur un
+support quelconque. Si le contenu n'est pas stocké, l'objectif du
+ripping, celui d'effectuer une sauvegarde du DVD, n'est pas atteint! Il
+existe plusieurs destinations possibles pour le contenu. Si le ripper
+ou driver
+choisi peut supprimer la protection Macrovision (les deux rippers
+précédents le peuvent) et si vous disposez
+d'une sortie TV Out, il serait possible de transférer le contenu du
+disque sur une cassette VHS, mais cette opération est plutôt longue et
+mobilise complètement la machine pendant toute sa durée, à moins de
+dispoer d'un système à double affichage. Certaines cartes graphiques
+supportent plusieurs ports de sortie (écran CRT, sortie DVI, sortie TV
+RCA, ...) qui agissent en quelque sorte comme des écrans
+multiples. Ces cartes sont idéales pour des tâches d'enregistrement de
+DVD sur cassette VHS ou pour une application cinéma maison d'un
+ordinateur. Pour un enregistrement sur cassette VHS, il faudra
+brancher la sortie TV Out (Composite ou S-Video) dans une entrée Line In du
+magnétoscope et régler l'appareil pour qu'il prenne son entrée vidéo
+sur Line In plutôt que le classique coaxial. Bien que la procédure de
+réglage dépende largement du magnétoscope utilisé, elle se résume
+souvent à appuyer sur un bouton tel que Input Select sur la
+télécommande ou l'appareil.
+Les appareils d'entrée de gamme ne supportent que le
+composite
+(fil avec connecteur jaune RCA) tandis que d'autres supportent S-Video
+(fil noir avec connecteurs DIN semblables à des ports de
+clavier/souris PS/2 (mais ce ne sont pas des ports PS/2!)). Il est
+imaginable de trouver des magnétoscopes avec entrée par composantes
+(Y, Pr, Pb), mais je n'ai jamais vu de tels appareils ni de cartes
+graphiques capables de produire le signal par composantes. Si une
+telle solution existait, elle serait idéale pour le transfert de DVD
+sur VHS. Pour le transfert du son, deux câbles avec connecteurs RCA
+sont utilisés, un câble par canal. Le connecteur rouge (<SPAN  CLASS="textbf">r</SPAN>ed)
+correspond au canal de droite (<SPAN  CLASS="textbf">r</SPAN>ight) tandis que le noir ou
+le blanc correspondent au canal gauche. Il n'est malheureusement pas
+possible d'encoder le signal 5.1 sur VHS, seul le Dolby Pro Logic sera
+conservé.
+
+<P>
+Il est aussi possible de transcoder le contenu DVD afin de lui
+donner une forme plus petite. Pour ce faire, il existe plusieurs
+alternatives. Il est possible, avec
+TMPGEnc<A NAME="1760"></A> [<A HREF="node105.html#url:tmpgenc">URL66</A>], de convertir
+le MPEG-2 du DVD
+vers du MPEG-1 pour VCD. Le logiciel fournit les profils nécessaires
+pour la conversion. Toutefois, il sera souvent nécessaire de séparer
+le MPEG en plusieurs parties puisque le VCD accepte une durée vidéo
+inférieure à celle du DVD. Il est aussi envisageable d'ajuster les
+paramètres du fichier MPEG (CQ et matrice de quantisation) afin de
+faire tenir le film sur un ou deux disques, selon la qualité désirée
+et la durée du DVD.
+Le format KVCD<A NAME="1762"></A> [<A HREF="node105.html#url:kvcd">URL104</A>]
+constitue une variante de VCD qui pourrait être intéressante, étant
+donné que la compression est supérieure. Le site KVCD fournit des
+liens vers des guides expliquant comment effectuer la conversion sous
+Windows. Les techniques exposées dans ces documents emploient
+malheureusement beaucoup de logiciels différents (mais gratuits,
+heureusement!) et s'avèrent donc assez complexes.
+Il est aussi possible de recompresser des DVD en  DivX afin de les
+sauvegarder sur PC. Par exemple, le site
+[<A HREF="node105.html#url:dvddivxwin">URL88</A>]
+donne une procédure expliquant une façon de faire.
+
+<P>
+Il est aussi possible de graver un DVD Video décrypté sur un DVD
+inscriptible. Malheureusement, la plupart des films actuels n'entrent
+pas sur un DVD de 4.3 Go. Trois solutions sont disponibles: répartir le
+contenu sur plusieurs disques (ce que fait CloneDVD), supprimer
+certains éléments du disque (trames sonores, sous-titres, features,
+scènes, ...) ou recompresser la vidéo. Le logiciel DVD Shrink est le
+seul produit gratuit qui permet d'effectuer la suppression d'éléments
+et la recompression. Son utilisation s'avère fort simple. Après lui
+avoir demandé d'analyser le disque (environ trois minutes), le
+logiciel permet à l'utilisateur de sélectionner ou désélectionner des
+parties du disque. Des chapitres, trames sonores et sous-titres
+peuvent être retirés afin d'accroître la qualité de l'image
+recompressée. Le bouton <TT>Backup!</TT> permet ensuite d'effectuer la
+copie proprement dite. Le logiciel peut copier le contenu du disque
+directement vers un DVD enregistrables (l'option la plus simple et
+recommandée dans la plupart des cas), dans un fichier ISO ou sous la
+forme de fichiers VOB. La seconde option est peu praticable, car le
+logiciel se bloque après avoir écrit 4Go de données. Il semble que DVD
+Shrink n'utilise pas les APIs Win32 pour les longs fichiers. Il
+utilise des pointeurs 32 bits pour accéder aux fichiers, ce qui le
+limite à 4Go.
+
+<P>
+Malheureusement, ce logiciel éprouve des
+difficultés avec les données PC sur le DVD. Heureusement, ces données
+sont souvent sans importance.
+Pour contourner le
+problème, il faut déterminer à l'avance la taille des données PC (tout
+ce qui ne se trouve pas dans les répertoires <TT>VIDEO_TS</TT> et
+<TT>AUDIO_TS</TT> du DVD. Ceci peut se faire facilement sous
+l'Explorateur Windows. Par exemple, supposons que le disque contient
+262 Mo de données hors des répertoires spéciaux.
+Sous DVD Shrink, il faudra activer <SPAN  CLASS="textbf">Edit -&gt;
+
+Preferences</SPAN>.
+Sous l'onglet <SPAN  CLASS="textbf">Preferences</SPAN>, plutôt que sélectionner
+<SPAN  CLASS="textbf">DVD-5</SPAN> comme type de disque, choisissez <SPAN  CLASS="textbf">Custom</SPAN>.
+La taille 4464 par défaut doit être réduite à 4200 pour pouvoir
+accueillir les données informatiques de cet exemple particulier.
+Cliquez ensuite sur <SPAN  CLASS="textbf">Open Disc</SPAN> pour ouvrir un disque DVD ou
+<SPAN  CLASS="textbf">Open Files</SPAN> pour sélectionner des fichiers VOB déjà décryptés
+(par DVD Decrypter par exemple).
+L'analyse du disque démarrera et DVD Shrink calculera
+ses paramètres d'encodage en fonction de la capacité réduite. Modifier le
+taux de compression manuellement après coup ne m'a pas permis de
+baisser l'espace
+des fichiers VOB suffisamment pour stocker des données PC.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:dvdshrinkanalysis"></A><A NAME="1910"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 10.10:</STRONG>
+Résultat de l'analyse par DVD Shrink</CAPTION>
+<TR><TD>&nbsp;
+<BR>
+
+    <DIV ALIGN="CENTER">
+<IMG
+ WIDTH="680" HEIGHT="720" ALIGN="BOTTOM" BORDER="0"
+ SRC="dvdshrinkanalysis.png"
+ ALT="1908">
+    
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+La figure&nbsp;<A HREF="#fig:dvdshrinkanalysis">10.10</A> montre un exemple de résultat
+d'analyse.
+Cliquez ensuite sur le bouton <SPAN  CLASS="textbf">Backup!</SPAN> pour déclencher
+la sauvegarde. Sélectionnez <SPAN  CLASS="textbf">Hard Disk Folder</SPAN> comme
+destination et entrez le nom d'un répertoire vide.
+Le logiciel recompressera les fichiers lus depuis le DVD (ou le disque
+dur) et produira de nouveaux fichiers VOB constituant l'exacte copie
+du disque, avec les menus, images et trames sonores de l'original mais
+dans une taille réduite. Quoiqu'en théorie, il y a une perte de
+qualité, cette perte a été négligeable dans le cas des copies que j'ai
+effectuées.
+Dans un logiciel de gravure compatible DVD Video tel que Nero Burning
+ROM, il faut placer les fichiers VOB
+créés par DVD Shrink dans le répertoire <TT>VIDEO_TS</TT> et les
+autres fichiers, copiés depuis le DVD et non rippés par DVD Shrink,
+aux endrotis appropriés afin de reproduire la structure. Bien entendu,
+il faudra sélectionner le type de compilation DVD Video dans le
+logiciel de gravure afin que le <SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$\mu$"></SPAN>-UDF soit utilisé et non ISO&nbsp;9660
+ou UDF standard. Avec Nero, lorsque le bon profil est activé, les
+répertoires <TT>VIDEO_TS</TT> et <TT>AUDIO_TS</TT> apparaissent
+automatiquement sur le disque. S'il vous faut créer manuellement ces
+répertoires, il vaut mieux vérifier la configuration du logiciel et
+lire sa documentation avant de procéder à une gravure, surtout sur un
+DVD<SPAN CLASS="MATH"><IMG
+ WIDTH="20" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$\pm$"></SPAN>R qui n'est pas effaçable.
+
+<P>
+Le transcodage constitue sans doute l'étape la plus longue et la
+plus difficile de la copie de DVD. Sur un AMD ThunderBird 1000MHz, il
+faut environ deux heures pour recompresser un DVD de 7 Go. Il peut
+arriver que certains disques soient encore plus longs à traiter!
+Encore de nos jours, la copie de sauvegarde de films sur DVD est
+longue, aussi longue que le transfert de cassettes VHS. Heureusement,
+contrairement au médium analogique, la copie de DVD conserve davantage
+la qualité de la vidéo originale et il est possible d'utiliser son
+ordinateur pendant la copie.
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1757"
+  HREF="node56.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1751"
+  HREF="node50.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1747"
+  HREF="node54.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1753"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1755"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html1758"
+  HREF="node56.html">11. Création d'un disque</A>
+<B> monter:</B> <A NAME="tex2html1752"
+  HREF="node50.html">10. Copie d'un CD</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html1748"
+  HREF="node54.html">10.4 Stockage de disques</A>
+ &nbsp; <B>  <A NAME="tex2html1754"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1756"
+  HREF="node106.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Eric Buist
+2005-11-13
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,638 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         Passage à Mandrake 10.1
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css" href="../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../index.xhtml" class="parents">Le royaume
+               de Eric Buist</a> &gt;&gt; <a href="index.xhtml"
+               class="parents">Informatique</a> &gt;&gt;
+               Configuration informatique
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../sitemap.xhtml" class="sitemap">Plan du
+               site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="mdk10.xhtml"
+               class="leftsibling">Passage à Mandrake 10</a>
+            </td>
+            <td class="thispage">
+               Passage à Mandrake 10.1
+            </td>
+            <td class="rightsibling">
+               <a href="fc3.xhtml" class="rightsibling">Passage à
+               Fedora Core 3</a> &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         Passage à Mandrake 10.1
+      </h1>
+      <ul>
+         <li>
+            <a href="#why">Pourquoi mettre à jour à 10.1</a>
+         </li>
+         <li>
+            <a href="#get">Obtenir Linux</a>
+         </li>
+         <li>
+            <a href="#install">Une installation sans trop de
+            pépins</a>
+         </li>
+         <li>
+            <a href="#atitvbug">TV Tuner ATI All-In-Wonder 128 Pro:
+            toujours un cas désespéré</a>
+         </li>
+         <li>
+            <a href="#atibug">Régression: même le 2D/3D
+            fonctionnait mal!</a>
+         </li>
+         <li>
+            <a href="#conc">Conclusion</a>
+         </li>
+      </ul>
+      <h2>
+         <a name="why" id="why">Pourquoi mettre à jour à 10.1</a>
+      </h2>
+      <p>
+         Mandrake comporte un très vilain défaut: les mises à jour
+         de paquetages sont difficiles. Par exemple, la version
+         10.0 inclut une certaine version du navigateur <a
+         href="http://www.mozilla.org">Mozilla</a> qui ne change
+         jamais pendant toute la vie de la distribution. Parfois,
+         Mandrake produit des mises à jour, mais elles ne changent
+         jamais le numéro de version du paquetage! Plutôt que
+         prendre le code source depuis le site officiel et le
+         recompiler, les gens de Mandrake semblent vaillamment
+         tenter de corriger le code de la version couramment dans
+         la distribution.
+      </p>
+      <p>
+         Alors, que se passe-t-il si je souhaite mettre Mozilla à
+         jour? La première possibilité consiste à consulter un site
+         non géré par Mandrake qui m'expliquera comment configurer
+         URPMI (gestionnaire de mises à jour) afin d'accéder à de
+         nouvelles sources. Il faut reprogrammer URPMI pour qu'il
+         aille puiser des mises à jour dans la branche maîtresse de
+         développement Mandrake communément appelée Cooker. Ces
+         paquetages ne sont pas adaptés à la distribution 10.0 et
+         peuvent ne pas fonctionner, mais c'est la <i>seule</i>
+         façon Mandrake de mettre un élément à jour sans attendre
+         une nouvelle version de toute la distribution!
+      </p>
+      <p>
+         La deuxième possibilité consiste à désinstaller le
+         paquetage construit par Mandrake pour ensuite télécharger
+         le logiciel depuis le site officiel. Dans le cas de
+         Mozilla, Firefox et Thunderbird, le site fournit des
+         versions précompilées et la mise à jour est assez aisée.
+         Toutefois, plusieurs logiciels ne fournissent que le code
+         source, augmentant le temps d'installation à plusieurs
+         minutes, parfois même plusieurs heures en cas de problèmes
+         de compilation!
+      </p>
+      <p>
+         La meilleure stratégie consistait donc à mettre Mandrake à
+         jour le plus souvent possible, si bien que je passai à
+         10.1. Cela me donnerait accès à GNOME 2.6 et Xorg 6.7
+         plutôt que XFree86 4.3.
+      </p>
+      <h2>
+         <a name="get" id="get">Obtenir Linux</a>
+      </h2>
+      <p>
+         Puisque je m'étais abonné au MandrakeClub afin de
+         contribuer à la communauté Linux, je disposais d'une façon
+         beaucoup plus simple d'obtenir l'image ISO DVD. Avec mon
+         abonnement Silver, je pus même obtenir la version
+         commerciale Powerpack!
+      </p>
+      <p>
+         À présent, Mandrake encourageait fortement l'utilisation
+         du logiciel <a
+         href="http://www.bittorrent.com">BitTorrent</a> pour
+         télécharger la distribution. Ce protocole permet de mieux
+         utiliser le potentiel de téléchargement en amont des
+         connexions haute vitesse de toute façon indispensables
+         pour obtenir Linux par Internet. Les gros fichiers à
+         télécharger sont regroupés dans une entité appelée
+         <i>torrent</i> qui est ensuite subdivisé en plusieurs
+         fragments. Nous pourrions considérer les fragments comme
+         des pages d'un livre. Le serveur dispose de tous les
+         fragments et en distribue un certain nombre aux
+         utilisateurs connectés. Chaque utilisateur reçoit des
+         fragments différents et complète son torrent en échangeant
+         des parties avec d'autres utilisateurs. BitTorrent peut
+         ainsi alléger la charge de travail nécessaire à un
+         serveur. Ce qui est un atout précieux pour la distribution
+         de systèmes libres tels que Linux.
+      </p>
+      <p>
+         Toutefois, il n'est pas aussi simple qu'il n'y paraît
+         d'utiliser BitTorrent dans mon cas en raison de ma
+         connexion Vidéotron et de ma passerelle de connexion
+         Windows XP (partage Internet). Pour pouvoir atteindre une
+         vitesse raisonnable, il semble falloir le configurer pour
+         qu'il puisse télécharger en amont. Toutefois, Vidéotron
+         impose une limite de 10 giga-octets qu'il est facile de
+         dépasser avec un tel logiciel. Le dépassement de la limite
+         entraîne des frais proportionnels à la taille du
+         téléchargement excédentaire. Je dus ainsi limiter le taux
+         d'upload à 30k/s afin d'éviter de dépasser cette limite
+         propre au service Haute Vitesse par câble. Si le
+         téléchargement avait duré plusieurs jours, j'aurais
+         régulièrement vérifié la consommation mensuelle et aurait
+         dû arrêter tout pour reprendre le mois suivant si jamais
+         j'avais été trop près de la limite. Le service Haute
+         Vitesse Extrême ne souffre pas de cette limite, mais il
+         coûte deux fois plus cher!
+      </p>
+      <p>
+         Pour communiquer avec les autres utilisateurs, BitTorrent
+         doit ouvrir des ports TCP, ce qui ne fonctionne pas bien
+         avec un système derrière une passerelle. Sans quelques
+         astuces, BitTorrent ne peut fonctionner que sur une
+         machine branchée directement à Internet. Depuis longtemps,
+         j'ai sur ma machine Windows XP servant de passerelle
+         redirigé les ports TCP et UDP 12345 et 12346 sur ma
+         machine. Tout paquet envoyé sur ces ports est redirigé
+         vers ma machine. Si un logiciel ouvre un de ces ports, il
+         peut donc agir comme un serveur malgré le partage de
+         connexion Internet. Il faut toutefois indiquer à
+         BitTorrent d'utiliser ces ports plutôt que ceux par
+         défaut, à moins de rediriger de nouveaux ports sur la
+         passerelle.
+      </p>
+      <p>
+         La formule magique pour faire marcher BitTorrent a été
+         pour moi
+      </p>
+<pre>
+btdownloadgui.py --max_upload_rate 30 --minport 12345 --maxport 12346 fichier.torrent
+</pre>
+      La vitesse d'abord exaspérante grimpa à 340k/s, mais elle
+      grimpa à plusieurs centaines de kilo-octets par seconde. 
+      <p>
+         Toutefois, il y a un revers à la médaille. Non seulement
+         BitTorrent a-t-il ralenti l'accès à Internet depuis ma
+         machine pendant qu'il téléchargeait Mandrake 10.1, mais en
+         plus, il a fini par ralentir la machine familiale Windows
+         XP servant de passerelle. Pour cette raison et diverses
+         autres, je songeais de plus en plus migrer vers un
+         routeur, ne serait-ce que pour obtenir un dispositif
+         réseau central supportant le 100Mbits. Mon frère, qui
+         utilisait l'ordinateur pendant mon téléchargement, éprouva
+         des problèmes non pas avec la connexion Internet mais avec
+         la lecture de MP3! Le son sautait, comme sur un vieux 486
+         surchargé. Eh oui, BitTorrent a su étrangler le Pentium
+         III 500MHz! J'ai ainsi dû interrompre le téléchargement
+         pour le repartir plus tard. Afin de prévenir une nouvelle
+         émergence du bogue, j'ai tenté de n'utiliser qu'un port
+         plutôt que deux et ça semble avoir marché puisque mon
+         frère a de nouveau utilisé la machine et ça n'a pas bogué.
+      </p>
+      <p>
+         BitTorrent a pu reprendre le téléchargement là où il était
+         interrompu et dimanche, 7 novembre 2004, le jour même où
+         le téléchargement avait commencé, j'avais l'ISO sur mon
+         disque dur!
+      </p>
+      <p>
+         Afin de cnotrôler la validité du téléchargement, il
+         convient de calculer une somme de contrôle sur le fichier
+         ISO et de veiller à ce que cette somme soit identique à
+         celle donnée par le site Web de la distribution. La somme
+         de contrôle MD5, calculée avec <tt>md5sum</tt>,
+         correspondait et un montage en loop back révéla des
+         fichiers. Ce n'était pas l'image DVD des 4 CD de la
+         version download, non, c'était la version PowerPack!
+         Mandrake 10.1 contenait Xorg 6.7, GNOME 2.6 et KDE 3.2.3,
+         avec en option Xorg 6.8 et KDE 3.3.
+      </p>
+      <h2>
+         <a name="install" id="install">Une installation sans trop
+         de pépins</a>
+      </h2>
+      <p>
+         Vendredi, 12 novembre 2004, j'ai effectué le passage à
+         Mandrake Linux 10.1 Official, version Powerpack. Je
+         configurai mon BIOS pour amorcer depuis le DVD (le graveur
+         ralentit beaucoup l'amorçage de la machine si je laisse
+         cette fonction par défaut) et entamai l'installation.
+         Comme prévu, il y eut une longue phase de sélection des
+         paquetages. D'abord, Mandrake me fit choisir la langue
+         puis quelques autres options après quoi je me retrouvai
+         devant l'ensemble des groupes de paquetages. J'oubliai de
+         spécifier que je souhaitais sélectionner les paquetages
+         individuels et j'appuyai sur <b>Suivant</b>. Résultat:
+         l'installation commença sans me laisser choisir ce que je
+         voulais installer! Je tentai d'annuler, cela réussit et,
+         plutôt que quitter, l'installeur me ramena à la sélection
+         des paquetages.
+      </p>
+      <p>
+         Je trouvai cette fois la case à cocher, puis je commençai
+         à passer à travers la liste des paquetages.
+         Malheureusement, la machine redémarra spontanément pendant
+         que j'effectuais ma sélection! Ce n'était pas un
+         redémarrage à froid capable de faire croire en un bogue de
+         bloc d'alimentation ou d'électricité ou à un simple
+         accrochage de la barre à prises multiples avec mon pied.
+         Ça ressemblait plutôt à un redémarrage initié par
+         l'installeur lui-même, pour rien, sans raison valable.
+      </p>
+      <p>
+         Ma seconde tentative fut par chance plus fructueuse. Cette
+         fois-ci, je pus effectuer la sélection. Ce fut très long,
+         car il y avait beaucoup de paquetages et Mandrake en omet
+         plusieurs, dont des paquetages de développement, Octave,
+         GNUPlot et bien d'autres. L'installation se passa sans
+         histoires et le soir même, je pouvais utiliser mon nouveau
+         système Mandrake.
+      </p>
+      <p>
+         Grâce à une sauvegarde effectuée avant l'installation, je
+         pus pratiquement tout éviter les problèmes de polices de
+         caractères. J'omis malheureusement <tt>.Xresources</tt> et
+         dus tâtonner pour trouver les bons paramètres pour GNU
+         Emacs. Pour ce qui est du curseur de la souris YCursor a
+         disparu et je ne parvins pas à trouver un thème avec des
+         pointeurs aussi gros. La seule solution, si je ne voulais
+         pas passer un temps considérable à télécharger et à
+         essayer des curseurs, ce que certains utilisateurs aux
+         talents artistiques et à la patience d'ange semblent
+         apprécier, était de passer à GNOME.
+      </p>
+      <h2>
+         <a name="atitvbug" id="atitvbug">TV Tuner ATI
+         All-In-Wonder 128 Pro: toujours un cas désespéré</a>
+      </h2>
+      <p>
+         Quelque chose ne peut jamais bien aller indéfiniment et
+         cela s'applique parfaitement pour un système Linux...
+         C'est samedi, 13 novembre 2004, que les problèmes
+         commencèrent à se manifester avec Mandrake 10.1. D'abord,
+         je voulus tester mon TV Tuner. XawTV n'était pas installé.
+         Cette fois-ci, je parvins à l'installer avec une simple
+         commande: <tt>urpmi xawtv</tt>, en root. La commande
+         <tt>urpmi</tt> fonctionnait sous Mandrake 10.0, mais je
+         n'en connaissais pas l'existence. Elle peut installer un
+         paquetage non installé, ainsi que tous les paquetages qui
+         en dépendent. Lorsque XawTV fut installé, je le démarrai
+         et obtins ceci:
+      </p>
+<pre>
+This is xawtv-3.93, running on Linux/i686 (2.6.8.1-12mdk)
+can't open /dev/video0: No such file or directory
+v4l-conf had some trouble, trying to continue anyway
+v4l2: open /dev/video0: No such file or directory
+v4l2: open /dev/video0: No such file or directory
+v4l: open /dev/video0: No such file or directory
+no video grabber device available
+</pre>
+      <p>
+         Je tentai donc d'installer le pilote ATI.2 du projet <a
+         href="http://gatos.sourceforge.net">GATOS</a>, version
+         Xorg 6.7. Le pilote n'empira pas mon système, mais la TV
+         ne fonctionnait toujours pas. Tenter de passer des options
+         à XawTV ne résolut absolument rien. Décidément, il y avait
+         une incompatibilité entre les pilotes GATOS et le noyau
+         2.6 qui faisait en sorte que ce TV Tuner ne fonctionnerait
+         plus jamais sous Linux! Je commençais à croire que seules
+         les vieilles cartes de capture vidéo de voilà cinq ans,
+         supportant uniquement la résolution 352x240 et en vente de
+         seconde main seulement, ou les cartes de capture valant
+         plus de 700$, pouvaient fonctionner sous Linux. C'est très
+         dommage et assez incompréhensible. Serait-ce une mauvaise
+         architecture du système <a
+         href="http://linux.bytesex.org/v4l2/">Video4Linux</a> qui
+         ne fournit pas suffisamment de services logiciels pour
+         l'implantation des pilotes, qui n'est pas suffisamment
+         flexible ou est-ce uniquement dû à un manque de
+         coopération entre les concepteurs de matériel et les
+         développeurs Linux? Pourquoi de bons pilotes existent pour
+         le 2D/3D et non pas pour la TV? La capture vidéo est
+         certes plus complexe, mais l'affichage d'une fenêtre TV
+         semble relativement simple par rapport à l'élaboration
+         d'un pilote de support du moteur 3D. C'est le processeur
+         sur la carte graphique qui se charge du traitement du
+         signal et de sa conversion en RGB, YUV ou autre, pas un
+         logiciel. En observant les difficultés rencontrées par le
+         projet GATOS, il semble que cette dernière hypothèse soit
+         partiellement fausse.
+      </p>
+      <h2>
+         <a name="atibug" id="atibug">Régression: même le 2D/3D
+         fonctionnait mal!</a>
+      </h2>
+      <p>
+         Le TV Tuner était décidément un cas désespéré. Il faudrait
+         éventuellement le remplacer par une autre marque. Mais il
+         y avait pire. J'ai vite constaté que mon affichage était
+         plutôt lent. Le contenu des fenêtres changeait lentement,
+         comme s'il n'y avait aucune accélération 2D. La remise en
+         place du pilote ATI original, sans «support» TV, ne
+         résolut absolument rien. Je tentai de tester avec le jeu
+         <a
+         href="http://www.parallelrealities.co.uk/blobWars.php">Blobwars</a>
+         et je me rendis compte que c'était vrai: l'affichage était
+         d'une lenteur extrême, intolérable.
+      </p>
+      <p>
+         Je tentai plusieurs réglages, dont l'ajout des modules
+         Record et fbdevhw dans <tt>/etc/X11/xorg.conf</tt>, rien à
+         faire. Sur le site du projet GATOS, j'ai trouvé une page
+         traitant du débogage DRI et j'ai vérifié les points. Si
+         DRI fonctionne, le 2D fonctionnera aussi! Agpgart était là
+         quand je tapais <tt>cat /proc/modules</tt> mais aucune
+         trace de <tt>mtrr</tt>. Je soupçonnais donc que le bogue
+         pouvait être lié à MTRR, car le module ne se trouvait pas
+         chargé. Toute recherche dans <tt>/lib/modules</tt> était
+         vaine; il semblait que le module ne soit pas compilé. Je
+         commençais à craindre de devoir entreprendre la
+         recompilation du noyau pour parvenir à résoudre ce
+         problème. Je finis par m'y résoudre et accédai au
+         répertoire source du noyau. Lorsque je découvris que Linux
+         avait installé le source du noyau 2.4 plutôt que 2.6, je
+         perdis espoir et débutai le téléchargement de Fedora Core
+         3.
+      </p>
+      <p>
+         Mandrake n'installait pas les bons paquetages et il me
+         fallait toujours en ajouter de nouveaux. Avec le nom du
+         paquetage à installer, ça se faisait bien avec URPMI, mais
+         si je n'ai pas le nom exact, il me fallait tenter avec
+         l'interface graphique et la démarrer prend au moins trente
+         secondes, ce qui vient lassant après plusieurs fois.
+         Peut-être, pensai-je, que Fedora fournirait un meilleur
+         choix de paquetages ou permettrait de tout installer sans
+         trop de difficultés et peut-être n'y aurait-t-il pas cet
+         étrange problème de carte graphique.
+      </p>
+      <p>
+         Pendant le (long) téléchargement de l'ISO DVD de plus de
+         2G, je continuai mes recherches. Toute recherche sur
+         Google ne donna absolument rien. Je finis par installer le
+         source du kernel 2.6 manuellement et fouillai dedans pour
+         trouver des informations sur MTRR, ne pouvant me résoudre
+         à entreprendre la recompilation qui serait longue et
+         source de frustrants bogues récurrents. En effet, qui me
+         disait qu'il n'allait pas manquer un module par-ci par-là
+         et que je ne devrais pas recompiler plusieurs fois avant
+         de réussir à obtenir une configuration fonctionnelle? Le
+         fichier <tt>mtrr.txt</tt> du répertoire
+         <tt>Documentation</tt> me fut sans doute le plus utile,
+         car il indiquait où trouver le MTRR et comment le
+         modifier. MTRR n'est pas un module du noyau 2.6; il est
+         intégré au noyau. Je découvris des éléments suspects dans
+         <tt>/proc/mtrr</tt>: aucune zone mémoire de 32Mo, la
+         quantité de mémoire de ma carte graphique! Il y avait une
+         zone de 512Mo représentant sans doute le module que j'ai
+         acheté durant l'été 2003, les 256Mo originaux, un bloc de
+         1Mo puis un bloc de 64Mo. Mais où était la mémoire de 32Mo
+         de ma carte graphique?
+      </p>
+      <p>
+         Après des tâtonnements et la comparaison avec le MTRR
+         obtenu sous <a href="http://www.knoppix.net">Knoppix</a>,
+         je parvins à élaborer une solution pour mon cas
+         particulier. Il me fallut aussi utiliser ma calculatrice
+         scientifique, car il ne semble exister aucun outil Linux
+         simple permettant de convertir de décimal à hexadécimal et
+         vice versa! La calculatrice de KDE ne le permet pas, ni
+         XCalc, en tout cas. Sous Windows, par contre, la
+         calculatrice par défaut le permet! Pour résoudre le
+         problème, j'ai ajouté les lignes suivantes dans
+         <tt>/etc/rc.d/rc.local</tt>:
+      </p>
+<pre>
+echo "disable=2" &gt; /proc/mtrr
+echo "base=0xd8000000 size=0x2000000 type=write-combining" &gt; /proc/mtrr
+ 
+</pre>
+      <p>
+         Bien entendu, il faudra adapter <tt>disable</tt>,
+         <tt>base</tt> et <tt>size</tt> au système si cette patch
+         doit être appliquée sur une autre machine! Il semble que
+         Xorg n'arrivait pas à déterminer lui-même la taille de la
+         mémoire vidéo à l'adresse 0xd8000000 (pourtant, elle
+         s'affichait dans <tt>/var/log/Xorg.0.log</tt>, de même que
+         l'adresse de départ (linear frame buffer @)) et la fixait
+         arbitrairement à 1Mo! Après cette patch, l'affichage est
+         devenu beaucoup plus rapide, ce qui me permit de conserver
+         Mandrake 10.1. Le téléchargement de Fedora Core 3 était
+         trop lent par FTP directement. Heureusement, je trouvai
+         plus tard un lien BitTorrent qui allait me permettre de
+         l'effectuer en cas de nécessité.
+      </p>
+      <p>
+         Samedi soir, 13 novembre 2004, j'étais en train de lire et
+         écouter de la musique quand soudain, tout s'arrêta. Je
+         constatai avec agacement que la machine avait gelé pendant
+         l'affichage d'un écran de veille. Il me fallut redémarrer
+         avec le bouton reset, car rien ne fonctionnait plus. Le
+         lendemain, le bogue s'est produit de nouveau. Il semblait
+         que la carte graphique était moins bien supportée par Xorg
+         6.7, ce qui était totalement inexplicable puisqu'elle
+         fonctionnait avec XFree86 4.3 et Xorg 6.7 est simplement
+         un fork de XFree86. Il se pouvait aussi que ce soit le
+         module DRM <tt>r128</tt> intégré au noyau 2.6 qui soit la
+         cause de cette anomalie.
+      </p>
+      <p>
+         Que le TV Tuner ne fonctionne pas était déjà agaçant. Que
+         l'affichage 2D/3D cesse de bien fonctionner était
+         réellement inacceptable. Le problème semblait circonscrit
+         à certains écrans de veille OpenGL fournis par
+         XScreenSaver, mais il se pouvait que le bogue soit plus
+         étendu. Puisque les prochaines versions de Mandrake
+         souffriraient sans doute du même problème, s'il avait été
+         insoluble et étendu, il m'aurait fallu revenir à Mandrake
+         10.0 et le garder ou n'utiliser que Windows.
+      </p>
+      <p>
+         Avant d'abandonner Linux, je tenterais mon coup avec
+         Fedora Core, mais si le problème était intégré au noyau
+         2.6, il n'y aurait sans doute rien à faire sauf essayer
+         avec plusieurs autres cartes graphiques jusqu'à en trouver
+         une qui fonctionne, conserver une ancienne version de
+         Linux (possiblement Red Hat 9 avec noyau 2.4 où tout
+         fonctionnait) ou n'utiliser que Windows.
+      </p>
+      <p>
+         Ces problèmes de support matériel nuisent gravement à la
+         simplicité de Linux et feront en sorte qu'il ne deviendra
+         jamais le système d'exploitation universel; il faudra
+         toujours Windows pour faire fonctionner tel ou tel
+         périphérique.
+      </p>
+      <p>
+         Bien que la twist du MTRR ait amélioré les choses,
+         l'affichage semblait toujours plus lent sous Mandrake 10.1
+         que sous Mandrake 10.0. La désactivation de <i>Endgame</i>
+         dans XScreenSaver solutionna le cas des plantages
+         récurrents, mais malgré tout, c'était plus lent. Et
+         parfois, au retour d'un écran de veille, le pointeur de
+         souris devenait totalement noir! Il était donc invisible
+         sur la fenêtre d'une console. Bien qu'excécrable après
+         être allé au-delà de sa surface, Blobwars a constitué le
+         test par excellence. Même ce jeu 2D avait de la misère,
+         comme si ma carte graphique était bas de gamme et sans
+         accélération 2D/3D que ce soit. On aurait dit que l'AGP ne
+         fonctionnait plus et que le bus PCI avait été ralenti.
+         Samedi, 20 novembre 2004, je refis des tests. Je tentai de
+         comparer le log de X entre mon Linux Mandrake 10.1 actuel
+         et Knoppix, un Linux bootable sur CD. Les logs se
+         ressemblaient, sauf que le log Mandrake 10.1 faisait état
+         d'une impossibilité à activer le write-combining. La twist
+         du MTRR a toutefois permis de combler cette lacune de
+         façon ad hoc (en activant le write combining manuellement
+         par une commande shell) mais au moins ça fonctionnait.
+         GLXGears, un petit programme de test installé avec
+         XFree/Xorg, reportait plus de 1000 images/s sous Knoppix
+         et seulement 600 sous Mandrake. Clairement, quelque chose
+         n'allait pas.
+      </p>
+      <p>
+         Je tentai de mettre Xorg à jour, passant de 6.7 à 6.8. Par
+         chance, il y avait des RPMs sur le DVD du Powerpack
+         Mandrake. La mise à jour se fit sans histoire avec <tt>rpm
+         -Uvh</tt> et un redémarrage du serveur suffit, aucun setup
+         nécessaire. Mais le taux d'images par seconde reporté par
+         GLXGears avait chuté à 500. S'il n'y avait pas eu un
+         message d'avertissement reporté par le programme-test, la
+         situation aurait semblé pour moi désespérée. Il aurait
+         fallu soit essayer de recompiler Xorg depuis CVS (une
+         astuce suggérée par un membre de GATOS en réponse à un
+         message leur demandant conseil sur comment faire
+         fonctionner le TV Tuner de ma carte ATI), recompiler le
+         noyau (pour obtenir de nouveaux modules DRM) ou les deux.
+         Des heures de travail m'attendaient. La recompilation de X
+         prendrait des heures tandis que celle du noyau devrait
+         sans doute être refaite plusieurs fois, avec des options
+         différentes, jusqu'à trouver une configuration stable et
+         répondant à tous mes besoins! Sous Red Hat 9, jamais je
+         n'ai eu besoin de faire cela et maintenant, au fil des
+         nouvelles versions de Linux, supposée se simplifier, sans
+         même que je n'aie à modifier le matériel de ma machine,
+         les choses se compliquent de cette façon. Si ça n'avait
+         jamais bien fonctionné, ce serait une autre chose. Mais
+         pourquoi le fonctionnement se dégradait-il et Linux
+         redevenait-il progressivement compliqué à configurer
+         correctement comme c'était le cas avec les premières
+         distributions? Est-ce que les développeurs des grandes
+         distributions ont compris que ce système était voué à être
+         secondaire et ont cessé de se préoccupper des détails? Ça
+         ne marche pas, dit l'utilisateur moyen, on va le faire
+         sous Windows! Pour moi, Linux n'est pas un jouet qui ne
+         sert qu'à être activé pour bidouiller puis on retourne
+         sous Windows pour faire du travail sérieux. Je veux
+         pouvoir travailler sous Linux, donc il me faut une
+         configuration complète! L'accélération 2D est nécessaire,
+         même pour la navigation Web, sinon le processeur est
+         surchargé de travail d'affichage. Le 3D est moins
+         indispensable, mais à quoi bon avoir une carte avec moteur
+         3D dans ma machine si elle ne sert pas. Quelque chose qui
+         ne fonctionne pas (ou ne fonctionne plus) sous Linux est
+         pratiquement inutile dans ma machine! Plutôt que me taper
+         ce travail inutile, ou le faire faire par quelqu'un
+         d'autre (deux problèmes: trouver cette âme charitable et
+         lui apporter ma machine, le deuxième était le plus gros
+         pour moi), j'allais tester Fedora Core 3 puis revenir à
+         Red Hat 9 ou à Windows si rien n'allait.
+      </p>
+      <p>
+         Par chance, l'avertissement stoppa tout ce processus.
+         GLXGears reportait que mon driver 3D ne supportait pas le
+         mode 24 bits. Une petite modification dans
+         <tt>/etc/X11/xorg.conf</tt> fit passer la profondeur des
+         couleurs de 24 bits à 16 bits puis un redémarrage du
+         serveur X solutionna le problème! GLXGears retourna à 1000
+         images/s et Blobwars semblait avoir repris sa vitesse
+         nominale.
+      </p>
+      <p>
+         Le jour même, au retour d'un écran de veille OpenGL, le
+         pointeur de souris redevint complètement noir encore une
+         fois. Il ne semblait y avoir aucun moyen de redonner des
+         couleurs au pointeur, outre redémarrer le serveur X.
+      </p>
+      <p>
+         Le même jour, j'ai trouvé, peu de temps après avoir mis le
+         serveur X à jour pour Xorg 6.8, la solution à mon
+         problème. Dans le fichier <tt>/etc/X11/xorg.conf</tt>,
+         section <tt>Device</tt> relative à la carte graphique
+         (avec instruction <tt>Driver "r128"</tt>), j'ai ajouté
+      </p>
+<pre>
+Option "SWCursor"
+</pre>
+      avant de redémarrer le serveur X. Sous Knoppix, en examinant
+      les logs, j'ai vu que le software cursor était utilisé par
+      défaut tandis que sous Xorg 6.8/Mandrake 10.1, il utilisait
+      le hardware cursor. En imposant le curseur logiciel, il
+      semble que ça a amélioré les choses. Depuis ce temps, le
+      bogue du pointeur noir n'a pas refait surface. 
+      <h2>
+         <a name="conc" id="conc">Conclusion</a>
+      </h2>
+      <p>
+         Cette version a été le meilleur Linux Mandrake que j'ai
+         téléchargé et installé. Le bogue de carte graphique
+         disparu, le système fonctionne en général très bien. Il
+         m'a certes fallu installer de nouveaux paquetages à de
+         nombreuses reprises, mais le système fonctionnait bien.
+         Quelques défauts: les raccourcis clavier ne fonctionnaient
+         toujours pas sous Adobe Reader, toujours pas moyen de
+         tenir Mozilla à jour, Firefox non installé, problèmes avec
+         GhostScript, ... Il m'a aussi fallu désinstaller la
+         version Java 1.4.2 livrée avec le Powerpack pour installer
+         le JDK 1.5.0 de Sun. Il y a aussi eu le cas de
+         MandrakeOnline (mises à jour automatique) qui ne
+         fonctionna jamais, possiblement à cause de ma passerelle
+         Windows XP. Il ne vérifiait absolument et lorsque je
+         vérifiais les mises à jour, il devenait rouge, signalant
+         qu'il y en avait, puis restait rouge perpétuellement. Moi
+         seul éprouvais des problèmes d'après ce que je lisais sur
+         le forum du MandrakeClub et il aurait fallu que je branche
+         le modem câble directement à ma machine pour avoir la
+         paix. Plutôt que faire ça, j'en vins à supprimer
+         MandrakeOnline.
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

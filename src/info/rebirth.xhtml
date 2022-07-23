@@ -1,0 +1,214 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         La renaissance de ma quête Linux
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css" href="../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../index.xhtml" class="parents">Le royaume
+               de Eric Buist</a> &gt;&gt; <a href="index.xhtml"
+               class="parents">Informatique</a> &gt;&gt;
+               Configuration informatique
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../sitemap.xhtml" class="sitemap">Plan du
+               site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="biosupdt.xhtml"
+               class="leftsibling">Expérience personnelle de mise à
+               jour d'un BIOS</a>
+            </td>
+            <td class="thispage">
+               La renaissance de ma quête Linux
+            </td>
+            <td class="rightsibling">
+               <a href="win2kinst.xhtml"
+               class="rightsibling">Préparation du système et
+               installation de Windows 2000 Professionnel</a>
+               &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         La renaissance de ma quête Linux
+      </h1>
+      <p>
+         Mon expérience précédente de Linux s'était faite sur mon
+         portable et c'était une lutte constante contre le problème
+         d'espace disque et contre le bogue étrange de la <a
+         href="mysteries/netcbug.xhtml">carte réseau PCMCIA</a>.
+         Cette bataille eut finalement raison de mon intérêt pour
+         Linux et je le désinstallai, Windows 98 occuperait tout le
+         disque et plus tard Windows ME qui ferait du portable une
+         tortue.
+      </p>
+      <p>
+         Toutefois, avec le Faucon de Fer, il apparaît un nouvel
+         espoir, celui de pouvoir retourner dans le monde Linux. Le
+         <a href="bugx/index.xhtml">bugX</a> constitue à lui seul
+         une raison de réinstaller le système d'exploitation, car
+         l'installer chez moi permettra au moins de le contourner,
+         sinon piocher pour développer (car il faudra coder, je
+         crains bien...) une solution.
+      </p>
+      <p>
+         Avant de me plonger dans l'installation, il faut bien
+         entendu effectuer certains préparatifs qui consistent à
+         vérifier si mon matériel pourra être supporté par le
+         système. La carte son SB Live! est supportée sous RedHat
+         6.2, mais il n'en est rien pour la carte graphique ATI! Il
+         faudra donc, si j'installe RedHat 6.2, la distribution que
+         j'ai installée sur mon portable voilà quelques temps,
+         mettre des composants à jour.
+      </p>
+      <p>
+         Pour ce qui est de la carte graphique, il faut se tourner
+         du côté du serveur X, c'est lui qui s'occupe de
+         l'affichage des différentes fenêtres sous Linux. Une
+         implémentation gratuite du serveur X, partie intégrante de
+         X Window System, se nomme XFree86 et la version 4 (la 3
+         est livrée avec RedHat 6.2) supporte justement l'ATI Rage
+         128. L'ATI All-in-Wonder 128 Pro étant justement basée sur
+         le chip Rage 128, ça devrait marcher. Notez le degré
+         d'incertitude de mes propos...
+      </p>
+      <p>
+         Avec un peu de chance, le modem sera supporté, mais ce
+         n'est pas d'une importance capitale. Le chipset VIA du
+         Mother Board m'inquiète également, je risque de ne pas
+         pouvoir utiliser le Ultra DMA 66 du disque dur, je ne sais
+         pas si le disque supporte le Ultra DMA 100... Pour ce qui
+         est du graveur et du lecteur DVD, je ne suis pas certain
+         non plus...
+      </p>
+      <p>
+         Si je voulais maximiser les chances de fonctionnement, il
+         me fallait le serveur X le plus récent et aussi le noyau
+         (kernel) actuel, la version 2.4. Toutefois, installer
+         RedHat 6.2 puis ensuite télécharger et mettre à jour
+         constitue une opération longue et complexe, surtout pour
+         ce qui est du noyau. La mise à jour peut exiger plusieurs
+         autres mises à jour, dont peut-être même celle du
+         compilateur GCC et dans ce cas, ce sera long! De plus, il
+         allait falloir tout refaire si je devais par malheur
+         réinstaller.
+      </p>
+      <p>
+         La solution consistait donc à télécharger RedHat 7.1, la
+         version la plus récente de cette distribution. Pour mener
+         à bien une opération d'une telle envergure, j'estime que
+         la haute vitesse Internet est indispensable. Il faut aussi
+         un graveur, plusieurs CD et beaucuop de gossage! Si on ne
+         peut pas télécharger Linux de cette façon, la seule façon
+         de l'obtenir consiste à l'acheter ou le copier de
+         quelqu'un d'autre qui a réussi à l'obtenir. Linux est
+         gratuit sauf que...
+      </p>
+      <p>
+         Mardi soir, le 17 avril 2001, ce fut ma première tentative
+         de téléchargement. Je ne parvins pas à me connecter sur
+         ftp.redhat.com, trop de monde, et aucun miroir ne
+         fonctionnait! Le lendemain, j'avais un examen et le soir,
+         je n'avais pas trop la tête à chercher cela. Ce n'est que
+         jeudi, le 19 avril 2001, que je tentai une nouvelle fois
+         le coup. Cette fois-ci, je finis par me connecter sur
+         ftp.redhat.com après plusieurs essais en série. Mais le
+         transfert se faisant à 5k/s, cela allait prendre une
+         éternité. Le temps restant estimé a fini par s'allonger à
+         des jours et choqué, j'ai tout annulé.
+      </p>
+      <p>
+         J'ai fini par réussir à établir une connexion sur le site
+         de l'université d'Alberta qui hébergeait un miroir RedHat
+         et j'ai amorcé un long téléchargement à 40k/s environ. Un
+         peu mieux, mais ça promettait de prendre cinq heures, et
+         cela juste pour un disque.
+      </p>
+      <p>
+         En effet, la distribution se compose de cinq disques: deux
+         disques d'installation, un disque de gadgets (powertools),
+         la documentation et le code source. Chaque fichier, une
+         image ISO pouvant se graver sur un CD, a une taille de
+         650MB environ, ce qui fait un bon 3 GIG de téléchargement
+         si on veut tout!!!
+      </p>
+      <p>
+         J'ai tout d'abord tenté d'effectuer le travail avec
+         CuteFTP, plaçant les fichiers dans la file d'attente et
+         laissant ça là en espérant que vers la fin de la soirée,
+         une image serait finie. Malheureusement, le logiciel
+         arrêta le premier fichier à moitié et en commença un
+         autre. Je le forçai à reprendre le premier, mais il allait
+         le recommencer du début! Outré et au bord du désespoir, je
+         tentai en dernier recours d'installer GoZilla, un
+         gestionnaire de téléchargements capable de reprendre où il
+         s'est arrêté en cas de problèmes.
+      </p>
+      <p>
+         Il me fallut user de copier/coller pour donner au logiciel
+         les fichiers à télécharger, mais il commença finalement le
+         travail. Ce jeudi soir, je parvins à transférer une bonne
+         partie du premier disque mais pas tout le fichier.
+      </p>
+      <p>
+         Vendredi, le 20 avril 2001, ce fut une grosse journée de
+         téléchargements, car je parvins à obtenir toute la
+         première image et les quatre dernières! Durant la journée,
+         le transfert avait accéléré à 70k/s et cela aida beaucoup!
+         Mais je n'étais pas encore au bout de mes peines! Il
+         fallait que ces imags soient correctes. Il m'est déjà
+         arrivé qu'un téléchargement interrompu puis repris n'ait
+         pas fonctionné correctement.
+      </p>
+      <p>
+         En guise de tests préliminaires, j'ai tenté d'ouvrir les
+         fichiers sous Easy CD Creator. J'activais la commande
+         Créer un CD à partir d'une image puis j'annulais. Le
+         logiciel ne me rapporta d'erreur sur aucune image
+         téléchargée. Je tentai ensuite d'ouvrir les fichiers sous
+         WinImage, le logiciel m'afficha le contenu de ces
+         dernières, attestant qu'elles fonctionnaient.
+      </p>
+      <p>
+         Samedi, le 21 avril 2001, il me fallut graver les cinq
+         images sur CD-R. Cela se fit sans problèmes et une copie
+         intégrale des fichiers sur le disque dur montra bien que
+         les disques fonctionnaient parfaitement. Reste à installer
+         la bêbite et boguer!
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

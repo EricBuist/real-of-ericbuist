@@ -1,0 +1,318 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         Windows XP
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css"
+      href="../../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../../index.xhtml" class="parents">Le
+               royaume de Eric Buist</a> &gt;&gt; <a
+               href="../index.xhtml"
+               class="parents">Informatique</a> &gt;&gt;
+               Configuration informatique &gt;&gt; <a
+               href="index.xhtml" class="parents">Le Nightmare,
+               second du Salvator</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../../sitemap.xhtml" class="sitemap">Plan
+               du site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="hw.xhtml"
+               class="leftsibling">Particularités de la machine
+               choisie</a>
+            </td>
+            <td class="thispage">
+               Windows XP
+            </td>
+            <td class="rightsibling">
+               <a href="lin.xhtml" class="rightsibling">Linux</a>
+               &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         Windows XP
+      </h1>
+      <p>
+         L'installation de Windows XP ne posa pas de problèmes, car
+         le système venait préinstallé sur la machine. Par contre,
+         il fallait pouvoir m'assurer d'être en mesure de le
+         réinstaller en cas de problème, surtout lors du
+         repartitionnement de mon disque dur nécessaire pour
+         installer Linux. Il fallut aussi que je débarrasse la
+         machine de bons nombres de parasites qui la
+         ralentissaient.
+      </p>
+      <ul>
+         <li>
+            <a href="#firstboot">Premier amorçage</a>
+         </li>
+         <li>
+            <a href="#reinstall">Préparation à une éventuelle
+            réinstallation</a>
+         </li>
+         <li>
+            <a href="#adjust">Ajustements et adaptation</a>
+         </li>
+         <li>
+            <a href="#cleanup">Nettoyage et préparation pour
+            Linux</a>
+         </li>
+      </ul>
+      <h2>
+         <a name="firstboot" id="firstboot">Premier amorçage</a>
+      </h2>
+      <p>
+         Je reçus la machine lundi, 10 juillet 2006, un jour avant
+         la date prévue de livraison, et l'allumai le jour même.
+         Comme conseillé dans les instructions, je branchai
+         l'adaptateur AC pour le premier amorçage afin que la
+         batterie se charge complètement. Je cherchai ensuite le
+         bouton de mise sous tension et ne le trouvai pas. Je finis
+         par appuyer sur le premier bouton rond que je trouvai.
+         C'était le bouton MediaDirect (le mauvais bouton), mais la
+         machine alluma quand même. J'aboutis sous Windows XP qui
+         m'offrit des options de configuration comme juste après
+         l'installation. Malheureusement, il ne parvint pas à
+         établir une connexion à Internet si bien que je répondis
+         <b>non</b> lorsque Windows me demanda si je voulais
+         activer et enregistrer le produit; cela n'aurait pu se
+         faire que par téléphone si bien que je reportai
+         l'opération au moment où je réussirais à établir la
+         connexion à Internet. Cela ne se fit pas attendre, car
+         sitôt Windows démarré, il détecta mon routeur et me
+         demanda les paramètres pour l'accès sécurisé WPA. Sitôt
+         qu'il eut en main le SSID et la clé WPA, il put établir la
+         connexion. Grâce au Wi-fi, je pus brancher le portable à
+         Internet sans avoir à débrancher le Salvator, ce qui me
+         plaisait beaucoup. Mieux encore, le portable était
+         préactivé, car jamais je ne reçus de requête d'activation.
+      </p>
+      <p>
+         Il y eut ensuite <a
+         href="http://www.mcafee.com">McAfee</a> SecurityCenter qui
+         me plut beaucoup moins. Le logiciel souhaitait que je
+         m'enregistre et l'opération échouait à cause de la
+         connexion Internet. Cela finit par fonctionner, mais le
+         logiciel voulut se mettre à jour et me fit redémarrer
+         Windows.
+      </p>
+      <h2>
+         <a name="reinstall" id="reinstall">Préparation à une
+         éventuelle réinstallation</a>
+      </h2>
+      <p>
+         J'examinai le disque dur, trouvai un répertoire
+         <tt>dell</tt> et un répertoire <tt>Drivers</tt> mais aucun
+         utilitaire pour créer le CD de Windows XP qui brillait par
+         son absence. Je pus trouver un répertoire nommé
+         <tt>i386</tt> qui contenait une partie du CD, mais il ne
+         permettrait pas de construire un CD amorçable
+         d'installation. Des recherches sur Internet m'apprirent
+         que, malheureusement, ce problème était commun: plusieurs
+         machines produites par les grandes marques viennent avec
+         Windows XP préinstallé et aucun moyen de réinstaller le
+         système en cas de pépin! La solution Dell était un
+         utilitaire nommé PC Restore qui recrée la configuration
+         originale de la machine en utilisant une image compatible
+         avec Norton Ghost. Cela ne me plaisait pas du tout, car PC
+         Restore, si je devais l'utiliser, supprimerait Linux et
+         toutes mes données en plus de restaurer Windows à l'état
+         d'origine! Il fallait pouvoir réinstaller Windows
+         seulement, sans bousiller le partitionnement du disque!
+      </p>
+      <p>
+         Toutes mes recherches me montrèrent que la seule solution
+         était de contacter Dell pour obtenir les fameux CD. Sans
+         le CD d'installation, la seule solution pour réinstaller
+         Windows serait de prendre le CD utilisé sur le Salvator et
+         le numéro de série risquait de ne pas fonctionner. Au
+         mieux, je réussirais à installer, mais l'Activation ou la
+         Validation échoueraient. Je contactai donc Dell par
+         téléphone le jour même, après avoir constaté que l'option
+         de chat en ligne n'était pas disponible au Canada, et dus
+         attendre quelques minutes pour avoir un technicien. Au
+         début, il me dit que je n'avais pas besoin des CD puisque
+         je pouvais utiliser Dell PC Restore en cas de problème.
+         Pour obtenir les disques, je dus argumenter un peu, dire
+         que je prévoyais installer Linux et que cela pouvait
+         endommager la partition de restauration. C'est comme ça
+         que, le lendemain, je reçus les disques d'installation:
+         Windows XP, les pilotes, le logiciel <a
+         href="http://www.sonic.com">Sonic</a> de gravure de DVD et
+         le lecteur <a
+         href="http://www.cyberlink.com">Cyberlink</a> PowerDVD. Je
+         disposais déjà d'un CD de <a
+         href="http://www.corel.com">Corel</a> WordPerfect venant
+         avec la machine, ce qui me faisait un total de cinq
+         disques. Le disque de Windows est pour la version
+         française du système tandis que les autres CD semblent
+         multilingues.
+      </p>
+      <h2>
+         <a name="adjust" id="adjust">Ajustements et adaptation</a>
+      </h2>
+      <p>
+         Je dus changer la langue du clavier pour le mettre à
+         canadien Français plutôt que canadien multilingue,
+         augmenter la taille des caractères et paramétrer la souris
+         qui, je trouvais, allait très mal. Le pointeur se
+         déplaçait trop lentement, mais je finis par comprendre
+         qu'il fallait déplacer mon doigt rapidement sur la
+         tablette pour que le pointeur bouge plus vite.
+      </p>
+      <p>
+         Mardi, 11 juillet 2006, je testai la machine sur batterie,
+         vérifiai que les CD reçus fonctionnaient et en fis des
+         sauvegardes. Pour ce faire, je fis une extraction des
+         images ISO des cinq disques que je plaçai sur un DVD,
+         veillant à vérifier que je pouvais bel et bien recréer les
+         disques avec les images ISO! Cette technique m'évita de
+         créer cinq CD-R inutilement. J'ajoutai au DVD un fichier
+         contenant l'étiquette de service de Dell ainsi que le
+         numéro de série de Windows et rangeai le disque en lieu
+         sûr, pas dans la malette de transport du portable.
+      </p>
+      <p>
+         Sur batterie, la machine se montra malheureusement très
+         lente. Le démarrage prenait plus d'une minute et je devais
+         attendre au moins trente secondes avant que quelque chose
+         réagisse sous Windows. Je constatais également avec
+         exaspération que l'écran était difficile à lire à la
+         longue et que le clavier n'allait pas très bien. Chaque
+         fois que j'essayais d'appuyer sur ALT-F4 pour fermer une
+         fenêtre, rien ne se passait, car je n'appuyais pas sur Alt
+         ou pas sur F4. Les touches étaient arrangées si
+         différemment que la seule façon de ne pas me tromper était
+         de regarder à chaque fois où elles se trouvaient. La
+         souris aussi me boguait et il me semblait que celle du
+         Protégé S100 que mon directeur de recherche m'avait prêté
+         allait mieux que ça. La question qui surgit suite à ces
+         mauvaises expériences est la suivante: comment magasiner
+         un portable par Internet s'il faut, avant l'achat, essayer
+         clavier, écran et souris puisque tout cela fonctionne
+         différemment d'une marque à l'autre?
+      </p>
+      <p>
+         Heureusement, la plupart des problèmes peuvent se
+         résoudre. Pour l'écran, la combinaison de touche Fn et
+         flèche haut augmenta la brillance et rendit l'affichage
+         plus lisible. Sur batterie, par défaut, l'écran est moins
+         brillant pour économiser de l'énergie. Pour ce qui est du
+         clavier, il suffit de temps pour s'y habituer. La souris
+         est le plus important problème, mais il est au pire
+         possible de la remplacer par une souris externe USB.
+      </p>
+      <h2>
+         <a name="cleanup" id="cleanup">Nettoyage et préparation
+         pour Linux</a>
+      </h2>
+      <p>
+         Vendredi, 14 juillet 2006, je constatais avec agacement
+         qu'à chaque fois que McAfee voulait se mettre à jour,
+         l'ordinateur émettait un signal sonore très énervant et
+         demandait à redémarrer la machine. Étant donné que je ne
+         pourrais pas garder ce logiciel, à moins de payer un
+         abonnement, je n'hésitai pas à le supprimer. Cela ne fut
+         pas facile, car au premier essai, l'ordinateur redémarra
+         tout seul avant que je n'atteigne la commande de
+         suppression. Au second essai, par contre, McAfee reçut un
+         mortel coup d'épée cybernétique et disparut à tout jamais
+         de mon système qui s'en porta beaucoup mieux.
+         L'accroissement de vitesse est, je l'estime, d'un facteur
+         d'au moins deux!
+      </p>
+      <p>
+         Je supprimai ensuite AOL puis Dell PC Restore après avoir
+         sondé sa structure depuis Knoppix. En effet, Knoppix me
+         permit de voir les deux partitions cachées que Dell a
+         créées sur mon disque dur. La première partition du
+         disque, d'une taille de 50Mo, contient un utilitaire de
+         diagnostic que j'ai décidé de garder. La seconde contient
+         Windows XP tandis que la dernière abritait Dell PC Restore
+         qui n'est rien d'autre qu'un script mis au point par Dell
+         et qui utilise le logiciel Ghost de Symantec pour
+         effectuer la restauration proprement dite. Je supprimai
+         cette bêbite sans vergogne lorsque je lus une commande qui
+         s'assurait que la table des partitions n'avait pas changé
+         et qui demandait de contacter Dell en cas de changement.
+         Eh bien, mon crapeux, la table des partitions <i>va</i>
+         changer, car je creuse un trou pour Linux. Alors, adios
+         amigo!
+      </p>
+      <p>
+         La configuration de Windows se poursuivit vendredi, 21
+         juillet ainsi que le lendemain. Je décidai de ne pas
+         reformater et réinstaller, car après la suppression de
+         McAfee, les performances du système étaient très
+         acceptables. Il n'y a, en fait, que peu de cossins
+         installés par Dell, outre ce qui est vraiment nécessaire
+         (pilotes, QuickSet, etc.). McAfee et AOL en moins, la
+         machine va super bien.
+      </p>
+      <p>
+         Samedi, 22 juillet 2006, j'ai aussi tenté de raccorder la
+         machine à mon écran LCD. J'ai dû appuyer sur Fn-F8 pour
+         commuter l'affichage sur l'écran et, pour avoir la
+         résolution de 1280x1024 de mon écran LCD externe, je dus
+         désactiver l'écran intégré. Si les deux écrans étaient
+         activés, la résolution la plus petite, 1280x800, de
+         l'écran intégré s'imposait sur l'écran LCD. Il en
+         résultait un affichage affreux avec deux barres
+         horizontales en haut et en bas de l'image. Il faudra que
+         je garde ces expériences à l'esprit si un jour je branche
+         ce portable sur un projecteur.
+      </p>
+      <p>
+         Jeudi, 17 août 2006, pendant que je faisais des tests, je
+         me trompai dans une combinaison de touches et cela
+         retourna l'écran de 90 degrés. Il me fallut pas mal de
+         temps pour le remettre à l'endroit et comme le réglage
+         persistait après le redémarrage, j'ai bien cru que
+         j'allais devoir réinstaller Windows pour ravoir un
+         affichage correct! Par chance, de peine et de misère, j'ai
+         réussi à me rendre dans les options de la carte graphique
+         et trouvé qu'il suffisait d'appuyer sur CTRL-ALT-Flèche
+         haut pour rétablir l'affichage. J'ai trouvé, au même
+         endroit, des options pour utiliser plusieurs écrans plutôt
+         qu'un seul. Il est donc peut-être possible d'avoir un
+         affichage différent sur l'écran LCD et sur l'écran
+         externe.
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

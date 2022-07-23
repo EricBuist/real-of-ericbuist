@@ -1,0 +1,255 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         Qt sous Windows
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css"
+      href="../../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../../index.xhtml" class="parents">Le
+               royaume de Eric Buist</a> &gt;&gt; <a
+               href="../index.xhtml"
+               class="parents">Informatique</a> &gt;&gt;
+               Quelques-unes de mes recherches personnelles
+               &gt;&gt; <a href="index.xhtml" class="parents">Trucs
+               et astuces</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../../sitemap.xhtml" class="sitemap">Plan
+               du site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="xscrsav.xhtml"
+               class="leftsibling">Configurer XScreenSaver pour
+               KDE</a>
+            </td>
+            <td class="thispage">
+               Qt sous Windows
+            </td>
+            <td class="rightsibling">
+               <a href="atilinux.xhtml"
+               class="rightsibling">Configuration d'une carte
+               graphique ATI sous Linux</a> &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         Qt sous Windows
+      </h1>
+      <p>
+         Qt consiste en une librairie de classes C++ permettant la
+         création d'interfaces graphiques. Il offre la possibilité
+         d'écrire du code compatible source entre Linux, Windows et
+         Macintosh tout en profitant d'une interface similaire pour
+         les trois plate-formes. Cette page ne constituant pas un
+         tutoriel sur Qt, l'utilisateur désireux d'en savoir plus
+         peut se rendre sur <a
+         href="http://www.trolltech.com">www.trolltech.com</a>.
+      </p>
+      <p>
+         Comme on peut le voir d'après le site, Qt est produit par
+         la compagnie TrollTech qui ne souhaite malheureusement pas
+         le donner! Sous Linux, il est complètement gratuit pour
+         usage non commercial, ce qui est très bien, car il
+         constitue la base de KDE, un excellent gestionnaire de
+         fenêtres pour X Window System. Malheureusement, sous
+         Windows, cela cause problème. Jusqu'à la version 2.3,
+         seule la version professionnelle était disponible pour
+         Linux et Windows. Ainsi, un étudiant d'université qui fait
+         un devoir à l'aide de Qt ne peut compiler le résultat de
+         son travail sous Windows.
+      </p>
+      <p>
+         Avec la version 2.3, une édition non-commerciale pour
+         Windows est disponible. Malheureusement, on y trouve des
+         contraintes d'utilisation qui en limitent l'usage à la
+         compilation des programmes donnés en exemple, pas plus que
+         ça! Bien que la meilleure solution soit d'installer Linux
+         et de travailler sous ce système d'exploitation lors de
+         travaux en C++/Qt, à moins d'exigences contraires, il
+         existe quelques astuces pour permettre à une application
+         Qt de se compiler sous Windows.
+      </p>
+      <h1>
+         Préparatifs
+      </h1>
+      <p>
+         Pour réaliser la compilation, le logiciel Microsoft Visual
+         C++ 6 est nécessaire. Bien que d'autres compilateurs
+         soient disponibles sous Windows, c'est le seul qui est
+         supporté par Qt/Windows. Malheureusement, comme tout bon
+         produit Windows, il n'est pas gratuit. Lorsque le logiciel
+         est installé et semble daigner fonctionner, on peut passer
+         à l'étape suivante, soit de télécharger Qt sur le site de
+         TrollTech. Il faudra la version non-commerciale pour
+         Windows. L'installation consiste à exécuter le programme
+         d'installation, ce qui préparera l'environnement.
+      </p>
+      <p>
+         Puisqu'on cherche généralement à faire migrer un projet
+         Linux vers Windows pour l'y compiler, le travail partira
+         d'un fichier à extension <tt>.pro</tt>. Il est aussi
+         possible de créer un projet Qt depuis l'environnement
+         intégré de Visual C++ grâce aux outils ajoutés par
+         l'installation de Qt. Le fichier projet <tt>.pro</tt>
+         permet, à l'aide de l'utilitaire <tt>tmake</tt>, de
+         construire un makefile, un fichier qui indique quoi
+         compiler et comment. Ce makefile est spécifique à la
+         plate-forme utilisée, pas le fichier projet.
+      </p>
+      <p>
+         La compilation d'un programme Qt se fera sans problèmes,
+         mais l'édition de liens causera des difficultés majeures.
+         On se rendra vite compte qu'aucun symbole spécifique à Qt
+         n'est détecté et l'édition de liens retournera toujours
+         des erreurs. Par comparaison avec les makefiles des
+         exemples, j'ai découvert le bobo. La librairie Qt est
+         compilée en mode multi-threading et il faut, pour s'y
+         lier, compiler en mode multi-threading. Toutefois, le
+         makefile produit par <tt>tmake</tt> ne permet pas cette
+         compilation. Il faut donc modifier <tt>tmake</tt>!
+      </p>
+      <p>
+         Heureusement, le patch consiste à modifier un fichier de
+         configuration. Supposons que Qt est installé dans
+         <tt>c:\qt</tt>. Il faut alors modifier le fichier
+         <tt>c:\qt\tmake\lib\win32-msvc\tmake.conf</tt>. C'est un
+         fichier texte qui ne causera aucun problème pour GNU Emacs
+         ou XEmacs. Il est formé d'affectations de valeurs à des
+         variables. Certaines lignes doivent être remplacées pour
+         corriger le bogue. Par exemple, pour corriger la ligne
+         <tt>TMAKE_LIBS_QT</tt>, il faut retirer la ligne actuelle
+         du fichier et ajouter la nouvelle. Voici les lignes à
+         traiter de cette façon.
+      </p>
+<pre>
+TMAKE_LIBS_QT = $(QTDIR)\lib\qt-mt230nc.lib $(QTDIR)\lib\qtmain.lib
+TMAKE_CFLAGS            = -nologo -MD -DQT_DLL -DTHREAD_SUPPORT
+</pre>
+      <p>
+         Après la correction, <tt>tmake</tt> générera des makefiles
+         compilables. Il faudra utiliser le target <tt>clean</tt>
+         en cas de tentative de compilation sans cette correction.
+      </p>
+      <h1>
+         Contraintes au niveau du code source
+      </h1>
+      <p>
+         Visual C++ cause problème lors de la compilation de
+         certains fichiers C++ développés sous Linux. Un programme
+         compilant sous Linux sans erreurs compilera peut-être avec
+         erreurs sous Windows. Ce phénomène se produit notamment
+         lors de l'utilisation des classes de <tt>iostream</tt>.
+         Afin d'éviter les messages d'erreur inexplicables,
+         certaines règles de base peuvent être suivies.
+      </p>
+      <h2>
+         #include
+      </h2>
+      <p>
+         Visual C++ 6 adhère au standard C++ et ce standard stipule
+         l'usage d'include sans <tt>.h</tt> pour les en-têtes
+         standard. Par exemple, au lieu d'écrire <tt>#include
+         &lt;iostream.h&gt;</tt>, on utilisera plutôt <tt>#include
+         &lt;iostream&gt;</tt>. Cette convention s'applique
+         uniquement aux en-têtes C++, comme <tt>iostream</tt>,
+         <tt>fstream</tt> ainsi que les en-têtes de la STL.
+      </p>
+      <p>
+         Pour les en-têtes C, on ajoute un <tt>c</tt> avant le nom.
+         Par exemple, au lieu d'inscrire <tt>#include
+         &lt;math.h&gt;</tt>, on utilisera <tt>#include
+         &lt;cmath&gt;</tt>. Ce qui s'applique pour <tt>cmath</tt>,
+         <tt>cstdio</tt>, <tt>cstdlib</tt>, <tt>cstring</tt>, ...
+         L'usage de cette convention fera disparaître un grand
+         nombre d'erreurs inexplicables.
+      </p>
+      <p>
+         En cas d'usage de la STL, il faut impérativement ajouter
+         l'instruction <tt>using namespace std;</tt> immédiatement
+         après les inclusions avec <tt>#include</tt>. Autre
+         spécificité importante: pour utiliser OpenGL, avant
+         d'inclure <tt>gl/gl.h</tt>, l'en-tête <tt>windows.h</tt>
+         doit être incluse. Il faudra utiliser une directive de
+         compilation conditionnelle pour préserver la portabilité
+         du code. Par exemple,
+      </p>
+<pre>
+#ifdef _WIN32
+#include &lt;windows.h&gt;
+#endif
+#include &lt;gl/gl.h&gt;
+</pre>
+      <h2>
+         Opérateurs
+      </h2>
+      <p>
+         Il existe d'autres subtilités à considérer et d'autres
+         messages d'erreur sont donc envisageables. En cas de
+         surdéfinition d'opérateurs binaires, les opérandes doivent
+         être des références constantes. Par exemple, si on a une
+         classe <tt>Vecteur</tt> avec un opérateur d'addition sur
+         un autre vecteur, on aura la définition <tt>Vecteur
+         operator+(const Vecteur&amp; v)</tt>.
+      </p>
+      <h1>
+         Compilation
+      </h1>
+      <p>
+         La compilation peut se faire sous Visual C++ ou sous DOS.
+         Sous Visual C++, cela demeure relativement intuitif, mais
+         ça devient intéressant de tenter l'expérience sous DOS. Il
+         est notamment possible d'éditer ses sources sous Emacs et
+         compiler depuis une fenêtre shell. Avant la compilation,
+         il faut exécuter le script <tt>vcvars32</tt> du répertoire
+         <tt>VC98\bin</tt> de Visual Studio. Ce fichier configure
+         des variables d'environnement qui rendent disponible la
+         commande <tt>nmake</tt> qui permet de compiler un projet à
+         partir d'un makefile. Ainsi, les commandes suivantes
+         déclencheront la compilation.
+      </p>
+<pre>
+tmake -o Makefile test.pro
+nmake
+</pre>
+      <p>
+         Si on tape <tt>nmake clean</tt> au lieu de <tt>nmake</tt>
+         seulement, les fichiers objets seront supprimés, ce qui
+         recompilera le programme en entier. Il existe certes une
+         foule d'autres options disponibles.
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

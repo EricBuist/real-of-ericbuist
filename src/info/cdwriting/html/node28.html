@@ -1,0 +1,243 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.1//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>5.1 Paramètres d'un fichier sonore</TITLE>
+<META NAME="description" CONTENT="5.1 Paramètres d'un fichier sonore">
+<META NAME="keywords" CONTENT="cdwriting">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cdwriting.css">
+
+<LINK REL="next" HREF="node29.html">
+<LINK REL="previous" HREF="node27.html">
+<LINK REL="up" HREF="node27.html">
+<LINK REL="next" HREF="node29.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1278"
+  HREF="node29.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1272"
+  HREF="node27.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1266"
+  HREF="node27.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1274"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1276"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html1279"
+  HREF="node29.html">5.2 Formats audio</A>
+<B> monter:</B> <A NAME="tex2html1273"
+  HREF="node27.html">5. Le format audio</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html1267"
+  HREF="node27.html">5. Le format audio</A>
+ &nbsp; <B>  <A NAME="tex2html1275"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1277"
+  HREF="node106.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Sous-sections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html1280"
+  HREF="node28.html#SECTION05411000000000000000"><SPAN CLASS="arabic">5</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">1</SPAN> Fréquence d'échantillonnage (Sampling Rate)</A>
+<LI><A NAME="tex2html1281"
+  HREF="node28.html#SECTION05412000000000000000"><SPAN CLASS="arabic">5</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">2</SPAN> Le nombre de bits</A>
+<LI><A NAME="tex2html1282"
+  HREF="node28.html#SECTION05413000000000000000"><SPAN CLASS="arabic">5</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">3</SPAN> Nombre de canaux</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION05410000000000000000">
+<SPAN CLASS="arabic">5</SPAN>.<SPAN CLASS="arabic">1</SPAN> Paramètres d'un fichier sonore</A>
+</H1>
+
+<P>
+Le <SPAN  CLASS="textit">Pulse Code Modulation</SPAN> (PCM<A NAME="948"></A>) constitue le
+mode d'encodage audio le plus simple. 
+La taille des fichiers augmente proportionnellement à leur
+durée. Le format PCM se caractérise par la fréquence
+d'échantillonnage, le nombre de bits et le nombre de canaux. Des
+formats de compression ajoutent d'autres paramètres tels que le
+bitrate ou le coefficient de qualité.
+
+<P>
+
+<H2><A NAME="SECTION05411000000000000000"></A>
+<A NAME="950"></A>
+<BR>
+<SPAN CLASS="arabic">5</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">1</SPAN> Fréquence d'échantillonnage (Sampling Rate)
+</H2>
+
+<P>
+Exprimée en hertz, elle représente le nombre 
+d'amplitudes mesurées par l'ADC en une seconde
+d'enregistrement. 
+On appelle ces mesures des <SPAN  CLASS="textit">échantillons</SPAN> (samples) et
+l'enregistrement 
+constitue l'opération <SPAN  CLASS="textit">d'échantillonnage</SPAN> (sampling).
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:sampling"></A><A NAME="973"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 5.2:</STRONG>
+Une seconde de son échantillonné à 5 Hz</CAPTION>
+<TR><TD><IMG
+ WIDTH="248" HEIGHT="259" BORDER="0"
+ SRC="img4.png"
+ ALT="\begin{figure}
+\begin{center}
+\setlength{\unitlength}{1cm}
+\begin{pictur...
+...1}}
+\put(5,1.5){\circle*{0.1}}
+\end{picture}
+\end{center}
+\end{figure}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+Le graphique 
+de la figure&nbsp;<A HREF="#fig:sampling">5.2</A> montre un échantillon à 5&nbsp;Hz durant
+une seconde. 
+Cinq points disposés sur une échelle pouvant 
+aller d'un nombre minimum négatif à un nombre positif maximum
+définissent  une courbe modélisant de façon approximative le
+signal.
+Normalement, les fichiers audio sont échantillonnés 
+à une fréquence beaucoup plus grande pour obtenir 
+un effet de qualité. La fréquence d'échantillonnage 
+influence grandement la précision du signal discret et donc du 
+signal analogique qui sera restitué. Le format WAV 
+n'admet que certaines valeurs de fréquence, le CD la fixe à 44100Hz
+tandis que le DVD la fixe à 48000Hz.
+
+<P>
+
+<H2><A NAME="SECTION05412000000000000000"></A>
+<A NAME="979"></A>
+<BR>
+<SPAN CLASS="arabic">5</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">2</SPAN> Le nombre de bits
+</H2>
+
+<P>
+Lors de l'échantillonnage, chaque valeur d'amplitude 
+est convertie sur une échelle déterminée par 
+le nombre de bits utilisés, voir annexe&nbsp;<A HREF="node101.html#chap:bits">C</A> pour plus d'informations.
+Cela permet de stocker l'échantillon dans 
+le fichier. On retrouve, dans la plupart des formats, un échantillonnage 
+8 bits ou 16 bits. Avec le DVD Audio, il est possible de trouver des
+échantillonnages 24 bits.
+D'anciens formats, comme le VOC, pouvaient compresser sur moins de
+bits,
+mais les cartes sons ne lisent que le son 8 bits ou 16 bits. Les
+cartes son modernes traitent du 24 bits en interne, mais aucune ne
+traite du 32 bits. Avec
+l'accroissement de la taille des disques durs, le format 8 bits tend
+à disparaître. Le format 
+CD Audio exigera naturellement la qualité maximale de l'époque de sa
+conception, soit 16 bits.
+
+<P>
+
+<H2><A NAME="SECTION05413000000000000000"></A>
+<A NAME="982"></A>
+<A NAME="983"></A>
+<BR>
+<SPAN CLASS="arabic">5</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">3</SPAN> Nombre de canaux
+</H2>
+
+<P>
+Le fichier sonore peut posséder un ou plusieurs canaux. Beaucoup de
+formats, comme le WAV, ne supportent que deux canaux au
+maximum. L'usage d'un canal seulement présente un signal monophonique
+tandis que l'emploi de deux canaux crée un signal stéréophonique.
+Dans le fichier, 
+s'il est stéréo, les échantillons gauche et 
+droite alternent. Il n'est donc pas nécessaire de se promener 
+d'un bout à l'autre du fichier pour le lire et le restituer 
+fidèlement. Il est facile de deviner qu'un CD Audio 
+nécessitera un fichier stéréo.
+
+<P>
+Avec l'émergence du cinéma maison, le stéréo est devenu
+insuffisant et de nouveaux canaux se sont rajoutés. D'abord, un
+passage du deux canaux vers le 2.1 a eu lieu. Le troisième canal
+constitue les basses fréquences, est produit en filtrant les deux
+autres canaux et restitués par un caisson de graves. Les deux canaux
+arrière sont ensuite apparus pour aboutir au 4.1. Il est possible
+d'encoder le signal des canaux arrière dans le signal stéréo (Dolby
+Pro Logic<A NAME="984"></A>) ou de séparément (Dolby
+Digital<A NAME="985"></A>, Ogg Vorbis, ...). Avec le
+5.1, un centre s'ajoute. Le canal central permet la restitution des
+voix dans les films. En 6.1, un centre gauche et un centre droit
+remplacent le canal central. Avec le 7.1, la voix centrale réapparaît
+en plus des centres
+gauche et droit. Seuls les formats MPEG-2, Ogg Vorbis et Dolby Digital
+peuvent encoder autant de canaux et la taille des fichiers croît avec
+le nombre de canaux. L'encodage Dolby Pro Logic permet certes le
+codage sur deux canaux, mais un décodeur est nécessaire pour restituer
+le signal sur plus de deux canaux et la qualité est inférieure à un
+format vraiment multicanal.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1278"
+  HREF="node29.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1272"
+  HREF="node27.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1266"
+  HREF="node27.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1274"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1276"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html1279"
+  HREF="node29.html">5.2 Formats audio</A>
+<B> monter:</B> <A NAME="tex2html1273"
+  HREF="node27.html">5. Le format audio</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html1267"
+  HREF="node27.html">5. Le format audio</A>
+ &nbsp; <B>  <A NAME="tex2html1275"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1277"
+  HREF="node106.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Eric Buist
+2005-11-13
+</ADDRESS>
+</BODY>
+</HTML>

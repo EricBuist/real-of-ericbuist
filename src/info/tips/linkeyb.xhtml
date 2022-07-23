@@ -1,0 +1,415 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         Configuration du clavier sous Linux
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css"
+      href="../../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../../index.xhtml" class="parents">Le
+               royaume de Eric Buist</a> &gt;&gt; <a
+               href="../index.xhtml"
+               class="parents">Informatique</a> &gt;&gt;
+               Quelques-unes de mes recherches personnelles
+               &gt;&gt; <a href="index.xhtml" class="parents">Trucs
+               et astuces</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../../sitemap.xhtml" class="sitemap">Plan
+               du site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="mouchard.xhtml"
+               class="leftsibling">À bas l'espionnage!</a>
+            </td>
+            <td class="thispage">
+               Configuration du clavier sous Linux
+            </td>
+            <td class="rightsibling">
+               <a href="linemail.xhtml"
+               class="rightsibling">Envoyer/recevoir du courrier
+               sous Linux</a> &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         Configuration du clavier sous Linux
+      </h1>
+      <p>
+         Il existe déjà de la documentation sur le sujet, je
+         l'avoue. On peut trouver un Howto traitant de la
+         configuration du clavier français, mais souvent, ces
+         informations sont soit trop nombreuses ou dépassées, et
+         dans ce cas-là inutiles pour configurer une machine Linux
+         de façon simple et efficace. Alors, que faire? On a alors
+         deux solutions à notre disposition:
+      </p>
+      <ul>
+         <li>
+            Utiliser le clavier américain installé par défaut
+         </li>
+         <li>
+            Gosser et configurer le clavier avec les accents
+         </li>
+      </ul>
+      <h2>
+         Clavier US
+      </h2>
+      <p>
+         Chacune de ces possibilités comporte des avantages et des
+         inconvénients. Utiliser le clavier US permettra certes une
+         configuration triviale, mais vous devrez oublier les
+         accents! Pour taper des accents, il existe toutefois un
+         moyen alternatif fonctionnant seulement sous Emacs. Il
+         consiste à passer en mode ISO Latin 1. Pour ce faire, dans
+         un buffer quelconque, tapez C-c 8 et c'est fait. Sous
+         XEmacs, vous devrez plutôt taper M-x iso-accents-mode.
+         Ensuite, il faudra taper des caractères composés,
+         différents du clavier français que l'on trouve sous
+         Windows, pour taper des accents. Par exemple, taper
+         <tt>e'</tt> transformera les deux caractères en
+         <tt>é</tt>, <tt>e`</tt> fera un <tt>è</tt> et <tt>c,</tt>
+         fera <tt>ç</tt>. Ce mode, bien que d'un emploi simple,
+         obligera des changements d'habitudes de frappe et en plus,
+         il ne fonctionne que sous Emacs. Bien entendu, on peut
+         tout faire avec Emacs ou presque. Il suffit de taper M-x
+         shell pour se retrouver sur un terminal et on est toujours
+         sous Emacs.
+      </p>
+      <h2>
+         La configuration du clavier
+      </h2>
+      <p>
+         Cette opération légèrement complexe dépend en fait de la
+         distribution et de la version utilisée. Il faudra donc,
+         parfois, consulter des Howtos afin de glanner plus de
+         données, car la procédure que je vais exposer ici pourrait
+         varier en fonction de la distribution. Je l'ai effectuée
+         sous RedHat Linux 7.1 après des heures de recherche et de
+         tentatives infructueuses et cela a fini par fonctionner.
+         Elle se divise en plusieurs étapes indépendantes qui ont
+         toutes leurs propres probabilités de succès, d'échec ou de
+         résultats partiels! Vive la complexité! :)
+      </p>
+      <ul>
+         <li>
+            <a href="#console">Définir le bon clavier pour la
+            console en mode texte</a>
+         </li>
+         <li>
+            <a href="#x">Configuration correcte du clavier sous X
+            en général</a>
+         </li>
+         <li>
+            <a href="#kde2">Satisfaire les caprices de KDE 2</a>
+         </li>
+         <li>
+            <a href="#xemacs">Utiliser XEmacs plutôt que GNU
+            Emacs</a>
+         </li>
+      </ul>
+      <p>
+         Bon, ça fait pas mal de manipulations pour un clavier...
+         Mais que veux-tu, c'est la vie après tout! À noter qu'il
+         vous faudra disposer des privilèges root pour l'ensemble
+         de ces manipulations, ce qui implique l'usage de la
+         commande <tt>su</tt> sans paramètres, la connaissance du
+         root password de votre machine Linux et beaucoup de
+         précautions pour les débutants! Le nombre de folies qu'il
+         est possible de commettre en mode root est incalculable,
+         et parfois il peut être très difficile d'en revenir, voire
+         impossible...
+      </p>
+      <p>
+         Il faut aussi savoir qu'on ne cherchera pas à activer le
+         clavier Français mais plutôt Canadien Français. En effet,
+         le clavier Français est celui de France et ne possède même
+         pas la même disposition de touches! On appelle ces
+         claviers AZERTY, par opposition aux claviers QWERTY, en
+         raison des touches se trouvant sur la première rangée,
+         juste sous les chiffres.
+      </p>
+      <h3>
+         <a name="console" id="console">Définir le bon clavier pour
+         la console en mode texte</a>
+      </h3>
+      <p>
+         La configuration du clavier en mode console s'effectuer
+         grâce à la commande <tt>loadkeys</tt>. La commande
+         <tt>loadkeys cf</tt>, utilisée en root, effectuera le
+         travail avec simplicité. Toutefois, la modification ne
+         sera pas conservée au prochain démarrage. Vous devrez donc
+         l'incorporer aux scripts d'initialisation. Sous RedHat
+         7.3, cette incorporation peut se faire en modifiant le
+         fichier <tt>/etc/sysconfig/keyboard</tt>. Dans mon cas ce
+         fichier contient
+      </p>
+<pre>
+KEYBOARDTYPE="pc"
+KEYTABLE="cf"
+</pre>
+      <p>
+         Attention, toutefois, car la console texte n'inclut pas
+         XTerm ou Konsole, des émulateurs de terminaux sous X. Pour
+         atteindre une console texte à partir de X, tapez
+         CTRL+ALT+Fn où n est un nombre entre 1 et 6. En mode
+         texte, ALT+Fn permet de basculer d'une console à l'autre.
+         ALT+F7 retourne généralement à X si l'interface est en
+         cours de fonctionnement.
+      </p>
+      <h3>
+         <a name="x" id="x">Configuration du clavier sous X en
+         général</a>
+      </h3>
+      <p>
+         X Window System génère malheureusement des requêtes
+         clavier directement au kernel, ce qui implique une
+         nouvelle configuration clavier et encore, et encore, des
+         problèmes! Ainsi, il ne suffit pas de modifier le clavier
+         pour la console avec Linuxconf, il faut aussi altérer les
+         fichiers de configuration de X Window System. Pour
+         compliquer davantage les choses, cela dépend de la version
+         de X que vous utilisez! Pire, cela dépend en plus du type
+         de serveur X utilisé. Comme vous avez opté pour Linux, un
+         système d'exploitation gratuit, j'estime que vous ne
+         souhaitiez pas débourser une somme colossale pour ce type
+         de logiciel, alors vous avez laissé le serveur XFree86
+         livré avec Linux. Si tel n'est pas le cas, reportez-vous à
+         la documentation fournie avec votre serveur X probablement
+         commercial. Il se peut que la configuration soit
+         simplifiée dans ces cas-là, ce serait en tout cas un bon
+         point pour promouvoir la vente d'un tel produit...
+      </p>
+      <h4>
+         Configuration du clavier sous XFree86 4
+      </h4>
+      <p>
+         Vous devrez ici modifier le fichier
+         <tt>/etc/X11/XF86Config-4</tt> et non
+         <tt>/etc/X11/XF86Config</tt>! Si vous modifiez le mauvais
+         fichier, vos changements n'auront aucun effet, rien de
+         moins! Vous avez deviné que pour effectuer les
+         modifications, il vous faudra ouvrir le fichier dans votre
+         éditeur de texte favori, en étant root pour bénéficier de
+         la permission en écriture sur ce fichier. Je ne
+         m'attarderai pas ici sur la structure de ce fichier, la
+         page de manuel le fait mieux que moi! Tapez <tt>man
+         XF86Config</tt> et vous aurez ce qu'il faut. Le fichier se
+         subdivise en sections et pour notre modification, il nous
+         faut une section traitant du clavier. En parcourant le
+         fichier, vous trouverez un ensemble de lignes du genre
+      </p>
+<pre>
+Section "InputDevice"
+        Identifier  "Keyboard0"
+        Driver      "keyboard"
+EndSection
+    
+</pre>
+      <p>
+         Cela indique à XFree de définir un clavier et le nommer
+         Keyboard0. C'est ici qu'il faut paramètrer en ajoutant des
+         lignes Option. Le fichier
+         <tt>/usr/lib/X11/XF86Config.98</tt> donne un exemplse de
+         fichier de configuration qui incite fortement à ajouter
+         par extrapolation les lignes suivantes dans la section
+         Keyboard du vrai fichier de configuration.
+      </p>
+<pre>
+        Option      "XkbModel" "pc104"
+        Option      "XkbLayout" "cf"
+    
+</pre>
+      <p>
+         Eh oui, on utilisera le modèle pc104 pour obtenir un
+         clavier 104 touches avec les touches Windows et tout et
+         pourquoi pas ne pas choisir par extrapolation <tt>cf</tt>
+         pour la langue? Après avoir redémarré votre serveur X,
+         vous constaterez avec satisfaction que cela fonctionne,
+         que vous pouvez taper des accents et tout. Maintenant,
+         essayez donc de taper AltGr-2 pour obtenir un @... aucun
+         effet! Eh oui, le Alt de droit ne fonctionne pas et rien à
+         faire pour taper des caractères tels @, \, {, }, ~, [ et
+         ]! Ça va un peu mal pour programmer, non? Il m'aura fallu
+         au moins une heure de travail et de frustration pour
+         découvrir que je devais mettre <tt>ca_enhanced</tt> en
+         lieu et place de <tt>cf</tt>! Voici donc de quoi aura
+         l'air la section finale dans le fichier.
+      </p>
+<pre>
+Section "InputDevice"
+        Identifier  "Keyboard0"
+        Driver      "keyboard"
+        Option      "XkbModel" "pc104"
+        Option      "XkbLayout" "ca_enhanced"
+EndSection
+    
+</pre>
+      <h4>
+         XFree86 3
+      </h4>
+      <p>
+         Le fichier est ici différent, il faudra éditer
+         <tt>/etc/X11/XF86Config</tt>. Ici, la configuration
+         s'avère plus simple, car il y a moins de tâtonnement. Il
+         faut simplement éditer la section Keyboard, encore une
+         fois. Voici donc de quoi aura l'air la section, sans les
+         commentaires.
+      </p>
+<pre>
+Section "Keyboard"
+    Protocol    "Standard"
+
+    AutoRepeat  500 5
+
+    LeftAlt        Meta
+    RightAlt        ModeShift
+   ScrollLock      Compose
+   RightCtl        Control
+
+   XkbKeycodes     "xfree86"
+   XkbTypes        "default"
+   XkbCompat       "default"
+   XkbSymbols      "us(pc101)"
+   XkbGeometry     "pc"
+   XkbRules        "xfree86"
+    XkbModel        "pc105"
+    XkbLayout       "cf"
+EndSection
+    
+</pre>
+      <p>
+         Ici, les lignes les plus importantes à modifier sont
+         <tt>XkbModel</tt> pour activer le 104 ou le 105 touches,
+         le <tt>XkbLayout</tt> afin de lui mettre cf puis les
+         lignes qui définissent les fonctions des touches Alt. Avec
+         une telle configuration, le serveur va se plaindre au
+         démarrage, recherchant une configuration pour les symboles
+         de <tt>cf</tt>. Une alternative, que je n'ai pas testée,
+         consiste à mettre <tt>ca_enhanced</tt> plutôt que
+         <tt>cf</tt>, mais je ne promets rien quant aux
+         résultats...
+      </p>
+      <h3>
+         <a name="kde2" id="kde2">Satisfaire les caprices de KDE
+         2</a>
+      </h3>
+      <p>
+         Eh oui, KDE 2 prend lui-même en charge le clavier, causant
+         un nombre si grand de problèmes que cela incite à le
+         supprimer du système pour toujours, en tout cas sous la
+         distribution RedHat. J'ai entendu dire que KDE n'est pas
+         bien configuré sous RedHat, mais que seul GNOME l'est. Une
+         alternative à ce problème pourrait consister à changer de
+         distribution, car Mandrake définit les rôles inverses: KDE
+         fonctionne bien, mais GNOME, mal! Vous pourriez aussi
+         utiliser GNOME ou tout autre Window Manager, tel BlackBox
+         ou AfterStep, mais si vous n'aimez pas GTK+/GNOME, que
+         vous n'avez pas très envie d'un autre Window Manager ou
+         simplement que vous voulez résoudre le bogue, il existe
+         une façon d'y arriver.
+      </p>
+      <p>
+         Si vous avez tenté de modifier le clavier avec KDE Control
+         Center, branche Personalization, sous-branche Keyboard
+         Layout, vous vous êtes rendu compte que ni le clavier
+         French (ASERTY, inutilisable!), ni le clavier Canadian
+         (accents à des endroits inusités, gossant!) ne conviennent
+         et il n'y a qu'un choix vers lequel il reste à se tourner:
+         US English! On peut aussi utiliser US English w/ deadkeys,
+         mais encore une fois, les accents sont très mal placés et
+         il faut se réhabituer à un tout nouveau clavier! Alors que
+         faire? Ajouter un nouveau clavier! J'ai découvert cette
+         stratégie sur le site de KDE, après avoir voulu reporter
+         le bogue aux concepteurs de cet environnement. Voici donc
+         la solution revue, corrigée puis traduite. Je commence par
+         citer le contenu du site et ma source: <a
+         href="http://www.kde.org/">www.kde.org</a>.
+      </p>
+<pre>
+- become root
+- cd /usr/X11R6/lib/X11/xkb/symbols
+- ln -s ./ca_enhanced fr_CA
+- cd /usr/X11R6/lib/X11/rules
+- edit xfree86.lst and add somewhere the line
+
+   fr_CA                Canadian French
+
+start the kxkb configuration tool (in the control center) and find the new layout available, complete.
+    
+</pre>
+      <p>
+         Comme vous l'avez deviné, vous devez devenir root pour
+         accomplir cette manipulation. Tapez ensuite les commandes
+         qui suivent <tt>become root</tt> dans la citation
+         précédente, excluant la dernière qui commence par
+         <tt>edit</tt>! J'ai dû effectuer une correction sur le
+         second chemin d'accès qui, dans le texte originel, était
+         incorrect. Modifiez ensuite le fichier
+         <tt>/usr/X11R6/lib/X11/rules/xfree86.lst</tt> et ajoutez-y
+         la ligne débutant par <tt>fr_CA</tt>. Cela provoquera
+         l'ajout de l'option Canadian French dans le panneau de
+         contrôle de KDE!
+      </p>
+      <p>
+         <img src="kdecckeyb.png"
+         alt="KDE Control Center avec la nouvelle option pour le clavier" />
+      </p>
+      <p>
+         FIOU! Le pire est fait!
+      </p>
+      <h3>
+         <a name="xemacs" id="xemacs">Utiliser XEmacs plutôt que
+         GNU Emacs</a>
+      </h3>
+      <p>
+         J'avoue que celle-là est un peu plus tannante que les
+         autres... Si vous n'utilisez pas Emacs du tout, cela ne
+         vous concerne pas, mais si vous vous en servez et que par
+         malheur, le système se contente de bipper au lieu de taper
+         les accents, vous pouvez passer à XEmacs et cela
+         fonctionnera parfaitement. XEmacs est similaire à GNU
+         Emacs, sauf pour quelques détails, mais vous devriez
+         pouvoir effectuer le passage sans trop de heurts. Sous
+         RedHat 7.1, XEmacs n'est pas installé par défaut, vous
+         devrez l'installer à partir du second CD. Mais avant, il
+         vous faut installer Canna et Wnn, tous deux sur le premier
+         CD de RedHat 7.1. Ces librairies parfaitement inutiles
+         pour nous (à moins d'apprendre le japonais à l'école! :))
+         sont nécessaires pour faire tourner le programme!
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

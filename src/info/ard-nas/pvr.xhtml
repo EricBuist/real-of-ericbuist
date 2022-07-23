@@ -1,0 +1,704 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         Enregistreur personnel
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css"
+      href="../../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../../index.xhtml" class="parents">Le
+               royaume de Eric Buist</a> &gt;&gt; <a
+               href="../index.xhtml"
+               class="parents">Informatique</a> &gt;&gt;
+               Configuration informatique &gt;&gt; <a
+               href="index.xhtml" class="parents">A.R.D.-NAS, mon
+               premier HTPC</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../../sitemap.xhtml" class="sitemap">Plan
+               du site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="succes.xhtml"
+               class="leftsibling">Mes succès</a>
+            </td>
+            <td class="thispage">
+               Enregistreur personnel
+            </td>
+            <td class="rightsibling">
+               <a href="problems.xhtml" class="rightsibling">Des
+               problèmes, des problèmes et encore des problèmes</a>
+               &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         Enregistreur personnel
+      </h1>
+      <p>
+         Transformer A.R.D.-NAS en enregistreur numérique personnel
+         a soulevé un nombre suffisant de problèmes pour mériter
+         une page entière. J'ai d'abord tenté ma chance avec mon
+         ancien syntoniseur TV étant donné que je ne trouvais aucun
+         appareil haute définition, eu des problèmes de stabilité,
+         essayé avec un magnétoscope/DVD qui ne fit pas mieux du
+         tout, puis je suis tombé sur le HD PVR qui a peut-être
+         enfin résolu le problème!
+      </p>
+      <ul class="pagemenu">
+         <li>
+            <a href="#impossible">Impossible d'enregistrer des
+            émissions: le son griche!</a>
+         </li>
+         <li>
+            <a href="#illico">Le terminal Illico qui s'en mêle</a>
+         </li>
+         <li>
+            <a href="#vcr">Changement de stratégie: achat d'un
+            magnétoscope/DVD</a>
+         </li>
+         <li>
+            <a href="#hdpvr">HD PVR de Hauppauge</a>
+         </li>
+         <ul>
+            <li>
+               <a href="#branchemen">Branchement</a>
+            </li>
+            <li>
+               <a href="#utilisatio">Utilisation</a>
+            </li>
+            <li>
+               <a href="#problemes">Problèmes</a>
+            </li>
+         </ul>
+      </ul>
+      <h1>
+         <a name="impossible" id="impossible">Impossible
+         d'enregistrer des émissions: le son griche!</a>
+      </h1>
+      <p>
+         L'une des plus importantes frustrations technologiques que
+         j'ai ressenties depuis que je suis propriétaire est le
+         constat de la réduction notable des moyens offerts au
+         consommateur pour enregistrer un signal vidéo. Voilà une
+         dizaine d'années, il y avait le bon vieux magnétoscope à
+         cassettes qui permettait sans trop de mal d'enregistrer
+         une émission diffusée à la télévision. Malheureusement,
+         cet appareil est en voie d'extinction: les fabricants
+         d'appareils électroniques en produisent de moins en moins
+         et les cassettes aussi sont en voie de disparition. Quelle
+         est la technologie supposée remplacer le magnétoscope? Eh
+         bien, ça devait être l'enregistreur DVD, mais ces
+         appareils étaient coûteux en 2010 (plus de 200$, sinon
+         300$) et leur performance était aléatoire. Parfois,
+         l'appareil peut te graver un disque sans aucun mal et il
+         fonctionnera dans tout bon lecteur DVD, incluant
+         l'ordinateur. D'autres fois, comme chez mes parents,
+         l'appareil commence à faire des siennes et se met à
+         enregistrer des frees-bee. Dans ce temps-là, il est très
+         long et difficile de récupérer la moindre parcelle de
+         l'enregistrement. Il faudrait donc que l'enregistreur ait
+         un disque dur intégré sur lequel les émissions seraient
+         stockées pour pouvoir ensuite être gravées vers un DVD ou
+         transférées directement vers un ordinateur, sans passer
+         par un DVD. De tels appareils existent, mais ils étaient
+         pas mal coûteux en 2010, plus de 300$, en plus d'être
+         difficiles à trouver, pour moi du moins. J'aimais autant
+         investir dans mon HTPC.
+      </p>
+      <p>
+         C'est pour cela que j'ai doté A.R.D.-NAS d'une carte PCI
+         permettant d'enregistrer le signal en provenance de mon
+         terminal Illico. Pour y arriver, j'ai branché un câble
+         S-Video et minijack vers RCA entre mon syntoniseur TV.
+      </p>
+      <p>
+         Malheureusement, la programmation de mon magnétoscope
+         virtuel est quelque peu compliquée, exigeant les étapes
+         suivantes:
+      </p>
+      <ul>
+         <li>
+            Sur mon terminal Illico, je dois sélectionner
+            l'émission que je veux enregistrer et activer la
+            commande d'enregistrement. Cela fait en sorte que le
+            terminal s'allume au bon moment et sur le bon canal.
+         </li>
+         <li>
+            Sur mon ordinateur, je dois programmer une tâche
+            planifiée pour démarrer un script d'enregistrement.
+            J'utilise la commande <tt>at</tt> pour démarrer ma
+            tâche d'enregistrement. Mon script va simplement
+            actionner la commande <tt>cp</tt> de façon à transférer
+            le contenu de <tt>/dev/video0</tt> vers un fichier et
+            planifier une tâche, avec <tt>at</tt>, pour interrompre
+            la copie au bon moment. Cela suffit pour produire un
+            fichier MPEG avec mon enregistrement.... En théorie...
+         </li>
+      </ul>
+      <p>
+         Ceci a très bien fonctionné un certain nombre de fois,
+         mais j'ai constaté que de façon imprévisible, je pouvais
+         me retrouver avec du son de très mauvaise qualité. Quand
+         cela survient, tout l'enregistrement est inaudible,
+         entaché de grésillements et de distorsion. Il n'y a rien à
+         faire pour récupérer la piste audio, à part refaire un
+         essai si je suis chanceux et l'émission passe à un autre
+         moment.
+      </p>
+      <p>
+         Un bon soir, après avoir manqué le retour de K-2000 une
+         fois de trop à cause de ce bogue, j'ai fait quelques
+         recherches et découvert que <tt>/dev/video24</tt> pouvait
+         me fournir un flux audio non compressé. Il m'a fallu, ne
+         me demandez pas comment je ne m'en rappelle plus, trouver
+         les bons paramètres pour l'importer sous Audacity avant de
+         le faire jouer et constater que oui, j'avais la trame
+         sonore seule. Je modifiai alors mon script
+         d'enregistrement pour stocker cette trame de sauvegarde
+         dans un fichier. Malheureusement, lorsque le bogue survint
+         de nouveau, la trame de sauvegarde était inutilisable elle
+         aussi!
+      </p>
+      <p>
+         Le bogue est sans doute dû à un défaut dans mon
+         syntoniseur TV ou encore dans le pilote proposé sous
+         Linux. Je ne l'ai jamais observé sur mon ordinateur de
+         bureau, quand le syntoniseur était dedans, peut-être parce
+         que jamais je n'avais fait de capture à travers l'entrée
+         S-Video et minijack. J'utilisais plutôt l'entrée coaxiale,
+         chez mes parents, car mon père avait fait passer un fil du
+         bureau vers ma chambre pour ça. Mais rendu chez moi, je
+         voulais bien brancher mon syntoniseur sur la sortie du
+         terminal Illico en S-Video, pour une qualité d'image
+         maximale. Le pire, c'est que je ne remarquerai jamais la
+         différence de qualité! Le son, par contre, est mieux quand
+         je le passe à travers la sortie RCA du terminal plutôt que
+         coaxiale, et je veux bénéficier de cette amélioration!
+      </p>
+      <p>
+         Pendant quelques mois, j'ai cru que le bogue survenait à
+         cause d'une initialisation partielle de mon syntoniseur
+         TV. Si, avant de programmer l'enregistrement, je
+         programmais l'entrée de la composante sur S-Video et
+         copiais un petit bout de vidéo que je jetais, j'étais
+         certain que le son était correct lors de mon
+         enregistrement. Par malheur, cette hypothèse fut
+         contredite... avec une émission qui n'était pas
+         rediffusée. Cela m'a bien choqué, mais j'ai trouvé une
+         solution pas trop réglementaire mais bien élégante malgré
+         tout: BitTorrent! En cherchant un peu mais pas tant que
+         ça, j'ai trouvé des fichiers <tt>.torrent</tt> non pas
+         seulement pour l'épisode que j'avais manqué à cause de mon
+         satané syntoniseur TV mais pour tous les autres épisodes
+         de la saison. J'ai tout téléchargé ça.
+      </p>
+      <p>
+         Après le dernier enregistrement raté, j'ai branché la
+         deuxième sortie audio de mon terminal Illico vers l'entrée
+         ligne de ma puce audio intégrée et j'ai taponné jusqu'à
+         temps de pouvoir enregistrer quelque chose avec
+         <tt>arecord</tt>. J'ai ensuite modifié mon script
+         d'enregistrement pour qu'il démarre <tt>arecord</tt> en
+         plus de <tt>cp</tt>, si bien que pour chaque
+         enregistrement, je dispose d'un flux audio de sauvegarde
+         que je pourrais utiliser en lieu et place du flux
+         enregistré par mon syntoniseur. Il y aurait même moyen,
+         avec les bonnes commandes, de remultiplexer mon fichier
+         MPEG de sortie qu'il intègre le flux audio de sauvegarde.
+         J'ai même raffiné mon script pour qu'il réajuste les
+         réglages de ALSA de sorte que l'entrée ligne soit
+         sélectionnée. J'ai réussi à faire ça en appelant
+         <tt>amixer</tt> avec toutes sortes de paramètres.
+      </p>
+      <p>
+         Au cas où ça pourrait servir à certains, voici ma solution
+         au complet. D'abord, j'ai un script <tt>adjusttv</tt> qui
+         fait ceci:
+      </p>
+      <p>
+         <a href="adjusttv.sh">adjusttv.sh</a>
+      </p>
+      <p>
+         Ce script configure le bitrate pour donner des fichiers de
+         taille raisonnable, indique de créer des fichiers MPEG
+         pour DVD et ajuste le volume.
+      </p>
+      <p>
+         Ensuite, eh bien il y a le script <tt>startrecording</tt>
+         qui effectue l'enregistrement proprement dit:
+      </p>
+      <p>
+         <a href="startrecording.sh">startrecording.sh</a>
+      </p>
+      <p>
+         Si jamais cette solution aussi échoue, il y a des chances
+         pour que ce soit Vidéotron qui brouille mon signal de
+         sortie de façon à ce que je ne puisse pas l'enregistrer.
+         Si je découvre que c'est le cas, avec preuves à l'appui,
+         j'envisage annuler mon abonnement au câble TV, investir
+         dans une connexion Internet à plus haut débit (TGV 15,
+         minimum) et télécharger mes émissions via BitTorrent,
+         intégralement!
+      </p>
+      <h1>
+         <a id="illico" name="illico">Le terminal Illico qui s'en
+         mêle</a>
+      </h1>
+      <p>
+         Peu après Pâques 2010, un nouveau problème est venu
+         pimenter les choses: quand j'allume mon terminal Illico,
+         de façon intermittente, il affiche que la sortie Y/Pr/Pb a
+         été bloquée à cause de la protection contre la copie. Je
+         dois alors appuyer sur le bouton Exit de la télécommande
+         pour ravoir l'image. Ce message stupide et totalement
+         inutile, sachant que je n'utilise même pas cette sortie,
+         cache toute image affichée par le terminal. J'ai ensuite
+         découvert qu'il n'était pas affiché uniquement sur la
+         sortie HDMI qui envoie l'image vers la TV directement,
+         mais aussi sur la sortie S-Video qui envoie l'image vers
+         mon syntoniseur TV! Cela voulait dire qu'un bon jour,
+         j'essaierais d'enregistrer quelque chosee et j'aurais ça
+         comme résultat, à moins de me trouver une petite amie qui
+         serait chez moi la plupart du temps, là pour appuyer sur
+         Exit!!!! C'est totalement irréaliste!
+      </p>
+      <p>
+         Alors, que faire? Lancer le terminal par la fenêtre, puis
+         faire de même avec la TV? Eh bien figurez-vous que j'y ai
+         pensé, et plusieurs fois plutôt qu'une seule! Mais je n'ai
+         pas encore pu me résoudre à de telles extrêmes, car il
+         existe encore de quoi de plus rationnel à tenter.
+      </p>
+      <p>
+         Dimanche, 28 novembre 2010, j'en eus assez et me décidai à
+         rebrancher ça en composantes. L'image me sembla bien
+         correcte et je n'eus pas de problèmes avec les couleurs si
+         bien que je laissai ça ainsi. J'ai utilisé pour faire le
+         branchement le câble qui venait avec le erminal, qui
+         dormait dans un tiroir depuis le début.
+      </p>
+      <h1>
+         <a id="vcr" name="vcr">Changement de stratégie: achat d'un
+         magnétoscope/DVD</a>
+      </h1>
+      <p>
+         Pour comprendre pourquoi j'ai fait ce qui suit, il faut
+         garder à l'esprit qu'il y avait deux problèmes reliés ici:
+         le syntoniseur TV qui est instable, et maintenant le
+         terminal Illico qui déconne. Régler un des deux problèmes
+         ne pouvait qu'améliorer les choses, non?
+      </p>
+      <p>
+         Samedi, 30 octobre 2010, le syntoniseur a bogué une fois
+         de trop: pendant le test initial pour vérifier que le
+         satané terminal affichait une image plutôt que le message
+         à propos de la sortie Y/Pr/Pb bloquée, MPlayer a planté
+         bien dur: même un <tt>kill -9</tt> ne put le fermer
+         qu'après plusieurs secondes. J'ai essayé avec Totem: niet!
+         Avec VLC: niet! Je me suis alors rappelé que la machine
+         revenait de veille; je l'avais fait dormir durant
+         l'après-midi pour économiser <em>un peu</em>
+         d'électricité. C'était cela qui avait rendu mon
+         syntoniseur TV fou et nécessitait un redémarrage complet
+         de la machine.
+      </p>
+      <p>
+         C'est là que j'ai décidé que c'était trop et qu'il me
+         fallait essayer de quoi pour arranger ça un peu mieux.
+         Chez Électro-Tel près de chez moi, j'ai découvert qu'ils
+         proposaient un appareil de marque RCA pouvant enregistrer
+         à la fois sur des cassettes VHS et sur des DVD. Pour 79$,
+         je pouvais ainsi obtenir un magnétoscope pour visionner
+         les films que ma mère a enregistrés depuis un temps et
+         même les transférer sur DVD. Je pouvais aussi enregistrer
+         des émissions sur DVD. Il me suffisait, pensai-je,
+         d'utiliser des DVD réinscriptibles, copier le contenu
+         enregistré sur A.R.D.-NAS, puis réutiliser les disques. Je
+         savais qu'il me faudrait de temps en temps remplacer les
+         disques réinscriptibles qui ont tendance à user, mais ça
+         pouvait très bien fonctionner.
+      </p>
+      <p>
+         Je me suis décidé dimanche, 31 octobre, à aller chercher
+         l'appareil. Ça ne me semblait pas trop cher comme
+         solution. J'ai dû installer le nouveau lecteur sur une
+         chaise de façon bancale, juste en avant de l'ancien, pour
+         pouvoir réussir à transférer les fils. Comme le nouveau
+         lecteur n'avait pas de sortie HDMI (l'ancien non plus!),
+         je dus effectuer un branchement à composantes avec les
+         trois fils RCA (Y, Pr, Pb), en plus du branchement audio
+         coaxial reliant mon DVD à mon ampli-récepteur. J'avais
+         vérifié avant l'achat que l'appareil disposait des prises
+         nécessaires.
+      </p>
+      <p>
+         J'ai ensuite eu de la misère à trouver quoi débrancher
+         dans la power bar pour pouvoir partir avec l'ancien
+         lecteur, puis ensuite mon terminal Illico n'entrait pas
+         bien par-dessus le nouveau lecteur, plus gros. J'ai fini
+         par trouver une façon relativement correcte de disposer
+         les appareils.
+      </p>
+      <p>
+         J'ai ensuite pu démarrer ça et le test avec un DVD a
+         fonctionné. Mais l'image était plutôt décevante. On aurait
+         dit que les couleurs n'étaient pas bonnes et les noirs
+         étaient beaucoup trop gris. Appuyer sur un bouton Video
+         out ou quelque chose du genre a activé le balayage
+         progressif, ce qui a rendu mes noirs plus noirs. Fiou!
+      </p>
+      <p>
+         Après ça, j'ai fait le raccordement de l'entrée vidéo pour
+         que mon nouvel enregistreur reçoive le signal de mon
+         terminal Illico. La chose faite, j'ai testé encore un peu,
+         enregistré sur un DVD+RW que j'ai eu de la misère noire à
+         trouver, puis constaté que vraiment, quelque chose
+         n'allait pas du tout avec les couleurs. Apparemment, je
+         m'étais trompé dans le branchement à composantes. Je dus
+         tout défaire ça.
+      </p>
+      <p>
+         Le problème était que les gens qui m'ont installé le
+         système l'année dernière m'ont mis trois fils RCA
+         identiques, sans aucune distinction pour savoir quoi
+         brancher où mais de meilleure qualité que les fils venant
+         avec les appareils. Il y avait là un câble stéréo avec
+         aucun marquage de couleur, et un câble mono. J'ai tout
+         débranché ça et séparé le câble sétéro en deux câbles
+         mono. C'est eux qui m'ont appris que ça se faisait. Eh
+         bien, je l'ai fait! Il suffit de tirer dessus et les
+         câbles se séparent facilement.
+      </p>
+      <p>
+         Ensuite, j'ai utilisé du duct tape et un marqueur
+         permanent pour apposer des marquages à chaque extrémité
+         des trois câbles. J'aurais pu me passer de cette étape,
+         mais ce sera plus facile à présent s'il faut débrancher et
+         rebrancher une extrémité ou l'autre du système de trois
+         câbles. Il me faudrait éventuellement traiter mes câbles
+         de haut-parleurs de la même façon!
+      </p>
+      <p>
+         Les marquages faits, j'ai rebranché les câbles dans la TV,
+         passé ça jusqu'au DVD, puis branché ça. Quand j'ai rallumé
+         mon système, bon sang que l'image était meilleure! Fiou!
+      </p>
+      <p>
+         Après le souper, j'ai testé la programmation. Ça a très
+         bien fonctionné, mais le lecteur a jammé quand il a tenté
+         de relire le disque. Ça a niaisé comme pas possible, je ne
+         pouvais plus rien faire du tout, pas même éjecter le
+         disque. Le lecteur affichait «Hello» et c'était
+         <em>tout</em>. Cela finit par me faire choquer. Ça
+         semblait sans espoir, la télécommande ne répondait pas,
+         les boutons du lecteur non plus, rien à faire.
+      </p>
+      <p>
+         Le disque a fini par sortir de là, je ne sais plus
+         comment, et quand je l'ai remis (maso, je voulais tester
+         jusqu'au bout), la lecture se passa sans problème. Je l'ai
+         finalisé et je l'ai testé sur A.R.D.-NAS avec succès,
+         aussi! Il y a juste eu MPlayer et Totem qui ont planté
+         avec ça, mais VLC l'a eu. Ce qui est choquant, c'est que
+         MPlayer a affiché qu'il a planté dix fois avant de me
+         laisser la paix. Déjà savoir qu'il a planté est super
+         choquant, car je sais qu'avec PowerDVD pour Windows, ça ne
+         ferait <em>jamais</em> ça, s'il faut en plus qu'il me le
+         répète dix fois, c'est vraiment insupportable.
+      </p>
+      <p>
+         Après ce test plus ou moins fructueux, j'ai programmé
+         l'appareil pour un véritable enregistrement, le soir même.
+         Le lendemain, le magnétoscope m'a fait d'affreuses
+         misères: problèmes à démarrer à cause du DVD dans le
+         lecteur, puis le film que j'ai enregistré la veille
+         <em>sautait</em>! Par chance, finaliser le DVD a résolu le
+         problème.
+      </p>
+      <p>
+         Vendredi, 5 novembre 2010, ma mère m'a amené une cassette
+         VHS que j'ai tenté avec succès de transférer sur un DVD.
+         Oui, oui, ça a fonctionné pour une fois sans problème!
+         J'avais écrit trop vite, malheureusement...
+      </p>
+      <p>
+         Ma mère m'avait amené non pas une mais trois cassettes. Eh
+         bien, une seule de ces cassettes fonctionnait. Avec les
+         deux autres, le son sautait. On aurait dit que la tête de
+         lecture se coinçait de sorte que l'appareil n'arrivait pas
+         à lire le contenu.
+      </p>
+      <p>
+         Et ce n'est que le début! Jeudi, 18 novembre 2010, je
+         voulais écouter une émission enregistrée deux jours plus
+         tôt. J'étais revenu avant la fin et avais vu le terminal
+         Illico et l'enregistreur activés tous les deux. Eh bien,
+         il n'y eut aucun enregistrement, seulement du noir!
+      </p>
+      <p>
+         Mardi, 23 novembre 2010, j'ai fait un peu plus de tests et
+         obtenu des résultats très décevants. D'abord, l'appareil a
+         pris au moins trente secondes à formater le disque neuf
+         que je lui ai fourni, avant de débuter l'enregistrement.
+         Après ça, c'était correct alors j'ai essayé de faire un
+         programme pour retester. J'ai alors constaté que
+         l'horloge, que j'avais ajustée à la minute près la
+         dernière fois, avait deux minutes de moins que sur mon
+         terminal Illico. Après ça, la bébelle a pris près de deux
+         minutes à démarrer, et a démarré l'enregistrement en
+         retard à cause de ça! L'appareil niaisa, affichant «Hello»
+         sans arrêt, pendant l'éternité des temps. Après ça,
+         l'enregistrement est parti. Quand ce fut fini, j'ai
+         rallumé l'appareil, attendu encore deux minutes (qu'il
+         finisse de dire «Hello»), puis j'ai tenté de faire rejouer
+         mon test. Cela n'a jamais fonctionné. J'ai essayé de
+         finaliser le disque, ce qui a pris un temps fou, après
+         quoi l'appareil l'a éjecté. Je l'ai remis dedans, attendu,
+         attendu, attendu, tenté d'appuyer sur Play, et là c'était
+         même rendu que la télécommande avait des ratés! J'appuyais
+         sur un bouton et il ne se passait rien une fois sur deux.
+         Les piles étaient neuves, alors c'étiat vraiment la
+         télécommande qui était défectueuse ou plus probablement
+         l'appareil qui n'acceptait pas les commandes, trop occupé
+         avec le disque. C'est vraiment décevant.
+      </p>
+      <h1>
+         <a id="hdpvr" name="hdpvr"></a>HD PVR de Hauppauge
+      </h1>
+      <p>
+         Après mon échec avec l'enregistreur DVD, il me restait une
+         solution à essayer avant de me résoudre à acheter
+         l'enregistreur numérique personnel de Vidéotron à 600$. Il
+         y eut certes un spécial chez Vidéotron permettant
+         d'obtenir le terminal à 300$, mais c'était uniquement pour
+         les nouveaux clients n'ayant pas encore de HD. La seule
+         «solution»: faire tous les magasins dans l'espoir de
+         trouver un spécial sur le terminal! Souvent, il faut
+         acheter un nouveau téléviseur pour avoir le terminal à
+         rabais, en plus. Alors cete solution était plus
+         susceptible de faire perdre du temps, autant à moi qu'à
+         mes parents qui devraient m'aider à me rendre à tous ces
+         magasins. J'ai certes trouvé un Bureau en Gros, un Future
+         Shop et un centre Hi-fi, mais qu'en est-il de Brick, Best
+         Buy, Wal-Mart, Brault et Martineau, Léon, etc.? Il
+         m'aurait fallu <em>tous</em> les faire pour trouver le
+         terminal à rabais!!!
+      </p>
+      <p>
+         Plutôt que faire ainsi, lundi le 13 décembre 2010, je me
+         suis rendu chez Future Shop et obtenu le HD PVR de
+         Hauppauge à 200$. Il valait 230$ et était en spécial.
+      </p>
+      <h2>
+         <a name="branchemen" id="branchemen">Branchement</a>
+      </h2>
+      <p>
+         Le HD PVR est une petite boîte avec un paquet de
+         connecteurs RCA à l'arrière. Il y a cinq connecteurs (Y,
+         Pr, Pb, R, L) permettant de faire entrer un signal
+         audio/vidéo haute définition cinq connecteurs du même type
+         pour renvoyer le signal vers la TV. De cette façon, il
+         n'est pas nécessaire d'installer des diviseurs au bout de
+         chaque câble pour envoyer le signal à la fois dans la
+         petite boîte et dans le téléviseur. Pourquoi ne pas
+         utiliser le câble HDMI pour envoyer le signal directement
+         à la TV, direz-vous? Eh bien, le terminal Illico interdit
+         d'utiliser HDMI et Y/Pr/Pb en même temps!
+      </p>
+      <p>
+         Ce n'est pas tout! De base, l'audio est en stéréo, mais la
+         petite boîte comporte aussi une entrée S/PDIF de type
+         optique. Cela permet à l'appareil de recevoir le signal
+         audio numérique tel quel et le stocker dans le flux de
+         sortie. Il y a aussi une sortie S/PDIF permettant de
+         retourner l'audio vers l'ampli-récepteur, donc pas besoin
+         d'installer un diviseur S/PDIF qui n'existe sans doute
+         pas, pas pour une fibre optique en tout cas! À l'avant de
+         l'appareil, il y a même une seconde entrée RCA, une entrée
+         S-Video et une entrée Composite. Ça pourrait toujours
+         servir à brancher un caméscope analogique ou un
+         magnétoscope, pour copier du contenu vidéo.
+      </p>
+      <p>
+         J'ai branché ça vendredi, 17 décembre, sur mon système et
+         j'ai constaté avec une indescriptible surprise que ça
+         fonctionnait sous Linux comme un charme! J'ai testé et le
+         S/PDIF fonctionne aussi!!! YIPI! C'était vraiment
+         trippant.
+      </p>
+      <p>
+         Mais en regardant l'image de plus près, j'ai commencé à
+         avoir des doutes. On aurait dit que c'était en noir et
+         blanc. Plus je regardais, plus j'avais l'impression que
+         des couleurs manquaient. J'ai alors testé avec mon ancien
+         syntoniseur TV, branché en S-Video, et constaté
+         qu'effectivement, les couleurs étaient meilleures avec
+         l'ancien! Je ne pouvais pas y croire, mais c'était bel et
+         bien le cas! Par chance, j'ai eu l'intelligence de
+         capturer la même séquence avec les deux appareils. J'ai
+         alors remarqué que dans la version S-Video, une annonce de
+         Stéréo Plus montrait des cadeaux rouges. Sur la version
+         Composantes, les cadeaux étaient noirs. Ah ah, il y a de
+         la cochonnerie avec le rouge. J'ai revérifié mes fils et
+         constaté que le rouge ne s'était pas bien renfoncé. J'ai
+         niaisé après ça un peu, puis réussi à le brancher comme il
+         fallait. Là, j'ai eu les couleurs qui avaient du bon
+         sens!!! Ça m'a donné des fichiers à 1280 par 720, donc
+         vraiment du HD. C'est dingue!
+      </p>
+      <h2>
+         <a name="utilisatio" id="utilisatio">Utilisation</a>
+      </h2>
+      <p>
+         L'utilisation du HD PVR est aussi simple que le WinTV
+         PVR-150. Il suffit de faire les réglages avec
+         <tt>v4l2-ctl</tt> puis utiliser la commande <tt>cp</tt>
+         pour transférer <tt>/dev/video1</tt> vers le fichier de
+         mon choix. Par défaut, les informations sont obtenues
+         depuis les connexions analogiques arrière de l'appareil.
+         Pour aller chercher le signal S/PDIF, je dois utiliser
+         <tt>v4l2-ctl -d /dev/video1 --set-audio-input 2</tt>.
+         Pourquoi 2? Eh bien, 0 c'est pour le RCA arrière, 1 c'est
+         pour le RCA avant et 2 c'est pour le S/PDIF. J'ai su ça en
+         utilisant <tt>v4l2-ctl -d /dev/video1
+         --get-audio-inputs</tt>.
+      </p>
+      <p>
+         Si je voulais enregistrer sur l'entrée vidéo avant, je
+         devrais utiliser <tt>v4l2-ctl -d /dev/video1 -i 1</tt>
+         pour l'entrée S-Video et <tt>-i 2</tt> pour l'entrée
+         composite. L'option <tt>-i 0</tt> ramène l'entrée
+         composante par défaut.
+      </p>
+      <h2>
+         <a name="problemes" id="problemes">Problèmes</a>
+      </h2>
+      <p>
+         Malheureusement, il y a eu quelques petits pépins avec ça
+         aussi. La première fois que j'ai effectué un
+         enregistrement programmé, cela a échoué, car le système
+         avait inversé <tt>/dev/video0</tt> et <tt>/dev/video1</tt>
+         pour je ne sais pas quelle raison. Cela a fait en sorte
+         d'enregistrer de la statique uniquement, en utilisant mon
+         ancien syntoniseur TV. La solution était bien simple:
+         retirer l'ancien syntoniseur. Je l'ai fait la fin de
+         semaine qui a suivi!
+      </p>
+      <p>
+         En début janvier 2011, je me suis acheté un nouveau câble
+         optique afin de pouvoir faire le branchement numérique.
+         J'ai alors constaté que le son en sortie du HD PVR jouait
+         en stéréo tout le temps, même si la source offrait du 5.1!
+         Le problème était que le HD PVR prenait le signal de
+         l'entrée RCA et l'envoyait sur la sortie optique. Il
+         fallait que je change la sortie vers optique avec
+         l'ordinateur pour que cela fonctionne. Pour améliorer un
+         peu les choses, je me suis créé un fichier dans
+         <tt>/etc/modprobe.d/hdpvr.conf</tt> avec le contenu
+         suivant:
+      </p>
+<pre>
+options hdpvr default_audio_input=2
+</pre>
+      <p>
+         Cela fait en sorte que si mon HTPC est allumé, Linux
+         détecte le HD PVR dès que je le mets en marche et
+         configure correctement l'entrée optique. Si le HD PVR est
+         en marche au moment où le HTPC s'allume, il effectue le
+         réglage aussi. Ainsi, ma sortie optique fonctionne
+         désormais parfaitement à condition d'allumer le HTPC. Ce
+         n'est pas parfait, mais c'est beaucoup mieux qu'avoir à
+         utiliser la sortie coaxiale de mon terminal Illico et
+         changer mon ampli pour qu'il ait deux entrées coaxiales
+         (une pour le lecteur DVD, une pour le Illico)!
+      </p>
+      <p>
+         J'ai ensuite constaté que l'appareil cessait d'enregistrer
+         et ne repartait pas quand le son coupait depuis l'entrée
+         optique ou quand la résolution de l'image changeait. En
+         particulier, l'enregistrement coupait si je changeais de
+         chaîne ou éteignais le terminal Illico. Qu'il coupe est
+         une chose, qu'il ne reprenne pas en est une toute autre!
+      </p>
+      <p>
+         Pour fiabiliser mon système d'enregistrement, j'ai été
+         obligé de me bricoler un petit script en Python permettant
+         de réinitialiser le HD PVR quand il n'envoie plus de
+         données à l'ordinateur. J'ai longuement cherché une autre
+         solution sur Google, en vain. Tout ramenait à MythTV qui
+         ne fonctionne pas du tout pour moi. Je l'ai réessayé
+         dimanche, 23 janvier 2011, et le logiciel se contentait de
+         faire gratter le disque dur en permanence sans me
+         permettre quelqu'action que ce soit. L'interface se
+         contentait de m'afficher que la connexion au backend était
+         impossible et me répétait ça jusqu'à temps que je devienne
+         cinglé! Oui, je pourrais m'essayer avec une distribution
+         de Linux pour MythTV, comme Mythbuntu ou KnopMyth, mais je
+         n'ai pas envie de tout réinstaller et il existe bien
+         d'autres solutions que MythTV!
+      </p>
+      <p>
+         Le script que j'ai construit s'appelle <tt>safecp.py</tt>.
+         Ce n'est pas tout à fait un bon nom, car il ne peut pas
+         copier n'importe quel fichier. Son utilisation est
+         <tt>safecp.py /dev/video0 fichier.ts 60</tt> pour
+         enregistrer 60 secondes dans le fichier
+         <tt>fichier.ts</tt>.
+      </p>
+      <p>
+         <a href="safecp.py">safecp.py</a>
+      </p>
+      <p>
+         C'est loin d'être parfait comme solution. J'aimerais bien
+         pouvoir généraliser ce script pour effectuer des réglages
+         sur le HD PVR, en utilisant Video4Linux, voire même
+         l'interfacer de sorte à pouvoir piloter mon HD PVR depuis
+         XBMC. J'ai commencé à explorer Video4Linux pour cela, mais
+         ça va demander pas mal de travail.
+      </p>
+      <p>
+         J'ai fini par me bricoler un autre script,
+         startrecording-hdpvr, qui permet de démarrer safecp.py à
+         un moment donné, après avoir effectué quelques ajustements
+         de base. Le voici, au cas où ça pourrait servir.
+      </p>
+      <p>
+         <a
+         href="startrecording-hdpvr.sh">startrecording-hdpvr.sh</a>
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

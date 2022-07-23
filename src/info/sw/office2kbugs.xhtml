@@ -1,0 +1,375 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         Les bogues Office 2000
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css"
+      href="../../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../../index.xhtml" class="parents">Le
+               royaume de Eric Buist</a> &gt;&gt; <a
+               href="../index.xhtml"
+               class="parents">Informatique</a> &gt;&gt; Problèmes
+               marquants &gt;&gt; <a href="../resolved.xhtml"
+               class="parents">Quelques bogues résolus</a> &gt;&gt;
+               <a href="index.xhtml" class="parents">Bogues
+               logiciels résolus</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../../sitemap.xhtml" class="sitemap">Plan
+               du site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="mailbug.xhtml"
+               class="leftsibling">L'histoire de mes adresses de
+               courrier électronique</a>
+            </td>
+            <td class="thispage">
+               Les bogues Office 2000
+            </td>
+            <td class="rightsibling">
+               <a href="mebug.xhtml" class="rightsibling">Problème
+               d'amorçage sous Windows Millennium Edition</a>
+               &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         Les bogues Office 2000
+      </h1>
+      <p>
+         Vive Microsoft pour le nombre incalculable de bogues que
+         l'on peut vivre avec leurs produits! Vive Microsoft pour
+         l'argent qu'ils nous font jeter par les fenêtres! Ce n'est
+         pas pour rien que Billy est riche! :) Je n'ai pas vécu un
+         bogue avec cette nouvelle version de Office, mais
+         QUATRE!!! Les voici tous, en ordre chronologique.
+      </p>
+      <h2>
+         <a name="v1" id="v1">Bogue Office 2000 version 1: la mise
+         à jour SR-1a rend Office instable</a>
+      </h2>
+      <p>
+         L'installation du produit sur mon portable s'est passée
+         comme un charme. J'ai bien entendu effectué l'opération de
+         façon impeccable en supprimant l'ancienne version, soit
+         Office 97, et en installant l'autre, ce qui évite la mise
+         à jour qui est souvent plus longue et source
+         d'instabilité. Après cette première étape, le programme
+         tournait comme un charme. Bien que légèrement plus lent
+         que la version 97, Office 2000 faisait bien son travail.
+         Toutefois, il est arrivé à deux reprises que Word a tout
+         bonnement planté. Il se mettait en état d'attente et il ne
+         restait plus qu'à le fermer de force. C'est pourquoi un
+         jour, j'ai décidé de tenter une mise à jour.
+      </p>
+      <p>
+         La première tentative de mise à jour à Office 2000 SR-1a a
+         été un cuisant échec. Comme Linux était toujours sur ma
+         machine, j'étais constamment en panne d'espace disque. Le
+         programme de mise à jour, qui avait mis un temps fou à
+         télécharger la fameuse mise à jour (La haute vitesse, ça
+         se joue à deux: le client et le serveur!), avait signalé
+         le problème juste après et me laissait le choix entre
+         réessayer, ignorer et annuler. Après avoir fulminé de
+         colère, j'ai annulé la procédure, mais j'avais pris soin
+         de sauvegarder le fichier contenant les données de la mise
+         à jour. Plus tard, lorsque j'ai eu l'espace disque libre
+         après la suppression de Linux, j'ai tenté une nouvelle
+         fois la mise à jour, sans succès. Le programme me disait
+         que la base de données de mise à jour était endommagée.
+      </p>
+      <p>
+         Ce qui signifie qu'il ne faut pas tenter de sauvegarder le
+         fichier de mise à jour mais plutôt télécharger chaque fois
+         le maudit fichier. Encore une oeuvre d'art de Microsoft
+         qui a oublié les connexions 56k et les maniacs qui se
+         voient souvent contraints à la réinstallation de Windows
+         suite à des manipulations inhabituelles et douteuses.
+         Heureusement, il existait une solution et elle consistait
+         à lire le site de <a
+         href="http://office.microsoft.com">Office Update</a> pour
+         trouver un lien vers une mise à jour contenant le fichier
+         complet et pouvant être téléchargée, et non achetée par
+         carte de crédit! Le fichier en main, après quelques essais
+         infructueux dûs à un défaut du serveur Microsoft, j'ai pu
+         obtenir la maudite mise à jour. Après la procédure, j'ai
+         ouvert Word et PAF!!! L'application s'est refermée en coup
+         de fusil après quelques secondes. J'ai pensé que cela
+         pouvait être le correcteur d'orthographe qui pourrait
+         avoir fucké, puisque la chose se produisait juste lorsque
+         je tapais de quoi. Mais je ne pouvais pas même atteindre
+         la commande <b>Options</b> du menu <b>Outils</b>, car le
+         programme se fermait avant. Finalement, j'ai dû
+         réinstaller Office 2000 sans la mise à jour.
+      </p>
+      <p>
+         Une autre fois, probablement après un nouveau blocage de
+         Word et sous l'envie de vouloir la version la plus
+         récente, j'ai tenté une nouvelle fois la mise à jour. J'ai
+         tenté à quelques reprises de réinstaller puis de remettre
+         à jour, rien n'y faisait. J'ai fini par aller consulter la
+         foire aux questions sur le site de Office pour faire une
+         constatation terriblement choquante. Le problème était
+         connu, mais je ne pourrais pas le résoudre aussi
+         facilement que voulu. Le numéro de série de ma version
+         était incorrect, commençant par une certaine suite de
+         nombres. Avec un tel numéro, il me fallait oublier la mise
+         à jour ou... contacter le support technique de Microsoft!
+         :(
+      </p>
+      <p>
+         Après quelques frustrantes recherches sur Internet, j'ai
+         fini par obtenir un nouveau numéro de série qui allait
+         fonctioner, puisqu'il ne commençait pas par les lettres et
+         chiffres proscrits. Je ne dévoilerai pas ici ce précieux
+         numéro, car cela ferait de ce site un site pirate, ce qui
+         n'est réellement pas dans mon intérêt!
+      </p>
+      <p>
+         La réinstallation avec ce numéro de série a provoqué un
+         changement dans le premier démarrage de Word. Celui-ci me
+         demandait maintenant si je voulais m'enregistrer, je
+         répondis par la négative, ayant autre chat à fouetter que
+         de remplir d'interminables formulaires électroniques, puis
+         j'effectuai la mise à jour qui fonctionna.
+      </p>
+      <h2>
+         <a name="v2" id="v2">Bogue Office 2000 version 2: Office
+         veut s'installer sur un CD-ROM!</a>
+      </h2>
+      <p>
+         Ce problème est un peu moins dramatique que le premier,
+         car il n'a pas exigé autant de travail pour être résolu.
+         Lors d'une réinstallation de Windows sur l'ordinateur
+         familial, l'installation de Office a été un peu plus
+         mouvementée. Rendu à la sélection de l'emplacement de
+         destination, le programme affichait dans la liste des
+         lecteurs le lecteur de CD-ROM! Il montrait ce lecteur
+         contenant 0 octet d'espace libre comme d'habitude. Loin de
+         m'en soucier, j'ai cliqué Suivant puis j'ai choisi les
+         composantes à installer. Malheur! Le programme me
+         signalait qu'il n'y avait pas suffisamment d'espace libre
+         pour installer! Il fallait je ne sais plus combien
+         d'espace libre sur le lecteur de CD-ROM!!! Mais comment
+         Diable était-ce possible? J'ai tenté de reprendre
+         l'installation depuis le début, sans succès. J'en arrivais
+         presque à sortir le CD de Office 97 pour au moins mettre à
+         la disposition de ma famille un traitement de texte, bien
+         que plus ancien que celui sur mon portable, lorsque je
+         pensai regarder mes fichiers de configuration. Dans le
+         fichier <tt>autoexec.bat</tt>, j'avais défini la variable
+         <tt>temp</tt> pour qu'elle pointe sur <tt>f:\temp</tt>.
+         Toutefois, j'étais en phase finale de la réinstallation et
+         le réaménagement des partitions de mon disque était fini.
+         Il n'y avait plus de lecteur F:, il n'y avait que le C:,
+         le D:, le E:, le R: et le W:! Mais pas de F:, voilà donc
+         le problème. Le programme d'installation a probablement dû
+         voir que le lecteur n'existait pas et passer au suivant
+         dans l'ordre alphabétique, soit R:. Ce qui a provoqué
+         l'erreur. J'ai donc modifié la ligne en question pour que
+         la variable soit égale à <tt>d:\temp</tt> puis j'ai
+         redémarré la machine. Avec soulagement, j'ai pu installer
+         le programme récalcitrant sans autres incidents.
+      </p>
+      <h2>
+         <a name="v3" id="v3">Bogue Office 2000 version 3: sabotage
+         par un virus!</a>
+      </h2>
+      <p>
+         Un soir, mon frère est venu me signaler un problème avec
+         Word qui refusait tout simplement de démarrer. Excel
+         faisant aussi la même chose, test à l'appui, j'en conclus
+         que le bogue affectait toute la suite Office. Il m'a fallu
+         réinstaller le programme et tout est rentré dans l'ordre,
+         pour l'instant.
+      </p>
+      <p>
+         Le vendredi 13 octobre 2000, j'ai découvert la cause du
+         bogue: un virus! La bêbite s'était installée dans Notepad
+         et avait modifié l'exécutable <tt>notepad.exe</tt>. Si on
+         passait un paramètre spécifique au programme mutant, le
+         virus se mettait en mémoire. La base de registre contenait
+         naturellement un appel à cette commande dans la clé
+         <tt>HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run</tt>.
+         McAfee VirusScan a heureusement détecté le monstre, mais
+         comme il était chargé, il n'a pas pu décontaminer le
+         fichier. Une recopie à partir d'un fichier sain en mode
+         MS-DOS a libéré la machine de ce terrible fléau.
+         Toutefois, elle ne m'a pas rendu la liste des programmes
+         installés, que l'on trouve dans <b>Ajouter/Supprimer des
+         programmes</b> du <b>Panneau de Configuration</b>. Lorsque
+         Office 2000 a disparu de la liste, cela a perturbé le
+         fonctionnement de l'application.
+      </p>
+      <h2>
+         <a name="v4" id="v4">Bogue Office 2000 version 4:
+         impossible de décrypter un fichier sous Windows 2000</a>
+      </h2>
+      <p>
+         Mercredi, le 2 mai 2001 au soir, après un après-midi de
+         réinstallation d'applications sous Windows 2000, je
+         voulais me reposer en écoutant un peu de musique et en
+         écrivant mes états d'âme dans mon journal intime virtuel.
+         Il n'y a pas eu de problèmes avec la musique, mais sitôt
+         que j'essayai d'ouvrir le document Word contenant mon
+         journal, un fichier protégé par mot de passe, un message
+         d'erreur des plus frustrants s'afficha: <b>Impossible
+         d'ouvrir ce document, car il est protégé par un mot de
+         passe avec une méthode de cryptage qui n'est pas
+         disponible dans ce pays. Word ne peut pas ouvrir ce
+         document.</b> Bon, pas de panique, j'active le <b>Panneau
+         de Configuration</b> et puis <b>Options régionales</b>. Le
+         système d'exploitation a remis les paramètres <b>Français
+         (France)</b> plutôt que <b>Français (Canada)</b>, pas pour
+         rien que cela se bloquait! Je modifiai le paramètre, je
+         validai, toujours le même problème. Alors, je tentai
+         d'utiliser la fonction <b>Détecter et réparer</b> de
+         Microsoft Office, ce qui me valut finalement un long
+         message d'erreur au sujet d'un fichier qui ne pouvait pas
+         être mis à jour et me conseillant de mettre mon système
+         d'exploitation à jour. J'allais le faire!
+      </p>
+      <p>
+         J'activai <b>Windows Update</b> et je téléchargeai tout ce
+         que je pouvais, dont le Windows 2000 Service Pack 1, un
+         ensemble de mises à jour pour la sécurité, le High
+         Encryption Pack, Windows Media Player 7 et une mise à jour
+         pour Office 2000. À noter que Office 2000 SR-1a était déjà
+         installé lors de la première ouverture infructueuse du
+         document top secret. La mise à jour ne provoqua tout
+         bêtement aucun effet!
+      </p>
+      <p>
+         Je tentai alors de désinstaller complètement le produit,
+         de redémarrer la machine pour m'assurer qu'il n'y aurait
+         plus trace de modifications puis je réinstallai le
+         logiciel... et le problème! Je me couchai ce soir-là en
+         pensant à la manière de résoudre le problème.
+      </p>
+      <p>
+         Bien entendu, vu la nature de ce document, je ne peux pas
+         enlever la protection par mot de passe pour que Office
+         2000 puisse l'ouvrir. Je ne veux pas me soumettre à ces
+         contraintes à la Microsoft de plus en plus nombreuses et
+         bien tannantes et je préfère me débarrasser de Windows
+         2000, peu importe les bienfaits qu'il pourrait apporter à
+         ma machine, que de me départir de cette protection par mot
+         de passe, quitte à utiliser un programme autre pour
+         crypter le document. Un tel système ne serait pas à l'abri
+         d'un oubli et le document pourrait être lu si j'oubliais
+         un jour de le coder après y avoir écrit.
+      </p>
+      <p>
+         Le lendemain, je tentai de jouer avec l'Outil de
+         paramètres linguistiques de Office 2000, je changeai ainsi
+         la langue d'installation, la faisant passer de Français
+         (France) à Français (Canada). Toutefois, cela n'eut aucun
+         effet, la réparation ne changea rien et je n'avais pas
+         très envie, à ce moment-là, de tout réinstaller Office
+         encore une fois. Vendredi, le 4 mai 2001, je tentai
+         toutefois cette opération, cette fois-ci après avoir
+         enlevé de la base de Registre toute entrée reliée à
+         Microsoft Office 2000. Malheureusement, la réinstallation
+         ne solutionna pas le bogue.
+      </p>
+      <p>
+         L'outil d'informations système de Windows 2000 m'indique
+         que Internet Explorer 5.5 était en Français de France
+         tandis qu'il se trouvait en Français standard sous Windows
+         98 Deuxième Édition. Je supposai ainsi que ma version de
+         Windows 2000 se trouvait en Français de France et qu'en
+         raison de cela, Office 2000 ne voudrait pas décrypter le
+         document. Il faudrait une version en Français du Canada ou
+         bien en Anglais pour que cela fonctionne!
+      </p>
+      <p>
+         Dès que je détiendrais la preuve que c'était bien cela la
+         cause du bogue ou que j'en aurais assez de voir Windows
+         2000 sur mon disque inutile en raison du problème, le
+         système d'exploitation serait supprimé sans pitié et je
+         commençais même à envisager détruire le CD pour ne pas
+         être porté, plus tard, à réinstaller et tester de nouveau
+         inutilement, sachant déjà le bogue!
+      </p>
+      <p>
+         Samedi, le 12 mai 2001, Windows 2000 a pris le bord et a
+         fait place à Windows ME qui fonctionna admirablement bien
+         pendant une semaine. Toutefois, jeudi soir, le 24 mai
+         2001, Windows ME fit d'énormes caprices et me mit en
+         furie. Ce qui m'incita fortement, samedi le 26 mai 2001, à
+         tenter une seconde fois d'installer Windows 2000.
+      </p>
+      <p>
+         Pendant l'installation, le système m'a demandé de choisir
+         mes paramètres régionaux. Lors de la première fois,
+         j'avais passé trop vite dans cette section et je n'avais
+         pas lu qu'il y a deux types de paramètres régionaux: les
+         paramètres utilisateurs et les paramètres systèmes. Je
+         cliquai sur <b>Personnaliser</b> dans le programme
+         d'installation pour modifier mes paramètres et une boîte
+         similaire à celle des <b>Options régionales</b> du
+         <b>Panneau de configuration</b> apparut. Je pouvais y
+         modifier mes paramètres utilisateurs et je les définis à
+         <b>Français (Canada)</b>, mais le programme me reportait
+         toujours que mes paramètres systèmes étaient à <b>Français
+         (France)</b>! Pendant quelques secondes, je crus que
+         c'était la version de mon Windows, mais je retournai
+         toutefois dans la boîte des options régionales. Je
+         regardai dans les paramètres de langue pour le système,
+         rien de plus... À tout hasard, je cliquai sur <b>Valeur
+         par défaut</b> en m'attendant à voir le système remettre
+         les paramètres régionaux utilisateurs à <b>Français
+         (France)</b>, mais non, une nouvelle boîte de dialogue
+         s'afficha. <b>Les paramètres régionaux système
+         permettent...</b> commençait un long texte! Et une combo
+         box permettait miraculeusement de modifier cette option,
+         ENFIN! Je le fis et l'installation terminée, Office 2000
+         fut finalement réinstallé et il put ouvrir mon journal
+         intime sans aucune forme de difficulté que ce soit!
+      </p>
+      <p>
+         Ce bogue aurait pu être solutionné sans une réinstallation
+         complète. Ma définition incorrecte de l'effet de <b>Valeur
+         par Défaut</b> m'a empêché de découvrir la clé du mystère
+         avant ce jour. Grâce à cette découverte, Windows 2000 a pu
+         devenir le système d'exploitation principal sur ma
+         machine, ME a été mis de côté pour un certain temps et
+         Windows 2000, bien que son démarrage soit plus lent, est
+         plus stable que Windows 9x/ME!
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

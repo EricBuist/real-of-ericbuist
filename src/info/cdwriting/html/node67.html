@@ -1,0 +1,159 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.1//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>14.1 Le kit de survie pour la gravure sous Linux</TITLE>
+<META NAME="description" CONTENT="14.1 Le kit de survie pour la gravure sous Linux">
+<META NAME="keywords" CONTENT="cdwriting">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cdwriting.css">
+
+<LINK REL="next" HREF="node68.html">
+<LINK REL="previous" HREF="node66.html">
+<LINK REL="up" HREF="node66.html">
+<LINK REL="next" HREF="node68.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2044"
+  HREF="node68.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2038"
+  HREF="node66.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2032"
+  HREF="node66.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2040"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2042"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html2045"
+  HREF="node68.html">14.2 Votre graveur fonctionne-t-il</A>
+<B> monter:</B> <A NAME="tex2html2039"
+  HREF="node66.html">14. Introduction</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2033"
+  HREF="node66.html">14. Introduction</A>
+ &nbsp; <B>  <A NAME="tex2html2041"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2043"
+  HREF="node106.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION07110000000000000000">
+<SPAN CLASS="arabic">14</SPAN>.<SPAN CLASS="arabic">1</SPAN> Le kit de survie pour la gravure sous Linux</A>
+</H1>
+
+<P>
+Outre les éléments mentionnés en&nbsp;<A HREF="node7.html#sec:prereq">1.2</A>, la gravure sous
+Linux nécessite la présence de logiciels qui, heureusement, sont
+disponibles gratuitement et même intégrés à la plupart des
+distributions contemporaines de Linux.
+
+<P>
+
+<UL>
+<LI>Une distribution de Linux. J'ai gravé des CD sous Red
+  Hat<A NAME="2978"></A>
+  Linux&nbsp;7.3 et&nbsp;9 ainsi que Mandrake<A NAME="2979"></A> Linux&nbsp;9, 10 et&nbsp;10.1,
+  mais toute autre distribution est
+  susceptible de bien fonctionner tant qu'elle est dotée des bons
+  éléments. En particulier, Fedora Core<A NAME="2980"></A> constitue
+  la version
+  suivant Red Hat 9 et devrait supporter la gravure sans problèmes.
+</LI>
+<LI>Noyau de version 2.2 ou supérieure intégrant la couche
+  d'émulation IDE-SCSI<A NAME="2981"></A> si vous disposez d'un graveur
+  IDE, ce qui est
+  le cas de la plupart d'entre vous. Le noyau 2.4, quant à lui, fera
+  encore mieux l'affaire. Avec le noyau 2.6, nul besoin de la couche
+  IDE-SCSI!
+</LI>
+<LI>CDRecord<A NAME="2982"></A> [<A HREF="node105.html#url:cdrecord">URL15</A>],
+  logiciel permettant la gravure sous Linux.
+</LI>
+<LI>mkisofs<A NAME="2984"></A>, outil permettant la génération d'images ISO, intégré
+  aux versions actuelles de CDRecord
+</LI>
+<LI>CDRDAO<A NAME="2985"></A> [<A HREF="node105.html#url:cdrdao">URL14</A>], logiciel
+  de gravure de CD en mode Disk-At-Once, ce que CDRecord ne supporte
+  pas très bien pour le cas des CD Audio.
+  Il sera aussi utile pour la copie de CD.
+</LI>
+<LI>Le logiciel k3b<A NAME="2987"></A> [<A HREF="node105.html#url:k3b">URL39</A>] constitue un
+  excellent outil pour
+  simplifier la gravure de CD/DVD en offrant une interface graphique.
+</LI>
+</UL>
+
+<P>
+Pour la gravure de DVD, d'autres outils s'avèrent nécessaires.
+
+<P>
+
+<UL>
+<LI>CDRecord-ProDVD [<A HREF="node105.html#url:cdrecord">URL15</A>],
+  CDRecord avec patch pour support DVD [<A HREF="node105.html#url:cdrecorddvd">URL16</A>]
+  ou
+  DVDRecord<A NAME="2993"></A> [<A HREF="node105.html#url:dvdrecord">URL18</A>]
+  pour la gravure de disques en mode DAO
+</LI>
+<LI>DVD+RW-tools<A NAME="2995"></A> [<A HREF="node105.html#url:dvdrwtools">URL22</A>]
+  pour l'écriture en mode incrémental
+</LI>
+</UL>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2044"
+  HREF="node68.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2038"
+  HREF="node66.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2032"
+  HREF="node66.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2040"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2042"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html2045"
+  HREF="node68.html">14.2 Votre graveur fonctionne-t-il</A>
+<B> monter:</B> <A NAME="tex2html2039"
+  HREF="node66.html">14. Introduction</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2033"
+  HREF="node66.html">14. Introduction</A>
+ &nbsp; <B>  <A NAME="tex2html2041"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2043"
+  HREF="node106.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Eric Buist
+2005-11-13
+</ADDRESS>
+</BODY>
+</HTML>

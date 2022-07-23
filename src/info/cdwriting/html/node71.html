@@ -1,0 +1,265 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.1//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>15.1 L'accès direct au contenu du disque</TITLE>
+<META NAME="description" CONTENT="15.1 L'accès direct au contenu du disque">
+<META NAME="keywords" CONTENT="cdwriting">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cdwriting.css">
+
+<LINK REL="next" HREF="node72.html">
+<LINK REL="previous" HREF="node70.html">
+<LINK REL="up" HREF="node70.html">
+<LINK REL="next" HREF="node72.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2107"
+  HREF="node72.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2101"
+  HREF="node70.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2095"
+  HREF="node70.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2103"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2105"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html2108"
+  HREF="node72.html">15.2 Lecture de la</A>
+<B> monter:</B> <A NAME="tex2html2102"
+  HREF="node70.html">15. Analyse de disques</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2096"
+  HREF="node70.html">15. Analyse de disques</A>
+ &nbsp; <B>  <A NAME="tex2html2104"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2106"
+  HREF="node106.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION07210000000000000000">
+<SPAN CLASS="arabic">15</SPAN>.<SPAN CLASS="arabic">1</SPAN> L'accès direct au contenu du disque</A>
+</H1>
+
+<P>
+La plupart du temps, votre lecteur CD/DVD sera référencé par le fichier
+spécial <TT>/dev/cdrom</TT><A NAME="3316"></A>. Ce
+fichier a la propriété particulière de
+correspondre directement aux secteurs physiques du disque compact
+inséré dans le lecteur! La commande <TT>dd</TT><A NAME="3276"></A> permet de
+tirer parti
+de ce fait pour extraire des portions précises du disque. Vous
+pourriez penser utiliser cette technique pour copier un DVD-Video,
+mais malheureusement, la protection anticopie se situe au niveau
+matériel. Sans la clé CSS appropriée, le lecteur ne vous donnera pas
+accès au contenu du disque. Le
+CD-Writing Howto nous révèle un petit script simple,
+<TT>cdinfo.sh</TT><A NAME="3317"></A> et permettant
+d'extraire les informations d'un disque.
+
+<P>
+Ce que nous cache le Howto, c'est le fonctionnement de ce script. On
+fixe tout d'abord une variable <TT>RD</TT> qui représentera notre
+lecteur de CD/DVD. Ensuite, une structure <TT>for</TT> permet d'itérer sur
+différentes valeurs numériques. La boucle itère sur des paires de
+valeur <SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$\langle$"></SPAN>offset, longueur<SPAN CLASS="MATH"><IMG
+ WIDTH="12" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$\rangle$"></SPAN> décortiquées par
+une méthode qui n'a aucune importance ici. On indique alors à
+<TT>dd</TT> les différents offsets et on affiche le résultat entre
+étoiles.
+Voyons maintenant ce que fera ce script sur un disque de
+test. Certains espaces ont été retirés dans la sortie afin qu'elle ne
+dépasse pas la largeur de la page.
+
+<P>
+
+<DIV CLASS="alltt" ALIGN="LEFT">
+<TT>
+ 
+<BR>*CD001#
+<BR>*CD-RTOS CD-BRIDGE &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#
+<BR>*ZITSUNG &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#
+<BR>* &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;... &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#
+<BR>*ERIC BUIST &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;... &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#
+<BR>*ERIC BUIST &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;... &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#
+<BR>*EASY CD CREATOR 4.2 (285) COPYRIGHT (C) 
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1996-2000 ADAPTEC, INC. &nbsp;&nbsp;... #
+<BR>* &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#
+<BR>*2000071413005000#
+<BR>*2000071413005000#
+<BR>*0000000000000000#
+<BR>*0000000000000000#
+<BR></TT>
+</DIV>
+
+<P>
+Pour l'instant, nous pouvons constater la présence du nom du volume et
+même localiser l'emplacement de cette information vitale sur le
+disque. Certaines informations restent malheureusement ambiguës, comme le
+nom de l'éditeur et du créateur qui sont confondus ainsi que les dates
+qui ne peuvent être différenciées. Nous savons toutefois que ce disque
+a été créé avec Easy CD Creator&nbsp;4.2 et qu'il se nomme Zitsung.
+
+<P>
+Dans le cas des CD Audio, ces informations ne seront pas affichées.
+La plupart des informations que nous avons pu extraire par lecture
+directe d'un CD de données peuvent être réglées par l'utilitaire
+mkisofs. Étant donné que ce dernier crée des images ISO et
+qu'un CD Audio n'adhère pas au système de fichiers ISO, nous pouvons
+en conclure que la technique d'extraction d'informations ne
+fonctionnera que pour les CD de données.
+
+<P>
+Afin de déterminer l'usage de chacun des champs, j'ai créé un
+disque en contrôlant les paramètres de l'image ISO. Le système ID
+était ``Mandrake Linux 9.0'', le Prepared by, ``Preparer'' et le
+Published by, ``BugMan''. Quant au Application ID, je le baptisai
+``BugMan Linux''. Ensuite, lorsque le disque put être lu, ainsi que
+ses fichiers, j'utilisai le script d'informations. Les données
+obtenues permettent de dresser le tableau&nbsp;<A HREF="#tab:isofields">15.1</A> partiel
+des rôles des
+différents champs.
+
+<P>
+<BR><P></P>
+<DIV ALIGN="CENTER"><A NAME="3295"></A>
+<TABLE>
+<CAPTION><STRONG>Tableau 15.1:</STRONG>
+Secteurs d'information CD de l'ISO 9660</CAPTION>
+<TR><TD>
+  <DIV ALIGN="CENTER">
+<TABLE CELLPADDING=3 BORDER="1" ALIGN="CENTER">
+<TR><TD ALIGN="CENTER">Position début</TD>
+<TD ALIGN="CENTER">Taille</TD>
+<TD ALIGN="CENTER" COLSPAN=1><SPAN>Rôle</SPAN></TD>
+</TR>
+<TR><TD ALIGN="CENTER">32768</TD>
+<TD ALIGN="CENTER">7</TD>
+<TD ALIGN="LEFT">Contient <TT>CD001</TT>, peut-être la version du
+      format</TD>
+</TR>
+<TR><TD ALIGN="CENTER">32776</TD>
+<TD ALIGN="CENTER">32</TD>
+<TD ALIGN="LEFT">System Identifier</TD>
+</TR>
+<TR><TD ALIGN="CENTER">32808</TD>
+<TD ALIGN="CENTER">32</TD>
+<TD ALIGN="LEFT">Nom du volume</TD>
+</TR>
+<TR><TD ALIGN="CENTER">32958</TD>
+<TD ALIGN="CENTER">128</TD>
+<TD ALIGN="LEFT">Inconnu</TD>
+</TR>
+<TR><TD ALIGN="CENTER">33086</TD>
+<TD ALIGN="CENTER">128</TD>
+<TD ALIGN="LEFT">Published by</TD>
+</TR>
+<TR><TD ALIGN="CENTER">33214</TD>
+<TD ALIGN="CENTER">128</TD>
+<TD ALIGN="LEFT">Prepared by</TD>
+</TR>
+<TR><TD ALIGN="CENTER">33342</TD>
+<TD ALIGN="CENTER">128</TD>
+<TD ALIGN="LEFT">Application Identifier</TD>
+</TR>
+<TR><TD ALIGN="CENTER">33470</TD>
+<TD ALIGN="CENTER">32</TD>
+<TD ALIGN="LEFT">Inconnu</TD>
+</TR>
+<TR><TD ALIGN="CENTER">33581</TD>
+<TD ALIGN="CENTER">16</TD>
+<TD ALIGN="LEFT">Date de création de l'image</TD>
+</TR>
+<TR><TD ALIGN="CENTER">33598</TD>
+<TD ALIGN="CENTER">16</TD>
+<TD ALIGN="LEFT">Autre date</TD>
+</TR>
+<TR><TD ALIGN="CENTER">33615</TD>
+<TD ALIGN="CENTER">16</TD>
+<TD ALIGN="LEFT">Inconnu</TD>
+</TR>
+<TR><TD ALIGN="CENTER">33632</TD>
+<TD ALIGN="CENTER">16</TD>
+<TD ALIGN="LEFT">Autre date</TD>
+</TR>
+</TABLE>
+</DIV>
+<P>
+<DIV ALIGN="CENTER">Les positions et les tailles sont données en octets.
+  
+</DIV>
+  
+  <A NAME="tab:isofields"></A>
+</TD></TR>
+</TABLE>
+</DIV><P></P>
+<BR>
+
+<P>
+C'est tout ce que nous pouvons tirer de l'analyse directe, à
+moins de percer
+les mystères de la structure ISO et effectuer une analyse en
+profondeur du système de fichiers.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2107"
+  HREF="node72.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2101"
+  HREF="node70.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2095"
+  HREF="node70.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2103"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2105"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html2108"
+  HREF="node72.html">15.2 Lecture de la</A>
+<B> monter:</B> <A NAME="tex2html2102"
+  HREF="node70.html">15. Analyse de disques</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2096"
+  HREF="node70.html">15. Analyse de disques</A>
+ &nbsp; <B>  <A NAME="tex2html2104"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2106"
+  HREF="node106.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Eric Buist
+2005-11-13
+</ADDRESS>
+</BODY>
+</HTML>

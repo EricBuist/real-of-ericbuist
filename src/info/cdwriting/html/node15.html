@@ -1,0 +1,254 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.1//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>2.4 Systèmes de fichiers</TITLE>
+<META NAME="description" CONTENT="2.4 Systèmes de fichiers">
+<META NAME="keywords" CONTENT="cdwriting">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cdwriting.css">
+
+<LINK REL="next" HREF="node16.html">
+<LINK REL="previous" HREF="node14.html">
+<LINK REL="up" HREF="node11.html">
+<LINK REL="next" HREF="node16.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1026"
+  HREF="node16.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1020"
+  HREF="node11.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1014"
+  HREF="node14.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1022"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1024"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html1027"
+  HREF="node16.html">2.5 Types d'images CD</A>
+<B> monter:</B> <A NAME="tex2html1021"
+  HREF="node11.html">2. La technologie CD</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html1015"
+  HREF="node14.html">2.3 Formats de CD</A>
+ &nbsp; <B>  <A NAME="tex2html1023"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1025"
+  HREF="node106.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Sous-sections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html1028"
+  HREF="node15.html#SECTION05141000000000000000"><SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">1</SPAN> ISO&nbsp;9660</A>
+<LI><A NAME="tex2html1029"
+  HREF="node15.html#SECTION05142000000000000000"><SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">2</SPAN> UDF</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION05140000000000000000"></A>
+<A NAME="398"></A>
+<BR>
+<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">4</SPAN> Systèmes de fichiers
+</H1>
+
+<P>
+Les pistes d'un disque de données peuvent contenir plusieurs
+fichiers, mais sans une structure centrale, il serait impossible de
+savoir où les trouver. Cette structure, appelée système de fichiers,
+comprend des tables indiquant pour
+chaque répertoire la liste des fichiers sur le disque. Il comprend
+aussi des informations générales à propos du disque, comme son nom, le
+logiciel qui l'a créé, la date de création, ... À l'origine, tous les
+disques hébergeaient un système fondé sur la norme ISO&nbsp;9660. Toutefois,
+de nos jours, le système UDF, plus flexible et mieux approprié pour
+les DVD, est aussi utilisable. En fait, il est possible d'utiliser un
+système de fichiers arbitraire, comme VFAT, NTFS ou Ext3fs, mais
+Windows ne prend en charge que l'ISO&nbsp;9660 et l'UDF sur des CD ou des DVD.
+
+<P>
+
+<H2><A NAME="SECTION05141000000000000000">
+<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">1</SPAN> ISO&nbsp;9660</A>
+</H2>
+
+<P>
+ISO&nbsp;9660<A NAME="400"></A> constitue le format de CD le plus répandu et le
+plus supporté par les systèmes d'exploitation. Il a été à l'origine
+conçu pour le CD-ROM et hérite de nombreuses limitations de l'époque
+de l'émergence du disque compact.
+
+<P>
+
+<UL>
+<LI>Les noms de fichiers sont de type 8&#58;3, c'est-à-dire un
+  nom de fichier de huit caractères maximum, un <TT>.</TT> et une
+  extension de trois caractères maximum. Le nom de fichier ne comprend
+  ni espaces, ni accents, ni caractères spéciaux, même chose pour
+  l'extension. Tous ceux qui ont travaillé sous DOS/Windows&nbsp;3.1
+  connaissent les inconvénients causés par ce genre de noms de
+  fichiers. Il devient vite nécessaire de construire des noms
+  difficiles à se rappeler et utiliser des numérotations.
+</LI>
+<LI>ISO&nbsp;9660 ne supporte que huit niveaux de sous-répertoires.
+</LI>
+<LI>La norme ne prévoit aucun moyen de stocker des méta-données standard sur
+  les fichiers, comme des attributs spécifiques au système
+  d'exploitation, des listes de contrôle d'accès, ...
+</LI>
+<LI>Le jeu de caractères étant limité à l'ASCII, seuls les
+  Anglais trouvent leur compte dans ce format.
+  Il n'est pas question d'utiliser des caractères accentués dans les
+  noms de fichiers, encore moins des alphabets alternatifs.
+</LI>
+</UL>
+
+<P>
+Pour résoudre ces problèmes, plusieurs extensions à ISO&nbsp;9660 ont été
+proposées et sont de nos jours adoptées par tous les systèmes
+d'exploitation courants. Ces extensions peuvent être utilisées de
+concert dans une même image ISO.
+
+<P>
+<DL>
+<DT><STRONG>Joliet<A NAME="405"></A></STRONG></DT>
+<DD>Outre les noms 8&#58;3, chaque fichier peut
+  comprendre un nom long contenant au maximum 64 caractères
+  Unicode. Les accents, minuscules, majuscules et espaces sont
+  supportés, mais aucune différentiation des minuscules et majuscules
+  n'est effectuée lors de la lecture. La profondeur des chemins
+  d'accès est étendue et le nom de label du disque passe à 64
+  caractères lui aussi, bien que la plupart des systèmes qui
+  l'utilisent se restreignent à 12.
+</DD>
+<DT><STRONG>Rock Ridge<A NAME="406"></A></STRONG></DT>
+<DD>Cette extension constitue
+  l'équivalent Linux de Joliet. Rock Ridge fournit le support de noms
+  de fichiers longs avec caractères accentués et espaces et ajoute
+  des informations sur le propriétaire et les permissions des
+  fichiers. Rock&nbsp;Ridge supporte également un mécanisme de
+  décompression transparente de fichiers sur le disque. Toutefois,
+  si ce mécanisme est utilisé, le CD risque d'être illisible sous un
+  autre système que Linux.
+  Contrairement à Joliet qui peut être créé par tout bon
+  logiciel de gravure, seul <TT>mkisofs</TT> supporte Rock Ridge
+  pleinement.
+</DD>
+<DT><STRONG>Hybrid File System (HFS<A NAME="408"></A>)</STRONG></DT>
+<DD>Ce système constitue
+  l'équivalent de Joliet pour Mac OS. Outre les noms longs (encore
+  une fois!), il supporte les méta-données spécifiques au Macintosh
+  comme le créateur du fichier ainsi que son type. Contrairement au
+  PC, le Mac n'utilise pas l'extension du fichier pour identifier
+  son contenu mais bien des méta-données au sein du système de
+  fichiers. Théoriquement, la création du HFS ne peut se faire que sous
+  Macintosh. Le logiciel <TT>mkisofs</TT> peut aussi, dans une
+  certaine
+  mesure, créer des images HFS.
+</DD>
+</DL>
+
+<P>
+
+<H2><A NAME="SECTION05142000000000000000">
+<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">2</SPAN> UDF</A>
+</H2>
+
+<P>
+Avec ISO&nbsp;9660, nous avions un format de base trop limité pour les
+besoins modernes qui a été étendu de façon concurrente par Microsoft,
+Apple et les concepteurs de Linux. Un seul logiciel maîtrise les trois
+formats et peut créer des hybrides compatibles avec tous:
+<TT>mkisofs</TT>. Sous Windows, chaque logiciel de gravure supporte
+Joliet. Sous Mac, chaque logiciel supporte HFS et, à la limite,
+Joliet. Par chance, tous peuvent lire Joliet qui est devenu un
+standard de facto.
+Universal Disk Format
+(UDF<A NAME="413"></A>) constitue le système qui devrait pouvoir changer cet
+état des choses.
+Cette norme, publiée par
+l'OSTA<A NAME="414"></A> [<A HREF="node105.html#url:osta">URL112</A>], décrit un système de fichiers
+destiné aux mémoires de masse de grande capacité. Contrairement à
+l'ISO&nbsp;9660, aucune restriction sur les longueurs des noms de fichiers et
+le nombre de niveaux des répertoires.
+
+<P>
+Les noms de fichiers sont encodés en utilisant Unicode, ce qui
+élargit beaucoup l'universalité du système. Le support multilingue est
+alors possible et UDF est davantage conçu pour les disques amovibles
+réinscriptibles que l'ISO&nbsp;9660. Le format prescrit les éléments
+nécessaires pour le stockage de méta-données comme les permissions et
+les propriétaires des fichiers et la spécification UDF étant
+accessible librement, il est davantage probable de trouver des
+implantations complètes et fonctionnelles dans tous les systèmes
+d'exploitation courants.
+
+<P>
+Plusieurs version d'UDF existent, mais les nouvelles versions se
+trouvent compatibles avec les anciennes. Pour le moment, seul Windows
+supporte UDF parfaitement, et encore uniquement à partir de
+Windows&nbsp;98. Linux comprend un support partiel, par défaut en lecture
+seule, du format. L'utilitaire majeur d'écriture d'images ISO,
+<TT>mkisofs</TT>, ne supporte UDF que partiellement. Pour ces raisons,
+il est possible d'utiliser un système UDF Bridge qui combine, sur un
+même disque, UDF et ISO&nbsp;9660.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1026"
+  HREF="node16.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1020"
+  HREF="node11.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1014"
+  HREF="node14.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1022"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1024"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html1027"
+  HREF="node16.html">2.5 Types d'images CD</A>
+<B> monter:</B> <A NAME="tex2html1021"
+  HREF="node11.html">2. La technologie CD</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html1015"
+  HREF="node14.html">2.3 Formats de CD</A>
+ &nbsp; <B>  <A NAME="tex2html1023"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1025"
+  HREF="node106.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Eric Buist
+2005-11-13
+</ADDRESS>
+</BODY>
+</HTML>

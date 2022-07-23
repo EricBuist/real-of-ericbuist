@@ -1,0 +1,1314 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         Installation de RedHat Linux 9
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css" href="../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../index.xhtml" class="parents">Le royaume
+               de Eric Buist</a> &gt;&gt; <a href="index.xhtml"
+               class="parents">Informatique</a> &gt;&gt;
+               Configuration informatique
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../sitemap.xhtml" class="sitemap">Plan du
+               site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="mdk9.xhtml"
+               class="leftsibling">Passage à Linux Mandrake 9</a>
+            </td>
+            <td class="thispage">
+               Installation de RedHat Linux 9
+            </td>
+            <td class="rightsibling">
+               <a href="sysupdt.xhtml" class="rightsibling">Mise à
+               jour de mon système</a> &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         Installation de RedHat Linux 9
+      </h1>
+      <ul>
+         <li>
+            <a href="#reason">Pourquoi revenir à RedHat?</a>
+         </li>
+         <li>
+            <a href="#inst">Installation</a>
+         </li>
+         <li>
+            <a href="#bugx">Le retour du bugX</a>
+         </li>
+         <li>
+            <a href="#xemacs">XEmacs ne saisit plus les accents</a>
+         </li>
+         <li>
+            <a href="#slow">RedHat 9 devenu comme Windows ME!</a>
+         </li>
+         <li>
+            <a href="#alsa">Installation de ALSA</a>
+         </li>
+         <li>
+            <a href="#mozilla">Mise à jour rock'n roll à Mozilla
+            1.3!</a>
+         </li>
+         <li>
+            <a href="#tvtuner">Le TV Tuner ne fonctionne plus!</a>
+         </li>
+         <li>
+            <a href="#sensors">Contrôle du matériel</a>
+         </li>
+         <li>
+            <a href="#misc">Problèmes divers</a>
+         </li>
+         <li>
+            <a href="#conclusion">Conclusion</a>
+         </li>
+      </ul>
+      <h2>
+         <a name="reason" id="reason">Pourquoi revenir à
+         RedHat?</a>
+      </h2>
+      <p>
+         Dimanche, 13 avril 2003, je voulus graver un CD-R avec le
+         logiciel CDRDAO et parce que le disque faisait trop près
+         de 700MB sans le dépasser poutant, le logiciel produisit
+         une erreur lors de la fermeture de ce dernier. Étonamment,
+         le disque fonctionna très bien, mais le module IDE-SCSI du
+         noyau avait perdu la boule. Chaque fois que j'éjectais le
+         tiroir du graveur, il rentrait immédiatement, ne me
+         laissant pas même le temps d'y extraire ou d'y insérer un
+         disque. Une nouvelle fois, un module du noyau du système
+         avait planté et il fallait absolument redémarrer toute la
+         machine pour retrouver un comportement normal. Cela me
+         frustra si profondément que je redémarrai sous Windows XP
+         et résolus à m'y confiner jusqu'à avoir téléchargé RedHat
+         Linux 9, en espérant que je n'éprouverais plus ce genre de
+         bogues avec cette distribution. Avec Mandrake, j'étais
+         constamment en train d'installer de nouveaux packages
+         depuis les CD, bien que j'aie demandé de tout installer
+         lors de l'installation. Sans les supermounts qui ne
+         fonctionnèrent jamais avec mon lecteur DVD, on ne saurait
+         jamais pourquoi, le CD demandé était monté mais le
+         demeurait après la copie des fichiers, si bien qu'à chaque
+         fois, il me fallait devenir root pour le démonter
+         manuellement. Il m'était toujours impossible de passer ma
+         machine en mode veille, car APM la rallumait immédiatement
+         lorsque je tentais de le faire.
+      </p>
+      <p>
+         Le téléchargement s'effectua en un temps record. Comme je
+         l'avais fait pour Mandrake, j'utilisai des miroirs de
+         différents pays autres que les États-Unis et ce fut
+         extrêmement fructueux. Le soir même, j'avais les trois
+         images ISO du binaire et la documentation! Cela avait été
+         si facile que je me disais que mon disque dur sauterait le
+         lendemain pour me compliquer les choses, si bien que je
+         gravai les images le soir même!
+      </p>
+      <h2>
+         <a name="inst" id="inst">Installation</a>
+      </h2>
+      <p>
+         Jeudi, 17 avril 2003, après un examen final qui s'était
+         très bien passé, je jugeai que je pouvais me le permettre:
+         installer RedHat Linux 9 avant d'avoir passé mes trois
+         autres examens (un le 19, les deux autres le 28 et le 29).
+         Cette fois-ci, je demandai au programme qui démarra sans
+         histoire et qui testa les CD sans problèmes (Je voulais le
+         faire une fois pour augmenter ma confiance dans mes ISO
+         téléchargés.) d'installer <b>tout</b>! Cela nécessita une
+         heure et demi de copie de fichiers interminable, 5GB
+         d'espace disque et les trois CD pour aboutir à un système
+         qui ne démarrait même pas! Lorsque l'ordinateur était
+         démarré, il traversait sa séquence POST habituelle, se
+         branchait au MBR du disque dur, puis affichait une
+         interminable suite de caractères sans queue ni tête tout
+         en loadant Dieu seul savait quoi sur le disque dur.
+      </p>
+      <p>
+         Je tentai donc de démarrer depuis la disquette système
+         créée lors de l'installation. Surprise: la disquette ne
+         fonctionnait même pas! Après quelques secondes de
+         chargement, il affichait un message d'erreur dont je ne me
+         souviens plus du contenu.
+      </p>
+      <p>
+         Je tentai de démarrer Partition Magic 7 depuis une
+         disquette et ce dernier produisit plusieurs messages
+         d'erreur m'indiquant que des structures de données sur mon
+         disque dur étaient corrompues. Encore une fois, je ne me
+         souviens plus du message exact, mais je sais que le
+         logiciel parvint à réparer sans faire disparaître
+         l'intégralité de mes fichiers. Malheureusement, il fallait
+         jongler encore davantage, car ma partition Linux ext3fs
+         était bien active. En effet, j'avais installé GRUB sur
+         cette dernière et il devait donc pouvoir amorcer!
+      </p>
+      <p>
+         Je réinsérai donc le CD d'installation non pas pour tout
+         recommencer mais bien pour réparer les pots cassés, ou
+         plutôt tenter de le faire... Pour cela, j'activai le mode
+         rescue qui me fournit une console Linux me donnant accès à
+         mon système de fichiers nouvellement construit. Dans
+         <tt>/etc/grub.conf</tt>, je découvris la ligne
+         <tt>boot=/dev/hda2</tt> qui était commentée. Je supprimai
+         le dièse (#) qui la précédait puis quittai le mode rescue
+         pour ensuite redémarrer. Aucun effet. Je retournai donc au
+         mode rescue et tentai de réinstaller GRUB. Il se pouvait
+         en effet qu'il ne se soit pas placé au bon endroit. Pour
+         cela, il me fallut utiliser <tt>chroot /mnt/sysimage</tt>
+         afin que le système sur mon disque soit la racine et que
+         GRUB ne se mêle pas les pinceaux avec la recherche de
+         fichiers, puis je tapai <tt>/sbin/grub-install
+         /dev/hda2</tt>, ce que pourtant on ne fait jamais
+         d'ordinaire... Cela ne fonctionnait toujours pas, si bien
+         que je craignais de plus en plus devoir reprendre
+         l'installation depuis le début, en mettant LILO cette fois
+         comme gestionnaire d'amorçage.
+      </p>
+      <p>
+         Avant d'en venir là, je retournai une nouvelle fois dans
+         le mode rescue, modifiai le fichier
+         <tt>/etc/grub.conf</tt> et modifiai la ligne
+         <tt>boot=/dev/hda</tt>. GRUB serait installé dans la MBR
+         plutôt que sur la partition Linux. Par mesure de sûreté,
+         j'invoquai de nouveau <tt>/sbin/grub-install /dev/hda</tt>
+         puis redémarrai. <b>Miracle des miracles</b>: j'aperçus
+         l'écran de GRUB! Je pouvais dès lors démarrer sous Windows
+         et sous Linux.
+      </p>
+      <p>
+         Comme j'avais appris à le faire lors de l'InstallFest de
+         l'hiver 2003 organisé par le <a
+         href="http://www.iro.umontreal.ca/~gulum">GULUM</a>,
+         j'avais téléchargé les mises à jour et je les installai.
+         Je mis ainsi en place le kernel 2.4.20-9 version Athlon
+         suivi de la patch pour <a
+         href="http://linux-ntfs.sourceforge.net">supporter le
+         NTFS</a> et de celle pour <a
+         href="http://www.xmms.org">supporter les MP3 sous
+         XMMS</a>. Je configurai bien entendu les points de montage
+         pour pouvoir accéder à ma partition de données et à celle
+         de Windows XP. L'installation du pilote de mon modem se
+         passa sans aucune difficulté, ce qui me surprit
+         agréablement. Je configurai également le système afin que
+         la commande <tt>eject</tt> ouvre le tiroir du lecteur DVD
+         et non celui du graveur. Pour cela, j'inversai simplement
+         les liens symboliques <tt>/dev/cdrom</tt> et
+         <tt>/dev/cdrom1</tt>. Comme j'avais passé l'option
+         <tt>hdc=ide-scsi hdd=ide-scsi</tt>, le lecteur DVD se
+         trouvait comme le graveur en mode d'émulation SCSI.
+      </p>
+      <h2>
+         <a name="bugx" id="bugx">Le retour du bugX</a>
+      </h2>
+      <p>
+         Vendredi, 18 mars 2003, je voulus configurer X afin que
+         l'écran s'éteigne automatiquement après vingt minutes
+         d'inutilisation. Pour ce faire, il me fallut modifier le
+         fichier <tt>/etc/X11/XF86Config</tt> (autrefois
+         <tt>XF86Config-4</tt>), mais je ne me souvenais plus
+         exactement de la modification à apporter et je commis des
+         erreurs, si bien que le serveur X ne voulait plus
+         démarrer. Il semblait falloir redémarrer GDM, mais le
+         faire ne suffisait pas; il allait falloir rebooter toute
+         la machine! Au lieu de cela, en root, je tapai <tt>init
+         3</tt> pour aller sur le niveau d'exécution 3 où X ne
+         tourne pas, puis je tapai <tt>init 5</tt> pour retourner
+         au niveau 5, ce qui démarra X. Il me fallut m'y prendre à
+         plusieurs reprises et finalement, je pus obtenir une
+         configuration fonctionnelle. La section ServerFlags
+         nécessaire pour obtenir le réglage est la suivante.
+      </p>
+<pre>
+Section "ServerFlags"
+        Option      "StandbyTime" "15"
+        Option      "SuspendTime" "17"
+        Option      "OffTime" "20"
+EndSection
+</pre>
+      <p>
+         Elle indique qu'après 15 minutes, le moniteur passe en
+         mode standby. Après 17 minutes, il passe en mode suspend
+         puis à 20 minutes, il s'éteint complètement. Pour que cela
+         fonctionne, la ligne <tt>Option "dpms"</tt> doit se
+         trouver dans la section Monitor du même fichier pour
+         activer le <a
+         href="http://webpages.charter.net/dperr/dpms.htm">DPMS</a>,
+         ce qui était déjà le cas.
+      </p>
+      <p>
+         Il y eut bien entendu les classiques problèmes de fontes.
+         Sous KDE, ce fut très facile à régler, car il suffit de
+         les agrandir dans le Centre de Configuration. Le fichier
+         <tt>.gtkrc</tt>, contrairement à Mandrake 9, ne contenait
+         aucune indication de fonte. Je tentai de lui en indiquer
+         une en utilisant le paramètre <tt>font</tt>, mais cela
+         n'eut absolument aucun effet. La taille des caractères
+         dans GAIM restait désespérément trop petite. Je tentai de
+         passer sous GNOME et d'effectuer le réglage dans son
+         panneau de configuration. Cela modifia les réglages pour
+         les applications GTK+ 2, mais pour GAIM, qui utilise GTK+
+         1.2, il n'y eut aucun effet. De plus, ce paramètre ne
+         fonctionnait que si je me trouvais sous GNOME.
+      </p>
+      <p>
+         Je choisis comme programme-test GNumeric, comme dans le
+         cas de Mandrake 9, puis je tentai de commenter, dans
+         <tt>.gtkrc</tt>, la ligne qui incluait le thème BlueCurve
+         de RedHat. Ce qui modifia l'interface de GNumeric. Ainsi,
+         le fichier <tt>.gtkrc</tt> demeurait toujours effectif.
+         Toutefois, aucun effet n'était observable sur GEdit, une
+         application GTK+ 2. Comment savoir? <tt>ldd `which
+         gnumeric` | grep gtk</tt> retourne <tt>libgtk-1.2.so.0
+         =&gt; /usr/lib/libgtk-1.2.so.0 (0x4099f000)</tt>,
+         attestant bien que GNumeric se lie à GTK+ 1.2. La même
+         technique montre que GEdit se lie à GTK+ 2. Puisqu'aucun
+         effet n'était observé sur GEdit, le fichier
+         <tt>.gtkrc</tt> n'affectait que les applications GTK+ 1.2.
+         Je tentai de chercher des indices sur Internet pour
+         constater que je n'y avais plus accès. Le réseau s'était
+         inexplicablement désactivé! Je le remis en fonction avec
+         <tt>/etc/init.d/network start</tt> puis tentai de savoir
+         pourquoi le réseau s'était désactivé. Je trouvai dans la
+         foulée le répertoire <tt>/etc/gtk-2.0</tt> contenant des
+         fichiers de configurations pour GTK+ 2.
+      </p>
+      <p>
+         Mais cela n'amenait rien, absolument rien. Je me tournai
+         donc vers une solution plus universelle: modifier les
+         paramètres de XFS. Dans <tt>/etc/X11/fs/config</tt>, je
+         modifiai la ligne de résolution par défaut pour obtenir la
+         valeur suivante:
+      </p>
+<pre>
+default-resolution = 100,100,75,75
+</pre>
+      <p>
+         Par défaut, on a <tt>75,75,100,100</tt>. Après n'avoir
+         obtenu aucun effet, même après redémarrage de XFS, je
+         tentai de redémarrer X. Puisque j'avais trouvé
+         <tt>/etc/gtk-2.0</tt>, il devait y avoir <tt>/etc/gtk</tt>
+         et c'était le cas! Ce répertoire contenait un ensemble de
+         fichiers de configuration, j'en pris un et l'examinai. Il
+         y avait un attribut fontset au lieu de font! Je tentai de
+         remplacer font par fontset dans <tt>.gtkrc</tt> et
+         j'obtins enfin un effet! Voici mon fichier final
+         <tt>~/.gtkrc</tt>.
+      </p>
+<pre>
+# -- THEME AUTO-WRITTEN DO NOT EDIT
+include "/usr/share/themes/Bluecurve/gtk/gtkrc"
+# -- THEME AUTO-WRITTEN DO NOT EDIT
+
+style "default2" {
+  fontset = "-adobe-helvetica-*-r-normal-*-18-*-*-*-*-*-iso8859-1"
+}
+
+class "*" style "default2"
+
+widget "*" style "default2"
+</pre>
+      <p>
+         Il me fallut plusieurs tentatives avant de dénicher la
+         bonne fonte. Bon, cela réglait les choses pour GAIM et
+         Gimp, mais un jour, je rencontrerais un programme GTK+ 2
+         et je souhaiterais peut-être en faire usage sans
+         m'arracher les yeux. Il valait donc mieux régler ce cas
+         aussi. Au pif, je tentai de créer <tt>~/.gtkrc-2.0</tt> et
+         lui indiquai <tt>patate</tt> comme contenu. Je démarrai
+         ensuite GEdit et le programme m'afficha un message
+         d'erreur, me montrant qu'il tenait compte du fichier. Je
+         retirai la ligne incorrecte et entrepris d'écrire mon
+         propre fichier en me basant sur les fichiers de
+         configuration dans <tt>/usr/share/themes</tt>. Voici donc
+         mon fichier <tt>~/.gtkrc</tt>.
+      </p>
+<pre>
+gtk-theme-name = "Bluecurve"
+
+style "default" {
+   font_name = "Sans 14"
+}
+
+class "*" style "default"
+</pre>
+      <p>
+         Malheureusement, tout cela ne solutionna en rien le
+         problème avec Mozilla! Mon navigateur favori s'obstinait
+         inlassablement à afficher de minuscules polices dans les
+         menus. Les concepteurs semblaient avoir supposé que cette
+         taille était "raisonnable" et que personne ne chercherait
+         à la modifier! Pourtant, avec Mozilla 1.1, pas de
+         problème; il semblait donc nécessaire de repasser de 1.2 à
+         1.1. Sur <a
+         href="http://www.mozilla.org/unix/customizing.html#usercss">une
+         partie du site de Mozilla</a>, je découvris heureusement
+         qu'en modifiant le fichier
+         <tt>~/.mozilla/default/*/chrome/userChrome.css</tt>, il
+         était facilement possible d'obtenir les polices agrandies!
+         Malheureusement, le fichier CSS fonctionnel fut perdu
+         durant des tests subséquents, mais sa forme se présente
+         comme suit:
+      </p>
+<pre>
+* {
+   font-size: 15pt !important
+}
+</pre>
+      <p>
+         Comme je le verrais plus tard, Mozilla 1.3 n'a pas besoin
+         de ce fichier. Lorsque mes problèmes de fontes furent
+         enfin résolu, je pus en venir à configurer GAIM et mon
+         courrier électronique, ce qui se passa sans histoires.
+      </p>
+      <p>
+         Pendant que j'effectuais des recherches pour savoir
+         comment obtenir la saisie correcte des accents sous
+         XEmacs, je commençais à trouver le curseur de souris
+         fichtrement petit. J'appliquai donc ma technique du
+         X-Big-Cursor et elle ne fonctionna pas!!! Je tentai en
+         mode failsafe, au cas où ce ne serait pas KDE, mais ce fut
+         encore vain. Je tentai d'effectuer des recherches, mais
+         elles se révélèrent infructueuses. Je découvris un site
+         expliquant comment utiliser un penguin comme curseur, mais
+         la procédure ne fonctionnait pas, car le nom de chemin
+         indiqué était invalide. Sur <a
+         href="http://www.kde-look.org/content/show.php?content=5271">KDE-Looks</a>,
+         je découvris une procédure qui fonctionnait et je
+         l'adaptai à mon cas particulier.
+      </p>
+      <p>
+         Je créai le répertoire <tt>~/.icons/default</tt> et y
+         plaçai le fichier <tt>index.theme</tt>. Le fichier se
+         référait au thème LargePrint qui contenait un fichier
+         d'icônes lui aussi. Cela fut sans effet, si bien que je
+         dus copier le fichier
+         <tt>/usr/share/icons/LargePrint/index.theme</tt> dans mon
+         répertoire <tt>default</tt> et, après redémarrage, cela
+         fonctionna! Puisque cela fonctionnait avec cette
+         technique, je n'avais donc plus besoin des lignes
+         <tt>xset</tt> et <tt>xsetroot</tt> dans mon
+         <tt>.Xclients</tt>.
+      </p>
+      <p>
+         Eh non! Comme je le constatai samedi, le 19 avril 2003, il
+         fallait combiner les deux approches pour obtenir les
+         curseurs agrandis! Je ne comprenais pas pourquoi, mais je
+         le fis; au moins cela fonctionnait! Vendredi, 26 septembre
+         2003, je découvris une meilleure façon de modifier les
+         curseurs sous XFree86 4.3. Il suffit, pour y parvenir, de
+         modifier quelques ressources systèmes. Dans mon fichier
+         <tt>~/.Xresources</tt>, j'ai ajouté
+      </p>
+<pre>
+Xcursor.theme: Bluecurve
+Xcursor.size: 72
+</pre>
+      <p>
+         J'aurais aussi pu ajouter ces lignes dans le fichier
+         <tt>~/.Xdefaults</tt>. Ce dernier fichier
+         <tt>.Xdefaults</tt> semble consulté par les applications X
+         pour définir certains paramètres d'environnement appelé
+         ressources, mais il a été rendu obsolète par le fichier
+         <tt>.Xresources</tt>. Quant au fichier <tt>.Xclients</tt>
+         que j'utilisais pour charger mes changements de fontes, il
+         est exécuté au démarrage de chaque sesion et est
+         responsable de charger le gestionnaire de Bureau, à moins
+         que l'utilisateur n'ait sélectionné autre chose que Défaut
+         sous l'écran de branchement.
+      </p>
+      <h2>
+         <a name="xemacs" id="xemacs">XEmacs ne saisit plus les
+         accents</a>
+      </h2>
+      <p>
+         Vendredi, 18 avril 2003, je me rendis compte que mon
+         éditeur de texte favori, XEmacs, ne saisissait plus les
+         accents. Lorsque je tapais ` suivi de e pour obtenir un è,
+         par exemple, rien n'était affiché et le logiciel
+         m'indiquait, sur la ligne d'état (minibuffer), que le
+         caractère U00E8 n'était pas défini. Sans les accents,
+         XEmacs perdait pour moi beaucoup de son utilité. Sous GNU
+         Emacs, cela fonctionnait bien, mais avec ce dernier,
+         AucTeX n'est pas inclus, il faut l'installer à part et il
+         n'y a aucun vrai moyen d'inhiber la cloche du système qui
+         devient vite extrêmement agaçante puisque c'est le
+         haut-parleur PC interne qui bippe! Cette régression,
+         XEmacs supportant les accents autrefois et ne les
+         supportant plus, m'incita à supprimer Linux de ma machine
+         et ne conserver que Windows XP qui semblait dès lors le
+         seul à encore progresser, mais je ne voulais pas en
+         arriver là. J'avais l'impression que supprimer Linux
+         n'était pas digne d'un informaticien, il me fallait
+         affronter et conserver le système!
+      </p>
+      <p>
+         Sans les accents, il existait trois possibilités en ce qui
+         a trait à mes travaux scolaires: écrire sans accents et
+         les remettre ainsi (impensable!), rajouter les accents à
+         la main après impression (long et je peux facilement en
+         oublier!) ou utiliser les séquences de contrôle prévues
+         par LaTeX pour saisir les accents. La troisième solution
+         était envisageable, mais il me semblait pouvoir faire
+         mieux.
+      </p>
+      <p>
+         Toute recherche Internet était vaine, il n'y avait que des
+         généralités ou d'autres problèmes sans lien avec le mien.
+         À effectuer ces recherches, il me semblait presque que
+         personne ne cherchait à obtenir des accents sous XEmacs!
+         Samedi, le 19 avril 2003, je poursuivis mon attaque du
+         problème. En raison du U dans le message d'erreur U00E8,
+         il me semblait qu'il y avait un lien avec le Unicode, une
+         intuition. Je parvins à faire entrer un è sous XEmacs en
+         le copiant/collant depuis la Konsole, je positionnai mon
+         curseur dessus et tapai CTRL puis =. J'obtins alors le
+         code ASCII: 0xe8. En Unicode, les 256 premiers caractères
+         correspondent au jeu Latin 1! Sous la console, il semblait
+         que les accents fonctionnaient bien sous XEmacs, mais la
+         console texte elle-même ne les affichait pas bien. Je
+         tentai, en désespoir de cause, de désactiver Canna, un
+         support de fontes japonnaises (c'est le prix à payer pour
+         tout installer...), peut-être nuisait-il à l'affichage,
+         mais bien entendu, ce fut sans effet. En fouillant dans
+         les fichiers d'initialisation de RedHat, je me rendis
+         compte que la variable LANG était configurée sur
+         fr_CA.UTF-8, l'encodage n'était pas adéquat. Je la
+         redéfinis sur fr_CA puis démarrai XEmacs; cela fonctionna
+         à merveille! Pour rendre mon changement permanent,
+         j'introduisis <tt>export LANG=fr_CA</tt> dans
+         <tt>/etc/bashrc</tt>. En fouillant dans les fichiers de
+         configuration, je découvris plus tard que la meilleure
+         approche ne consiste pas à modifier <tt>/etc/bashrc</tt>.
+         Pour changer la langue ou l'encodage, il faut plutôt
+         changer <tt>/etc/sysconfig/i18n</tt>. En général, au lieu
+         de changer <tt>/etc/bashrc</tt>, il est possible de
+         modifier <tt>/etc/profile</tt> ou créer un fichier dans le
+         répertoire <tt>/etc/profile.d</tt>. Si le nom du fichier
+         se termine par <tt>.sh</tt>, il sera exécuté par Bash
+         tandis que si le nom se termine par <tt>.csh</tt>, il sera
+         exécuté lors du chargement du C-Shell.
+      </p>
+      <h2>
+         <a name="slow" id="slow">RedHat 9 devenu comme Windows
+         ME!</a>
+      </h2>
+      <p>
+         Vendredi, 18 avril 2003, mon ordinateur se mit à gratter
+         sur le disque dur sans arrêt. Le processus qui s'était mis
+         à accéder au disque intensément sembait avoir une haute
+         priorité et tout le reste bloquait. Le simple fait
+         d'ouvrir une application était devenu affreusement long!
+         Je me croyais revenu à l'époque de Windows ME, sur mon
+         portable Toshiba Satellite 200MHz! Il semblait donc
+         nécessaire, pour utiliser RedHat 9, que je change à peu
+         près tous les éléments principaux de ma machine!
+         Heureusement, en consultant la liste des programmes actifs
+         à l'aide de top, je découvris qu'updatedb mobilisait pas
+         mal de mémoire et ce devait être lui qui surchargeait la
+         machine. Toutefois, je constatai que ma machine manquait
+         affreusement de ressources, même après la fin de
+         l'updatedb. Après avoir démarré KDE, XEmacs puis Mozilla,
+         il restait souvent uniquement 3MB de mémoire libre!
+      </p>
+      <p>
+         Lors de la constitution de la base de données de recherche
+         de fichiers, updatedb se plaignit qu'il n'arrivait pas à
+         lire un certain fichier dans ma partition NTFS. Je ne me
+         souviens plus exactement comment j'ai trouvé cela, mais il
+         suffisait de remplacer, dans <tt>/etc/fstab</tt>, pour la
+         partition ntfs, l'option defaults par utf8.
+      </p>
+      <p>
+         Mercredi, 7 mai 2003, àprès quelques recherches sur
+         Internet au sujet d'updatedb, je découvris pourquoi ce
+         programme démarrait lorsque j'activais Linux. Anacron
+         s'occupait de le mettre en marche et ainsi de paralyser ma
+         machine, et cela quelques temps après que j'aie démarré
+         Linux. Pour résoudre le problème, je copiai
+         <tt>/etc/cron.daily/slocate.cron</tt> dans
+         <tt>/etc/cron.weekly</tt> et la machine ne produisit plus
+         ce bogue à chaque jour. Il se peut qu'updatedb soit devenu
+         plus lent qu'auparavant parce qu'il manque de mémoire dans
+         le nouvel environnement. Après avoir augmenté ma mémoire à
+         768MB, samedi le 5 juillet 2003, la machine a cessé de
+         swapper à tous moments.
+      </p>
+      <h2>
+         <a name="alsa" id="alsa">Installation de ALSA</a>
+      </h2>
+      <p>
+         Pourquoi installer ALSA quand OSS fonctionnait bien? Eh
+         bien, ALSA supporte le son multi-canaux, ce qui n'est pas
+         le cas de OSS/Free avec une Sound Blaster Live!. Je
+         prévoyais toujours changer mes haut-parleurs pour un
+         système 5.1 et je tenais à pouvoir l'exploiter sous Linux!
+         Sur le site de <a href="http://www.alsa-project.org">ALSA
+         Project</a>, je téléchargeai donc alsa-driver, alsa-lib et
+         alsa-utils, version 0.9.2. Sur le site, je me rendis à la
+         documentation sur comment configurer ALSA pour ma carte
+         son SBLive!.
+      </p>
+      <p>
+         Je configurer alsa-driver avec <tt>./configure
+         --with-cards=all --with-sequencer=yes</tt>, petite
+         variante de mon cru par rapport à la ligne donnée dans le
+         fichier pour configurer la Sound Blaster Live!. Je
+         souhaitais avoir les modules de toutes les cartes au cas
+         où ma carte son sauterait un bon jour, si je décidais
+         d'activer ma carte intégrée à ma carte mère ou de la
+         remplacer par une toute autre. Cela fut long, très très
+         long!
+      </p>
+      <p>
+         Rendu au point d'installer, puisque la compilation s'était
+         passée sans histoire, il me fallait inhiber OSS et
+         peut-être n'y aurait-il aucun retour en arrière possible.
+         Dans le Centre de Configuration KDE, <b>Son &amp;
+         Multimédia</b>, <b>Système de sons</b>, onglet
+         <b>Entrées/sorties du son</b>, je spécifiai <b>Pas
+         d'entrées/sorties audio</b> comme <b>Méthode
+         d'entrées/sorties du son</b>. Ce qui inhiba le son de KDE
+         et l'empêcha d'utiliser OSS.
+      </p>
+      <p>
+         Dans <tt>/etc/modules.conf</tt>, je supprimai les liens
+         vers OSS en commentant les lignes.
+      </p>
+<pre>
+# alias sound-slot-0 emu10k1
+# post-install sound-slot-0 /bin/aumix-minimal -f /etc/.aumixrc -L &gt;/dev/null 2&gt;1 || :
+# pre-remove sound-slot-0 /bin/aumix-minimal -f /etc/.aumixrc -S &gt;/dev/null 2&gt;1 || :
+</pre>
+      <p>
+         Ensuite de quoi, j'installai les modules alsa-driver! À
+         chaque étape du processus, il était possible de rencontre
+         une insoluble erreur de compilation et dans ce cas, il me
+         faudrait retourner à OSS. Il était possible qu'il me
+         faille tout réinstaller Linux pour y parvenir. alsa-lib et
+         alsa-utils ne causèrent aucun problème de compilation.
+         Durant ces étapes de compilation et d'installation de
+         fichiers, GAIM produisit un son. Je me rendis compte que
+         j'avais omis un point crucial dans la désactivation d'OSS:
+         décharger le module kernel! Sans cette étape, le module
+         ALSA ne se chargerait probablement jamais correctement.
+         <tt>/sbin/rmmod emu10k1</tt> déchargea le support OSS de
+         ma carte son. Je déchargeai également soundcore pour
+         m'assurer que rien d'OSS ne subsistait.
+      </p>
+      <p>
+         Restait à activer ALSA et c'est là que débutèrent les
+         problèmes. <tt>/sbin/modprobe snd-emu10k1</tt> provoqua
+         une erreur, un symbole introuvable. Il était apparamment
+         impossible d'utiliser ALSA sous RedHat 9. J'effectuai des
+         recherches sur Internet afin d'au moins pouvoir trouver
+         une source pour le confirmer et je tombai sur des RPM
+         précompilés! Sur <a
+         href="http://rpmfind.net/linux/RPM/freshrpms/redhat/9/alsa-driver/alsa-kernel-0.9.2-fr2_2.4.20_9.i686.html">RPMFind</a>,
+         je pus découvrir ce qu'il me fallait! J'installai donc les
+         RPM puis tentai de nouveau de charger les modules; encore
+         sans effet.
+      </p>
+      <p>
+         Il semblait décidément nécessaire de recompiler le kernel
+         au complet, peut-être installer une version plus ancienne
+         que 2.4.20. Je me rendis toutefois compte que le
+         répertoire <tt>/lib/modules/2.4.20-9/kernel/sound</tt>
+         était récent d'aujourd'hui. RPM n'avait pas installé les
+         modules, car les miens que je venais juste de compiler
+         étaient plus récents. Je pris donc le risque calculé de
+         supprimer le répertoire <tt>sound</tt> puis repris
+         l'installation du RPM alsa-kernel. Cette fois-ci, j'obtins
+         un résultat: le module snd-emu10k1 se chargea!
+      </p>
+      <p>
+         Je tentai donc de charger la compatibilité OSS afin que
+         les programmes non prévus pour ALSA puissent produire du
+         son. <tt>/sbin/modprobe snd-pcm-oss</tt> chargea le module
+         sans histoire, de même pour snd-mixer-oss, mais il y eut
+         des problèmes avec snd-seq-oss. Mais je ne m'acharnai pas,
+         le principal tournait! Je démarrai <tt>alsamixer</tt> afin
+         de configurer le volume sur les canaux et d'activer ceux
+         dont j'avais besoin. Puis j'invoquai <tt>esd</tt> pour
+         produire un son, j'obtins un résultat! ALSA fonctionnait!
+      </p>
+      <p>
+         Restait à le rendre permanent. Tout d'abord, je constatai
+         que <tt>/etc/init.d/alsasound</tt> produisait un effet, ce
+         qui n'était pas le cas au début. Il me fallut modifier
+         <tt>/etc/modules.conf</tt> pour que les modules se
+         chargent correctement et que les paramètres du mixer ALSA
+         soient sauvegardés au-delà de la fermeture de la machine.
+         Voici ces lignes.
+      </p>
+<pre>
+# ALSA
+alias char-major-116 snd
+alias snd-card-0 snd-emu10k1
+
+alias char-major-14 soundcore
+alias sound-slot-0 snd-card-0
+
+alias sound-service-0-0 snd-mixer-oss
+alias sound-service-0-1 snd-seq-oss
+alias sound-service-0-3 snd-pcm-oss
+alias sound-service-0-8 snd-seq-oss
+alias sound-service-0-12 snd-pcm-oss
+
+post-install snd-card-0 /usr/sbin/alsactl restore &gt;/dev/null 2&gt;1 || :
+pre-remove snd-card-0 /usr/sbin/alsactl store &gt;/dev/null 2&gt;1 || :
+</pre>
+      <p>
+         Je n'y comprends pas tout, l'important est que cela puisse
+         au moins fonctionner! Je redémarrai ensuite alsasound puis
+         constatai que tout était beau, si bien que je réactivai
+         aRts pour retrouver le son sous KDE!
+      </p>
+      <p>
+         Jeudi, 24 avril 2003, je découvris qu'il était possible
+         d'ajouter le support ALSA à ESD et aRts en les recompilant
+         tous deux. Ainsi, ces deux serveurs de son utilisent le
+         nouveau mode natif de gestion du son, ALSA plutôt que
+         l'émulation OSS. Dans le cas de aRts, il me fallut, sous
+         KDE, configurer l'entrée/sortie audio pour utiliser ALSA
+         plutôt qu'OSS. Pour XMMS, il me fallut télécharger un
+         plug-in pour qu'il prenne ALSA en charge. Le cas de la SDL
+         est toujours nébuleux. Il semble que SDL_Mixer, la partie
+         audio, utilise MikMod qui peut utiliser ESD. SDL_Mixer
+         peut faire appel à la librairie SMPEG pour les MP3, ce que
+         RedHat ne supporte plus et que j'ai installé. J'ai
+         également compilé et installé mpg123 pour compléter a
+         trousse de décodage de MP3. Samedi, 10 mai 2003, je
+         découvris qu'en installant le RPM de la <a
+         href="http://www.libsdl.org">SDL</a> officiel plutôt que
+         celui de RedHat et en recompilant SDL_Mixer, je supprimais
+         le délai du son dans les jeux SDL et obtenais
+         l'intégration de SMPEG à SDL_Mixer. En fait, la partie
+         audio de la SDL est dans la librairie elle-même et il est
+         probable que la version RedHat soit compilée avec support
+         ALSA inactif.
+      </p>
+      <p>
+         Samedi, 14 juin 2003, j'achetai de nouveaux haut-parleurs,
+         des Altec Lansing 5100, un système 5.1, que je branchai le
+         jour même sur mon ordinateur. Le branchement fut plus long
+         que difficile, il fallait brancher un à un les cinq
+         haut-parleurs sur le subwoofer en bois et démêler le
+         paquet de spaghetti résultant! Comme je l'avais prévu, le
+         subwoofer servant aussi d'ampli-récepteur était relié à ma
+         carte son par trois fils audio plutôt qu'un seul. Sous
+         Windows XP, il me suffit d'utiliser l'icône Speakers
+         d'AudioHQ pour configurer ma carte en mode 5.1 et tous les
+         haut-parleurs furent exploités. Le test révéla que tous
+         fonctionnaient bien et étaient bien disposés; le
+         branchement était correct!
+      </p>
+      <p>
+         Sous Linux, seuls les deux haut-parleurs avant
+         fonctionnaient, les deux arrière et le centre restant
+         muets! Ayant prévu le coup depuis belle lurette, je
+         démarrai une console puis <tt>alsamixer</tt>. J'utilisai
+         les flèches pour parcourir les sources audio, sélectionnai
+         Surround et l'unmutai avec la touche M puis augmentai son
+         volume avec la flèche haut. Je fis de même avec Center,
+         LFE, Wave Center, Wave LFE et Wave Surround. Puis je
+         quittai le mixer avec ALT-Q. Toutefois, je n'obtins aucun
+         effet, ni avec KDE, ni avec XMMS. Voultant écouter de la
+         musique avec ces haut-parleurs le plus vite possible, et
+         ne voulant pas le faire uniquement sous Windows, je
+         changeai le mode du système pour Stereo X2. Dans ce mode,
+         les Altec Lansing ne prennent que l'entrée avant, duplique
+         l'avant gauche dans l'arrière gauche, même chose pour la
+         droite, et le centre est produit par mixage. Ainsi, tous
+         les haut-parleurs étaient au moins utilisés.
+      </p>
+      <p>
+         Le lendemain, je poursuivis mes recherches et découvris
+         qu'il fallait, dans AlsaMixer, rendre muette la source SB
+         Live Analog/Digital Output Jack, ce qui désactive la
+         sortie S/PDIF qui utilise justement le minijack orange
+         responsable de l'envoi des informations pour le
+         haut-parleur centre dans le mode analogique. Après ce
+         réglage, Linux put contrôler tous les haut-parleurs et
+         l'installation d'ALSA était à présent bénéfique!
+      </p>
+      <p>
+         Lorsque j'écoutai mon premier CD Audio sous XMMS, je me
+         rendis compte que le son ne se faisait entendre, encore
+         une fois, que dans les haut-parleurs avant. Avec le
+         logiciel AlsaPlayer, par contre, je pouvais entendre le
+         son dans tous les haut-parleurs. Toutefois, AlsaPlayer ne
+         fonctionnait pas bien avec le clavier et je n'aimais pas
+         du tout. Je tentai de chercher, sur <a
+         href="http://www.xmms.org">XMMS.org</a>, un plug-in pour
+         lire les CD Audio, mais je n'en trouvais pas. Le premier
+         que je trouvai utilisait CDParanoia, mais le lien n'a
+         jamais fonctionné. Un second plug-in exigeait que
+         j'extraie les pistes audio en format .cdr avant de les
+         faire jouer sous forme de fichiers, autant les extraire en
+         WAV et les convertir en MP3! Avec le plug-in Xmms-CdRead,
+         je parvins à mes fins. Ce plug-in effectue l'extraction
+         audio et envoie le son digital vers la mécanique de XMMS
+         plutôt que simplement activer le circuit de lecture de CD
+         de la carte son. La musique ressort alors par le plug-in
+         de sortie qui fonctionne en mode multicanaux. Après avoir
+         compilé et installé le plug-in, il me fallut, pour faire
+         jouer un CD Audio, demander à XMMS de lire un emplacement
+         (URL) et taper <tt>/dev/cdrom</tt>, ce qui activa le
+         plug-in et fit jouer le disque.
+      </p>
+      <h2>
+         <a name="mozilla" id="mozilla">Mise à jour rock'n roll à
+         Mozilla 1.3!</a>
+      </h2>
+      <p>
+         Jeudi, 24 avril 2003, je tentai de mettre Mozilla à jour,
+         version 1.3. En fait, je souhaitais mettre ma version
+         Windows encore à 1.0 à jour et je voulais que les deux
+         systèmes aient un Mozilla de même version. J'installai la
+         version RPM de Mozilla 1.3 sous Linux, une version RedHat
+         8 avec support GTK. Surprise: dans <b>About Plug-ins</b>
+         du menu <b>Help</b>, je ne voyais plus Java. La version
+         RPM de Mozilla 1.3 était compilée avec GCC 3.2 et cela
+         provoquait des problèmes pour le plug-in JDK! Je tentai de
+         télécharger JDK 1.4.1, nouvelle version de Sun, rien à
+         faire. Il me fallut installer le JDK de Blackdown (plus
+         disponible aujourd'hui), version compilée avec GCC 3.2.
+         Ensuite, ce n'était pas fini: lorsque je voulus savoir si
+         une nouvelle version de Flash était disponible pour Linux,
+         Mozilla planta lorsque j'accédai à la section downloads du
+         site de <a
+         href="http://www.macromedia.com">Macromedia</a>. Toute
+         tentative était vaine; il ne voulait rien savoir. Je
+         tentai avec Konqueror qui ne parvenait pas à bien afficher
+         la page, si bien qu'il me fallut effectuer la tâche sous
+         Windows, avec Internet Explorer! Je revins ensuite sous
+         Linux, un nouveau plug-in Flash 6 en main. Le plug-in
+         fonctionna et les plantages systématiques cessèrent.
+      </p>
+      <p>
+         Le lendemain, je découvris déjà un bogue grave à mes yeux:
+         plus possible de saisir d'accents sous Mozilla! Cela
+         s'appliquait autant à l'écriture des e-mails qu'à la
+         saisie dans un formulaire ou sur la ligne de recherche
+         d'URL. Il n'y avait aucun problème avec Mozilla 1.3 sous
+         Windows, mais la 1.3 sous Linux... Il n'y avait aucune
+         option liée aux entrées clavier, si bien que je me résolus
+         à réinitialiser mon profil en supprimante
+         <tt>~/.mozilla</tt>. J'oubliai de sauvegarder, avant la
+         destruction, le fichier <tt>userChrome.css</tt>, mais je
+         me rendrais compte plus tard que je n'en aurais pas
+         besoin. Avec la commande de type formule magique <tt>rpm
+         -ev `rpm -qa | grep ^mozilla`</tt> (Obtient la liste de
+         tous les packages installés sur le système, la filtre pour
+         obtenir uniquement ceux dont le nom commence par Mozilla
+         et passe le résultat en paramètre pour suppression!), je
+         supprimai Mozilla 1.3. Je le réinstallai, mais cette fois
+         avec la version sans RPM, avec programme d'installation.
+         Cette version fonctionnait très bien, plus de problèmes
+         avec les accents. Je remis en place chaque plug-in, un par
+         un, et le problème ne revint pas. Mieux encore, les
+         polices étaient agrandies sans mon fichier CSS. Seul JDK
+         1.4 ne fonctionnait plus, si bien que je dus supprimer
+         Blackdown pour remettre celui de Sun.
+      </p>
+      <h2>
+         <a name="tvtuner" id="tvtuner">Le TV Tuner ne fonctionne
+         plus!</a>
+      </h2>
+      <p>
+         Lorsque je démarrai XawTV, vendredi le 18 avril 2003, je
+         me rendis compte que le TV Tuner ne fonctionnait pas du
+         tout, car ATI.2 du projet GATOS n'était pas installé. Je
+         téléchargeai donc le module DRM et ATI.2 et tentai de
+         compiler le DRM, ce qui se solda par une erreur. Ainsi, le
+         DRM ne compilait pas sous le kernel 2.4.20-9!
+      </p>
+      <p>
+         Lundi, 21 avril 2003, je décidai de faire fonctionner le
+         TV Tuner à tout prix. J'accédai à la mailing list de
+         gatos-devel et y fis des recherches. Le problème de
+         compilation était, pour une fois, connu et contournable
+         dans le cas du DRM. RedHat a incorporé, dans sa version du
+         kernel 2.4.20, des améliorations issues de la branche 2.5
+         du kernel, ce qui touche à la fonction
+         <tt>remap_page_range</tt> dont l'action m'est inconnue. La
+         nouvelle version de cette fonction prenait 5 arguments
+         tandis que la version de la branche 2.4 en prenait 4
+         seulement. Heureusement, dans le module DRM de GATOS, le
+         kernel 2.5 était prévu. Dans le fichier <tt>drmP.h</tt> de
+         la version experimental 9 pour XFree86 4.3, je remplaçai
+      </p>
+<pre>
+#if LINUX_VERSION_CODE &lt; KERNEL_VERSION(2,5,0)
+#define DRM_RPR_ARG(vma)
+#else
+#define DRM_RPR_ARG(vma) vma,
+#endif
+</pre>
+      <p>
+         par
+      </p>
+<pre>
+#define DRM_RPR_ARG(vma) vma,
+</pre>
+      <p>
+         Ainsi, le module se compile comme si nous nous trouvions
+         TOUJOURS sous le kernel 2.5. Avec cette patch très
+         rudimentaire, je parvins à compiler le module avec
+         toutefois plusieurs warnings puis le mis en place.
+         Ensuite, j'installai ATI.2 après avoir sauvegardé les
+         fichiers originaux de XFree86. Lorsque tout fut en place,
+         je fermai ma session, accédai à une console, m'y branchai
+         en root et tapai les commandes suivantes.
+      </p>
+<pre>
+init 3
+/sbin/rmmod r128
+/sbin/modprobe r128
+init 5
+</pre>
+      <p>
+         XawTV fonctionnait presque bien, à présent. Toutefois,
+         seul une certaine fraction de la fenêtre, environ 75%,
+         était occupée par une image, le reste étant une zone
+         chaotique mais constante durant chaque session d'écoute.
+         Soit la zone était noire, soit elle contenait un pattern
+         statique. Si je changeais la taille de la fenêtre de
+         XawTV, la zone demeurait là. Je tentai mon coup avec
+         AVView, le lecteur TV de GATOS, mais je n'obtins rien de
+         mieux. Lorsque je retournai effectuer des recherches sous
+         Mozilla, je constatai qu'il surgissait des barres
+         horizontales noires chaque fois que j'utilisais la
+         roulette de la souris pour faire défiler la page! Ces
+         lignes noires, produites par le pilote ATI, s'effaçaient
+         quand je rafraîchissais la fenêtre de Mozilla. Après un
+         certain temps ou un redémarrage de X, Mozilla cessait
+         d'afficher ces agaçantes lignes.
+      </p>
+      <p>
+         Lorsque je tentai de compiler km, le module de capture
+         vidéo, j'obtins encore de moins bons résultats. Le
+         problème du <tt>remap_page_range</tt> refit surface, mais
+         il semblait cette fois impossible de le résoudre, car le
+         module n'était pas prévu pour le kernel 2.5. Je ne
+         parvenais pas à suffisamment comprendre son fonctionnement
+         pour pouvoir l'adapter. Mardi, 22 avril 2003, je tentai
+         d'adapter l'appel à <tt>remap_page_range</tt>, mais le
+         premier paramètre était de type <tt>vm_area_struct</tt>
+         tandis qu'il n'y avait pas même trace de cette structure
+         dans le module! Mercredi, 23 avril 2003, je tentai
+         d'installer le ATI.2 experimental 8 plutôt qu'experimental
+         9, mais X refusait tout simplement de démarrer! Il gelait
+         et restait sur un écran noir, si bien qu'il me fallait
+         utiliser la touche reset puis passer l'option 3 au kernel
+         afin de passer au niveau d'exécution 3 où X ne démarrerait
+         pas!
+      </p>
+      <p>
+         Dimanche, 27 avril 2003, je tentai d'installer ATI.2,
+         version CVS. Je ne pus qu'installer le DRM kernel, car
+         pour installer ATI.2 depuis CVS, il fallait recompiler
+         XFree86 depuis le code source, ce qui nécessite entre deux
+         et quatre heures! Après tout ce temps, il restait encore
+         possible que le ATI.2 version CVS ne fonctionne toujours
+         pas. À bout, je tentai de télécharger le noyau 2.4.20
+         depuis <a href="http://www.kernel.org">Linux Kernel
+         Archive</a>. Je décompressai le tout dans
+         <tt>/usr/src</tt>, ce qui créa le répertoire
+         <tt>linux-2.4.20</tt>. Je me mis ensuite à la tâche, avec
+         <tt>make menuconfig</tt>, de le configurer à la main! Ce
+         qui fut plutôt long, embêtant et à la fin, mes réglages
+         furent effacés. Pourtant, je crois bien lui avoir indiqué
+         de les sauvegarder! Comme deuxième essai, je chargeai le
+         fichier de configuration Athlon de RedHat! Par chance,
+         cela fonctionna et configura toutes les options. J'activai
+         bien entendu NTFS. Ensuite, j'utilisai <tt>make dep</tt>,
+         <tt>make bzImage</tt> puis <tt>make modules</tt>; la
+         compilation fut plutôt longue.
+      </p>
+      <p>
+         J'appelai ensuite <tt>make modules_install</tt> puis je
+         copiai <tt>arch/i386/boot/vmlinux</tt> dans
+         <tt>/boot/vmlinux-2.4.20</tt>. Je modifiai
+         <tt>/etc/grub.conf</tt> pour lui faire réfléter les
+         modifications puis je redémarrai. Ce qui se solda par un
+         message d'erreur, si bien que je dus utiliser le CD 1 de
+         RedHat pour accéder au mode rescue. Je me rendis compte
+         que j'avais référencé le kernel vmlinuz-2.4.20 au lieu de
+         vmlinux-2.4.20, si bien que je corrigeai. Le fichier
+         Initrd fut par la suite recherché et cela semblait
+         compliqué de le construire, si bien que j'ôtai la ligne le
+         référençant dans <tt>/etc/grub.conf</tt>. Le kernel boota,
+         mais j'eus droit à un Kernel Panic! Je dus modifier encore
+         une fois <tt>/etc/grub.conf</tt> pour remplacer
+         <tt>root=LABEL=/</tt> par <tt>root=/dev/hda2</tt>. Je dus
+         recompiler les modules ALSA pour ravoir le son puis
+         constatai que DRM kernel et km de GATOS compilaient sans
+         problèmes, à présent. Malheureusement, mes efforts furent
+         vains, car il n'y eut absolument aucune amélioration de
+         l'image TV; c'était toujours intolérable.
+      </p>
+      <p>
+         De plus, <tt>sensors</tt> ne fonctionnait plus, car les
+         modules ne se trouvaient pas dans le kernel standard. Je
+         tentai de recompiler i2c 2.7 puis lm_sensors 2.7, obtenus
+         sur <a href="http://www2.lm-sensors.nu/~lm78/">Linux
+         System Hardware Monitoring</a>, mais rendu à la
+         compilation du second, il m'afficha des erreurs selon
+         lesquelles i2c était trop ancien et qu'il me fallait la
+         version 2.7. Pourtant, je l'avais bien installé! Je tentai
+         de recopier les fichiers de
+         <tt>/usr/local/include/linux</tt> dans
+         <tt>/usr/include/linux</tt>, non sans oublier de
+         sauvegarder les originaux! Dans le répertoire de
+         lm_sensors, sous-répertoire
+         <tt>kernel/busses/Modules.mk</tt>, je dus retirer les
+         modules amd8111, sis630, sis645 et savage4 pour qu'il ne
+         les compile pas! Dans <tt>kernel/chps/Modules.mk</tt>,
+         j'indiquai de sauter les modules smartbatt, vt8231,
+         adm1021, fscpos, fscscy, lm92, pcf8591, smsc47m1 et
+         vt1211! Après cette patch plus que rustique, je pus enfin
+         compiler une partie du package. mais cela ne fonctionnait
+         pas du tout malgré tout, si bien qu'il me fallait me
+         passer des senseurs si je voulais garder le kernel 2.4.20
+         non customizé. Puisque la TV ne fonctionnait pas
+         davantage, je décidai que le sacrifice n'en valait pas la
+         peine et retournai au noyau 2.4.20-9 de RedHat.
+      </p>
+      <p>
+         Dans <tt>/etc/grub.conf</tt>, je remis le lien vers
+         <tt>vmlinuz-2.4.20-9</tt> ainsi que le Initrd. Je
+         redémarrai et fis le ménage, supprimante
+         <tt>/lib/modules/2.4.20</tt> ainsi que
+         <tt>/usr/src/linux-2.4.20</tt>. Le pilote ATI.2
+         fonctionnait, même sans le module DRM que j'avais supprimé
+         avant la recompilation du kernel.
+      </p>
+      <p>
+         Je tentai ATI.2 experimental 5, mais X refusa encore une
+         fois de démarrer! Je tentai de charger r128_drv et
+         r128_irq, mais cela ne fit aucune différence. Je supprimai
+         donc les modules de GATOS, uniquement source de bogues. La
+         seule solution serait de downgrader à XFree86 4.2 et pour
+         une télévision que j'utilise peu en fait, autant la faire
+         fonctionner sous Windows dans ce cas!
+      </p>
+      <p>
+         Au début, cela me frustra, je songeais même remplacer ma
+         carte graphique et j'effectuai beaucoup de recherches au
+         sujet des TV Tuner supportés sous Linux. Je découvris que
+         les cartes NVIDIA GeForce étaient excellentes quant au
+         support Linux puisque le pilote est mis au point par la
+         compagnie NVIDIA qui les fabrique. Toutefois, NVIDIA ne
+         semble pas fabriquer des TV Tuner, ceux-ci sont intégrés
+         par des compagnies tierces qui achètent le chip NVIDIA
+         pour le greffer à leurs cartes. Puisqu'il y a beaucoup de
+         tiers, le choix est extrêmement embêtant! Finalement, je
+         conclus que ce changement serait pour ma prochaine machine
+         ou en cas de panne de ma carte graphique actuelle.
+      </p>
+      <p>
+         Vendredi, 29 août 2003, je découvris qu'en utilisant les
+         pilotes pour XFree86 4.2 sous XFree86 4.3, je pouvais
+         obtenir le support de mon TV Tuner! Le système est malgré
+         tout stable et la 3D fonctionne parfaitement!
+      </p>
+      <h2>
+         <a name="sensors" id="sensors">Contrôle du matériel</a>
+      </h2>
+      <p>
+         Suite aux problèmes rencontrés avec le <a
+         href="hw/psbomb.xhtml">ventilateur de mon power
+         supply</a>, je voulais pouvoir interroger les senseurs de
+         ma carte mère pour obtenir les voltages et les
+         températures sans devoir rebooter pour les observer dans
+         le BIOS ou sous Windows. J'ai donc examiné les capacités
+         de Linux à ce niveau et j'ai trouvé les modules kernel i2c
+         ainsi que le package <a
+         href="http://secure.netroedge.com/~lm78/">lm_sensors</a>.
+         Je dus exécuter l'application
+         <tt>/usr/sbin/sensors-detect</tt> en tant que root et
+         suivre les instructions afin de configurer le package pour
+         l'adapter aux capteurs de ma carte mère. Ensuite, la
+         commande <tt>sensors</tt> affichait des relevés plutôt
+         bizarres.
+      </p>
+<pre>
+eeprom-i2c-0-50
+Adapter: SMBus Via Pro adapter at 0400
+Algorithm: Non-I2C SMBus adapter
+Memory type:            SDRAM DIMM SPD
+SDRAM Size (MB):        256
+
+via686a-isa-0c00
+Adapter: ISA adapter
+Algorithm: ISA algorithm
+CPU core:  +1.72 V  (min =  +1.67 V, max =  +2.49 V)
++2.5V:     +0.17 V  (min =  +2.24 V, max =  +2.74 V)   ALARM
+I/O:       +3.20 V  (min =  +2.95 V, max =  +3.62 V)
++5V:       +4.62 V  (min =  +4.47 V, max =  +5.49 V)
++12V:     +11.98 V  (min = +10.79 V, max = +13.18 V)
+CPU Fan:  5625 RPM  (min = 3000 RPM, div = 2)
+P/S Fan:     0 RPM  (min = 3000 RPM, div = 2)
+SYS Temp:  +53.5°C  (limit =  +45°C, hysteresis =  +40°C) ALARM
+CPU Temp:  +37.0°C  (limit =  +60°C, hysteresis =  +55°C)
+SBr Temp:  +24.0°C  (limit =  +65°C, hysteresis =  +60°C)
+</pre>
+      <p>
+         Selon ces relevés, tous mes voltages semblaient erronés et
+         il semblait décidément nécessaire que j'ajoute une fan à
+         mon boîtier puisque la carte mère était beaucoup trop
+         chaude, plus chaude que le CPU! Les valeurs données dans
+         le BIOS, par contre, étaient correctes! Le BIOS indiquait
+         que le CPU était plus chaud que la carte mère. Plus tard,
+         je découvris l'existence du fichier
+         <tt>/etc/sensors.conf</tt>. Ce fichier est divisé en
+         sections qui permettent de configurer la librairie
+         qu'utilise <tt>sensors</tt> selon le chip utilisé. Dans la
+         section <tt>chip "via686a-*"</tt>, je me rendis compte
+         qu'il était possible que la température du système et du
+         CPU soient inversés et j'intervertis donc les étiquettes.
+         Ainsi, j'obtins
+      </p>
+<pre>
+    label temp1 "CPU Temp"
+    label temp2 "SYS Temp"
+    label temp3 "SBr Temp"
+</pre>
+      <p>
+         Les températures correspondaient davantage à celles
+         données par le BIOS après ce réglage. Le voltage 2.5V
+         était inutile, car il ne correspondait à rien sur ma carte
+         mère, si bien que je l'inhibai avec la ligne
+      </p>
+<pre>
+    ignore "2.5V"
+</pre>
+      <p>
+         Ensuite, restait à calibrer les voltages de façon à les
+         faire matcher avec ceux dans le BIOS. Les commentaires du
+         fichier de configuration indiquaient à cet effet la
+         recette à employer. Pour les voltages positifs, ceux qui
+         sont affectés, on a la formule <tt>R1 = R2*(vs/vin -
+         1)</tt> où <tt>R1</tt> et <tt>R2</tt> sont des
+         résistances, <tt>vs</tt> est le voltage lu et
+         <tt>vin</tt>, le voltage sur la pin. En manipulant cette
+         formule, j'obtins que <tt>vs=vin*(R1/R2+1)</tt>, ainsi il
+         y avait une relation linéaire entre le voltage lu
+         directement du senseur et celui donné par le BIOS. Je pus
+         ainsi calculer des facteurs de correction, mais il me
+         fallut les ajuster empiriquement pour obtenir des voltages
+         approximativement identiques à ceux du BIOS. Les lignes
+         suivantes effectuent ces conversion.
+      </p>
+<pre>
+  compute "12V" 12.6*@/12.3 , 12.3*@/12.6
+  compute "5.0V" 4.76*@/4.60 , 4.60*@/4.76
+  compute "3.3V" 3.28*@/3.20 , 3.20*@/3.28
+</pre>
+      <p>
+         Ensuite, il me fallait faire disparaître les fausses
+         alarmes reportées par <tt>sensors</tt> en ajustant les
+         minimums et maximums pour le VCore CPU et les
+         températures. Il me fallut en effet inverser les limites
+         pour temp1 et temp2 afin de les faire correspondre avec le
+         CPU et le système.
+      </p>
+<pre>
+    set temp1_hyst 55
+    set temp1_over 60
+    set temp2_hyst 40
+    set temp2_over 45
+    set temp3_hyst 60
+    set temp3_over 65
+
+    set in0_min 1.634
+    set in0_max 1.806
+</pre>
+      <p>
+         J'ai obtenu ces dernières valeurs en multipliant 1.72 par
+         0.95 et 1.05. Ainsi, le voltage au CPU a une marge
+         d'erreur de 5%.
+      </p>
+      <p>
+         Pour activer ces dernières modifications, il me fallut
+         finalement appeler <tt>sensors -s</tt> en root et je
+         plaçai cette commande dans <tt>/etc/rc.d/rc.local</tt>. Ce
+         fichier est également chargé de charger les modules pour
+         les senseurs.
+      </p>
+<pre>
+/sbin/modprobe i2c-viapro
+/sbin/modprobe i2c-isa
+/sbin/modprobe eeprom
+/sbin/modprobe via686a
+
+/usr/bin/sensors -s
+</pre>
+      <p>
+         Après ces réglages, le relevé devint approximativement
+         correct. Voir <a href="hw/psbomb.xhtml">la bombe du power
+         supply</a> pour plus de détails à propos de la déviation
+         de la normale des voltages.
+      </p>
+<pre>
+eeprom-i2c-0-50
+Adapter: SMBus Via Pro adapter at 0400
+Algorithm: Non-I2C SMBus adapter
+Memory type:            SDRAM DIMM SPD
+SDRAM Size (MB):        256
+
+eeprom-i2c-0-51
+Adapter: SMBus Via Pro adapter at 0400
+Algorithm: Non-I2C SMBus adapter
+Memory type:            SDRAM DIMM SPD
+SDRAM Size (MB):        512
+
+via686a-isa-0c00
+Adapter: ISA adapter
+Algorithm: ISA algorithm
+CPU core:  +1.72 V  (min =  +1.61 V, max =  +1.79 V)   
+I/O:       +3.28 V  (min =  +3.02 V, max =  +3.71 V)   
++5V:       +4.78 V  (min =  +4.63 V, max =  +5.68 V)   
++12V:     +12.33 V  (min = +11.05 V, max = +13.50 V)   
+CPU Fan:  5532 RPM  (min = 3000 RPM, div = 2)          
+P/S Fan:     0 RPM  (min = 3000 RPM, div = 2)          
+CPU Temp:  +54.6°C  (limit =  +60°C, hysteresis =  +55°C) 
+SYS Temp:  +37.7°C  (limit =  +45°C, hysteresis =  +40°C) 
+SBr Temp:  +23.8°C  (limit =  +65°C, hysteresis =  +60°C) 
+</pre>
+      <h2>
+         <a name="misc" id="misc">Problèmes divers</a>
+      </h2>
+      <p>
+         Samedi, 19 avril 2003, j'éprouvai un problème lors de la
+         gravure d'un CD. Pendant la fermeture de la session,
+         CDRecord afficha un message d'erreur, mais le disque
+         fonctionna malgré tout. Je pensai que c'était l'Autorun de
+         KDE et le désactivai en supprimant la commande dans
+         <tt>~/.kde/Autostart</tt>. Après ce changement, je
+         n'éprouvai plus aucun problème de gravure.
+      </p>
+      <p>
+         Le jour même, j'éprouvai des problèmes lors de
+         l'impression avec CUPS. Lorsque je déclenchais
+         l'impression, rien ne se passait. Je localisai le problème
+         au niveau de CUPS en tentant, en root, <tt>echo "Bonjour!"
+         &gt; /dev/lp0</tt>, ce qui imprima le texte. Je dus
+         modifier le fichier de configuration de CUPS pour
+         augmenter le niveau de la journalisation (LogLevel) à
+         debug puis je parvins à découvrir, en examinant le fichier
+         <tt>/var/log/cups/error_log</tt>, qu'il invoquait le
+         pilote GhostScript bjcgray qui n'existe pas. Avec
+         l'utilitaire <tt>redhat-config-printer-gui</tt>, je
+         modifiai le pilote bjc250 pour bjc600 puis cela fonctionna
+         merveilleusement!
+      </p>
+      <p>
+         Comme je m'en étais rendu compte le premier soir de
+         l'installation, <tt>apm -s</tt> plongeait la machine en
+         état de veille, stoppant le disque dur et l'écran et
+         ralentissant le ventilateur à CPU. Sous Mandrake 9, après
+         avoir plongé en veille, il revenait instantanément et
+         jamais je n'étais parvenu à savoir pourquoi! Lundi, 21
+         avril 2003, je découvris que le réseau se désactivait
+         lorsque je revenais de veille APM. Je dus modifier, dans
+         <tt>/etc/sysconfig/apmd</tt>, <tt>NET_RESTART</tt> pour la
+         fixer à <tt>"no"</tt>. Je fixai également
+         <tt>RESTORESERVICES="named network smb"</tt>. Après ces
+         modifications, la veille fonctionnait parfaitement.
+      </p>
+      <p>
+         Ce même jour, je parvins à installer Xine en téléchargeant
+         une nouvelle version depuis un site offrant une version en
+         code binaire. Je découvris ce site par le biais du <a
+         href="http://xine.sourceforge.net">site officiel de
+         Xine</a>, section Downloads. Il me fallut bien entendu
+         créer <tt>/dev/dvd</tt> par un lien symbolique sur
+         <tt>/dev/cdrom</tt>.
+      </p>
+      <p>
+         Certains logiciels sous RedHat Linux sont malheureusement
+         configurés pour imprimer en format A4. Ce qui se traduit
+         par un décalage du contenu imprimé qui est inesthétique et
+         qui, parfois, provoque des pertes d'informations. Par
+         exemple, l'en-tête et les premières lignes d'une page
+         pouvaient être perdues et ce, sans aucune raison
+         apparente. L'anomalie est traîtresse, car elle ne se
+         manifeste qu'à l'impression! Ce bogue touche
+         principalement A2PS et DVIPS. Pour corriger le cas de
+         A2PS, j'ai dû modifier le fichier
+         <tt>/etc/a2ps-site.cfg</tt>. Dans la ligne contenant
+         <tt>Option: --medium=_glibc</tt>, il m'a fallu remplacer
+         <tt>_glibc</tt> par <tt>Letter</tt>. Le même résultat peut
+         être atteint pour un utilisateur individuel en créant le
+         fichier <tt>~/.a2ps/a2psrc</tt> et en y plaçant au moins
+         la ligne <tt>Option: --medium=Letter</tt>. Pour ce qui est
+         de DVIPS, il m'a fallu modifier le fichier
+         <tt>/usr/share/texmf/dvips/config/config.ps</tt>. À la fin
+         du fichier, j'ai placé la commande <tt>@ letterSize</tt>
+         avant les autres afin que le papier lettre US soit utilisé
+         par défaut et non A4. Un utilisateur sans pouvoir peut
+         effectuer la manipulation pour son compte particulier en
+         créant un fichier <tt>~/.dvipsrc</tt>. Le fichier devra
+         contenir une ligne contenant le symbole <tt>@</tt> seul,
+         ce qui indique à DVIPS d'éliminer les formats de papier
+         précédemment mémorisés. La ligne sera suivie d'une copie
+         des formats de papier (toutes les lignes qui commencent
+         par <tt>@</tt>) du fichier <tt>config.ps</tt>. Il sera
+         alors possible de déplacer le format US pour le mettre en
+         première place, après la ligne contenant le symbole
+         <tt>@</tt> seul, donc par défaut.
+      </p>
+      <h2>
+         <a name="conclusion" id="conclusion">Conclusion</a>
+      </h2>
+      Pour son interface graphique unifiée (thème BlueCurve pour
+      GTK+ et QT) et sa plus grande stabilité que Mandrake, le
+      passage en valait la peine. Je n'ai perdu aucune
+      fonctionnalité après l'aventure de la configuration,
+      exception faite du TV Tuner ATI. Les pilotes GATOS ont depuis
+      longtemps été en version alpha et cela n'avait jamais
+      fonctionné parfaitement depuis le début! Plusieurs étapes de
+      cette configuration portaient sur des bagatelles qui ne sont
+      pas absolument nécessaires. La distribution, en somme,
+      fonctionne plutôt bien. 
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

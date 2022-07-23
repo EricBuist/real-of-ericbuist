@@ -1,0 +1,631 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         MediaDirect
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css"
+      href="../../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../../index.xhtml" class="parents">Le
+               royaume de Eric Buist</a> &gt;&gt; <a
+               href="../index.xhtml"
+               class="parents">Informatique</a> &gt;&gt;
+               Configuration informatique &gt;&gt; <a
+               href="index.xhtml" class="parents">Le Nightmare,
+               second du Salvator</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../../sitemap.xhtml" class="sitemap">Plan
+               du site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="lin.xhtml"
+               class="leftsibling">Linux</a>
+            </td>
+            <td class="thispage">
+               MediaDirect
+            </td>
+            <td class="rightsibling">
+               <a href="hdd.xhtml" class="rightsibling">Disque dur
+               qui claque</a> &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         MediaDirect
+      </h1>
+      <p>
+         Suite à l'installation de Linux, je ne pouvais plus
+         amorcer le logiciel MediaDirect de Dell. Ce n'était pas un
+         très gros problème, mais je voulais le résoudre malgré
+         tout. Malheureusement, mes tentatives n'aboutirent qu'à la
+         destruction de la zone HPA hébergeant le logiciel, ce qui
+         rendit son utilisation impossible. Réparer MediaDirect
+         exigerait, je le savais, l'utilisation d'un CD téléchargé
+         sur Internet et le réaménagement de mes partitions
+         contenant mes données et Linux.
+      </p>
+      <p>
+         La lenteur de la machine et surtout les bogues incessants
+         avec Linux me fatiguèrent tellement que je songeai à
+         maintes reprises m'en débarrasser. Mais avant de songer
+         revendre le portable, je souhaitais le remettre dans son
+         état d'origine, avec MediaDirect fonctionnel. C'est
+         samedi, 30 septembre 2006, que je me décidai à essayer
+         d'arranger cela.
+      </p>
+      <h2>
+         Expérimentations destructrices
+      </h2>
+      <p>
+         GRUB empêche bien entendu le fonctionnement correct de
+         MediaDirect puisqu'il se place dans la MBR, remplaçant la
+         MBR de Dell. Ainsi, après l'installation de Linux, le
+         bouton MediaDirect démarre la machine, affiche un logo
+         différent du démarrage habituel, puis amorce GRUB comme si
+         de rien n'était! Toutes mes expérimentations pour rétablir
+         la fonctionnalité et même pour supprimer le logiciel
+         complètement pour au moins récupérer l'espace gaspillé
+         furent peu concluantes et extrêmement frustrantes.
+      </p>
+      <p>
+         Les premiers tests audacieux eurent lieu samedi soir, 5
+         août 2006. Je commençai par examiner la table des
+         partitions telle qu'elle est montrée par <tt>fdisk -l
+         /dev/sda</tt>, sans MediaDirect:
+      </p>
+<pre>
+Disk /dev/sda: 78.5 GB, 78518522880 bytes
+255 heads, 63 sectors/track, 9546 cylinders
+Units = cylinders of 16065 * 512 = 8225280 bytes
+
+   Device Boot      Start         End      Blocks   Id  System
+/dev/sda1               1           6       48163+  de  Dell Utility
+/dev/sda2   *           7        3270    26218080    7  HPFS/NTFS
+/dev/sda3            3271        6534    26218080   83  Linux
+/dev/sda4            6535        9546    24193890    f  W95 Ext'd (LBA)
+/dev/sda5            6535        6665     1052226   82  Linux swap / Solaris
+/dev/sda6            6666        9546    23141601    b  W95 FAT32
+</pre>
+      <p>
+         La capacité du disque, comme nous pouvons le voir, est de
+         78.5Go plutôt que 80Go. L'unité utilisée par FDisk est le
+         cylindre qui équivaut ici à 16065 secteurs, chaque secteur
+         contenant 512 octets. Si nous multiplions le cylindre
+         final de la dernière partition (logique) FAT32 du disque,
+         nous obtenons <tt>9&nbsp;546 * 8&nbsp;225&nbsp;280 =
+         78&nbsp;518&nbsp;522&nbsp;880</tt>. Divisé par
+         10<sup>9</sup>, cela correspond bien, approximativement à
+         78.5Go.
+      </p>
+      <p>
+         Voyons maintenant ce qui se passe si MediaDirect entre en
+         scène. Pour obtenir les données suivantes, j'ai simplement
+         démarré mon portable avec le CD d'installation des
+         pilotes, ce qui m'a conduit sous DOS. De là, j'ai tapé
+         <tt>cd md2</tt> suivi de <tt>repair</tt>. Cela a restauré
+         la MBR de Dell, réparé MediaDirect, mais bloqué mon accès
+         à Linux. Il existe un utilitaire de réparation équivalent
+         qui peut être téléchargé depuis le site de Dell, si bien
+         que cette procédure est accessible aux utilisateurs ne
+         disposant pas des disques. MediaDirect réparé, j'ai
+         démarré la machine avec le bouton MediaDirect, ce qui a
+         bien fonctionné. Ensuite, j'ai éteint MediaDirect et
+         redémarré avec le CD de Knoppix; un démarrage normal
+         aurait restauré la table des partitions et caché ce qui va
+         suivre. Sous Knoppix, j'ai obtenu ce qui suit comme table
+         des partitions:
+      </p>
+<pre>
+Disk /dev/sda: 78.5 GB, 78518522880 bytes
+255 heads, 63 sectors/track, 9546 cylinders
+Units = cylinders of 16065 * 512 = 8225280 bytes
+
+   Device Boot      Start         End      Blocks   Id  System
+/dev/sda1               1           6       48163+  de  Dell Utility
+/dev/sda2               7        3270    26218080    7  HPFS/NTFS
+/dev/sda3            3271        6534    26218080   83  Linux
+/dev/sda4   *        9547        9729     1469947+   c  W95 FAT32 (LBA)
+</pre>
+      <p>
+         Il est facile de constater que la dernière partition du
+         disque a changé: c'est toujours une partition étendue
+         (selon l'indicateur de type), mais elle se trouve après la
+         partition étendue réelle qui se trouvait dans la vieille
+         table. En fait, elle se trouve <i>hors</i> du disque
+         puisque FDisk déclare qu'il y a 9546 cylindres tandis que
+         la partition démarre au cylindre 9547! C'est cela qui a
+         mis l'installeur de Linux dans tous ses états et qui a
+         failli me valoir le formatage intégral de mon disque! Une
+         tentative de monter cette étrange partition (active) me
+         valut uniquement des messages d'erreur. Pourquoi? Parce
+         que le contrôleur de disque dur ne me laissait pas y
+         accéder physiquement! C'est cela, la zone HPA! La MBR de
+         Dell l'a déverrouillée seulement temporairement quand elle
+         a exécuté le code sur le secteur LBA-3 plutôt que LBA-0.
+         Après le déverrouillage, la MBR a changé la dernière
+         partition et l'a mise active pour amorcer MediaDirect. Au
+         redémarrage, la MBR de Dell était supposée remettre la
+         partition normale, mais j'ai court-circuité le processus
+         pour observer ce qui se passe derrière la scène. Par
+         chance, au prochain démarrage normal, la table des
+         partitions a été restaurée comme si de rien n'était.
+      </p>
+      <p>
+         Il semble difficile, même dangereux, de reproduire la
+         fonction originale d'amorçage de MediaDirect. En effet,
+         cette fonction modifie la table des partitions d'une façon
+         totalement inhabituelle, ce qui pourrait engendrer un
+         désastre. C'est une bonne solution pour un débutant qui
+         n'est pas au courant de la structure du disque, mais pour
+         un utilisateur averti, ce n'est pas idéal, c'est même
+         choquant. L'idéal serait que la partition MediaDirect soit
+         en permanence listée dans la table et, au pire, elle
+         pourrait être amorcée par GRUB de la même façon que la
+         partition de Windows ordinaire. Peut-être ne sera-t-il pas
+         possible de récupérer l'usage du bouton MediaDirect, mais
+         au moins, MediaDirect sera accessible depuis le menu de
+         GRUB. Si, par malheur, cette solution ne fonctionnait pas,
+         je voulais au moins récupérer cet espace disque et
+         l'intégrer à ma partition de données FAT32. Toutes ces
+         opérations exigent de briser cette zone HPA, ce qui
+         semblait très difficile, voire impossible!
+      </p>
+      <p>
+         J'ai effectué de nombreuses recherches sur Internet dans
+         ce sens pour ne me rendre compte que de mon mauvais choix
+         de machine: il aurait mieux valu prendre un Thinkpad d'IBM
+         plutôt qu'un Dell, car les IBM permettent la désactivation
+         de la HPA depuis le BIOS. Avec Dell, <i>seul</i> la MBR de
+         Dell, qui ne démarre <b>que</b> Windows, semblait pouvoir
+         déverrouiller la HPA!
+      </p>
+      <p>
+         J'ai effectué plusieurs autres tests qui se sont avérés
+         vains et ont même failli avoir des conséquences
+         catastrophiques. D'abord, j'ai changé la partition active
+         du disque dur pour que la MBR de Dell amorce Linux au lieu
+         de Windows ensuite de quoi j'ai installé GRUB sur la
+         partition de Linux plutôt que dans la MBR. Cela a rendu
+         inutilisable le bouton MediaDirect et toute tentative de
+         réparation est ensuite devenue inefficace: le bouton
+         ramenait dans GRUB ou démarrait Windows après que j'ai
+         remis la partition active à Windows! Désormais, il
+         faudrait que je commande le CD d'installation de
+         MediaDirect de Dell (ou que je teste avec mon CD obtenu
+         par aMule) et que j'aie une installation de MediaDirect en
+         double (une dans la HPA, une sur une partition normale).
+      </p>
+      <p>
+         La seule et unique façon de désactiver la HPA semblait
+         l'utilitaire <a
+         href="http://www.sandersonforensics.com/BXDR.htm">BXDR</a>
+         qui coûtait, en juillet 2006, la modique somme de 100$ US!
+         C'était vraiment le seul que j'aie pu trouver et il
+         coûtait aussi cher qu'un disque dur d'ordinateur de
+         bureau. Il n'était pas certain qu'il pourrait opérer sur
+         le disque du portable, car ce disque est Serial ATA et la
+         machine pouvait avoir certaines spécificités faisant en
+         sorte que seule la MBR de Dell puisse effectuer la
+         manoeuvre correctement. À la limite, j'aurais pu
+         contourner ces particularités en installant temporairement
+         le disque dans mon Salvator (Les connecteurs Serial ATA
+         sont compatibles d'après ce que j'ai lu sur Internet! Bien
+         entendu, le manuel du portable ne dit rien à ce sujet.),
+         mais il restait toujours le coût trop élevé du logiciel.
+         Vu que BXDR est assez spécialisé, il risque d'être
+         difficile à trouver sur Internet si bien que le pirater
+         n'aurait peut-être même pas été une option applicable en
+         pratique.
+      </p>
+      <p>
+         J'ai bien cru que l'utilitaire pour Linux <a
+         href="http://www.win.tue.nl/~aeb/linux/setmax.c">SetMax</a>
+         pourrait résoudre mon problème, mais il n'en fut rien. Ce
+         programme permet effectivement d'envoyer une commande ATA
+         au disque dur afin de changer sa taille visible, de façon
+         temporaire ou permanente. J'ai d'abord tenté de calculer
+         la bonne taille à donner et essayé de faire le réglage de
+         façon temporaire: au pire, un redémarrage restaurerait les
+         choses. Et le pire arriva: SetMax ne pouvait pas régler la
+         capacité du disque en haut de 8Go! Si j'avais commis la
+         stupidité d'utiliser le réglage permanent, il n'était même
+         pas certain que j'aurais pu sauver le disque dur! Il
+         aurait été difficile à expliquer à un technicien de Dell,
+         qui ne connaît probablement que Windows, ce que j'ai fait
+         avec mon disque dur et il y a fort à parier qu'il n'aurait
+         pu me suggérer que le remplacement du disque, non couvert
+         par la garantie.
+      </p>
+      <p>
+         Heureusement, jeudi, le 10 août 2006, je découvris de bien
+         meilleures solutions. D'abord, <a
+         href="http://www.sleuthkit.org">The Sleuth Kit</a>
+         contient un utilitaire capable de supprimer une HPA à
+         l'aide d'une commande ATA SET MAX. Le code s'inspire du
+         code de SetMax testé précédemment et hérite
+         malheureusement des mêmes défauts: pas moyen de définir
+         une capacité maximale de plus de 8Go. Sleuth Kit
+         fonctionne probablement bien uniquement sur un disque
+         Parallel ATA! Ensuite, il y a le logiciel gratuit <a
+         href="http://www.hdat2.com/">HDAT2</a> qui permet
+         d'effectuer divers tests sur un disque dur et d'en
+         modifier la zone HPA. Toutefois, cet utilitaire doit être
+         démarré depuis une disquette MS-DOS tandis que mon
+         portable était dépourvu de lecteur de disquettes. Un tel
+         lecteur, nécessairement USB, m'aurait coûté 50$, ce qui
+         est pas mal cher pour le peu qu'il peut faire! Considérons
+         le fait qu'un lecteur de disquettes pour ordinateur de
+         table coûtait 15$ en 2006.
+      </p>
+      <p>
+         Par chance, il existait une solution: <a
+         href="http://www.ultimatebootcd.com">Ultimate Boot CD</a>.
+         Ce logiciel consiste en un CD amorçable qui contient de
+         multiples images de disquettes pour les utilitaires les
+         plus courants: gestionnaires de disques, utilitaires de
+         diagnostic, etc. Malheureusement, le CD ne comprenait pas
+         HDAT2. Il me fallut le personnaliser pour l'inclure, mais
+         ce ne fut pas très difficile.
+      </p>
+      <p>
+         Ainsi, vendredi, 11 août 2006, je démarrais le CD
+         d'amorçage ultime, personnalisé avec HDAT2, pour ensuite
+         me retrouver dans HDAT2. Contrairement à SetMax et à
+         Sleuth Kit, HDAT2 découvrit la capacité réelle de mon
+         disque dur: 156&nbsp;301&nbsp;488 secteurs, c'est à dire
+         environ 80Go! Le secteur maximal pour l'utilisateur était,
+         quant à lui, 153&nbsp;356&nbsp;490, ce qui correspondait à
+         peu près à 78.5Go. La commande SET MAX de HDAT2 me
+         proposait de rendre ces deux adresses maximales égales,
+         j'approuvai presque sans hésitation, mais l'opération
+         échoua. Tout portait à croire que le BIOS avait verrouillé
+         le disque dur et qu'il faudrait que je transplante le
+         disque dans le Salvator pour pouvoir réussir. Cela ne
+         m'enchantait pas du tout, car je m'attendais à devoir me
+         battre pas mal pour faire sortir le disque dur portable et
+         le remettre là-dedans sans tout casser. Heureusement, il a
+         suffi de régler HDAT2 en mode LBA 28 bits plutôt que LBA
+         48 bits pour réussir!
+      </p>
+      <p>
+         Lorsque la HPA fut enfin désactivée par HDAT2, je
+         redémarrai sous Linux et tentai d'utiliser FDisk pour
+         créer une partition englobant la zone déverrouillée. Cela
+         échoua, car FDisk croyait qu'il n'y avait plus un seul
+         secteur libre sur le disque dur. J'essayai avec Parted
+         pour n'obtenir guère plus de succès. Il fallait donc
+         employer un logiciel commercial, mais avant, je fis une
+         sauvegarde du contenu de la HPA avec <tt>dd if=/dev/sda
+         of=md.img bs=512 skip=153356490 count=2944998</tt>. Je
+         redémarrai ensuite Partition Expert qui, lui, créa la
+         partition sans mal. Malheureusement, le montage NTFS sous
+         Linux échoua. J'essayai de restaurer l'image sauvegardée
+         après avoir constaté que Partition Expert avait effacé des
+         données de la zone HPA devenue une partition. Je fis la
+         restauration avec <tt>dd if=md.img of=/dev/sda7</tt>, cela
+         sembla fonctionner, mais le montage échouait toujours.
+         J'essayai enfin de monter en <i>loopback</i> l'image
+         elle-même et cela échoua encore. Cela ne voulait dire
+         qu'une chose: le format de la zone HPA était non-standard!
+      </p>
+      <p>
+         Choqué par ce nombre incalculable d'éléments hors norme
+         apparemment destiné à compliquer la vie de l'utilisateur
+         désireux de reconfigurer lui-même son ordinateur et de lui
+         ôter son envie d'installer Linux, je retournai sous
+         Partition Expert et redimensionnai ma partition de données
+         pour englober la HPA. Même cela fut difficile, car le
+         logiciel ne voulait pas, initialement, augmenter la taille
+         de la partition. J'ai bien cru qu'il me faudrait Partition
+         Magic et le lecteur de disquettes USB pour réussir.
+         Heureusement, il n'en fut rien, car Partition Expert finit
+         par m'obéir! Cela supprima définitivement MediaDirect et
+         condamna le bouton du même nom, sur le portable, à ne
+         servir à rien, du moins jusqu'au jour où je trouverais
+         comment le reprogrammer.
+      </p>
+      <h2>
+         Préparatifs pour la restauration
+      </h2>
+      <p>
+         Quelques semaines avant le samedi, 30 septembre 2006, je
+         m'étais acheté un commutateur Ethernet et de nouveaux
+         câbles réseau afin de pouvoir brancher mon portable sur
+         fil. Le câble de cinquante pieds partant de mon routeur
+         jusqu'à ma chambre, au lieu d'être branché directement
+         dans le Salvator, fut raccordé au commutateur et un câble
+         relie le commutateur au Salvator. Il est alors possible de
+         relier le portable au commutateur, et donc au routeur, par
+         un second câble. J'ai aussi branché mon imprimante HP
+         Deskjet 6940 directement sur le commutateur, ce qui permet
+         de l'utiliser depuis mon portable sans démarrer ma machine
+         de table.
+      </p>
+      <p>
+         Avant de commencer les manipulations, j'ai effectué des
+         sauvegardes des partitions actuelles du portable. Pour ce
+         faire, puisque je ne suis pas heureux possesseur d'un
+         logiciel de sauvegarde tel que Acronis TrueImage ou Norton
+         Ghost (Une semaine après ces manipulations, je commandais
+         le logiciel TrueImage sur <a
+         href="http://www.amazon.ca">Amazon.ca</a>), j'utilisai
+         Knoppix. J'amorçai pour cela avec le CD de Knoppix et
+         utilisai <tt>dd</tt> pour copier les partitions dans des
+         fichiers. J'expédiai les fichiers vers le Salvator à
+         l'aide d'une connexion réseau. Bien entendu, je dus
+         brancher mon portable au réseau filaire pour que cela
+         fonctionne puisque Knoppix ne reconnaît pas ma carte
+         Wi-fi. La séquence de commandes pour la copie de la
+         partition Dell Diagnostics ressemble à ceci:
+      </p>
+<pre>
+mkdir /mnt/salva
+mount -t cifs //192.168.1.6/lindata /mnt/salva -o utf8,username=eric
+dd if=/dev/sda | gzip &gt; /mnt/salva/DellBackup/DellDiag.img.gz
+umount /mnt/salva
+</pre>
+      <p>
+         Je sauvegardai ainsi ma partition Windows XP et ma
+         partitiaon Linux. Ensuite, j'utilisai FDisk pour supprimer
+         ma partition Linux ainsi que ma partition étendue. Il ne
+         restait alors plus que deux partitions sur mon disque:
+         Dell Diagnostics et Windows XP. Il était nécessaire
+         d'utiliser Knoppix et non pas Fedora Core 5, car je ne
+         devais pas copier une partition en cours de fonctionnement
+         sous peine de réduire grandement la fiabilité de mon
+         travail.
+      </p>
+      <p>
+         En fait, le mieux aurait été de remplacer <tt>dd</tt> par
+      </p>
+<pre>
+mount /mnt/sda1
+cd /mnt/sda1
+tar -zcf /mnt/salva/DellBackup/DellDiag.tar.gz .
+cd ..
+umount /mnt/sda1
+</pre>
+      <p>
+         Mieux encore: utiliser TrueImage d'Acronis! En effet, j'ai
+         lu que restaurer l'image avec <tt>dd</tt> ne
+         fonctionnerait pas puisque les partitions peuvent contenir
+         des informations sur leur emplacement sur le disque. Ces
+         informations doivent être mises à jour pour que la copie
+         fonctionne et soit amorçable. Je dus pour obtenir les
+         archives décompresser les images <tt>.img.gz</tt> avec
+         <tt>gunzip</tt> et les monter en <i>loopback</i> (par
+         exemple <tt>mount -t vfat DellDiag.img /mnt/diag -o
+         loop,utf8</tt>). Cela nécessita beaucoup de temps et
+         beaucoup d'espace de stockage!
+      </p>
+      <h2>
+         Réinstallation de MediaDirect
+      </h2>
+      <p>
+         Après avoir effectué les manipulations précédentes, je
+         redémarrai la machine sous Windows. Je dus pour cela
+         réisntaller le MBR de Dell afin de supprimer GRUB. Lorsque
+         je fus sous Windows, j'insérai le disque d'installation de
+         MediaDirect obtenu sur Internet. L'installation tarda à
+         démarrer et prit plus de dix minutes. Le logiciel prit
+         beaucoup de temps à examiner le disque sans rien faire
+         puis une barre de progression finit par apparaître.
+         Lorsque la barre atteignit 100%, je dus subir un autre
+         délai avant de voir la fenêtre d'installation se fermer,
+         sans aucun message.
+      </p>
+      <p>
+         Lorsque l'installation sembla être terminée, j'éteignis la
+         machine et la rallumai avec le bouton MediaDirect. Le
+         logiciel nouvellement installé démarra et se mit à se
+         charger. J'avais donc réussi! Malheureusement, il était en
+         Anglais et il trouvait toujours des fichiers audio de Dell
+         sans que je ne sache d'où ces fichiers venaient. Ces
+         fichiers étaient en Français tandis que MediaDirect était
+         en Anglais. Donc, ça ne venait pas de MediaDirect!
+      </p>
+      <h2>
+         Réinstallation de Windows
+      </h2>
+      <p>
+         Aux grands maux les grands moyens, me dis-je! Désireux de
+         savoir où se trouvaient tous ces fichiers et d'obtenir une
+         version française de MediaDirect, je me résolus à formater
+         entièrement le disque dur et réinstaller tout depuis zéro.
+         Sur le CD que j'ai trouvé, il y a plusieurs répertoires
+         pour les langues si bien que si l'installation fait son
+         travail correctement, je devrais me retrouver avec une
+         version française du logiciel. Or j'ai lu quelque part sur
+         Internet qu'il fallait réinstaller Windows avant de
+         réinstaller MediaDirect.
+      </p>
+      <p>
+         Je commençai par tester le logiciel DBAN qui était intégré
+         sur l'Ultimate Boot CD. Ce dernier permet d'effacer le
+         contenu d'un disque dur avec très peu d'espoir de pouvoir
+         le récupérer par la suite. J'utilisai la méthode
+         d'effacement rapide qui prit 1h40min. Si j'avais effectué
+         l'opération avec le mode par défaut, cela aurait pris
+         trois minutes pour effectuer 1% de l'effacement. Au total,
+         il aurait donc fallu 300 minutes pour une seule passe et
+         le processus prévoyait trois passes! L'effacement avec la
+         méthode par défaut, que j'ai interrompu, aurait donc pris
+         15 heures! Je me résolus à le faire si jamais je vendais
+         effectivement la machine, après quoi je réinstallerais
+         Windows sur le disque vide.
+      </p>
+      <p>
+         Je restaurai d'abord Dell Diagnostics. Pour ce faire, je
+         créai une partition primaire FAT16 d'environ 40Mo et y
+         copiai les fichiers que j'avais sauvegardés précédemment.
+         Je rendis cette partition active et démarrai la machine.
+         Malheureusement, le démarrage échoua plusieurs fois
+         puisque la zone d'amorçage n'était pas initialisée. Je dus
+         démarrer OpenDOS depuis Ultimate Boot CD qui est dépourvu
+         d'une image de disque de MS-DOS. Depuis OpenDOS, je dus
+         utiliser <tt>sys a: c:</tt> pour rendre la partition Dell
+         Diagnostics système puis j'utilisai <tt>fdisk /mbr</tt>
+         pour initialiser la zone d'amorçage principale. Lorsque
+         tout cela fut terminé, je retournai sous Knoppix et
+         changeai le type de la partition FAT16 pour DE. Démarrer
+         la machine aboutissait maintenant dans Dell Diagnostics.
+      </p>
+      <p>
+         Si, au démarrage, j'appuyais sur F12 et je sélectionnais
+         Diagnostics, j'aboutissais non pas sur la partition Dell
+         Diagnostics mais dans un autre programme, plus basique,
+         intégré dans le BIOS. Le diagnostic du BIOS terminé, le
+         programme tentait d'amorcer la partition de Dell
+         Diagnostics et échouait. Il n'y avait aucune raison et
+         rien à faire pour remédier à cela.
+      </p>
+      <p>
+         Je démarrai ensuite la machine avec le CD de Windows et
+         procédai à l'installation du système. J'utilisai
+         l'installeur pour créer une partition NTFS de 25Go et les
+         fichiers de Windows y furent copiés sans difficulté. Aucun
+         numéro de série ne me fut demandé et aucune activation ne
+         fut nécessaire; c'était une version OEM préactivée.
+         J'installai ensuite les divers pilotes depuis le CD de
+         ressources de Dell.
+      </p>
+      <p>
+         Lorsque pilotes et mises à jour furent en place, je
+         redémarrai l'installation de MediaDirect. Résultat: un
+         logiciel en Anglais, encore, et cette fois ne trouvant que
+         les fichiers multimédia de Windows!
+      </p>
+      <p>
+         Je découvris plus tard que les fichiers de Dell, que
+         MediaDirect trouvait au début, étaient dans le répertoire
+         <tt>i386</tt> de l'ancienne partition de Windows. Ce
+         dernier répertoire contient les fichiers d'installation
+         d'une version de Windows personnalisée par Dell et cette
+         version est différente de celle sur le CD!
+      </p>
+      <h2>
+         Restauration de Linux
+      </h2>
+      <p>
+         Avant de tenter de restaurer Linux, je créai une partition
+         étendue utilisant le reste de mon disque dur. Dans cette
+         partition, je créai 2Go de swap pour Linux, une partition
+         de 25Go en ext3 pour Linux et une partition FAT32 de
+         données occupant le reste du disque. Utilisant toujours
+         Knoppix, je recopiai les fichiers d'installation de Linux
+         vers la partition ext3. Après avoir décompressé le fichier
+         d'archive de ma partition Linux au bon endroit, ce qui
+         prit pas mal de temps, je dus éditer
+         <tt>/etc/grub.conf</tt> pour remplacer <tt>(hd0,2)</tt>
+         par <tt>(hd0,5)</tt> et ajuster les étiquettes des
+         partitions dans <tt>/etc/grub.conf</tt> et
+         <tt>/etc/fstab</tt>. J'ajoutai aussi un lien pour que GRUB
+         puisse amorcer Dell Diagnostics (<tt>(hd0,0)</tt>), Dell
+         MediaDirect (<tt>(hd0,2)</tt>), en plus de Windows XP
+         (<tt>(hd0,1)</tt>). Le bouton MediaDirect ne
+         fonctionnerait plus, mais au moins, je pourrais accéder au
+         logiciel par GRUB. Il me fallut ensuite démarrer avec le
+         disque de Fedora Core pour restaurer GRUB. Tout cela fut
+         vain, car Linux refusa de démarrer!
+      </p>
+      <p>
+         Je fis plusieurs essais, changeant les options passée à
+         <tt>tar</tt> à chaque fois. En dernier, j'étais rendu avec
+         <tt>tar -zxf /mnt/salva/DellBackup/DellFC5.tar.gz
+         --same-owner -p</tt> dans le répertoire représentant ma
+         partition Linux vide. Même avec la copie des utilisateurs
+         et des permissions, cela échouait. Lorsque je démarrais
+         mon Linux, je ne pouvais ni accéder à Xorg, ni même me
+         brancher. Rien ne fonctionnait!
+      </p>
+      <p>
+         Tous ces tests étaient très longs en raison de l'excessive
+         lenteur du disque dur et du lecteur CD/DVD. En effet, ce
+         lecteur stoppait tout le temps sa rotation et lorsque
+         Knoppix voulait lire son CD, il devait attendre plusieurs
+         secondes avant que le lecteur n'ait retrouvé sa vitesse
+         maximale. De plus, le lecteur se mit à vibrer de façon
+         très bruyante et agaçante, augmentant par ce fait même mon
+         stress et mon impatience.
+      </p>
+      <p>
+         Je finis par découvrir la solution: désactiver SELinux. En
+         effet, SELinux associe des étiquettes aux fichiers et ces
+         étiquettes avaient été perdues pendant la copie. Je dus
+         donc modifier <tt>/etc/sysconfig/selinux</tt> afin de
+         remplacer <tt>SELINUX=enforcing</tt> par
+         <tt>SELINUX=disabled</tt>. Suite à ce changement, le
+         démarrage réussit! Je pus ensuite réactiver SELinux, le
+         système de fichiers fut réétiquetté et tout rentra dans
+         l'ordre.
+      </p>
+      <h2>
+         Résultats
+      </h2>
+      <p>
+         Réinstaller Windows, comme recommandé dans les procédures
+         de réinstallation de MediaDirect que j'ai trouvées sur
+         Internet, ne me permit pas d'obtenir un logiciel en
+         Français. En définitive, MediaDirect ne sert strictement à
+         rien, car il ne trouve que les fichiers multimédias inclus
+         avec Windows! Au mieux, il devrait trouver les fichiers
+         sur ma partition NTFS, mais il ne trouva même pas les
+         fichiers dans <tt>i386</tt> lorsque je recopiai le
+         répertoire depuis l'image sauvegardée! Il ignore
+         totalement mes fichiers musicaux sur ma partition de
+         données et aucun mécanisme ne permet d'aller les chercher!
+         J'ai essayé, au démarrage de MediaDirect, d'appuyer sur F8
+         et de lui indiquer de supprimer les données de
+         restauration. En lui faisant perdre la mémoire de cette
+         façon, j'espérais qu'il reprenne connaissance de la table
+         des partitions et trouve ma partition de données. Non, en
+         vain, aucun résultat! La seule façon de démarrer le
+         logiciel sans supprimer GRUB consiste à l'ajouter dans son
+         menu. Encore faut-il changer le type de la partition de
+         MediaDirect de <tt>d7</tt> à <tt>7</tt> pour que Windows
+         puisse la voir. Si MediaDirect est démarré avec sa
+         partition cachée, on dirait que la version allégée de
+         Windows se mélange avec l'autre version et il en résulte
+         des problèmes bizarres, dont l'impossibilité de démarrer
+         le logiciel autrement qu'en le restaurant depuis la veille
+         prolongée. Bref, tout cela n'a été qu'une frustrante perte
+         de temps. Toute recherche sur Internet à propos de
+         MediaDirect est vaine. Personne ne sait grand-chose à
+         propos de ce logiciel.
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

@@ -1,0 +1,662 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.1//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>11.1 Création d'un disque de données</TITLE>
+<META NAME="description" CONTENT="11.1 Création d'un disque de données">
+<META NAME="keywords" CONTENT="cdwriting">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cdwriting.css">
+
+<LINK REL="next" HREF="node58.html">
+<LINK REL="previous" HREF="node56.html">
+<LINK REL="up" HREF="node56.html">
+<LINK REL="next" HREF="node58.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1799"
+  HREF="node58.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1793"
+  HREF="node56.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1787"
+  HREF="node56.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1795"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1797"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html1800"
+  HREF="node58.html">11.2 Ajout d'une nouvelle</A>
+<B> monter:</B> <A NAME="tex2html1794"
+  HREF="node56.html">11. Création d'un disque</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html1788"
+  HREF="node56.html">11. Création d'un disque</A>
+ &nbsp; <B>  <A NAME="tex2html1796"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1798"
+  HREF="node106.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Sous-sections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html1801"
+  HREF="node57.html#SECTION06311000000000000000"><SPAN CLASS="arabic">11</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">1</SPAN> Préparation et formatage de la structure de données</A>
+<UL>
+<LI><A NAME="tex2html1802"
+  HREF="node57.html#SECTION06311100000000000000"><SPAN CLASS="arabic">11</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">1</SPAN> Structure plate</A>
+<LI><A NAME="tex2html1803"
+  HREF="node57.html#SECTION06311200000000000000"><SPAN CLASS="arabic">11</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">2</SPAN> Structure hierarchique</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html1804"
+  HREF="node57.html#SECTION06312000000000000000"><SPAN CLASS="arabic">11</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">2</SPAN> Configuration du logiciel d'écriture</A>
+<UL>
+<LI><A NAME="tex2html1805"
+  HREF="node57.html#SECTION06312100000000000000"><SPAN CLASS="arabic">11</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN> Roxio Easy CD Creator 6</A>
+<LI><A NAME="tex2html1806"
+  HREF="node57.html#SECTION06312200000000000000"><SPAN CLASS="arabic">11</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN> Nero Burning ROM 6</A>
+</UL></UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION06310000000000000000"></A>
+<A NAME="sec:createSimpleCD"></A>
+<BR>
+<SPAN CLASS="arabic">11</SPAN>.<SPAN CLASS="arabic">1</SPAN> Création d'un disque de données
+</H1>
+
+<P>
+La création d'un disque de données s'avère facile, car elle
+consiste simplement à transférer des fichiers informatiques sur le
+médium. Le nombre et le format de ces fichiers ne dépend que de l'utilisateur,
+il n'y a pas de contraintes majeures imposées sur leurs emplacements,
+leurs contenus, leurs tailles, ... Malheureusement, créer un tel
+disque s'avère plus complexe que copier des fichiers sur une disquette
+et il faut un logiciel spécialisé pour mener l'opération à bien.
+
+<P>
+
+<H2><A NAME="SECTION06311000000000000000">
+<SPAN CLASS="arabic">11</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">1</SPAN> Préparation et formatage de la structure de données</A>
+</H2>
+
+<P>
+Afin de pouvoir créer un disque de données, une quantité de données
+informatiques est nécessaire. La taille totale de ces données doit
+être suffisamment grande pour graver tout un disque (650 Mo - 700Mo
+pour un CD-R(W), 4.36Go pour un DVD<SPAN CLASS="MATH"><IMG
+ WIDTH="20" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$\pm$"></SPAN>R(W)) ou justifier la perte de
+15Mo sur le disque.
+Ces quinze méga-octets constituent le prix 
+à payer pour chaque session créée. Il faut tenir compte de cet 
+espace, car de petites surprises peuvent se produire en cas d'oubli.
+Après dix sessions sur CD, 150Mo d'espace sera perdu!
+Une cinquantaine de méga-octets devraient suffire à la 
+création d'une première session. Il est bon de rassembler 
+les données, c'est-à-dire les fichiers, dans un 
+répertoire commun pour plus de simplicité. Un répertoire commun permet
+de visualiser la structure du disque final sans immédiatement
+recourrir au logiciel de gravure.
+En fait, il est possible d'aller chercher des données de n'importe 
+où sur le disque dur, une disquette, un CD, un DVD, un lecteur ZIP,
+une clé USB,
+un réseau... Vous pouvez créer un 
+répertoire <TT>CDS</TT> sur la racine de votre disque dur et y créer
+autant de sous-répertoires qu'il y a de disques 
+en cours de création, c'est-à-dire pour lesquels 
+vous ramassez des fichiers. Lorsque vous disposez de suffisamment d'éléments, 
+vous pouvez envisager la gravure du disque. À noter que tout type 
+de données est utilisable, surtout pour un test!
+Pour un test, il est préférable d'utiliser un CD-RW ou un DVD<SPAN CLASS="MATH"><IMG
+ WIDTH="20" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$\pm$"></SPAN>RW
+qui peut par la
+suite être effacé. Un disque qui n'est pas réinscriptible sera perdu
+si la gravure n'est qu'un test.
+
+<P>
+Lorsque tout est prêt et que vous avez la structure de fichiers
+que vous souhaîtez, vous pouvez commencer. La structure peut 
+être plate, c'est-à-dire aucun répertoire, 
+ou hierarchisée. 
+
+<P>
+
+<H3><A NAME="SECTION06311100000000000000">
+<SPAN CLASS="arabic">11</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">1</SPAN> Structure plate</A>
+</H3>
+
+<P>
+Cette structure se caractérise par l'absence totale de répertoires sur
+le disque créé. Le répertoire racine du disque comprendra alors un
+très grand nombre de fichiers de petite taille ou quelques fichiers de
+grande taille. Ce mode s'adapte bien pour des disques de MP3 mêlant
+différents genres de musique, mais il devient difficile de s'y
+retrouver. Avec un DVD, la capacité est si grande qu'une telle
+organisation est très peu pratique.
+
+<P>
+
+<H3><A NAME="SECTION06311200000000000000">
+<SPAN CLASS="arabic">11</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">2</SPAN> Structure hierarchique</A>
+</H3>
+
+<P>
+Un disque à structure hierarchique comprend un ou plusieurs
+sous-répertoires permettant de classer les fichiers du disque. Cette
+solution est adéquate pour un disque comprenant des documents, des
+logiciels, des MP3 classés par genres musicaux, presque tous les
+disques, en bref!
+
+<P>
+
+<H2><A NAME="SECTION06312000000000000000">
+<SPAN CLASS="arabic">11</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">2</SPAN> Configuration du logiciel d'écriture</A>
+</H2>
+
+<P>
+Il existe un certain nombre de logiciels de gravure qui suivent tous
+le même principe de fonctionnement. Nous allons nous concentrer sur
+Roxio Easy CD Creator 6 et Nero Burning ROM 6.
+
+<P>
+
+<H3><A NAME="SECTION06312100000000000000">
+<SPAN CLASS="arabic">11</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN> Roxio Easy CD Creator 6</A>
+</H3>
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:ezcdmain"></A><A NAME="2237"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 11.1:</STRONG>
+La fenêtre principale de Easy CD Creator 5</CAPTION>
+<TR><TD>&nbsp;
+<BR>
+
+    <DIV ALIGN="CENTER">
+<IMG
+ WIDTH="763" HEIGHT="689" ALIGN="BOTTOM" BORDER="0"
+ SRC="ezcdmain.png"
+ ALT="2235">
+    
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+Démarrez maintenant le logiciel 
+ Easy CD and DVD Creator par la commande
+<SPAN  CLASS="textbf">Démarrer -&gt;
+
+Programmes -&gt;
+
+Roxio Easy CD and DVD
+  Creator
+  6 -&gt;
+
+Creator Classic</SPAN>. Une fenêtre
+ressemblant à la figure&nbsp;<A HREF="#fig:ezcdmain">11.1</A> va s'ouvrir.
+
+<P>
+Le haut de l'écran ressemble
+à l' Explorateur Windows. Si vous ne connaissez pas ce 
+gestionnaire de fichiers, lisez les fichiers d'aide 
+de Windows avant de continuer ou effectuer quelques
+expérimentations. L'Explorateur Windows permet d'effectuer 
+(presque) toutes les manipulations possibles sur les fichiers, 
+et cela, sans entrer de commandes, juste avec la souris, ou mieux, avec 
+des touches de raccourci.
+
+<P>
+Assurez-vous que dans la partie du bas, l'onglet
+<SPAN  CLASS="textbf">Données</SPAN> est sélectionné. 
+Le bas de l'écran contient un autre explorateur, plutôt 
+quelque chose qui lui ressemble; c'est là que se bâtira 
+la structure du disque. Ce que vous verrez dans la partie de gauche 
+constituera les répertoires que contiendra le disque. 
+Pour l'instant, comme vous pouvez le constater, il n'y a rien 
+et c'est plus que parfaitement normal, car vous n'y avez rien inséré. 
+L'insertion se fait par glisser-déposer (<SPAN  CLASS="textit">Drag'n'Drop</SPAN> en bon 
+Anglais) ou par <SPAN  CLASS="textbf">Ctrl-C</SPAN>/<SPAN  CLASS="textbf">Ctrl-V</SPAN>. 
+La combinaison de touches <SPAN  CLASS="textbf">Ctrl-C</SPAN> permet de copier les
+fichiers sélectionnés en mémoire (depuis la partie du haut) tandis que
+la combinaison <SPAN  CLASS="textbf">Ctrl-V</SPAN> permet de coller
+la sélection dans le logiciel de gravure.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:backupmoved"></A><A NAME="2253"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 11.2:</STRONG>
+Une structure de CD de données bien remplie</CAPTION>
+<TR><TD>&nbsp;
+<BR>
+
+    <DIV ALIGN="CENTER">
+<IMG
+ WIDTH="763" HEIGHT="689" ALIGN="BOTTOM" BORDER="0"
+ SRC="backupmoved.png"
+ ALT="2251">
+    
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+La figure&nbsp;<A HREF="#fig:backupmoved">11.2</A> montre une structure remplie de fichiers.
+Le logiciel est en mesure de calculer la capacité disponible sur le
+disque. Pour ce faire, il doit connaître le type de disque
+construit. Ce paramètre peut être défini en cliquant sur l'icône en
+forme de disque au bas de l'écran ou en insérant un disque vierge du
+bon type dans le graveur.
+
+<P>
+<TABLE BORDER="1">
+<TR><TD VALIGN="top">
+<DIV STYLE="text-align:center; color:red"> Attention!
+</DIV><P>
+Il est important de savoir que les fichiers ne sont pas
+copiés lors du déplacement dans la partie du bas! Si vous
+ajoutez un fichier sur un disque, il ne faut pas le supprimer
+de son emplacement d'origine tant et aussi longtemps que le disque
+n'est pas gravé. Dans le cas contraire,  Easy CD Creator
+recherchera le fichier, interrompra la gravure et
+un disque devra aller à la poubelle.</TD></TR></TABLE> 
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:cdprojectproperties"></A><A NAME="2262"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 11.3:</STRONG>
+Propriétés générales d'une structure de CD</CAPTION>
+<TR><TD>&nbsp;
+<BR>
+
+    <DIV ALIGN="CENTER">
+<IMG
+ WIDTH="500" HEIGHT="554" ALIGN="BOTTOM" BORDER="0"
+ SRC="cdprojectproperties.png"
+ ALT="2260">
+    
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+La structure contient maintenant des données 
+organisées dans des répertoires; ce sera disposé 
+ainsi sur le disque, lorsque vous y accéderez de l' Explorateur
+ou de toute autre interface.
+Remarquez l'occupation des données au bas de la fenêtre
+du logiciel de gravure. Vous pouvez paramétrer le type de piste de
+données à créer avec la commande
+<SPAN  CLASS="textbf">Fichier -&gt;
+
+Propriétés du projet</SPAN>, comme sur la
+figure&nbsp;<A HREF="#fig:cdprojectproperties">11.3</A>. Parfois, le type de piste ne
+peut être changé, comme sur un DVD ou sur un disque dont la première
+session a été gravée.
+
+<P>
+En plus de l'espace occupé par les données, vous pouvez aussi
+voir le nom que porte 
+le disque; il peut être changé aussi bien dans cette boîte que dans
+la fenêtre principale. Le système de fichiers 
+devrait rester sur <SPAN  CLASS="textbf">Joliet</SPAN>, à moins de créer un CD pour
+un appareil ne supportant que l'ISO&nbsp;9660<A NAME="2135"></A>.
+Le mode UDF est utilisable dans le cas de DVD ou même de CD, mais il
+ne cmoporte que peu d'avantages significatifs dans le cas d'un disque
+de données. UDF pourrait devenir utile si le disque contenait
+plusieurs noms de fichiers dans des alphabets alternatifs, par exemple
+un répertoire contenant des noms chinois de fichiers, un autre
+contenant des noms arabes, ...
+UDF supporte également la présence sur le disque de fichiers de plus
+grande taille que ISO&nbsp;9660.
+L'option <SPAN  CLASS="textbf">Enregistrer
+  en utilisant une seule piste de données</SPAN> permet d'enregistrer une
+seule piste
+de données par session. L'aide du logiciel indique que cette option
+devrait être utilisée pour produire un CD final destiné à être soumis à
+un dupliqueur pour fins de commercialisation. Désactiver l'option
+permet au logiciel de créer plusieurs pistes et d'optimiser le disque
+d'une façon ou d'une autre.
+Vous pouvez indiquer au programme d'importer automatiquement 
+la session précédente, mais pour le moment, cela 
+ne changera pas grand-chose, puisque le disque est vide. Finalement, 
+désactivez la vérification automatique des 
+fichiers qui ne fait que prendre du temps! Gravez en <SPAN  CLASS="textbf">Mode 2:
+  CDROM XA</SPAN>, car c'est le mode idéal pour le
+multisession. Si vous ne
+prévoyez qu'une session, vous pouvez graver en <SPAN  CLASS="textbf">Mode 1:
+  CDROM</SPAN>. L'onglet <SPAN  CLASS="textbf">Avancé</SPAN> permet quant à lui d'entrer
+certaines informations générales au sujet du disque. Ces informations
+seront inscrites dans les en-têtes de l'image ISO et comprennent le
+nom de l'éditeur du contenu, le nom de l'éditeur du disque, un fichier de
+copyright, un fichier de résumé et un fichier de bibliographies. Vous
+pouvez également indiquer comment les dates des fichiers du disque
+seront obtenues.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:filerecordcd"></A><A NAME="2277"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 11.4:</STRONG>
+Options d'enregistrement d'un CD</CAPTION>
+<TR><TD>&nbsp;
+<BR>
+
+    <DIV ALIGN="CENTER">
+<IMG
+ WIDTH="692" HEIGHT="534" ALIGN="BOTTOM" BORDER="0"
+ SRC="filerecordcd.png"
+ ALT="2275">
+    
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+Bon, maintenant, il est temps de transférer le tout sur un 
+disque. Pour ce faire, après avoir fermé la boîte 
+de propriétés si elle est encore ouverte, activez 
+la commande <SPAN  CLASS="textbf">Fichier -&gt;
+
+Graver le disque...</SPAN>, ce qui ouvrira une
+fenêtre d'options
+semblable à la figure&nbsp;<A HREF="#fig:filerecordcd">11.4</A>.
+La fenêtre de la figure a été obtenue en cliquant sur le bouton
+<SPAN  CLASS="textbf">Détails</SPAN> de la fenêtre initiale.
+
+<P>
+Cette boîte est importante et doit être bien 
+comprise pour bien contrôler ce qui va se passer ensuite. 
+Si vous sélectionnez <SPAN  CLASS="textbf">Tester uniquement</SPAN>, aucun disque ne sera
+créé,
+l'opération ne permet que de tester. Tester et créer fait les deux, 
+mais cela dure plus longtemps. L'option idéale est <SPAN  CLASS="textbf">Graver</SPAN>. 
+Elle crée le disque, et rien d'autre. Ensuite vient le moment 
+de choisir le mode d'écriture.
+
+<P>
+Pour un CD multisession, choisissez toujours le mode
+<SPAN  CLASS="textbf">Track-At-Once</SPAN>. Cela va vous permettre 
+de choisir <SPAN  CLASS="textbf">Clôturer la session, Ne pas clôturer le disque</SPAN>.
+La session sera fermée, mais 
+le disque pourra contenir une nouvelle session qui ajoutera des 
+nouvelles données. <SPAN  CLASS="textbf">Ne pas clôturer la session</SPAN>, inaccessible, n'existera 
+que si vous avez créé un CD Audio. Elle permet l'ajout 
+de nouvelles pistes audio après la gravure, mais aussitôt qu'une piste
+de données 
+entre en jeu, le mode devient inaccessible.
+<SPAN  CLASS="textbf">Disque entier</SPAN> permet d'écrire le disque 
+en une seule étape. C'est le seul mode disponible pour les DVD.
+Il s'avère aussi
+excellent pour un disque plein ou un CD Audio.
+
+<P>
+Maintenant le mode de finalisation choisi, insérez un 
+disque vierge et appuyez sur <SPAN  CLASS="textbf">OK</SPAN>.
+Le graveur va enfin se mettre en marche. Une boîte de dialogue
+montrera la progression 
+de l'opération. Le temps que cela prendra dépend 
+de la vitesse du graveur et de la quantité de données 
+à graver. Un CD complet prend 74 minutes/vitesse du graveur. 
+Donc, un graveur 8X prendra 9 minutes 15 secondes pour graver 
+un disque entier.
+Après la gravure, le logiciel affichera une fenêtre indiquant le
+succès de la gravure.
+En cas
+d'erreur, un message explicatif vous sera communiqué. En cas de
+succès, il vous sera offert de créer une jaquette à l'aide CD
+  Label Creator. Si vous avez du temps, un esprit créatif et une
+imprimante couleur, vous pouvez tenter votre coup, le logiciel est
+assez intuitif et complet.
+
+<P>
+Quelques facteurs peuvent empêcher la création d'un disque, 
+comme une trop grande fragmentation du disque dur, un ralentissement 
+de la machine dû à d'autres tâches qu'elle serait 
+en train d'accomplir. Plus le disque dur travaille, plus la gravure risque 
+de rater. C'est pourquoi il vaut mieux ne pas travailler sur l'ordinateur 
+durant la création du disque bien qu'il soit en théorie possible de le
+faire. Les graveurs actuels comportent des protections contre
+l'interruption de flot, mais dans tous les cas, une intense activité
+du disque dur provoquée par un programme en cours de démarrage ou des
+fichiers en cours de copie
+ralentiront la gravure considérablement.
+
+<P>
+Le test d'un disque est simple: il suffit de voir si le lecteur sait le lire. 
+Si vous pouvez lire quelques fichiers à partir de l' Explorateur,
+en général, tout va bien. Pour effectuer un test complet, vous devrez
+copier l'ensemble des fichiers du disque gravé sur le disque dur. Si
+aucune erreur ne se produit, tout est beau. Le répertoire dans lequel
+les fichiers ont été copiés peut ensuite être effacé.
+
+<P>
+
+<H3><A NAME="SECTION06312200000000000000">
+<SPAN CLASS="arabic">11</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN> Nero Burning ROM 6</A>
+</H3>
+
+<P>
+Le logiciel Nero Burning ROM se trouve dans
+<SPAN  CLASS="textbf">Démarrer -&gt;
+
+Programmes -&gt;
+
+  Nero -&gt;
+
+Nero 6 Ultra Edition -&gt;
+
+Nero Burning ROM</SPAN>.
+Lors de son démarrage, une fenêtre semblable à la
+figure&nbsp;<A HREF="node51.html#fig:nerostart">10.3</A> apparaîtra. Le logiciel vous demandera
+d'abord de choisir le type de compilation que vous souhaitez
+réaliser. Selon le disque désiré, des options différentes pourraient
+apparaître dans la boîte de dialogue. Pour un disque de données,
+utilisez le type <SPAN  CLASS="textbf">CD-ROM (ISO)</SPAN> ou <SPAN  CLASS="textbf">DVD-ROM (ISO)</SPAN>.
+L'onglet <SPAN  CLASS="textbf">Multisession</SPAN> permet de décider si un disque
+comportera plusieurs sessions. Pour un disque multisession sur lequel
+une première session est écrite, sélectionnez <SPAN  CLASS="textbf">Commencer un CD
+  multisession</SPAN>. 
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:neroiso"></A><A NAME="2300"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 11.5:</STRONG>
+Onglet ISO de la fenêtre <SPAN  CLASS="textbf">Nouvelle compilation</SPAN> de Nero</CAPTION>
+<TR><TD>&nbsp;
+<BR>
+
+    <DIV ALIGN="CENTER">
+<IMG
+ WIDTH="743" HEIGHT="445" ALIGN="BOTTOM" BORDER="0"
+ SRC="neroiso.png"
+ ALT="2298">
+    
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+L'onglet <SPAN  CLASS="textbf">ISO</SPAN>, présenté à la
+figure&nbsp;<A HREF="#fig:neroiso">11.5</A>, propose des options liées au
+format ISO du disque. Il est possible de modifier le mode du disque et
+de lever certaines restrictions imposées par le standard ISO. Le
+format <SPAN  CLASS="textbf">Joliet</SPAN> devrait être utilisé pour un disque de données
+afin de permettre des noms de fichiers longs. Un disque UDF constitue
+une autre alternative autorisant les noms de fichiers longs.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:nerolabel"></A><A NAME="2314"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 11.6:</STRONG>
+Onglet <SPAN  CLASS="textbf">Label</SPAN> de la fenêtre de Nero</CAPTION>
+<TR><TD>&nbsp;
+<BR>
+
+    <DIV ALIGN="CENTER">
+<IMG
+ WIDTH="743" HEIGHT="445" ALIGN="BOTTOM" BORDER="0"
+ SRC="nerolabel.png"
+ ALT="2312">
+    
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+L'onglet <SPAN  CLASS="textbf">Label</SPAN>, présenté à la figure&nbsp;<A HREF="#fig:nerolabel">11.6</A>,
+permet de définir le nom du disque qui apparaîtra dans l'Explorateur
+Windows. Le champ <SPAN  CLASS="textbf">ISO 9660</SPAN> permet d'entrer un nom d'une
+longueur maximale de 11 caractères qui sera supporté par
+DOS/Windows. En décochant <SPAN  CLASS="textbf">Utiliser également le texte ISO 9660
+  pour Joliet</SPAN>, il est possible de donner un nom différent pour le
+système Joliet. Ce nom peut être plus long et comporter des
+minuscules, majuscules et caractères accentués.
+
+<P>
+En utilisant le bouton <SPAN  CLASS="textbf">Plus de champs</SPAN>, il est possible de
+modifier les autres champs de l'ISO 9660, comme l'éditeur du disque,
+son identificateur d'application et son identificateur système. Nero
+permet de donner un nom ISO 9660 et un nom Joliet pour chaque champ.
+L'onglet <SPAN  CLASS="textbf">Dates</SPAN> permet quant à lui de modifier les dates de
+création et de modification du disque. Habituellement, ces options
+n'ont pas à être modifiées. Les options de l'onglet <SPAN  CLASS="textbf">Divers</SPAN>
+peuvent également demeurer inchangées puisque leur valeur par défaut
+conviennent. Elles permettent de régler le cache des fichiers du
+disque et du réseau. 
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:neroburn"></A><A NAME="2331"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 11.7:</STRONG>
+Onglet <SPAN  CLASS="textbf">Graver</SPAN> de la fenêtre de Nero</CAPTION>
+<TR><TD>&nbsp;
+<BR>
+
+    <DIV ALIGN="CENTER">
+<IMG
+ WIDTH="743" HEIGHT="445" ALIGN="BOTTOM" BORDER="0"
+ SRC="neroburn.png"
+ ALT="2329">
+    
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+L'onglet <SPAN  CLASS="textbf">Graver</SPAN>, présenté à la
+figure&nbsp;<A HREF="#fig:neroburn">11.7</A>, propose quelques options de gravure.
+Il est possible de régler la vitesse de gravure, le mode de gravure et
+le nombre de copies à effectuer. L'option <SPAN  CLASS="textbf">Simulation</SPAN> devrait
+être désactivée et l'option <SPAN  CLASS="textbf">Écriture</SPAN>, activée. L'option de
+finalisation est grisée, car Nero commence une nouvelle session d'un
+disque multisession. Lors des futures sessions, cette option sera
+proposée et permettra de clôturer le disque afin que toute écriture
+ultérieure ne soit plus possible.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:nerowin"></A><A NAME="2346"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 11.8:</STRONG>
+Fenêtre principale de Nero</CAPTION>
+<TR><TD>&nbsp;
+<BR>
+
+    <DIV ALIGN="CENTER">
+<IMG
+ WIDTH="960" HEIGHT="719" ALIGN="BOTTOM" BORDER="0"
+ SRC="nerowin.png"
+ ALT="2344">
+    
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+Lorsque toutes les options sont réglées, cliquez sur
+<SPAN  CLASS="textbf">Nouveau</SPAN>. Une fenêtre semblable à la figure&nbsp;<A HREF="#fig:nerowin">11.8</A>
+apparaîtra et permettra de construire la compilation. Il est possible
+de glisser des fichiers dans cette fenêtre pour former la structure du
+disque à créer. La touche <SPAN  CLASS="textbf">F7</SPAN> permet d'accéder de nouveau aux
+options de la compilation si des corrections sont
+nécessaires. L'espace utilisé sur le disque est indiqué de façon
+graphique au bas de la fenêtre ou textuelle dans l'onglet
+<SPAN  CLASS="textbf">Infos</SPAN> des propriétés de la compilation.
+
+<P>
+Lorsque tout est prêt, sélectionnez <SPAN  CLASS="textbf">Graveur -&gt;
+
+  Graver la compilation</SPAN>. Les options de la compilation seront de
+nouveau affichée, avec l'onglet <SPAN  CLASS="textbf">Graver</SPAN> activé. Un clic sur
+le bouton <SPAN  CLASS="textbf">Graver</SPAN> démarrera la gravure du disque.
+Nero comporte également un outil permettant de créer ses propres
+jaquettes de disques.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1799"
+  HREF="node58.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1793"
+  HREF="node56.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1787"
+  HREF="node56.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1795"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1797"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html1800"
+  HREF="node58.html">11.2 Ajout d'une nouvelle</A>
+<B> monter:</B> <A NAME="tex2html1794"
+  HREF="node56.html">11. Création d'un disque</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html1788"
+  HREF="node56.html">11. Création d'un disque</A>
+ &nbsp; <B>  <A NAME="tex2html1796"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1798"
+  HREF="node106.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Eric Buist
+2005-11-13
+</ADDRESS>
+</BODY>
+</HTML>

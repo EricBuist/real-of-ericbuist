@@ -1,0 +1,200 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         La machine qui fait du zèle
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css"
+      href="../../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../../index.xhtml" class="parents">Le
+               royaume de Eric Buist</a> &gt;&gt; <a
+               href="../index.xhtml"
+               class="parents">Informatique</a> &gt;&gt; Problèmes
+               marquants &gt;&gt; <a href="index.xhtml"
+               class="parents">Quelques mystères</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../../sitemap.xhtml" class="sitemap">Plan
+               du site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="schlingue.xhtml"
+               class="leftsibling">La TV qui schlingue pas fort
+               sous Windows 2000/XP</a>
+            </td>
+            <td class="thispage">
+               La machine qui fait du zèle
+            </td>
+            <td class="rightsibling">
+               <a href="xpcrash.xhtml" class="rightsibling">STOP
+               intermittents sous Windows XP</a> &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         La machine qui fait du zèle
+      </h1>
+      <p>
+         Windows 98 Deuxième Édition recèle de nombreux secrets
+         dont les programmeurs de Microsoft sont les seuls à
+         connaître. Que se passe-t-il exactement dans le coeur de
+         ce gigantesque et complexe système, personne ne le sait
+         entièrement. Je stipule que même Bill Gates ne comprend
+         pas complètement le système tellement il est complexe!
+         Chaque programmeur maîtrise le fragment dont il a besoin
+         pour travailler et cela résulte en un tout à peu près
+         fonctionnel. Peut-être trop fonctionnel, car il ne veut
+         plus s'arrêter!
+      </p>
+      <p>
+         Eh oui, c'est un problème de fermeture de l'ordinateur
+         familial, le Pentium III. Cette machine est munie de
+         Windows 98 Deuxième Édition depuis le début ou à peu près
+         et à part les problèmes d'activation de l'Explorateur, il
+         n'y avait pas de difficultés majeures. Toutes les mises à
+         jour sont installées, dont la mise à jour pour la
+         fermeture. Internet Explorer 6 est installé sur la
+         machine. Un bon jour, j'éteignis cette machine par le menu
+         Démarrer, puis Arrêter et je sélectionnai Arrêter, rien de
+         plus normal! Une boîte de dialogue apparut alors. <i>Ce
+         programme ne répond pas...</i> La barre de titre de la
+         fenêtre étant vide, je ne disposais d'aucun indice pour
+         localiser le programme fauteur de troubles.
+      </p>
+      <p>
+         La boîte offrait trois choix. Attendre mettait le système
+         dans un état d'attente et parfois, elle n'en ressortait
+         pas. ctrl+alt+del bloquait souvent lui aussi et la seule
+         solution miracle: reset! D'autres fois, l'attente se
+         terminait et la boîte réapparaissait. Fin de tâche faisait
+         disparaître le message et annulait l'arrêt du système.
+         Même chose pour annuler. Toute tentative de reprendre un
+         arrêt ne provoquaient aucun résultat à part la boîte.
+      </p>
+      <p>
+         Je tentai une bonne fois d'appuyer sur ctrl+alt+del et de
+         tuer avec Fin de tâche tous les programmes que je pouvais.
+         L'ordinateur ne se fermait pas, même à cela! Le mieux que
+         je pus faire est de faire disparaître l'Explorateur, mais
+         Windows ne semblait pas réaliser qu'il devait éteindre
+         l'ordinateur, l'écran d'arrière-plan restait vide, restait
+         ctrl+alt+del deux fois!
+      </p>
+      <p>
+         Je tentai une bonne fos de sonder le système planté avec
+         PrcView, un Process Viewer, ce qui ne donna aucun résultat
+         concluant.
+      </p>
+      <p>
+         Une correlation finit par s'établir. La machine semblait
+         avoir du mal à s'éteindre suite à une impression sur la
+         Epson. Je tentai donc de mettre à jour les pilotes de
+         l'imprimante, ce qui fit apparaître un Epson Printer Port
+         à la place du Port Imprimante ECP. Mais la solution se
+         révéla vite inefficace.
+      </p>
+      <p>
+         Je tentai alors d'analyser le Registre et j'y trouvai une
+         patente Epson étrange. Après analyses, je compris que
+         c'était le module de partage de l'imprimante. Ce module
+         permet aux ordinateurs accédant à l'imprimante en réseau,
+         dont le mien par exemple, d'obtenir des informations sur
+         le niveau d'encre de la cartouche. Le désactiver ne
+         m'empêchait pas d'imprimer depuis ma machine sur la Epson
+         et semblait régler le problème.
+      </p>
+      <p>
+         Le problème revint quelques temps après et le module
+         n'était pas réapparu. Je fis et refis des analyses du
+         Registre, je tentai un Norton WinDoctor puis une
+         optimisation de la base de Registre avec Norton
+         Optimization Wizzard, rien à faire. La réinstallation de
+         Windows s'en venait la prochaine tentative...
+      </p>
+      <p>
+         Mais d'où pouvait bien provenir un tel bogue? Il semblait
+         que c'était un process fantôme qui empêchait de fermer
+         l'ordinateur. Comme si un driver ou un service système
+         tenait à ce que la machine soit ouverte. SyGate! Mon
+         module de partage Internet! Bien entendu, je ne pouvais
+         l'enlever, car si je le faisais, je perdrais mon accès
+         Internet immédiat et un élément important pour la réussite
+         de mes études!
+      </p>
+      <p>
+         Le problème pourrait provenir d'une connexion Linux avec
+         SyGate Home Network. Peut-être y a-t-il dans Windows ou le
+         module TCP/IP de Linux (On ne sait jamais avec RedHat 7.1,
+         avec les problèmes que j'ai eus...) une entorse au RFC
+         (Request for Comments) du protocole TCP/IP qui fait que
+         SyGate Home Network n'est pas en mesure de déterminer si
+         les connexions ne sont pas rompues. Dans ce cas, le
+         logiciel pourrait retarder (dans ce cas pathologique
+         empêcher) la fermeture de Windows après avoir alerté les
+         noeuds du réseau interne en cause.
+      </p>
+      <p>
+         Je tentai donc de visiter le site de la compagnie et je me
+         rendis compte qu'une mise à jour était disponible.
+         L'installation fut plus inquiétante que difficile, car je
+         craignais que mon numéro de série ne passe pas dans la
+         nouvelle version. Ce ne fut pas le cas et je passai ainsi
+         de la version 4.0 à 4.2.
+      </p>
+      <p>
+         Pour le moment, le bogue n'est pas réapparu, mais je ne
+         parlerai pas trop vite, car qui sait... Si le bogue
+         persiste, il me faudra tenter de désactiver le mode
+         ECP/EPP pour l'imprimante, bien que la Epson le supporte.
+         Ensuite, la réinstallation de Windows sera envisageable, à
+         moins que je n'aie trouvé mieux...
+      </p>
+      <p>
+         Et ce n'était pas SyGate! Le plantage a de nouveau eu lieu
+         un moment donné. Une correlation a fini par être établie
+         entre le logiciel PinrtMaster Gold 7.00 de Mindscape et ce
+         blocage des plus tannants. Chaque fois que le bogue a
+         lieu, le logiciel a été démarré durant la session de
+         travail. Malheureusement, la réciproque n'est pas vraie et
+         il faudrait éventuellement pouvoir isoler quel module de
+         PrintMaster provoque le problème. Pour le moment, il
+         semble que seule une mise à jour du logiciel enrayera
+         l'anomalie. Avec la version PrintMaster Platinum, ce
+         problème n'a plus cours. Il a aussi disparu depuis le
+         passage à Windows XP.
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

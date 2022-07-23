@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         Configuration de Windows 2000
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css" href="../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../index.xhtml" class="parents">Le royaume
+               de Eric Buist</a> &gt;&gt; <a href="index.xhtml"
+               class="parents">Informatique</a> &gt;&gt;
+               Configuration informatique
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../sitemap.xhtml" class="sitemap">Plan du
+               site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="rh71.xhtml"
+               class="leftsibling">Installation de Red Hat Linux
+               7.1</a>
+            </td>
+            <td class="thispage">
+               Configuration de Windows 2000
+            </td>
+            <td class="rightsibling">
+               <a href="finetunelinux.xhtml"
+               class="rightsibling">Configuration optimale de
+               Linux</a> &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         Configuration de Windows 2000
+      </h1>
+      <p>
+         Mercredi, 2 mai 2001 après-midi, je tentai quelque chose
+         pour configurer l'amorçage multiple. Je voulais tenter
+         d'installer le logiciel BootMagic livré avec Partition
+         Magic. Malheureusement, il me fallut réinstaller Partition
+         Magic pour avoir BootMagic, mais finalement, j'y parvins
+         et le configurer fut un jeu d'enfant! Je crois que le
+         programme s'est installé dans la partition Windows 98,
+         mais sa réinstallation sera assez aisée en cas de
+         remplacement du système d'exploitation Windows 98 ou de sa
+         suppression.
+      </p>
+      <p>
+         Le gestionnaire d'amorçage permettait maintenant d'activer
+         Windows 98, Windows 2000 ou Linux. Toutefois, si je
+         choisissais Windows 2000 dans le menu de BootMagic,
+         l'amorçage échouait avec message d'erreur. Pour amorcer
+         Windows 2000, il me fallait choisir Windows 98, je me
+         retrouvais dans le menu du gestionnaire d'amorçage de
+         Windows 2000 et je pouvais de là activer Windows 98 ou
+         Windows 2000. Mais le démarrage correct de Windows 2000
+         dépendait encore de celui de Windows 98...
+      </p>
+      <p>
+         Pour améliorer le système, je tentai alors d'activer
+         Windows 2000 puis de copier <tt>ntldr</tt> dans le C:. Il
+         me fallut ôter la protection sur ce fichier avec
+         <tt>attrib -s -h -r ntldr</tt> puis la remettre après
+         copie avec <tt>attrib +s +h +r ntldr</tt>, tout cela à
+         partir de l'Invite MS-DOS. Mais ce fichier était
+         insuffisant, seul, pour faire amorcer Windows 2000 et il
+         me fallut également copier <tt>ntdetect.com</tt>,
+         <tt>boot.ini</tt> et finalement effectuer une modification
+         sur <tt>boot.ini</tt> afin de lui enlever la possibilité
+         d'amorcer sous Windows 98. Il est ensuite devenu possible
+         d'utiliser la commande Windows 2000 du menu de démarrage
+         de BootMagic pour faire démarrer le système d'exploitation
+         correspondant, et cela sans problèmes.
+      </p>
+      <p>
+         Après être ainsi parvenu à reconfigurer le système à
+         amorçage multiple sans devoir réinstaller Windows 2000 et
+         Linux, j'ai continué à installer des applications sous
+         Windows 2000. Le système fonctionnait très bien à
+         l'exception de quelques bogues. Tout d'abord, il est
+         arrivé à au moins trois reprises que lors de la fermeture
+         ou du redémarrage, Windows affichait <tt>Enregistrement
+         des paramètres</tt> et s'arrêtait là, n'attendant non pas
+         ctrl+alt+del mais reset! Le bogue est intermittent et il
+         n'y a aucune solution pour le moment.
+      </p>
+      <p>
+         Le second problème est l'absence du support des thèmes de
+         bureau. Pour arriver à modifier l'apparence globale de
+         tout le système, il faut absolument modifier un à un tous
+         les paramètres tels icônes, curseurs, couleurs, sons, ...
+         C'est pas mal long et un peu inutile puisqu'il n'existe
+         pas de moyen fiable de sauvegarder les paramètres une fois
+         modifiés.
+      </p>
+      <p>
+         S'il n'y avait eu que ces deux problèmes, Windows 2000
+         aurait quitté mon disque dur ce mercredi-là! Toutefois, le
+         système semble disposer d'une meilleure cache pour les
+         programmes, car certaines applications, telles Word 2000
+         et CorelDraw! 7 semblent démarrer plus rapidement.
+         L'Explorateur peut parfois se mettre à attendre le Messie
+         comme sous Windows 98, mais il ne bloque pas l'accès au
+         Menu Démarrer durant l'attente. Malgré le fait que je
+         n'aie pas eu encore le temps de l'expérimenter moi-même,
+         Windows 2000 est également plus stable pour ce qui est des
+         plantages. Il ne devrait pas planter au complet comme sait
+         si bien le faire Windows 98! Si une application se trouve
+         en état de dysfonctionnement, cette dernière devrait
+         pouvoir se fermer sans déranger les autres processus
+         Windows.
+      </p>
+      <p>
+         L'installation de Microsoft Office 2000 a également été un
+         charme. Le setup l'a menée à bien plus rapidement que sous
+         Windows 98 ou Windows ME et cela, sans redémarrer
+         l'ordinateur à la fin du processus! Il est possible que
+         cet état de fait soit dû au fait que Office 2000 utilise
+         Windows Installer, une extension issue de Windows 2000 et
+         ajoutée par après aux autres systèmes d'exploitation.
+      </p>
+      <p>
+         Les menus de Windows apparaissent et disparaissent
+         graduellement, comme s'ils subissaient un effet de fading.
+         Cette fonction peut se désactiver et n'a pas une
+         quelconque utilité! Toutefois, le gestionnaire de
+         périphériques a su afficher le vrai nom de mon disque dur,
+         il regroupe également les fonctions de changement de
+         région dans les propriétés du lecteur DVD. Le pilote du
+         modem, au lieu de créer une nouvelle icône dans le panneau
+         de configuration, arrive à placer ses nouveaux paramètres
+         dans la même boîte de dialogue que ceux standards à
+         Windows, en ajoutant pour cela de nouveaux onglets.
+         Windows 2000 supporte également un système de fichiers
+         NTFS plus sécurisé que le FAT32, on peut le configurer
+         pour limiter l'accès à la machine par des comptes
+         utilisateur et des mots de passe et cette fois-ci, il n'y
+         a vraiment pas de DOS!
+      </p>
+      <p>
+         Malheureusement, le dernier bogue rencontré met en péril
+         mon installation de Windows 2000. En effet, je dispose
+         d'un journal intime sauvegardé dans un document Microsoft
+         Word protégé par un mot de passe. Sous Windows 95/98/ME,
+         aucun problème lors de l'ouverture... si on connaît le mot
+         de passe. Malheureusement, sous Windows 2000, tout est
+         différent! Le document ne peut pas être ouvert et toute
+         tentative pour parvenir à modifier ce triste état de fait
+         s'est avérée vaine et voire même futile! Je nomme ce
+         problème le <a href="sw/office2kbugs.xhtml">Bogue Office
+         2000</a> version 4!
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

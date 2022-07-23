@@ -1,0 +1,210 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         Installation d'Ubuntu
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css"
+      href="../../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../../index.xhtml" class="parents">Le
+               royaume de Eric Buist</a> &gt;&gt; <a
+               href="../index.xhtml"
+               class="parents">Informatique</a> &gt;&gt;
+               Configuration informatique &gt;&gt; <a
+               href="index.xhtml" class="parents">Oméga</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../../sitemap.xhtml" class="sitemap">Plan
+               du site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="asm2.xhtml"
+               class="leftsibling">Assemblage: deuxième partie</a>
+            </td>
+            <td class="thispage">
+               Installation d'Ubuntu
+            </td>
+            <td class="rightsibling">
+            </td>
+         </tr>
+      </table>
+      <h1>
+         Installation d'Ubuntu
+      </h1>
+      <p>
+         J'ai décidé d'attendre la sortie d'Ubuntu 21.04, prévue
+         pour le 22 avril, plutôt qu'installer la version 20.10,
+         pour ensuite migrer vers 21.04. Cela me permit de tester
+         la machine un peu plus avant d'installer Linux dessus.
+         J'ai tenté d'installer Ubuntu 21.04 sur la machine le
+         samedi, 24 avril 2021.
+      </p>
+      <p>
+         Tout d'abord, j'ai téléchargé Ubuntu 21.04 et j'ai mis ça
+         sur une clé USB en utilisant Rufus. Ensuite, j'ai
+         <i>essayé</i> d'installer Linux sur mon Omega. Eh bien, ça
+         a été la galère, car encore une fois, la connexion USB
+         était super lente. Il y a décidément de quoi qui
+         fonctionne mal sous Linux avec le USB. L'amorçage était
+         relativement lent, ce qui commençait déjà mal.
+      </p>
+      <p>
+         Rendu dans Ubuntu Live, j'ai voulu créer des volumes
+         logiques sur le SSD NVMe. Cela permet de subdiviser une
+         partition en plusieurs unités logiques. Ubuntu permet de
+         créer, supprimer, redimensionner et déplacer les volumes
+         logiques à la volée, même s'ils sont en cours
+         d'utilisation. C'est plus flexible que les partitions,
+         mais c'est un peu plus complexe à gérer au moment de
+         l'installation. Voir par exemple <a
+         href="https://doc.ubuntu-fr.org/lvm">lvm (wiki Ubuntu)</a>
+         pour plus d'informations.
+      </p>
+      <p>
+         Pour créer mes volumes logiques, je devais créer un volume
+         physique à partir d'une partition, en utilisant
+         <tt>pvcreate</tt>. La chose faite, j'ai essayé avec
+         <tt>lvcreate</tt> de créer mon volume logique, mais la
+         documentation de la commande liste tellement d'options
+         obscures qu'on s'y perd complètement! J'ai fini par
+         redécouvrir qu'il fallait utiliser <tt>vgcreate</tt> pour
+         créer un groupe de volumes à partir du volume physique (on
+         peut ajouter plusieurs disques dans un tel groupe). La
+         commande de base <tt>lvcreate</tt> nécessite une taille,
+         un nom et le nom d'un groupe. Mais elle échouait, car
+         encore, encore et encore et encore, j'écrivais
+         <tt>vgcreate</tt> au lieu de <tt>lvcreate</tt>. L'erreur
+         corrigée, j'ai pu obtenir mes deux volumes logiques.
+      </p>
+      <p>
+         Ensuite, il fallait démarrer le programme d'installation,
+         ce qui consistait à double-cliquer sur l'icône sur le
+         bureau. Eh bien rien ne se passa. Il m'a fallu attendre
+         près d'une minute pour qu'enfin le programme démarre. Mais
+         chaque étape bloquait le programme pendant 30 secondes. On
+         m'a demandé de choisir la langue, puis la disposition du
+         clavier, ensuite de quoi je devais choisir le type
+         d'installation et si je voulais télécharger des mises à
+         jour et pilotes additionnels. Eh bien après cet écran,
+         tout se figea. Le programme d'installation resta bloqué
+         pendant plus de dix minutes, affichant <b>Preparing
+         ubuntu-drivers</b>. Après avoir attendu un bout, j'ai
+         compris que ça ne bougerait pas, fallait ENCORE chercher
+         sur Intenret. Comme seule hypothèse de travail, j'eus que
+         parfois, il fallait <b>désactiver</b> ACPI pour installer
+         Linux. Oui oui, en 2021. Bon, probablement que le post est
+         plus vieux que ça, mais quand même. Je commençais à
+         craindre qu'ENCORE, ma clé USB soit défectueuse (c'est
+         arrivé dans le passé avec une clé exécutant Clonezilla),
+         que le port USB avant sur la tour soit pourri ou, pire
+         encore, qu'Ubuntu 21.04 soit un flop et qu'il me faille
+         rétrograder à Ubuntu 20.10 ou 20.04.
+      </p>
+      <p>
+         J'ai fait plusieurs autres recherches. Apparemment
+         d'autres ont eu des problèmes avec un Ubuntu Live USB,
+         quand la persistence est activée. L'écriture sur la clé
+         USB est trop lente, ce qui paralyse tout. Il faudrait
+         alors revenir sous Windows et encore refaire la clé USB,
+         cette fois sans persistence? Avant de faire ça, je me suis
+         dit que peut-être si je recommençais l'installation, sans
+         activer les options impliquant les téléchargements.
+         Peut-être c'est le site de Canonical, surchargé, qui me
+         bloque? Installer sans télécharger de pilotes ou de mises
+         à jour va séparer le problème en deux. Est-ce qu'on peut
+         installer? Oui? Alors après ça, est-ce qu'on peut
+         télécharger les mises à jour? Non? Mais au moins on a une
+         idée d'où est le problème au moins. Alors je tentai
+         d'annuler l'installation, ce qui alla mal, car il fallait
+         encore cliquer, avec le pointeur trop petit, blanc sur
+         fond blanc. Eh bien le programme d'installation se figea.
+         Il avait annulé la procédure, mais il ne faisait plus
+         rien, plus un bouton fonctionnel. Alt-F4 alors? Ben non,
+         on me demande encore de choisir entre attendre ou forcer à
+         quitter. Décidément, les applications ont de plus en plus
+         de difficulté à répondre aux commandes de l'utilisateur,
+         forçant de plus en plus régulièrement le système
+         d'exploitation à intervenir et offrir de fermer le
+         programme de force. J'ai fini par forcer l'installeur à
+         quitter, puis tenté de le redémarrer. Bloqué, aucune
+         réaction. Toute tentative pour débloquer ça échoua alors
+         j'ai tout éteint ça avec le bouton de mise sous tension,
+         changé la clé USB d'un port USB 3 vers USB 2, puis tenté
+         de redémarrer.
+      </p>
+      <p>
+         Eh bien non, parce que là la machine ne détectait même
+         plus de périphérique dans le port USB!!! HEIN? J'ai essayé
+         de réinsérer la clé, rien. Ah mais POURQUOI? Ça fait des
+         mois que cette clé USB fonctionne! Pourquoi elle me lâche
+         là? J'ai tenté de rallumer la machine qui a ENFIN détecté
+         la clé, puis démarré Ubuntu dessus. C'était super super
+         lent, encore plus que la première fois!!!!! Mais j'ai fini
+         par pouvoir installer Ubuntu, au moins. Ne pas effectuer
+         de téléchargement sembla porter fruit.
+      </p>
+      <p>
+         Le programme d'installation n'a pas pu rien faire avec mes
+         volumes logiques. Au moins, indiquer au programme
+         d'isntallation de faire autre chose que tout effacer ou
+         mettre Linux à côté de Windows m'a permis d'associer
+         <tt>/</tt> à ma partition Ubuntu et <tt>/home</tt> à ma
+         partition Home. Puis j'ai dû choisir le périphérique où
+         installer le gestionnaire d'amorçage. Hésitant et
+         craintif, j'ai choisi <tt>/dev/nvme0n1p1</tt>, le
+         périphérique contenant le Windows Boot Manager. Mon autre
+         choix était <tt>/dev/nvme0n1</tt>, le périphérique racine
+         du SSD. Mon choix a été le bon. Le système a amorcé GRUB
+         qui permet de démarrer Windows OU Linux, j'ai testé.
+      </p>
+      <p>
+         Au moins, après ça, ça roulait correctement. Le reste de
+         la configuration se passa comme d'habitude.
+      </p>
+      <p>
+         Ce que je trouve incroyable, c'est que j'ai pu installer
+         Windows depuis une clé USB et ça a fonctionné #1, beaucoup
+         plus facileemnt que Linux. Et là, avec Ubuntu, ça niaise,
+         niaise et niaise. Normalement c'est l'inverse qui arrive.
+         C'est vraiment à croire que la prise en charge du USB est
+         brisée avec le noyau de Linux, du moins pour certaines
+         cartes mères Asus. On aurait dit que les disques durs
+         externes USB étaient toujours lents pour moi, et parfois,
+         la machine ne détecte pas un périphérique branché à moins
+         de redémarrer.
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

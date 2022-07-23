@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         Quand le Plug-and-Play décide de ne pas fonctionner...
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css"
+      href="../../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../../index.xhtml" class="parents">Le
+               royaume de Eric Buist</a> &gt;&gt; <a
+               href="../index.xhtml"
+               class="parents">Informatique</a> &gt;&gt; Problèmes
+               marquants &gt;&gt; <a href="../resolved.xhtml"
+               class="parents">Quelques bogues résolus</a> &gt;&gt;
+               <a href="index.xhtml" class="parents">Bogues
+               matériels résolus</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../../sitemap.xhtml" class="sitemap">Plan
+               du site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="pmbug.xhtml"
+               class="leftsibling">PrintMaster Gold a dit: «Je ne
+               fonctionnerai plus!»</a>
+            </td>
+            <td class="thispage">
+               Quand le Plug-and-Play décide de ne pas
+               fonctionner...
+            </td>
+            <td class="rightsibling">
+               <a href="kq6bug.xhtml" class="rightsibling">King's
+               Quest VI se battait avec une carte son!</a> &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         Quand le Plug-and-Play décide de ne pas fonctionner...
+      </h1>
+      <p>
+         Ma première connexion Internet s'est faite par modem 56k
+         et ce modem a son histoire. L'appareil, un U.S. Robotics
+         Sporster 56k Internal, m'en a fait voir de toutes les
+         couleurs. L'installation matérielle s'est bien passé,
+         Windows a même détecté le modem et le pilote a été
+         installé sans difficulté. À ce moment-là, comme je n'étais
+         abonné à aucun fournisseur, il me fallait tester le modem
+         d'une autre façon. Celle d'utiliser le modem pour signaler
+         notre propre numéro de téléphone semblait logique. La
+         procédure mènerait irrémédiablement à une erreur, car ce
+         serait occupé, mais on entendrait sûrement le bruit du
+         modem en train de signaler. Toutefois, surprise, il ne se
+         passait rien! Toute tentative de faire changer cela ne
+         mena absolument à aucun résultat.
+      </p>
+      <p>
+         On me conseilla plus tard de m'abonner à un fournisseur
+         avant de penser tester le modem, ce que je finis par
+         faire. Mais encore une fois, signaler était tout
+         simplement impossible. J'ai alors compris la raison pour
+         laquelle beaucoup de fournisseurs offrent un mois de
+         services gratuits... Toutefois, je n'avais pas l'intention
+         de laisser traîner le problème tout ce temps-là! En
+         réalité, ce n'est pas moi qui, seul, ai résolu cet étrange
+         bogue. C'est un de mes cousins qui m'a conseillé sur la
+         façon de le résoudre. Finalement, j'en suis venu à deux
+         solutions, dont une seule a été testée.
+      </p>
+      <p>
+         Le modem était Plug-and-Play, comme tous les modems
+         récents. Cela signifiait que le BIOS, qui doit aussi être
+         Plug-and-Play, assignait au modem un port COM et une IRQ
+         de façon automatique. Il a assigné le premier port et la
+         première IRQ disponible. Toutefois, un vieux périphérique,
+         ne me demandez pas lequel, ne déclarait pas au BIOS
+         Plug-and-Play qu'il se servait d'une IRQ et le BIOS a
+         justement donné cette ressource au pauvre modem qui ne
+         pouvait alors que se chamailler avec l'autre composante.
+         En tout cas, c'est l'hypothèse qui me semble la plus
+         plausible.
+      </p>
+      <p>
+         À mon grand soulagement, il y avait une sortie, celle de
+         jouer avec les jumpers du modem pour lui donner de force
+         un port et une IRQ. Cela désactiverait la fonction PnP qui
+         semblait la cause du problème. Après cette modification,
+         l'appareil signala le numéro du fournisseur Internet et
+         c'est avec une joie immense que j'ai pu voir s'afficher
+         une première page Web!
+      </p>
+      <p>
+         L'autre solution, qui n'a jamais été testée et qui ne le
+         sera jamais puisque le modem n'est plus en me possession
+         (L'ordinateur qui le contenait a été vendu et a fait place
+         au Pentium III.), consisterait à dire au BIOS de ne pas
+         utiliser l'IRQ en question pour le PnP. Cela revient à
+         définir cette IRQ comme Legacy ISA. Il m'aurait fallu
+         aller dans le Gestionnaire de Périphériques et trouver
+         quelle IRQ le modem essayait d'utiliser puis la mettre
+         Legacy ISA, ce qui aurait forcé le BIOS à en choisir une
+         autre. Avec un modem hardware comme j'avais là, cela
+         semble la seule variable en cause. Un Winmodem aurait bien
+         pu ne pas fonctionner malgré tout cela, comme l'a fait un
+         certain modem GVC appartenant à un ami... La morale de
+         toute l'histoire: ça n'a jamais bien fonctionné et cela ne
+         fonctionne pas bien! Avec les jumpers, c'était le trouble
+         d'ouvrir la machine et l'horreur pour les débutants.
+         Maintenant, c'est la machine qui décide et si elle ne veut
+         rien savoir d'une composante, il arrive qu'il n'y ait rien
+         à faire... sauf peut-être sortir le bâton de Base-ball! :)
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

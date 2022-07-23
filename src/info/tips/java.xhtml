@@ -1,0 +1,281 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         Faire tourner une applet Swing dans un navigateur
+      </title>
+      <title>
+         Test d'une applet Java
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css"
+      href="../../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../../index.xhtml" class="parents">Le
+               royaume de Eric Buist</a> &gt;&gt; <a
+               href="../index.xhtml"
+               class="parents">Informatique</a> &gt;&gt;
+               Quelques-unes de mes recherches personnelles
+               &gt;&gt; <a href="index.xhtml" class="parents">Trucs
+               et astuces</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../../sitemap.xhtml" class="sitemap">Plan
+               du site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="winmeopt.xhtml"
+               class="leftsibling">Optimisation des performances de
+               Windows Me</a>
+            </td>
+            <td class="thispage">
+               Faire tourner une applet Swing dans un navigateur
+            </td>
+            <td class="rightsibling">
+               <a href="mouchard.xhtml" class="rightsibling">À bas
+               l'espionnage!</a> &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         Faire tourner une applet Swing dans un navigateur
+      </h1>
+      <p>
+         Swing constitue une innovation apparue dans JDK1.1 en tant
+         qu'extension de ce dernier et en tant que partie
+         intégrante de Java 2 SDK 1.2 et 1.3. Grâce à Swing, il est
+         possible de créer des applets plus attrayantes avec des
+         boutons pourvus d'images, une interface utilisateur unique
+         quelle que soit la plate-forte, la possibilité de changer
+         l'apparence de tous les éléments de l'interface, le
+         support des technologies adaptées et d'autres choses
+         encore. Un jour peut-être, vous serez tenté de créer une
+         applet Swing au point de le faire et si vous parvenez à un
+         résultat potable, comme ce fut le cas pour moi, vous
+         voudrez certainement voir l'applet apparaître sur votre
+         site.
+      </p>
+      <p>
+         Vous ajouterez donc, comme d'habitude, le marqueur APPLET
+         avec son attribut code pour indiquer où se trouve la
+         classe héritière de la classe <tt>JApplet</tt>, celle qui
+         contient une méthode <tt>init</tt> qui doit être appelée
+         par le navigateur afin d'initialiser l'applet. Toutefois,
+         vous vous rendrez vite compte qu'en lieu et place de
+         l'applet, dans Internet Explorer, apparaîtra un rectangle
+         vide! Internet Explorer 4, 5 et même 5.5 ne supportent pas
+         Java 2! C'est un manque flagrant qui pèse lourd, mais il
+         faut vivre avec cela.
+      </p>
+      <p>
+         Première solution: installer Netscape Navigator, la
+         version 6 comporte JRE (Java Runtime Environment) et un
+         plug-in permettant d'utiliser Java sous Netscape.
+         Toutefois, Netscape prenant presqu'une minute pour
+         apparaître, je doute fort que bien des gens apprécieraient
+         la nécessité de l'utiliser!
+      </p>
+      <p>
+         Netscape semble automatiquement utiliser le plug-in JRE
+         plutôt qu'une machine virtuelle Java de son crû.
+         Toutefois, Internet Explorer utilise une machine virtuelle
+         Microsoft qui ne supporte que JDK 1.1, et non Java 2 SDK
+         1.2, encore moins 1.3. Il faut donc modifier l'appel de
+         l'applet pour qu'au lieu d'activer la machine virtuelle
+         Microsoft, elle utilise un plug-in externe pour
+         s'afficher. Heureusement, il existe un outil, un
+         convertisseur HTML, qui permet de modifier un marqueur
+         APPLET ordinaire pour en faire un marqueur appelant JRE.
+      </p>
+      <p>
+         Lorsque le navigateur rencontre un tel marqueur, si le
+         Java Plug-in n'est pas installé sur le système,
+         l'installation se fait sur-le-champ et l'applet est
+         exécutée. Internet Explorer pourra alors afficher l'applet
+         correctement.
+      </p>
+      <h2>
+         Exécuter des applets Java 2
+      </h2>
+      <p>
+         Pour l'utilisateur, une telle stratégie, comme je l'ai
+         expérimenté moi-même, peut mener à une baisse marquée,
+         voire insupportable, de vitesse. L'apparition de l'applet
+         a nécessité plus de temps et faire défiler la fenêtre du
+         navigateur provoquait un rafraîchissement de la fenêtre de
+         l'applet visuellement perceptible, très perceptible même!
+         Je ne connais pas de façon d'éviter cet ennuyeux problème,
+         sauf éviter de faire défiler l'écran, mais j'ai une
+         hypothèse sur le problème de vitesse. Si vous avez
+         installé JDK, il n'y a pas une mais deux versions de JRE
+         sur votre système, en tout cas lorsque le plug-in Java
+         sera installé. Il y en a une provenant de JDK, et que je
+         soupçonne pourvue de code pour le débogage et une autre
+         destinée à l'utilisateur moyen, qui s'exécute plus
+         rapidement, qui vient avec le plug-in. Il va donc falloir
+         s'assurer que la bonne version du JRE est utilisée, car on
+         n'a pas besoin d'Internet Explorer pour déboguer une
+         applet, autant utiliser <tt>appletviewer</tt> pour cela,
+         c'est plus rapide et ça fait mieux le travail.
+      </p>
+      <p>
+         On effectue cette modification à travers le Panneau de
+         Configuration, icône Java Plug-in. Le démarrage de ce
+         programme prendra un temps fou, en tout cas cela a été le
+         cas sur ma machine. Il a même planté une bonne fois, me
+         forçant au redémarrage complet! Bon, on supposera ici que
+         cela fonctionne et voici la boîte de dialogue qui
+         apparaîtra.
+      </p>
+      <p>
+         <img src="javapl.png"
+         alt="Configuration de Java Plug-in, Propriétés de base" />
+      </p>
+      <p>
+         Comme j'ai installé la version internationale du Plug-in,
+         je dispose maintenant d'une interface en français puisque
+         ma version de Windows est française. Dans cette boîte, on
+         doit Activer Java Plug-in et il peut être utile d'Afficher
+         la console Java pour le débogage. Toutefois,
+         malheureusement, l'option que nous cherchions ne se trouve
+         pas dans cette fenêtre. Il va donc falloir passer aux
+         Propriétés avancées pour la trouver.
+      </p>
+      <p>
+         <img src="javapladv.png"
+         alt="Propriétés avancées de Java Plug-in" />
+      </p>
+      <p>
+         Dans cette boîte, on peut choisir le bon JRE à utiliser et
+         Activer le compilateur Juste à temps. Après avoir cliqué
+         sur Appliquer pour valider les changements, vous pouvez
+         fermer cette boîte de dialogue.
+      </p>
+      <h2>
+         Créez une page Web contenant une applet Java 2
+      </h2>
+      <p>
+         Tout d'abord, créez la page comme si de rien n'était, avec
+         un marqueur APPLET et tout ce qu'il lui faut. Voici un
+         exemple de base d'une page appelant une applet.
+      </p>
+      <h1>
+         Test d'une applet Java
+      </h1>
+      <p>
+         <applet code="TestApplet.class" width="400" height="200">
+         </applet>
+      </p>
+      <p>
+         Si vous avez installé JDK, ce qui est plus que probable si
+         vous développez des applets Java, vous pouvez utiliser
+         <tt>appletviewer</tt> afin de tester le fichier. Comme il
+         m'a fallu le découvrir à force de nombreuses
+         expérimentations infructueuses, contrairement à
+         <tt>java</tt>, <tt>appletviewer</tt> ne prend pas le nom
+         de la classe contenant une méthode statique <tt>main</tt>
+         mais plutôt le nom d'un fichier <tt>.html</tt>, une page
+         Web donc, qui contient un marqueur APPLET! C'est alors
+         seulement que <tt>appletviewer</tt> va réagir et utiliser
+         Java 2 pour afficher l'applet.
+      </p>
+      <p>
+         Pour continuer plus loin, il est nécessaire que l'applet
+         fonctionne bien sous <tt>appletviewer</tt>. Si ce n'est
+         pas le cas, il est certain qu'elle ne fonctionnera pas
+         dans le navigateur! Lorsque l'applet fonctionne, il faut
+         utiliser le HTML Converter, qu'il faudra télécharger sur
+         le site de <a href="http://java.sun.com">Sun</a> afin de
+         pouvoir effectuer la conversion de façon rapide et
+         commode.
+      </p>
+      <p>
+         Le programme se trouve dans un fichier ZIP qu'il faudra
+         décompresser avec WinZip dans un répertoire de votre
+         choix. Ensuite, vous pourrez exécuter ce dernier qui est
+         une application Java. Puisque vous avez développé
+         l'applet, qu'elle fonctionne et tout, JDK se trouve sur
+         votre machine et vous avez fini par ajouter à
+         l'instruction PATH le chemin vers le répertoire contenant
+         <tt>javac</tt>, <tt>java</tt> et <tt>appletviewer</tt>. Si
+         ce n'est pas le cas, faites-le, cela va vous sauver du
+         temps. La technique est décrite sur la page traitant de <a
+         href="../deviftbacc/java.xhtml">l'installation de JDK</a>.
+      </p>
+      <p>
+         Dans le répertoire <tt>htmlconv1_3\converter\classes</tt>
+         se trouve l'application recherchée. Supposons que ce
+         répertoire se trouve dans <tt>c:\</tt>. La séquence de
+         commandes suivante devrait activer le programme.
+      </p>
+<pre>
+cd \htmlconv1_3\converter\classes
+java HTMLConverter
+</pre>
+      <p>
+         <img src="htmlconv.png" alt="Écran de HTML Converter" />
+      </p>
+      <p>
+         Après un temps bien long à mon goût, quelque chose devrait
+         apparaître. Vous pouvez alors configurer les options,
+         comme l'endroit où se trouvent les fichiers à convertir et
+         le modèle utilisé. Mon choix se porte sur Extended qui
+         prend en charge un plus grand nombre de navigateurs et de
+         plate-formes, mais vous pouvez en choisir un autre, selon
+         vos besoins. Lorsque tout est en place, cliquez sur
+         Convert... et c'est parti! Les nouveaux fichiers HTML
+         seront apparemment identiques aux anciens, sauf pour les
+         endroits où on trouvent des marqueurs APPLET.
+      </p>
+      <p>
+         Lorsqu'un utilisateur ouvrira cette page modifiée depuis
+         Internet Explorer ou Netscape Navigator, le navigateur
+         mettra en marche son Plug-in, après l'avoir téléchargé et
+         installé au besoin, et pourra afficher, avec un peu de
+         chance, l'applet.
+      </p>
+      <p>
+         Malheureusement, je trouve la vitesse plus que déplorable.
+         Si des progrès en matière de vitesse ne sont pas
+         effectués, j'estime que Java est appelé à disparaître. Des
+         machines plus performantes, avec un processeur pourvu d'un
+         jeu d'instructions permettant d'interpréter directement le
+         bytecode Java ainsi que du jeu Intel habituel, semblent
+         une solution logique et intéressante à ce problème. En
+         attendant, il faudra regarder les applets se charger
+         lentement et désespérer en se demandant pourquoi on
+         utilise Java lors des cours de programmation!
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

@@ -1,0 +1,158 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.1//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>18.3 Pourquoi créer des CD Audio sous Linux?</TITLE>
+<META NAME="description" CONTENT="18.3 Pourquoi créer des CD Audio sous Linux?">
+<META NAME="keywords" CONTENT="cdwriting">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cdwriting.css">
+
+<LINK REL="next" HREF="node88.html">
+<LINK REL="previous" HREF="node86.html">
+<LINK REL="up" HREF="node84.html">
+<LINK REL="next" HREF="node88.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2380"
+  HREF="node88.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2374"
+  HREF="node84.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2368"
+  HREF="node86.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2376"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2378"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html2381"
+  HREF="node88.html">18.4 Cas particulier des</A>
+<B> monter:</B> <A NAME="tex2html2375"
+  HREF="node84.html">18. La création de</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2369"
+  HREF="node86.html">18.2 La méthode du</A>
+ &nbsp; <B>  <A NAME="tex2html2377"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2379"
+  HREF="node106.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION07530000000000000000">
+<SPAN CLASS="arabic">18</SPAN>.<SPAN CLASS="arabic">3</SPAN> Pourquoi créer des CD Audio sous Linux?</A>
+</H1>
+
+<P>
+Après avoir lu la section précédente, beaucoup se diront qu'Easy CD
+Creator ou Nero Burning ROM, sous Windows, effectuent le travail de
+création de CD Audio beaucoup plus efficacement et mettront la
+solution Linux de côté. Quels sont les avantages d'utiliser Linux s'il
+exige beaucoup plus de temps pour la construction de disques? Ces
+avantages sont toujours les mêmes: aucun logiciel propriétaire à
+acheter, modularité et flexibilité. CDRDAO constitue un système
+complet d'écriture des informations CD-Text, ce qu'écrit seulement
+partiellement Easy CD Creator.
+
+<P>
+L'usage de logiciels libres évite des coûts d'achat et de mise à
+jour de vos logiciels de gravure. Par exemple, si vous avez obtenu
+Easy CD Creator&nbsp;4 avec votre graveur, vous ne pourrez l'utiliser sous
+Windows&nbsp;XP à moins d'acheter la version&nbsp;5. En plus des coûts de
+passage à XP s'ajoute une autre centaine de dollars! Conserver
+Windows&nbsp;98/Me sur une autre partition simplement pour pouvoir graver
+avec la vieille version du logiciel ne constitue pas une très bonne
+solution en raison des agaçants redémarrages systèmes impliqués et de
+la gestion de deux systèmes plutôt qu'un. Chaque système est
+indépendant et doit avoir ses paramètres et ses logiciels installés et
+mis à jour.
+
+<P>
+Sous Linux, vous disposez de divers logiciels indépendants et
+tous capables d'effectuer une tâche donnée. Comme nous le verrons plus
+loin, l'efficacité réside en grande partie dans l'art de bien combiner
+les outils pour former une solution à notre problème, soit celui de
+graver des CD Audio. Mieux encore: si un élément de la solution n'est
+pas suffisamment performant ou flexible, il est possible de le
+remplacer par un autre et seuls la communication avec le reste du
+système sera affectée. Les éléments peuvent provenir de diverses
+sources, peuvent consister en autant de logiciels libres que de
+composantes commerciales, du moment qu'ils peuvent être utilisés en
+ligne de commandes.
+
+<P>
+CDRDAO permet, avec les graveurs qui le peuvent, l'inscription de
+la totalité des informations CD-Text<A NAME="4095"></A>. Certains
+logiciels de gravure
+escamotent le caractère multilingue de ces informations et les
+différents champs CD-Text. Easy CD Creator&nbsp;5, par exemple, ne vous
+laisse modifier que les noms des chansons et inscrit les informations
+dans une seule et unique langue. CDRDAO vous permet de préparer vos
+disques pour le futur, pour un parc de lecteurs équipés de la
+technologie CD-Text et capables d'afficher sur un panneau LCD des
+informations autres que le numéro et la durée des pistes. Ces lecteurs
+existent déjà et ne demandent qu'à se répandre!
+
+<P>
+Finalement, il ne faut pas oublier le logiciel k3b<A NAME="4096"></A> qui
+permet d'effectuer la combinaison
+nécessaire des différents outils. Il fonctionne presque comme Nero ou
+Easy CD Creator, mais il accepte des fichiers audio sous différents
+formats, incluant MP3 et Ogg Vorbis. Il peut éditer l'information
+CD-Text et utilise CDRDAO ou CDRecord pour la gravure.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2380"
+  HREF="node88.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2374"
+  HREF="node84.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2368"
+  HREF="node86.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2376"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2378"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html2381"
+  HREF="node88.html">18.4 Cas particulier des</A>
+<B> monter:</B> <A NAME="tex2html2375"
+  HREF="node84.html">18. La création de</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2369"
+  HREF="node86.html">18.2 La méthode du</A>
+ &nbsp; <B>  <A NAME="tex2html2377"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2379"
+  HREF="node106.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Eric Buist
+2005-11-13
+</ADDRESS>
+</BODY>
+</HTML>

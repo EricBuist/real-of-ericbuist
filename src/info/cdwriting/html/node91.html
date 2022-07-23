@@ -1,0 +1,220 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.1//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>19.1 Préparation et formatage de la structure de données</TITLE>
+<META NAME="description" CONTENT="19.1 Préparation et formatage de la structure de données">
+<META NAME="keywords" CONTENT="cdwriting">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cdwriting.css">
+
+<LINK REL="next" HREF="node92.html">
+<LINK REL="previous" HREF="node90.html">
+<LINK REL="up" HREF="node90.html">
+<LINK REL="next" HREF="node92.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2438"
+  HREF="node92.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2432"
+  HREF="node90.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2426"
+  HREF="node90.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2434"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2436"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html2439"
+  HREF="node92.html">19.2 Configuration du logiciel</A>
+<B> monter:</B> <A NAME="tex2html2433"
+  HREF="node90.html">19. Création d'un disque</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2427"
+  HREF="node90.html">19. Création d'un disque</A>
+ &nbsp; <B>  <A NAME="tex2html2435"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2437"
+  HREF="node106.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Sous-sections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html2440"
+  HREF="node91.html#SECTION07611000000000000000"><SPAN CLASS="arabic">19</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">1</SPAN> Acquisition</A>
+<LI><A NAME="tex2html2441"
+  HREF="node91.html#SECTION07612000000000000000"><SPAN CLASS="arabic">19</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">2</SPAN> Transcodage</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION07610000000000000000">
+<SPAN CLASS="arabic">19</SPAN>.<SPAN CLASS="arabic">1</SPAN> Préparation et formatage de la structure de données</A>
+</H1>
+
+<P>
+Comme sous Windows, pour créer des disques vidéo, il vous faudra des
+fichiers MPEG avec les paramètres adéquats. Il est encore plus
+important de veiller à ce que les paramètres soient corrects, car les
+logiciels de gravure Linux vérifient moins bien la validité des
+fichiers MPEG avant de les graver! Pour obtenir ces fichiers,
+l'acquisition, le transcodage et le ripping sont utilisables.
+
+<P>
+
+<H2><A NAME="SECTION07611000000000000000">
+<SPAN CLASS="arabic">19</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">1</SPAN> Acquisition</A>
+</H2>
+
+<P>
+L'utilisation d'une carte d'acquisition vidéo se trouve sensiblement
+compliquée par le système Linux. Ces cartes nécessitent des pilotes
+spéciaux qui ne sont disponibles que sous Windows. Puisque les
+compagnies ne développent souvent pas ces pilotes pour Linux, des
+développeurs indépendants doivent se charger du travail. Ces
+développeurs, qui manquent de temps en général, ont parfois accès aux
+spécifications techniques du
+matériel, parfois pas. Lorsque la partie graphique de la carte
+fonctionne, les développeurs et la plupart des utilisateurs sont
+satisfaits et n'accordent que peu d'importance aux fonctions étendues
+telles que les entrées/sorties TV. Les cartes ATI sont un exemple de
+système d'acquisition vidéo mal supporté sous Linux. Le projet
+GATOS<A NAME="4256"></A> [<A HREF="node105.html#url:gatos">URL34</A>] travaille depuis de
+nombreuses années sur des pilotes qui ne demeurent que des versions
+expérimentales à peine capables de permettre de regarder la télévision
+sous
+Linux. L'évolution des puces graphiques, qui nécessite souvent la
+récriture totale des pilotes en raison du manque de compatibilité
+ascendante au niveau du matériel, pourrait expliquer la difficulté
+rencontrée par le projet GATOS et sans doute d'autres projets
+semblables pour d'autres cartes graphiques. Au moment où ces lignes
+sont écrites, seules les puces à base BTTV fonctionnent bien sous Linux
+grâce au système Video4Linux [<A HREF="node105.html#url:v4l">URL115</A>].
+Les cartes BTTV sont souvent plus
+coûteuses que les cartes ATI ou ne supportent que la résolution VCD et
+se présentent sous forme de cartes PCI
+ne faisant que l'acquisition vidéo.
+Les cartes d'acquisition USB sont à oublier, car si les cartes AGP ou
+PCI posent problème, les périphériques USB ne peuvent qu'être pire!
+
+<P>
+AVView, obtenu sur le site du projet GATOS, permet la capture
+vidéo avec une carte ATI. Pour les cartes de capture supportées par
+Video4Linux<A NAME="4259"></A>, des logiciels tels que
+XawTV<A NAME="4260"></A> [<A HREF="node105.html#url:xawtv">URL75</A>]
+permettent d'effectuer
+la capture. Le logiciel
+MythTV<A NAME="4262"></A> [<A HREF="node105.html#url:mythtv">URL51</A>]
+peut en
+plus servir d'enregistreur personnel numérique.
+
+<P>
+Le support des numériseurs est heureusement plus complet. Avec un
+peu de chance et de planification, vous obtiendrez assez facilement un
+appareil pris en charge par SANE<A NAME="4264"></A> [<A HREF="node105.html#url:sane">URL113</A>].
+Contrairement aux pilotes TWAIN Windows, les pilotes SANE ne
+fournissent aucune interface graphique. Il est donc possible
+d'utiliser SANE depuis la ligne de commande ou d'utiliser une
+interface graphique unifiée telle que XSane [<A HREF="node105.html#url:xsane">URL78</A>] pour
+effectuer la numérisation. 
+
+<P>
+La solution idéale semble la capture DV. Le noyau 2.6 comporte un
+support FireWire suffisamment mature pour permettre le transfert DV et
+les logiciels existent pour l'effectuer.
+Pour le cas du DV, le logiciel
+Kino<A NAME="4267"></A> [<A HREF="node105.html#url:kino">URL41</A>]
+permet d'effectuer le transfert et une édition vidéo de
+base.
+
+<P>
+
+<H2><A NAME="SECTION07612000000000000000">
+<SPAN CLASS="arabic">19</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">2</SPAN> Transcodage</A>
+</H2>
+
+<P>
+Pour convertir d'un format vidéo vers MPEG, plusieurs logiciels
+doivent être combinés. Certains permettent de traiter le  DivX,
+d'autres l'AVI, d'autres encore le QuickTime ou le MPEG. Chacun de ces
+logiciels comporte une interface en ligne de commande différente avec
+un nombre astronomique d'options parfois peu documentés. Le logiciel
+MEncoder<A NAME="4270"></A> [<A HREF="node105.html#url:mplayer">URL49</A>]
+permet de transcoder dans
+la plupart des formats vidéo possibles. Pour la lecture, il utilise
+toute la puissance de MPlayer, ce qui lui permet de transcoder depuis
+un très vaste éventail de formats. Une alternative à MEncoder
+constitue
+Transcode<A NAME="4272"></A> [<A HREF="node105.html#url:transcode">URL67</A>].
+Ce logiciel consiste en un front-end capable d'appeler plusieurs
+autres logiciels auxiliaires dont
+FFMPEG<A NAME="4274"></A> [<A HREF="node105.html#url:ffmpeg">URL33</A>],
+MJPEG Tools<A NAME="4276"></A> [<A HREF="node105.html#url:mjpegtools">URL50</A>],
+...
+L'usage de ces logiciels est malheureusement complexe et il arrive
+souvent qu'il est impossible de savoir avec certitude si les options
+données fonctionneront et produiront le résultat souhaité.
+[<A HREF="node105.html#url:divxvcd">URL83</A>] expose
+une procédure pour convertir des vidéos en format DivX.
+Aucun des deux logiciels Transcode ou MEncoder ne semble permettre
+d'effectuer toutes les conversions possibles. Certains guides
+utilisent l'un, d'autres utilisent l'autre, certains utilisent même
+les deux.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2438"
+  HREF="node92.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2432"
+  HREF="node90.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2426"
+  HREF="node90.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2434"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2436"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html2439"
+  HREF="node92.html">19.2 Configuration du logiciel</A>
+<B> monter:</B> <A NAME="tex2html2433"
+  HREF="node90.html">19. Création d'un disque</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2427"
+  HREF="node90.html">19. Création d'un disque</A>
+ &nbsp; <B>  <A NAME="tex2html2435"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2437"
+  HREF="node106.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Eric Buist
+2005-11-13
+</ADDRESS>
+</BODY>
+</HTML>

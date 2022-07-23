@@ -1,0 +1,268 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.1//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>14.2 Votre graveur fonctionne-t-il sous Linux?</TITLE>
+<META NAME="description" CONTENT="14.2 Votre graveur fonctionne-t-il sous Linux?">
+<META NAME="keywords" CONTENT="cdwriting">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cdwriting.css">
+
+<LINK REL="next" HREF="node69.html">
+<LINK REL="previous" HREF="node67.html">
+<LINK REL="up" HREF="node66.html">
+<LINK REL="next" HREF="node69.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2058"
+  HREF="node69.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2052"
+  HREF="node66.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2046"
+  HREF="node67.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2054"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2056"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html2059"
+  HREF="node69.html">14.3 Configuration du PC</A>
+<B> monter:</B> <A NAME="tex2html2053"
+  HREF="node66.html">14. Introduction</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2047"
+  HREF="node67.html">14.1 Le kit de</A>
+ &nbsp; <B>  <A NAME="tex2html2055"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2057"
+  HREF="node106.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION07120000000000000000">
+<SPAN CLASS="arabic">14</SPAN>.<SPAN CLASS="arabic">2</SPAN> Votre graveur fonctionne-t-il sous Linux?</A>
+</H1>
+
+<P>
+La réponse n'est pas aussi certaine que sous Windows. Bien que de nos
+jours, tous les graveurs adhèrent à la norme MMC, il est toujours
+possible qu'un certain modèle bogue sous Linux. Dans le cas des grands
+logiciels de gravure, si un graveur cause ce genre de difficultés et
+qu'il est suffisamment répandu, la compagnie peut produire une mise à
+jour de son logiciel pour adresser la subtilité. Avec CDRecord, ceci
+est moins probable quoique possible.
+Les sites Web de
+CDRecord et de CDRDAO fournissent la liste des graveurs supportés par
+ces logiciels, en fait les graveurs qui ont été conclus fonctionnels
+lors de tests par les développeurs ou les utilisateurs. Si vous
+envisagez acheter un graveur et l'utiliser pour
+graver sous Linux, consultez ces listes afin de choisir un appareil
+supporté par CDRecord et CDRDAO. Votre expérience de gravure n'en sera
+que plus enrichissante! Les graveurs supportés par Linux le seront
+également par Windows sauf de très très rares exceptions.
+
+<P>
+Si votre graveur n'est pas listé parmi les graveurs supportés, il
+est possible qu'il fonctionne malgré tout. Les graveurs IDE modernes
+adhèrent à la norme MMC qui est supportée par les deux
+logiciels
+nécessaires pour former le kit complet. Il vaut donc la peine de
+tester si votre graveur est bel et bien détecté sous Linux.
+Pour ce faire, devenez l'utilisateur root et tapez la commande
+<TT>cdrecord -scanbus</TT>. La sortie devrait ressembler à ce qui
+suit.
+
+<P>
+
+<DIV CLASS="alltt" ALIGN="LEFT">
+<TT>
+ 
+<BR>
+Cdrecord 1.11a32 (i586-mandrake-linux-gnu)
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;Copyright (C) 1995-2002 Jörg Schilling
+<BR>
+Linux sg driver version: 3.1.24
+<BR>
+Using libscg version 'schily-0.6'
+<BR>
+scsibus0:
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0,0,0 &nbsp;&nbsp;&nbsp;&nbsp;0) *
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0,1,0 &nbsp;&nbsp;&nbsp;&nbsp;1) *
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0,2,0 &nbsp;&nbsp;&nbsp;&nbsp;2) 'SONY &nbsp;&nbsp;&nbsp;' 'CD-RW CRX0811 &nbsp;&nbsp;' 'MYS2'
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Removable CD-ROM
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0,3,0 &nbsp;&nbsp;&nbsp;&nbsp;3) *
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0,4,0 &nbsp;&nbsp;&nbsp;&nbsp;4) *
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0,5,0 &nbsp;&nbsp;&nbsp;&nbsp;5) *
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0,6,0 &nbsp;&nbsp;&nbsp;&nbsp;6) *
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0,7,0 &nbsp;&nbsp;&nbsp;&nbsp;7) *
+<BR></TT>
+</DIV>
+
+<P>
+Nous apercevons clairement le graveur Sony CRX0811 qui fonctionne bel
+et bien sous Linux, mais qui n'est pas listé sur le site Web de
+CDRDAO. Il est important de noter l'identificateur de son
+périphérique, dans cet exemple <TT>0,2,0</TT>. Sur la liste donnée par
+CDRecord devraient figurer tous les graveurs SCSI et tous les graveurs
+ou lecteurs
+IDE pris en charge par la couche IDE-SCSI du noyau. Souvenez-vous
+toutefois que l'apparition de votre graveur dans cette liste de
+périphériques détectés ne garantit en rien son fonctionnement
+adéquat. Un graveur non supporté pourrait même fonctionner tout en
+produisant des disques illisibles ou certaines fonctions, telles que la
+simulation d'écriture, pourraient soulever des problèmes. Seuls des
+tests permettront de savoir si le graveur fonctionne bel et bien. En
+cas de problème, tentez de mettre CDRecord et CDRDAO à jour. Essayez
+aussi, si les problèmes persistent, de mettre votre noyau Linux à
+jour; cela va redonner un peu de jeunesse à IDE-SCSI (ou le fera
+disparaître complètement) et aux modules
+rattachés.
+
+<P>
+<TABLE BORDER="1">
+<TR><TD VALIGN="top">
+<DIV STYLE="text-align:center; color:red"> Information
+</DIV><P>
+Que signifient donc les trois chiffres dans les périphériques SCSI? Le
+premier indique le numéro du bus SCSI, ce bus pouvant être virtuel
+dans bien des cas. Un bus SCSI représente la couche IDE-SCSI ou une
+carte SCSI et il peut accueillir jusqu'à 7 périphériques. Chaque
+périphérique se voit accordé un ID, le second paramètre. Quant au
+troisième, il constitue l'unité logique qui sera toujours 0 dans le
+cas d'un graveur puisque ce dernier n'en a qu'une.</TD></TR></TABLE> 
+<P>
+Si votre graveur ne figure pas sur la liste donnée par CDRecord
+avec l'option <TT>-scanbus</TT>,
+consultez&nbsp;[<A HREF="node105.html#url:tru2000">URL96</A>] pour obtenir plus d'informations à propos de
+la configuration du noyau Linux pour le support du
+graveur. Essentiellement, vous devrez vous assurer que les modules du
+noyau sont bien présents, peut-être reconstruire le noyau, puis
+paramétrer son démarrage afin qu'IDE-SCSI soit associé au graveur.
+Ce Howto
+contient aussi les bases de la gravure sous Linux dont ce document
+s'inspire tout en allant plus loin bien entendu. Une mise à jour vers
+une distribution courante et moderne (par exemple Fedora Core ou
+Mandrake) devrait vous assurer un support de la gravure avec un
+minimum de tracas.
+
+<P>
+Avec le noyau 2.6, les choses se passeront un peu
+différemment. La commande <TT>uname -r</TT> permet de connaître la
+version du noyau utilisée.
+La commande <TT>cdrecord -scanbus</TT> pourrait par
+exemple afficher le contenu suivant.
+
+<P>
+
+<DIV CLASS="alltt" ALIGN="LEFT">
+<TT>
+ <SMALL CLASS="SMALL">
+<BR>
+scsidev: 'ATA:1,0,0'
+<BR>
+devname: 'ATA'
+<BR>
+scsibus: 1 target: 0 lun: 0
+<BR>
+Warning: Using badly designed ATAPI via /dev/hd* interface.
+<BR>
+Linux sg driver version: 3.5.27
+<BR>
+cdrecord: Warning: using inofficial libscg transport code version
+<BR>&nbsp;&nbsp;&nbsp;(warly-scsi-linux-sg.c-1.80-mdk '@(#)scsi-linux-sg.c &nbsp;1.80 04/03/08
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;Copyright 1997 J. Schilling').
+<BR>
+Cdrecord-Clone 2.01a27-dvd (i686-pc-linux-gnu) &nbsp;
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;Copyright (C) 1995-2004 Jörg Schilling
+<BR>
+Note: This version is an unofficial (modified) version with
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DVD support
+<BR>
+Note: and therefore may have bugs that are not present
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;in the original.
+<BR>
+Note: Please send bug reports or support requests to
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;warly@mandrakesoft.com&gt;.
+<BR>
+Note: The author of cdrecord should not be bothered
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with problems in this version.
+<BR>
+Using libscg version 'schily-0.8'.
+<BR>
+scsibus1:
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1,0,0 &nbsp;&nbsp;100) 'PIONEER ' 'DVD-RW &nbsp;DVR-107D' '1.09'
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Removable CD-ROM
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1,1,0 &nbsp;&nbsp;101) *
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1,2,0 &nbsp;&nbsp;102) *
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1,3,0 &nbsp;&nbsp;103) *
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1,4,0 &nbsp;&nbsp;104) *
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1,5,0 &nbsp;&nbsp;105) *
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1,6,0 &nbsp;&nbsp;106) *
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1,7,0 &nbsp;&nbsp;107) *
+<BR></SMALL></TT>
+</DIV>
+
+<P>
+Contrairement au noyau 2.4, le noyau 2.6 n'a plus besoin de la couche
+IDE-SCSI pour la gravure de CD ou de DVD. Ce qui va bien entendu
+simplifier la configuration du système!
+Malheureusement, un problème de sécurité est apparu avec le noyau
+2.6.8 et empêche toute gravure par l'utilisateur.  Voir
+annexe&nbsp;<A HREF="node97.html#chap:ker268prob">B</A> pour plus d'informations ainsi que des
+parades pour ce bogue des plus agaçants.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2058"
+  HREF="node69.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2052"
+  HREF="node66.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2046"
+  HREF="node67.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2054"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2056"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html2059"
+  HREF="node69.html">14.3 Configuration du PC</A>
+<B> monter:</B> <A NAME="tex2html2053"
+  HREF="node66.html">14. Introduction</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2047"
+  HREF="node67.html">14.1 Le kit de</A>
+ &nbsp; <B>  <A NAME="tex2html2055"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2057"
+  HREF="node106.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Eric Buist
+2005-11-13
+</ADDRESS>
+</BODY>
+</HTML>

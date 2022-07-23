@@ -1,0 +1,914 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         Agrandissement de fichiers PDF
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css" href="../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../index.xhtml" class="parents">Le royaume
+               de Eric Buist</a> &gt;&gt; <a href="index.xhtml"
+               class="parents">Informatique</a> &gt;&gt;
+               Quelques-unes de mes recherches personnelles
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../sitemap.xhtml" class="sitemap">Plan du
+               site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="dm.xhtml" class="leftsibling">Mon
+               hypothèse actuelle sur le fonctionnement d'un
+               gestionnaire de disques</a>
+            </td>
+            <td class="thispage">
+               Agrandissement de fichiers PDF
+            </td>
+            <td class="rightsibling">
+               <a href="sata.xhtml" class="rightsibling">Problèmes
+               avec Serial ATA</a> &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         Agrandissement de fichiers PDF
+      </h1>
+      <p>
+         En automne 2002, j'ai pris le cours Processus Cognitifs 1
+         (PSY1065), donné par Nathalie Gosselin, à l'Université de
+         Montréal. J'ai choisi ce cours dans le cadre d'un cours à
+         option complémentaire à mon baccalauréat en informatique.
+         Le cours s'annonçait bien, moins pire que je ne le
+         craignais. D'abord, il n'y aurait aucun travail pratique,
+         encore moins de travail en équipe de quatre ou cinq
+         nécessitant des rencontres en soirée ou la fin de semaine
+         pour accomoder des étudiants qui travaillent. En plus, des
+         notes disponibles en format PDF m'éviteraient de passer le
+         cours à transcrire à toute vitesse ce que la prof dirait
+         pour me retrouver au final avec un cahier rempli de
+         gribouillis assez difficiles à lire pour ralentir l'étude.
+         Ce que je ne savais pas, c'était que ces notes
+         constitueraient l'objet d'une expérience personnelle
+         informatique plutôt gourmande en ressources systèmes... et
+         en temps. En effet, le texte de ces fichiers étaient écrit
+         trop petit si bien que je dus me construire un outil pour
+         l'agrandir. La tâche a été rendue difficile par le fait
+         que les fichiers PDF ne peuvent pas être modifiés
+         facilement.
+      </p>
+      <ul>
+         <li>
+            <a href="#get">L'acquisition des PDF</a>
+         </li>
+         <li>
+            <a href="#classic">Méthode classique</a>
+         </li>
+         <li>
+            <a href="#digital">Application numérique</a> 
+            <ul>
+               <li>
+                  <a href="#photocop">La photocopie agrandie</a>
+               </li>
+               <li>
+                  <a href="#cut">Découpage des sous-pages</a>
+               </li>
+               <li>
+                  <a href="#mergepg">Remise en page</a>
+               </li>
+            </ul>
+         </li>
+         <li>
+            <a href="#calc">Problèmes de correspondance
+            numérique</a>
+         </li>
+         <li>
+            <a href="#mem">Manque de mémoire</a>
+         </li>
+         <li>
+            <a href="#printing">L'impression</a>
+         </li>
+         <li>
+            <a href="#final">Le produit fini</a>
+         </li>
+      </ul>
+      <h1>
+         <a name="get" id="get">L'acquisition des PDF</a>
+      </h1>
+      <p>
+         Dimanche, le 15 septembre 2002, je parvins à obtenir les
+         notes de cours via le système <a
+         href="http://www.coursenligne.umontreal.ca/">WebCT</a>
+         après avoir changé mon code initial (que je ne connaissais
+         pas et qui semblait ardu à obtenir pour moi) en utilisant
+         le profil informatique de la <a
+         href="http://www.dgtic.umontreal.ca">DGTIC</a>. Au cours
+         suivant cette petite victoire, le professeur affichait les
+         noms des usagers avec les mots de passe initiaux; ma
+         crainte que ces informations ne soient disponibles que sur
+         un babillard, au pavillon Marie-Victorin, s'était avérée
+         injustifiée. Heureusement, je n'ai pas perdu trop de temps
+         à me forcer un accès. Les PDF se présentaient comme des
+         produits de Adobe Distiller 3, inclus avec Adobe Acrobat
+         3. Puisque la présentation en classe tournait sous
+         Microsoft PowerPoint, il était logique de penser que ces
+         PDF avaient été produits à partir des diapositives
+         PowerPoint.
+      </p>
+      <p>
+         Lorsque je remarquai les six diapositives par page, je
+         regardai s'il n'y avait pas une autre version, et il n'en
+         était rien. Une version à six diapositives par page est
+         préférée par plusieurs étudiants en raison de l'économie
+         de papier réalisée. Toutefois, dans mon cas, la petite
+         taille des caractères me génait. Afin de pouvoir étudier
+         dans des conditions optimales, sans devoir payer de maux
+         de tête de bons résultats pour ce cours, un agrandissement
+         s'avérait une bonne chose.
+      </p>
+      <p>
+         Malheureusement, contrairement aux formats éditables tels
+         que le PowerPoint ou, mieux encore, le <a
+         href="http://www.openoffice.org">OpenOffice.org</a>
+         Impress ou le <a
+         href="http://latex-beamer.sourceforge.net/">LaTeX
+         Beamer</a>, le PDF est difficile à modifier. Il est
+         comparable à un document sur papier que l'on ne peut
+         éditer ou reformater. Or il s'adonne que pour résoudre un
+         problème d'adaptation comme un agrandissement, le
+         reformatage est le meilleur moyen. Il me semblait
+         compliqué d'obtenir les fichiers PowerPoint originaux, car
+         il doit y avoir des droits d'auteur sur certains éléments
+         de contenu. J'aurais peut-être dû m'essayer, mais je ne
+         pouvais pas manquer cette occasion de m'amuser un peu avec
+         les outils de Linux. J'ai donc développé ma propre
+         solution que je présente sur cette page. Le procédé
+         s'inspire de ce que j'aurais fait si je n'avais disposé
+         d'aucune version électronique des documents pour en
+         obtenir des agrandissements.
+      </p>
+      <h1>
+         <a name="classic" id="classic">Méthode classique</a>
+      </h1>
+      <p>
+         Si nous rencontrons un document papier avec des caractères
+         trop petits, la seule solution consiste à le récrire au
+         traitement de texte ou à le photocopier sur du papier plus
+         grand. La méthode de récriture donnera certes d'excellents
+         résultats, mais elle prendra beaucoup de temps. Des
+         problèmes surgiront lors de l'importation des images qui
+         devront, idéalement, être reconstruites de façon
+         vectorielle ou au pire numériséee. La reconstruction est
+         ardue, mais elle donnera une image qui pourra subir des
+         agrandissements arbitraires. La numérisation exige un
+         scanner et j'en possédais un, mais il faudrait aussi
+         beaucoup de temps. Il était envisageable d'utiliser
+         PowerPoint pour la lourde tâche, mais cela pourrait aussi
+         se faire avec Word ou même LaTeX.
+      </p>
+      <p>
+         La photocopie, quant à elle, serait moins laborieuse, mais
+         les résultats laisseraient à désirer. Un grossissement de
+         1.5x exigerait l'usage de papier de taille 32.385cm par
+         41.91cm, ce qui est non-standard. Il n'existe probablement
+         pas un tel type de papier, encore moins un appareil qui
+         pourra le traiter! Ce calcul a été obtenu en multipliant
+         8.5x11 pouces par <i>2.54cm/pouce</i> puis par le facteur
+         choisi, soit <i>1.5</i>. Même si la photocopie était
+         possible, la manipulation de ces gigantesques feuilles de
+         papier, qui n'entreraient dans aucun cartable, serait très
+         agaçante. Une solution alternative serait de diviser
+         chaque page et d'agrandir chaque portion séparément, sur
+         une feuille distincte; la page originale deviendrait
+         plusieurs pages photocopiées. Avec cette méthode, la
+         photocopie devrait se faire en multiples passes et un
+         travail de calibrage important serait requis pour des
+         résultats peu appréciables: du texte en oblique,
+         l'apparition d'une partie de la page suivante ou
+         précédente, des portions noires et d'autres artéfacts
+         devront être prévus et tolérés.
+      </p>
+      <p>
+         La technique idéale consisterait à réaliser la photocopie
+         agrandie sur une feuille de papier plus grande puis à
+         utiliser une tranche pour découper les différentes
+         diapositives. Ensuite, il faudrait réassembler les
+         diapositives deux par deux sur des feuilles 8.5x11! Toutes
+         ces solutions me semblaient longues à mettre en oeuvre et
+         surtout très frustrantes. Ce cours ne valait pas la peine
+         que j'y consacre autant de temps. Mais tout ce travail de
+         moine bricoleur peut s'effectuer beaucoup plus facilement
+         dans l'univers numérique et il établit la base du système
+         informatique qui a résolu mon problème.
+      </p>
+      <h1>
+         <a name="digital" id="digital">Application numérique</a>
+      </h1>
+      <p>
+         Il paraissait pour moi envisageable d'appliquer les
+         différentes transformations évoquées dans la section
+         précédente au fichier PDF et non à une version papier.
+         Toutefois, un tel traitement pouvait vite devenir
+         extrêmement fastidieux, frustrant et propice aux erreurs
+         de manipulation. Il fallait donc utiliser des outils afin
+         de l'automatiser et aucun logiciel ne permet de résoudre
+         un problème aussi particulier. La solution résidait dans
+         la combinaison de différents programmes qui seraient
+         orchestrés par un script Perl, qui est un langage de
+         programmation.
+      </p>
+      <h2>
+         <a name="photocop" id="photocop">La photocopie
+         agrandie</a>
+      </h2>
+      <p>
+         Cette étape est à la fois délicate et décisive, car elle
+         déterminera la qualité et la lisibilité du produit fini.
+         Si nous prenons une photographie numérisée et que nous lui
+         appliquons un facteur d'agrandissement 1.5, le minimum
+         pour rendre les diapositives utilisables efficacement pour
+         moi, il s'ensuivra de l'aliasage, un fâcheux effet
+         d'escalier. Sur du texte, ce sera un cauchemar pour la
+         lecture ultérieure. Sans précautions, le fichier PDF
+         agrandi sera encore plus difficile à lire que l'original!
+      </p>
+      <p>
+         La solution consiste à tirer parti des propriétés
+         vectorielles du format PDF, et son cousin le PostScript.
+         Le fichier PDF n'indique pas l'emplacement individuel de
+         chacun des pixels mais plutôt comment afficher le document
+         à l'aide de primitives (lignes, courbes, texte, etc.) de
+         haut niveau. J'utilisai ici la commande <tt>pdf2ps</tt> de
+         la version Linux de AFPL <a
+         href="http://www.ghostscript.com">GhostScript</a> afin
+         d'obtenir le PostScript. PostScript est un langage de
+         programmation destiné à contrôler des imprimantes du même
+         type; la conversion ne viole pas les propriétés
+         vectorielles du PDF. Le texte inscrit est toujours initié
+         par des commandes et non un ensemble de pixels comme ce
+         sera vite le cas après l'agrandissement.
+      </p>
+      <p>
+         GhostScript fournit un interpréteur PostScript logiciel à
+         travers la commande <tt>gs</tt>. Malheureusement, la
+         syntaxe de <tt>gs</tt> n'est pas simple et elle ne permet
+         pas de spécifier une taille arbitraire pour un PostScript.
+         Il fallut donc trouver une autre solution et <a
+         href="http://www.imagemagick.org">ImageMagick</a> me
+         sembla approprié. Cet ensemble comprend des outils en
+         ligne de commande pour réaliser des manipulations et
+         appliquer des effets spéciaux de tous types sur différents
+         formats d'images. Contrairement à des logiciels
+         professionnels tels que Adobe PhotoShop, ImageMagick peut
+         être facilement appelé depuis un script Perl.
+      </p>
+      <p>
+         Je décidai de convertir mes fichiers PDF agrandis vers le
+         format Portable Network Graphics (PNG), car ce format
+         permet une bonne compression sans perte de données.
+         J'aurais aussi pu utiliser le Graphic Interchange Format
+         (GIF) qui comporte la même qualité. Il est essentiel que
+         les manipulations n'infligent pas de pertes de données en
+         raison de décompressions et de recompressions successives.
+         Le JPEG, qui est un format avec pertes, est donc ici à
+         proscrire.
+      </p>
+      <h2>
+         <a name="cut" id="cut">Découpage des sous-pages</a>
+      </h2>
+      <p>
+         Après quelques recherches, je constatai avec soulagement
+         que la commande <tt>convert</tt> de ImageMagick permet,
+         grâce à son option <tt>-crop</tt>, de réaliser le
+         découpage. Sans cette commande, il aurait fallu effectuer
+         le travail manuellement avec un outil tel que <a
+         href="http://www.gimp.org">The Gimp</a>. La commande
+         <tt>identify</tt>, de son côté, permet d'obtenir les
+         dimensions de l'image. Un calcul numérique simple devait
+         alors être utilisé pour déterminer des coordonnées de
+         découpage, à savoir la position sur la page où débuter la
+         coupure et la taille de la zone qui serait ainsi isolée,
+         tout cela spécifié en pixels. L'étape précédente produit
+         un fichier PNG par page tandis que cette nouvelle étape en
+         produit six par pages, un par diapositive en fait.
+      </p>
+      <h2>
+         <a name="mergepg" id="mergepg">Remise en page</a>
+      </h2>
+      <p>
+         Il me fallut un peu de temps pour découvrir une façon de
+         réunir deux par deux les différents fichiers PNG obtenus à
+         l'étape précédente. Finalement, je me rendis compte que
+         l'option <tt>-append</tt> de la commande <tt>convert</tt>
+         de ImageMagick permet d'empiler un ensemble d'images à la
+         verticale, exactement ce qu'il fallait!
+      </p>
+      <p>
+         Nous avons alors deux fois moins de fichiers PNG
+         puisqu'ils sont regroupés en paires, que nous appellerons
+         ici pages finales. Toutefois, l'impression de tout cela
+         devient astreignante, car chaque page exige des
+         manipulations. Il fallait ainsi regrouper les fichiers, et
+         <tt>convert</tt> semblait apte à réaliser la tâche.
+      </p>
+      <h1>
+         <a name="calc" id="calc">Problèmes de correspondance
+         numérique</a>
+      </h1>
+      <p>
+         Les grandes lignes de la technique mises au point,
+         quelques détails demeuraient: que vont être les quantités
+         numériques à utiliser? Quel est le facteur de
+         grossissement maximal que l'on pourra tolérer? Le logiciel
+         Adobe Acrobat Reader, après ouverture du PDF original,
+         indiquait une largeur de papier de <i>8.26x11.69</i>
+         pouces. Malheureusement, les pouces ne parlent pas à
+         ImageMagick; la taille en pixels est requise. Par chance,
+         il existe une règle simple:
+         <i>taillepouces*res=taillepixel</i>, où <i>res</i> est la
+         résolution en pixels par pouce de l'image. Mais nous ne
+         connaissons pas la résolution...
+      </p>
+      <p>
+         L'application de <tt>pdf2ps</tt> produit un PostScript qui
+         peut alors être traité par la commande <tt>identify</tt>
+         de ImageMagick. Pour le premier cours de PSY1065, la
+         commande donnait
+      </p>
+<pre>
+cours1.ps[0] PS 560x806 PseudoClass 256c 8-bit 3085kb 0.1u 0:01
+cours1.ps[1] PS 560x806 PseudoClass 256c 8-bit 3085kb 0.1u 0:01
+cours1.ps[2] PS 560x806 PseudoClass 256c 8-bit 3085kb 0.1u 0:01
+cours1.ps[3] PS 560x806 PseudoClass 256c 8-bit 3085kb 0.1u 0:01
+cours1.ps[4] PS 560x806 PseudoClass 256c 8-bit 3085kb 0.1u 0:01
+cours1.ps[5] PS 560x806 PseudoClass 256c 8-bit 3085kb 0.0u 0:01
+cours1.ps[6] PS 560x806 PseudoClass 256c 8-bit 3085kb 0.0u 0:01
+</pre>
+      <p>
+         Ainsi, la taille en pixels s'élevait à 560 par 806. Nous
+         pouvons alors calculer la résolution en dpi (dots per
+         inch).
+      </p>
+      <center>
+         <table>
+            <tr>
+               <td align="right">
+                  560px/8.5po
+               </td>
+               <td>
+                  =
+               </td>
+               <td>
+                  65.88dpi
+               </td>
+            </tr>
+            <tr>
+               <td align="right">
+                  806px/11po
+               </td>
+               <td>
+                  =
+               </td>
+               <td>
+                  73.27dpi
+               </td>
+            </tr>
+         </table>
+      </center>
+      <p>
+         Cela ne cadre pas du tout puisqu'en général, la résolution
+         est la même sur les deux axes. Il fallait donc tenter de
+         se passer de cette information inconnue. Les PDF de
+         PowerPoint comportent trois rangées de deux diapositives.
+         Nous pouvons alors calculer que la taille d'une sous-page,
+         en pouces, se chiffre à <i>8.5/2x11/3=4.25x3.67</i>. Si
+         nous doublons la taille des pages, nous obtenons des
+         diapositives de taille <i>8.5x7.34</i> pouces, ce qui est
+         trop grand pour en placer deux par page, à la verticale.
+         La taille maximale verticale est de <i>5.5</i> pouces,
+         donc <i>5.5/3.67=1.49</i> est le facteur maximal de
+         grossissement que nous arrondirons à 1.5 pour plus de
+         simplicité.
+      </p>
+      <p>
+         Mercredi, 16 octobre 2002, je tentai ma première
+         conversion avec ImageMagick. La commande <tt>convert -size
+         840x1209 page.ps page.png</tt> fut mise en oeuvre pour
+         chaque page. Malheureusement, la conversion ne tenait pas
+         compte des propriétés vectorielles du PDF et nous
+         obtenions une image aliasée, difficile à lire. <tt>gs</tt>
+         est la seule et unique solution non commerciale et
+         scriptable possible pour agrandir le PostScript, mais la
+         résolution demandée par <tt>gs</tt> était manquante. Je me
+         rendis heureusement compte d'une erreur de précision quant
+         à la taille du papier et refis le calcul précédent avec
+         les données d'Acrobat Reader plutôt que celle de
+         <tt>identify</tt>.
+      </p>
+      <center>
+         <table>
+            <tr>
+               <td align="right">
+                  560px/8.26po
+               </td>
+               <td>
+                  =
+               </td>
+               <td>
+                  67.8dpi
+               </td>
+            </tr>
+            <tr>
+               <td align="right">
+                  806px/11.69po
+               </td>
+               <td>
+                  =
+               </td>
+               <td>
+                  68.9dpi
+               </td>
+            </tr>
+         </table>
+      </center>
+      <p>
+         Les valeurs sont nettement plus rapprochées et nous
+         pouvons arrondir à 68 dpi. En multipliant la résolution
+         par 1.5, nous obtiendrons 1.5 fois plus de pixels que la
+         normale, ce qui est l'objectif. Ainsi, la résolution devra
+         être gonflée à 102 dpi. Après consultation de la
+         documentation de GhostScript et un peu de cogitation,
+         j'obtins une commande semblable à une formule magique mais
+         capable d'effectuer l'étape de grossissement.
+      </p>
+<pre>
+gs -dNOPAUSE -dBATCH -sDEVICE=png16 -r102x102 -sOutputFile=out%02d.ps in.ps
+</pre>
+      <p>
+         Cette ligne indique à GhostScript de traiter tout le
+         fichier passé en paramètre et puis s'arrêter. Il faut
+         indiquer le format de la sortie ainsi que la résolution
+         choisie. Le nom du fichier de sortie contient une variable
+         qui sera remplacée par les numéros de pages. Nous
+         obtiendrons des fichiers <tt>out01.png</tt>,
+         <tt>out02.png</tt>, ... <tt>identify</tt> indique une
+         taille de 843x1193 pour les PNG produits. Le facteur de
+         grossissement est ainsi respecté.
+      </p>
+      <p>
+         Pour le découpage, <tt>convert</tt> fit le boulot sous
+         l'effet de l'incantation
+      </p>
+<pre>
+convert -crop w2xh3+x+y in.png in-sb.png
+</pre>
+      <p>
+         <tt>w2</tt> signifie la moitié de la largeur de l'image
+         PNG d'une sous-page (normalement 843 pixels) tandis que
+         <tt>h3</tt> représente le tiers de la hauteur d'une
+         sous-page. <tt>x</tt> prendra les valeurs <tt>0</tt> et
+         <tt>w2</tt> tandis que <tt>y</tt> prendra les valeurs
+         <tt>0</tt>, <tt>h3</tt> et <tt>2*h3</tt>. Nous avons bien
+         six sous-pages avec cette arithmétique.
+      </p>
+      <p>
+         Les pages initiales sont bien divisés en sous-pages qui
+         sont lisibles, pas crénelées, mais le centre d'intérêt, à
+         savoir la diapositive, n'était pas toujours localisé au
+         même endroit selon les coordonnés <tt>(x,y)</tt> de début
+         de la fenêtre de découpage. Il n'existe aucune façon
+         mathématique et certaine d'obtenir les coordonnés des six
+         cadres des diapositives, en supposant que leur position
+         est uniforme d'une page à l'autre.
+      </p>
+      <p>
+         Heureusement, ImageMagick comporte la commande
+         <tt>mogrify</tt> qui fournit une option <tt>-trim</tt> du
+         plus grand intérêt: elle permet d'isoler la partie
+         intéressante de l'image en retranchant les contours de
+         couleur uniforme. La formule magique:
+      </p>
+<pre>
+mogrify -trim in-sb.png
+</pre>
+      <p>
+         Le jumelage deux à deux se fait grâce à
+      </p>
+<pre>
+convert -append in-sb1.png in-sb2.png out-pg.png
+</pre>
+      <p>
+         Puis toutes les pages finales sont jointes par
+      </p>
+<pre>
+convert out-pg1.png out-pg2.png ... out-pgN.png out.ps
+</pre>
+      <p>
+         Le fichier PostScript final était volumineux et difficile
+         à imprimer. Ceci s'explique par le fait que PostScript est
+         un langage de programmation et qu'une commande doit être
+         utilisée pour coder chaque ligne, voire chaque pixel, des
+         images. Il vaut mieux produire un PDF qui compactera de
+         nouveau les informations bitmaps. Cela peut se faire avec
+         la commande
+      </p>
+<pre>
+ps2pdf out.ps out.pdf
+</pre>
+      <p>
+         Mercredi, le 16 octobre 2002, au fur et à mesure que je
+         testais, j'implantai dans le langage Perl le script
+         <tt>reformat.pl</tt> qui servirait de chef d'orchestre des
+         opérations. En effet, plusieurs commandes étaient requises
+         pour accomplir la tâche et les saisir une à une devenait
+         vite long.
+      </p>
+      <p>
+         Pour le cours 1, l'exécution se passa sans aucun problème,
+         la vitesse était correcte et le PDF produit faisait dans
+         les 100k. Comme il fallait s'en attendre, la taille a
+         augmenté par rapport au PDF original, car nous avons perdu
+         les propriétés vectorielles lors de l'agrandissement.
+         Malheureusement, la qualité du PDF final laissait à
+         désirer. L'impression d'une page donna un résultat
+         illisible. La résolution devait ainsi être augmentée afin
+         de compenser davantage la perte des propriétés
+         vectorielles. J'essayai alors 360 dpi, mais une autre
+         classe de problèmes survint: l'épuisement de la mémoire!
+      </p>
+      <h1>
+         <a name="mem" id="mem">Manque de mémoire</a>
+      </h1>
+      <p>
+         Avec l'accroissement de la résolution, l'exécution du
+         script de reformatage ralentit de façon considérable et la
+         quantité de mémoire utilisée était si grande qu'il finit
+         par en manquer et le script s'arrêta brutalement, laissant
+         en place ses fichiers temporaires. L'impression de l'un
+         d'eux donna d'excellents résultats; plus d'aliasage
+         intolérable sur le texte. Le manque de mémoire semblait se
+         produire lors de la construction du PostScript final. Mais
+         sans ce PostScript, il était nécessaire d'utiliser The
+         Gimp pour imprimer un à un chacun des PNG représentant les
+         pages finales.
+      </p>
+      <p>
+         Je découvris alors qu'il éait possible de joindre les
+         étapes de découpage et d'isolement de la zone intéressante
+         dans un même appel à <tt>convert</tt>. Ma première
+         tentative dans ce sens s'était soldée par un échec, car
+         j'avais utilisé le mauvais ordre dans les arguments. Il
+         faut utiliser les options <tt>-crop</tt> et <tt>-trim</tt>
+         dans cet ordre et non <tt>-trim</tt> puis <tt>-crop</tt>.
+         Le second cas fait le trim sur tout le document puis isole
+         la sous-page. Toutefois, l'arithmétique utilisée pour
+         isoler les sous-pages devient erronée si les dimensions
+         changent de cette façon imprévisible. L'usage d'un seul
+         <tt>convert</tt> permet d'éviter que <tt>mogrify</tt> ne
+         mobilise de la mémoire en rechargeant l'image et, à défaut
+         de corriger le bogue mémoire au PostScript final, cette
+         combinaison augmenta la performance du script. Je
+         découvris également qu'il était possible de passer le PDF
+         directement à <tt>gs</tt>, ce qui élimina <tt>pdf2ps</tt>
+         du processus.
+      </p>
+      <p>
+         La commande <tt>convert</tt> permet heureusement de
+         limiter la quantité de mémoire utilisable comme cache. Par
+         exemple, l'option <tt>-cache 50</tt> permet de limiter la
+         cache à 50Mo, ce qui me permit d'obtenir un PDF de 500k
+         pour le premier cours qui comportait six pages initiales,
+         donc 18 pages finales. Toutefois, au cours de l'opération,
+         la machine manqua de mémoire et transféra beaucoup de
+         données sur le disque dur. L'ordinateur fut alors lent à
+         répondre pendant les premières secondes suivant la
+         conversion. Idéalement, il aurait fallu augmenter la
+         mémoire à 512Mo (j'en possédais 256Mo au moment du projet)
+         pour accroître l'efficacité du processus.
+      </p>
+      <p>
+         Le document de onze pages initiales du cours 2 me posa un
+         nouveau problème: la dernière page ne contenait pas six
+         diapositives si bien qu'ImageMagick produisait un message
+         d'erreur lors de la tentative de découpage de la portion
+         intéressante. Malheureusement, l'appel des commandes de
+         ImageMagick ne permettait pas d'isoler la cause de
+         l'erreur depuis le script et les bogues de mémoire
+         sévissaient toujours. Solution: utiliser une solution plus
+         <i>perlish</i>.
+      </p>
+      <p>
+         J'avais omis d'utiliser l'extension Perl <a
+         href="http://www.imagemagick.org/www/perl.html">Image::Magick</a>
+         parce que la documentation n'était pas disponible sur mon
+         système et je n'avais pas trop envie de la rechercher. Je
+         la trouvai sur le site Web de ImageMagick et je pus
+         utiliser PerlMagic (extension Image::Magick) plutôt que
+         des appels de commandes. Cela réduisit encore davantage
+         les rechargements, mais la mémoire manquait toujours au
+         PostScript final.
+      </p>
+      <p>
+         Après un essai, je constatai que <a
+         href="http://www.gnu.org/software/a2ps/">a2ps</a>
+         permettait d'effectuer la fusion plus efficacement
+         qu'ImageMagick, avec la commande
+      </p>
+<pre>
+a2ps --columns=1 -R -o final.ps pagef1.png pagef2.png ... pagefN.png
+</pre>
+      <p>
+         D'après les informations en sortie, cette commande utilise
+         toutefois ImageMagick, alors il semblait possible de
+         réduire la quantité de logiciels à utiliser pour la
+         solution. Hypothèse: une chaîne de <tt>convert</tt>.
+      </p>
+<pre>
+convert page1.png final.ps
+convert final.ps page2.png final.ps
+....
+convert final.ps pageN.png out.ps
+</pre>
+      <p>
+         Malheureusement, à chaque équivalent PerlMagick de
+         <tt>convert</tt>, toutes les pages du PostScript étaient
+         chargées en mémoire, peu importe si je réduisais le cache.
+         Ainsi, il manquait toujours de mémoire. Seul <tt>a2ps</tt>
+         semblait apte à réaliser la fusion des images, alors
+         autant l'utiliser.
+      </p>
+      <p>
+         Pour le second cours, j'obtins un PDF de 1.2Mo! Ce 16
+         octobre 2002 fut un long après-midi de codage après quoi
+         la solution fut relativement au point.
+      </p>
+      <h1>
+         <a name="printing" id="printing">L'impression</a>
+      </h1>
+      <p>
+         La première véritable tentative d'impression eut lieu
+         jeudi, le 17 octobre 2002. Sans cartouche d'encre noire,
+         l'opération fut impossible, si bien que je dus pour
+         imprimer sous Linux interfacer SAMBA avec CUPS afin
+         d'accéder à l'imprimante de l'ordinateur familial.
+         L'impression fut longue en raison du mode graphique imposé
+         par la forme bitmap du PDF. Le cadre autour des
+         diapositives donna beaucoup de travail à l'imprimante.
+         L'impression recto-verso causa elle aussi problème, car
+         l'imprimante sauta des feuilles de temps en temps!
+      </p>
+      <p>
+         Il était aussi ardu de contrôler l'imprimante distante
+         depuis Linux; il fallait me brancher sur la machine
+         Windows XP pour annuler une tâche d'impression ayant
+         dégénéré. Jeudi, le 17 octobre 2002, après beaucoup de
+         problèmes et beaucoup de feuilles à recommencer, je
+         parvins à imprimer les deux premiers cours de Processus
+         Cognitifs 1!
+      </p>
+      <p>
+         Vendredi matin, le 18 octobre 2002, j'étudiai pour le
+         cours et constatai que le texte était bien lisible.
+         Étonnamment, les graphiques n'avaient pas subi de grandes
+         altérations. Seules quelques images étaient devenues
+         aliasées. L'après-midi même, encouragé par ces résultats
+         enfin concluants, j'entamai l'impression d'autres cours.
+         Lors de l'impression du cours 3, l'imprimante Epson sauta
+         une feuille au début des versos, ce qui me força à tout
+         reprendre depuis le début. Il était difficile de retrouver
+         la page exacte qui avait raté dans le PDF, car la
+         navigation dans le document bitmap s'avérait lente sous
+         Linux. Je passai proche perdre espoir et abandonner.
+      </p>
+      <p>
+         Au lieu de faire ainsi, je modifiai le script et lui
+         incorporai la génération de numéros de pages. Ce vendredi,
+         je finis par me résoudre à fournir une par une chaque
+         feuille à l'imprimante. Décidément, l'impression
+         recto-verso est une affaire complexe!
+      </p>
+      <p>
+         Pourquoi donc m'acharner à imprimer ainsi? Pour des
+         raisons d'économie d'espace. Avec une moyenne de trente
+         pages par cours, recto seulement, j'obtiendrais pour les
+         douze cours de la session un cartable contenant environ
+         360 pages! Un cartable un pouce risquait de ne pas suffire
+         et je n'aimais pas trimbaler de gros cartables deux
+         pouces. C'était donc un pur caprice personnel, rien de
+         plus. Les numéros de pages ajoutés étaient trop petits,
+         mais je décidai de m'en contenter. Je parvins ce jour-là à
+         obtenir les PDF agrandis pour les cours 3 et 4.
+      </p>
+      <p>
+         Samedi, le 19 octobre 2002, je calculai avec la commande
+         <tt>time</tt> que la conversion du PDF pour le cours 6
+         prenait 4min! Je parvins cet après-midi-là, sans trop
+         d'incidents, à mettre sur papier les versions agrandies
+         des cours 5 et 6! Les cours précédant l'examen intra
+         étaient désormais traités. Je décidai d'attendre une
+         nouvelle cartouche noire pour traiter les autres.
+      </p>
+      <p>
+         Samedi, le 26 octobre 2002, l'impression des cours 7 et 8
+         se passa sans incidents. J'appliquai aussi une variante
+         sans agrandissement de la procédure développée pour
+         traiter un PDF récalcitrant construit par le professeur de
+         Technologie de l'Internet (IFT3220) avec le logiciel
+         PDFWriter. L'impression s'avéra aussi rapide que
+         l'impression d'un PDF normal, ce qui me fit croire que
+         c'était la bordure noire des diapositives qui ralentissait
+         le travail.
+      </p>
+      <h1>
+         <a name="final" id="final">Le produit fini</a>
+      </h1>
+      <p>
+         <a href="reformat.zip">reformat.pl</a>
+      </p>
+      <p>
+         Le script prend deux paramètres sur la ligne de commande,
+         soient le PDF à traiter et le nom du fichier PDF produit.
+         Le traitement nécessite ImageMagick, son extension
+         PerlMagick, GhostScript et a2ps. Adobe Reader ou tout
+         autre lecteur PDF est utile pour visualiser le PDF final
+         et l'imprimer.
+      </p>
+      <table border="1">
+         <tr>
+            <th>
+               Avantages
+            </th>
+            <th>
+               Inconvénients
+            </th>
+         </tr>
+         <tr>
+            <td>
+               <ul>
+                  <li>
+                     PDF agrandi et plus facilement lisible
+                  </li>
+                  <li>
+                     Traitement correct de tous les graphismes
+                     vectoriels, entre autres les graphiques Excel
+                     intégrés
+                  </li>
+                  <li>
+                     Opération automatisée, aucun calcul manuel à
+                     effectuer
+                  </li>
+                  <li>
+                     Un seul fichier PDF en sortie, pas un grand
+                     nombre de fichiers PNG à imprimer
+                     individuellement
+                  </li>
+               </ul>
+            </td>
+            <td>
+               <ul>
+                  <li>
+                     PDF de grande taille, mais puisqu'ils ne
+                     seront pas distribués sur Internet, ce n'est
+                     pas très grave.
+                  </li>
+                  <li>
+                     Aliasage sur tous les graphiques bitmaps
+                  </li>
+                  <li>
+                     Traitement long et gourmand en mémoire
+                  </li>
+                  <li>
+                     Peu de marge autour des diapositives
+                  </li>
+                  <li>
+                     L'impression de graphiques pourrait consommer
+                     plus d'encre que celle de texte, mais je n'ai
+                     aucun moyen de le vérifier.
+                  </li>
+               </ul>
+            </td>
+         </tr>
+         <caption>
+            Avantages et inconvénients de la solution
+         </caption>
+      </table>
+      <center>
+         <table border="1">
+            <tr>
+               <td>
+                  Agrandissement
+               </td>
+               <td>
+                  <ul>
+                     <li>
+                        1 appel à <tt>gs</tt>
+                     </li>
+                  </ul>
+               </td>
+            </tr>
+            <tr>
+               <td>
+                  Découpage
+               </td>
+               <td>
+                  Pour chaque page initiale en format PNG, 
+                  <ul>
+                     <li>
+                        6 appels à <tt>convert -crop w2xh3+x+y
+                        -trim</tt>
+                     </li>
+                  </ul>
+               </td>
+            </tr>
+            <tr>
+               <td>
+                  Fusion deux à deux
+               </td>
+               <td>
+                  Pour chaque groupe de deux sous-pages 
+                  <ul>
+                     <li>
+                        1 appel à <tt>convert -append</tt>
+                     </li>
+                  </ul>
+               </td>
+            </tr>
+            <tr>
+               <td>
+                  PostScript final
+               </td>
+               <td>
+                  <ul>
+                     <li>
+                        1 appel à <tt>a2ps</tt>
+                     </li>
+                  </ul>
+               </td>
+            </tr>
+            <tr>
+               <td>
+                  PDF final
+               </td>
+               <td>
+                  <ul>
+                     <li>
+                        1 appel à <tt>ps2pdf</tt>
+                     </li>
+                  </ul>
+               </td>
+            </tr>
+            <caption>
+               Commandes utilisées lors du processus de traitement
+               du PDF
+            </caption>
+         </table>
+      </center>
+      <table>
+         <tr>
+            <td>
+               <img src="pdfen.png" />
+            </td>
+         </tr>
+         <caption>
+            Vue schématique du processus de conversion
+         </caption>
+      </table>
+      <p>
+         Cette procédure est plutôt complexe et repartir des
+         fichiers PowerPoint demeure la meilleure solution à ce
+         problème. Toutefois, la procédure m'aura permis de
+         résoudre le bogue et cette expérimentation restera gravé
+         dans mes souvenirs pour bien longtemps.
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

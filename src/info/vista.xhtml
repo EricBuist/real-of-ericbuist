@@ -1,0 +1,570 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <meta name="generator" content="Bluefish 1.0.7" />
+      <title>
+         Installation de Windows Vista
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css" href="../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../index.xhtml" class="parents">Le royaume
+               de Eric Buist</a> &gt;&gt; <a href="index.xhtml"
+               class="parents">Informatique</a> &gt;&gt;
+               Configuration informatique
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../sitemap.xhtml" class="sitemap">Plan du
+               site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="ubuntu7.xhtml"
+               class="leftsibling">Passage à Ubuntu 7.04</a>
+            </td>
+            <td class="thispage">
+               Installation de Windows Vista
+            </td>
+            <td class="rightsibling">
+               <a href="updhd.xhtml"
+               class="rightsibling">Amélioration de la performance
+               de mon portable</a> &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         Installation de Windows Vista
+      </h1>
+      <p>
+         Voici le récit d'un acte pas très brillant que j'ai commis
+         dans un élan de désespoir causé par des plantages et des
+         ralentissements marqués d'Ubuntu, ma distribution de Linux
+         préférée depuis 2007. L'installation de Windows Vista a
+         été une véritable perte de temps et une source de
+         désespoir encore plus grand que mes problèmes avec Linux.
+         J'espérais qu'avec les améliorations au niveau du cache,
+         le système serait plus performant que Windows XP. Je
+         m'attendais également à ce que les améliorations au niveau
+         de la sécurité rendent Windows Vista moins vulnérable aux
+         virus et aux logiciels espions que Windows XP. Cette
+         expérience montre plutôt qu'il vaut mieux ne jamais
+         installer ce système sur un PC existant et, dans le cas
+         d'un nouveau PC, le remplacer par Windows XP ou, mieux
+         encore, par une distribution de Linux, n'importe laquelle
+         pourvu que ce soit Linux!
+      </p>
+      <ul class="pagemenu">
+         <li>
+            <a href="#choix_de_v">Choix de version</a>
+         </li>
+         <li>
+            <a href="#installati">Installation sans problème</a>
+         </li>
+         <li>
+            <a href="#le_revers_">Le revers de la médaille</a>
+         </li>
+         <li>
+            <a href="#quelques_p">Quelques problèmes de
+            compatibilité résolus</a>
+         </li>
+         <li>
+            <a href="#windows_up">Windows Update qui cesse de
+            fonctionner</a>
+         </li>
+         <li>
+            <a href="#conclusion">Conclusion</a>
+         </li>
+      </ul>
+      <h1>
+         <a name="choix_de_v" id="choix_de_v">Choix de version</a>
+      </h1>
+      <p>
+         Il existe plusieurs versions différentes de Windows Vista
+         dont la version familiale de base, familiale prémium,
+         professionnelle, affaires et intégrale. J'ai opté pour la
+         version intégrale afin de disposer de toutes les
+         fonctionnalités possibles. Chacune de ces versions est
+         disponible en anglais ou en français, et peut être achetée
+         sous forme OEM ou boîte. La version boîte, qui coûte deux
+         fois le prix de la OEM (environ 500$ pour l'intégrale!) a
+         l'avantage de contenir, sur un même DVD, le système pour
+         architectures 32 bits et 64 bits. Dans le cas d'une
+         version OEM, qui peut normalement être achetée seulement
+         avec un nouveau PC, il faut choisir l'architecture au
+         moment de l'achat. Par contre, la version OEM coûtait
+         beaucoup moins cher, environ 200$ au lieu de 500$.
+      </p>
+      <p>
+         En pratique, il est possible d'obtenir la version OEM de
+         Windows sans acheter un nouveau PC, par exemple sur <a
+         href="http://www.ncix.com">NCIX</a> ou chez <a
+         href="http://www.microbytes.com">Microbytes</a>. Par
+         contre, en cas de problèmes techniques, l'utilisateur ne
+         peut pas se tourner vers Microsoft pour une solution.
+         C'est le vendeur de la version OEM qu'il faut contacter
+         pour du support technique. J'ai choisi cette option, car
+         je ne voulais pas payer trop cher pour le système. J'ai
+         opté pour l'architecture 64 bits puisque mon processeur
+         peut la prendre en charge et qu'en théorie, toute
+         application 32 bits peut s'exécuter sur un système 64
+         bits. On peut espérer qu'un jour, le nombre d'applications
+         64 bits s'élèvera si bien que ce choix est intéressant à
+         long terme.
+      </p>
+      <p>
+         Je me suis donc procuré Windows Vista intégrale, version
+         OEM française pour x86_64. Par contre, un utilisateur qui
+         veut se simplifier la vie et s'éviter le plus de tracas
+         possible prendra le version 32 bits. C'est pourquoi la
+         version 32 bits était livrée avec la plupart des PC, en
+         2007 et début 2008.
+      </p>
+      <p>
+         À remarquer que j'ai augmenté ma mémoire vive à 3Go en
+         prévision de cette installation. Cette augmentation de
+         mémoire a aussi été très bénéfique pour <a
+         href="http://www.eclipse.org">Eclipse</a>, que j'utilise
+         régulièrement et qui en nécessite beaucoup.
+      </p>
+      <h1>
+         <a name="installati" id="installati">Installation sans
+         problème</a>
+      </h1>
+      <p>
+         Samedi, 19 janvier 2008, l'installation de Windows Vista
+         s'est passée sans incident. J'ai simplement inséré le DVD
+         du système dans mon lecteur au moment de démarrer la
+         machine pour que l'installeur s'amorce. L'étape la plus
+         «difficile» de l'installation consiste à déterminer la
+         partition sur laquelle le système doit être installé. Dans
+         mon cas, ceci est un peu délicat, car je dispose de
+         plusieurs partitions, mais le problème a été vite
+         surmonté.
+      </p>
+      <p>
+         Après m'avoir demandé mon numéro de série, l'installeur a
+         copié des fichiers sur mon disque dur pendant au moins
+         vingt minutes, a redémarré, configuré le système,
+         redémarré encore, m'a posé quelques questions simples puis
+         je me suis retrouvé devant mon nouveau Bureau. Jusque-là,
+         tout allait bien.
+      </p>
+      <p>
+         Premier problème: pas de son! Il y avait certes une icône
+         de haut-parleur dans le coin supérieur droit de l'écran,
+         mais à force de fouiller, je me rendis compte que le
+         système ne pouvait jouer du son que dans un casque
+         d'écoute branché sur le connecteur avant de mon boîtier
+         d'ordinateur. Pour remédier à cela et faire fonctionner
+         mes haut-parleurs comme avant, j'ai simplement installé le
+         pilote audio téléchargé sur site d'<a
+         href="http://www.asus.com">Asus</a>, le constructeur de ma
+         carte mère. J'ai aussi installé les pilotes pour le jeu de
+         puces, téléchargés depuis le même site, ce qui n'a causé
+         aucun problème. Ma carte réseau, quant à elle, a été
+         détectée automatiquement.
+      </p>
+      <p>
+         Même avec le pilote Microsoft pour ma carte graphique
+         NVIDIA, j'avais des effets de bureau; Aero était activé.
+         Pour tirer parti de toutes les fonctionnalités de ma carte
+         graphique, j'ai jugé bon d'installer le pilote de NVIDIA,
+         version 64 bits évidemment. Cela se passa sans aucun
+         incident.
+      </p>
+      <p>
+         Pour ce qui est de mon synthoniseur TV, il a été détecté
+         et configuré par Windows. Il peut être utilisé sous
+         Windows Media Center pour regarder la télévision et
+         enregistrer des émissions. Cela fonctionna très bien
+         lorsque je trouvai comment y accéder. J'ai même été
+         surpris d'avoir accès à un guide horaire me donnant le nom
+         des chaînes sur lesquelles je synthonisais et les
+         émissions en cours de diffusion. Sous Linux, mon système
+         de TV est beaucoup plus <a
+         href="tips/pvrlinux.xhtml">rudimentaire</a> que cela!
+      </p>
+      <p>
+         Mon imprimante HP ne causa pas de problèmes non plus.
+         J'eus simplement à installer le pilote 64 bits pour HP
+         Deskjet 6940. Par contre, mon numériseur Epson Perfection
+         1260 Photo est totalement inutilisable en 64 bits, car le
+         pilote n'est pas disponible. J'ai essayé avec le pilote 32
+         bits: en vain. Seules solutions: acheter la version OEM 32
+         bits de Vista et l'installer, ou encore remplacer mon
+         numériseur! Heureusement, le numériseur fonctionne très
+         bien sous Linux.
+      </p>
+      <p>
+         Restaurer l'amorçage double avec Linux, en réinstallant
+         GRUB, n'a pas posé de difficultés non plus. Évidemment, je
+         dus pour cela redémarrer avec le CD d'Ubuntu puisque
+         Windows ne fournit pas de fonctionnalités pour cela! Mais
+         Windows Vista ne fut pas perturbé par l'ajout de ce
+         gestionnaire d'amorçage, ce qui éliminait une de mes pires
+         craintes.
+      </p>
+      <p>
+         Je testai si je pouvais exécuter au moins une application
+         32 bits et constatai avec soulagement que tel était le
+         cas. Si Windows Vista 64 bits n'avait pu exécuter que des
+         programmes 64 bits, son utilité aurait été très limitée
+         puisque ces programmes sont rares pour le moment. Mais
+         j'espère qu'ils seront plus nombreux un jour ou l'autre.
+      </p>
+      <p>
+         Si l'une ou l'autre de ces craintes s'était avérée fondée,
+         je n'aurais pas eu d'autres solutions que désinstaller le
+         système et tenter de le retourner où je l'avais acheté. En
+         cas d'échec, j'aurais essayé de le vendre sur Internet.
+         Étant donné qu'il n'avait pas été activé, ça aurait
+         peut-être pu fonctionner. C'est avec soulagement que je
+         découvris que je n'aurais pas à en arriver là!
+      </p>
+      <p>
+         Enthousiaste, j'ai alors procédé à l'activation de Windows
+         Vista. Cela s'est encore une fois très bien passé, ce qui
+         éliminait ma troisième pire crainte. J'appréhendais en
+         effet que l'activation ne soit pas possible par Internet
+         et qu'il me faille transcrire un code de plusieurs
+         chiffres, obtenu par téléphone, pour pouvoir réussir! Eh
+         non, pas de ça!
+      </p>
+      <h1>
+         <a name="le_revers_" id="le_revers_">Le revers de la
+         médaille</a>
+      </h1>
+      <p>
+         Après avoir configuré le système, j'ai commencé à
+         installer les mises à jour Windows Update ainsi que mes
+         logiciels favoris: Firefox, Thunderbird, Java,
+         OpenOffice.org. À chaque démarrage d'un programme
+         d'installation, Windows me demanda mon autorisation. Cette
+         fonctionnalité est une bonne chose puisque cela permet à
+         l'utilisateur de détecter l'exécution imprévue d'un
+         programme tel qu'un logiciel espion qui désirerait
+         s'incruster dans le système. Par contre, cela peut devenir
+         très lassant lorsque beaucoup de programmes doivent être
+         installés.
+      </p>
+      <p>
+         Pour ce qui est de Java, j'ai installé le JDK version 64
+         bits, mais cela ne m'a donné aucun plug-in Java. Par
+         contre, installer JRE 32 bits ajouta le plug-in sous
+         Firefox. Seul Internet Explorer 7, en 64 bits, est privé
+         de plug-in Java. L'installation de Flash ne posa pas de
+         difficulté non plus et le plug-in fut accessible depuis
+         Firefox, mais pas depuis Internet Explorer. Adobe Reader,
+         quant à lui, se bloqua au moment de la fin de
+         l'installation. Il fallut un redémarrage pour le rendre
+         fonctionnel.
+      </p>
+      <p>
+         Les mises à jour Windows Update, de leur côté, prenaient
+         un temps fou à s'installer, à raison de cinq à dix minutes
+         par mise à jour. Sachant qu'il y en avait 46 à mettre en
+         place, cela commençait à être très très long!
+      </p>
+      <p>
+         De plus, plus je travaillais avec le système, plus je
+         ressentais que c'était lent et moins j'aimais cela. À
+         chaque activation d'un menu, Windows mettait une seconde
+         ou deux avant d'afficher quelque chose. Désactiver Aero,
+         l'une des plus importantes nouveautés de Vista, aida
+         beaucoup pour cela. Dès qu'il y eut plusieurs programmes
+         installés, me retrouver dans le menu Démarrer est vite
+         devenu un cauchemar infernal. J'ai même fini par repasser
+         au menu classique. La roulette de défilement de la souris
+         fonctionnait rarement correctement, à moins que la fenêtre
+         que je cherchais à faire défiler soit sélectionnée. Mais
+         sélectionner la fenêtre activait indénialbment une
+         commande quelconque. Ceci s'applique particulièrement au
+         panneau de configuration pour lequel un simple clic active
+         une option. Avec les barres de défilement à droite des
+         fenêtres, le défilement était exaspérément lent. Le
+         pointeur de la souris était quant à lui un peu trop petit
+         et avait tendance à disparaître sur les bords de l'écran.
+         Pour couronner le tout, la différence de couleur entre un
+         élément sélectionné et non sélectionné était aussi
+         difficile à percevoir pour moi. Certains de ces problèmes
+         peuvent être allégés, voire résolus, en ajustant les
+         paramètres du système, mais pour la performance, on ne
+         peut pas grand-chose, à moins de changer toute la machine.
+      </p>
+      <p>
+         Une alerte de sécurité apparut peu après l'installation
+         pour me dire qu'aucun anti-virus n'était installé. Pour
+         remédier à ce manque, j'ai installé <a
+         href="http://www.avast.com">aVast</a> qui est heureusement
+         disponible pour Vista, 32 bits et 64 bits. L'anti-virus
+         fonctionna aussi bien qu'avec Windows XP.
+      </p>
+      <p>
+         Après l'installation de certains logiciels ou des mises à
+         jour, Windows souhaitait redémarrer l'ordinateur. C'est
+         alors qu'un <a href="hw/black.xhtml">mystérieux problème
+         de carte mère</a>, qui a commencé le 31 décembre 2007, a
+         refait surface: à chaque fois que je devais redémarrer, la
+         machine plantait. Il me fallait faire plusieurs essais,
+         voire éteindre la machine électriquement pendant quelques
+         secondes pour enfin aboutir de nouveau sous Windows Vista.
+         Ce bogue n'a rien à voir avec Windows, mais il n'attisa
+         pas moins ma frustration.
+      </p>
+      <p>
+         Lorsque j'ai voulu tester si Winamp me permettait encore
+         d'écouter de la musique, j'ai constaté que seuls les
+         haut-parleurs avant de mon système 5.1 fonctionnaient.
+         Pour résoudre cela, dans le panneau de configuration du
+         pilote audio, j'ai dû cocher une option pour activer la
+         duplication du signal envoyé en avant aux haut-parleurs
+         arrière. J'ai aussi mis en place un environnement pour que
+         le son soit meilleur en arrière. Mais ce n'était pas
+         parfait, ce n'était pas comme sous Windows XP ou Linux. La
+         musique jouait moins bien en arrière qu'en avant.
+      </p>
+      <p>
+         Puis des problèmes de compatibilité se manifestèrent. Je
+         voulus réinstaller le jeu PC Scrabble 99, auquel je joue
+         avec ma mère de temps en temps, et l'installation refusa
+         tout bonnement de démarrer. Le programme prétextait que ce
+         programme 32 bits ne pouvait pas s'exécuter sur un système
+         64 bits tandis que j'ai pu installer et utiliser plusieurs
+         programmes 32 bits sous Vista! Cela me fit craindre que
+         DirectX, une API utilisée par les jeux, ne soit accessible
+         que par des processus 64 bits. Cela impliquerait qu'aucun
+         jeu actuel ne pourrait tourner sous Vista 64 bits!!! Pour
+         vérifier cela, j'installai Myst IV. Cela se passa très
+         bien, mais le jeu fut saccadé, très très lent, au moins
+         deux fois plus lent que sur mon ancienne machine le Faucon
+         de Fer! Mais au moins, cela fonctionnait, ce qui signifie
+         que certains jeux peuvent encore tourner sous Vista 64
+         bits.
+      </p>
+      <p>
+         Ceci me mena à croire que ma carte graphique, pourtant une
+         NVIDIA GeForce 6600, n'était pas suffisamment puissante
+         pour Windows Vista. Je ne changerais pas cette carte
+         graphique, par contre, à moins peut-être que la nouvelle
+         carte soit beaucoup plus performante que ma carte actuelle
+         et ait un jeu de puces open source pour lequel un pilote
+         digne de ce nom serait disponible sous Linux. Même si un
+         jour, j'en venais à ne plus utiliser Linux, je
+         continuerais malgré tout à encourager l'initiative open
+         source qui est une bonne idée à mon avis.
+      </p>
+      <h1>
+         <a name="quelques_p" id="quelques_p">Quelques problèmes de
+         compatibilité résolus</a>
+      </h1>
+      <p>
+         Samedi, 16 février 2008, j'ai enfin trouvé des solutions à
+         mes problèmes de compatibilité autres qu'un retour à
+         Windows XP. Pour PC Scrabble 99, j'ai découvert quelques
+         semaines plus tôt que l'installeur (programme
+         <tt>setup.exe</tt>) était une application 16 bits. Comme
+         Windows Vista x64 ne peut pas exécuter des applications 16
+         bits, il était normal que Scrabble refuse de s'installer.
+         Pour contourner le problème, j'ai recopié le répertoire
+         <tt>C:\SCRABBLE.99</tt> et la clé
+         <tt>HKEY_LOCAL_MACHINE\SOFTWARE\Azursoft</tt> de la base
+         de Registre depuis une machine Windows XP sur laquelle
+         Scrabble était déjà installé. Ensuite, j'ai pu démarrer le
+         jeu sous Vista sans difficulté.
+      </p>
+      <p>
+         Pour ce qui est de Myst IV, j'ai simplement désinstallé le
+         logiciel GameOSD d'Asus. Ce dernier permet d'afficher un
+         panneau de contrôle dans n'importe quel jeu, à l'aide
+         d'une combinaison de touches définie par l'utilisateur. Le
+         panneau permet de régler la luminosité de l'affichage, ce
+         qui est bien commode dans certaines parties sombres de
+         jeux. Désinstaller ce logiciel absolument pas nécessaire
+         pour moi a saboté l'anti-virus avast! que j'ai dû réparer
+         après quoi Myst IV refusait tout bonnement de démarrer.
+         Cela finit par faire planter la machine avec un écran
+         bleu. Un redémarrage plus tard, je découvrais avec l'aide
+         de <tt>dxdiag</tt> que l'accélération DirectDraw n'était
+         plus en service. Quelques recherches sur Google me
+         menèrent à l'idée de réinstaller le pilote d'affichage de
+         NVIDIA. La chose faite, je récupérai l'accélération
+         DirectDraw et Myst IV fonctionna parfaitement!
+      </p>
+      <p>
+         Sur le Faucon de Fer, mon ancienne machine, supprimer
+         l'équivalent de GameOSD qui s'appelait à l'époque Enhanced
+         Display Driver rendit de nouveau possible la lecture de
+         vidéos dans le format MPEG. Avant cette intervention, tous
+         les lecteurs vidéo se contentaient d'afficher un écran
+         bleu et de reproduire le son seulement lorsque j'affichais
+         des vidéos. Le seul palliatif que j'avais trouvé après de
+         longues, vaines et frustrantes recherches sur Internet
+         était de désactiver l'accélération matérielle pour le
+         lecteur à utiliser. Cela montre que le module d'extension
+         GameOSD d'Asus est une source de problèmes multiples; il
+         vaut mieux s'abstenir de l'installer. En fait, il vaut
+         mieux ne pas installer des logiciels dont l'utilité n'est
+         que potentielle. Cela sauve du temps, de l'espace sur le
+         disque dur, parfois même de la mémoire et cela peut même
+         éviter des problèmes.
+      </p>
+      <h1>
+         <a name="windows_up" id="windows_up">Windows Update qui
+         cesse de fonctionner</a>
+      </h1>
+      <p>
+         Samedi, 2 mai 2009, je démarrai Windows Vista et tentai
+         d'installer les mises à jour sous Windows Update. Chaque
+         fois que je demandais à l'application Windows Update de
+         rechercher les mises à jour, j'obtenais un message
+         indiquant qu'une erreur inconnue, dont j'ai oublié le code
+         numérique, s'était produite.
+      </p>
+      Je fis des recherches sur Google et appris qu'une solution
+      possible consistait à taper la commande <tt>regsvr32
+      wuaueng.dll</tt>. Je tentai cette manipulation, ce qui me
+      donna un message d'erreur indiquant que l'enregistrement
+      avait échoué. J'essayai vainement de redémarrer la machine,
+      de taper la commande à nouveau, rien à faire. <br />
+       
+      <p>
+         Le contrôle de compte utilisateur, pensai-je ensuite,
+         devait faire en sorte que la commande ne disposait pas des
+         privilèges suffisants pour s'exécuter. Je tentai alors de
+         démarrer une invite MS-DOS sans contrôle de compte, en
+         cliquant droit sur l'icône correspondante dans le menu
+         Démarrer et en choisissant d'exécuter en tant
+         qu'administrateur. Depuis cette invite, j'appelai
+         <tt>regsvr32</tt> et obtins enfin un succès. Mais Windows
+         Update ne fonctionna pas pour autant. J'essayai de
+         démarrer l'application de Windows Update, dont j'ai oublié
+         le nom, depuis l'invite MS-DOS en mode administrateur;
+         encore en vain.
+      </p>
+      <p>
+         Je tentai ensuite de désactiver le contrôle de compte
+         utilisateur. Juste pour faire cela, je dus encore chercher
+         sur Google, car la fonction est dissimulée à travers un
+         paquet de fenêtres et de menus totalement inutiles! Par
+         exemple, <a
+         href="http://www.petri.co.il/disable_uac_in_windows_vista.htm">cette
+         page</a> indique comment procéder pour la désactivation.
+      </p>
+      <p>
+         Un redémarrage plus tard, parce qu'il fallait encore
+         redémarrer <em>toute</em> la machine pour faire ce
+         réglage, je tentai encore mon coup avec Windows Update,
+         puis avec <tt>regsvr32</tt>, puis encore avec Windows
+         Update. Encore une fois, ce fut vain.
+      </p>
+      <p>
+         J'essayai enfin en mode sans échec, avec prise en charge
+         réseau, et n'obtins pas davantage de succès. L'anti-virus
+         aVast a sauté dans la foulée, pour éliminer un suspect, et
+         ça n'a rien arrangé.
+      </p>
+      <p>
+         Si j'avais trouvé <a
+         href="http://social.answers.microsoft.com/Forums/en-US/vistawu/thread/478358b3-ddf4-4389-b562-19850fe91795">cette
+         page de forum</a> ce jour-là, j'aurais essayé la recette
+         proposée, qui réinitialise toutes sortes de paramètres
+         liés à Windows Installer et Windows Update. En examinant
+         le script proposé, je serais porté à croire que la méthode
+         a du potentiel. Mais je ne trouvai pas ce lien si bien que
+         tout ce qu'il me restait à faire, c'était tenter de
+         restaurer le système dans une configuration d'origine. Je
+         me retrouverais avec la base de registre du mois précédent
+         avec des fichiers du mois courant, ce qui introduirait des
+         incohérences susceptibles de compromettre la stabilité de
+         cette installation déjà pas très performante de Windows
+         Vista. Je l'essayai quand même, mais je n'eus que trois
+         choix de points de restauration, correspondant au jour
+         même!
+      </p>
+      <p>
+         Ainsi, il ne restait qu'une solution: redémarrer avec le
+         DVD de Windows Vista et tout recommencer l'installation!
+         La seule solution que Microsoft semblait m'offrir pour ne
+         pas avoir à réinstaller mes applications et refaire mes
+         réglages, c'était de ne pas reformater avant la
+         réinstallation. Je me retrouverais alors avec des fichiers
+         systèmes correspondant au DVD original, avant le Service
+         Pack 1, mélangés avec des fichiers systèmes obtenus après
+         les mises à jour, avec une base de registre incohérente
+         pour aller avec tout ça! Plutôt que faire ainsi, je
+         redémarrai sous Linux et supprimai tous les fichiers de la
+         partition de Windows. Ce fut bien plus rapide et efficace
+         que la réinstallation. À la limite, je pourrais même dire
+         que ce fut jouissif!
+      </p>
+      <p>
+         C'est ainsi que se termina le règne de Windows Vista sur
+         le Salvator. Samedi, 9 mai 2009, j'ai réinstallé Windows
+         XP, car ce système est encore nécessaire pour piloter mon
+         scanner de façon optimale et pour jouer à Scrabble.
+      </p>
+      <p>
+         J'ai certes réussi, de peine et de misère, à installer
+         Scrabble sous mon instance de Windows XP s'exécutant sous
+         Ubuntu à l'aide de VirtualBox, mais la liaison réseau avec
+         d'autres machines échoua lamentablement. Quant à faire
+         fonctionner Scrabble via Wine, ça a toujours et ce sera
+         probablement toujours un échec total. Chaque tentative a
+         en effet été caractérisée par une installation fructueuse
+         suivie d'une exécution affichant un superbe écran noir et
+         plongeant la machine dans un état incohérent duquel il
+         n'était possible de sortir que par un redémarrage du
+         serveur X.
+      </p>
+      <h1>
+         <a name="conclusion" id="conclusion">Conclusion</a>
+      </h1>
+      <p>
+         Je regrette cette migration, car elle ne m'a rien apporté
+         à part de nouveaux problèmes. Le système est au moins deux
+         fois plus lent que Windows XP. Les fonctions de cache
+         n'apportent rien, à part peut-être si de la mémoire flash
+         est installée quelque part sur une clé USB, sur la carte
+         mère ou le disque dur, ce qui n'est pas le cas pour ma
+         machine. Je vais même jusqu'à qualifier cette installation
+         d'une de mes plus grandes erreurs de jugement de ma
+         vingtaine!
+      </p>
+      <p>
+         Pour ce qui est de Ubuntu, je suis parvenu à le stabiliser
+         le 2 janvier 2008, en mettant le pilote de carte graphique
+         NVIDIA à jour. Linux demeurait donc le meilleur système
+         d'exploitation pour ma machine et mes besoins.
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

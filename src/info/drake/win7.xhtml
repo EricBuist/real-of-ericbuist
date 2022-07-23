@@ -1,0 +1,233 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         Installation de Windows 7
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css"
+      href="../../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../../index.xhtml" class="parents">Le
+               royaume de Eric Buist</a> &gt;&gt; <a
+               href="../index.xhtml"
+               class="parents">Informatique</a> &gt;&gt;
+               Configuration informatique &gt;&gt; <a
+               href="index.xhtml" class="parents">Le Drake</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../../sitemap.xhtml" class="sitemap">Plan
+               du site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="asm.xhtml"
+               class="leftsibling">Assemblage</a>
+            </td>
+            <td class="thispage">
+               Installation de Windows 7
+            </td>
+            <td class="rightsibling">
+               <a href="ubuntu.xhtml"
+               class="rightsibling">Installation d'Ubuntu</a>
+               &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         Installation de Windows 7
+      </h1>
+      <p>
+         Jeudi, 2 août 2012, j'ai installé Windows 7 sur mon
+         nouveau monstre. L'installation a eu des ratés, car je
+         voulais qu'elle tire parti des nouvelles fonctionnalités
+         du microprogramme offert par la carte mère, mais Windows
+         s'obstinait à démarrer en mode compatibilité. Depuis très
+         longtemps, les PC utilisent un programme en 16 bits,
+         s'exécutant en mode réel, pour effectuer le démarrage. Ce
+         petit programme primitif est appelé BIOS. En 2012, les
+         cartes mères incorporaient un programme beaucoup plus
+         évolué, l'UEFI, pour Unified Extensible Firmware
+         Interface. L'UEFI s'exécute en 64 bits contrairement aux
+         vieux BIOS qui étaient formés de code 16 bits. Par contre,
+         aucune UEFI n'est totalement pure de nos jours. On a
+         plutôt affaire à une technologie hybride qui fournit, en
+         plus de l'UEFI, une émulation du vieux BIOS. Je voulais
+         que Windows 7 démarre en utilisant l'UEFI, sans passer par
+         l'émulation de BIOS. Voir mon <a
+         href="../grub-uefi.xhtml">comparatif du BIOS et de
+         l'UEFI</a> pour plus d'informations.
+      </p>
+      <p>
+         En réalité, je n'avais pas vraiment besoin d'un amorçage
+         UEFI puisque mon disque SSD de démarrage est beaucoup plus
+         petit que 3To. Mais je voulais comprendre les difficultés
+         et problèmes soulevés par un amorçage UEFI au cas où, un
+         jour, j'évoluerais vers un disque de plus de 3To, ou si je
+         devais aider quelqu'un à le faire.
+      </p>
+      <p>
+         Pour installer Windows 7 en UEFI, il faut démarrer la
+         version UEFI de l'installeur. La façon la plus efficace de
+         le faire est d'insérer le DVD d'installation de Windows 7,
+         d'accéder aux réglages de l'UEFI (en appuyant
+         habituellement sur la touche Delete au démarrage de la
+         machine) et configurer les paramètres d'amorçage pour que
+         Windows 7 UEFI soit le premier dans la liste. Il y aura
+         habituellement deux entrées pour Windows 7 et il faut
+         prendre celle se référant à UEFI. Une autre façon d'y
+         arriver, du moins sur les cartes mères de marque Asus, est
+         d'appuyer sur la touche F8 au démarrage et de sélectionner
+         Windows 7 UEFI dans le menu qui apparaît. C'est de cette
+         façon que j'ai procédé.
+      </p>
+      <p>
+         L'installeur a démarré, m'a demandé d'appuyer sur une
+         touche pour démarrerr l'installation, puis est
+         immédiatement entré dans la séquence d'installation, avant
+         que je n'appuie sur une touche. Après le processus, j'ai
+         par contre découvert que Windows avait formaté le disque
+         en MBR au lieu de GPT et démarrait en utilisant le BIOS.
+         Il y a plusieurs façons de constater cela, la plus simple
+         étant de regarder les systèmes dans la liste d'amorçage.
+         Si Windows n'y figure pas, c'est que le mauvais installeur
+         a été utilisé et n'a pas mis la NVRAM à jour avec l'entrée
+         nécessaire. Il y a aussi moyen de savoir, pendant
+         l'installation, si l'amorçage est UEFI ou pas. Voir pour
+         cela <a
+         href="http://forums.bit-tech.net/showthread.php?t=209045">cette
+         page</a>.
+      </p>
+      <p>
+         Après plusieurs tentatives, j'ai fini par employer les
+         grands moyens et désactiver le démarrage BIOS classique
+         dans les réglages du système UEFI (accessibles en appuyant
+         sur la touche Delete au démarrage). Cela a forcé Windows 7
+         à démarrer en UEFI et s'isntaller ainsi. J'ai été obligé
+         de refaire l'installation pour l'avoir, mais ce fut
+         beaucoup plus facile qu'avoir à <a
+         href="http://www.insanelymac.com/forum/index.php?showtopic=184349">bidouiller
+         le DVD d'installation</a> comme l'ont eu à faire certains
+         utilisateurs de Mac.
+      </p>
+      <p>
+         En plus, à la première tentative, Windows ne m'a pas
+         laissé le temps de transcrire le fichu numéro de série
+         écrit en minuscule sur le dos de la pochette du DVD. Avant
+         même que je n'aie pu entrer les premiers caractères,
+         Windows avait passé à l'étape suivante et s'était mis en
+         mode démo!
+      </p>
+      <p>
+         À la deuxième tentative, j'ai eu tout mon temps pour
+         entrer le numéro, mais ça ne fonctionnait pas du tout. Ça
+         a été très difficile de réussir à l'avoir et m'a pris un
+         temps fou pour figurer que les derniers caractères étaient
+         B888B et non 88888 ou B8888! Le numéro de série a fini par
+         fonctionner et l'activation s'est faite sans histoire
+         après ça.
+      </p>
+      <p>
+         Après ça, j'ai eu des difficultés avec la communication
+         entre mon vieil ordinateur et le nouveau, pour le
+         transfert de données. La nouvelle machine me rapportait
+         des erreurs lorsqu'elle tentait d'accéder à la vieille.
+         Bon, il va encore falloir faire l'inverse: accéder à la
+         nouvelle depuis la vieille. J'ai tenté de configurer le
+         groupe de travail, j'ai fait des recherches sur Internet
+         qui n'ont rien donné de bon, j'ai bien cru que ça n'allait
+         fonctionner qu'avec la vieille machine sous Windows 7 et à
+         travers un groupe résidentiel introduit par ce nouveau
+         système. Mais en fait, c'était heureusement tout simple:
+         j'avais oublié de brancher le câble réseau! Aussi bête que
+         ça!
+      </p>
+      <p>
+         Il y a eu des difficultés à configurer le son en 5.1.
+         L'application de Realtek était quasi inutilisable. Il est
+         possible que mes ajustements de taille de caractère ait
+         brisé l'interface de sorte que c'était très difficile de
+         figurer comment naviguer dans les options. J'ai fini par
+         avoir un schéma des jacks audio proposés par la carte
+         mère: au centre il y avait la sortie audio, et de chaque
+         côté l'entrée ligne et le microphone. J'ai bien cru que ça
+         s'arrêterait là: sortie stéréo, ce serait tout. J'allais
+         être obligé d'installer une carte son USB ou PCI Express
+         pour avoir du 5.1, ou reconfigurer mes haut-parleurs pour
+         qu'ils se contentent d'envoyer le même son en arrière
+         qu'en avant. J'ai par chance trouvé le réglage pour mettre
+         ça en 5.1 et là les jacks d'entrée se sont convertis en
+         jacks de sortie et mes haut-parleurs ont fonctionné!
+      </p>
+      <p>
+         Ensuite, ça avait l'air pas pire. J'ai pu installer bon
+         nombre de mes logiciels. L'outil <a
+         href="http://ninite.com/">Ninite</a> m'a rendu un fier
+         service en installant plusieurs logiciels d'un coup. Mais
+         après le souper, j'ai eu d'énormes difficultés avec Myst
+         V, que j'ai voulu utiliser pour tester la machine un peu
+         plus. Le jeu ne démarrait pas, semblant ne pas aimer la
+         puce graphique Intel. Mais finalement, il y avait une
+         patch non officielle à installer pour que le jeu
+         fonctionne at all sous Windows 7! Je l'ai trouvée,
+         installée et hop, ça alla! Ainsi, ajouter une carte
+         graphique n'aurait rien réglé.
+      </p>
+      <p>
+         Finalement, la gestion de GnuPG sous Emacs fit défaut.
+         Lorsque je voulus sauvegarder ce que j'écrivais, eh bien
+         j'eus une fenêtre me demandant le mot de passe à
+         appliquer. Ok, je l'entre et j'appuie sur Enter. Puis une
+         autre boîte me redemande le mot de passe. Correct. Sauf
+         que l'entrée du mot de passe échoue, passant dans le
+         beurre, et AUCUN raccourci clavier ne permettait
+         d'atteindre la boîte. Je me trouvais donc bloqué
+         complètement. J'ai cherché près d'une demi-heure pour
+         résoudre ce dernier problème et il n'y eut rien à faire, à
+         part downgrader à GnuPG 1.4. Je l'ai fait et ça a réglé le
+         problème.
+      </p>
+      Outre toutes ces difficultés, la machine fonctionnait #1.
+      Elle était plus silencieuse que mon Salvator, même dans ses
+      jours glorieux. Le système répondait bien quand il n'était
+      pas bloqué par Internet périodiquement lent ou la souris qui
+      bougeait de plus en plus par à-coups et tassait quand je
+      tentais de cliquer quelque part, surtout quand c'était une
+      petite zone. L'audio était excellent. J'ai pu écouter de la
+      musique et tous les haut-parleurs jouaient, et sous Myst,
+      l'audio était immersif, on aurait dit mieux qu'avec le
+      Salvator! <br />
+       <br />
+       
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

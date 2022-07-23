@@ -1,0 +1,16 @@
+#!/bin/bash
+
+kdever=`kde-config -v | perl -ne '/^KDE:\s*(\d)/ && print $1;'`
+
+if [ $kdever -eq 1 ]; then
+	kdir=".kde1"
+elif [ $kdever -eq 2 ]; then
+	kdir=".kde2"
+elif [ $kdever -eq 3 ]; then
+	kdir=".kde3"
+else
+	kdir=".kdeu"
+fi
+
+rm -f ~/.kde
+ln -s  ~/$kdir ~/.kde

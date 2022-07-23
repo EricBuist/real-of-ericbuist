@@ -1,0 +1,284 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.1//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>11.2 Ajout d'une nouvelle session de données</TITLE>
+<META NAME="description" CONTENT="11.2 Ajout d'une nouvelle session de données">
+<META NAME="keywords" CONTENT="cdwriting">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cdwriting.css">
+
+<LINK REL="previous" HREF="node57.html">
+<LINK REL="up" HREF="node56.html">
+<LINK REL="next" HREF="node59.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1817"
+  HREF="node59.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1811"
+  HREF="node56.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1807"
+  HREF="node57.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1813"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1815"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html1818"
+  HREF="node59.html">12. Création d'un CD</A>
+<B> monter:</B> <A NAME="tex2html1812"
+  HREF="node56.html">11. Création d'un disque</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html1808"
+  HREF="node57.html">11.1 Création d'un disque</A>
+ &nbsp; <B>  <A NAME="tex2html1814"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1816"
+  HREF="node106.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Sous-sections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html1819"
+  HREF="node58.html#SECTION06321000000000000000"><SPAN CLASS="arabic">11</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN> Préparation et formatage de la structure de données</A>
+<LI><A NAME="tex2html1820"
+  HREF="node58.html#SECTION06322000000000000000"><SPAN CLASS="arabic">11</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN> Configuration du logiciel d'écriture</A>
+<UL>
+<LI><A NAME="tex2html1821"
+  HREF="node58.html#SECTION06322100000000000000"><SPAN CLASS="arabic">11</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN> Easy CD Creator</A>
+<LI><A NAME="tex2html1822"
+  HREF="node58.html#SECTION06322200000000000000"><SPAN CLASS="arabic">11</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN> Nero Burning ROM</A>
+</UL></UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION06320000000000000000"></A>
+<A NAME="sec:addsession"></A>
+<A NAME="2194"></A>
+<BR>
+<SPAN CLASS="arabic">11</SPAN>.<SPAN CLASS="arabic">2</SPAN> Ajout d'une nouvelle session de données
+</H1>
+
+<P>
+Il arrive que vous ne pouvez pas écrire 650 Mo d'un coup 
+sur un CD ou 4.36Go sur un DVD. Soit il n'y a pas suffisamment
+d'espace sur le disque dur, 
+soit vous n'avez pas assez de données à graver, mais 
+vous voudriez effectuer tout de même une copie de sauvegarde. 
+Le multisession<A NAME="2197"></A> permet alors de solutionner le problème. 
+Le logiciel DirectCD<A NAME="2199"></A>, livré avec Easy CD
+  Creator et devenu Drag-to-Disc dans la version&nbsp;6, offre
+une solution plus élégante qui permet d'exploiter l'écriture
+incrémentale (<SPAN  CLASS="textit">packet writing</SPAN><A NAME="2203"></A>), mais les
+disques ainsi produits
+ne sont pas toujours compatibles avec les lecteurs et la technologie
+utiilsée est propriétaire.
+
+<P>
+Les sessions multiples sont pratiquement invisibles pour
+l'usager dans le cas CD et DVD+RW.  Les 
+données ajoutées semblent toujours avoir figuré 
+sur le disque. La vitesse d'accès est aussi sensiblement la même, 
+à condition d'avoir un lecteur multisession,
+mais c'est le 
+cas pour le graveur et tout lecteur moderne.
+
+<P>
+Dans le cas du DVD-R(W), il vaut mieux oublier le multisession,
+car seul le graveur saura en général relire un tel disque. Il vaut
+mieux graver le DVD en une fois, quitte à sauvegarder du contenu à
+moyen terme sur plusieurs CD-RW qui pourront être effacés par la
+suite. Avec les DVD+RW, il est heureusement possible d'utiliser le
+multisession, car les liens entre sessions sont transparents. Un
+lecteur DVD classique saura lire le disque comme s'il avait été gravé
+en une seule session.
+
+<P>
+
+<H2><A NAME="SECTION06321000000000000000">
+<SPAN CLASS="arabic">11</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN> Préparation et formatage de la structure de données</A>
+</H2>
+
+<P>
+Comment savoir si le disque est bel et bien 
+ouvert? Supposons que cela fait deux semaines que vous avez
+gravé la session et que vous êtes prêt pour
+un nouvel ajout. Le logiciel peut alors tenter d'obtenir des
+informations à propos d'un disque. Il faut insérer 
+le disque dans le graveur et non dans le lecteur si vous en avez un, car
+le lecteur montrera toujours un disque fermé, même 
+s'il est ouvert. 
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:multiscdinfo"></A><A NAME="2363"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 11.9:</STRONG>
+Informations sur un disque multisession données par Easy CD
+    Creator</CAPTION>
+<TR><TD>&nbsp;
+<BR>
+
+    <DIV ALIGN="CENTER">
+<IMG
+ WIDTH="778" HEIGHT="543" ALIGN="BOTTOM" BORDER="0"
+ SRC="multiscdinfo.png"
+ ALT="2361">
+    
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+Ensuite, démarrez  Easy CD Creator et 
+activez <SPAN  CLASS="textbf">Disque -&gt;
+
+Informations sur le disque</SPAN>, ce qui affichera une
+fenêtre semblable à la figure&nbsp;<A HREF="#fig:multiscdinfo">11.9</A>.
+Dans la boîte de dialogue, sélectionnez le lecteur 
+qui contient le disque, donc le graveur. Une foule d'informations 
+intéressantes se trouve dans le volet de droite. Remarquez
+non seulement toutes les sessions sur le disque, mais aussi l'espace 
+libre. Cela va vous permettre de savoir si ce que vous ajoutez
+va effectivement pouvoir entrer sur le disque. Si le disque 
+est encore <SPAN  CLASS="textbf">Inscriptible</SPAN>, il est ouvert et vous pouvez enregistrer.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:nerodiscinfo"></A><A NAME="2375"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 11.10:</STRONG>
+Infos disque de Nero</CAPTION>
+<TR><TD>&nbsp;
+<BR>
+
+    <DIV ALIGN="CENTER">
+<IMG
+ WIDTH="674" HEIGHT="442" ALIGN="BOTTOM" BORDER="0"
+ SRC="nerodiscinfo.png"
+ ALT="2373">
+    
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+Sous Nero, une option équivalente est accessible par
+<SPAN  CLASS="textbf">Graveur -&gt;
+
+Infos disque</SPAN>. Si vous avez activé la boîte de
+dialogue avant d'insérer le disque, il peut être nécessaire de cliquer
+sur le bouton <SPAN  CLASS="textbf">Actualiser</SPAN>. Une fenêtre semblable à la
+figure&nbsp;<A HREF="#fig:nerodiscinfo">11.10</A> apparaîtra.
+
+<P>
+
+<H2><A NAME="SECTION06322000000000000000">
+<SPAN CLASS="arabic">11</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN> Configuration du logiciel d'écriture</A>
+</H2>
+
+<P>
+La procédure de configuration ressemble beaucoup à celle utilisée pour
+créer la session initiale, mais il faut indiquer au logiciel
+d'importer la ou les sessions précédentes. Dans le cas contraire, au
+mieux, seules les dernières données seront accessibles. Dans le pire
+cas, le disque ne fonctionnera plus du tout!
+
+<P>
+
+<H3><A NAME="SECTION06322100000000000000">
+<SPAN CLASS="arabic">11</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN> Easy CD Creator</A>
+</H3>
+
+<P>
+Easy CD Creator 6 importera automatiquement les données des sessions
+précédentes dès que vous tenterez de glisser un nouveau fichier sur le
+disque. Il est possible de déplacer, renommer et supprimer des
+fichiers d'une session précédente, mais il ne faut pas oublier qu'une
+suppression n'efface pas le fichier du disque mais uniquement sa
+référence dans la structure du CD ou du DVD, même sur un disque
+réinscriptible. En utilisant le Session Selector
+inclus avec le logiciel, il est possible d'accéder aux précédentes
+sessions et ainsi aux fichiers supprimés.
+
+<P>
+Le reste se poursuit comme lors de la création d'un disque simple. 
+Vous utiliserez la commande <SPAN  CLASS="textbf">Graver le disque</SPAN> et commanderez
+de fermer
+seulement 
+la session ou le disque en fonction du désir d'écrire ultérieurement
+sur le disque. Il vaut parfois mieux sacrifier un peu 
+d'espace et fermer le disque que de risquer qu'il soit pris 
+ouvert. J'ai un disque qui est ouvert mais sur lequel il n'y a 
+même plus assez d'espace pour le fermer. Il prend plus de 
+temps à s'amorcer puisqu'il est ouvert, en tout cas dans certains lecteurs.
+
+<P>
+
+<H3><A NAME="SECTION06322200000000000000">
+<SPAN CLASS="arabic">11</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN> Nero Burning ROM</A>
+</H3>
+
+<P>
+Sous Nero, lors de la création d'une nouvelle compilation, vous devez
+choisir le même type de compilation que celle utilisée pour commencer
+le disque. Le logiciel importera automatiquement les données de la
+session précédente et il sera possible de modifier la structure du
+disque, en ajoutant ou en supprimant des fichiers. La gravure se passe
+de la même façon qu'avec un disque simple.
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1817"
+  HREF="node59.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1811"
+  HREF="node56.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1807"
+  HREF="node57.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1813"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1815"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html1818"
+  HREF="node59.html">12. Création d'un CD</A>
+<B> monter:</B> <A NAME="tex2html1812"
+  HREF="node56.html">11. Création d'un disque</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html1808"
+  HREF="node57.html">11.1 Création d'un disque</A>
+ &nbsp; <B>  <A NAME="tex2html1814"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1816"
+  HREF="node106.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Eric Buist
+2005-11-13
+</ADDRESS>
+</BODY>
+</HTML>

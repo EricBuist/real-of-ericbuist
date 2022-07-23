@@ -1,0 +1,486 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         Assemblage: deuxième partie
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css"
+      href="../../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../../index.xhtml" class="parents">Le
+               royaume de Eric Buist</a> &gt;&gt; <a
+               href="../index.xhtml"
+               class="parents">Informatique</a> &gt;&gt;
+               Configuration informatique &gt;&gt; <a
+               href="index.xhtml" class="parents">Oméga</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../../sitemap.xhtml" class="sitemap">Plan
+               du site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="win10.xhtml"
+               class="leftsibling">Installation de Windows 10</a>
+            </td>
+            <td class="thispage">
+               Assemblage: deuxième partie
+            </td>
+            <td class="rightsibling">
+               <a href="ubuntu.xhtml"
+               class="rightsibling">Installation d'Ubuntu</a>
+               &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         Assemblage: deuxième partie
+      </h1>
+      <p>
+         Maintenant que la machine fonctionne et Windows s'y
+         exécute sans planter, il est temps d'ajouter plus de
+         stockage, transférer le lecteur blu-ray et améliorer les
+         ventilateurs pour les rendre plus beaux et plus
+         silencieux.
+      </p>
+
+      <ul>
+        <li><a href="#disks">Ajout des disques</a></li>
+        <li><a href="#space">De l'espace perdu</a></li>
+        <li><a href="#rgbfail">RGB adressable: une grosse
+            déception</a></li>
+        <li><a href="#bluray">Lecteur blu-ray</a></li>
+        <li><a href="#r1">Adjust R1</a></li>
+      </ul>
+      
+      <h2>
+         <a name="disks" id="disks">Ajout des disques</a>
+      </h2>
+      <p>
+         Jeudi soir, 8 avril 2021, j'ai entrepris l'installation du
+         deuxième SSD et du disque dur, pour le stockage des
+         données.
+         Les disques durs et SSD peuvent être vissés sur des
+         plateaux qui se glissent dans la cage des lecteurs. La
+         cage accueille deux plateaux, ce que je trouve peu. Il
+         vient quatre autres plateaux du même genre avec les
+         accessoires du boîtier, mais je ne parviens pas à trouver
+         où ils vont, peut-être il faut un accessoire pour les
+         fixer, peut-être les gens se le fabriquent eux-mêmes avec
+         une imprimante 3D, les instructions ne sont pas claires
+         là-dessus. Toute recherche sur Google donne peu de
+         résultats, à part des vidéos dans lesquelles les gens
+         montrent l'intérieur du boîtier rapidement et disent que
+         tel autre boîtier qui n'a pas de fente pour lecteur
+         optique est mieux.
+      </p>
+      <p>
+         J'ai eu de la misère à dévisser les plateaux! La vis ne
+         bougeait pas. J'ai essayé
+         plusieurs tournevis, failli ne pas pouvoir réussir,
+         ça semblait prendre un tournevis plus gros que ce que
+         j'avais, ah non voyons! Mais par chance j'ai découvert que
+         la vis pouvait accueillir un tournevis plat OU étoile!
+         Avec l'étoile, j'ai pu aller chercher plus de force et la
+         faire tourner. Les plateaux enlevés (chaque plateau a sa
+         propre vis), j'ai pu y installer le SSD et le disque dur.
+         Pour le SSD, il a suffi de le poser sur le plateau et l'y
+         fixer avec quatre vis, qui venaient avec les accessoires
+         du boîtier. L'image suivante montre le SSD fixé.
+      </p>
+      <p>
+         <img src="ssdOnTray.JPG" width="50%"
+         alt="Le SSD fixé sur le plateau" /> <img
+         src="ssdTrayBack.JPG" width="50%"
+         alt="Vue arrière du plateau à SSD, avec les vis posées" />
+      </p>
+      <p>
+         Pour le disque dur, on installe de petites rondelles en
+         caoutchouc, probablement pour absorber les vibrations et
+         réduire le bruit. Puis on pose et visse le disque.
+      </p>
+      <p>
+         <img src="hdd.JPG" width="50%"
+         alt="Disque dur, avant son installation dans le plateau" />
+         <img src="hddTrayBack.JPG" width="50%"
+         alt="Vue arrière du plateau à disque dur, avec les vis posées" />
+      </p>
+      <p>
+         Ensuite, j'insérai les plateaux dans la cage à disques et
+         branchai les câbles SATA du bloc d'alimentation sur les
+         disques, puis les câbles SATA de données sur la carte
+         mère. Les câbles SATA passent à travers des ouvertures
+         pour aller de l'arrière du boîtier, invisible par le
+         panneau, vers l'avant où on peut voir la carte mère à
+         travers le panneau.
+      </p>
+      <p>
+         <img src="disksInstalled.JPG" width="50%"
+         alt="Les supports à disques remis dans la cage" /> <img
+         src="disksConnected.JPG" width="50%"
+         alt="Les disques branchés" />
+      </p>
+      <p>
+         À noter qu'on pourrait aller beaucoup beaucoup plus loin
+         pour perfectionner la gestion du câblage. Certains passent
+         beaucoup de temps à fixer les câbles avec des centaines
+         d'attaches. Bien que cela améliore l'esthétique de
+         l'assemblage, toute modification devient difficile et même
+         à risque de sectionner un câble dans une tentative de
+         couper une attache. Mais fixer quelques câbles avec des
+         attaches réutilisables (velcro ou celle qu'on enroule) est
+         parfois bien utile et, comme on le verra bientôt,
+         nécessaire.
+      </p>
+      <p>
+         En effet, la machine s'est mise à faire un bruit de FOU!
+         Tonnerre, le disque dur est donc bien bruyant! J'ai essayé
+         de confirmer que c'était le disque en rouvrant le panneau
+         opaque (celui de droite) cachant la partie du boîtier avec
+         la cage des disques. Ben là, le bruit cessait! Voyons
+         donc, quand on ferme le panneau le disque a chaud et se
+         met à gronder? Ouach! Ça s'est rendu à Windows, j'ai pu
+         formater les disques, mais il fallait que je vérifier si
+         les ventilateurs n'étaient pas obstruées, alors j'ai tout
+         éteint ça.
+      </p>
+      <p>
+         Les ventilateurs, tout était beau, jusqu'à ce que je
+         vérifie ceux de la carte graphique. Il y avait les câbles
+         SATA qui se coinçaient dans les palettes! J'ai été
+         chanceux que les palettes ne cassent pas. J'ai regardé et
+         n'ai trouvé aucun moyen de remplacer le ventilateur sur
+         cette carte graphique, si jamais il devait se briser un
+         jour. Obtenir une nouvelle carte graphique aurait été
+         difficile en avril 2021. Il aurait fallu mieux vérifier
+         mon assemblage, cette erreur aurait pu me coûter cher.
+         J'ai attaché les câbles au capot recouvrant le bloc
+         d'alimentation pour que ça ne bouge plus, et puis j'ai
+         rallumé la machine. Ouf! Le disque dur on ne l'entend
+         presque pas. Bon! Le capot est criblé de trous pour faire
+         passer de l'air alors j'ai passé une attache par deux de
+         ces trous et puis fixé les câbles SATA après ça.
+      </p>
+      <h2>
+        <a name="space" id="space">De l'espace perdu</a>
+      </h2>
+      <p>
+         <img src="caseWithDisks.JPG" width="50%"
+         alt="Nouvelle vue du boîtier fermé, avec les disques en place" />
+      </p>
+      <p>
+         L'image ci-haut montre à nouveau la tour, avec les pièces
+         installées dedans. On remarque à droite tout l'espace
+         perdu qui aurait bien pu accueillir d'autres disques, ou
+         être sauvé en faisant la tour plus petite. Cette tour
+         Fractal Design est plus grosse et, surtout, plus haute,
+         que ma précédente, ce qui m'a empêché de la mettre au même
+         endroit que la vieille. Oui, elle entrait sur ma tablette
+         sous mon bureau, mais comme le montre l'image suivante,
+         cela m'aurait empêché d'avoir accès aux ports USB.
+      </p>
+      <p>
+         <img src="caseNotFitting.JPG" width="60%"
+         alt="La tour trop haute pour mon bureau, ce qui condamne mes nouveaux ports USB!" />
+      </p>
+      <p>
+         Pour résoudre ce problème, j'ai dû dévisser la tablette du
+         bas et l'enlever complètement, posant ma nouvelle tour
+         directement par terre. Ce n'est pas idéal, ça aurait été mieux
+         sur le bureau pour un maximum de visibilité du panneau
+         transparent, mais cela devra attendre un nouveau bureau.
+      </p>
+      <p>
+         <img src="caseUnderDesk.JPG" width="60%"
+         alt="La tour sur le plancher, après avoir enlevé la tablette" />
+      </p>
+      <h2>
+         <a name="rgbfail" id="rgbfail">RGB adressable: une grosse
+         déception</a>
+      </h2>
+      <p>
+         Samedi, 1<sup>er</sup> mai 2021. j'ai essayé d'installer
+         un premier ventilateur RGB. J'ai opté pour un pack de 3
+         ventilateurs Prisma AL14 de Fractal Design. Le ventilateur
+         de 140mm se branche à la carte mère via un connecteur PWM
+         (4 fils), ce qui permet d'en contrôler la vitesse,
+         contrairement aux ventilateurs d'origine du boîtier qui
+         sont branchés avec le connecteur à 3 fils.
+      </p>
+      <p>
+         L'installation de ces ventilateurs est bien simple. Il
+         suffit d'ôter les quatre vis qui fixent le ventilateur
+         d'origine et visser le novueau. L'image suivante montre le
+         ventilateur arrière, à l'origine noir, remplacé par le
+         nouveau, aux palettes translucides.
+      </p>
+      <p>
+         <img src="rgbRearFan.JPG" width="50%"
+         alt="Ventilateur Fractal Design Prisma AL14 en place dans la tour" />
+      </p>
+      <p>
+         Le ventilateur est pourvu de deux câbles: le câble
+         d'alimentation avec le connecteur à quatre fils que j'ai
+         branché dans le contrôleur de ventilateurs, ainsi qu'un
+         câble de contrôle RGB. J'ai songé remplacer les deux
+         autres ventilateurs, mais la sagesse m'a dicté d'en tester
+         un à la fois.
+      </p>
+      <p>
+         Le branchement du connecteur PWM (4 fils) s'est bien passé
+         et le ventilateur a tourné du premier coup. La vitesse
+         variable permet de la ralentir quand le système est peu
+         actif, ce qui rend la machine plus silencieuse. Mieux
+         encore: le contrôle par la carte mère de cet unique
+         ventilateur PWM affecte la vitesse des ventilateurs non
+         PWM. Ainsi, les deux ventilateurs avant, encore d'origine,
+         tournaient à vitesse variable aussi. La vitesse de
+         rotation de ces ventilateurs de boîtier était en plus
+         indépendante de celle du ventilateur à processeur.
+      </p>
+      <p>
+         Mais c'est tout, aucune DEL, aucune illumination. J'ai
+         branché le câble ARGB dans le connecteur de ma carte mère,
+         vérifié maintes, maintes et maintes fois que c'était le
+         bon. Le connecteur qui se branche dans la carte mère
+         ressemble à ce que l'on trouve sur la figure suivante.
+      </p>
+      <p>
+         <img src="argbConnector.JPG" width="50%"
+         alt="Extrémité du connecteur ARGB qui entre dans la carte mère" />
+      </p>
+      <p>
+         On peut voir clairement qu'il y a une asymmétrie empêchant
+         de brancher le connecteur dans le mauvais sens. Je
+         m'attendais à ce que les DELs allument par défaut et
+         soient configurables via Armoury Crate. Ben non, rien,
+         jamais rien. J'ai branché le ventilateur dans le
+         connecteur ARGB sur ma carte mère, vérifié maintes et
+         maintes fois que le connecteur était bien enfoncé. Le
+         connecteur se désengage trop facilement, je trouve ça
+         suspect, mais si je poussais plus, ça n'entrait pas ou
+         bien ça finissait par plier les pins du connecteur sur la
+         carte mère! J'ai par chance pu redresser les pins, mais je
+         savais que si je refais cette gaffe trop de fois, un
+         moment donné une pin allait casser et il n'y aurait plus
+         rien à faire avec ça.
+      </p>
+      <p>
+         Plus ça allait, plus il semblait que les composantes RGB
+         soient non standards. Peut-être faudrait-il utiliser des
+         ventilateurs de marque Asus pour être compatibles avec le
+         connecteur sur la carte mère Asus, mais je ne suis pas
+         certain que de tels ventilateurs existent. Je n'en ai
+         jamais vu en tout cas. J'ai fait d'innombrables essais,
+         tenté de brancher un deuxième ventilateur sur le
+         connecteur ARGB, en vain. Rien n'alluma jamais. J'ai fait
+         d'interminables recherches qui furent vaines. En plus, à
+         tout bout de champ, la machine se mettait à faire du bruit
+         suspect. Souvent, c'était un câble qui se coinçait encore
+         et encore dans une des ventilateurs de la carte graphique.
+         Ce n'est pas une bonne idée du tout de mettre des
+         ventilateurs sur une carte, mais j'étais pogné avec ça, ne
+         pouvant obtenir une nouvelle carte graphique.
+      </p>
+      <p>
+         Plus tard, j'ai lu qu'apparemment le ventilateur Fractal
+         Design que j'ai choisi, bien que «compatible» ARGB,
+         nécessiterait un contrôleur RGB intégré à certains
+         boîtiers. Bref, si on veut du RGB, faut-il vraiment que le
+         contrôleur vienne avec le boîtier, donc ça marche juste
+         avec les Lian Li qui n'ont PAS de fente pour lecteur
+         optique? Je ne comprenais pas pourquoi la tour a un
+         panneau transparent s'il n'y a aucune DEL dedans!
+         Peut-être il y avait des cartes mères avec diodes
+         intégrées, mais je n'en ai pas vues. .
+      </p>
+      <p>
+         Plusieurs théories pouvaient expliquer le
+         dysfonctionnement: défectuosité des ventilateurs de
+         Fractal Design, problème avec le connecteur de la carte
+         mère, logiciel Armoury Crate ne fonctionnant pas du tout.
+         Il n'y avait aucun moyen simple d'aller plus loin, pas
+         sans disposer d'une autre carte mère avec connecteur RGB.
+      </p>
+      <p>
+         Le lendemain matin, j'ai essayé avec OpenRGB, un projet
+         open source qui tente d'implanter les protocoles pour
+         communiquer avec les DELs; ça pourrait remplacer Armoury
+         Crate. Eh bien non, faut une version patchée du noyau de
+         Linux. Il me semble qu'il doit y avoir moyen d'utiliser le
+         noyau existant pour faire ça, mais non, celui qui a essayé
+         de coder OpenRGB a voulu faire de quoi qui ne se fait pas,
+         peu importe la «bonne» raison évoquée, et falait patcher
+         le noyau. La patch s'appliquait sans aucun doute sur le
+         noyau vanille, donc si je veux essayer ça faudrait que je
+         court-circuite complètement le mécanisme de mise à jour
+         d'Ubuntu et que je compile le noyau manuellement, avec la
+         patch. Et même pas certain que ça va donner de
+         quoi! OpenRGB ne fonctionna pas sous Windows non plus.
+      </p>
+      <p>
+        Le projet OpenRGB n'en demeure pas moins potentiellement
+        utile. Si la patch proposée ne cause pas de problèmes, elle
+        pourrait être intégrée à une future version du noyau et
+        l'utilisation de OpenRGB en serait facilitée. La prise en
+        charge du matériel peut s'accroître et OpenRGB pourrait rendre
+        possible toutes sortes de personnalisations.
+        J'imagine encore la possibilité de pouvoir contrôler les
+        diodes en fonction d'un signal sonore, pour qu'elles allument
+        et changent de couleur au rythme de musique électronique.
+        Le signal RGB adressable pourrait aussi être transmis via les
+        broches GPIO d'un Raspberry Pi et permettre à cet appareil de
+        contrôler des périphériques RGB installés dans un meuble de
+        cinéma-maison ou une pièce toute entière.
+        Bref, ce n'est pas parce que ça n'a pas fonctionné du tout
+        pour moi qu'OpenRGB n'a pas un grand potentiel dans le futur.
+      </p>
+      <h2>
+         <a name="bluray" id="bluray">Lecteur blu-ray</a>
+      </h2>
+      <p>
+         Je n'étais même pas certain de comment fixer le lecteur
+         blu-ray dans ma tour. Je pensais aussi que je serais obligé
+         de choisir entre deux ventilateurs à l'avant sans le lecteur
+         blu-ray, ou un seul ventilateur avant avec le lecteur.
+         J'ai considéré la possibilité de ne
+         pas le transférer, le laisser dans la vieille tour qui
+         fonctionne encore. J'aurais pu allumer l'ancien ordinateur
+         pour ripper des disques. Lorsque la machine aurait rendu
+         l'âme, soit je n'aurais plus eu de disques à transférer,
+         soit il m'aurait fallu acheter un boîtier USB. Mais je
+         n'ai trouvé sur Newegg qu'un modèle à 75$, un peu coûteux
+         je trouvais pour brancher un lecteur optique en USB.
+      </p>
+      <p>
+         Dimanche, 9 mai 2021, je me suis décidé à installer un
+         deuxième ventilateur RGB dans ma tour, et essayer de quoi
+         pour le lecteur/graveur blu-ray. D'abord, il m'a fallu
+         enlever le devant de la tour. Pour cela, j'ai d'abord ôté
+         le panneau du dessus, simplement clippé.
+      </p>
+      <p>
+         <img src="removedCaseTop.JPG" width="50%"
+         alt="Panneau du haut de la tour retiré" />
+      </p>
+      <p>
+         Ensuite, j'ai pu retirer le panneau avant, ce qui donne
+         accès aux vis fixant les ventilateurs.
+      </p>
+      <p>
+         <img src="removedCaseFront.JPG" width="50%"
+         alt="Panneau avant (avec la porte) retiré" />
+      </p>
+      <p>
+         Outre les huit vis soutenant les ventilateurs, deux autres
+         vis maintiennent en place un support en métal pouvant soit
+         soutenir un ventilateur soit fixer un lecteur optique,
+         selon le sens où il est installé. J'ai dévissé ce support
+         et tenté de le fixer à mon lecteur/graveur blu-ray.
+      </p>
+      <p>
+         <img src="dvdHolder.JPG" width="50%"
+         alt="Support pour ventilateur ou lecteur optique" /> <img
+         src="dvdHolderOnDrive.JPG" width="50%"
+         alt="Support accroché au lecteur blu-ray" />
+      </p>
+      <p>
+         Ce n'est pas super super solide, mais ça tient. Le lecteur
+         optique enfoncé dans l'ouverture, on peut visser ls
+         support à la tour pour qu'il tienne en place. Bien
+         entendu, on doit brancher les câbles d'alimentation et de
+         données comme d'habitude. J'ai même découvert qu'on
+         pouvait mettre les deux ventilateurs quand même!!! Ils
+         peuvent être placées à différentes hauteurs. Alors j'ai
+         toujours trois ventilateurs, à 4 fils à présent.
+      </p>
+      <p>
+         <img src="blurayAndFans.JPG" width="50%"
+         alt="Lecteur blu-ray et deux ventilateurs en place" />
+      </p>
+      <p>
+         J'ai fait les branchements pour les connecteurs RGB, mais
+         comme je m'en doutais déjà, rien n'a allumé. Les câbles
+         RGB peuvent être chaînés puisque chaque appareil est pourvu
+         d'un connecteur qui permet de raccorder le suivant.
+      </p>
+
+      <h2>
+        <a name="r1" id="r1">Adjust R1</a>
+      </h2>
+      <p>
+        Je ne pouvais certes pas obtenir les diodes contrôlables par
+        logiciel que je voulais, mais au moins, pensai-je, pourrais-je
+        les faire allumer. Pour cela, il existe des contrôleurs qui se
+        branchent à l'alimentation et qui fournissent un connecteur
+        ARGB, indépendant de la carte mère. Le Adjust R1 de Fractal
+        Design est un exemple de ça.
+        Le contrôleur, que j'ai eu vendredi 28 mai 2021, ressemble à
+        ce que l'on trouve sur l'image ci-bas.
+      </p>
+      <p>
+        <img src="adjust-r1.JPG" width="50%"
+             alt="Le contrôleur Adjust R1 de Fractal Design"/>
+      </p>
+      <p>
+        D'un côté, on trouve un connecteur SATA destiné à se brancher
+        sur le bloc d'alimentation. De l'autre, on trouve un
+        connecteur ARGB destiné à raccorder une chaîne de
+        périphériques RGB. Le contrôleur comporte des boutons pour
+        ajuster l'intensité, la couleur et l'effet lumineux appliqué.
+      </p>
+      <p>
+        Quand j'ai branché ce contrôleur, les DELs des trois
+        ventilateurs se sont allumées. J'ai aussi installé une bande
+        RGB de type Phantek qui ajoute un peu plus de lumière à
+        l'intérieur du boîtier. La bande est fixée par des attaches
+        qui peuvent être vissées ou collées (à l'aide de ruban à
+        double face fourni) où on veut (plutôt où on peut) dans le
+        boîtier.
+        Les images suivantes montrent des exemples de configurations
+        lumineuses possibles.
+      </p>
+      <p>
+        <img src="rgbRed.JPG" width="50%"
+             alt="Exemple d'éclairage de couleur rouge"/>
+        <img src="rgbGreen.JPG" width="50%"
+             alt="Exemple d'éclairage de couleur verte"/>
+        <img src="rgbBlue.JPG" width="50%"
+             alt="Exemple d'éclairage de couleur bleue"/>
+        <img src="rgbRainbow.JPG" width="50%"
+             alt="Exemple d'éclairage avec plusieurs couleurs"/>
+      </p>
+      
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

@@ -1,0 +1,1016 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         Installation de Mac OS X
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css"
+      href="../../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../../index.xhtml" class="parents">Le
+               royaume de Eric Buist</a> &gt;&gt; <a
+               href="../index.xhtml"
+               class="parents">Informatique</a> &gt;&gt;
+               Configuration informatique &gt;&gt; <a
+               href="index.xhtml" class="parents">Le Drake</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../../sitemap.xhtml" class="sitemap">Plan
+               du site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="ubuntu.xhtml"
+               class="leftsibling">Installation d'Ubuntu</a>
+            </td>
+            <td class="thispage">
+               Installation de Mac OS X
+            </td>
+            <td class="rightsibling">
+               <a href="linuxhd.xhtml" class="rightsibling">Passage
+               dans le monde réel: installation de Linux sur le
+               Drake</a> &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         Installation de Mac OS X
+      </h1>
+      <p>
+         On en vient à la partie la plus intéressante et tortueuse
+         de l'assemblage et de la configuration du Drake.
+         Jusque-là, ce n'était que de la petite bière, du travail
+         d'amateur. Ici vont commencer les véritables ennuis.
+         Plusieurs d'entre vous devez vous demander ce que j'ai
+         essayé d'accomplir là. Si je commence avec les détails
+         techniques, plusieurs se diront à quoi bon et perdront le
+         fil. Alors pour commencer, voici une vidéo montrant un
+         résultat intermédiaire mais presque final de ce périple
+         complètement fou.
+      </p>
+      <p>
+         <iframe width="420" height="315"
+         src="http://www.youtube.com/embed/nMAo40dywZ4"
+         frameborder="0" allowfullscreen="true"></iframe>
+      </p>
+      <p>
+         L'objectif ici était d'effectuer mes premiers pas dans
+         l'environnement de Mac OS X sans me mouiller: en évitant
+         de dépenser une somme considérable pour acheter une
+         machine qui risquait de finir sur une tablette,
+         cruellement inutilisable pour moi, et en évitant de
+         compromettre l'intégrité de mon nouveau système. Je ne
+         craignais pas une défaillance matérielle, mais j'étais
+         inquiet à propos de l'effacement de mon disque dur, qui me
+         forcerait à tout réinstaller. Ce que je voulais sauver là,
+         c'était du temps: le temps de tout réinstaller et
+         reconfigurer après un dérapage avec Mac OS X, le temps de
+         rechercher des solutions inexistantes à des problèmes
+         d'incompatibilité de Mac OS X avec mon nouveau système, le
+         temps de me remettre d'une frustration et d'un désespoir
+         après avoir acheté le vrai Mac et constaté que je ne
+         pourrais rien faire avec avant l'invention de la
+         régénération du nerf optique, etc. Par chance, mes
+         explorations initiales de Mac OS X montrent que tel n'est
+         pas le cas; il y a <em>quelque chose</em> que je peux
+         faire avec ça, pas facilement pour le moment, mais ça peut
+         s'améliorer, surtout si je me mets à l'exploration des API
+         et je trouve un moyen d'établir une liaison avec
+         VoiceOver. En fin de compte, le fait de ne pas disposer
+         d'un vrai Mac m'a fait perdre un temps considérable!
+      </p>
+      <p>
+         J'imagine que certains puristes diront que ce que j'ai
+         fait, c'est comme si on versait un grand cru dans des
+         bouteilles de plastique toutes molles qui contenaient de
+         l'eau avant, ou qu'on installait un moteur de Rolls' Royce
+         dans la carosserie d'une Lada; c'est inacceptable. Je leur
+         répondrais tant pis! Adepte du logiciel libre, je crois à
+         l'interchangeabilité des composantes, même si elle n'est
+         pas toujours au rendez-vous. Pour ce qui est du moteur, je
+         me demande parfois si mon père mécanicien n'aurait pas eu
+         moins de mal à installer ça que moi à configurer Mac OS X
+         sur mon PC!
+      </p>
+      <p>
+         Je vais débuter cette page avec les principes de base du
+         hackintoshing, puis relater mes débuts avec iATKOS pour
+         ensuite me tourner vers la solution UniBeast qui permet
+         d'installer la version originale du système d'Apple.
+      </p>
+      <ul class="pagemenu">
+         <li>
+            <a href="#hack101">Hackintosh 101</a>
+         </li>
+         <li>
+            <a href="#iatkos-ardhas">Première victoire: iATKOS sur
+            A.R.D.-NAS</a>
+         </li>
+         <li>
+            <a href="#iatkos-drake">iATKOS se plante la pomme comme
+            une poire</a>
+         </li>
+         <li>
+            <a href="#hazard">Pourquoi le léopard et pas le
+            lion?</a>
+         </li>
+         <li>
+            <a href="#captcha">Le CAPTCHA qui fit tout basculer</a>
+         </li>
+         <li>
+            <a href="#appStore">Accéder au Mac App Store,
+            supposément simple mais foutument compliqué pour
+            moi!</a>
+         </li>
+         <li>
+            <a href="#unibeast">UniBeast</a>
+         </li>
+         <li>
+            <a href="#ml">Mountain Lion</a>
+         </li>
+         <li>
+            <a href="#emacs">GNU Emacs: plus difficile que
+            prévu</a>
+         </li>
+         <li>
+            <a href="#fail">Des ratés avec le son et la vidéo</a>
+         </li>
+      </ul>
+      <h1>
+         <a id="hack101" name="hack101">Hackintosh 101</a>
+      </h1>
+      <p>
+         Alors ce que je voulais, c'était un Hackintosh,
+         c'est-à-dire une machine PC tout à fait ordinaire capable
+         de tromper Mac OS X de sorte qu'il pense s'exécuter sur un
+         vrai Mac. Et je finis par vouloir le faire dans une
+         machine virtuelle.
+      </p>
+      <p>
+         La première ressource pour ce genre de projet est <a
+         href="http://www.hackintosh.com/">Hackintosh.com</a>. On y
+         trouve des procédures indiquant comment installer Mac OS X
+         sur un PC, comment sélectionner son matériel pour espérer
+         une compatibilité avec Mac OS X et des liens vers des
+         forums.
+      </p>
+      <p>
+         En gros, la technique consiste à utiliser un gestionnaire
+         d'amorçage spécial, appelé Chameleon ou Chimera, pour
+         recréer un environnement Mac, puis ensuite passer la main
+         au noyau Mach de Mac OS X. Cela permet de démarrer
+         l'installeur original d'Apple, sur son PC, mais aussi le
+         système nouvellement installé sur le disque dur. Il faut
+         ensuite installer des modules complémentaires, appelés
+         <em>kexts</em>, pour prendre son matériel en charge.
+         Certains logiciels comme MultiBeast permettent
+         d'automatiser cette tâche. Pour une prise en charge
+         complète du matériel, il faut aussi une table de
+         description du matériel adaptée à la carte mère et à Mac
+         OS X; on appelle cette table DSDT.
+      </p>
+      <p>
+         La procédure d'amorçage avec Chameleon varie d'une version
+         à l'autre du système. Dans le temps de Leopard et Snow
+         Leopard où il était possible d'obtenir Mac OS X sur DVD,
+         il suffisait de se graver une copie du logiciel <a
+         href="http://tonymacx86.blogspot.ca/2010/04/iboot-multibeast-install-mac-os-x-on.html">iBoot</a>,
+         démarrer la machine avec cela, puis changer de disque pour
+         insérer le DVD d'installation. L'opération effectuée, il
+         faut ensuite redémarrer avec iBoot sous Mac OS X et
+         appliquer un outil d'installation tel que <a
+         href="http://tonymacx86.blogspot.ca/2010/02/multibeast-ultimate-post-installation.html">MultiBeast</a>
+         pour installer Chameleon de façon permanente.
+      </p>
+      <p>
+         Comment obtenir le DVD d'installation? Eh bien il
+         suffisait de le commander en ligne sur le Apple Store. Les
+         plus audacieux pouvaient aussi tenter d'aller le chercher
+         dans un magasin Apple, mais je trouvais ça un peu gênant à
+         faire, surtout si on commence à me poser des questions à
+         propos du Mac sur lequel j'ai à mettre à jour ou installer
+         ça! Après tout, Mac OS X est préinstallé alors pourquoi
+         aurais-je besoin du DVD? Mais à présent, le disque n'est
+         plus disponible alors la question ne se pose plus.
+      </p>
+      <p>
+         Depuis Lion, les choses sont devenues plus compliquées
+         puisqu'il n'y a plus de DVD d'installation. Il est certes
+         possible de commander, sur le Apple Store, une clé USB
+         contenant Lion, mais aucun médium avec Mountain Lion, le
+         plus récent système d'Apple, n'était disponible en août
+         2012. La façon idéale d'obtenir Lion et Mountain Lion est
+         d'utiliser le Mac App Store... depuis un vrai Mac ou un
+         autre Hackintosh! Ça a été une grande frustration pour moi
+         et j'ai failli abandonner le projet à cause de ça. En plus
+         de télécharger Lion ou Mountain Lion depuis le App Store,
+         ce qui est très simple à faire surtout pour un utilisateur
+         de Mac avec un peu d'expérience, il faut faire passer ça
+         dans un autre logiciel nommé <a
+         href="http://tonymacx86.blogspot.ca/2011/10/unibeast-install-mac-os-x-lion-using.html">UniBeast</a>
+         afin d'obtenir un médium d'installation USB amorçable sur
+         un PC. Ainsi, il me fallait trouver non pas un utilisateur
+         de Mac régulier, mais quelqu'un de suffisamment geek et
+         aventureux pour tenter la manoeuvre. Toutes les personnes
+         que je connaissais et qui possédaient un Mac étaient
+         susceptibles d'être dépassées par cette tâche ou avaient
+         d'autres priorités que m'aider dans un projet farfelu de
+         Hackintosh et, au lieu de me le dire clairement,
+         m'auraient promis de le faire un moment donné. Je ne
+         pouvais pas compter là-dessus, aussi simple que ça.
+      </p>
+      <p>
+         Par chance, j'ai découvert une alternative: les distros.
+         La plus utilisée est <a
+         href="http://iatkos.me/">iATKOS</a>, mais il y a aussi <a
+         href="http://leohazard.com/">Hazard</a>. Ce sont des
+         versions de Mac OS X qui ont été piratées et hackées pour
+         les rendre compatibles PC sans avoir à utiliser UniBeast
+         ou MultiBeast et, surtout, sans devoir posséder un Mac
+         pour préparer le médium d'installation! Malheureusement,
+         ces distros souffrent parfois de problèmes et
+         d'instabilité et dans ce temps-là, la victime se trouve
+         seule avec un problème qui lui est souvent spécifique.
+         Mais une distro, ça suffit comme Hackintosh pour exécuter
+         Unibeast, et c'était ça la faille qui m'a permis d'obtenir
+         Mountain Lion!
+      </p>
+      <p>
+         Comme vous allez voir dans les sections suivantes, j'ai eu
+         besoin de <em>toutes</em> ces méthodes (à part le vrai
+         Mac) pour passer progressivement de Snow Leopard à
+         Mountain Lion en passant par Lion. L'opération nécessita
+         deux machines différentes, une clé USB, un disque dur
+         externe, beaucoup d'essais et erreurs et fut une
+         épouvantable épreuve de patience et de persévérance. Au
+         bout du compte, je me demande si ça n'aurait pas été moins
+         coûteux d'acheter un vrai Mac.
+      </p>
+      <h1>
+         <a id="iatkos-ardhas" name="iatkos-ardhas">Première
+         victoire: iATKOS sur A.R.D.-NAS</a>
+      </h1>
+      <p>
+         La découverte de iATKOS L2 changea la donne, car
+         jusque-là, ça semblait désespéré. Je n'avais pas du tout
+         envie de payer plus de 30$ pour obtenir le DVD de Snow
+         Leopard, encore 20$ pour le téléchargement de Lion, sans
+         aucune certitude que ça n'aboutisse. Et c'était sans
+         savoir que le DVD de Snow Leopard n'était plus disponible.
+         La distribution iATKOS me permettait de sauter directement
+         à Lion, sans passer par l'étape Snow Leopard, et sans
+         débourser un sou!
+      </p>
+      <p>
+         Samedi, 14 juillet 2012, bien avant l'achat du Drake, j'ai
+         réussi à installer iATKOS L2 dans une machine virtuelle.
+         Obtenir iATKOS a été difficile, car j'eus du mal à trouver
+         le lien pour le télécharger. Puis, surprise: j'avais un
+         fichier DMG pour Mac plutôt qu'une image ISO. Je constatai
+         alors qu'il serait difficile, voire impossible, de graver
+         ce fichier sous Linux sur un DVD!!! Par chance, je finis
+         par trouver <tt>dmg2img</tt> qui fit le travail. Il
+         s'agissait de s'assurer que le fichier en sortie ait une
+         extension ISO et hop, Brasero l'accepta et me fit un DVD
+         avec.
+      </p>
+      <p>
+         J'ai inséré ce disque dans le lecteur blu-ray de <a
+         href="../ard-nas/index.xhtml">A.R.D.-NAS</a>, mon HTPC, à
+         ce moment la seule machine en ma possession, outre le
+         laptop de Nuance, possédant un processeur avec les
+         extensions de virtualisation. Résultat: ça plantait au
+         démarrage, même pas moyen d'entreprendre l'installation!
+         J'ai essayé un nombre incalculable de fois, changé des
+         paramètres en vain, me suis demandé à quoi bon toutes ces
+         options puisqu'elles ne foutaient rien, puis j'ai trouvé
+         le bon réglage. D'abord, j'ai testé le disque en démarrant
+         l'ordinateur réel avec. J'ai alors atteint l'installeur de
+         Lion, mais je ne voulais pas effacer mon disque dur avec
+         ça si bien que je redémarrai la machine. Le problème était
+         que j'avais tenté d'optimiser en mettant un lecteur DVD
+         SATA, mais iATKOS n'aimait pas; il fallait que le lecteur
+         DVD soit IDE. Je fis la modification et je pus atteindre
+         l'installeur. J'ai alors pu installer iATKOS!
+      </p>
+      <p>
+         Mais pour toute récompense, j'eus un système qui plantait
+         au démarrage! J'ai dû changer la configuration audio de la
+         machine virtuelle, remplaçant Intel HD par AC97. Donc si
+         Mac OS X n'aime pas la carte son, pouf, pas de démarrage
+         sans son, rien! Cela grugea sérieusement ma confiance en
+         la possibilité d'obtenir un Hackintosh à partir d'une
+         machine neuve. En plus, la fenêtre de Mac OS X n'occupait
+         pas toute la surface d'affichage, le pointeur de la souris
+         était minuscule, les caractères trop petits et beaucoup de
+         touches ne fonctionnaient pas du tout! J'ai trouvé une
+         solution uniquement pour la souris, si bien qu'il restait
+         <em>beaucoup</em> de chemin à faire avant de pouvoir
+         explorer Mac OS X! En fait, j'ai pu agrandir le curseur
+         seulement, mais la souris sans fil, possiblement
+         défectueuse, bougeait de plus en plus par à-coups. C'était
+         à rendre dingue, et seulement le début!
+      </p>
+      <h1>
+         <a id="iatkos-drake" name="iatkos-drake">iATKOS se plante
+         la pomme comme une poire</a>
+      </h1>
+      <p>
+         Encouragé par ma victoire (très) partielle sur A.R.D.-NAS
+         et emballé par la performance de ma machine virtuelle
+         Ubuntu fraîchement créée, dimanche, 12 août 2012, j'ai
+         créé une nouvelle machine virtuelle dans laquelle j'ai
+         tenté d'installer iATKOS L2, comme je l'avais fait sur
+         A.R.D.-NAS. Par contre, cette fois, iATKOS refusa de
+         démarrer. Plutôt que l'installeur, j'avais une belle pomme
+         au centre de l'écran et plus rien. J'ai fait
+         d'innombrables essais, tenté de modifier des paramètres,
+         abaissé le nombre de processeurs à un seul, changé la
+         quantité de mémoire, tenté de configurer le lecteur DVD
+         comme SATA au lieu d'IDE, en vain. Absolument rien de ce
+         que je pensai essayer n'eut le moindre effet. Puis au
+         démarrage de Chamelon, j'appuyai sur une touche de
+         direction, ce qui stoppa l'amorçage automatique. Je pus
+         alors utiliser les flèches pour choisir le mode Verbose.
+         J'obtins des messages d'erreur, puis ça se bloqua à
+         <tt>Starting Darwin...</tt> ou quelque chose du genre. Il
+         n'y eut rien à faire pour obtenir plus d'informations.
+      </p>
+      <p>
+         En plus, VirtualBox souffre de frustrants problèmes de
+         gestion du clavier. De temps en temps, plus aucune touche
+         ne fonctionne ou Alt-Tab agit comme si Alt restait
+         enfoncée. C'est comme si VirtualBox interceptait les
+         commandes du clavier et ne les relayait plus correctement
+         au système d'exploitation même la machine virtuelle
+         éteinte! Parfois, basculer vers un autre espace de travail
+         avec VirtuaWin arrange les choses tandis que d'autres,
+         VirtuaWin est paralysé et ne répond plus à aucune
+         commande. Il semble donc y avoir une mauvaise interaction
+         entre VirtualBox et VirtuaWin. Ça pourrait à terme tuer
+         mon système de machines virtuelles, le rendant trop
+         désagréable à utiliser. Ça reste à voir.
+      </p>
+      <p>
+         À bout de nerfs, au bord du découragement total, j'ai
+         tenté ma chance avec VMWare Player. Chaque fois que je
+         faisais des recherches sur la virtualisation de Mac OS X,
+         ça retombait inlassablement sur ça. Mais les guides
+         expliquaient des manipulations à faire sous une version
+         d'évaluation de VMWare Workstation, qu'il fallait ensuite
+         acheter ou tenter en bric à brac de convertir la machine
+         pour l'utiliser sous VMWare Player! Néanmoins, j'essayai
+         la méthode naïve: démarrer iATKOS sous VMWare Player. Il
+         se produisit exactement la même chose qu'avec VirtualBox,
+         à l'exception que VMWare affichait un message selon lequel
+         le processeur de la machine virtuelle s'était arrêté, puis
+         absolument plus rien ne pouvait fermer VMWare. Tout était
+         bloqué de sorte qu'il fallait appuyer sur CTRL-Alt-Delete,
+         accéder au gestionnaire de tâches et tuer VMWare de force!
+      </p>
+      <p>
+         Ainsi, VMWare ne faisait pas mieux que VirtualBox si bien
+         que je le supprimai sans aucun regret. Inutile d'avoir
+         plusieurs gestionnaires de machines virtuelles installés.
+         Ça peut même être nuisible si, par malheur, les deux se
+         mettent en fonction simultanément. Mais VMWare me laissa
+         un indice qui allait être important pour la suite: quelque
+         chose était allé de travers avec le processeur virtualisé.
+         Se pouvait-il que la virtualisation expose au système
+         invité un processeur Ivy Bridge qui ferait planter Lion,
+         normalement incompatible avec ça? Mes lectures que j'ai
+         faites par la suite au sujet de la virtualisation, tout en
+         étant très intéressantes, semblaient appuyer cette
+         hypothèse sans toutefois la confirmer réellement.
+      </p>
+      <p>
+         Dans ce cas, il existait deux solutions possibles: une
+         distro pour Mountain Lion, compatible Ivy Bridge puisque
+         les nouveaux Mac ont ce genre de processeurs, ou encore la
+         méthode UniBeast. A.R.D.-NAS exécutant Lion, il serait
+         possible d'aller chercher Mountain Lion sur le App Store
+         et construire le médium d'installation! Par contre, à
+         cause de la souris sans fil qui bouge par à-coups,
+         l'opération risquait d'être très ardue. Je n'avais que peu
+         envie de la tenter.
+      </p>
+      <h1>
+         <a id="hazard" name="hazard">Pourquoi le léopard et pas le
+         lion?</a>
+      </h1>
+      <p>
+         J'ai beaucoup fouillé, beaucoup cherché, et peu trouvé. Je
+         ne pouvais m'empêcher de repenser à un message envoyé par
+         mon frère quelques semaines plus tôt, disant qu'installer
+         Mac OS X sur un PC était facile selon un de ses amis. Si
+         c'est facile pour un professeur, pourquoi est-ce si
+         difficile pour un expert en informatique? J'en vins à
+         croire que c'était moi le problème et cela faillit me
+         plonger dans une crise existentielle profonde. Mais avant,
+         je pensai à ceci: c'était peut-être facile <em>avant</em>,
+         avec Snow Leopard. Avec Lion et Mountain Lion, Apple a
+         peut-être ajouté des mécanismes pour rendre les choses
+         plus difficiles, étant donné que la firme ne veut pas que
+         les gens se mettent à installer Mac OS X partout.
+      </p>
+      <p>
+         C'est pourquoi j'ai exploré la possibilité d'installer
+         Snow Leopard dans ma machine virtuelle. Je suis tombé sur
+         Hazard, une autre distro avec cette version de Mac OS X.
+         J'ai téléchargé ça, j'ai démarré l'image ISO dans la
+         machine virtuelle et j'ai pu accéder à l'installeur.
+         C'était déjà mieux! J'ai procédé à l'installation,
+         redémarré et constaté avec agacement que ça affichait
+         encore un message d'erreur qu lieu de s'amorcer.
+      </p>
+      <p>
+         J'ai refait l'installation, pensant que ça avait planté
+         pendant la tentative précédente et redémarré sans rien
+         afficher, mais j'eus une erreur dès le début cette fois.
+         C'est qu'il fallait effacer le disque dur virtuel de
+         nouveau avant de tenter d'installer. Je le fis, la
+         réinstallation se passa bien, mais l'amorçage échoua.
+         Quelques recherches plus tard, j'appris l'existence d'un
+         bouton de personnalisation sur lequel on pouvait appuyer
+         pendant l'installation. Je le fis et découvris des paquets
+         optionnels. Même le bootloader Chameleon était optionnel
+         et désactivé. Je l'activai et procédai à l'installation
+         pour la énième fois. Elle fut de nouveau vaine.
+      </p>
+      <p>
+         Je ne sais pas exactement comment et pourquoi ça a
+         fonctionné au final! J'ai à tout hasard tenté d'activer
+         l'EFI dans la machine virtuelle et redémarré l'installeur.
+         Ça a démarré comme sur un vrai Mac, mais ça a pris dix
+         fois plus de temps, après quoi j'étais de nouveau dans
+         l'installeur. J'ai réinstallé pour la énième fois, puis
+         démarré. Encore une fois, ce fut très long, puis j'eus un
+         message d'erreur énigmatique que j'ai oublié et qui ne
+         disait absolument rien. J'ai à tout hasard désactiver
+         l'EFI et là, le démarrage de Mac OS X a réussi!
+      </p>
+      <p>
+         Comme sur mon HTPC, je n'avais pas l'audio et la fenêtre
+         ne s'agrandissait pas pour occuper tout l'écran. Ceci est
+         dû au fait qu'aucune extension invité n'est disponible
+         pour Mac OS X, contrairement au cas de Linux et Windows.
+         J'ai par contre trouvé une solution pour l'audio:
+         configurer le son virtuelisé sur Intel HD Audio, puis
+         installer VoodooHDA sous Mac OS X à l'aide de MultiBeast.
+         Bien que MultiBeast ait causé un kernel panic pour rien
+         après l'installation, il a effectivement installé
+         VoodooHDA de sorte qu'après, j'avais le son! Il fallait
+         par contre choisir la sortie audio dans les préférences
+         système.
+      </p>
+      <p>
+         J'ai agrandi le pointeur de la souris en utilisant les
+         options d'accès universel et fini par découvrir des
+         touches de raccourci pour naviguer dans le système.
+         D'abord, la touche Commande a été associée à la touche
+         Windows de mon clavier tandis que la touche Option du Mac
+         correspond à la touche Alt de mon clavier. La découverte
+         de cette correspondance m'a permis d'activer le zoom:
+         Commande+Option+8 pour activer la fonctionalité, puis
+         Commande+Option+= pour zoomer et Commande+Option+- pour
+         dézoomer. Je découvris aussi quelques autres touches qui
+         fonctionnaient, mais je n'ai toujours pas trouvé
+         l'association pour la touche Eject, nécessaire pour
+         certains raccourcis clavier.
+      </p>
+      <p>
+         Je songeai en rester là pour le moment et explorer Mac OS
+         X à travers Snow Leopard, dans cette machine virtuelle.
+         Deux semaines passèrent ainsi. J'ai exploré un peu, mais
+         je ne pouvais cesser d'essayer de savoir pourquoi ça ne
+         fonctionnait pas avec Lion. Une théorie possible est que
+         Snow Leopard s'exécutait en 32 bits (j'ai découvert ça une
+         bonne fois en exécutant <tt>uname -a</tt>) tandis que Lion
+         sous iATKOS était en 64 bits. L'incompatibilité avec le
+         Ivy Bridge ne se manifeste peut-être qu'en 64 bits, quand
+         le mode Long du processeur est activé. Malgré tout, cet
+         environnement intermédiaire m'a permis de m'initier à Mac
+         OS X, ce qui fut nécessaire pour la suite.
+      </p>
+      <h1>
+         <a id="captcha" name="captcha">Le CAPTCHA qui fit tout
+         basculer</a>
+      </h1>
+      <p>
+         Vendredi, 24 août 2012, j'ai voulu envoyer un message sur
+         le forum de iATKOS afin d'avoir une meilleure idée
+         pourquoi cela ne fonctionnait pas sur le Drake tandis que
+         j'avais eu un démarrage fructueux sous A.R.D.-NAS. Mais
+         avant de poster, je devais m'enregistrer. Résigné,
+         j'entrai un nom d'utilisateur, un mot de passe, encore mon
+         adresse e-mail, puis il y a eu un code de confirmation
+         visuelle, aussi appelé CAPTCHA. Il faut déchiffrer des
+         lettres ou des chiffres d'une image et les écrire pour
+         confirmer que l'enregistrement est effectué par un humain
+         et non une machine. À quelques reprises, j'ai eu de la
+         difficulté avec ce genre d'images, mais après deux ou
+         trois tentatives, ça finissait par passer. Cette fois, il
+         n'y eut <strong>rien</strong> à faire! Il y avait
+         tellement de lignes et les lettres étaient de couleurs
+         différentes à tel point que je ne pouvais distinguer
+         qu'une lettre ou un nombre.
+      </p>
+      <p>
+         Après un nombre incalculable d'essais avec l'insoluble
+         CAPTCHA, j'ai envoyé un message sur la page Facebook de
+         iATKOS pour faire part du problème et essayer de savoir si
+         c'était normal. Peut-être était-ce moi seul qui ne pouvais
+         déchiffrer l'image, ou peut-être était-ce une image
+         stéréoscopique nécessitant les deux yeux pour être
+         décodée. J'ai aussi tenté de chercher un moyen de briser
+         le CAPTCHA, trouver un logiciel capable de le décoder. Je
+         n'ai eu que de fausses pistes menant à des liens brisés.
+         J'ai même transféré le CAPTCHA dans Paint.net et lui ai
+         appliqué des effets pour détecter les contours, réduire le
+         bruit, en vain.
+      </p>
+      <p>
+         Après avoir à ce point galéré, j'ai compris que je
+         n'aurais aucune aide avec iATKOS. Si ça ne fonctionne pas,
+         eh bien tant pis. Je cherchai donc une alternative et ne
+         trouvai rien, à part la méthode compliquée consistant à
+         utiliser un Mac pour créer une clé USB permettant
+         d'installer Lion ou Mountain Lion. Il allait donc falloir
+         le faire acheter un vrai Mac ou oublier ça.
+      </p>
+      <h1>
+         <a id="appStore" name="appStore">Accéder au Mac App Store,
+         supposément simple mais foutument compliqué pour moi!</a>
+      </h1>
+      <p>
+         Ainsi, je devais obtenir Mountain Lion depuis le App Store
+         de Apple. Pas de problème, pensai-je, je possède un «Mac»
+         virtuel sur lequel s'exécute Show Leopard, la première
+         version de Mac OS X à offrir le Mac App Store. Je tentai
+         donc d'y accéder de là. Par contre, j'eus beau chercher,
+         il n'y avait aucun App Store sur la machine! J'ai encore
+         fouillé sur Internet et appris qu'il était possible de
+         désinstaller le App Store simplement en le supprimant du
+         dossier Applications. C'est probablement cela que les
+         développeurs de Hazard ont fait, jugeant que le App Store
+         n'est pas nécessaire et l'installation d'applications
+         achetées par le biais de ce service pourrait en théorie
+         perturber l'amorçage du Hackintosh. Si c'est vrai, il en
+         va de même pour n'importe quelle application, alors
+         va-t-on se restreindre aux logiciels intégrés à Mac OS X
+         et considérer la machine comme un simple PDA avec un
+         ensemble de logiciels prédéfinis impossible à étendre? Pas
+         question!
+      </p>
+      <p>
+         Je tentai de savoir si je pouvais accéder aux applications
+         du App Store sans un Mac, encore en vain. Ainsi, il ne
+         restait qu'une solution: tenter avec iATKOS L2 installé
+         sur mon HTPC. Je le fis samedi, 25 août 2012. Ce fut une
+         opération très pénible, car la souris bougeait par à-coups
+         de sorte qu'il était très difficile, parfois presque
+         impossible, de cliquer sur les éléments de l'interface
+         trop petits. J'ai même fini par devoir abaisser la
+         résolution de l'écran et utiliser la souris filaire de mon
+         ordinateur principal pour enfin réussir à démarrer le
+         téléchargement de Mountain Lion. Le App Store lui-même m'a
+         posé des difficultés aussi. Je devais réviser les
+         informations de paiement puisque c'était ma première
+         utilisation du service sur cette «machine». Eh bien quand
+         je réussis enfin à saisir le numéro de confirmation de ma
+         carte VISA et cliquer sur le bouton de validation, j'eus
+         un message comme quoi mon compte avait été modifié pendant
+         l'opération et que je devais réessayer plus tard. Je dus
+         ainsi tout recommencer, mais la seconde tentative fut la
+         bonne.
+      </p>
+      <p>
+         Ensuite, j'ai trouvé le résultat du téléchargement dans le
+         répertoire Applications et je l'ai archivé dans le format
+         ZIP, en utilisant la commande Zip sur le terminal.
+         Utilisant Scp, je pus ensuite recopier le fichier ZIP sur
+         le disque dur de mon HTPC, la machine réelle. C'est par ce
+         tunnel que je ressortis le fruit de mes efforts de
+         l'enclave dans laquelle se trouvait mon Mac virtuel.
+         J'aurais peut-être pu le transférer directement vers le
+         Drake, mais je risquis d'avoir des problèmes réseau et le
+         transfert de 4Go par home plug networking est trop long.
+         Je voulais donc le copier sur une clé USB. Je pus le
+         faire, mais vers la fin, Linux me sortit un message
+         d'erreur comme quoi le fichier était trop gros. Il y avait
+         pourtant suffisamment d'espace sur la clé USB. Puis je
+         compris: FAT32. Le fichier pesant plus de 4Go, il ne
+         pourrait pas être copié sur un support formaté en FAT32,
+         comme par exemple ma clé USB. Je devais donc reformater ma
+         clé USB ou utiliser mon disque dur externe, dont le
+         système de fichiers est NTFS. J'optai pour cela et ça
+         fonctionna.
+      </p>
+      <p>
+         C'est ainsi que je me suis procuré un lion des montagnes
+         sauvage, incapable de survivre hors de sa terre natale. Il
+         fallait donc l'adapter en le croisant avec un caméléon, ce
+         que j'allsis faire sur mon deuxième Mac virtuel, celui
+         exécutant Snow Leopard; ce serait plus facile que sur mon
+         HTPC.
+      </p>
+      <h1>
+         <a id="unibeast" name="unibeast">UniBeast</a>
+      </h1>
+      <p>
+         Dimanche, 26 août 2012, je transférai le fichier ZIP de
+         Mountain Lion sur le Drake puis utilisai Scp pour le
+         copier dans la machine virtuelle exécutant Snow Leopard.
+         Par contre, je dus pour que la copie réussisse activer le
+         serveur SSH sur Mac OS X. Je ne me rappelle plus
+         exactement comment j'y suis arrivé, probablement en
+         fouillant dans les options réseau des préférences
+         systèmes.
+      </p>
+      <p>
+         J'ai ensuite tenté d'utiliser Unzip pour décompresser
+         l'archive et obtenu un message d'erreur. J'ai vérifié
+         l'archive originale avant le transfert dans la machine
+         virtuelle et elle était correcte. J'ai tenté de refaire le
+         transfert et ça a donné le même résultat. Enfin, j'ai
+         double-cliqué sur l'archive dans le Finder et ça l'a
+         décompressée. Donc le fichier ZIP était correct! Il était
+         seulement incompatible avec la version de Unzip dans Snow
+         Leopard. La chose faite, j'ai copié les données
+         décompressées dans le répertoire Applications du disque
+         dur.
+      </p>
+      <p>
+         Vint ensuite le temps de démarrer UniBeast.
+         Malheureusement, ce dernier voulait créer une clé USB pour
+         amorcer Mountain Lion plutôt que copier le contenu du
+         système patché dans un répertoire. Mais en fait, ça aurait
+         pu fonctionner avec n'importe quel disque dur, pas juste
+         une clé USB. Il aurait suffi que je crée un second disque
+         dur dans la machine virtuelle et que j'applique les
+         instructions données exactement comme si c'était une clé
+         USB. Ne sachant pas que je pouvais faire ainsi, j'ai
+         inséré une vraie clé USB de 8Go, puis j'ai indiqué à
+         VirtualBox de la rendre disponible sous le système Mac
+         hébergé. J'ai ensuite utilisé l'Utilitaire Disques sous
+         Mac pour créer une partition occupant toute la clé dans le
+         format Mac journalisé et avec une table MBR. Puis j'ai
+         démarré UniBeat et lui ai indiqué de travailler sur cette
+         clé. Ça a été très long, plus de vingt minutes. J'ai bien
+         cru que ça n'en finirait pas. J'ai même fini par faire des
+         recherches sur Internet et découvert des posts de forums
+         selon lesquels ça avait bloqué à l'infini pour certains.
+         Il y a eu des cas où la machine a niaisé pendant pluus de
+         23 heures, sans jamais cesser d'effectuer des accès à la
+         clé USB, au point de la faire chauffer. Il y avait lieu de
+         craindre que ce serait plus lent encore depuis une machine
+         virtuelle! Mais ces cas survenaient sous Lion. Ainsi, si
+         j'avais tenté d'exécuter UniBeast sur mon HTPC, j'aurais
+         peut-être eu ce problème! Snow Leopard était peut-être
+         nécessaire pour obtenirr la clé UniBeaast! En effet, par
+         chance, après un temps fou et l'écoute d'un épisode de
+         Fringe sur mon HTPC, UniBeast avait fini!
+      </p>
+      <p>
+         Après tout ça, je disposais d'un lion des montagnes
+         génétiquement modifié possiblement capable de survivre
+         hors de son environnement natal! Le chargeur Chameleon
+         était là, sur la clé USB, avec l'installeur original de
+         Mountain Lion. En plus, cette clé USB pourrait servir à
+         installer Mac OS X sur une machine réelle.
+      </p>
+      <h1>
+         <a id="ml" name="ml">Mountain Lion</a>
+      </h1>
+      <p>
+         Lundi, 27 août 2012, il était grand temps pour moi de
+         tester le fruit de mes efforts. Malheureusement, un nouvel
+         obstacle se dressa contre moi: VirtualBox ne permettait
+         pas l'amorçage de clés USB! J'ai cherché longtemps pour
+         trouver un moyen de transférer l'installeur de Mountain
+         Lion sur DVD, mais ce fut vain. J'essayai en cherchant
+         pour transférer un système sur clé USB vers un système sur
+         DVD: je tombai sur des instructions pour faire l'inverse.
+         Constatant qu'il n'y aurait encore une fois aucune
+         solution simple et souhaitant tester ma clé USB avant de
+         partir pour une commission, j'ai démarré cette dernière
+         sur ma machine réelle, après avoir reconfiguré l'UEFI pour
+         réactiver le démarrage classique BIOS. J'aboutis alors
+         dans l'installeur de Mountain Lion! Mais après, je ne
+         pouvais pas revenir sous Windows! J'ai bien cru que
+         j'allais devoir tout réinstaller, mais en fait il a suffi
+         que Windows soit le premier élément dans la liste
+         d'amorçage. J'étais sauvé, et ma clé USB semblait
+         fonctionner! Ce fut une bonne chose que ce test réussisse,
+         car j'avais affaire au centre-ville ce jour et
+         envisageais, tanné par tous ces problèmes, aller me
+         chercher un vrai Mac si je rencontrais encore un autre
+         mur!
+      </p>
+      <p>
+         C'est seulement mardi, 28 août, que j'eus le temps de
+         pousser plus loin. J'ai tenté une <a
+         href="http://wiki.vanessalionel.fr/index.php?option=com_content&amp;view=article&amp;id=54:virtualbox-booter-sur-une-cle-usb&amp;catid=5:autres&amp;Itemid=6">procédure</a>
+         pour ajouter un disque dur brut sous VirtualBox et j'ai
+         associé ce disque à ma clé USB. L'idée était de faire
+         passer ma clé USB pour un disque dur et il y avait des
+         instructions pour y arriver sur Internet. Malheureusement,
+         cela échoua encore! Il a fallu que je démarre l'Invite de
+         Commandes en mode Administrateur pour pouvoir créer le
+         disque brut, puis VirtualBox en mode Adminsitrateur pour
+         pouvoir l'utiliser. Ainsi, cette nouvelle difficulté était
+         posée par la fonction de contrôle des comptes utilisateurs
+         de Windows 7, que je refusais de désactiver bien que ça
+         semble une pratique courante. À quoi bon avoir Windows 7
+         si on doit désactiver toutes ses nouveautés (Aero, UAC, 64
+         bits, etc.) pour en faire un Windows XP alourdi? Mais
+         après tout ça, je pouvais démarrer l'installeur de
+         Mountain Lion dans la machine virtuelle!
+      </p>
+      <p>
+         L'installation de Mac OS X se passa très bien. Ensuite, je
+         pouvais démarrer le système, mais il fallait toujours la
+         clé USB pour y arriver. Pour lever cette contrainte, je
+         devais exécuter MultiBeast afin d'installer Chimera sur le
+         disque dur virtuel. Malheurusement, l'exécution de
+         MultiBeast échoua, car Mountain Lion bloquait les
+         applications provenant de développeurs non reconnus par
+         Apple! Il y avait par chance une option que je pus trouver
+         pour désactiver cette limitation, et là je pus exécuter
+         MultiBeast. Cela me permit d'installer Chimera et
+         VoodoHDA.
+      </p>
+      <p>
+         Après tout ça, je possédais un véritable Mac virtuel! Il
+         se pouvait par contre que des problèmes insolubles ou une
+         performance inacceptable me forcent à tout réinstaller,
+         cette fois sur une machine réelle. Mais ma clé USB
+         Mountain Lion va me permettre de le faire!
+      </p>
+      <h1>
+         <a id="emacs" name="emacs">GNU Emacs: plus difficile que
+         prévu</a>
+      </h1>
+      <p>
+         Samedi, 15 septembre 2012, j'ai enfin réussi à installer
+         quelques applications sur mon Mac virtuel, mais j'ai aussi
+         eu un nombre incalculable de difficultés. Les caractères
+         sont décidément trop petits, mais il y a aussi de nombreux
+         problèmes avec les applications. La roulette de la souris
+         fonctionne de façon incorrecte, défilant parfois vers le
+         haut, parfois vers le bas, peut-être en fonction de
+         l'application utilisée, peut-être pas. C'est à croire
+         qu'Apple veut décourager son utilisation en faveur des
+         barres de défilement ou du défilement à deux doigts sur le
+         trackpad intégré aux MacBook.
+      </p>
+      <p>
+         J'ai eu droit à une véritable chaîne de bogues. Pour
+         atteindre mon but final, qui était d'ouvrir mon journal
+         intime et y écrire un peu, je devais d'abord accéder à mes
+         fichiers sur l'hôte Windows, mais Mac OS X refusait de s'y
+         brancher. J'ai fait des recherches et eu de problèmes avec
+         la souris. La roulette ne fonctionnait pas bien, en partie
+         à cause de Mac OS X, en partie à cause de VirtualBox.
+      </p>
+      <p>
+         Mac OS X fait en sorte que défiler vers le bas effectue
+         parfois l'action correcte, parfois l'action inverse; il
+         faut valider visuellement, à chaque fois, dans quel sens
+         le défilement a lieu, ou cesser d'utiliser la roulette. Je
+         crois que c'est une nouvelle «fonctionalité» de Mountain
+         Lion.
+      </p>
+      <p>
+         VirtualBox, pour sa part, fait en sorte que parfois, la
+         roulette cesse tout simplement de fonctionner! J'ai
+         découvert que c'est un bogue qui sévit depuis plus de
+         <em>trois</em> ans!!! J'étais estomaqué. Le seul
+         contournement est d'éviter de me promener de la fenêtre
+         virtuelle au système hôte trop souvent. En plus de ce
+         bogue, la souris se coinçait régulièrement dans les bords
+         de l'écran ou le pointeur se décalait légèrement lors d'un
+         clic, rendant les opération très difficiles, pas seulement
+         le défilement. C'était le genre de problèmes que j'avais
+         eus sur mon HTPC avec iATKOS, en moins pire. Ces problèmes
+         avec VirtualBox sévissent aussi sous Linux; ils ne sont
+         pas spécifiques à Mac OS X.
+      </p>
+      <p>
+         En plus, en faisant mes recherches sur Google, je me suis
+         rendu compte que la roulette de la souris activait
+         périodiquement un mode auto-scroll dans Google Chrome
+         impossible à désactiver. Il faudrait que je repasse à
+         Firefox et perde tous mes marque-pages!!! Au pire, je
+         pourrais tenter de les transférer manuellement de Chrome
+         vers Firefox, mais je perdrais alors la synchronisation
+         avec les marques-pages sur ma tablette Android 4, à moins
+         d'utiliser Firefox Home comme «navigateur». Autre
+         possibilité: installer un pilote tel que <a
+         href="http://plentycom.jp/en/steermouse/">Steermouse</a>
+         et <strong>payer</strong> pour complètement désactiver la
+         roulette! Ainsi, tout revenait à inhiber le fonctionnement
+         de la roulette de la souris. Par chance, il existait une
+         solution simple: rebrancher ma souris précédente. Elle est
+         moins précise, mais au moins le bouton du centre sous la
+         roulette est moins sensible et je n'ai plus eu ce problème
+         d'auto-scroll.
+      </p>
+      <p>
+         J'ai mis de côté les bogues de souris pour me concentrer
+         sur l'établissement d'une connexion de données entre mon
+         Mac et mon PC. Mais juste cela a causé d'infinies misères!
+         Je pensais utiliser la commande <strong>Se connecter à un
+         serveur</strong> du menu <strong>Aller</strong> dans le
+         Finder, mais cette commande était difficile d'accès
+         (caractères trop petits encore) et se contentait de me
+         cracher une erreur. J'ai été obligé de taper
+         <tt>smb://drake.local</tt> comme nom de serveur pour enfin
+         pouvoir l'avoir! Après, par chance, je pouvais accéder aux
+         fichiers depuis <tt>/Volumes/Data</tt>. Le partage réseau
+         était monté dans le système de fichiers, pas seulement
+         accessible depuis le Finder. Je pourrais donc l'atteindre
+         depuis GNU Emacs.
+      </p>
+      <p>
+         J'ai trouvé une version de <a
+         href="http://emacsformacosx.com/">GNU Emacs pour Mac OS
+         X</a> et l'ai isntallée en exécutant le fichier DMG
+         obtenu. J'ai ensuite eu d'autres problèmes pour agrandir
+         les caractères sous Emacs, une opération essentielle pour
+         pouvoir aller plus loin. J'ai commencé par copier mon
+         fichier de configuration <tt>.emacs</tt> dans mon
+         répertoire de départ sur le Mac, puis j'ai tenté de
+         démarrer l'application: rien ne s'affichait. Je devais
+         donc éditer le fichier pour lui enlever temporairement les
+         commandes de changement de police, et en insérer d'autres
+         par la suite!
+      </p>
+      <p>
+         Mais le Finder ne put JAMAIS au grand
+         <strong>JAMAIS</strong> me donner accès au fichier
+         <tt>.emacs</tt>. Comme il commence par un point, il est
+         traité comme un fichier caché et ne s'affiche alors pas.
+         Il n'y a aucun moyen de changer cela, à moins de
+         copier/coller une commande obscure depuis un site Web vers
+         le Terminal. Eh bien le copier/coller échoua à son tour!
+         Je réussis certes à copier depuis Google Chrome, mais je
+         n'eus pas le résultat de la copie lorsque je collai sur le
+         Terminal. Plus tard, j'ai découvert l'outil <a
+         href="http://www.bresink.com/osx/TinkerTool.html">TinkerTool</a>
+         qui permet d'effectuer cette configuration sans
+         copier/coller. De plus, le copier/coller fonctionne
+         effectivement depuis Chrome vers le Terminal. La cause de
+         mon échec est soit VirtualBox, soit la souris qui a tassé
+         quand j'ai cliqué sur le bouton <strong>Coller</strong>,
+         soit je suis allé trop vite, on ne sait pas.
+      </p>
+      <p>
+         Je dus finalement renommer le fichier temporairement pour
+         pouvoir l'ouvrir dans TextEdit, le modifier de là puis lui
+         redonner son nom d'origine depuis le Terminal. Ensuite,
+         GNU Emacs daigna démarrer et surtout, m'afficher quelque
+         chose. Mais à chaque fois que je voulais changer la taille
+         des caractères, ça n'affichait plus rien ou ça
+         <strong>plantait</strong>! Au moins trois fois, j'ai dû
+         forcer le logiciel à quitter depuis le Dock (clic droit
+         sur son icône, puis <strong>Forcer à quitter</strong>.
+      </p>
+      <p>
+         Par chance, j'ai découvert que ça ne plantait pas quand on
+         changeait les caractères sans maximiser la fenêtre de
+         Emacs. Je l'ai fait, puis j'ai constaté que le logiciel ne
+         sauvegardait pas les paramètres. J'ai dû utiliser la
+         commande M-X list-fontsets pour avoir un indice de la
+         police que j'avais mise, puis je l'ai copiée dans mon
+         fichier <tt>.emacs</tt> manuellement.
+      </p>
+      <p>
+         Bon, moitié du chemin faite pour arriver à mon journal
+         intime! Je devais ensuite installer GnuPG pour pouvoir le
+         décrypter. Il y avait un package précompilé capable de
+         faire mon bonheur: <a
+         href="https://www.gpgtools.org/macgpg2/index.html">MacGPG2</a>.
+         Je l'ai installé, la commande <tt>gpg</tt> était bien
+         accessible depuis le Terminal, youpi. Mais Emacs, le
+         pauvre, ne le voyait pas. J'ai dû ajouter une autre ligne
+         pour ça dans le fichier de configuration. L'inspiration
+         est venu d'une <a
+         href="http://www.moeding.net/archives/35-GNU-Emacs-and-GPGTool-on-Mac.html">autre
+         recherche sur Google</a>.
+      </p>
+      <p>
+         Puis j'ai découvert que le clavier du Mac, complètement
+         différent, allait me faire chier sous Emacs. Pas moyen de
+         faire un /, un @, etc.! Pourquoi? Parce que la saisie de
+         ces touches avec le clavier canadien français impliquait
+         la touche Alt de droite, mais sous Mac OS X, les deux
+         touches Alt étaient liées à la touche Meta de Emacs! Il ne
+         semblait y avoir aucun moyen, sauf passer au clavier
+         anglais et renoncer à tous les caractères accentués à
+         moins de les saisir avec des séquences (&amp;eacute; pour
+         faire un é sur une page Web, \'e pour obtenir un é en
+         LaTeX, ça devient pénible). Pour éviter cela, je dus
+         bidouiller encore le fichier de configuration afin que la
+         touche Meta de GNU Emacs soit la touche Commande du Mac,
+         associée sur mon clavier à la touche Windows.
+         L'inspiration vient encore d'un autre <a
+         href="http://stackoverflow.com/questions/6344389/osx-emacs-unbind-just-the-right-alt">post
+         de forum</a>. J'ai aussi essayé d'avoir un clavier
+         canadien comme sous Windows, ça a presque fonctionné, mais
+         là plus aucune touche de contrôle ne fonctionnait, pas
+         même les flèches de direction!!!
+      </p>
+      <p>
+         À la fin de cette très pénible et frustrante séance
+         d'exploration, j'avais ajouté les lignes suivantes dans
+         mon fichier <tt>.emacs</tt>:
+      </p>
+<pre>
+(set-frame-font "-apple-Menlo-medium-normal-normal-*-24-*-*-*-m-0-fontset-auto4")
+(setq mac-command-modifier 'meta)
+(setq mac-option-modifier nil)
+(add-to-list 'exec-path "/usr/local/bin")
+</pre>
+      <p>
+         J'entends déjà les puristes de Mac me dire que je n'aurais
+         pas dû tenter de faire fonctionner GNU Emacs là-dessus
+         mais plutôt utiliser un traitement de texte plus orienté
+         graphique. Malheureusement, Mac OS X ne livre que
+         TextEdit. Pour aller plus loin, il faut se tourner vers
+         LibreOffice et construire des documents dans les formats
+         OpenDocument ou, au pire, Microsoft Office. Mais je
+         dispose d'une impressionnante quantité de documents en
+         LaTeX que je ne pourrai pas convertir en OpenDocument à
+         moins d'y passer un temps interminable. À noter que je
+         n'avais pas encore entrepris d'installer LaTeX sur mon
+         Mac, ce qui me semblait une autre demi-journée de travail
+         en perspective. Mais au moins, j'avais réussi à installer
+         GNU Emacs, ouvrir mon journal intime, y écrire quelques
+         lignes et sauvegarder le fichier!
+      </p>
+      <h1>
+         <a id="fail" name="fail">Des ratés avec le son et la
+         vidéo</a>
+      </h1>
+      <p>
+         Encore une fois, je crois qu'une vidéo vaut mille mots.
+      </p>
+      <iframe width="420" height="315"
+      src="http://www.youtube.com/embed/70W6Rmt3VL4"
+      frameborder="0" allowfullscreen="1"></iframe> 
+      <p>
+         De plus, quelques jours plus tard, j'ai découvert que Mac
+         OS X sous VirtualBox se comportait très mal lorsque
+         j'activais le dashboard. C'est une nouveauté de Snow
+         Leopard accessible en appuyant sur la touche F12 et qui
+         permet d'afficher de petits gadgets. Lorsque j'ai voulu
+         ajouter un gadget, cela a pris un temps considérable,
+         suffisamment long pour que je crois que ça avait planté.
+         Mais cela a fini par fonctionner.
+      </p>
+      <p>
+         J'avais donc atteint un cul-de-sac. Rendu là, il me
+         restait trois options: abandonner mon exploration de Mac
+         OS X, acheter un véritable Mac d'Apple (probablement un
+         MacBook Air ou un MacBook Pro pour disposer d'un laptop
+         susceptible de complémenter mon PC), ou encore installer
+         Mac OS X sur une partition d'un disque dur bien réel. Tant
+         qu'à y être, j'y installerais Linux pour m'affranchir des
+         bogues présents et potentiels avec VirtualBox. Les deux
+         pages suivantes montrera que je suis rendu un peu fou, car
+         j'ai choisi l'option la plus difficile: le Hackintosh.
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

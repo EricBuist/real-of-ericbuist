@@ -1,0 +1,502 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.1//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>14.3 Configuration du PC graveur Linux</TITLE>
+<META NAME="description" CONTENT="14.3 Configuration du PC graveur Linux">
+<META NAME="keywords" CONTENT="cdwriting">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cdwriting.css">
+
+<LINK REL="previous" HREF="node68.html">
+<LINK REL="up" HREF="node66.html">
+<LINK REL="next" HREF="node70.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2070"
+  HREF="node70.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2064"
+  HREF="node66.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2060"
+  HREF="node68.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2066"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2068"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html2071"
+  HREF="node70.html">15. Analyse de disques</A>
+<B> monter:</B> <A NAME="tex2html2065"
+  HREF="node66.html">14. Introduction</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2061"
+  HREF="node68.html">14.2 Votre graveur fonctionne-t-il</A>
+ &nbsp; <B>  <A NAME="tex2html2067"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2069"
+  HREF="node106.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Sous-sections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html2072"
+  HREF="node69.html#SECTION07131000000000000000"><SPAN CLASS="arabic">14</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">1</SPAN> Activation du DMA</A>
+<LI><A NAME="tex2html2073"
+  HREF="node69.html#SECTION07132000000000000000"><SPAN CLASS="arabic">14</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">2</SPAN> Permettre l'accès au lecteur de CD-ROM/DVD-ROM par les
+  logiciels de gravure</A>
+<LI><A NAME="tex2html2074"
+  HREF="node69.html#SECTION07133000000000000000"><SPAN CLASS="arabic">14</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">3</SPAN> Configuration de CDRecord</A>
+<LI><A NAME="tex2html2075"
+  HREF="node69.html#SECTION07134000000000000000"><SPAN CLASS="arabic">14</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">4</SPAN> Configuration de CDRDAO</A>
+<LI><A NAME="tex2html2076"
+  HREF="node69.html#SECTION07135000000000000000"><SPAN CLASS="arabic">14</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">5</SPAN> Configuration de mkisofs</A>
+<LI><A NAME="tex2html2077"
+  HREF="node69.html#SECTION07136000000000000000"><SPAN CLASS="arabic">14</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">6</SPAN> Permettre aux usagers de graver</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION07130000000000000000">
+<SPAN CLASS="arabic">14</SPAN>.<SPAN CLASS="arabic">3</SPAN> Configuration du PC graveur Linux</A>
+</H1>
+
+<P>
+Un élément essentiel pour la gravure à haute vitesse réside dans
+l'activation du DMA qui n'est pas toujours effectuée par défaut.
+Afin d'autoriser les copies à la volée, nous allons
+permettre l'accès au lecteur de CD-ROM/DVD-ROM à partir des logiciels
+de gravure.
+Afin de simplifier ce qui sera déjà compliqué avec les longues lignes
+de commandes, nous allons stocker certains éléments à répéter lors de
+chaque appel dans des fichiers de configuration. Pour plus de
+convivialité, nous allons aussi rendre accessible, pour l'utilisateur,
+les outils de gravure.
+
+<P>
+
+<H2><A NAME="SECTION07131000000000000000">
+<SPAN CLASS="arabic">14</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">1</SPAN> Activation du DMA</A>
+</H2>
+
+<P>
+Normalement, l'activation du DMA est toujours effectuée par défaut,
+mais il arrive que les créateurs de distributions soient encore trop
+conservateurs. Dans sa version 9, Red Hat n'activait pas DMA pour les
+lecteurs CD/DVD, uniquement pour le disque dur. Avec les graveurs à haut
+débit, il devient indispensable d'utilser l'accès DMA pour tirer parti
+de toute la puissance disponible. Sans DMA, le processeur central sera
+surchargé à transférer les données au graveur et la probabilité
+d'interruption du flux augmentera.  Bien que les graveurs à haut débit
+savent faire face à ce genre de problèmes, la gravure en sera malgré
+tout ralentie si le DMA n'est pas activé.
+Pour vérifier si DMA est activée, en root, tapez <TT>hdparm
+  /dev/hdc</TT>. Si cette commande ne fonctionne pas, essayez
+<TT>/sbin/hdparm</TT> ou <TT>/usr/sbin/hdparm</TT>. Sous certaines
+versions de Mandrake, il vous faudra installer l'utilitaire qui, comme
+beaucoup d'autres paquetages, n'est pas installé par
+défaut par Mandrake, pour le
+plus grand désagrément des utilisateurs avancés.
+La ligne <TT>using_dma</TT> devrait comporter la valeur
+<TT>1</TT>. Si tel n'est pas le cas, il faudra modifier les fichiers
+de configuration pour qu'il en soit ainsi. En général, il faudra soit
+éditer <TT>/etc/sysconfig/harddisks</TT> ou
+<TT>/etc/sysconfig/harddiskhdc</TT> afin d'y activer l'option. Le
+fichier devrait contenir la ligne <TT>USE_DMA=1</TT> pour activer le
+DMA. Pour éviter un redémarrage, il est possible d'utiliser
+<TT>hdparm</TT> pour activer le DMA jusqu'au redémarrage:
+<TT>hdparm -d 1 /dev/hdc</TT>. Bien entendu, il vous faudra remplacer
+<TT>/dev/hdc</TT> par le périphérique de votre graveur. Il est
+également recommandé d'activer DMA pour le lecteur de CD-ROM et bien
+entendu pour le disque dur. Si le DMA n'est pas activé pour votre
+disque dur, l'activer accroîtra agréablement les performances de votre
+système.
+
+<P>
+Malheureusement, il arrive que les choses ne soient pas toujours
+aussi simple. Pour utiliser DMA, une étroite collaboration entre le
+système d'exploitation et le matériel doit s'établir. Si Linux ne
+supporte pas le chipset de votre carte mère, il se peut que DMA ne
+soit pas activé et pas activable! Dans ce cas, il est bien possible
+que la gravure ne fonctionne pas bien sous Linux, au mieux très
+lentement. Il existe plusieurs alternatives pour solutionner ce
+problème. D'abord, si jamais vous avez recompilé votre noyau, vérifiez
+que vous avez bien compilé le module de gestion de votre chipset. Sans
+ce module, le DMA ne fonctionnera pas.
+Si aucun module ne semble disponible, il faudra malheureusement mettre
+le noyau à jour ou attendre qu'une nouvelle version soit
+disponible. L'alternative la plus coûteuse consiste bien entendu à
+remplacer la carte mère. Finalement, il est envisageable mais dommage
+de renoncer à Linux et ne graver que sous Windows.
+
+<P>
+
+<H2><A NAME="SECTION07132000000000000000">
+<SPAN CLASS="arabic">14</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">2</SPAN> Permettre l'accès au lecteur de CD-ROM/DVD-ROM par les
+  logiciels de gravure</A>
+</H2>
+
+<P>
+Cette étape facultative, uniquement nécessaire avec un noyau 2.2 ou
+2.4, permet d'effectuer de la copie directe sans
+passer par le disque dur, autorise les analyses de contenu sans devoir
+utiliser le graveur et évite certains problèmes systèmes impliqués par
+l'usage du graveur et du lecteur de façon simultanée. Comme vous
+pouvez le lire dans le CD-Writing Howto, l'usage du graveur est
+conditionné par la couche IDE-SCSI du noyau Linux. Cette couche
+d'émulation reçoit des commandes SCSI et les traduit en commandes
+IDE/ATAPI. C'est l'équivalent de l'Advanced SCSI Programmers Interface
+(ASPI) de Windows. Malheureusement, contrairement à Windows, le
+graveur ne peut être pris en charge par l'IDE et l'IDE-SCSI à la fois;
+vous devrez choisir!
+
+<P>
+<TABLE BORDER="1">
+<TR><TD VALIGN="top">
+<DIV STYLE="text-align:center; color:red"> Attention!
+</DIV><P>
+La modification de ce paramètre pourrait rendre l'amorçage de votre
+système Linux impossible. Assurez-vous de disposer d'une
+disquette système Linux (La disquette système de Windows&nbsp;98 ne vous
+sera d'aucun secours!) ou d'être en mesure de démarrer le mode de
+secours directement de votre CD-ROM d'installation de Linux. Le second
+cas exige un BIOS
+capable d'amorcer votre système depuis un CD-ROM. Afin de prévenir des
+dégâts difficilement réparables, sauvegardez le fichier
+<TT>/etc/lilo.conf</TT>
+ou <TT>/etc/grub.conf</TT>
+avant de commencer.</TD></TR></TABLE> 
+<P>
+Pour le graveur, le choix IDE-SCSI s'impose, mais vous pouvez
+toujours laisser le lecteur utiliser l'IDE directement afin de
+maximiser ses performances. L'usage de l'IDE-SCSI pour le lecteur en
+plus du graveur ne semble pas affecter de façon significative sa
+performance et ses fonctionnalités. Il m'a même été possible de lire
+un DVD Vidéo malgré la couche IDE-SCSI!
+L'usage d'IDE-SCSI est conditionné par une
+option de noyau, c'est-à-dire un paramètre passé au c<IMG
+ WIDTH="19" HEIGHT="23" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="\oe">ur de Linux
+lors de son démarrage. Pour modifier un tel réglage, vous devrez
+malheureusement redémarrer l'ordinateur. L'activation de l'IDE-SCSI
+dépend du gestionnaire d'amorçage mis en place, c'est lui qui passe
+les options au noyau lorsqu'il le met en marche. Dans le cas de
+LILO<A NAME="3030"></A>,
+modifiez le fichier
+<TT>/etc/lilo.conf</TT><A NAME="3106"></A>.
+Souvent, votre graveur
+est branché en maître secondaire, sur le second connecteur IDE. Il
+correspondra alors à <TT>hdc</TT>. Le programme d'installation de
+Linux, en tout cas sous Red Hat et Mandrake, ajoutera alors
+<TT>hdc=ide-scsi</TT> pour activer l'émulation IDE-SCSI pour le
+graveur. Dans le fichier <TT>/etc/lilo.conf</TT>, vous trouverez une
+ligne <TT>append="hdc=ide-scsi"</TT> dans la section consacrée à
+l'entrée de menu Linux. Rien ne vous empêche d'ajouter
+une autre option, en la séparant par un espace. La ligne pourrait
+alors devenir <TT>append="hdc=ide-scsi hdd=ide-scsi"</TT>. N'oubliez
+pas de réinstaller LILO avec <TT>/sbin/lilo</TT> puis redémarrer
+l'ordinateur.
+
+<P>
+Avec GRUB<A NAME="3039"></A>, il faudra modifier
+<TT>/etc/grub.conf</TT><A NAME="3107"></A>. La
+ligne à éditer correspond à <TT>kernel /boot/vmlinuz hdc=ide-scsi</TT>,
+par exemple. Contrairement à LILO, il n'est pas nécessaire de
+réinstaller GRUB pour valider le changement de configuration.
+
+<P>
+Au redémarrage, certains liens symboliques risquent de ne plus
+être valides, à moins d'utiliser
+DevFS. <TT>/dev/cdrom</TT><A NAME="3108"></A>
+pourrait ne plus pointer sur un
+lecteur de CD-ROM digne de ce nom! En effet, si le lecteur est
+<TT>/dev/hdd</TT> ou <TT>/dev/hdb</TT>, ce pseudo-fichier ne
+correspond plus à rien lorsque
+vous utilisez IDE-SCSI. Le lecteur et le graveur correspondront, après
+modification, à <TT>/dev/scd0</TT> et <TT>/dev/scd1</TT>! Pour
+déterminer lequel est le bon, utilisez simplement <TT>eject
+  /dev/scd0</TT> et observez quel tiroir s'ouvrira. Vous devriez associer
+<TT>/dev/cdrom</TT> à votre lecteur de CD-ROM/DVD-ROM. Pour que les
+logiciels de lecture de DVD puissent continuer à fonctionner, créez un lien
+symbolique <TT>/dev/dvd</TT><A NAME="3109"></A> vers
+votre lecteur de DVD-ROM. La
+reconfiguration comportera les commandes semblables aux suivantes,
+tapées sous l'utilisateur root.
+
+<P>
+
+<DIV CLASS="alltt" ALIGN="LEFT">
+<TT>
+ 
+<BR>
+cd /dev
+<BR>
+rm cdrom
+<BR>
+rm dvd
+<BR>
+ln -s scd1 cdrom
+<BR>
+ln -s scd1 dvd
+<BR></TT>
+</DIV>
+
+<P>
+Ensuite, vous devrez modifier <TT>/etc/fstab</TT> afin que les
+périphériques correspondent bien aux points de montage. Assurez-vous
+que le montage et le démontage, l'éjection et la lecture de DVD vidéo,
+si vous l'utilisez sous Linux, fonctionnent bien!
+
+<P>
+
+<H2><A NAME="SECTION07133000000000000000"></A>
+<A NAME="3057"></A>
+<BR>
+<SPAN CLASS="arabic">14</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">3</SPAN> Configuration de CDRecord
+</H2>
+
+<P>
+Afin d'éviter d'avoir à passer l'option <TT>dev=x,y,z</TT>
+ou <TT>dev=ATA:x,y,z</TT> sous le noyau 2.6 lors de
+chaque appel à la commande, vous pouvez indiquer le périphérique
+correspondant à votre graveur dans un fichier de configuration. Si
+vous disposez du droit d'accès root sur votre machine, éditez le
+fichier
+<TT>/etc/default/cdrecord</TT><A NAME="3110"></A>
+afin d'y inclure la ligne 
+<TT>CDR_DEVICE=x,y,z</TT> où <TT>x,y,z</TT> constitue le périphérique
+de votre graveur, donné par le paramètre <TT>-scanbus</TT>. Si vous ne
+disposez pas du droit d'accès root, vous pouvez ajouter la variable
+d'environnement du même nom dans votre script d'initialisation
+personnel (<TT>.bashrc</TT> ou <TT>.cshrc</TT> selon votre shell).
+D'autres options peuvent être définies par défaut, voir <TT>man
+  cdrecord</TT> pour plus de détails à ce sujet.
+Si vous utilisez un autre pilote que celui par défaut, vous
+devrez malheureusement le spécifier à chaque appel à CDRecord, avec
+l'option <TT>driver=drv</TT>.
+
+<P>
+Toutefois, il arrive que ces changements n'aient aucun effet,
+comme sous Mandrake&nbsp;10 par exemple. Dans ce cas, le seul raccourci
+possible consiste à définir un alias. Sous Bash, il suffit de placer,
+par exemple,
+
+<P>
+<TT>alias cdrecord='cdrecord dev=ATA:1,0,0
+  driveropts=burnfree'</TT>
+
+<P>
+dans <TT>.bashrc</TT>.
+Cette ligne devra être
+adaptée en fonction de l'identifiant retourné par <TT>-scanbus</TT> et
+ne devra pas contenir <TT>ATA</TT> dans le cas du noyau 2.2 ou 2.4. La
+technique des alias autorise également le passage d'options de pilote,
+comme BurnFree. Par défaut, le mécanisme de protection contre la
+coupure se trouve désactivé, ce qui est bien ennuyeux avec les
+graveurs modernes qui peuvent graver à plusieurs méga-octets par
+seconde. Si vous utilisez CDRecord-ProDVD, vous pouvez placer la clé
+dans un script d'initialisation afin d'éviter de la recopier ou la
+retaper à chaque utilisation du logiciel.
+
+<P>
+
+<H2><A NAME="SECTION07134000000000000000"></A>
+<A NAME="3074"></A>
+<BR>
+<SPAN CLASS="arabic">14</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">4</SPAN> Configuration de CDRDAO
+</H2>
+
+<P>
+Vous pouvez appliquez la même technique de configuration que
+CDRecord. Cette fois-ci, le fichier
+<TT>/etc/cdrdao.conf</TT><A NAME="3111"></A>
+sera
+modifié si vous êtes root. Si tel n'est pas le cas, vous pouvez
+configurer le fichier <TT>~/.cdrdao</TT>. Vous y ajouterez les
+lignes suivantes.
+
+<P>
+
+<DIV CLASS="alltt" ALIGN="LEFT">
+<TT>
+ 
+<BR>
+write_device: &#34;x,y,z&#34;
+<BR>
+write_driver: &#34;generic-mmc-raw&#34;
+<BR>
+read_device: &#34;a,b,c&#34;
+<BR>
+read_driver: &#34;generic-mmc-raw&#34;
+<BR></TT>
+</DIV>
+
+<P>
+La première option indique à CDRDAO d'utiliser le périphérique
+<TT>x,y,z</TT>, qui devrait être le même que dans le cas de
+CDRecord, sauf sous le noyau 2.6. Avec le noyau 2.6, vous devez
+spécifier le périphérique sous forme de fichier, par exemple
+<TT>/dev/hdc</TT>.
+L'option <TT>write_driver</TT> permet de définir quel
+pilote CDRDAO doit utiliser pour utiliser le graveur. Avec un graveur
+MMC supportant le mode d'écriture RAW, le pilote
+<TT>generic-mmc-raw</TT> devrait faire l'affaire. Si cela ne
+fonctionne pas, essayez <TT>generic-mmc</TT>.
+Le
+<TT>read_device</TT> correspond au périphérique utilisé pour les
+opérations de lecture lors des copies. Il peut correspondre au même
+périphérique que
+votre graveur ou à votre lecteur de CD-ROM/DVD-ROM si vous avez
+configuré votre système pour qu'il soit associé à un périphérique
+SCSI ou si vous utilisez le noyau 2.6.
+
+<P>
+
+<H2><A NAME="SECTION07135000000000000000"></A>
+<A NAME="3087"></A>
+<BR>
+<SPAN CLASS="arabic">14</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">5</SPAN> Configuration de mkisofs
+</H2>
+
+<P>
+Malheureusement, mkisofs ne dispose pas d'un fichier système
+qui pourrait affecter les paramètres de tous les usagers. Il est
+possible, toutefois, d'éditer le fichier <TT>~/.mkisofsrc</TT> afin
+d'ajouter des paramètres personnels qui réduiront les lignes de
+commandes <TT>mkisofs</TT>, sans doute les plus longues dans le
+processus de gravure en ligne de commandes sous Linux. Voici un exemple
+d'un tel fichier. Notez que ces paramètres affecteront aussi
+<TT>growisofs</TT> lors de l'écriture sur DVD avec ce logiciel.
+
+<P>
+
+<DIV CLASS="alltt" ALIGN="LEFT">
+<TT>
+ 
+<BR>
+APPI=BugMan Linux
+<BR>
+PUBL=BugMan
+<BR>
+PREP=BugMan
+<BR>
+SYSI=Mandrake Linux 10.1
+<BR></TT>
+</DIV>
+
+<P>
+Nous reconnaissons ici des champs que les logiciels de gravure sous
+Windows nous permettent de modifier (<SPAN  CLASS="textbf">Published by</SPAN> correspondant à
+<TT>PUBL</TT> et <SPAN  CLASS="textbf">Prepared by</SPAN> correspondant à <TT>PREP</TT>), d'autres
+ne le sont pas. L'identificateur d'application et l'identificateur
+système ne sont pas manipulables sous Easy CD Creator et servent à
+laisser la trace de Roxio sur tous vos CD. mkisofs, de son côté, vous
+laisse manipuler toutes les options.
+
+<P>
+
+<H2><A NAME="SECTION07136000000000000000">
+<SPAN CLASS="arabic">14</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">6</SPAN> Permettre aux usagers de graver</A>
+</H2>
+
+<P>
+Afin d'autoriser l'utilisateur à graver sous Linux, il faut que les
+logiciels de gravure bénéficient du bit SUID<A NAME="3098"></A> dans leurs
+droits d'accès. Certaines distributions, comme Mandrake&nbsp;10.1,
+configurent cela par défaut. D'autres, comme Red Hat&nbsp;9, ne le font
+pas.
+Pour l'utilisateur privé, cette étape se résumera à taper deux lignes
+de commande sous l'usager root.
+
+<P>
+
+<DIV CLASS="alltt" ALIGN="LEFT">
+<TT>
+ 
+<BR>
+chmod u+s `which cdrecord`
+<BR>
+chmod u+s `which cdrdao`
+<BR></TT>
+</DIV>
+
+<P>
+Dans le cas du DVD, il faudra le faire pour <TT>cdrecord-prodvd</TT>
+ou <TT>dvdrecord</TT> si vous utilisez l'un d'eux.
+Ces commandes affectent les droits d'accès aux deux logiciels de
+gravure. En les utilisant, vous indiquez que l'exécution de ces
+logiciels ne sera pas effectuée par l'usager mais par le propriétaire
+du fichier, qui est habituellement l'usager root. Ainsi, quand un
+utilisateur
+mettra en marche CDRecord ou CDRDAO, ce sera comme si l'usager root,
+le dieu du système, venait d'activer le logiciel pour lui. Ce réglage
+est nécessaire, car ces logiciels verrouillent des pages mémoire afin
+de maximiser les chances de bon déroulement de la gravure.
+
+<P>
+<TABLE BORDER="1">
+<TR><TD VALIGN="top">
+<DIV STYLE="text-align:center; color:red"> Attention!
+</DIV><P>
+La modification du bit SUID peut créer une brèche de sécurité dans le
+système. Les logiciels de gravure peuvent comporter une faille qui
+pourrait permettre à un utilisateur mal intentionné d'infliger des
+dégâts sur la machine cible. N'utilisez pas cette technique si votre
+graveur est installé sur une machine réseau d'entreprise à moins de
+bien la protéger des attaques extérieures par un pare-feu.</TD></TR></TABLE> 
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2070"
+  HREF="node70.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2064"
+  HREF="node66.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2060"
+  HREF="node68.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2066"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2068"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html2071"
+  HREF="node70.html">15. Analyse de disques</A>
+<B> monter:</B> <A NAME="tex2html2065"
+  HREF="node66.html">14. Introduction</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2061"
+  HREF="node68.html">14.2 Votre graveur fonctionne-t-il</A>
+ &nbsp; <B>  <A NAME="tex2html2067"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2069"
+  HREF="node106.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Eric Buist
+2005-11-13
+</ADDRESS>
+</BODY>
+</HTML>

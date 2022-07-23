@@ -1,0 +1,215 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.1//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>18.4 Cas particulier des compilations de MP3/Ogg</TITLE>
+<META NAME="description" CONTENT="18.4 Cas particulier des compilations de MP3/Ogg">
+<META NAME="keywords" CONTENT="cdwriting">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cdwriting.css">
+
+<LINK REL="next" HREF="node89.html">
+<LINK REL="previous" HREF="node87.html">
+<LINK REL="up" HREF="node84.html">
+<LINK REL="next" HREF="node89.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2394"
+  HREF="node89.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2388"
+  HREF="node84.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2382"
+  HREF="node87.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2390"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2392"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html2395"
+  HREF="node89.html">18.5 Cas de l'espace</A>
+<B> monter:</B> <A NAME="tex2html2389"
+  HREF="node84.html">18. La création de</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2383"
+  HREF="node87.html">18.3 Pourquoi créer des</A>
+ &nbsp; <B>  <A NAME="tex2html2391"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2393"
+  HREF="node106.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION07540000000000000000"></A>
+<A NAME="4098"></A>
+<A NAME="4099"></A>
+<A NAME="4100"></A>
+<A NAME="4101"></A>
+<A NAME="4102"></A>
+<BR>
+<SPAN CLASS="arabic">18</SPAN>.<SPAN CLASS="arabic">4</SPAN> Cas particulier des compilations de MP3/Ogg
+</H1>
+
+<P>
+Avant l'apparition de k3b ou d'autres logiciels front-end pour la
+gravure de CD, seule la gravure en ligne de commande était
+disponible. Bien que cette technique soit aujourd'hui dépassée et
+supplantée par les interfaces graphiques, son étude demeure malgré
+tout intéressante puisque les interfaces graphiques utilisent ce genre
+de stratégies en arrière-plan.
+XMMS, mpg123, oggdec, normalize et CDRDAO forment autant de composantes
+indépendantes toutes impliquées à divers degrés dans la gravure d'un
+CD Audio de MP3/Ogg. Nous allons à présent renforcer le faible couplage à
+l'origine de la transcription multiple des noms des pistes, et cela,
+en utilisant un langage de scripts pour resserrer les liens entre les
+éléments.
+
+<P>
+XMMS constitue le seul logiciel à interface graphique mis en <IMG
+ WIDTH="19" HEIGHT="23" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="\oe">
+uvre dans la solution. Il permet de façon plus simple de réordonner
+les fichiers musicaux. Un problème apparaît toutefois lors de la
+création des fichiers WAV. Il faut donc trouver un moyen de
+sauvegarder l'ordre des pistes et effectuer le décodage hors de
+XMMS. Heureusement, le logiciel permet de sauvegarder la liste de
+lecture sous le format M3U. Par chance, ce format est bien simple: un
+nom de fichier audio par ligne! Toutefois, des problèmes surgissent dès qu'un
+dièse apparaît pour indiquer un commentaire. Cette difficulté peut
+être gérée par Grep, mais pour pouvoir utiliser Bash pour créer le
+script de gestion de la gravure, il faudra impérativement supprimer
+tous les espaces (encore une fois manuellement) dans les noms des
+fichiers MP3. Comme les noms des fichiers MP3 sont la plupart du temps
+longs, nous adopterons une autre solution impliquant Perl. Ce langage
+permet de lire la liste de lecture et stocker chacune des lignes non
+commentées dans un élément distinct de tableau.
+
+<P>
+mpg123, de son côté, prend en paramètre un nom de fichier MP3 à
+décoder et, par défaut, le joue, ce qui ne nous avance pas
+beaucoup. Heureusement, il peut également produire, sur la
+sortie standard, un fichier en format RAW ou WAV. 
+Pour OGG/Vorbis, le logiciel oggdec permet de transformer en format
+WAV. L'utilitaire
+normalize prend, de son côté, un fichier WAV et travaille sur ce
+fichier afin de le normaliser.
+
+<P>
+Finalement, CDRecord a besoin de la liste des fichiers numérotés,
+dans le bon ordre, ce qui est facile à fournir. Quant à CDRDAO, il lui
+faut une TOC contenant l'ensemble des numéros. Le CD-Text peut
+simplement provenir des noms des fichiers MP3 que vous pourrez par la
+suite peaufiner avec votre éditeur de texte préféré. 
+
+<P>
+Le script
+<TT>maketoc.pl</TT><A NAME="4122"></A>
+permet
+d'automatiser cette chaîne d'opérations. L'appel
+
+<P>
+<TT>perl
+  maketoc.pl -cdtext -norm playlist.m3u</TT>
+
+<P>
+décode chacun des MP3 de la liste donnée et
+stocke les fichiers WAV dans un sous-répertoire <TT>out</TT> du
+répertoire où se trouve la liste de lecture. Chaque fichier est
+normalisé puis une TOC compatible CDRDAO est créée, avec les
+informations CD-Text. Pour le disque, le champ du titre et de
+l'artiste sont définis, mais vous devrez éditer le fichier TOC afin de
+faire réfléter dans ces champs le vrai nom de votre disque. Chaque
+piste comprend également un CD-Text indiquant le nom de la piste. Ce
+nom est obtenu en prenant le nom du fichier MP3 et en lui retranchant
+son extension. Le
+code de langue 15 est utilisé plutôt que le 9 qui correspond à
+l'anglais afin de rester conforme avec ce que produit Easy CD Creator.
+
+<P>
+Lorsque la TOC est générée, utilisez toujours <TT>cdrdao
+  show-toc cd.toc</TT>, ce qui permet de vérifier si les fichiers WAV sont
+corrects. À défaut de tous les faire jouer, vous devriez au moins
+vérifier que la fin de la dernière entrée de la TOC correspond bien
+approximativement à la durée de votre disque. Des problèmes de
+décodage peuvent se produire avec des MP3 issus de l'Internet, il faut
+être extrêmement méfiant. Si vous avez créé vos propres MP3 ou Ogg
+Vorbis, vous
+n'aurez rien à craindre.
+
+<P>
+En cas de problèmes de décodage, il existe plusieurs solutions dont la
+plus simple consiste à utiliser XMMS pour décoder le fichier
+fautif. XMMS est en mesure de sauter certaines en-têtes invalides et
+de décoder un plus grand nombre de fichiers que mpg123 seul. Vous
+pouvez également forcer mpg123 à commencer le décodage à un autre
+endroit que le début du fichier en utilisant la commande
+<TT>tail -c N | mpg123 -</TT> où <TT>N</TT> varie entre 0 et la taille
+du fichier, en octets et correspond au nombre d'octets qui seront
+traités à partir de la fin du fichier. L'usage de l'option <TT>-k</TT>
+de mpg123
+ne produit pas toujours le résultat souhaité, car le début du fichier
+est toujours lu.
+
+<P>
+Un autre problème courant peut se présenter avec des fichiers
+dont la fréquence d'échantillonnage n'est pas 44kHz. La commande
+<TT>sox snd.wav -e -r 44100 -c 2 -w</TT><A NAME="4112"></A> résoudra ce
+problème. Lorsque
+les fichiers seront tous conformes, CDRDAO pourra imprimer la TOC
+correctement et tout sera prêt pour la gravure.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2394"
+  HREF="node89.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2388"
+  HREF="node84.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2382"
+  HREF="node87.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2390"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2392"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html2395"
+  HREF="node89.html">18.5 Cas de l'espace</A>
+<B> monter:</B> <A NAME="tex2html2389"
+  HREF="node84.html">18. La création de</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2383"
+  HREF="node87.html">18.3 Pourquoi créer des</A>
+ &nbsp; <B>  <A NAME="tex2html2391"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2393"
+  HREF="node106.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Eric Buist
+2005-11-13
+</ADDRESS>
+</BODY>
+</HTML>

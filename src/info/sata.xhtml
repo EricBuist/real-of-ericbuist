@@ -1,0 +1,1207 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         Problèmes avec Serial ATA
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css" href="../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../index.xhtml" class="parents">Le royaume
+               de Eric Buist</a> &gt;&gt; <a href="index.xhtml"
+               class="parents">Informatique</a> &gt;&gt;
+               Quelques-unes de mes recherches personnelles
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../sitemap.xhtml" class="sitemap">Plan du
+               site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="pdfen.xhtml"
+               class="leftsibling">Agrandissement de fichiers
+               PDF</a>
+            </td>
+            <td class="thispage">
+               Problèmes avec Serial ATA
+            </td>
+            <td class="rightsibling">
+               <a href="vistatoxp.xhtml"
+               class="rightsibling">Passer de Windows Vista à
+               Windows XP</a> &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         Problèmes avec Serial ATA
+      </h1>
+      <p>
+         Il arrive de plus en plus fréquemment que l'installation
+         du système d'exploitation Microsoft Windows XP échoue sur
+         une nouvelle machine: le disque dur est indétectable, sa
+         capacité est inférieure à celle annoncée, l'amorçage ne se
+         fait pas suite au formatage, etc. Plusieurs de ces
+         difficultés sont dûes à un nouveau standard de gestion de
+         périphériques de stockage appelé <i>Serial ATA</i>. Après
+         avoir lu bon nombre d'horreurs à propos de ce genre de
+         problèmes sur Internet et avoir réussi une installation
+         sur une machine dotée de SATA, j'ai regroupé toutes les
+         informations que j'ai pu découvrir à ce sujet. Sur cette
+         page, je vais d'abord expliquer brièvement ce qu'est SATA
+         pour ensuite enchaîner avec les différentes implications
+         qu'il a sur les systèmes d'exploitation courants. Je vais
+         aussi traiter d'un étrange bogue de certaines versions de
+         l'installeur de Windows XP Service Pack 2 qui empêche
+         l'installation sur un disque Serial ATA.
+      </p>
+      <ul>
+         <li>
+            <a href="#what">Qu'est-ce que Serial ATA?</a>
+         </li>
+         <li>
+            <a href="#problem">Le plus grand problème de SATA</a>
+         </li>
+         <li>
+            <a href="#diff">Difficultés possibles d'installation de
+            Windows XP</a>
+         </li>
+         <li>
+            <a href="#steps">Étapes nécessaires pour réussir
+            l'installation de Windows XP</a> 
+            <ul>
+               <li>
+                  <a href="#hw">Partie matérielle</a>
+               </li>
+               <li>
+                  <a href="#boot">Configuration de l'amorçage</a>
+               </li>
+               <li>
+                  <a href="#satadisk">Création de la disquette de
+                  pilotes</a>
+               </li>
+               <li>
+                  <a href="#inst">Installation de Windows</a>
+               </li>
+            </ul>
+         </li>
+         <li>
+            <a href="#problem2">Et si cela ne fonctionne toujours
+            pas</a>
+         </li>
+         <li>
+            <a href="#simplify">Comment simplifier
+            l'installation?</a>
+         </li>
+         <li>
+            <a href="#sp2bug">Contourner le bogue de Windows XP
+            Service Pack 2</a>
+         </li>
+         <li>
+            <a href="#linux">Qu'en est-il de Linux?</a>
+         </li>
+         <li>
+            <a href="#conclusion">Conclusion</a>
+         </li>
+      </ul>
+      <h2>
+         <a id="what" name="what">Qu'est-ce que Serial ATA?</a>
+      </h2>
+      <p>
+         Depuis bien longtemps, les disques durs sur PC sont pris
+         en charge par Integrated Device Electronics (IDE). Selon
+         cette norme, le disque et son circuit électronique
+         d'interface avec la machine sont intégrés à un même
+         boîtier destiné à une baie pour lecteur 3" 1/2 de la tour.
+         La communication entre le disque dur et la carte mère
+         s'effectue par une interface nommée AT Attachment (ATA).
+         Le câble ATA est plat et comporte plusieurs fils dans
+         lesquels plusieurs bits sont transmis de façon parallèle.
+      </p>
+      <p>
+         Plusieurs versions d'ATA ont vu le jour au cours des
+         années, accroissant la vitesse de transfert et les
+         fonctionnalités. À présent, grâce à ATA Packet Interface
+         (ATAPI), il est même possible de brancher des lecteurs CD
+         et DVD en plus des disques durs et grâce au Ultra DMA, le
+         taux de transfert atteint les 133Mo/s. Malheureusement, la
+         transmission de plusieurs signaux électriques en parallèle
+         crée des interférences à une fréquence élevée, si bien que
+         la vitesse de transfert ne peut dépasser la limite
+         actuelle. De plus, le fil plat ATA est encombrant et
+         difficile à manipuler.
+      </p>
+      <p>
+         Pour résoudre les problèmes d'ATA, un nouveau standard
+         nommé Serial ATA (SATA) a vu le jour. Contrairement à son
+         prédécesseur, qui est souvent appelé Parallel ATA (PATA),
+         SATA transfère les informations sur un petit nombre (six)
+         de fils, en série, à une fréquence très élevée. SATA, au
+         même titre que PCI Express, Universal Serial Bus (USB) et
+         la RAMBus, constitue l'un des nombreux exemples
+         d'interface PC étant passé du parallèle au sériel. Il a
+         ainsi été possible de passer à un taux de 150Mo/s, plus
+         récemment à 300Mo/s et ce taux pourrait même augmenter à
+         600Mo/s dans le futur. Le fil SATA est beaucoup plus
+         compact que son homologue PATA et les problèmes de maîtres
+         et d'esclaves sont disparus, car un port ne peut
+         accueillir qu'un seul périphérique. Le connecteur
+         d'alimentation électrique a aussi évolué du classique
+         Molex à quatre broches capable de fournir du 12V et du 5V
+         vers un connecteur à 15 broches capable de fournir du 12V,
+         du 5V mais aussi du 3.3V.
+      </p>
+      <p>
+         Les cartes mères récentes proposent un certain nombre de
+         ports SATA ainsi que deux ports PATA classiques. Les blocs
+         d'alimentation actuels, quant à eux, proposent des
+         connecteurs à quinze broches pour les disques SATA. En
+         juin 2005, seuls les disques durs étaient proposés en
+         version SATA, mais il est possible que, dans le futur, les
+         lecteurs CD et DVD migrent aussi vers cette interface.
+      </p>
+      <p>
+         De plus en plus de cartes mère offrent, en plus des ports
+         SATA, la possibilité de créer un ensemble de disques
+         redondants interconnectés (Redundant Array of
+         Interconnected Drives (<i>RAID</i>)). Un RAID permet
+         d'accroître la fiabilité ou la performance en combinant
+         plusieurs disques durs que l'utilisateur voit comme un
+         seul disque logique.
+      </p>
+      <h2>
+         <a id="problem" name="problem">Le plus grand problème de
+         SATA</a>
+      </h2>
+      <p>
+         Pour ce qui est du côté logiciel, l'interface pour accéder
+         à un disque dur PATA semble standardisée, mais
+         l'utilisation du mode Ultra DMA dépend encore et toujours
+         du contrôleur intégré à la carte mère. Heureusement, les
+         grandes marques de contrôleurs ATA (<a
+         href="http://www.intel.com">Intel</a>, <a
+         href="http://www.via.com.tw">VIA</a>, etc.) étant
+         supportées par Windows et Linux, il est rare de devoir
+         installer un pilote additionnel après l'installation pour
+         pouvoir utiliser Ultra DMA. Un tel pilote est parfois
+         offert, mais il n'apporte pas un accroissement de
+         performance significatif.
+      </p>
+      <p>
+         Avec PATA, il est toujours possible d'installer le système
+         d'exploitation, même s'il est suffisamment exotique pour
+         ne pas supporter le contrôleur utilisé en Ultra DMA. Par
+         exemple, certaines versions du noyau de Linux ne
+         supportaient pas les contrôleurs <a
+         href="http://www.nvidia.com">NVIDIA</a> nForce. Dans ce
+         cas, il est toujours possible d'installer le système sans
+         ajouter de complications à la procédure, mais la
+         performance sera fortement diminuée. Une mise à jour peut
+         par contre apporter le pilote nécessaire et permettre de
+         complètement tirer parti de Ultra DMA.
+      </p>
+      <p>
+         D'après Upgrading and Repairing PCs 14th Edition de Scott
+         Mueller, l'interface SATA serait compatible avec PATA si
+         bien qu'en théorie, aucun problème d'installation ne
+         devrait se produire. L'installation d'un pilote
+         additionnel ne devrait qu'apporter une amélioration de
+         performance. Toutefois, d'après les problèmes vécus par
+         plusieurs lors de l'installation de Windows XP, il n'en
+         est absolument rien! D'après <a
+         href="http://www.microsoft.com/whdc/device/storage/serialATA_FAQ.mspx">Serial
+         ATA in the Microsoft Operating System Environment</a>,
+         SATA peut fonctionner dans un mode d'émulation PATA, mais
+         il semble que ce mode ne soit pas tout à fait bien
+         implanté par tous les contrôleurs si bien que certains ne
+         fonctionnent pas avec les pilotes standard. En mode SATA
+         natif, l'accès au contrôleur n'est pas normalisé si bien
+         qu'aucun pilote standard n'existe.
+      </p>
+      <p>
+         En conséquence, plusieurs personnes se sont vues
+         incapables d'installer Windows XP sur leur nouvelle
+         machine en raison de SATA: disques durs non détectés,
+         amorçage impossible, etc. Certains sites Web et forums de
+         discussion proposent des solutions, mais elles ne
+         fonctionnent pas toujours, car elles ne tiennent pas
+         compte de toutes les variables. Il arrive souvent qu'il
+         faut une disquette pour installer le système et cette
+         disquette brille par son absence ou ne fonctionne pas
+         comme prévu. Je suis même tombé sur une spéculation selon
+         laquelle la version OEM de Windows XP éprouverait des
+         difficultés SATA dont la version en boîte ne souffrirait
+         pas! Cette divergence de fonctionnalité me semblait peu
+         probable, car le pilote SATA provient souvent du fabricant
+         de la carte mère et non pas du CD de Microsoft Windows XP!
+         Si un pilote devait se déclarer incompatible avec la
+         version OEM de Windows, une mise à jour pourrait corriger
+         le bogue. Ainsi, tous les problèmes SATA devraient trouver
+         une solution si le fabricant de la carte mère est
+         suffisamment réputé. Malheureusement, il n'en est rien,
+         car l'installeur de certaines versions de Windows souffre
+         d'un bogue que Microsoft ne connaît pas ou ne daigne pas
+         corriger! Plutôt que déboguer l'installeur, Microsoft
+         considère que les utilisateurs ne font pas l'installation
+         correctement. Ça a été mon erreur, moi aussi, jusqu'à
+         avoir reçu un courrier électronique d'une personne aux
+         prises avec le bogue.
+      </p>
+      <h2>
+         <a id="diff" name="diff">Difficultés possibles
+         d'installation de Windows XP</a>
+      </h2>
+      <p>
+         Lors de l'installation de Windows XP sur une machine SATA,
+         plusieurs incidents tous plus étranges les uns que les
+         autres peuvent se produire: le disque dur peut ne pas être
+         détecté, le disque peut être trouvé mais être reporté avec
+         une capacité différente, l'amorçage peut ne pas se faire
+         correctement après la première phase d'installation, la
+         copie des pilotes SATA peut échouer, le système peut être
+         instable, etc. La difficulté de détection du disque dur
+         est dûe au fait que Windows XP ne prend pas en charge le
+         contrôleur SATA utilisé, ce qui a un impact plus grave
+         qu'une simple réduction de performance dans le cas de
+         cette nouvelle interface. Il faudra sans doute attendre la
+         prochaine version du système Microsoft, à savoir Windows
+         Vista, et l'adoption générale d'un standard tel que
+         Advanced Host Controller Interface (<a
+         href="http://www.intel.com/technology/serialata/ahci.htm">AHCI</a>)
+         pour bénéficier d'un support SATA complet. En attendant,
+         résoudre ce problème exige la création d'une disquette
+         contenant le pilote et le chargement de cette disquette au
+         début de l'installation. Dans certains cas, même cela ne
+         suffit pas et il faut employer des stratégies plutôt
+         tordues pour parvenir à installer le système.
+      </p>
+      <p>
+         Parfois, le disque dur sera détecté, mais sa capacité ne
+         sera pas correcte. Ce problème pourrait être dû au fait
+         que Windows accède au disque par le biais de l'émulation
+         PATA plutôt que par l'interface native SATA. Avant le
+         Service Pack 1, Windows ne supportait pas les disques dont
+         la taille excédait 137Go. L'utilisation d'un CD de Windows
+         XP intégrant le Service Pack 2 ou le chargement du pilote
+         SATA constituent les solutions possibles à ce problème. Il
+         est aussi envisageable de tenter l'installation en se
+         limitant à 137Go, mais il n'est pas certain qu'il sera par
+         la suite possible d'accéder au reste du disque, même après
+         mise à jour au Service Pack 1.
+      </p>
+      <p>
+         Parfois, Windows XP détecte le disque (possiblement après
+         chargement du pilote SATA), peut le formater sans aucune
+         difficulté et commence à y copier des fichiers. Il termine
+         cette phase préliminaire d'installation en redémarrant
+         l'ordinateur, mais le processus n'entre jamais dans sa
+         seconde phase. Au lieu d'amorcer depuis le disque dur
+         SATA, la machine plante, tente d'amorcer depuis le CD ou
+         une disquette, etc. Ce problème peut parfois être résolu
+         par le chargement du pilote SATA si l'émulation PATA n'est
+         pas tout à fait bien prise en charge par le pilote
+         standard, mais il arrive que cela ne suffise pas! La
+         modification du BIOS, sa mise à jour, voire même des
+         ajustements matériels, sont nécessaires.
+      </p>
+      <p>
+         L'instabilité d'une installation réussie peut
+         malheureusement relever de multiples causes qui ne sont
+         pas nécessairement liées à SATA. Le mieux à faire dans un
+         tel cas consiste à mettre tous les pilotes, ainsi que le
+         BIOS, à jour, et profiter de la garantie si le bogue
+         persiste. En effet, une machine instable dès son achat est
+         très mauvais signe: certaines pièces peuvent être
+         défectueuses et le système ne fonctionnera jamais bien à
+         moins de les remplacer. Les causes les plus importantes
+         d'instabilité matérielle sont une insuffisance de
+         puissance du bloc d'alimentation, de la mémoire
+         défectueuse ou des câbles mal branchés ou défectueux.
+      </p>
+      <p>
+         Il arrive également que l'installeur de Windows XP Service
+         Pack 2 ne charge pas correctement la disquette Serial ATA.
+         Au cours de l'installation, Windows dira alors que
+         certains fichiers sur la disquette n'ont pas pu être
+         trouvés et offrira à l'utilisateur la possibilité
+         d'ignorer l'erreur. Continuer l'installation ne mènera
+         alors qu'à des problèmes d'amorçage, car le fichier
+         nécessaire sera manquant. Souvent, il n'est possible
+         d'installer Windows XP Service Pack 2 que sur un disque
+         Parallel ATA ou sur un disque SATA seulement après
+         intégration des pilotes Serial ATA au CD d'installation.
+         C'est un bogue dans l'installeur de certaines versions de
+         Windows, introduit avec le Service Pack 2, et il n'y a
+         aucune solution simple pour l'usager, à part installer
+         Windows 2000 et attendre patiemment Windows Vista. Par
+         contre, dans certains cas, comme avec mon <a
+         href="salvator/index.xhtml">Salvator</a> équipé d'une
+         carte mère Asus comportant un contrôleur Serial ATA AHCI,
+         l'installation fonctionnera comme un charme, même avec le
+         Service Pack 2!
+      </p>
+      <h2>
+         <a id="steps" name="steps">Étapes nécessaires pour réussir
+         l'installation de Windows XP</a>
+      </h2>
+      <p>
+         Outre s'en tenir à PATA et se limiter au taux de transfert
+         de 133Mo/s, il existe, du moins en théorie, plusieurs
+         solutions aux divers problèmes SATA. En suivant une
+         méthode suffisamment rigoureuse, il est souvent possible
+         de tous les contourner et de réussir une installation
+         Windows fonctionnelle, à supposer que la machine ne
+         souffre pas d'autres bogues matériels ou logiciels et que
+         l'installeur de Windows soit coopératif, bien entendu.
+      </p>
+      <h3>
+         <a id="hw" name="hw">Partie matérielle</a>
+      </h3>
+      <p>
+         Bien entendu, il faut s'assurer que le disque dur soit
+         bien branché. Cette étape est particulièrement cruciale
+         pour les gens assemblant leur machine eux-même. Dans le
+         cas contraire, il est raisonnable, du moins initialement,
+         de supposer que le technicien a fait un travail correct.
+         Outre le connecteur d'alimentation, le disque doit être
+         raccordé dans un des nombreux ports SATA de la carte mère.
+         Toutefois, certains de ces ports sont dédiés à une
+         fonction particulière et l'amorçage ne se fera pas bien
+         s'ils sont mal utilisés.
+      </p>
+      <p>
+         La plupart des cartes mères proposent un certain nombre de
+         ports SATA réguliers dans lesquels un disque dur peut être
+         branché. Pour maximiser les chances d'un amorçage correct,
+         il vaut mieux utiliser le premier port SATA. La lecture du
+         manuel fourni avec la carte mère est souvent essentielle
+         pour localiser le bon connecteur, à supposer que
+         l'information qui s'y trouve est correcte...
+      </p>
+      <p>
+         Plusieurs cartes proposent, en plus des ports réguliers,
+         un ensemble de ports destinés à construire un RAID. Si un
+         seul disque est branché à un des ports RAID, il est
+         possible que l'amorçage ne se fasse pas ou que le disque
+         soit indétectable. Pour construire un RAID, il faut, règle
+         générale, au moins deux disques de même taille, et
+         utiliser une procédure particulière pour configurer le
+         RAID. Encore une fois, la lecture du manuel est nécessaire
+         pour déterminer si les ports RAID doivent être utilisés et
+         comment s'en servir correctement.
+      </p>
+      <h3>
+         <a id="boot" name="boot">Configuration de l'amorçage</a>
+      </h3>
+      <p>
+         Pour que l'installation de Windows ait la moindre chance
+         d'atteindre sa seconde phase, la configuration correcte
+         des priorités d'amorçage est essentielle. Cette procédure
+         dépend, encore une fois et malheureusement, de la carte
+         mère choisie. Certains BIOS affichent le nom des
+         périphériques amorçables tandis que d'autres se contentent
+         d'indiquer des noms génériques tels que IDE-0, SCSI, etc.
+         Le premier périphérique d'amorçage doit être le CD-ROM
+         pendant toute la durée d'installation afin qu'il soit
+         possible d'atteindre l'écran de bienvenue.
+      </p>
+      <p>
+         En second lieu, dans le cas de SATA, à moins que la
+         documentation de la carte mère ne le recommande, il ne
+         faut surtout pas indiquer IDE-0, car ce périphérique
+         correspond au maître primaire PATA! SATA est plus proche
+         du SCSI que du IDE, si bien que dans le doute, essayer
+         SCSI comme périphérique peut constituer une solution. Dans
+         d'autres cas, il faut utiliser Other!
+      </p>
+      <p>
+         Parfois même, par exemple avec certains modèles de <a
+         href="http://www.giga-byte.com">Gigabyte</a>, il faut
+         impérativement définir un RAID, même si un seul disque est
+         utilisé. Lorsque l'ensemble de disques est déclaré, il
+         peut apparaître parmi la liste d'amorçage. Encore une
+         fois, la procédure dépend de la carte mère et peut être
+         trouvée dans son manuel d'utilisation.
+      </p>
+      <h3>
+         <a id="satadisk" name="satadisk">Création de la disquette
+         de pilotes</a>
+      </h3>
+      <p>
+         Le support SATA a été intégré à Windows XP uniquement
+         depuis le Service Pack 1. Ainsi, si votre disque
+         d'installation est trop ancien, il ne contiendra aucun
+         support pour cette nouvelle technologie. Même avec un
+         disque d'installation intégrant le Service Pack 2, il se
+         peut que votre contrôleur SATA ne soit pas supporté par
+         défaut. Il faudra alors, pendant l'installation, charger
+         un pilote spécial produit par le fabricant de votre carte
+         mère.
+      </p>
+      <p>
+         Peu importe la version de Windows XP mise en oeuvre, il
+         vaut mieux s'assurer de disposer de la disquette contenant
+         ce pilote SATA avant d'entreprendre l'installation. Cette
+         disquette peut être livrée avec la carte mère ou
+         construite à partir du CD fourni. Malheureusement, dans le
+         second cas, il vous faudra installer Windows pour obtenir
+         la disquette nécessaire pour l'installer! Afin de résoudre
+         cette dépendance circulaire, plusieurs solutions sont
+         disponibles.
+      </p>
+      <ul>
+         <li>
+            Construire la disquette depuis une autre machine, ce
+            qui n'est pas toujours pratique, mais c'est la solution
+            la plus simple.
+         </li>
+         <li>
+            Utiliser une disquette système de Windows 98 avec
+            support du CD-ROM. Parfois, le CD de la carte mère est
+            également amorçable et contient un DOS. Toutefois, cela
+            pourrait compliquer la recherche du pilote si le CD
+            contient des noms de fichiers longs.
+         </li>
+         <li>
+            Installer Windows XP sur un disque dur PATA et
+            n'utiliser le disque SATA que pour stocker des données.
+            Il est aussi possible, le système installé, de créer la
+            disquette, retirer le disque PATA et réinstaller sur le
+            disque SATA!
+         </li>
+         <li>
+            Installer un système d'exploitation alternatif,
+            construire la disquette et reformater pour remplacer
+            par Windows XP (ou créer un double amorçage). Windows
+            98 peut possiblement s'accommoder de l'émulation PATA
+            de la carte mère et Linux, avec un peu de chance,
+            contient le pilote SATA adéquat dans son noyau.
+         </li>
+         <li>
+            Utiliser <a href="http://www.knoppix.net">Knoppix</a>
+            comme système d'exploitation alternatif, ce qui permet
+            d'éviter d'installer quoi que ce soit de temporaire sur
+            le disque dur puisqu'il s'exécute depuis un CD! Cela
+            fonctionne même si le contrôleur SATA n'est pas pris en
+            charge par Linux puisqu'il n'est pas nécessaire
+            d'accéder au disque dur pour créer la disquette.
+         </li>
+      </ul>
+      <p>
+         Habituellement, il suffit d'insérer le CD de la carte mère
+         dans une machine Windows fonctionnelle et de sélectionner
+         une option appropriée dans le menu apparaissant. Il y a
+         parfois plusieurs choix de disquettes pour différents
+         pilotes: SATA, RAID, etc. Il faut au minimum créer une
+         disquette pour le contrôleur Serial ATA du jeu de puces de
+         la carte mère. Par exemple, pour la Asus P5LD2 pouvant
+         accueillir un processeur Intel à 775 trous (LGA775), il
+         peut y avoir une disquette pour le jeu de puces (AHCI),
+         une autre pour le RAID IDE ITE et une autre pour le
+         contrôleur Sillicon Image. Il faut prendre la disquette
+         pour le jeu de puces.
+      </p>
+      <p>
+         Si rien n'est proposé pour construire la disquette SATA ou
+         si elle doit être créée sous Linux ou Mac, il est souvent
+         possible de la constituer manuellement. Sur le CD de la
+         carte mère se trouve divers répertoires qu'il est possible
+         d'examiner dans le but de trouver celui contenant les
+         pilotes. Ce répertoire doit contenir un fichier nommée
+         <tt>txtsetup.oem</tt>, un fichier avec extension
+         <tt>.inf</tt> et un ou plusieurs fichiers avec extension
+         <tt>.sys</tt>. Il faudra parfois éliminer des fichiers
+         pour faire entrer le tout sur une simple disquette. Vous
+         ne disposez pas du CD de votre carte mère? Pas de
+         problème: il est habituellement possible de télécharger
+         les pilotes depuis Internet.
+      </p>
+      <p>
+         Par exemple, prenons le cas de la carte mère <a
+         href="http://www.asus.com">Asus</a> K8N contenant un
+         contrôleur SATA de type <a
+         href="http://www.nvidia.com">NVIDIA</a> nForce et pouvant
+         accueillir un processeur AMD64 de première génération
+         (Socket 754, la deuxième étant les Socket 939). Nous
+         citons cette carte en exemple seulement, car il est bien
+         plus simple de construire la disquette SATA automatique, à
+         partir du CD fourni.
+      </p>
+      <p>
+         Prenons le cas le plus complexe: il n'y a aucun CD fourni
+         avec la carte. Ce disque, par exemple, pourrait avoir été
+         oublié. Sur le site d'Asus, il est heureusement possible
+         d'obtenir les pilotes pour Windows 2000 et Windows XP. Ces
+         pilotes se présentent sous la forme d'un fichier ZIP dont
+         le nom est semblable à <tt>K8N_2KXP.zip</tt>. Il faudra le
+         décompresser dans un répertoire et y puiser les pilotes
+         appropriés.
+      </p>
+      <p>
+         Pour un Windows 32 bits, le répertoire <tt>WINXP_2K</tt>
+         sera utilisé. Il faut ensuite procéder par élimination
+         pour aller plus loin et naviguer dans le sous-répertoire
+         <tt>IDE</tt>; c'est ce qui est le plus proche de SATA.
+         Ensuite, le répertoire <tt>WinXP</tt> mène vers notre
+         disquette. Vous y trouverez bel et bien le fichier
+         <tt>txtseup.oem</tt>, <tt>nvatabus.inf</tt>,
+         <tt>NvAtaBus.sys</tt>, etc. Toutefois, il vous faudra
+         omettre le sous-répertoire <tt>raidtool</tt> afin de faire
+         tenir les pilotes sur une disquette de 1.44Mo. Pour
+         Windows XP x64, la procédure est très semblable.
+      </p>
+      <p>
+         Comme vous pouvez le constater, il n'est pas toujours
+         facile et intuitif d'obtenir la disquette SATA nécessaire
+         à l'installation de Windows XP sur une machine moderne. Il
+         vaut donc mieux prévoir le coup à l'avance et faire en
+         sorte de pouvoir utiliser une machine Windows pour
+         construire la disquette automatiquement, ou l'obtenir
+         auprès du revendeur. L'idéal serait d'obtenir du revendeur
+         un CD de Windows XP intégrant les pilotes SATA, mais ce
+         n'est pas toujours possible.
+      </p>
+      <h3>
+         <a id="inst" name="inst">Installation de Windows</a>
+      </h3>
+      <p>
+         Vient enfin le moment crucial d'installer Windows XP. Tout
+         d'abord, le CD d'installation doit être inséré dans le
+         lecteur ou le graveur, selon la machine et selon les
+         goûts, puis l'ordinateur doit être (re)démarré. Après
+         quelques secondes, une invite indiquant d'appuyer sur une
+         touche apparaîtra: appuyez alors sur une touche pour
+         accéder au programme d'installation.
+      </p>
+      <p>
+         Vient alors une étape cruciale: le chargement des pilotes
+         SATA. Au bas de l'écran avec fond bleu, le programme
+         d'installation demande d'appuyer sur F6 pour charger des
+         pilotes SCSI. Appuyez sur cette touche et suivez les
+         instructions apparaissant à l'écran. Pour installer un
+         pilote, Windows vous demandera d'appuyer sur la touche S,
+         d'insérer la disquette, d'appuyer sur Entrée et de
+         sélectionner le pilote. S'il y a plusieurs pilotes, vous
+         pouvez tous les charger un après l'autre afin d'éviter
+         tout problème. Au minimum, il vous faut le pilote Serial
+         ATA, pas seulement le pilote RAID. Par exemple, sur ma
+         P5LD2, j'ai dû charger le pilote ICH7 AHCI et non pas ICH7
+         RAID. Dans le cas de la Asus K8N, le pilote est NVIDIA
+         NForce Storage Controller (required). J'aurais pu charger
+         le pilote RAID après le pilote AHCI. Lorsque les pilotes
+         sont chargés, appuyez sur Entrée au lieu de S pour
+         poursuivre l'installation. Ne retirez pas la disquette,
+         car Windows pourrait y puiser des fichiers de temps en
+         temps. Ne retirez la disquette qu'au moment où Windows
+         devra redémarrer l'ordinateur.
+      </p>
+      <p>
+         Avec un peu de chance, le disque dur sera détecté.
+         Assurez-vous que sa capacité est correcte et créez les
+         partitions appropriées. Windows va ensuite formater la
+         partition sur laquelle il doit être installé et commencer
+         à y copier des fichiers. Il tentera ensuite de redémarrer
+         la machine. À ce moment, il faut retirer la disquette de
+         pilotes SATA, car elle n'est plus nécessaire et pourrait
+         compliquer l'amorçage.
+      </p>
+      <p>
+         Pour entamer sa seconde phase d'installation, Windows doit
+         s'amorcer depuis le disque dur et non du CD. Ainsi, il ne
+         faut pas appuyer sur une touche lorsque demandé. Avec un
+         peu de chance, si tout est bien configuré, l'installation
+         passera en mode graphique et se poursuivra normalement,
+         comme s'il n'y avait pas cette difficulté de SATA.
+      </p>
+      <h2>
+         <a id="problem2" name="problem2">Et si cela ne fonctionne
+         toujours pas</a>
+      </h2>
+      <p>
+         Si l'écran de bienvenu initial réapparaît, redemandant
+         d'appuyer sur F6 pour charger des pilotes, ou si le
+         système se plaint à propos d'une disquette non amorçable,
+         il y a sans doute un problème de configuration. Vérifiez
+         les priorités d'amorçage du BIOS et consultez le manuel de
+         votre carte mère.
+      </p>
+      <p>
+         Si l'amorçage est bien configuré, deux choses peuvent se
+         produire. Tout d'abord, l'installation peut se poursuivre
+         normalement, ce qui est parfaitement souhaitable. Il est
+         également possible d'assister à un plantage du système.
+         Dans ce cas, soit l'écran demeurera parfaitement noir,
+         soit des messages d'erreur s'afficheront.
+      </p>
+      <p>
+         La première chose à vérifier en cas de plantage est la
+         présence de mises à jour pour les pilotes SATA de votre
+         carte mère. Même si des problèmes sévissent avec votre
+         version actuelle du CD de Windows XP, ceux-ci pourraient
+         disparaître suite à une mise à jour du pilote SATA. Si
+         aucun pilote n'est offert par le fabricant, mais
+         l'installation échoue (disque non détecté ou plantage à
+         l'amorçage), consultez le site du fabricant de la puce du
+         contrôleur SATA. Par exemple, les cartes mères <a
+         href="http://www.asus.com">Asus</a> pour processeur AMD64
+         contiennent souvent un jeu de puces <a
+         href="http://www.nvidia.com">NVIDIA</a> ou <a
+         href="http://www.via.com.tw">VIA</a>. Les ports
+         additionnels pour le RAID sont souvent pris en charge par
+         des contrôleurs <a
+         href="http://www.promise.com">Promise</a> ou <a
+         href="http://www.siimage.com">Sillicon Image</a>. Il
+         faudra donc visiter l'un de ces sites, en utilisant le
+         manuel de la carte mère pour trouver le fabricant du jeu
+         de puces. Si aucune mise à jour n'est disponible ou
+         n'apporte aucune amélioration, tentez de mettre votre BIOS
+         à jour.
+      </p>
+      <p>
+         Si cela ne résoud rien, essayez d'installer un autre
+         système d'exploitation tel que Windows 98, Windows 2000 ou
+         Linux. Cela permettra de savoir si le bogue est spécifique
+         à Windows XP ou s'il constitue un défaut matériel de la
+         carte mère, du disque dur ou une installation incorrecte
+         du disque dur.
+      </p>
+      <p>
+         Il se peut que le problème soit dû à l'installeur de
+         Windows XP Service Pack 2. Malheureusement, le bogue ne
+         peut pas être contourné facilement. Seul Microsoft
+         pourrait le résoudre en proposant un installeur corrigé.
+         La section suivante donne des indications pour simplifier
+         l'installation et pourrait permettre, par l'intégration
+         des pilotes Serial ATA, sur le CD de Windows, de
+         contourner le problème. La section d'ensuite traitera plus
+         spécifiquement des parades contre le bogue.
+      </p>
+      <h2>
+         <a id="simplify" name="simplify">Comment simplifier
+         l'installation?</a>
+      </h2>
+      <p>
+         Avec le temps, l'installation de Windows XP s'est
+         progressivement compliquée et allongée. Après avoir
+         installé le système de base, il faut ajouter les deux
+         Service Pack, les pilotes de périphériques et à présent
+         s'ajoute la nécessité de la disquette SATA! Les choses
+         deviennent extrêmement complexes et irritantes lorsqu'en
+         plus, Windows refuse de traiter la disquette SATA
+         correctement! Afin de simplifier les choses, outre
+         remplacer sa machine pour un système construit par une
+         grande compagnie et livré avec un CD personnalisé de
+         Windows, deux mesures distinctes sont disponibles:
+         <i>l'intégration</i> et <i>l'installation silencieuse</i>.
+         Elles consistent à reconstruire le CD de Windows afin de
+         lui incorporer de nouveaux éléments ou de modifier des
+         paramètres par défaut. La première mesure, aussi appelée
+         <i>slipstreaming</i>, consiste à intégrer les Service
+         Pack, d'autres mises à jour ou des pilotes au CD
+         d'installation. La seconde mesure crée un script
+         fournissant les réponses aux questions posées par le
+         programme d'installation, permettant d'éviter des erreurs
+         et sauver encore un peu de temps.
+      </p>
+      <p>
+         Il existe quelques logiciels, notamment <a
+         href="http://www.nliteos.com">nLite</a>, qui permettent
+         d'aider l'utilisateur à accomplir l'une ou l'autre de ces
+         tâches. Il est fortement recommandé d'utiliser un tel
+         logiciel lorsque c'est possible, car il sauve du temps et
+         évite des erreurs.
+      </p>
+      <p>
+         Plusieurs sites Web sont également disponibles pour
+         apprendre à construire manuellement un CD de Windows
+         modifié. Par exemple, <a
+         href="http://www.clubic.com/article-15898-1-facilitez-vous-l-installation-de-windows-xp.html">ClubIC</a>
+         fournit un article en Français couvrant l'intégration du
+         Service Pack 1 et plusieurs mises à jour, ainsi que
+         l'installation silencieuse. Un autre article, offert par
+         <a
+         href="http://www.pcstats.com/articleview.cfm?articleid=1626">PCStats</a>,
+         fournit des informations semblables (mais en Anglais) et
+         couvrant le Service Pack 2. Un troisième article sur <a
+         href="http://www.maximumpc.com/how_to/reprint_2005-01-05.html">Maximum
+         PC</a> propose même une technique (pas très simple et
+         propice aux erreurs) pour intégrer les pilotes SATA au CD,
+         évitant la disquette. La création du nouveau CD nécessite
+         patience et minutie et, surtout pour l'intégration des
+         pilotes SATA, des erreurs sont possibles. Il vaut donc
+         mieux graver le disque produit sur CD-RW et tester au
+         moins une installation complète avant d'en créer une copie
+         finale sur CD-R.
+      </p>
+      <p>
+         Éventuellement, une âme charitable ou des commerçants
+         pourraient créer un CD de Windows idéal contenant Service
+         Pack 2 et pilotes Serial ATA pour les contrôleurs AHCI,
+         NVIDIA, VIA, Promise, Sillicon Image, etc. Un CD différent
+         devrait être produit pour les versions familiales et
+         professionnelles de Windows. Ces disques pourraient alors
+         servir à l'installation de Windows pour divers
+         utilisateurs.
+      </p>
+      <h2>
+         <a id="sp2bug" name="sp2bug">Contourner le bogue de
+         Windows XP Service Pack 2</a>
+      </h2>
+      <p>
+         Il semble bel et bien qu'avec certaines versions de
+         Windows XP Service Pack 2, les solutions précédentes ne
+         permettent pas une installation correcte sur un disque dur
+         Serial ATA. Pour ces cas difficiles, j'ai découvert
+         quelques solutions plus radicales. Je n'ai pas testé
+         toutes ces solutions, car je n'ai pas personnellement été
+         aux prises avec le bogue, mais je suis à peu près certain
+         qu'elles pourraient fonctionner dans certains cas. La
+         solution la plus prometteuse consiste à différer la copie
+         des pilotes Serial ATA entre la phase préliminaire en mode
+         texte de l'installation et l'amorçage de l'installeur en
+         mode graphique depuis le disque dur. La seconde solution
+         consiste à installer le système sur un disque dur Parallel
+         ATA et à le retransférer sur un disque Serial ATA.
+      </p>
+      <h3>
+         Solutions simples mais imparfaites
+      </h3>
+      <p>
+         Le bogue de copie des fichiers ne semble se manifester
+         qu'avec le Service Pack 2. Ainsi, si vous avez modifié un
+         ancien CD d'installation pour y intégrer le Service Pack
+         2, vous pourriez tenter une installation avec l'ancien CD
+         pour ensuite installer le Service Pack 2 séparément.
+      </p>
+      <p>
+         Certaines cartes mère proposent plusieurs modes de gestion
+         du Serial ATA. Par exemple, la Asus P5LD2 propose une
+         option de BIOS pour mettre la gestion SATA en mode IDE
+         étendu, AHCI ou RAID. En mode IDE étendu, l'installation
+         pourra se faire sans disquette, mais les fonctionnalités
+         avancées de SATA ne seront pas disponibles.
+         Malheureusement, bon nombre de cartes mères, surtout
+         celles qui ne sont pas compatibles AHCI, ne proposent pas
+         ce genre d'option; l'émulation SATA ne fonctionne alors
+         souvent qu'en mode réel tandis que Windows fonctionne en
+         mode protégé. Avec la Asus K8N et son jeu de puces NVIDIA
+         nForce 3, l'émulation est toujours activée; le contrôleur
+         SATA est accessible en mode natif et par le biais de
+         l'interface PATA. Cette situation devrait se présenter sur
+         d'autres cartes mères, mais parfois, il n'y a pas
+         d'émulation.
+      </p>
+      <p>
+         Il est également possible d'utiliser des outils tels que
+         nLite ou des procédures manuelles (fastidieuses) pour
+         intégrer les pilotes Serial ATA à votre CD de Windows XP.
+         Malheureusement, cela implique de graver un CD de
+         substitution, ce qui n'est pas à la portée de tous. Il
+         faut au minimum un graveur en plus d'un PC Windows
+         fonctionnel!
+      </p>
+      <p>
+         Une autre solution simple mais inacceptable dans bien des
+         cas consiste à installer Windows XP sur un disque dur
+         Parallel ATA. Le disque Serial ATA peut ensuite être
+         retiré de la machine ou conservé pour stocker uniquement
+         des données.
+      </p>
+      <h3>
+         Copie différée des pilotes
+      </h3>
+      <p>
+         Cette technique de mon cru, un peu plus élaborée que les
+         astuces précédentes, considère que seule la copie des
+         fichiers depuis la disquette Serial ATA sur le disque dur,
+         qui a lieu pendant la phase préliminaire de
+         l'installation, bogue. Il est possible que l'installeur
+         construise un chemin d'accès invalide vers le pilote, ne
+         parvenant ainsi jamais à le copier. L'idée est d'obliger
+         l'installeur à ignorer le problème et à copier
+         manuellement, par une voie détournée, les fichiers voulus.
+         Par contre, cette opération présente une complication
+         significative, car il est difficile d'accéder à des
+         partitions de type NTFS sans une installation
+         fonctionnelle de Windows. Seule la Console de Récupération
+         de Microsoft permet de résoudre ce problème de façon à peu
+         près fiable sans installer le disque dur dans une autre
+         machine Windows.
+      </p>
+      <p>
+         Pour appliquer cette procédure, vous devez tout d'abord
+         commencer l'installation comme expliqué précédemment,
+         utilisant la touche F6 pour charger une disquette de
+         pilotes. Le pilote Serial ATA doit pouvoir se charger
+         depuis la disquette et Windows doit pouvoir voir le disque
+         dur Serial ATA sur lequel il sera installé. Le formatage
+         du disque et la copie préliminaire des fichiers auront
+         lieu normalement. Par contre, rendu au pilote Serial ATA,
+         un message d'erreur s'affichera. Il est crucial de bien
+         noter le nom des fichiers qui ne peuvent pas être copiés.
+         Dans notre exemple, nous allons considérer que
+         <tt>iastor.sys</tt>, le pilote Intel, est en faute. Pour
+         terminer la phase préliminaire, indiquez à l'installeur
+         d'ignorer l'erreur et de poursuivre. S'il y a plusieurs
+         fichiers impossible à copier, notez tous les noms.
+      </p>
+      <p>
+         Ensuite, Windows tentera un redémarrage et l'opération
+         échouera si vous la laissez se poursuivre normalement, le
+         système ne pouvant amorcer depuis le disque dur Serial
+         ATA. C'est là qu'entre en jeu la petite passe-passe:
+         accéder à la Console de Récupération et recopier
+         manuellement les fichiers ignorés! Si Windows est installé
+         sur une partition FAT32, il est possible de réaliser cette
+         copie autrement, par exemple grâce à une disquette système
+         DOS. Avec une partition NTFS, la Console de Récupération
+         est la seule solution fiable. Il y a toujours <a
+         href="http://www.knoppix.net">Knoppix</a> qui incorpore <a
+         href="http://www.jankratochvil.net/project/captive/">Captive
+         NTFS</a>, permettant l'écriture sur du NTFS, mais il n'est
+         pas certain que cela fonctionne bien.
+      </p>
+      <p>
+         Par contre, pour accéder à la console, il faudra encore
+         une autre astuce pour avoir accès au disque dur. D'abord,
+         laissez le système redémarrer et lorsqu'indiqué, appuyez
+         sur une touche pour retourner dans l'installeur
+         préliminaire en mode texte. Appuyez de nouveau sur F6 et
+         chargez une seconde fois le pilote Serial ATA depuis la
+         disquette que vous devrez réinsérer. Ceci est nécessaire
+         pour assurer l'accès au disque dur par la Console de
+         Récupération.
+      </p>
+      <p>
+         Ensuite, l'écran de bienvenue apparaîtra une nouvelle
+         fois. Cette fois, au lieu d'appuyer sur Entrée, appuyez
+         sur R, ce qui activera la console de récupération, avec un
+         peu de chance bien entendu. Lorsque demandé, sélectionnez
+         <tt>C:\Windows</tt> comme installation de Windows. En
+         principe, il ne devrait y avoir qu'une installation.
+         Normalement, le mot de passe administrateur est demandé
+         pour accéder à la console, mais puisque vous n'avez pas
+         encore défini le mot de passe, Windows vous donnera accès
+         à la console sans plus de formalité. Vous définirez votre
+         mot de passe administrateur plus tard, au cours de
+         l'installation en mode graphique. Avec la Console de
+         Récupération, vous devrez copier les fichiers
+         <tt>.sys</tt> problématiques dans
+         <tt>C:\Windows\System32\Drivers</tt>. Si des fichiers
+         <tt>.inf</tt> causent problème, essayez de les copier dans
+         <tt>C:\Windows\inf</tt>. Avec notre exemple, la commande
+         serait de la forme <tt>copy a:\iastor.sys
+         c:\windows\system32\drivers</tt>. Assurez-vous de copier
+         tous les fichiers qui ont posé problème. Ne copiez pas les
+         fichiers qui n'ont pas posé problème, car tous les
+         fichiers de la disquette ne sont pas forcément
+         nécessaires. Tapez ensuite <tt>exit</tt> pour quitter la
+         console et retirez la disquette Serial ATA de votre
+         lecteur. Vous pouvez maintenant laisser Windows s'amorcer
+         depuis le disque dur. L'installation devrait alors se
+         poursuivre normalement.
+      </p>
+      <p>
+         Dans certains cas, il est possible que cette stratégie
+         échoue, car le bogue peut faire en sorte que les entrées
+         nécessaires au pilote Serial ATA ne sont pas créées dans
+         la Base de Registre. Un tel problème rendrait inutilisable
+         l'astuce de la copie différée, car il n'existe aucune
+         commande sur la console qui permette d'éditer le Registre.
+         Il peut survenir avec certains pilotes et ne pas se
+         manifester pour d'autres si bien qu'un seul contre-exemple
+         ne suffirait pas à rendre la procédure de copie différée
+         invalide.
+      </p>
+      <h3>
+         Installation depuis un disque Parallel ATA
+      </h3>
+      <p>
+         Cette technique peut malheureusement être très compliquée
+         à mettre en oeuvre, mais elle fonctionnera indépendamment
+         du CD de Windows XP utilisé. Malheureusement, Windows a
+         tendance à mémoriser des références absolues vers les
+         disques durs si bien qu'un changement de disque dur est
+         assez délicat. Il exister par contre un principe
+         élémentaire permettant de grandement simplifier les
+         choses: éviter de mettre Windows en contact avec les deux
+         disques durs simultanément.
+      </p>
+      <p>
+         Pour appliquer cette procédure, vous devez d'abord
+         disposer d'un disque dur Parallel ATA et le raccorder à
+         votre carte mère via une câble IDE. Pour l'installation de
+         Windows, seul ce disque devra être branché, surtout pas le
+         disque Serial ATA destiné à accueillir votre système
+         d'exploitation à la fin de la procédure. Pour éviter le
+         problème de confusion des disques durs, vous devez
+         débrancher le disque Serial ATA afin d'empêcher Windows
+         d'obtenir des informations à propos de ce dernier et de
+         l'enregistrer dans sa Base de Registre. Il est également
+         possible de tenter de le désactiver depuis le BIOS, mais
+         le succès de cette alternative dépend de la carte mère.
+         Débrancher le disque fonctionnera toujours! Il n'est
+         nécessairement, en fait, de débrancher que le câble de
+         données. Le fil d'alimentation ne fait aucune différence
+         du point de vue de la détection par le système
+         d'exploitation.
+      </p>
+      <p>
+         Installez ensuite Windows normalement, sur votre disque
+         dur Parallel ATA, et vérifiez que tout fonctionne bien.
+         Prenez soin d'installer les pilotes nécessaires au
+         fonctionnement de votre système, surtout les pilotes
+         Serial ATA! Ne rebranchez jamais le disque dur Serial ATA
+         pendant cette phase de configuration, mëme si vous
+         aimeriez y puiser des données, sinon Windows
+         l'enregistrera dans sa Base de Registre et le transfert
+         final aura plus de chances d'échouer.
+      </p>
+      <p>
+         Ensuite vient l'étape clé pour le succès de la procédure.
+         Vous devez brancher les deux disques durs impliqués dans
+         le transfert simultanément mais <b>ne pas</b> démarrer le
+         système d'exploitation Windows sur aucun des disques durs!
+         Un simple démarrage de Windows suffira à le reconfigurer
+         incorrectement et empêchera le transfert de réussir sans
+         d'importantes complications. Pour éviter tout problème,
+         dans le setup du BIOS, reconfigurez votre priorité
+         d'amorçage pour interdire l'amorçage depuis les disques
+         durs. Cela évitera un démarrage accidentel du système
+         d'exploitation qui ne pourra être réparé simplement que
+         par le recommencement de la procédure.
+      </p>
+      <p>
+         La technique de transfert la plus fiable est sans doute
+         celle du système tiers. Par contre, elle n'est pas
+         accessible à tous. Il s'agit d'installer les deux disques
+         impliqués dans le transfert dans une autre machine dotée
+         d'un disque dur sur lequel est installé un système
+         d'exploitation. L'amorçage doit se faire depuis le système
+         d'exploitation sur le disque intermédiaire, appelé
+         <i>système tiers</i>, et non pas sur un des disques
+         impliqués dans le transfert. Il est ensuite facile de
+         recopier la partition NTFS ou FAT32 du disque Parallel ATA
+         sur le disque Serial ATA.
+      </p>
+      <p>
+         Plusieurs autres solutions sont disponibles pour
+         transférer une partition Parallel ATA vers une partition
+         Serial ATA sans utiliser Windows. Le logiciel <a
+         href="http://www.powerquest">Partition Magic</a> de
+         PowerQuest devrait, en théorie, permettre la copie sans
+         trop de problèmes. Il faut par contre le démarrer depuis
+         une disquette système et non l'installer sous Windows,
+         sinon il faudra amorcer un des disques du transfert pour
+         parvenir à faire la copie! Le gros point faible de cette
+         solution est le caractère commercial de Partition Magic.
+      </p>
+      <p>
+         Il est aussi possible d'utiliser Linux, notamment <a
+         href="http://www.knoppix.net">Knoppix</a> qui peut
+         démarrer depuis un CD-ROM. C'est une solution gratuite
+         mais plus complexe que Partition Magic. En fait, il est
+         même possible d'utiliser une distribution de Linux
+         installée sur un des disques impliqués dans le transfert.
+         L'important est de ne pas amorcer Windows; rien n'empêche
+         d'amorcer Linux! Il vous faut par contre utiliser une
+         version assez récente de Linux pour supporter Serial ATA!
+         Sur le disque Serial ATA, vous devez créer une partition
+         de taille parfaitement identique à la partition originale,
+         sur le disque Parallel ATA. Ensuite, une commande telle
+         que <tt>dd if=/dev/hda1 of=/dev/sda1</tt> devrait
+         permettre le transfert. Vous devrez bien entendu adapter
+         cette commande à votre système de partitionnement. Ne
+         l'utilisez pas telle quelle sans savoir son résultat, car
+         elle pourrait détruire des données sur votre disque dur
+         Serial ATA!
+      </p>
+      <p>
+         Il est nécessaire d'effectuer une copie d'image, avec
+         Partition Magic ou Linux, car une copie fichiers par
+         fichiers ne conserverait pas le code nécessaire pour
+         l'amorçage. Malheureusement, il n'existe aucune technique
+         simple pour réinstaller le gestionnaire d'amorçage de
+         Windows sans tout réinstaller Windows! Une copie fichiers
+         par fichiers pourrait par contre réussir sur une partition
+         sur laquelle une tentative d'installation de Windows XP a
+         déjà été faite; le gestionnaire d'amorçage sera alors
+         configuré.
+      </p>
+      <p>
+         La copie effectuée, retirez votre disque dur Parallel ATA
+         et reconfigurez votre BIOS pour de nouveau permettre
+         l'amorçage depuis le disque dur Serial ATA. Windows
+         devrait alors s'amorcer normalement. Il se rendra compte
+         que le disque dur Parallel ATA est disparu mais qu'un
+         nouveau disque Serial ATA le remplace. Il interprétera
+         cette modification comme une mise à jour de disque dur et
+         se reconfigurera pour fonctionner en conséquence! Vérifiez
+         que tout fonctionne toujours normalement. Si vous
+         souhaitez rebrancher votre disque Parallel ATA, il est
+         recommandé d'utiliser Linux ou Partition Magic pour en
+         reformater la partition Windows XP avant de relancer
+         Windows afin d'éviter que Windows, sur la partition Serial
+         ATA, ne se mélange les pinceaux.
+      </p>
+      <p>
+         Il se peut que, malgré toutes ces précautions, le système
+         refuse de démarrer correctement si seul le disque Serial
+         ATA est branché. Sans information à propos du
+         fonctionnement interne, le concept de mémorisation des
+         disques n'est qu'une hypothèse qui pourrait fort bien être
+         fausse ou dépendre du système configuré! Dans ce cas,
+         Windows semblera démarrer normalement, mais il gèlera
+         avant d'afficher l'écran de sélection de l'utilisateur.
+         Ceci est dû au fait que Windows cherche des fichiers qui
+         se trouvent sur le disque dur qui n'est plus dans la
+         machine. Normalement, si vous avez bien suivi les étapes
+         indiquées précédemment, cela ne devrait pas se produire...
+         à moins d'un bogue dans Windows, bien entendu. En cas
+         d'erreur de manipulation ou de bogue, il existe une autre
+         façon de régler le problème que tout recommencer depuis le
+         début, en éditant la Base de Registre de la façon
+         suivante.
+      </p>
+      <p>
+         D'abord, rebranchez le disque dur Parallel ATA, ce qui
+         devrait permettre un démarrage normal de Windows. Vérifiez
+         que le BIOS amorce le système sur le disque Serial ATA et
+         non celui sur le disque Parallel ATA. Ouvrez alors
+         l'Explorateur et identifiez sur quel lecteur se trouve la
+         partition Windows du disque Parallel ATA. Appelons ce
+         lecteur <tt>G:</tt> pour les besoins de notre exemple,
+         mais sachez que ce lecteur pourrait varier d'une
+         installation à l'autre. Ensuite, dans le menu Démarrer,
+         sélectionnez <b>Exécuter</b> et tapez <tt>regedit</tt>.
+         Dans la Base de Registre dont l'éditeur apparaît, accédez
+         ensuite à la clé
+         <tt>HKEY_LOCAL_MACHINE\SYSTEM\MountedDevices\DosDevices</tt>.
+         Il y a une sous-clé pour chacun des lecteurs dans la
+         machine. Il suffit, pour réparer l'installation,
+         d'inverser le lecteur C: (SATA) et le lecteur PATA. Cette
+         inversion s'effectue toujours à l'aide de trois renommages
+         successifs. Dans notre exemple, ceci peut se faire de la
+         façon suivante: renommer <tt>C:</tt> pour l'appeler
+         <tt>T:</tt>, <tt>G:</tt> pour l'appeler <tt>C:</tt> et
+         finalement <tt>T:</tt> pour l'appeler <tt>G:</tt>.
+         Éteignez l'ordinateur normalement, retirez le disque dur
+         Parallel ATA et tout devrait à présent fonctionner
+         normalement.
+      </p>
+      <h2>
+         <a id="linux" name="linux">Qu'en est-il de Linux?</a>
+      </h2>
+      <p>
+         SATA a été pour moi un important sujet d'inquiétude quant
+         à la possibilité de conserver Linux sur une éventuelle
+         nouvelle machine. Si autant de difficultés surgissent pour
+         installer Windows XP, qu'en sera-t-il de ce système
+         alternatif beaucoup moins supporté par les grandes
+         compagnies? Cela pourrait être mieux ou pire!
+      </p>
+      <p>
+         Le noyau Linux 2.6 supporte d'ores et déjà plusieurs
+         contrôleurs PATA et SATA. Le site <a
+         href="http://linux.yyz.us/sata/">Serial ATA (SATA) for
+         Linux</a> fournit l'état du pilote intégré au noyau pour
+         différents contrôleurs. Il y a ainsi de bonnes chances
+         pour que votre contrôleur soit supporté et que
+         l'installation puisse être réalisée sans aucune disquette.
+         Dans ce cas-là, l'installation Linux sera plus simple que
+         celle de Windows. L'idéal pour s'assurer un support SATA
+         stable à long terme est d'opter, lors du choix des pièces
+         de sa machine, pour une carte mère dotée de contrôleurs
+         Serial ATA compatibles AHCI. Malheureusement, du moins en
+         début 2006, cela exclut les configurations AMD qui se
+         présentent sur des jeux de puces VIA ou pire, NVIDIA.
+         Contrairement à la carte graphique dont NVIDIA prend le
+         support Linux très au sérieux en proposant un pilote très
+         bien fait (quoiqu'à code source fermé, il ne faut quand
+         même pas que ce soit parfait, non?), le contrôleur SATA
+         des jeux de puces nForce de NVIDIA n'est pas totalement
+         pris en charge sous Linux. Le pilote, en version beta,
+         dont NVIDIA ne participe pas au développement, peut
+         fonctionner très bien, bien, mal ou pas du tout, dépendant
+         de la carte mère en cause.
+      </p>
+      <p>
+         Si votre contrôleur SATA n'est pas pris en charge, il n'y
+         aura possiblement aucun moyen simple d'installer Linux! Le
+         site Web <a
+         href="http://linuxmafia.com/faq/Hardware/sata.html">Serial
+         ATA (SATA) chipsets - Linux support status</a> propose
+         certes quelques solutions qui ressemblent aux alternatives
+         proposées pour Windows, mais malheureusement, rien n'est
+         possible si le pilote disponible, qui n'est pas mis au
+         point par le fabricant de la carte mère, est instable,
+         inutilisable ou absent! Ainsi, SATA peut priver une
+         machine du système d'exploitation Linux, à moins
+         d'installer ce dernier sur un disque PATA!
+      </p>
+      <h2>
+         <a id="conclusion" name="conclusion">Conclusion</a>
+      </h2>
+      <p>
+         Toute cette complexité est-elle vraiment nécessaire? Ne
+         serait-il pas plus simple de doter une nouvelle machine
+         d'un disque PATA et de considérer ces ports SATA comme un
+         gadget inutile? Pour le moment, la différence de
+         performance semble négligeable: passer de 133Mo/s à
+         150Mo/s est semblable au passage de 100Mo/s à 133Mo/s,
+         aucune différence! Sous Windows, SATA amène des
+         complications pour l'installation tandis que sous Linux,
+         il peut la rendre impossible à moins d'ajouter un nouveau
+         disque PATA à la machine. C'est pourquoi je songeais
+         parfois, si je devais changer de machine, à ne pas opter
+         pour un disque SATA. Linux est fondamental pour moi et je
+         préfère presque ne pas avoir d'ordinateur du tout que de
+         disposer d'un système ne tournant que sous Windows!
+         Toutefois, de nouveaux disques pourraient voir le jour et
+         n'être offerts que sous forme SATA. En juin 2005, les
+         disques PATA et SATA tournaient à 7000 tours/minute et
+         pouvaient atteindre les 300Go. Dans quelques années, de
+         nouveaux disques SATA pourraient tourner plus vite et
+         avoir une plus grande taille. De plus, éventuellement, la
+         vitesse du SATA grimpera! SATA II, par exemple, offre un
+         taux de transfert de 300Ko/s. De plus, avec Native Command
+         Queue (NCQ), les accès au disque peuvent être réordonnés
+         par l'électronique interne de façon à mieux profiter de la
+         géométrie du disque. Cela pourrait augmenter la
+         performance, du moment que le système d'exploitation le
+         supporte, ce qui n'est pas le cas en début 2006 pour
+         Linux. Ainsi, investir du temps pour configurer un système
+         SATA peut valoir la peine, mais seul l'avenir dira à quel
+         point.
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

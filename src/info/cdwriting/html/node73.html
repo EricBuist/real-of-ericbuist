@@ -1,0 +1,207 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.1//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>15.3 Lecture de l'ATIP</TITLE>
+<META NAME="description" CONTENT="15.3 Lecture de l'ATIP">
+<META NAME="keywords" CONTENT="cdwriting">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cdwriting.css">
+
+<LINK REL="previous" HREF="node72.html">
+<LINK REL="up" HREF="node70.html">
+<LINK REL="next" HREF="node74.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2133"
+  HREF="node74.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2127"
+  HREF="node70.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2123"
+  HREF="node72.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2129"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2131"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html2134"
+  HREF="node74.html">16. La copie de</A>
+<B> monter:</B> <A NAME="tex2html2128"
+  HREF="node70.html">15. Analyse de disques</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2124"
+  HREF="node72.html">15.2 Lecture de la</A>
+ &nbsp; <B>  <A NAME="tex2html2130"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2132"
+  HREF="node106.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION07230000000000000000">
+<SPAN CLASS="arabic">15</SPAN>.<SPAN CLASS="arabic">3</SPAN> Lecture de l'ATIP</A>
+</H1>
+
+<P>
+Il existe une diversité de marques de disques, de diverses degrés de
+qualité. Maxell, Memorex, Verbatim, TDK, Imation et bien
+d'autres. Toutefois, chaque marque ne fabrique pas elle-même ses
+disques. Elle confie parfois cette tâche à d'autres compagnies et pire
+encore, certains disques d'une même marque peuvent venir de plusieurs
+fabricants! Le problème réside dans le fait que ce n'est pas la marque
+qui détermine le degré de qualité d'un disque mais bien son fabricant
+et le colorant organique qu'il utilise pour fabriquer les médias. Bien
+qu'il soit possible de déterminer visuellement quel type de colorant
+est utilisé, le manufacturier réel reste un mystère.
+L'Absoute Time in Pre-Groove (<SPAN  CLASS="textit">ATIP</SPAN><A NAME="3309"></A>) permet d'obtenir ces
+informations. L'information ATIP se trouve gravée sur le disque et peut
+être lue par la plupart des graveurs modernes. CDRecord est en mesure
+de lire les informations ATIP tandis que les grands logiciels de
+gravure pour Windows n'offrent pas cette fonctionnalité. Heureusement,
+il existe certains utilitaires Windows [<A HREF="node105.html#url:cdutils">URL117</A>] capables de
+lire l'ATIP.
+
+<P>
+Si nous lui fournissons un disque CD-R de relativement bonne qualité,
+de marque
+Memorex, voyons voir ce que la commande <TT>cdrecord -atip</TT>
+affichera. 
+
+<P>
+
+<DIV CLASS="alltt" ALIGN="LEFT">
+<TT>
+ 
+<BR>
+Cdrecord 1.11a32 (i586-mandrake-linux-gnu)
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;Copyright (C) 1995-2002 Jörg Schilling
+<BR>
+scsidev: '0,2,0'
+<BR>
+scsibus: 0 target: 2 lun: 0
+<BR>
+Linux sg driver version: 3.1.24
+<BR>
+Using libscg version 'schily-0.6'
+<BR>
+Device type &nbsp;&nbsp;&nbsp;: Removable CD-ROM
+<BR>
+Version &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 0
+<BR>
+Response Format: 1
+<BR>
+Vendor_info &nbsp;&nbsp;&nbsp;: 'SONY &nbsp;&nbsp;&nbsp;'
+<BR>
+Identifikation : 'CD-RW CRX0811 &nbsp;&nbsp;'
+<BR>
+Revision &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 'MYS2'
+<BR>
+Device seems to be: Generic mmc CD-RW.
+<BR>
+Using generic SCSI-3/mmc CD-R driver (mmc_cdr).
+<BR>
+Driver flags &nbsp;&nbsp;: SWABAUDIO BURNFREE
+<BR>
+Supported modes: TAO PACKET SAO SAO/R96P SAO/R96R 
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RAW/R96P RAW/R96R
+<BR>
+ATIP info from disk:
+<BR>&nbsp;&nbsp;Indicated writing power: 5
+<BR>&nbsp;&nbsp;Is not unrestricted
+<BR>&nbsp;&nbsp;Is not erasable
+<BR>&nbsp;&nbsp;Disk sub type: Medium Type A, low Beta category (A-) (2)
+<BR>&nbsp;&nbsp;ATIP start of lead in: &nbsp;-11634 (97:26/66)
+<BR>&nbsp;&nbsp;ATIP start of lead out: 359848 (79:59/73)
+<BR>
+Disk type: &nbsp;&nbsp;&nbsp;Short strategy type (Phthalocyanine or similar)
+<BR>
+Manuf. index: 3
+<BR>
+Manufacturer: CMC Magnetics Corporation
+<BR></TT>
+</DIV>
+
+<P>
+Avec un disque Imation, qui n'a jamais fonctionné pour moi, on
+remarque que la qualité du média est bien inférieure.
+
+<P>
+
+<DIV CLASS="alltt" ALIGN="LEFT">
+<TT>
+ 
+<BR>
+ATIP info from disk:
+<BR>&nbsp;&nbsp;Indicated writing power: 5
+<BR>&nbsp;&nbsp;Is not unrestricted
+<BR>&nbsp;&nbsp;Is not erasable
+<BR>&nbsp;&nbsp;Disk sub type: Medium Type C, low Beta category (C-) (6)
+<BR>&nbsp;&nbsp;ATIP start of lead in: &nbsp;-11640 (97:26/60)
+<BR>&nbsp;&nbsp;ATIP start of lead out: 337350 (75:00/00)
+<BR>
+Disk type: &nbsp;&nbsp;&nbsp;Long strategy type (Cyanine, AZO or similar)
+<BR>
+Manuf. index: 3
+<BR>
+Manufacturer: CMC Magnetics Corporation
+<BR></TT>
+</DIV>
+
+<P>
+Ces données peuvent aider à vérifier des hypothèses, à comprendre
+pourquoi deux disques d'une même marque réagissent de façaon
+différente sur votre graveur, si ce problème se pose.
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2133"
+  HREF="node74.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2127"
+  HREF="node70.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2123"
+  HREF="node72.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2129"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2131"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html2134"
+  HREF="node74.html">16. La copie de</A>
+<B> monter:</B> <A NAME="tex2html2128"
+  HREF="node70.html">15. Analyse de disques</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2124"
+  HREF="node72.html">15.2 Lecture de la</A>
+ &nbsp; <B>  <A NAME="tex2html2130"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2132"
+  HREF="node106.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Eric Buist
+2005-11-13
+</ADDRESS>
+</BODY>
+</HTML>

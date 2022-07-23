@@ -1,0 +1,743 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.1//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>17.2 Configuration du logiciel de gravure</TITLE>
+<META NAME="description" CONTENT="17.2 Configuration du logiciel de gravure">
+<META NAME="keywords" CONTENT="cdwriting">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cdwriting.css">
+
+<LINK REL="previous" HREF="node82.html">
+<LINK REL="up" HREF="node81.html">
+<LINK REL="next" HREF="node84.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2301"
+  HREF="node84.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2295"
+  HREF="node81.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2291"
+  HREF="node82.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2297"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2299"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html2302"
+  HREF="node84.html">18. La création de</A>
+<B> monter:</B> <A NAME="tex2html2296"
+  HREF="node81.html">17. Création d'un disque</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2292"
+  HREF="node82.html">17.1 Préparation et formatage</A>
+ &nbsp; <B>  <A NAME="tex2html2298"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2300"
+  HREF="node106.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Sous-sections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html2303"
+  HREF="node83.html#SECTION07421000000000000000"><SPAN CLASS="arabic">17</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN> Création de l'image ISO</A>
+<UL>
+<LI><A NAME="tex2html2304"
+  HREF="node83.html#SECTION07421100000000000000"><SPAN CLASS="arabic">17</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">1</SPAN> Appel de base</A>
+<LI><A NAME="tex2html2305"
+  HREF="node83.html#SECTION07421200000000000000"><SPAN CLASS="arabic">17</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">2</SPAN> Les points de greffe</A>
+<LI><A NAME="tex2html2306"
+  HREF="node83.html#SECTION07421300000000000000"><SPAN CLASS="arabic">17</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">3</SPAN> Support multi-plateforme</A>
+<LI><A NAME="tex2html2307"
+  HREF="node83.html#SECTION07421400000000000000"><SPAN CLASS="arabic">17</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">4</SPAN> Le filtrage du contenu</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html2308"
+  HREF="node83.html#SECTION07422000000000000000"><SPAN CLASS="arabic">17</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN> Création d'images UDF</A>
+<LI><A NAME="tex2html2309"
+  HREF="node83.html#SECTION07423000000000000000"><SPAN CLASS="arabic">17</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">3</SPAN> Appel de CDRecord ou CDRDAO</A>
+<LI><A NAME="tex2html2310"
+  HREF="node83.html#SECTION07424000000000000000"><SPAN CLASS="arabic">17</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">4</SPAN> Gravure de DVD</A>
+<LI><A NAME="tex2html2311"
+  HREF="node83.html#SECTION07425000000000000000"><SPAN CLASS="arabic">17</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">5</SPAN> Ajout d'une nouvelle session sur un CD</A>
+<LI><A NAME="tex2html2312"
+  HREF="node83.html#SECTION07426000000000000000"><SPAN CLASS="arabic">17</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">6</SPAN> Gravure à la volée</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION07420000000000000000">
+<SPAN CLASS="arabic">17</SPAN>.<SPAN CLASS="arabic">2</SPAN> Configuration du logiciel de gravure</A>
+</H1>
+
+<P>
+La configuration s'effectue ici en deux étapes, soit la création de
+l'image réelle du disque, au format ISO&nbsp;9660, ainsi que l'appel de la
+commande <TT>cdrecord</TT> ou <TT>cdrdao</TT>. La création de l'image
+ISO s'effectuera avec l'utilitaire mkisofs<A NAME="3671"></A> qui comporte un
+très grand nombre d'options. Heureusement, seules quelques-unes seront
+utilisées ici. Quant à la gravure effective, le choix de l'utilitaire
+dépendra de vos besoins et préférences.
+
+<P>
+
+<H2><A NAME="SECTION07421000000000000000">
+<SPAN CLASS="arabic">17</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN> Création de l'image ISO</A>
+</H2>
+
+<P>
+La création de l'image ISO constitue une étape importante qui
+déterminera la présentation exacte du contenu de votre disque. Sous
+Linux en ligne de commandes, elle s'effectue par une seule commande,
+mais vous devrez écrire cette ligne avec soin afin de ne rien
+oublier.
+
+<P>
+
+<H3><A NAME="SECTION07421100000000000000">
+<SPAN CLASS="arabic">17</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">1</SPAN> Appel de base</A>
+</H3>
+
+<P>
+<TABLE CELLPADDING=3>
+<TR><TD ALIGN="CENTER"><TT>mkisofs</TT></TD>
+<TD ALIGN="CENTER"><TT>-r</TT></TD>
+<TD ALIGN="CENTER"><TT>-J</TT></TD>
+<TD ALIGN="CENTER"><TT>-o cd.iso</TT></TD>
+<TD ALIGN="CENTER"><TT>-V
+  volume</TT></TD>
+<TD ALIGN="CENTER"><TT>collections</TT></TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+</TR>
+<TR><TD ALIGN="CENTER">&nbsp;</TD>
+<TD ALIGN="CENTER">Rock Ridge</TD>
+<TD ALIGN="CENTER">Joliet</TD>
+<TD ALIGN="CENTER">Fichier ISO</TD>
+<TD ALIGN="CENTER">Nom du volume</TD>
+<TD ALIGN="CENTER">Contenu</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+</TR>
+</TABLE>
+
+<P>
+L'option <TT>-r</TT> permet d'activer les extensions Rock Ridge
+autorisant les attributs Linux tels que les permissions et les liens
+symboliques, ainsi que les noms longs. Ces extensions sont
+complètement ignorées par DOS et Windows, ce qui signifie que si
+vous
+n'utilisez que ces dernières, Windows affichera des noms de
+fichiers 8&#58;3. Si vous avez bâti votre structure sur une
+partition FAT32, vous devriez ajouter les options <TT>-file-mode
+  444</TT> et <TT>-dir-mode 555</TT>. Elles activent le bit de lecture
+pour tous les fichiers
+du disque et inhibe la possibilité d'exécuter du contenu qui
+n'est pas destiné à l'être. Les répertoires, quant à eux, sont
+accessibles en lecture et en exécution seulement.
+Bien qu'ignorées par Windows, les
+extensions Rock Ridge ne devraient pas nuire aux logiciels du disque, à
+moins qu'ils ne soient dotés de protections anti-copie.
+
+<P>
+L'option <TT>-J</TT> active de son côté les extensions Joliet
+exploitables sous Windows. Contrairement à Rock Ridge, si vous
+n'utilisez que Joliet, votre disque sera lisible sous Linux et
+affichera tous les noms longs. Si vous n'utilisez aucune des deux
+options, seuls des noms 8&#58;3 seront utilisés. Votre disque aura
+l'air d'une antiquité conçue à l'époque des 486, mais il sera
+compatible avec un plus grand nombre de plate-formes. N'utilisez cette
+possibilité que si tous les noms de fichiers et de répertoires de
+votre structure se conforment à la règle 8&#58;3. Dans le cas
+contraire, les noms seront tronqués et tout logiciel qui tentera de
+retrouver un fichier précis sur votre disque échouera faute de nom
+incorrect.
+
+<P>
+Il est possible d'utiliser l'option <TT>-udf</TT> pour activer le
+support UDF qui n'est malheureusement pas très mature pour le
+moment. L'unique application de ce support UDF consiste à permettre la
+lecture du disque par un lecteur DVD vidéo. L'option UDF peut dans cet
+ordre d'idée être jumelée à l'option <TT>-dvd-video</TT>. L'option UDF
+permet de construire des disques bridge ISO&nbsp;9660/UDF tandis que
+l'option DVD Video passe en mode <SPAN CLASS="MATH"><IMG
+ WIDTH="18" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$\mu$"></SPAN>-UDF.
+
+<P>
+L'option <TT>-o</TT> indique quant à elle le nom de l'image ISO
+qui sera créée. Si elle est omise, le contenu de l'image sera envoyé
+sur la sortie standard. Cette possibilité pourrait être utilisée pour
+graver en exploitant une image virtuelle plutôt que réelle. L'option
+<TT>-V</TT> définit le nom du volume qui n'est pas utilisé sous Linux
+mais qui sera affiché dans l'Explorateur Windows.
+
+<P>
+La commande se termine par un ensemble de
+collections. Les collections déterminent le contenu exact de votre
+disque. Elles représentent des répertoires ou des fichiers à inclure
+dans l'image ISO. Lorsqu'un répertoire est donné, tous ses
+sous-répertoires et ses fichiers seront inclus à la racine du
+disque. Si un fichier est donné, il sera inclus sur la racine du
+disque. Il est possible de spécifier autant de collections de données que
+désirées. En cas de conflits, par exemple si deux fichiers
+<TT>readme.txt</TT> apparaissent à la racine du disque, mkisofs vous
+avertira.
+Si vous avez rassemblé tous les fichiers à graver dans un
+même répertoire, il suffira de donner ce dernier.
+
+<P>
+Par exemple, si vous spécifiez comme répertoire source
+<TT>/mnt/data/cds/Soft</TT> et que ce répertoire comprend les
+répertoires <TT>Apps</TT>, <TT>Games</TT> et <TT>Utils</TT>, l'image
+contiendra, à sa racine, les répertoires <TT>Apps</TT>, <TT>Games</TT>
+et <TT>Utils</TT> avec tous leurs fichiers et sous-répertoires.
+
+<P>
+
+<H3><A NAME="SECTION07421200000000000000"></A>
+<A NAME="3700"></A>
+<A NAME="3701"></A>
+<BR>
+<SPAN CLASS="arabic">17</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">2</SPAN> Les points de greffe
+</H3>
+
+<P>
+Que se passe-t-il, à présent, si vous devez puiser des données à
+plusieurs emplacements? Toutes les collections seront alors fusionnées
+à la racine du disque, ce qui n'est pas toujours souhaitable. Par
+exemple, supposons que vous disposez d'une discothèque de MP3 dans un
+emplacement
+donné de votre disque dur, par exemple <TT>/mnt/music</TT> et que
+vous ne voulez (ou ne pouvez faute d'espace) en sauvegarder sur disque
+qu'une partie. Les fichiers sont classés par genre dans des
+répertoires et vous aimeriez que les répertoires apparaissent aussi
+sur le disque. Sur le disque, vous voudriez avoir les sous-répertoires
+<TT>Rock</TT> et <TT>Classic</TT> mais pas <TT>Pop</TT>,
+<TT>Techno</TT>, <TT>Disco</TT> et les autres. Vous serez alors tenté
+d'utiliser deux collections, soient <TT>/mnt/music/Rock</TT> et
+<TT>/mnt/music/Classic</TT>. Malheureusement, cette approche placera
+tous les MP3 à la racine du disque; votre classement par genre sera
+détruit! Une autre solution consiste à recopier les répertoires
+<TT>Rock</TT> et <TT>Classic</TT> dans un autre répertoire, faire
+l'image ISO puis restaurer la structure originale. Ceci n'est pas très
+pratique, surtout si votre répertoire <TT>/mnt/music</TT> est partagé
+sur un réseau.
+
+<P>
+Il faut pour résoudre ce problème utiliser les points de
+greffe. L'option <TT>-graft-points</TT> doit être
+passée à <TT>mkisofs</TT>, avant d'énumérer les collections. Après
+cette option passée, la commande acceptera, en plus des collections
+usuelles, celles de la forme
+<TT>emplacementcd=collection</TT>. Il est possible
+de greffer autant
+des fichiers que des répertoires avec cette technique. Dans notre
+exemple, nous utiliserons les deux collections
+<TT>Rock/=/mnt/music/Rock/</TT> et
+<TT>Classic/=/mnt/music/Classic/</TT>.
+
+<P>
+<TABLE BORDER="1">
+<TR><TD VALIGN="top">
+<DIV STYLE="text-align:center; color:red"> Attention!
+</DIV><P>
+L'importance des barres obliques en fin de collections est vitale, car
+elle indique à l'utilitaire que le point de greffe ou la collection
+constitue bien un répertoire. Pour éviter de mauvaises surprises qui
+ne se constatent parfois qu'après avoir gravé le disque, utilisez
+toujours les barres obliques en fin de répertoires à moins de bien
+savoir ce que vous faites.</TD></TR></TABLE> 
+<P>
+
+<H3><A NAME="SECTION07421300000000000000">
+<SPAN CLASS="arabic">17</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">3</SPAN> Support multi-plateforme</A>
+</H3>
+
+<P>
+Mkisofs supporte la génération d'images ISO&nbsp;9660 mais aussi
+quelques extensions importantes de ce standard, notamment le Rock Ridge
+de Linux et le Joliet de Windows. Mieux encore, vous pouvez créer des
+images HFS<A NAME="3727"></A> ou des images hybrides supportées par le
+Macintosh<A NAME="3728"></A>. Contrairement à certains utilitaires sous
+Windows, vous
+n'aurez aucun besoin d'un disque dur Macintosh pour effectuer la
+création d'images; tout peut se faire à partir de votre disque dur PC!
+La création d'images hybrides ne se résume toutefois pas à ajouter
+l'option <TT>-hfs</TT>, d'autres options sont à
+considérer. Mkisofs permet par exemple de configurer les
+attributs spécifiques au Mac tels que le créateur et le type des
+fichiers. Pour plus d'informations à propos des disques HFS ou hybrides,
+consultez la documentation de mkisofs.
+
+<P>
+
+<H3><A NAME="SECTION07421400000000000000">
+<SPAN CLASS="arabic">17</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">4</SPAN> Le filtrage du contenu</A>
+</H3>
+
+<P>
+Le filtrage permet d'exercer un contrôle plus grand sur la
+présentation de l'image en masquant ce qui n'est pas nécessaire. Il
+existe trois types de filtrage, soient le masquage sélectif,
+l'inexistance et l'exclusion. Le masquage sélectif écrit le contenu
+caché sur le disque, mais il n'inclut aucune référence dans la table des
+répertoires du disque. Le fichier est là, mais il est inaccessible. Il
+est possible de masquer du contenu de façon à le rendre visible que
+sous Linux ou que sous Windows. L'inexistence consiste à écrire le
+fichier sur le disque, à inscrire un pointeur vers le fichier dans les
+tables des répertoires mais un bit est activé afin d'indiquer au
+système d'exploitation que le fichier est caché. Le système peut lever
+le masquage en utilisant une procédure spécifique à la plate-forme,
+comme l'option <TT>unhide</TT> de la commande <TT>mount</TT> sous
+Linux. L'exclusion, quant à elle, n'intègre pas le fichier à l'image
+ISO.
+
+<P>
+Le filtrage s'effectue toujours de la même façon: vous passez une
+option suivie d'un paramètre. Il existe deux façons d'indiquer à
+mkisofs le contenu à filtrer, soit les caractères génériques
+ou la liste de fichiers. Les caractères génériques doivent toujours
+être délimités afin de les protéger du shell, sinon ils seront
+interprétés et non passés à l'utilitaire. Les caractères génériques
+permettent la correspondance avec plusieurs fichiers ou
+répertoires, mais le filtrage peut toucher des éléments n'ayant pas à
+être filtrés. Par exemple, <TT>-exclude '*.bak'</TT> excluera tous les
+fichiers qui se terminent par <TT>.bak</TT>, et cela sur tout le
+disque, pas uniquement à la racine. L'astérisque représente
+un ou plusieurs caractères tandis que le point d'interrogation n'en
+représente qu'un seul. Le filtrage par liste, quant à lui, exige la
+création d'un fichier contenant un fichier à filtrer par ligne, ce qui
+peut devenir fastidieux à moins d'utiliser des commandes telles que
+<TT>find</TT>. Elle offre un grand contrôle sur les fichiers à
+filtrer, mais chaque fichier doit être donné individuellement.
+
+<P>
+<BR><P></P>
+<DIV ALIGN="CENTER"><A NAME="3763"></A>
+<TABLE>
+<CAPTION><STRONG>Tableau 17.1:</STRONG>
+Options de filtrage de mkisofs</CAPTION>
+<TR><TD>
+  <DIV ALIGN="CENTER">
+
+</DIV>
+  <TABLE CELLPADDING=3 BORDER="1">
+<TR><TD></TD>
+<TD ALIGN="CENTER" COLSPAN=1><SPAN>Caractères génériques</SPAN></TD>
+<TD ALIGN="CENTER" COLSPAN=1><SPAN>Liste de fichiers</SPAN></TD>
+</TR>
+<TR><TD ALIGN="LEFT">Masquage
+    ISO&nbsp;9660/Rock Ridge</TD>
+<TD ALIGN="LEFT"><TT>-hide</TT></TD>
+<TD ALIGN="LEFT"><TT>-hide-list</TT></TD>
+</TR>
+<TR><TD ALIGN="LEFT">Masquage
+    Joliet</TD>
+<TD ALIGN="LEFT"><TT>-hide-joliet</TT></TD>
+<TD ALIGN="LEFT"><TT>-hide-joliet-list</TT></TD>
+</TR>
+<TR><TD ALIGN="LEFT">Masquage HFS</TD>
+<TD ALIGN="LEFT"><TT>-hide-hfs</TT></TD>
+<TD ALIGN="LEFT"><TT>-hide-hfs-list</TT></TD>
+</TR>
+<TR><TD ALIGN="LEFT">Inexistence</TD>
+<TD ALIGN="LEFT"><TT>-hidden</TT></TD>
+<TD ALIGN="LEFT"><TT>-hidden-list</TT></TD>
+</TR>
+<TR><TD ALIGN="LEFT">Exclusion</TD>
+<TD ALIGN="LEFT"><TT>-m</TT> ou <TT>-x</TT></TD>
+<TD ALIGN="LEFT"><TT>-exclude-list</TT></TD>
+</TR>
+</TABLE>
+  
+  <A NAME="tab:filter"></A>
+</TD></TR>
+</TABLE>
+</DIV><P></P>
+<BR>
+
+<P>
+Le
+tableau&nbsp;<A HREF="#tab:filter">17.1</A> réunit les diverses options de filtrage
+disponibles.
+Malheureusement, il n'existe pas d'options similaires pour UDF.
+Il n'est pas possible de cacher du contenu dans ISO&nbsp;9660 et l'afficher
+uniquement dans UDF.
+
+<P>
+
+<H2><A NAME="SECTION07422000000000000000">
+<SPAN CLASS="arabic">17</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN> Création d'images UDF</A>
+</H2>
+
+<P>
+Bien que mkisofs ne puisse pas créer d'images UDF pures, il existe une
+technique permettant de le faire sous Linux. Elle nécessite le package
+UDF Tools<A NAME="3768"></A> [<A HREF="node105.html#url:udftools">URL68</A>] ainsi
+que le module de noyau supportant UDF en mode lecture et
+écriture. Tant que l'implantation de l'écriture UDF sera
+expérimentale, cette technique ne sera pas des plus fiables et ne
+devrait pas être utilisée pour graver des DVD Video ou des disques
+commerciaux. Il vous faudra
+d'abord installer le module UDF et UDF Tools, mais les instructions
+sur le site s'avèrent suffisamment simples et n'exigent aucune
+recompilation complète du noyau. La création d'une image UDF, par
+contre, relève de l'astuce!
+
+<P>
+D'abord, il nous faut un fichier vide de la taille voulue de
+l'image. Ce fichier sera créé à l'aide de la commande
+<TT>dd</TT>. Pour créer le fichier, il suffit d'utiliser le
+périphérique <TT>/dev/zero</TT> qui constitue une source inépuisable
+de 0! Nous ferons passer ce fichier vide pour un disque et y
+installerons un système de fichiers UDF. Ensuite, il sera possible de
+le monter et d'y intégrer les fichiers voulus. La création du fichier
+vide s'effectue comme suit:
+
+<P>
+
+<DIV CLASS="alltt" ALIGN="LEFT">
+<TT>
+ 
+<BR>
+dd if=/dev/zero of=~/udf.iso bs=1048576 count=650
+<BR></TT>
+</DIV>
+
+<P>
+La commande copie 650 blocs d'un méga-octet (<SPAN CLASS="MATH">2<SUP>10</SUP></SPAN> octets),
+provoquant la création
+d'un fichier de 650 Mo ne contenant que des zéros. Bien entendu,
+l'opération nécessitera quelques secondes et de l'espace disque. Pour
+transformer ce fichier
+vide en image UDF, il suffit de taper
+
+<P>
+
+<DIV CLASS="alltt" ALIGN="LEFT">
+<TT>
+ 
+<BR>
+mkudffs ~/udf.iso
+<BR></TT>
+</DIV>
+
+<P>
+Ensuite, il devient possible de monter l'image en loopback.
+
+<P>
+
+<DIV CLASS="alltt" ALIGN="LEFT">
+<TT>
+ 
+<BR>
+mkdir ~/udf
+<BR>
+su
+<BR>
+mount -t udf -o loop ./udf.iso ./udf
+<BR>
+exit
+<BR></TT>
+</DIV>
+
+<P>
+Maintenant, le répertoire <TT>udf</TT> peut accueillir le contenu de
+l'image ISO qui sera gravée sur disque! Lorsque le travail sur la structure
+UDF sera terminé, il suffit de la démonter avec <TT>umont ./udf</TT>,
+en root. Il est même possible de définir des permissions sur les
+fichiers!
+
+<P>
+
+<H2><A NAME="SECTION07423000000000000000">
+<SPAN CLASS="arabic">17</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">3</SPAN> Appel de CDRecord ou CDRDAO</A>
+</H2>
+
+<P>
+L'appel de ces logiciels se résume à une ligne de commande qui ne
+variera que peu d'une gravure à l'autre. Contrairement à  Easy CD
+  Creator ou Nero, le choix du mode de votre disque se fait lors de la
+gravure plutôt que lors de la création de l'image. Le choix de la
+méthode de gravure (Track-At-Once ou Disk-At-Once) influencera
+malheureusement le logiciel à utiliser. Pour des disques monosession,
+quelqu'ils soient, il vaut mieux utiliser le mode Disk-At-Once. Dans
+ce mode, aucune pause n'est effectuée entre les pistes, garantissant
+une utilisation maximale de l'espace disque et une compatibilité
+maximale avec les lecteurs.
+
+<P>
+Pour une gravure en Track-At-Once, utilisez CDRecord. L'appel de
+base est <TT>cdrecord -v -data cd.iso</TT>. Le disque sera alors gravé
+en mode Track-At-Once, une seule session sera autorisée, car le disque
+sera fermé. Le changement du mode s'effectue par le changement de
+l'option <TT>-data</TT> pour une autre telle que <TT>-mode2</TT>,
+<TT>-xa1</TT> ou <TT>-xa2</TT>. CDRecord lira l'image ISO par blocs de
+2048 octets, remplira les champs d'en-tête et calculera pour vous les
+codes de détection ou de correction des erreurs. Des blocs de 2352
+octets seront ultimement envoyés au graveur. CDRecord a pour avantage
+de supporter la technologie BurnFree<A NAME="3790"></A> des
+graveurs. Si vous souhaitez
+laisser votre disque ouvert pour pouvoir créer une nouvelle session,
+ajoutez l'option <TT>-multi</TT> avant de spécifier <TT>-xa2</TT> ou
+une option similaire. Avec les graveurs Sony, comme l'indique la
+documentation de CDRecord, vous devez spécifier <TT>-data</TT>.
+En général, si les options <TT>-xa1</TT> ou <TT>-xa2</TT> produisent
+des disques invalides, essayez avec <TT>-data</TT>.
+
+<P>
+Il est également possible d'utiliser CDRecord pour le mode DAO en
+ajoutant l'option <TT>-dao</TT>. Si cette option affiche un message
+d'erreur ou si CDRecord indique qu'il va graver en mode TAO, annulez
+la gravure avant qu'elle n'ait commencé et essayez l'option
+<TT>-sao</TT> pour le Session-at-Once.
+Il est aussi possible d'utiliser CDRDAO
+qui, malheureusement, ne semble pas supporter BurnProof et nécessite
+la création d'une table de contenu (TOC). Vous devrez créer cette
+table manuellement, mais sa structure est toujours la même dans le cas
+des disques de données. Comme nous le verrons plus loin, avec les CD Audio,
+il en sera autrement. Voici la structure usuelle de la TOC.
+
+<P>
+
+<DIV CLASS="alltt" ALIGN="LEFT">
+<TT>
+ 
+<BR>
+CD_ROM
+<BR>
+<BR>
+TRACK MODE1 DATAFILE &#34;cd.iso&#34;
+<BR></TT>
+</DIV>
+
+<P>
+Il est possible de remplacer <TT>MODE1</TT> par <TT>MODE2</TT> si vous
+souhaitez une piste de ce type. Si vous souhaitez créer un CD-ROM XA,
+vous devrez alors remplacer <TT>CD_ROM</TT> par <TT>CD_ROM_XA</TT>
+et utiliser <TT>MODE2_FORM1</TT> ou <TT>MODE2_FORM2</TT> au lieu de
+<TT>MODE1</TT>, selon vos besoins. N'utilisez pas les mode RAW, car
+ceux-ci ne sont pas compatibles avec les images générées par
+mkisofs. La ligne type d'appel à CDRDAO se lit comme suit:
+<TT>cdrdao show-toc cd.toc</TT> pour vérifier la validité de la TOC
+puis <TT>cdrdao write -v 1 cd.toc</TT>.
+
+<P>
+<TABLE BORDER="1">
+<TR><TD VALIGN="top">
+<DIV STYLE="text-align:center; color:red"> Attention!
+</DIV><P>
+Prenez bien garde à ne pas commettre d'erreurs de frappe dans la TOC
+ou sur la ligne de commande et à ne pas oublier le niveau
+d'informativité si vous spécifiez l'option <TT>-v</TT>, car CDRDAO ne
+comporte pas un contrôle très rigoureux des erreurs et votre disque
+pourrait s'en ressentir.</TD></TR></TABLE> 
+<P>
+Bien qu'il soit possible de réaliser un CD multisession avec CDRDAO
+(option <TT>-multi</TT>, l'usage de CDRecord est plus simple pour
+cette tâche. Le multisession de CDRDAO peut toutefois s'avérer utile
+pour graver les pistes DA d'un CD Extra en Disk-At-Once, puis graver
+la piste de données CD Extra par la suite.
+
+<P>
+
+<H2><A NAME="SECTION07424000000000000000">
+<SPAN CLASS="arabic">17</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">4</SPAN> Gravure de DVD</A>
+</H2>
+
+<P>
+Avec CDRecord/CDRDAO, il n'est pas possible de graver des
+DVD. Heureusement, plusieurs solutions sont disponibles. Pour les
+DVD-R(W), il est possible d'utiliser une patch pour CDRecord incluant
+le support DVD. Cette version modifiée de CDRecord est inclus avec
+certaines distributions comme Mandrake ou peut être téléchargée.
+Il est aussi possible d'utiliser la version ProDVD de
+CDRecord qui est gratuite pour usage non commercial. Le logiciel
+DVDRecord ressemble quant à lui à CDRecord avec patch DVD.
+Ces
+solutions s'utilisent comme CDRecord, à l'exception que le
+multisession ne fonctionnera pas sur DVD! Il est ainsi recommandé d'utiliser
+l'option <TT>-dao</TT> ou <TT>-sao</TT>, selon les messages d'erreurs
+produits par CDRecord. Avec les vitesses atteintes par la gravure DVD,
+il est vivement recommandé d'activer BurnFree, surtout sur du
+DVD-R. Le DVD-RW, au pire cas, peut être effacé et recommencé, pas le
+DVD-R.
+
+<P>
+Pour les DVD<SPAN CLASS="MATH"><IMG
+ WIDTH="20" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$\pm$"></SPAN>R(W), DVD+RW-Tools constitue une excellente solution
+qui offre en plus le support du multisession. L'utilisation est
+toutefois différente: l'image ISO est construite pendant la
+gravure. Plutôt qu'utiliser <TT>mkisofs</TT>, vous utiliserez alors
+<TT>growisofs</TT> qui fait appel à <TT>mkisofs</TT> en
+interne. L'option <TT>-Z /dev/hdc</TT> commencera une session sur le
+disque dans le graveur. Elle ne doit être utilisée que pour la première
+session. L'option <TT>-M /dev/hdc</TT> sera utilisée pour les sessions
+subséquentes. Évidemment, vous devrez remplacer <TT>/dev/hdc</TT> par
+le périphérique correspondant à votre graveur. Pour inscrire la
+dernière session sur le DVD, il suffit d'ajouter l'option
+<TT>-dvd-compat</TT>. Ces outils sont particulièrement adaptés pour
+les DVD+RW qui supportent le multisession invisibles pour les
+lecteurs DVD de salon. L'option <TT>-Z /dev/hdc=image.iso</TT> permet
+de graver une image ISO issue d'une copie physique ou construite
+en mode UDF sans <TT>mkisofs</TT>. Il est ainsi possible de graver des
+DVD+R(W) en mode UDF pur ou de copier des DVD sur des disques
+DVD+R(W).
+
+<P>
+
+<H2><A NAME="SECTION07425000000000000000"></A>
+<A NAME="3827"></A>
+<BR>
+<SPAN CLASS="arabic">17</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">5</SPAN> Ajout d'une nouvelle session sur un CD
+</H2>
+
+<P>
+L'ajout d'une nouvelle session consiste simplement à bâtir une image
+contenant uniquement les données à ajouter puis à graver cette image
+sur le disque. Toutefois, en agissant ainsi, votre disque ne sera pas
+standard, car le chaînage sera incorrect.
+Vous devez établir un
+lien entre les fichiers des précédentes sessions. Il faut alors
+demander à mkisofs d'inscrire les données de la session
+précédente dans l'image ISO. Pour ce faire, vous devrez utiliser la
+séquence de commandes suivante après avoir inséré le CD ouvert dans le
+graveur.
+
+<P>
+<DIV ALIGN="LEFT">
+<TT>
+msi=`cdrecord -msinfo`
+<BR>
+mkisofs -M x,y,z -C $i ...
+
+</TT></DIV>
+
+<P>
+L'option <TT>-msinfo</TT> extrait du disque le secteur où débute
+la session précédente et celui où débute la nouvelle. Ces données
+doivent être passée à mkisofs par le biais de l'option
+<TT>-C</TT>. Avec <TT>growisofs</TT>, ces valeurs sont déterminées
+automatiquement et vous n'avez pas à spécifier l'option
+<TT>-C</TT>. Malheureusement, <TT>growisofs</TT> ne fonctionne que
+pour les DVD.
+L'option <TT>-M</TT> indique le périphérique SCSI ou le pseudofichier sur
+lequel il doit lire les données de la session afin de les intégrer
+dans l'image. Si vous omettez l'option <TT>-M</TT>, vous obtiendrez un
+CD valide, mais seule la dernière session sera facilement lisible.
+Après le traitement, mkisofs vous
+indiquera, en fin de traitement, la taille de l'image mais aussi la
+taille de toutes les sessions du disque, incluant celle que vous allez
+graver.
+
+<P>
+<TABLE BORDER="1">
+<TR><TD VALIGN="top">
+<DIV STYLE="text-align:center; color:red"> Attention!
+</DIV><P>
+Vérifiez bien que la taille donnée n'excède pas la taille du disque,
+surtout si vous gravez avec CDRDAO. Ce dernier plante au lieu de
+signaler que le CD est plein et il faut alors redémarrer la machine
+pour que le module IDE-SCSI se débloque!
+Ce problème semble moins critique avec le noyau 2.6 puisque IDE-SCSI a
+disparu, mais un CD-R créé de cette façon n'en demeurera pas moins non
+standard et moins fiable qu'un CD-R standard.</TD></TR></TABLE> 
+<P>
+Lors de la gravure, tant que vous spécifierez <TT>-multi</TT> à
+CDRecord ou <TT>-multi</TT> à CDRDAO, le disque restera ouvert et
+pourra accueillir une
+nouvelle session. Si vous omettez cette option, le disque sera fermé
+et vous ne pourrez plus y inscrire quoi que ce soit. Si tel n'était pas
+votre désir, il ne vous reste qu'à l'effacer si c'est un CD-RW ou à le
+jeter dans le cas contraire.
+
+<P>
+
+<H2><A NAME="SECTION07426000000000000000">
+<SPAN CLASS="arabic">17</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">6</SPAN> Gravure à la volée</A>
+</H2>
+
+<P>
+Bien que sous Linux, il est plus naturel de graver une image ISO sous
+forme de fichier, le mode de gravure à la volée existe là aussi. Il se
+passe toutefois en deux passes.
+
+<P>
+<DIV ALIGN="LEFT">
+<TT>
+s=`mkisofs -print-size $MOPTIONS`
+<BR>
+mkisofs $MOPTIONS | cdrecord $COPTIONS tsize=${s}s
+
+</TT></DIV>
+
+<P>
+<TT>$MOPTIONS</TT> représente les options passées à mkisofs, incluant
+les collections à graver tandis que
+<TT>$COPTIONS</TT>, celles passées à CDRecord. Il est important de
+donner les mêmes options aux deux appels mkisofs et de ne pas utiliser
+l'option <TT>-o</TT> pour que l'image ISO soit dirigée vers l'entrée
+de CDRecord. Aucun fichier ISO ne sera non plus donné à CDRecord. Les
+deux logiciels travailleront ainsi en parallèle. Malheureusement, cela
+pourrait poser problème pour les disques multisession. Avant de
+commencer à lire l'image, CDRecord initialisera le graveur. mkisofs
+tentera ensuite d'y accéder pour lire le contenu de la TOC de votre
+disque, ce qui pourrait au meilleur cas générer un message d'erreur.
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2301"
+  HREF="node84.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2295"
+  HREF="node81.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2291"
+  HREF="node82.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2297"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2299"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html2302"
+  HREF="node84.html">18. La création de</A>
+<B> monter:</B> <A NAME="tex2html2296"
+  HREF="node81.html">17. Création d'un disque</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2292"
+  HREF="node82.html">17.1 Préparation et formatage</A>
+ &nbsp; <B>  <A NAME="tex2html2298"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2300"
+  HREF="node106.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Eric Buist
+2005-11-13
+</ADDRESS>
+</BODY>
+</HTML>

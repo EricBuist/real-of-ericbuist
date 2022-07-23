@@ -1,0 +1,422 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         Le jour où la machine Buist fit PAF!
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css"
+      href="../../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../../index.xhtml" class="parents">Le
+               royaume de Eric Buist</a> &gt;&gt; <a
+               href="../index.xhtml"
+               class="parents">Informatique</a> &gt;&gt; Problèmes
+               marquants &gt;&gt; <a href="../resolved.xhtml"
+               class="parents">Quelques bogues résolus</a> &gt;&gt;
+               <a href="index.xhtml" class="parents">Bogues
+               matériels résolus</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../../sitemap.xhtml" class="sitemap">Plan
+               du site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="cpubomb.xhtml"
+               class="leftsibling">La bombe du CPU</a>
+            </td>
+            <td class="thispage">
+               Le jour où la machine Buist fit PAF!
+            </td>
+            <td class="rightsibling">
+               <a href="black.xhtml" class="rightsibling">Écran
+               noir et plus rien</a> &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         Le jour où la machine Buist fit PAF!
+      </h1>
+      <p>
+         Depuis quelques mois déjà, mon Faucon de Fer avait
+         remplacé la machine Buist, me donnant un sursis avant le
+         jour où mon ordinateur, le Salvator, serait la seule
+         machine qui a du bon sens de la maison. La machine Buist,
+         elle, a remplacé la picouille que mon père utilise de
+         temps en temps. Je lui ai réinstallé Windows XP et
+         configuré le système afin qu'il puisse facilement
+         reprendre le relais en cas de défaillance du Faucon de
+         Fer.
+      </p>
+      <p>
+         Dimanche soir, 9 avril 2006, j'allumai cette machine afin
+         d'effectuer des sauvegardes de certains de ses fichiers
+         par le biais de la connexion réseau. J'ai construit un
+         script qui recopie les fichiers que je veux et qui les
+         compresse afin que je puisse par la suite les graver sur
+         CD. Ce script s'exécute complètement sur le Salvator, sous
+         Linux, si bien qu'il est essentiel que des connexions
+         réseau relient les machines.
+      </p>
+      <p>
+         Tandis que mon script s'exécutait, une détonation se fit
+         entendre. Ça me sembla un objet qui s'était fracassé
+         contre le sol. Tandis que mes parents s'interrogeaient sur
+         l'origine du bruit, je me rendais compte que mon script
+         était paralysé, attendant je ne savais pas quoi. Ma mère
+         fit remarquer que ça sentait le chauffé, ce qui commença à
+         me mettre sur la piste.
+      </p>
+      <p>
+         Je montai voir ce qui se passait dans le bureau et sentis
+         à mon tour l'odeur suspecte. C'est avec soulagement que
+         j'entendis le bruit du ventilateur à processeur: le Faucon
+         de Fer était toujours en fonction! La machine Buist, quant
+         à elle, avait rendu l'âme. Toute tentative de rallumer ça
+         fut vaine. J'essayai d'éteindre l'interrupteur du bloc
+         d'alimentation et de le rallumer, rien à faire. Il allait
+         donc falloir remplacer l'unité en espérant que le crash
+         n'ait pas endommagé carte mère et autres composantes.
+      </p>
+      <ul>
+         <li>
+            <a href="#get">Va-t-on pouvoir trouver un bloc de
+            remplacement adéquat?</a>
+         </li>
+         <li>
+            <a href="#inst">L'installation, plus longue que
+            prévue</a>
+         </li>
+         <li>
+            <a href="#crazy">La machine devenue folle</a>
+         </li>
+         <li>
+            <a href="#conclusion">Conclusion</a>
+         </li>
+      </ul>
+      <h2>
+         <a name="get" id="get">Va-t-on pouvoir trouver un bloc de
+         remplacement adéquat?</a>
+      </h2>
+      <p>
+         Une consultation du manuel d'utilisateur de la carte mère
+         confirma que le bloc d'alimentation répondait au standard
+         ATX sans même que je n'aie à ouvrir le boîtier pour
+         vérifier. Suite à la panne, j'avais eu des doutes: et si
+         c'était un AT? Cela aurait été mieux, car j'avais un bloc
+         d'alimentation AT extrait d'une vieille picouille
+         défectueuse dans mon placard. Peut-être mes petites
+         expériences à enlever le ventilateur et à le remettre
+         m'auraient causé des difficultés, mais quelques
+         ajustements auraient au pire suffi à redonner vie au
+         transformateur. Théoriquement...
+      </p>
+      <p>
+         Ensuite, un second sujet d'inquiétude me traversa
+         l'esprit: l'aération du boîtier. Les nouveaux blocs
+         d'alimentation ont parfois des ventilateurs plus
+         silencieux qui soufflent moins d'air. Par exemple, mon
+         SmartPower 2.0 d'Antec a un ventilateur qui souffle de
+         l'air du boîtier dans l'unité tandis qu'un second
+         ventilateur souffle de l'air vers l'extérieur. Toutefois,
+         ce second ventilateur ne fonctionne pas en temps normal.
+         Cela signifie que le bloc d'alimentation pourrait moins
+         contribuer à créer une pression négative dans le boîtier.
+         C'est grâce à cette pression que de l'air entre par
+         l'avant du boîtier, assurant une aération des composantes.
+         Si la pression ne se faisait plus, un ventilateur de
+         boîtier serait alors nécessaire pour assurer la
+         circulation d'air, mais le boîtier de la machine Buist
+         semble dépourvu des fixations nécessaires pour installer
+         un tel ventilateur! Il n'y a pas non plus de trous
+         d'aération dans les panneaux latéraux. Tout ce que je pus
+         trouver, ce sont des trous d'aération à l'arrière ainsi
+         qu'un dispositif de plastique qui pourrait peut-être
+         accueillir un ventilateur avant soufflant de l'air à
+         l'intérieur du boîtier. Ces éléments me soulagèrent un
+         peu, mais il restait malgré tout possible que l'aération
+         ne se fasse plus bien et qu'il faille changer le boîtier
+         pour remédier au problème. Cela signifiait <b>beaucoup</b>
+         de gossage!
+      </p>
+      <h2>
+         <a name="inst" id="inst">L'installation, plus longue que
+         prévue</a>
+      </h2>
+      <p>
+         La picouille morte s'est retrouvée le soir même au
+         sous-sol où elle a été démontée. Mon père a regardé à
+         l'intérieur pour vérifier que la carte mère n'avait pas
+         grillé. Par chance, les circuits imprimés étaient toujours
+         verts, pas noirs. Il y avait donc espoir de rallumer la
+         machine si bien que mon père acheta un nouveau bloc
+         d'alimentation.
+      </p>
+      <p>
+         Vendredi matin, 14 avril 2006, vers 6h du matin, je me
+         levai pour aller aux toilettes et aperçus une boîte sur la
+         picouille morte. C'était la pièce qu'il avait achetée en
+         allant travailler la veille. Je retournai me coucher,
+         résolu à entreprendre l'installation ce matin même.
+      </p>
+      <p>
+         Je pensais que cela ne prendrait que quelques minutes.
+         Après tout, il suffisait de débrancher des fils,
+         substituer le transformateur et rebrancher ça. Ensuite, on
+         allume et on met ça entre les mains du Destin. J'estimais
+         que trois choses pouvaient se produire: rien du tout, un
+         nouveau PAF après quelques minutes ou un système stable.
+         Dans les deux premiers cas, cela signifiait que la carte
+         mère défaillait et la machine serait irrécupérable.
+      </p>
+      <p>
+         Débrancher les fils d'alimentation des lecteurs et du
+         disque dur fut un jeu d'enfant. Vint ensuite le cas du
+         connecteur ATX qui posa d'imprévisibles problèmes. Le
+         connecteur de cette carte mère se trouve à gauche de la
+         fente Slot-1 du processeur si bien qu'il était difficile
+         d'entrer mes doigts, étant bloqué par le ventilateur et
+         l'arrière du boîtier. Je ne parvenais pas à retirer le
+         connecteur à cause de cet obstacle et de la petite clip
+         qui le retenait à la carte mère.
+      </p>
+      <p>
+         Je crus que j'allais devoir retirer le processeur pour y
+         parvenir, mais je voulais éviter cela, car j'introduirais
+         une autre variable, une autre source de bogues. Si la
+         machine était instable après la réparation, ça pourrait
+         alors provenir du bloc d'alimentation ou d'un problème de
+         contact électrique avec le processeur. À éviter, comme je
+         l'ai expérimenté sur le Faucon de Fer avec ma <a
+         href="cpubomb.xhtml">Bombe du CPU</a>.
+      </p>
+      <p>
+         Je finis par découvrir qu'il était possible de pousser sur
+         la clip du connecteur pour la libérer! Cela m'a permis de
+         le retirer sans tout casser ce qui se trouvait autour.
+      </p>
+      <p>
+         Vint ensuite le moment de séparer le bloc d'alimentation
+         défectueux de la tour en retirant les quatre vis de
+         rétention. Cela ne posa pas de difficulté après quoi je
+         mis le bloc de côté et déballai le nouveau.
+      </p>
+      <p>
+         Je constatai alors qu'il n'entrait pas bien dans la tour
+         en raison des fils qui bloquaient la voie. Je réduisis la
+         taille de la pelotte de fils en retirant l'élastique qui
+         les retenait ensemble après quoi je fis un second essai.
+         Je finis par le faire entrer, mais les trous de vis ne
+         s'alignaient pas du tout.
+      </p>
+      <p>
+         Je le retirai donc et consultai le manuel dans la boîte
+         afin de m'assurer que je le mettais dans le bon sens. Oui,
+         tout était correct. Je fis donc un second essai et finis
+         par aligner deux trous de vis, les trous supérieurs si je
+         me souviens bien. Mais les vis entrées dans les trous
+         inférieurs ne touchaient même pas au bloc si bien que les
+         dimensions semblaient totalement incorrectes!
+      </p>
+      <p>
+         Découragé par cette non standardisation, j'en vins à
+         penser qu'il allait falloir apporter tour et bloc
+         d'alimentation au magasin afin qu'on en essaie cinq ou six
+         jusqu'à trouver. Peut-être même faudrait-il acheter un
+         nouveau boîtier, livré avec bloc d'alimentation, pour
+         résoudre le problème. En fin de compte, il allait falloir
+         changer le boîtier.
+      </p>
+      <p>
+         Je ne me souviens plus si j'ai une nouvelle fois retiré le
+         bloc du boîtier, mais j'ai retiré les vis déjà en place et
+         tenté de commencer par aligner le trou inférieur. Le bloc
+         était placé trop haut à la première tentative, c'est pour
+         cela que les quatre trous ne s'alignaient pas! Le nouvel
+         essai fut le bon et l'unité s'accrocha parfaitement au
+         boîtier.
+      </p>
+      <p>
+         Vint ensuite le moment de la raccorder à la carte mère, ce
+         qui posa des problèmes encore une fois. C'était un bloc
+         ATX 2.0 pourvu d'un connecteur 24 broches. Il fallait donc
+         retirer la partie excédentaire pour le transformer en
+         connecteur à 20 broches, ce que je fis sans mal. Par
+         contre, il restait de petites fixations pour tenir la
+         partie excédentaire en place. C'est à cause de ces
+         fixations que le connecteur semblait ne pas bien s'ajuster
+         à la carte mère. Près de la prise ATX de la carte, il y
+         avait deux condensateurs qui bloquaient la voie. Je finis
+         par réussir un branchement, mais jamais la clip de
+         rétention ne s'enclencha. Je finis par me résigner à
+         essayer malgré tout un démarrage de la machine. Si ça
+         n'avait pas fonctionné, il aurait fallu couper les petites
+         pins de plastique ou tenter de transplanter le bloc
+         d'alimentation sur le Faucon de Fer pour ensuite mettre le
+         bloc d'alimentation du Faucon de Fer dans la machine
+         Buist: encore du gossage!
+      </p>
+      <p>
+         Je branchai les lecteurs, le disque dur, puis trouvai un
+         fil d'alimentation dans la boîte du nouveau bloc. Je
+         l'utilisai pour brancher la machine et la tester. Au
+         premier essai, rien ne se passa, mais après avoir basculé
+         l'interrupteur marce/arrêt du bloc, un second essai alluma
+         la machine! Le ventilateur à processeur se mit à tourner,
+         le disque dur s'alluma, tout semblait beau. Par contre, ce
+         test ne suffisait pas, car je n'avais aucun affichage.
+      </p>
+      <p>
+         Je transportai donc la machine dans ma chambre et utilisai
+         mon câble VGA pour la raccorder à mon écran LCD. Ce second
+         test réussit puisque j'obtins une image: la carte mère
+         fonctionnait toujours! J'en étais donc rendu à rebrancher
+         la picouille à sa place, dans le bureau. Ce n'était pas
+         simple en raison des fils derrière le bureau, mais ça
+         commençait à en valoir la peine puisque ça pouvait
+         marcher, à présent. Mais avant, j'utilisai une attache
+         pour relier des fils du bloc d'alimentation afin de les
+         empêcher d'obstruer le ventilateur à processeur déjà
+         poussif. Un fil coincé pouvait l'achever, pas de risque à
+         prendre avec cela!
+      </p>
+      <h2>
+         <a name="crazy" id="crazy">La machine devenue folle</a>
+      </h2>
+      <p>
+         La machine alluma et se rendit à Windows XP. Par contre,
+         quelques minutes après, elle planta avec un écran bleu.
+         Inquiet, j'envisgeais une réinstallation de Windows. J'en
+         vins à envisager de remettre Windows 98, car la machine
+         était désespérément lente. Je constatai ensuite que le
+         lecteur DVD avait disparu.
+      </p>
+      <p>
+         Je dus ainsi rouvrir le boîtier et aller jouer avec le
+         câble IDE. Je rallumai ça, constatai que le lecteur DVD
+         était de nouveau là, mais je vis bien assez vite que la
+         quantité de mémoire était passée de 384Mo à 256Mo; la
+         barrette de 128Mo déconnait! C'était probablement cela qui
+         expliquait pourquoi la machine était devenue si lente. Je
+         rouvris donc encore le boîtier et retirai les barrettes
+         pour les réenfichier. Je refis également les connexions
+         des lecteurs et du disque dur pour m'assurer que ça ne
+         déconne pas aussi.
+      </p>
+      <p>
+         Lorsque je rallumai la machine, il y avait toujours 256Mo
+         de mémoire. J'essayai donc d'intervertir les barrettes,
+         comme j'avais fait l'été dernier sur le Faucon de Fer.
+         J'en étais rendu à prendre les barrettes non plus par les
+         bouts mais par le milieu et j'avais trouvé la force
+         nécessaire pour les enfoncer efficacement. Heureusement,
+         car ma tentative fut vaine et il allait falloir de
+         nombreux autres essais avant de réussir. Par chance, il ne
+         fallait pas enlever la carte graphique à chaque fois,
+         comme avec ma machine!
+      </p>
+      <p>
+         J'en vins à essayer de retirer une barrette: toujours
+         256Mo. Je remplaçai la barrette retirée par l'autre, de
+         128Mo: la machine ne cessait plus de bipper comme un 486 à
+         l'agonie. Je remis la barrette de 256Mo, mais je ne
+         pouvais me résoudre à jeter l'aure. Les barrettes étaient
+         dans les fentes 1 et 3 de la carte mère. Celle de 256Mo
+         était dans la première tandis que l'autre, peut-être
+         défectueuse, était dans la troisième. Je la plaçai dans la
+         deuxième et le miracle se produisit: elle fonctionna!
+         Probablement qu'une poussière empêchait le contact
+         électrique.
+      </p>
+      <p>
+         Mais je n'étais pas au bout de mes peines: il y eut des
+         défaillances de lecteur de disquette! Pour tenter de
+         résoudre le nouveau problème, je débranchai le fil et le
+         rebranchai sans succès au moins trois fois avant que ça ne
+         finisse par fonctionner. Avant la bonne tentative, je
+         remarquai une petite saleté sur le connecteur. Je la
+         retirai et cela fonctionna!
+      </p>
+      <p>
+         Suite à ce brassage de pièces, la machine sembla stable.
+         Aucune carte ne disparut et le contact électrique entre la
+         carte mère et le bloc d'alimentation demeura stable. Dans
+         le cas contraire, la machine aurait commencé à s'éteindre
+         toute seule. Il reste malgré tout possible que le
+         connecteur se débranche lentement ou pire, que le
+         condensateur adjacent subisse une pression suffisante pour
+         se décrocher. Le second cas serait probablement la mort de
+         la carte mère.
+      </p>
+      <p>
+         Il y eut un dernier problème, logiciel cette fois:
+         l'anti-virus AVG refusait de se mettre à jour. Je dus
+         reprendre le processus deux fois avant que cela ne
+         fonctionne. Probablement que le crash a eu lieu pendant
+         que AVG se mettait à jour si bien qu'il était mélangé.
+      </p>
+      <h2>
+         <a name="conclusion" id="conclusion">Conclusion</a>
+      </h2>
+      <p>
+         Ce changement de bloc d'alimentation, qui aurait dû
+         prendre une vingtaine de minutes, a finalement pris
+         presque tout un avant-midi en raison des complications qui
+         se sont ensuivies. Est-ce qu'un technicien se serait cassé
+         la tête à ce point ou aurait-il simplement déclaré morte
+         la carte mère? Il se peut aussi que certains bogues, celui
+         de la mémoire en tête, sont apparus en raison simplement
+         de ma maladresse. Je n'en sais rien, mais peut-être qu'au
+         fond, il aurait été plus efficace de prononcer ce
+         diagnostic avant de mettre la machine au rebus.
+      </p>
+      <p>
+         Jouer dans une vieille picouille est un vrai coup de
+         poker, pratiquement à chaque fois. La machine peut
+         facilement déconner en raison de contacts électriques
+         intermittents. Et à chaque expérience de ce genre, je me
+         demande si je vais pouvoir réchapper la machine. Il est
+         toujours possible que malgré tous mes efforts, rien n'y
+         fasse et que je n'aie que perdu mon temps en bout de
+         ligne.
+      </p>
+      <p>
+         Seul le temps me dira si tout cela a valu la peine ou pas.
+         Il se peut que la machine fonctionne bien encore quelques
+         mois, mais elle pourrait lâcher dans les jours qui
+         viendront. Dans ce second cas, tout cela n'aura pas servi
+         à grand-chose.
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

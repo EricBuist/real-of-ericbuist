@@ -1,0 +1,667 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <meta name="generator" content="Bluefish 1.0.7" />
+      <title>
+         Installation de Windows 7
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css" href="../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../index.xhtml" class="parents">Le royaume
+               de Eric Buist</a> &gt;&gt; <a href="index.xhtml"
+               class="parents">Informatique</a> &gt;&gt;
+               Configuration informatique
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../sitemap.xhtml" class="sitemap">Plan du
+               site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="ard-nas/index.xhtml"
+               class="leftsibling">A.R.D.-NAS, mon premier HTPC</a>
+            </td>
+            <td class="thispage">
+               Installation de Windows 7
+            </td>
+            <td class="rightsibling">
+               <a href="ssd.xhtml"
+               class="rightsibling">Installation d'un SSD</a>
+               &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         Installation de Windows 7
+      </h1>
+      <p>
+         Après ma mauvaise expérience avec <a
+         href="vista.xhtml">Windows Vista</a>, je n'avais plus du
+         tout envie d'essayer quelque nouvelle version de Windows
+         que ce soit. J'avais entendu du bien de Windows 7, mais je
+         n'en croyais pas un traitre mot. Il faut dire que Linux
+         demeure toujours mon système d'exploitation principal.
+         Windows XP est encore installé sur ma machine, mais c'est
+         pour des usages occasionnels comme faire fonctionner Myst
+         ou Uru, ou encore piloter mon iPod Touch. En fait, Windows
+         n'a été nécessaire que pour initialiser l'appareil à
+         l'aide d'iTunes et le craquer (jailbreak).
+      </p>
+      <p>
+         Par contre, mon frère a fait changer la donne en avril
+         2010 en achetant un nouvel ordinateur. Comme il a monté la
+         machine lui-même, il a eu le choix du système
+         d'exploitation et tenté sa chance avec Windows XP.
+         Malheureusement, il ne pouvait accéder qu'à 3Go de mémoire
+         tandis qu'il avait doté sa machine de 4Go. Quelques
+         recherches plus tard, j'ai découvert que l'activation de
+         PAE permettrait de bénéficier de 4Go même sur une machine
+         32 bits, mais mon frère n'a trouvé aucune option dans le
+         BIOS de sa machine pour activer PAE ou NX, qui dépend de
+         PAE pour fonctionner. La solution idéale me semblait
+         d'installer une version 64 bits de Windows 7. Mais avant
+         de lui recommander cela, je voulus le tester moi-même pour
+         savoir si c'était vraiment mieux que son prédécesseur,
+         Windows Vista.
+      </p>
+      <p>
+         Le test a cette fois été concluant. Par contre, installer
+         Windows 7 a demandé quelques modifications dans le
+         partitionnement de mon disque dur. J'ai eu quelques
+         problèmes de pilotes et j'ai été forcé de désactiver Aero
+         pour que le système soit utilisable. Examinons tout cela
+         de plus près.
+      </p>
+      <ul class="pagemenu">
+         <li>
+            <a href="#hdd">Espace disque insuffisant</a>
+         </li>
+         <li>
+            <a href="#drv">Pilotes non disponibles, on change de
+            carte mère? NON!</a>
+         </li>
+         <li>
+            <a href="#kbd">Problèmes avec le clavier</a>
+         </li>
+         <li>
+            <a href="#contrast">Problème de contraste</a>
+         </li>
+         <li>
+            <a href="#hdd2">Donner plus de 20Go à Windows 7</a>
+         </li>
+         <li>
+            <a href="#logiciels">Des logiciels qui fonctionnent</a>
+         </li>
+      </ul>
+      <h1>
+         <a id="hdd" name="hdd">Espace disque insuffisant</a>
+      </h1>
+      <p>
+         Le premier problème auquel j'ai eu à faire face avant
+         d'installer Windows 7, c'est le fait que mon disque dur
+         était partitionné. Il y avait une partition de 40Go
+         contenant Windows XP et deux partitions de 20Go pour
+         Linux: une avec ma version Ubuntu de travail, une pour
+         d'éventuels tests avec une autre distribution. C'était le
+         seul emplacement dans lequel je pouvais loger un système
+         d'exploitation, mais Windows 7 ne se contenterait jamais
+         de 20Go!
+      </p>
+      <p>
+         Vendredi, 23 avril 2010, j'ai commencé à dresser un plan
+         détaillé des étapes nécessaires pour réaménager mon disque
+         pour Windows 7. La procédure est vite devenue longue et
+         fastidieuse. Après l'avoir écrite, je me suis dit:
+         tabarouette, ça n'a pas de bon sens. Il y avait tant
+         d'étapes que juste préparer ça nécessiterait entre une
+         demi-heure et trois quart d'heures de minutieux travail.
+         Il ne fallait pas oublier la sauvegarde préventive de mes
+         données, pas omettre une seule étape lors de la
+         programmation de GParted. Puis après, il faudrait sans
+         doute tout l'avant-midi à ma pauvre machine pour effectuer
+         le repartitionnement. L'opération impliquait de
+         redimensionner et déplacer aussi bien des partitions Linux
+         que Windows. Ça risquait plus de merder solide qu'autre
+         chose.
+      </p>
+      <p>
+         Je faillis renoncer, ne pas installer Windows 7. Mais
+         j'eus une idée géniale le lendemain matin. Mon plan
+         initial, c'était de faire en sorte qu'il y ait deux
+         partitions de 40Go pour mes systèmes Windows: une pour XP,
+         une pour 7. Il resterait ensuite une partition de 20Go
+         pour Linux. Mais pourquoi? Il suffisait que je loge
+         Windows 7 dans un trou de 20Go pour le tester. Si le
+         système va bien, ai-je pensé, je pourrai alors agrandir la
+         zone et réduire celle de Windows XP. Il y aura de cette
+         façon beaucoup moins de travail de repartitionnement que
+         si j'avais voulu deux partitions de 40Go.
+      </p>
+      <h1>
+         <a id="drv" name="drv">Pilotes non disponibles, on change
+         de carte mère? NON!</a>
+      </h1>
+      <p>
+         Grâce à mon idée simplificatrice, samedi, 22 avril 2010,
+         j'ai entamé l'installation de Windows 7 64 bits sur ma
+         partition de 20Go. Avant de procéder, j'ai dû évidemment
+         effectuer des sauvegardes.
+      </p>
+      <p>
+         Ensuite, toujours avant d'entreprendre l'installation
+         proprement dite, j'ai tenté de trouver les pilotes pour
+         mes périphériques. Je me suis rendu compte avec une grande
+         déception que Asus ne fournissait, pour ma carte mère
+         P5LD2, que les pilotes pour Windows XP et Windows Vista.
+         J'ai essayé de chercher sur Google, mais comme d'habitude,
+         il n'y avait RIEN. Je ne trouvai que des forums proposant
+         aux utilisateurs ayant le même problème d'essayer avec le
+         pilote pour Windows Vista.
+      </p>
+      <p>
+         C'était le pilote pour la puce audio qui causait le plus
+         de problème. Comme ma puce était de type Realtek, j'ai
+         essayé d'obtenir le pilote sur le site de Realtek, mais je
+         ne pouvais que tourner en rond. Le serveur m'indiquait que
+         l'objet avait été déplacé et ça revenait à la même page
+         qu'avant. De plus en plus, je tombe sur des sites ne
+         fonctionnant pas du tout ou dont l'affichage est difficile
+         à lire. C'est devenu si fréquent que j'en suis à me
+         demander si le problème ne vient pas de ma configuration.
+         Bon, ok, je vais le faire, ai-je pensé, je vais tenter ma
+         chance avec le pilote pour Windows Vista.
+      </p>
+      <p>
+         L'installation du système se passa sans aucune difficulté.
+         Le programme a copié des fichiers depuis le DVD vers mon
+         disque dur et effectué les réglages de base.
+         Malheureusement, après l'installation, il n'y avait pas de
+         son et, comme je le craignais, le pilote d'Asus pour
+         Windows Vista ne fonctionna pas du tout. Il ne cessait de
+         me baragouiner que le système d'exploitation n'était pas
+         pris en charge, n'offrant absolument aucune solution. Il
+         ne semblait y avoir d'autres options que remplacer ma
+         carte mère ou essayer avec une carte son dédiée! Je
+         trouvais ça choquant à mort.
+      </p>
+      <p>
+         J'ai fort heureusemnet fini par l'avoir avec le pilote
+         original de Realtek, que j'ai fini par réussir à trouver
+         je ne sais plus comment. Le téléchargement a fini par
+         aboutir, Internet Explorer aidant peut-être. C'est en
+         effet seulement après le son que j'ai installé Firefox,
+         abandonnant IE pour mon navigateur favori.
+      </p>
+      <p>
+         Le lendemain, j'ai tenté d'installer AIMP2. Le lecteur de
+         musique a certes fonctionné, mais je me suis rendu compte
+         que j'avais du son seulement dans les haut-parleurs avant.
+         J'ai fouillé longtemps pour trouver comment remédier à ça.
+         J'ai eu de la misère, car je ne tombais que sur des
+         plug-ins pour Winamp ajoutant des effets audio. J'ai fini
+         par trouver un plug-in intéressant, mais il fallait
+         <em>encore</em> le payer 20$ US. Fort heureusement, un
+         petit réglage dans les paramètres de Windows, pas besoin
+         de logiciel spécial à 20$ US ou plus, a permis de copier
+         le signal envoyé sur les haut-parleurs avant vers les
+         arrière. Ce n'est pas parfait, bien sûr, mais au moins, ça
+         permet d'utiliser tous les haut-parleurs même pour un
+         signal stéréo, comme avant sous Windows XP et comme sous
+         Linux.
+      </p>
+      <h1>
+         <a id="kbd" name="kbd">Problèmes avec le clavier</a>
+      </h1>
+      <p>
+         Malheureusement, Windows 7 a commencé à avoir des ratés
+         dimanche soir, 23 avril 2010. Tandis que j'essayais
+         d'écrire avec Emacs, j'ai constaté que le système était
+         trop lent, ratant de nombreux caractères ou se mettant à
+         les répéter à l'infini. Ça a même fini par planter solide.
+         Ça se pouvait donc que je ne puisse pas avoir Windows 7
+         sur cette machine. Je commençais à trouver ça bien, mais
+         je devrais sans doute, en bout de ligne, me contenter de
+         XP. Bien entendu, je continuerai à travailler sous Ubuntu
+         tant que ce sera possible, mais si je veux jouer à Myst ou
+         faire de la musique électronique, eh bien je ne pourrai
+         qu'utiliser XP. La seule façon d'avoir 7 me semblait bel
+         et bien d'acheter un nouvel ordinateur avec le système
+         préinstallé.
+      </p>
+      <p>
+         J'ai essayé de désactiver Aero, désinstaller Avast que
+         j'avais installé peu avant, en vain. J'ai tenté ma chance
+         avec le Bloc-notes plutôt que GNU Emacs: même problème!
+         J'ai cherché sur Internet et trouvé que des gens
+         éprouvaient des problèmes semblables. Certains possesseurs
+         d'ordinateurs portables Dell avaient réussi à résoudre
+         cette difficulté en ôtant la <em>batterie</em>; elle était
+         défectueuse et ils devaient la faire remplacer!!! Mais je
+         n'ai pas de batterie sur cette machine! D'autres avaient
+         eu des problèmes du genre à cause du gestionnaire ATI qui
+         prend en charge les touches de raccourci. Mais je n'ai
+         <em>pas</em> de carte graphique de marque ATI!
+      </p>
+      <p>
+         Ce bogue m'a bien inquiété, assez que j'ai commencé à
+         penser que le problème venait de moi! Peut-être
+         qu'effectivement, les utilisateurs regardent chaque touche
+         qu'ils pressent et prennent le temps de valider si le
+         caractère correspondant est apparu à l'écran. Ça se fait
+         vite quand on a une vision parfaite et on ne se rend
+         peut-être pas compte si le système saute une touche ou
+         deux; on la retape instinctivement. Microsoft aurait tablé
+         là-dessus pour en faire le plus possible dans le système,
+         mais ça me frappe comme une claque dans la face. Ou
+         encore, ça fonctionne bel et bien sur une machine et pas
+         sur l'autre.
+      </p>
+      <p>
+         Un des forums sur lequel je cherchai en vain une solution
+         proposait un lien pour réparer Windows et l'optimiser. Ne
+         sachant plus quoi faire, je cliquai là-dessus, puis
+         cliquai encore et encore. Cela finit par installer un
+         programme appelé Regbooster que je fis mouliner. Il trouva
+         300 erreurs dans ma base de registre. Je tentai de les lui
+         faire corriger, mais je me rendis compte qu'il me faudrait
+         payer 20$ US pour déverrouiller le programme! Je ne fis
+         pas l'achat de Regbooster, car il y avait de bonnes
+         chances pour qu'il fasse le même travail que CCleaner,
+         gratuit pour sa part. J'ai essayé d'exécuter CCleaner,
+         mais cela n'a rien amélioré du tout!
+      </p>
+      <p>
+         En plus, ma machine a commencé à avoir des ratés. De temps
+         en temps, il me fallait plusieurs essais pour l'amorcer
+         sans qu'elle plante dès le début! Par chance, cela a été
+         réglé quelques temps plus tard par un nettoyage à la
+         cannette d'air comprimé.
+      </p>
+      <p>
+         Jeudi, 29 avril, tandis que j'essayais de transférer des
+         fichiers musicaux sur un iPod Nano que j'avais gagné, en
+         utilisant iTunes, le clavier se remit à déconner. Même
+         avec Avast désactivé, j'avais des aaaaaaaaaaaaaaa, des
+         eeeeeeeeeeeee, etc. Périodiquement, comme ça pour rien.
+         J'ai fini par essayer d'enlever des logiciels. Bonjour y a
+         passé, puis RedIris ou quelque chose du genre. Un moment
+         donné, ça a fini que le problème de clavier est parti!
+         Mais iTunes a dysfonctionné à cause de l'absence de
+         Bonjour; j'ai été obligé de le réinstaller pour ravoir
+         Bonjour.
+      </p>
+      <p>
+         Je commençais à penser qu'un logiciel espion s'était
+         installé sur ma machine et qu'il interceptait les touches
+         sur lesquelles j'appuyais, provoquant parfois des délais.
+         Pourtant, l'anti-virus aVast était en fonction et j'ai
+         effectué un scan, autant avec aVast que le détecteur de
+         logiciels espions intégré à Windows 7! Ça semblait parti
+         pour que j'aie à essayer avec un anti-virus commercial
+         comme celui de Kaspersky, voire même la version 32 bits de
+         Windows!
+      </p>
+      <p>
+         Vendredi, 7 mai 2010, j'ai essayé de simplifier les
+         réglages de langue pour le clavier: n'avoir que le
+         français canadien dans les langues. Cela a semblé
+         améliorer les choses, mais en fait, le problème était
+         toujours là.
+      </p>
+      <p>
+         J'en suis venu à penser que c'était le processeur qui ne
+         suffisait pas à faire fonctionner le système. Je trouvais
+         ça bien choquant, car ma machine était pourvue d'un
+         Pentium D, qui a deux coeurs. J'en vins à penser que
+         peut-être j'aurais été mieux avec un Pentium 4, voire même
+         un Celeron! Il faut garder à l'esprit que les Pentium D
+         sont les double coeurs de première génération. Intel les a
+         construits simplement en plaçant deux Pentium 4 sur la
+         même puce, sans concevoir une architecture de
+         communication entre les coeurs. Le résultat est un double
+         processeur énergivore susceptible de souffrir de problèmes
+         de performance. Les choses ont beaucoup changé depuis,
+         avec les Core 2, puis les i3/i5/i7.
+      </p>
+      <p>
+         C'est seulement dimanche, 20 juin 2010, que j'ai enfin
+         trouvé une solution. Ce jour-là, j'ai pensé chercher une
+         nouvelle version du pilote vidéo de NVIDIA. Il y en avait
+         une! Je la téléchargeai, l'installai et constatai quelques
+         temps plus tard que le problème de clvier était disparu!
+      </p>
+      <p>
+         Samedi, 27 novembre 2010, le problème est toutefois revenu
+         après que j'aie trouvé une façon de réactiver Aero avec un
+         meilleur contraste pour les éléments des menus (voir <a
+         href="#contrast">section suivante</a>). Je ne pouvais pas
+         croire que mon processeur, pourtant un Pentium D cadencé à
+         2.8GHz, n'était pas assez puissant pour Aero. J'ai essayé
+         de changer les réglages de performance vs apparence, mais
+         si j'indiquais à Windows de me donner une performance
+         maximale, il basculait vers une apparence à la Windows 98!
+      </p>
+      <p>
+         Durant l'après-midi, j'en eus assez et testai une solution
+         plus radicale: débrancher mon clavier du commutateur KVM
+         Trendnet dans lequel il se trouvait, pour le rebrancher
+         directement à l'arrière de mon ordinateur. Le commutateur
+         permet de brancher deux ordinateurs sur les mêmes
+         périphériques d'entrée. Il suffit alors d'appuyer sur un
+         bouton pour basculer d'une machine vers l'autre. Je me
+         sers de ça pour brancher mon portable de Nuance, quand je
+         travaille depuis chez moi. Mais le commutateur KVM en
+         moins, les performances du clavier redevinrent totalement
+         acceptables. Il n'y eut pas de bogue du reste de la fin de
+         semaine. Si ça avait recommencé, j'étais prêt à rebrancher
+         le clavier en PS/2, après quoi il ne restait plus que des
+         solutions longues et contraignantes du genre essayer
+         d'installer le système sur un autre ordinateur avec le
+         même disque, essayer avec un autre disque. Après tout, un
+         DVD même neuf peut être défectueux. Pas trop pratique
+         quand on ne connaît personne possédant un DVD de Windows 7
+         et qu'il y a tous ces systèmes de protection qui empêchent
+         Windows de s'activer sur un autre ordinateur que celui sur
+         lequel il a été installé à l'origine.
+      </p>
+      <p>
+         Malheureusement, je ne pouvais pas en rester là, car il me
+         fallait ce commutateur! Je ne pouvais pas juste le
+         débrancher complètement et le mettre dans une boîte en
+         attendant des jours meilleurs, comme il va peut-être
+         arriver à mon magnétoscope/enregistreur DVD. Je l'ai remis
+         en service vendredi, 3 décembre, pour travailler de chez
+         moi. Le soir venu, j'ai refait des tests sous Windows 7.
+      </p>
+      <p>
+         J'ai essayé de modifier les options d'alimentation dans le
+         Gestionnaire de périphériques de Windows, pour interdire
+         au système de désactiver le périphérique: aucun progrès.
+         J'ai essayé de trouver sur NCIX et DealExtreme un nouveau
+         commutateur susceptible de mieux fonctionner: aucune
+         information certaine. J'ai fini par essayer, à tout
+         hasard, d'inverser les fils USB du clavier et de la souris
+         sur le commutateur. Pour le moment, ça fonctionne
+         correctement!
+      </p>
+      <p>
+         J'ai aussi expérimenté avec le logiciel KVMSwitcher de
+         Trendnet, me disant qu'il aiderait peut-être. Tout ce que
+         ça a fait, ça a été de rendre la saisie de caractères
+         accentués infernale. Parfois, j'obtenais `` quand je
+         cherchais à produire un è, tandis que d'autres fois, je me
+         retrouvais avec `e ou e, tout simplement. Cela dépendait
+         de la vitesse à laquelle je tapais la séquence ` et e!
+         J'ai désactivé KVMSwitcher, puis je l'ai désinstallé quand
+         j'ai vu que ça allait mieux sans, KVM switch branchée ou
+         pas!
+      </p>
+      <p>
+         Dimanche, 16 janvier 2011, je me suis commandé une
+         nouvelle KVM Switch de marque IOGear sur TigerDirect.
+         L'ancien commutateur Trendnet recevait le signal USB à
+         travers un seul port de l'ordinateur. Il comportait un
+         concentrateur USB interne permettant d'utiliser un seul
+         port USB de l'ordinateur pour le clavier et la souris. Le
+         nouveau commutateur comporte deux fils USB qui se rendent
+         à l'ordinateur, de sorte qu'il n'agit pas en tant que
+         concentrateur comme mon ancien le faisait. Windows 7
+         semble mieux aimer, car à présent, je n'ai plus de
+         problèmes de délais, même avec le commutateur branché!
+      </p>
+      <h1>
+         <a id="contrast" name="contrast">Problème de contraste</a>
+      </h1>
+      <p>
+         Mardi, 27 avril 2010, je me suis attaqué à un autre
+         problème: : la couleur des items sélectionnés est presque
+         la même que le fond des menus, ce qui rend difficile la
+         navigation dans les menus. J'ai essayé de m'y faire, mais
+         j'ai fini par me tanner. C'était tellement difficile que
+         ça allait mieux de cliquer avec la souris! Ça n'avait pas
+         de bon sens. J'ai tenté de trouver une solution, mais ce
+         fut en vain. Il n'y a aucun moyen simple de personnaliser
+         le thème à moins de désactiver Aero complètement. Et que
+         se passe-t-il sans Aero? Eh bien on se retrouve avec un
+         thème vieillot qui fait penser à Windows 98!
+      </p>
+      <p>
+         J'ai lu sur des forums qu'il fallait appliquer une patch
+         pour UxTheme afin de pouvoir personnaliser les thèmes
+         d'Aero. J'essayai d'installer la patch en question, mais
+         cela n'eut aucun effet. Il semblait falloir installer
+         encore autre chose. Je cherchai, et ne trouvai que <a
+         href="http://www.stardock.com/products/windowblinds">WindowBlinds</a>
+         comme solution pour personnaliser le thème sans désactiver
+         Aero. Mais encore une fois, ce logiciel aurait coûté au
+         moins 20$. Quelques temps après l'installation, je
+         rencontrerais des problèmes et tenterais de mettre à jour
+         pour les corriger: encore 20$ qui partiraient. Et ça
+         n'aurait jamais de fin!
+      </p>
+      <p>
+         En plus, la machine a déconné à quelques reprises et fini
+         par planter complètement. La souris se fige et le
+         processeur se met à tourner à fond la caisse, du moins
+         d'après le bruit du ventilateur. C'était vraiment
+         exaspérant.
+      </p>
+      <p>
+         Pendant quelques mois, je conservai le statut quo, me
+         contentant du thème vieillot. Mais samedi, 27 novembre
+         2010, je voulus revenir du passé et ravoir Aero! Je
+         cherchai encore, encore et encore, faillis perdre espoir,
+         mais je finis par trouver <a
+         href="http://windows7themes.net/high-contrast-windows-7-aero-theme.html">CECI</a>!
+         C'est un site permettant de télécharger une variante du
+         thème Aero avec de meilleurs contrastes. Le fichier ZIP
+         contenant le thème mais aussi des instructions
+         d'installation et une certaine version de la patch pour
+         UxTheme. J'ai tenté d'installer la patch, constaté que je
+         l'avais déjà, puis j'ai voulu activer le thème.
+         Malheureusement, Windows 7 revenait au thème classique. Si
+         je me souviens bien, j'ai été obligé de désinstaller
+         UxTheme, réinstaller la version dans l'archive ZIP,
+         redémarrer la machine, puis ça a fini par permettre
+         d'activer le thème Aero modifié!
+      </p>
+      <h1>
+         <a id="hdd2" name="hdd2">Donner plus de 20Go à Windows
+         7</a>
+      </h1>
+      <p>
+         Pour mes premiers tests, je n'ai pu donner que 20Go
+         d'espace à Windows 7. Il me fallait par contre agrandir
+         cet espace pour utiliser le système plus à fond.
+         Malheureusement, cela promettait d'être long, compliqué et
+         risquait de me faire perdre des fichiers et mon
+         installation de Windows.
+      </p>
+      <p>
+         Une façon simple et élégante de réussir mon coup sans
+         aucun risque pour mes données était de migrer toute ma
+         configuration vers un disque dur d'un tera-octet. Le
+         disque actuel servirait comme externe, pour stocker les
+         sauvegardes. La migration évitait complètement la
+         nécessité de repartitionner mon disque et je pouvais même
+         laisser Windows 7 et Windows XP cohabiter, avec chacun une
+         généreuse partition de 50Go! Il y aurait une centaine de
+         giga-octets de données Windows, au moins, et tout le reste
+         consacré à mon bon fétiche Linux.
+      </p>
+      <p>
+         Mercredi, 23 juin 2010, je me suis décidé à acheter un
+         nouveau disque dur. Le soir même, je l'ai branché dans mon
+         ordinateur et créé des partitions dessus: une pour Windows
+         7, une autre pour Windows XP, une pour Ubuntu, puis la
+         partition étendue contenant le swap pour Linux, une
+         partition de données Ext4, et une autre en NTFS. J'ai
+         ensuite commencé à transférer mes données du vieux disque
+         vers le nouveau.
+      </p>
+      <p>
+         J'ai ainsi traité mes partitions de données par
+         reconstruction, ce qui est plus efficace que la copie
+         octet par octet. Cela cause une défragmentation du système
+         de fichiers et a permis à mes fichiers de données de mieux
+         utiliser Ext4. Avant, ils étaient sur du Ext3 et aucun
+         outil que je connais, à part la copie, ne permet
+         d'optimiser les structures Ext3 en Ext4. Il est certes
+         possible de monter un disque Ext3 en tant que disque Ext4,
+         tout va très bien fonctionner, mais les gros fichiers
+         existants continueront à utiliser plusieurs blocs
+         réguliers; seuls les nouveaux fichiers bénéficieront des
+         groupes de blocs, appelés extents, fourni par Ext4.
+      </p>
+      <p>
+         Le lendemain matin, j'ai procédé aux transferts plus
+         délicats des systèmes d'exploitation. J'ai pour cela
+         utilisé GParted pour faire des copies de partitions, octet
+         par octet. Ça s'est très bien passé pour la copie, mais
+         GParted s'est planté le bicycle quand est venu le temps de
+         redimensionner les partitions Windows. Il est possible que
+         ce soit Ubuntu qui ait monté la partition nouvellement
+         copiée, empêchant le redimensionnement.
+      </p>
+      <p>
+         J'ai ainsi réessayé le redimensionnement et, par chance,
+         il a réussi! J'ai pu donner 50Go à chacun de mes deux
+         installations de Windows! Ensuite est venu le temps de
+         reconfigurer Linux pour qu'il fonctionne sur le nouveau
+         disque dur. Pour ça, je dus mettre à jour les UUID des
+         partitions dans le fichier <tt>/etc/fstab</tt> et ce fut
+         tellement difficile que j'ai toujours du mal à en revenir!
+         La commande <tt>vol_id</tt> dont je me servais pour
+         obtenir les UUID auparavant brillait par son absence. Je
+         dus m'y prendre en listant <tt>/dev/disk/by-uuid</tt>,
+         mais c'était tout mélangé et super compliqué à s'y
+         retrouver. Avec <tt>blkid</tt>, j'obtins de quoi de mieux
+         mais seulement vers la fin de ma tâche!
+      </p>
+      <p>
+         La réinstallation de GRUB, qui permet de choisir entre
+         Windows et Linux au démarrage, me causa aussi d'énormes
+         difficultés. J'eus du mal à retrouver comment procéder et
+         tombai sur des sites expliquant comment GRUB fonctionnait
+         plutôt que comment l'installer! Il suffisait en fait
+         d'appeler quelque chose comme <tt>sudo grub-install</tt>.
+      </p>
+      <p>
+         Après ça, j'ai retiré le vieux disque dur, redémarré et
+         constaté avec soulagement que je pouvais aboutir sous
+         Ubuntu! Il y eut un glitch avec une de mes partitions que
+         je dus réparer en corrigeant <tt>fstab</tt>: le système de
+         fichiers était défini à Ext3 tandis qu'il était à présent
+         Ext4. La correction effectuée, je pus aboutir sous GNOME.
+         Linux fonctionnait, c'était fait. J'allais écrire que
+         c'était aussi simple que ça, mais à bien y penser, ce fut
+         loin d'être simple!
+      </p>
+      <p>
+         C'est bien compliqué, Linux, direz-vous? Eh bien, Windows,
+         c'est pire! D'abord, quand je démarrai pour la première
+         fois, j'eus un joli message d'erreur m'indiquant d'insérer
+         le disque d'installation pour tout réinstaller par-dessus
+         mon ancien système, comme m'a fait une fois Windows XP par
+         le passé.
+      </p>
+      <p>
+         J'ai ensuite gossé, gossé et gossé encore pour tenter de
+         trouver un moyen de réparer Windows depuis Linux: en vain.
+         Tous les sites sur lesquels je tombais revenaient toujours
+         à utiliser Windows pour réparer Windows: prends
+         <tt>BCDEdit.exe</tt>, essaie avec EasyBCD, etc. Le
+         problème est que contrairement à Windows XP dont le
+         gestionnaire d'amorçage est configuré par un fichier
+         textuel, éditable depuis Linux en raison du module
+         NTFS-3G, le gestionnaire de Windows 7 est configuré par
+         des fichiers binaires.
+      </p>
+      <p>
+         J'ai fini par essayer avec le DVD d'installation, il y
+         avait une option pour réparer, mais elle n'affichait même
+         pas mon système dans la liste des installations! La seule
+         chose à essayer que l'interface me proposait, c'était
+         d'installer un pilote pour mon disque dur!
+      </p>
+      <p>
+         J'ai fait plusieurs essais, d'innombrables redémarrages,
+         puis j'ai fini par réussir à aboutir sous une Invite de
+         commande de récupération, je ne me souviens plus
+         exactement comment. J'ai alors pu utiliser BCDEdit, mais
+         il ne fonctionnait pas. Cela m'a donné l'idée d'essayer de
+         rendre la partition de Windows 7 active sous GParted.
+         Quand j'eus fait ça et redémarré l'installeur de Windows,
+         la réparation détecta mon système et parvint à le rendre
+         fonctionnel! J'ai alors pu redémarré Windows 7. Mais en
+         plus, cela a supprimé la dépendance à la partition de
+         Windows XP qu'il y avait; Windows 7 avait installé son
+         gestionnaire d'amorçage sur la partition de XP. Là, c'est
+         tout sur la partition de 7! Mais XP n'est plus accessible
+         pour le moment. Je ne sais pas comment je pourrais le
+         restaurer, mais peu importe si Windows 7 fonctionne bien.
+      </p>
+      <h1>
+         <a id="logiciels" name="logiciels">Des logiciels qui
+         fonctionnent</a>
+      </h1>
+      <p>
+         Après avoir résolu les problèmes initiaux, j'ai constaté
+         que le système fonctionnait pas mal bien. Le fait d'avoir
+         opté pour la version 64 bits ne m'a pas du tout empêché
+         d'utiliser Myst IV, Uru, GNU Emacs, AIMP2, etc. Depuis que
+         j'ai nettoyé mon ordinateur à l'air comprimé, les
+         plantages ont cessé.
+      </p>
+      <p>
+         Les performances du système sont à peu près celles de
+         Windows XP, avec j'ai l'impression un temps de démarrage
+         plus petit. Deux nouvelles fonctionalités ont attiré mon
+         attention. D'abord, le menu Démarrer est pourvu d'une
+         fonction de recherche textuelle capable de retrouver des
+         programmes, des fichiers, des répertoires, etc. Cela
+         ressemble à la fonction Exécuter dont je me servais
+         parfois pour démarrer des programmes, mais la recherche
+         est plus poussée.
+      </p>
+      <p>
+         La prise en charge de bibliothèques est la deuxième
+         fonctionnalité qui m'a intéressé. Cela permet de regrouper
+         le contenu de plusieurs répertoires dans un seul. En
+         particulier, j'ai pu ajouter, dans la bibliothèque
+         Musique, un lien vers mes fichiers musicaux se trouvant
+         sur une partition NTFS accessible par Linux.
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

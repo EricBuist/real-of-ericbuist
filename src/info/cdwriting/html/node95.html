@@ -1,0 +1,259 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.1//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>A.2 Désactiver le module de gravure de Windows XP</TITLE>
+<META NAME="description" CONTENT="A.2 Désactiver le module de gravure de Windows XP">
+<META NAME="keywords" CONTENT="cdwriting">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cdwriting.css">
+
+<LINK REL="next" HREF="node96.html">
+<LINK REL="previous" HREF="node94.html">
+<LINK REL="up" HREF="node93.html">
+<LINK REL="next" HREF="node96.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2500"
+  HREF="node96.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2494"
+  HREF="node93.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2488"
+  HREF="node94.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2496"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2498"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html2501"
+  HREF="node96.html">A.3 L'architecture x86_64</A>
+<B> monter:</B> <A NAME="tex2html2495"
+  HREF="node93.html">A. Gravure de CD</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2489"
+  HREF="node94.html">A.1 Pourquoi ne pas</A>
+ &nbsp; <B>  <A NAME="tex2html2497"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2499"
+  HREF="node106.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Sous-sections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html2502"
+  HREF="node95.html#SECTION07721000000000000000">A.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN> Désactivation de la gravure de CD dans l'Explorateur</A>
+<LI><A NAME="tex2html2503"
+  HREF="node95.html#SECTION07722000000000000000">A.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN> Désactivation du service IMAPI</A>
+<LI><A NAME="tex2html2504"
+  HREF="node95.html#SECTION07723000000000000000">A.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">3</SPAN> Modification de la base de Registre</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION07720000000000000000">
+A.<SPAN CLASS="arabic">2</SPAN> Désactiver le module de gravure de Windows XP</A>
+</H1>
+
+<P>
+La désactivation du module de gravure de CD de Windows&nbsp;XP pourrait
+permettre de résoudre les problèmes de compatibilité entre Windows et
+votre ancien logiciel de gravure. Cela diminuera la nécessité d'une
+mise à jour qui introduirait peut-être de nouveaux problèmes. Par
+exemple, rien de tel qu'un passage de Easy CD Creator&nbsp;4 à Easy Media
+Creator pour apporter beaucoup de problèmes comme la lourdeur et la
+nécessité
+d'activer le produit et de l'enregistrer pour le mettre à jour.
+Par chance, Nero 6 Ultra constitue un logiciel de gravure actuel qui
+ne souffre pas (encore) de tous ces vices. La
+désactivation complète du module de gravure passe par trois étapes
+distinctes: la modification d'un réglage dans l'Explorateur, la
+désactivation d'un service système et la modification d'une clé dans
+la base de Registre.
+Pour effectuer cette procédure, vous devez être connecté à Windows&nbsp;XP
+en tant qu'administrateur. Il est aussi possible de réactiver la
+gravure de CD intégrée à Windows en effectuant la même procédure à
+l'inverse.
+
+<P>
+
+<H2><A NAME="SECTION07721000000000000000">
+A.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN> Désactivation de la gravure de CD dans l'Explorateur</A>
+</H2>
+
+<P>
+Ce premier réglage rendra la gravure de CD intégrée indisponible pour
+l'usager, mais le module de gravure demeurera chargé en mémoire.
+
+<P>
+
+<OL>
+<LI>Double-cliquez sur le <SPAN  CLASS="textbf">Poste de travail</SPAN>.
+</LI>
+<LI>Cliquez droit sur l'icône correspondant à votre graveur de CD et
+  sélectionnez <SPAN  CLASS="textbf">Propriétés</SPAN>.
+</LI>
+<LI>Dans la boîte de dialogue apparaissant à l'écran, cliquez sur
+  l'onglet <SPAN  CLASS="textbf">Enregistrement</SPAN> et décochez la case
+  <SPAN  CLASS="textbf">Activer l'écriture de CD sur ce lecteur</SPAN>
+  qui s'y trouve.
+  Si vous souhaitez réactiver la gravure, cochez cette case.
+</LI>
+<LI>Validez par <SPAN  CLASS="textbf">OK</SPAN>.
+</LI>
+<LI>Faites de même avec tous vos autres graveurs si vous en possédez
+  plusieurs.
+</LI>
+</OL>
+
+<P>
+
+<H2><A NAME="SECTION07722000000000000000">
+A.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN> Désactivation du service IMAPI</A>
+</H2>
+
+<P>
+La désactivation du service IMAPI permet de retirer le module de
+gravure de CD de la mémoire et maximiser la probabilité de
+fonctionnement d'une vieille version d'un logiciel de gravure, même si
+ce logiciel est déclaré incompatible Windows&nbsp;XP par son fabricant.
+
+<P>
+
+<OL>
+<LI>Dans le menu <SPAN  CLASS="textbf">Démarrer</SPAN>, sélectionnez <SPAN  CLASS="textbf">Panneau de
+    configuration</SPAN>.
+</LI>
+<LI>Sélectionnez <SPAN  CLASS="textbf">Performances et maintenance</SPAN> puis
+  <SPAN  CLASS="textbf">Outils d'administration</SPAN>.
+</LI>
+<LI>Double-cliquez sur <SPAN  CLASS="textbf">Services</SPAN>.
+</LI>
+<LI>Cliquez droit sur <SPAN  CLASS="textbf">Service COM de gravage de CD IMAPI</SPAN> et
+  sélectionnez <SPAN  CLASS="textbf">Propriétés</SPAN>.
+</LI>
+<LI>Dans la boîte de dialogue qui apparaît, sous <SPAN  CLASS="textbf">Type de
+    démarrage</SPAN>, sélectionnez <SPAN  CLASS="textbf">Désactivé</SPAN>.
+  Si vous souhaitez réactiver la gravure, sélectionnez plutôt
+  <SPAN  CLASS="textbf">Automatique</SPAN>.
+</LI>
+<LI>Si le bouton est disponible, cliquez sur <SPAN  CLASS="textbf">Arrêter</SPAN>.
+  Si vous souhaitez réactiver la gravure, cliquez plutôt sur
+  <SPAN  CLASS="textbf">Démarrer</SPAN>.
+</LI>
+<LI>Validez par <SPAN  CLASS="textbf">OK</SPAN>.
+</LI>
+</OL>
+
+<P>
+
+<H2><A NAME="SECTION07723000000000000000">
+A.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">3</SPAN> Modification de la base de Registre</A>
+</H2>
+
+<P>
+<TABLE BORDER="1">
+<TR><TD VALIGN="top">
+<DIV STYLE="text-align:center; color:red"> Attention!
+</DIV><P>
+Les manipulations dans la base de Registre
+peuvent s'avérer risquées, vous devez faire preuve de
+prudence lors de la création et la destruction de clés ou de
+valeurs.</TD></TR></TABLE> 
+<P>
+Ce dernier réglage permet d'éviter que le module de gravure de CD
+puisse être réactivé depuis l'Explorateur. Après la modification de la
+base de Registre, l'onglet <SPAN  CLASS="textbf">Gravure de CD</SPAN> disparaîtra
+totalement du système. 
+La manipulation de base de Registre est tirée de
+[<A
+ HREF="node104.html#cle2003">3</A>].
+
+<P>
+
+<OL>
+<LI>Dans le menu <SPAN  CLASS="textbf">Démarrer</SPAN>, sélectionnez <SPAN  CLASS="textbf">Exécuter...</SPAN>
+</LI>
+<LI>Tapez <TT>regedit</TT> et validez par <SPAN  CLASS="textbf">OK</SPAN>.
+</LI>
+<LI>Le Registre se présente comme un arbre constitué de clés
+  auxquelles peut être associé un nombre arbitraire de
+  valeurs. L'arbre se parcourt exactement comme un système de fichiers
+  dans l'Explorateur. Les clés sont l'analogue des répertoires tandis
+  que les valeurs sont similaires à des fichiers. Vous devrez
+  développer cet arbre de façon à accéder à la clé
+
+<P>
+<PRE>
+  HKEY_LOCAL_MACHINE\Software\Microsoft\Windows
+           \CurrentVersion\policies\Explorer
+</PRE>
+</LI>
+<LI>Dans le menu <SPAN  CLASS="textbf">Édition</SPAN>, sélectionnez <SPAN  CLASS="textbf">Nouveau</SPAN>
+  puis <SPAN  CLASS="textbf">Valeur DWORD</SPAN>. Nommez la nouvelle valeur
+  <SPAN  CLASS="textit">NoCDBurning</SPAN> et appuyez sur <SPAN  CLASS="textbf">Enter</SPAN>.
+</LI>
+<LI>Double-cliquez sur la nouvelle valeur créée, ce qui fera surgir
+  une boîte de dialogue. Affectez-lui la valeur 1 si vous souhaitez
+  désactiver la gravure de CD ou 0 si vous souhaitez la réactiver.
+</LI>
+<LI>Fermez l'éditeur de base de Registre et redémarrez votre ordinateur.
+</LI>
+</OL>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2500"
+  HREF="node96.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2494"
+  HREF="node93.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2488"
+  HREF="node94.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2496"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2498"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html2501"
+  HREF="node96.html">A.3 L'architecture x86_64</A>
+<B> monter:</B> <A NAME="tex2html2495"
+  HREF="node93.html">A. Gravure de CD</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2489"
+  HREF="node94.html">A.1 Pourquoi ne pas</A>
+ &nbsp; <B>  <A NAME="tex2html2497"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2499"
+  HREF="node106.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Eric Buist
+2005-11-13
+</ADDRESS>
+</BODY>
+</HTML>

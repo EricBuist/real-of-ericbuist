@@ -1,0 +1,523 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         Protéger son territoire virtuel
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css"
+      href="../../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../../index.xhtml" class="parents">Le
+               royaume de Eric Buist</a> &gt;&gt; <a
+               href="../index.xhtml"
+               class="parents">Informatique</a> &gt;&gt;
+               Quelques-unes de mes recherches personnelles
+               &gt;&gt; <a href="index.xhtml" class="parents">Trucs
+               et astuces</a> &gt;&gt; Astuces spécifiques au DIRO
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../../sitemap.xhtml" class="sitemap">Plan
+               du site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="ftp.xhtml"
+               class="leftsibling">Communication bidirectionnelle
+               entre une machine personnelle et son compte DIRO</a>
+            </td>
+            <td class="thispage">
+               Protéger son territoire virtuel
+            </td>
+            <td class="rightsibling">
+               <a href="printing.xhtml"
+               class="rightsibling">Imprimer de quoi</a> &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         Protéger son territoire virtuel
+      </h1>
+      <p>
+         Sur les seuls serveurs Phobos et Deimos, il existe une
+         centaine de comptes usagers, contenant tous des fichiers
+         personnels de chaque usager. Chacune de ces personnes peut
+         se brancher sur le réseau et effectuer des modifications.
+         Vous vous êtes peut-être rendu compte, déjà, que vous
+         pouvez aller vous promener dans les répertoires principaux
+         des autres usagers. Vous pouvez par exemple taper <tt>cd
+         ~dift1213</tt> et puis <tt>ls</tt> sans obtenir de
+         messages d'erreurs. Vous devez donc maintenant vous
+         demander si cela est sûr de placer sur votre compte des
+         copies de sauvegarde de vos travaux importants, des pages
+         Web ou toute autre donnée. En effet, ne semble-t-il pas
+         possible pour quiconque d'autre de modifier ce qu'il y a
+         là. Imaginez quelqu'un voulant vous nuire et modifiant à
+         votre insu, juste avant l'impression, un devoir!
+      </p>
+      <p>
+         Sous Windows 9x, avec son système de fichiers FAT16 ou
+         FAT32, de telles abominations relèvent du possible absolu!
+         C'est pour cela qu'il n'existe pas de serveurs sérieux
+         tournant sous un tel système. Windows NT, de son côté,
+         sécurise les fichiers avec des droits d'accès. Ce que fait
+         aussi Linux, à une seule condition: les fichiers doivent
+         être stockés sur une partition Extended 2 filesystem (<a
+         href="../linux/ext2fs.xhtml">ext2fs</a>), ce qui est
+         heureusement le cas du serveur Phobos, Deimos, ainsi que
+         des machines du DIRO! Reste maintenant à savoir comment
+         prendre le contrôle de ce mécanisme.
+      </p>
+      <ul>
+         <li>
+            <a href="#absolute">La sécurité absolue: l'absence de
+            données</a>
+         </li>
+         <li>
+            <a href="#chmod">Contrôler l'accès aux fichiers</a>
+         </li>
+         <li>
+            <a href="#chown">Faire «don» d'un fichier</a>
+         </li>
+         <li>
+            <a href="#dir">Opérations sur les répertoires</a>
+         </li>
+         <li>
+            <a href="#other">Autres droits possibles</a>
+         </li>
+         <li>
+            <a href="#effects">Quelques effets de ces commandes</a>
+         </li>
+      </ul>
+      <h2>
+         <a name="absolute" id="absolute">La sécurité absolue:
+         l'absence de données</a>
+      </h2>
+      <p>
+         Pour ce qui est de données absolument top secrètes ou très
+         personnelles, par exemple un journal intime rédigé sous
+         Word (Ce genre de pratique existe, j'en suis un adepte!)
+         même protégé par mot de passe, il n'existe qu'un moyen
+         d'empêcher quiconque d'y accéder: ne pas les stocker sur
+         son compte. Il existe un moyen universel pour bypasser
+         tout le mécanisme des permissions: se brancher en root.
+         Pour y parvenir, il faut taper <tt>su</tt> sans paramètres
+         et entrer le mot de passe du compte root. Ce qui rend la
+         manipulation inaccessible à tout étudiant, heureusement!
+         Un hacker expérimenté pourrait probablement trouver un
+         trou de sécurité dans le noyau et parvenir à devenir root
+         frauduleusement. Toutefois, une telle personne sera un
+         jour ou l'autre prise sur le fait et poursuivie en
+         justice. Cela n'empêchera pas le mal d'être fait,
+         malheureusement. Toutefois, il est peu probable qu'une
+         telle personne s'attaque à vous, à moins de la provoquer,
+         mais on ne sait jamais. L'information la plus importante à
+         ne pas stocker constitue sans nul doute votre mot de
+         passe, quel qu'il soit.
+      </p>
+      <h2>
+         <a name="chmod" id="chmod">Contrôler l'accès aux
+         fichiers</a>
+      </h2>
+      <p>
+         Ce contrôle est réalisé par la commande <tt>chmod</tt>.
+         Elle permet de modifier les permissions d'un ou plusieurs
+         fichiers dont vous êtes le propriétaire. Vous possédez un
+         fichier si et seulement si vous l'avez créé lorsque vous
+         étiez branché sur votre compte ou si quelqu'un vous l'a
+         «donné». La commande <tt>chmod</tt> comporte deux
+         syntaxes, une avec des lettres, l'autre avec des chiffres.
+      </p>
+      <h3>
+         <tt>chmod</tt> avec des lettres
+      </h3>
+      <p>
+         Le premier paramètre de <tt>chmod</tt> indique au
+         programme ce qu'il doit faire au fichier. Il faut tout
+         d'abord indiquer sur quoi le changement de droit d'accès
+         s'appliquera,
+      </p>
+      <ul>
+         <li>
+            soit sur l'utilisateur particulier (u),
+         </li>
+         <li>
+            sur le groupe dans lequel se trouve l'utilisateur (g),
+         </li>
+         <li>
+            sur tout autre utilisateur du réseau (o) ou
+         </li>
+         <li>
+            les trois ensemble (a).
+         </li>
+      </ul>
+      <p>
+         En tant qu'étudiant, nous figurons tous dans le groupe
+         etud. Les comptes des démonstrateurs, soit diftxxxx, se
+         trouvent dans le groupe demo. Notez que l'on peut écrire
+         une combinaison des trois lettres u, g et o, la lettre a
+         équivalant à ugo ensemble.
+      </p>
+      <p>
+         On suit cet indicateur d'un opérateur, soit + pour ajouter
+         une permission, - pour la retirer et = pour remplacer les
+         permissions actuelles par la nouvelle. Finalement, on
+         trouve le droit d'accès à attribuer ou retirer.
+      </p>
+      <ul>
+         <li>
+            <b>Read (r)</b>: Droit de lire le contenu du fichier et
+            de le copier
+         </li>
+         <li>
+            <b>Write (w)</b>: Droit d'écriture dans le fichier,
+            implique aussi le droit de remplacer complètement le
+            contenu d'un fichier
+         </li>
+         <li>
+            <b>Execute (x)</b>: Transforme tout fichier en
+            programme exécutable à partir du shell, effets
+            imprévisibles si le fichier ne constitue pas un
+            véritable programme
+         </li>
+      </ul>
+      <p>
+         Encore une fois, il est possible de combiner les droits
+         d'accès. Seul les opérateurs ne peuvent pas être combinés.
+         Il serait illogique d'octroyer et de retirer simultanément
+         un droit d'accès. Les paramètres suivants de la commande
+         constituent les fichiers à traiter.
+      </p>
+      <p>
+         Par exemple, <tt>chmod go-rwx devoirimportant.txt</tt>
+         retirera tout droit d'accès aux utilisateurs du groupe
+         ainsi qu'aux autres utilisateurs du réseau, sauf le root
+         bien entendu.
+      </p>
+      <p>
+         Que se passe-t-il si on a un groupe de cinquante fichiers
+         sur lesquels on voudrait appliquer le changement? Eh bien,
+         <tt>chmod</tt> peut accepter plusieurs fichiers sur sa
+         ligne de commande. Bien qu'elle ne sache pas interpréter
+         des caractères génériques tels *, le shell, lui, sait le
+         faire! Lorsqu'il voit un tel caractère sur la ligne de
+         commande lors de son analyse, il va le remplacer par les
+         fichiers correspondants du répertoire actuel et va séparer
+         chacun d'eux par des espaces. Coïncidence: <tt>chmod</tt>
+         utilise justement cette syntaxe! Ainsi, <tt>chmod ugo-w
+         *.cct</tt> retirera à tous, y compris vous-même, le droit
+         d'écriture au fichier, vous empêchant par erreur de
+         modifier ces circuits LogicWorks qui vous ont tellement
+         pris de temps!
+      </p>
+      <p>
+         Une question cruciale surgit alors, je crois bien. Vous
+         pouvez désactiver l'accès d'un fichier pour vous-même.
+         Dans ce cas, vous ne pourrez plus modifier le fichier,
+         donc plus lui redonner son droit d'écriture. Ce n'est pas
+         tout à fait vrai, car on peut démontrer qu'il est possible
+         de changer les permissions d'un fichier si et seulement si
+         on en est le propriétaire. Retirer des droits d'accès ne
+         «donne» pas le fichier à personne, vous le possédez
+         toujours. Alors, rien ne vous empêche de recouvrer
+         ultérieurement votre droit en écriture.
+      </p>
+      <h3>
+         <tt>chmod</tt> avec des chiffres
+      </h3>
+      <p>
+         Pour comprendre le fonctionnement du paramètre numérique,
+         il faut se reporter aux systèmes de numérotations vus au
+         cours d'Architecture des Ordinateurs 1 (IFT1213), plus
+         spécifiquement à la notation octale. Au lieu de mettre un
+         code formé de lettres en tant que premier paramètre à
+         <tt>chmod</tt>, on peut mettre une suite de trois chiffres
+         (quatre en réalité) allant de 0 à 7. On peut définir le
+         champ de bits comme suit:
+      </p>
+<pre>
+s g t|r w x|r w x|r w x
+_____|_____|_____|_____
+SUID  user  group other
+GID
+Sticky
+</pre>
+      <p>
+         Ce schéma montre les bits du nombre octal, du plus
+         significatif au moins significatif. On peut retrouver la
+         combinaison voulue en effectuant une simple addition. Pour
+         un droit en lecture, on met 4, en écriture, on met 2 et en
+         éxécution, on met 1. Cela correspond à des positions de
+         bits, rien de plus. Le code 600 permet ainsi de conférer
+         un droit de lecture et écriture seulement au propriétaire
+         du fichier et d'inhiber tout autre droit.
+      </p>
+      <h2>
+         <a name="chown" id="chown">Faire «don» d'un fichier</a>
+      </h2>
+      <p>
+         Pendant quelques temps, j'ai cru qu'il était possible de
+         «donner» un fichier à un autre usager. Malheureusement, la
+         commande <tt>chown</tt> qui permet cela ne fonctionne que
+         pour le super-utilisateur (root). La seule façon de
+         changer le propriétaire d'un fichier consiste à le
+         recopier. La copie appartiendra à l'utilisateur l'ayant
+         lancée.
+      </p>
+      <p>
+         Il existe un cas-type de problèmes associé aux
+         propriétaires de fichiers. Supposons que vous ayiez créé
+         un répertoire <tt>pub</tt> dans votre compte et accessible
+         en lecture et en écriture. Quelqu'un pourrait alors
+         s'amuser à créer fichiers et répertoires. Il se peut alors
+         que ces fichiers ne puissent plus être supprimés! Vous ne
+         pourez alors plus jamais vous débarraser du répertoire
+         <tt>pub</tt>. La seule façon que je connaisse sans devenir
+         root ou sans passer un accord avec l'utilisateur qui a
+         écrit les données consiste à utiliser la commande <tt>mv
+         pub /tmp/pub</tt>. Le répertoire disparaîtra alors de
+         votre compte et un jour, de <tt>/tmp</tt> puisque ce
+         dernier est vidé périodiquement.
+      </p>
+      <h2>
+         <a name="dir" id="dir">Opérations sur les répertoires</a>
+      </h2>
+      <p>
+         Outre les fichiers, <tt>chmod</tt> peut manipuler des
+         répertoires. Appliquer <tt>chmod</tt> sur un répertoire
+         n'affecte aucunement les fichiers qui s'y trouvent logés.
+         Le répertoire comporte lui aussi des permissions, les
+         mêmes en fait que pour les fichiers. La signification de
+         chacune d'elles est toutefois légèrement différente.
+      </p>
+      <ul>
+         <li>
+            <b>Read</b>: Elle implique la possibilité de lister le
+            contenu du répertoire, de rechercher un fichier. Sans
+            ce droit, il est impossible d'accéder à un fichier sans
+            connaître son nom exact, même chose pour un
+            sous-répertoire. L'absence du droit de lecture
+            n'empêchera toutefois pas la lecture d'un fichier si on
+            en connaît le nom et si les permissions du fichier le
+            permettent.
+         </li>
+         <li>
+            <b>Write</b>: Ce droit permet de créer des fichiers ou
+            d'en supprimer. L'absence de ce droit empêche donc la
+            suppression d'un fichier, même si vous disposez du
+            droit en écriture sur ce dernier.
+         </li>
+         <li>
+            <b>Execute</b>: Permet d'accéder au répertoire.
+            L'absence de ce droit, outre empêcher la commande
+            <tt>cd</tt> de changer le répertoire courant pour ce
+            nouveau répertoire, empêche la lecture de tout fichier
+            qui s'y trouve.
+         </li>
+      </ul>
+      <h2>
+         <a name="other" id="other">Autres droits possibles</a>
+      </h2>
+      <p>
+         Outre les droits r, w et x, <tt>chmod</tt> permet aussi de
+         modifier quelques autres accès, qui représentent en
+         quelque sorte des attributs. Ces droits se trouvent, dans
+         la version octale de <tt>chmod</tt>, dans le chiffre le
+         plus significatif du nombre, soit le premier chiffre sur
+         quatre.
+      </p>
+      <ul>
+         <li>
+            <b>SUID</b>: La lettre s, appliquée à l'utilisateur, ou
+            le bit le plus significatif du premier chiffre (4)
+            modifie le comportement d'un exécutable. Lorsque le
+            programme est mis en marche, il est exécuté non pas par
+            la personne qui l'a lancé mais plutô par le
+            propriétaire du fichier.
+         </li>
+         <li>
+            <b>GID</b>: La lettre s, encore une fois, mais
+            appliquée au groupe, ou bien le bit 1 du premier
+            chiffre (2) provoque le même effet que SUID mais pour
+            le groupe.
+         </li>
+         <li>
+            <b>Sticky</b>: C'est le droit d'accès t ou bien le bit
+            le moins significatif du premier chiffre (1), il permet
+            de stocker un programme dans la zone de swap après son
+            exécution. Pour un répertoire, il semblerait qu'il
+            empêche toute suppression d'un fichier par quiconque
+            d'autre que le propriétaire du fichier.
+         </li>
+      </ul>
+      <h2>
+         <a name="effects" id="effects">Quelques effets de ces
+         commandes</a>
+      </h2>
+      <h3>
+         Des gaffes à ne pas faire
+      </h3>
+      <p>
+         Que se passerait-il si on tapait <tt>chmod a-rwx
+         ~usager</tt> ou <tt>chmod 000 ~usager</tt>? Eh bien, une
+         catastrophe! Il sera dans ce cas impossible de se
+         brancher. Il deviendrait tout simplement impossible
+         d'accéder au script d'initialisation, donc plus moyen de
+         l'exécuter. Il semble exister une façon de se tirer du
+         problème sans recourir à une aide extérieure, mais je ne
+         peux pas prendre le risque de la tester! Il faudrait
+         utiliser CuteFTP pour se brancher sur son compte après
+         avoir changé le répertoire initial. Au lieu de mettre
+         rien, on écrirait <tt>/u</tt>, ce qui permettrait
+         d'accéder à quelque chose à l'extérieur du répertoire
+         principal. Ce changement s'effectue à partir du Site
+         Manager, en cliquant sur Edit après avoir sélectionné,
+         dans la liste des sites disponibles, celui constituant la
+         connexion à Phobos ou Deimos. Le changement devra se faire
+         avant la connexion, sinon il ne prendra pas effet. À
+         partir de CuteFTP, il est possible d'appliquer un CHMOD
+         qui va inverser la manoeuvre et redonner libre accès pour
+         l'utilisateur au répertoire. Pour mettre au test pareille
+         astuce, il me faudrait une machine Linux ou bien quelqu'un
+         qui s'est mis dans un tel pétrin. Si cela vous arrive,
+         vous pouvez toujours m'écrire pour me faire part de la
+         réussite ou de l'échec de la technique, pour me demander
+         plus de précisions ou pour me suggérer un moyen qui
+         fonctionne, s'il en existe un...
+      </p>
+      <p>
+         Et qu'en est-il d'une commande telle <tt>rm -rf
+         ~usager</tt>? Eh bien, cela va aussi mener à un
+         cataclysme. Puisque vous ne disposez pas du droit en
+         écriture sur <tt>/u</tt>, le répertoire va rester en
+         place, mais TOUS SES FICHIERS vont êtes impitoyablement
+         supprimés, et cela, <b>sans restauration possible</b>!
+         Cela comprendra les scripts de démarrage, cela va
+         perturber le branchement, voire même l'empêcher. Encore
+         une fois, je ne peux pas effectuer de tests.
+      </p>
+      <h3>
+         Restrictions d'accès
+      </h3>
+      <p>
+         Vous pouvez décider ce que pourront voir ou ne pas voir
+         les utilisateurs. Vous pouvez inhiber l'accès au
+         répertoire principal avec <tt>chmod go-rx ~usager</tt>.
+         Voyez la différence avec la commande qui va vous bloquer.
+         Avant de se débrancher, il faudra vérifier, en tapant
+         <tt>cd</tt>, que le répertoire principal vous est toujours
+         accessible. <tt>chmod go+rx ~usager</tt> donnera un droit
+         de regard sur le contenu du répertoire principal à tous
+         ceux qui le veulent. Il vaut beaucoup mieux ne pas
+         octroyer d'accès en écriture, cela pourrait apporter
+         beaucoup de désastres. Si vous voulez permettre à
+         quelqu'un d'écrire, il vaut mieux mettre en place une
+         solution restrictive que j'aborderai plus loin.
+      </p>
+      <p>
+         Si vous créez un sous-répertoire dans votre répertoire
+         principal, avec <tt>mkdir</tt>, ce dernier n'aura aucun
+         accès en lecture/exécution pour le groupe et les autres.
+         Normalement, c'est cela que l'on souhaite, mais on peut
+         changer cela si on le veut. Si vous allez dans
+         <tt>~buisteri</tt>, mon répertoire principal, vous verrez
+         un sous-répertoire <tt>t</tt> et un autre <tt>tp</tt>. En
+         fait, dans le répertoire principal, il n'y a rien de très
+         intéressant. Tout se trouve dans les autres
+         sous-répertoires, dans mon cas en tout cas.
+      </p>
+      <h3>
+         Accès au site Web
+      </h3>
+      <p>
+         Il existe un répertoire particulier appelé <tt>HTML</tt>
+         et sur lequel il faut user des permissions avec
+         modération. Si vous voulez garder votre site accessible,
+         si vous en avez un, vous devez impérativement conserver le
+         droit à l'exécution. Le droit en lecture permettra à
+         quiconque d'aller voir la structure de votre site, les
+         fichiers HTML qu'il contient. Enlever le droit en lecture
+         ne nuira pas aux visiteurs de votre site Web puisque les
+         liens précisent exactement où se trouvent les fichiers et
+         leurs noms.
+      </p>
+      <h3>
+         Restriction d'accès à un utilisateur ou à un groupe donné
+      </h3>
+      <p>
+         Contrairement à Windows NT ou Netware, Linux ne dispose
+         pas d'un mécanisme permettant d'octroyer des droits
+         différents pour chaque groupe et chaque utilisateur. Vous
+         ne pourrez donc pas, d'un simple <tt>chmod</tt>, permettre
+         à votre coéquipier d'accéder à votre programme Java et
+         interdire cet accès à toute autre personne. Il faudra
+         bricoler un peu pour permettre cela.
+      </p>
+      <p>
+         Un bon moyen consiste à créer un répertoire qui contiendra
+         toutes ces zones protégées. Ce répertoire sera accessible
+         en exécution seulement pour tout autre utilisateur quue
+         vous-même, donc personne ne pourra en voir les fichiers et
+         sous-répertoires. Lors du travail d'équipe, on créera un
+         sous-répertoire d'un nom déterminé et difficile à deviner
+         et qui aura un droit d'accès en lecture, en exécution et
+         voire même en écriture. Pour pouvoir accéder aux données,
+         il faut donc se brancher sur son compte et connaître leur
+         emplacement. Ce répertoire agit en quelque sorte comme un
+         "mot de passe" fait maison.
+      </p>
+      <p>
+         Pour améliorer la qualité de la protection, il est
+         envisageable de ne donner accès aux données que par le
+         Web. Pour ce faire, les données doivent être placées dans
+         un sous-répertoire du répertoire <tt>HTML</tt>. Ce
+         répertoire doit être accessible en exécution seulement
+         pour le groupe et les autres utilisateurs afin de limiter
+         l'accès au maximum. Les fichiers, malheureusement, doivent
+         être accessibles en lecture pour tous.
+      </p>
+      <p>
+         Pour franchir la protection, l'utilisateur autorisé doit
+         connaître le nom exact des fichiers, ce qui lui sera donné
+         par les liens Web. Il serait envisageable d'écrire des
+         scripts pour faire varier ces noms de façon aléatoire tout
+         en mettant à jour les liens sur le portail Web d'entrée.
+         Reste bien entendu à protéger le portail. Ce qui peut se
+         faire en installant un fichier <tt>.htaccess</tt> dans le
+         répertoire. Voir <a
+         href="http://faq.clever.net/htaccess.htm">The HTAccess
+         Authentication Tutorial</a> pour plus d'informations à ce
+         propos.
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

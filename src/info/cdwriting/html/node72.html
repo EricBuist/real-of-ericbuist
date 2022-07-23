@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.1//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>15.2 Lecture de la TOC</TITLE>
+<META NAME="description" CONTENT="15.2 Lecture de la TOC">
+<META NAME="keywords" CONTENT="cdwriting">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cdwriting.css">
+
+<LINK REL="next" HREF="node73.html">
+<LINK REL="previous" HREF="node71.html">
+<LINK REL="up" HREF="node70.html">
+<LINK REL="next" HREF="node73.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2121"
+  HREF="node73.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2115"
+  HREF="node70.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2109"
+  HREF="node71.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2117"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2119"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html2122"
+  HREF="node73.html">15.3 Lecture de l'ATIP</A>
+<B> monter:</B> <A NAME="tex2html2116"
+  HREF="node70.html">15. Analyse de disques</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2110"
+  HREF="node71.html">15.1 L'accès direct au</A>
+ &nbsp; <B>  <A NAME="tex2html2118"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2120"
+  HREF="node106.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION07220000000000000000"></A>
+<A NAME="sec:tocread"></A>
+<A NAME="3300"></A>
+<BR>
+<SPAN CLASS="arabic">15</SPAN>.<SPAN CLASS="arabic">2</SPAN> Lecture de la TOC
+</H1>
+
+<P>
+L'extraction de la table du contenu permet d'examiner la structure
+générale d'un disque et de jauger les difficultés engendrées par une
+copie. Elle peut aussi servir à comparer la TOC sur le CD avec la TOC
+espérée dans le but de cerner les causes de problèmes de gravure de
+vos disques personnels. Cette lecture peut se faire de façon très simple
+avec CDRDAO<A NAME="3301"></A>. Insérez le CD à décortiquer dans le graveur
+et utilisez la commande read-toc de CDRDAO.
+
+<P>
+
+<DIV CLASS="alltt" ALIGN="LEFT">
+<TT>
+ 
+<BR>
+cdrdao read-toc cd.toc
+<BR></TT>
+</DIV>
+
+<P>
+Si votre pilote CDRDAO et votre graveur supportent le CD-Text,
+les informations CD-Text d'un CD Audio seront aussi intégrées dans la
+TOC. Ce qui fait de l'analyse de la TOC la méthode la plus précise
+pour déterminer si les informations CD-Text se trouvent bien sur le
+disque.
+
+<P>
+Malheureusement, CDRDAO ne traite que la première session des
+disques multisession. Pour contourner cette limitation, il existe une
+astuce qui provient probablement d'un bogue dans le logiciel. La
+commande <TT>cdrdao read-toc -session N cd.toc</TT> lira toute la
+TOC si le disque analysé comporte moins de <TT>N</TT> sessions!
+En
+réalité, CDRDAO devrait émettre un message d'erreur puisque la
+<TT>N</TT><SUP>e</SUP> session n'existe pas. Il est donc à prévoir que cette
+technique ne fonctionnera plus dans les futures versions de CDRDAO.
+Lorsque ce sera le cas, vous devrez obtenir une à une les TOC de
+chaque session.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2121"
+  HREF="node73.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2115"
+  HREF="node70.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2109"
+  HREF="node71.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2117"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2119"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html2122"
+  HREF="node73.html">15.3 Lecture de l'ATIP</A>
+<B> monter:</B> <A NAME="tex2html2116"
+  HREF="node70.html">15. Analyse de disques</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2110"
+  HREF="node71.html">15.1 L'accès direct au</A>
+ &nbsp; <B>  <A NAME="tex2html2118"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2120"
+  HREF="node106.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Eric Buist
+2005-11-13
+</ADDRESS>
+</BODY>
+</HTML>

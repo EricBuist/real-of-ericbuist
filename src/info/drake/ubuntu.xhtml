@@ -1,0 +1,302 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         Installation d'Ubuntu
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css"
+      href="../../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../../index.xhtml" class="parents">Le
+               royaume de Eric Buist</a> &gt;&gt; <a
+               href="../index.xhtml"
+               class="parents">Informatique</a> &gt;&gt;
+               Configuration informatique &gt;&gt; <a
+               href="index.xhtml" class="parents">Le Drake</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../../sitemap.xhtml" class="sitemap">Plan
+               du site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="win7.xhtml"
+               class="leftsibling">Installation de Windows 7</a>
+            </td>
+            <td class="thispage">
+               Installation d'Ubuntu
+            </td>
+            <td class="rightsibling">
+               <a href="macosx.xhtml"
+               class="rightsibling">Installation de Mac OS X</a>
+               &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         Installation d'Ubuntu
+      </h1>
+      <p>
+         Les mois précédant l'achat du Drake, j'ai éprouvé
+         plusieurs difficultés avec Ubuntu: un bogue m'empêchant
+         d'agrandir le pointeur de la souris à moins de modifier
+         des fichiers système pour en mettre un gros par défaut, la
+         reprise des plantages au retour de veille, l'impossibilité
+         de transférer de la musique sur mon iPod depuis Linux, des
+         difficultés à transférer des fichiers sur ma tablette
+         Android, des difficultés intermittantes à imprimer
+         nécessitant dans un tel cas un redémarrage sous Windows et
+         la non disponibilité de nombreuses applications comme des
+         logiciels de création de musique et Google Drive. De plus,
+         j'ai lu pendant mes recherches que certains possesseurs de
+         processeurs Ivy Bridge ont eu droit à des plantages
+         intermittants du système jusqu'à ce qu'ils installent, à
+         bras, le noyau 3.4, non disponible dans les paquets
+         proposés par Ubuntu. Il fallait le compiler soit-même ou
+         installer une version provenant d'un PPA. Et à chaque
+         demande d'aide sur un quelconque forum, je n'obtenais rien
+         du tout, ou des commentaires négatifs me suggérant de
+         changer de machine ou d'installer Windows! J'en étais
+         rendu au point d'envisager prendre un abonnement pour
+         obtenir du support technique payant!
+      </p>
+      <p>
+         Dans un tel cas, aussi bien investir dans Windows ou Mac
+         OS X, qui permettent de toute façon d'exécuter pas mal
+         toutes les appliactions open source majeures, notamment
+         Firefox, Thunderbird, LibreOffice, GNU Emacs, GPG, LaTeX,
+         etc. Chrome y est aussi disponible, de même que FoxIt
+         Reader pour la lecture de fichiers PDF. Et il n'y a pas de
+         problèmes constants avec des pilotes d'imprimante, de
+         scanner ou les appareils mobiles.
+      </p>
+      <p>
+         Par contre, je ne voulais pas abandonner Linux, car j'en
+         avais besoin pour utiliser <a
+         href="http://www.cis.upenn.edu/~bcpierce/unison/">Unison</a>
+         qui est le seul permettant de synchroniser des répertoires
+         entre mon ordinateur de bureau et mon HTPC. Les
+         applications de synchronisation sous Windows que j'ai
+         essayées se contentent de transférer plusieurs fois la
+         taille des répertoires à synchroniser pour simplement
+         décider quoi copier, ce qui est bien entendu insensé, même
+         en cas de copie locale sur un disque dur externe. Avec un
+         réseau instable à vitesse variable, c'est juste
+         inutilisable! De plus, je souhaitais conserver Linux pour
+         faire des expérimentations.
+      </p>
+      <p>
+         Cette fois, j'optai pour une stratégie différente:
+         utiliser des machines virtuelles. Cela consiste à simuler
+         un ordinateur sur lequel il est possible d'installer un
+         système d'exploitation et des logiciels, sans affecter
+         l'intégrité de la machine hébergeant la simulation. Par
+         contre, les machines virtuelles étaient lentes autrefois,
+         ce qui me rendit très hésitant à adopter cette stratégie.
+         De nos jours, avec les extensions de virtualisation des
+         processeurs, on peut atteindre un niveau de performance
+         tout à fait acceptable. L'usage de machines virtuelles
+         permet en plus de créer des clones d'un système, prendre
+         des instantanés de l'état d'une machine auxquels il est
+         possible de revenir en quelques clics et surtout, de créer
+         autant de machines que désiré, et en exécuter
+         simultanément autant que l'ordinateur hôte le permet! En
+         utilisant le branchement Ethernet par pont, chaque machine
+         peut se voir attribuée une adresse IP distincte par le
+         routeur, ce qui en fait une citoyenne de première classe
+         dans le réseau. Lors d'un accès réseau, la machine
+         virtuelle apparaît alors comme un ordinateur tout à fait
+         réel. Cette stratégie est adoptée dans certaines
+         entreprises, dont celle où je travaille, pour offrir un
+         certain nombre de serveurs à partir de grosses machines
+         superpuissantes.
+      </p>
+      <p>
+         Je ne perdais rien à tenter ma chance, au fond. Il
+         suffisait que j'essaie et, en cas d'échec, je pourrais
+         juste supprimer la machine virtuelle et tenter d'installer
+         Linux sur la zone restante de mon SSD. J'avais laissé 15Go
+         libres lors du partitionnement spécialement pour cela.
+         Comme gestionnaire de machines virtuelles, j'optai pour <a
+         href="https://www.virtualbox.org/">VirtualBox</a>, car il
+         est open source et fonctionne relativement bien, à part
+         quelques bobos qui agacent un peu comme des piqûres de
+         moustique. Le plus gros problème avec VirtualBox est que
+         le changement de bon nombre de paramètres de la machine
+         virtuelle fait tout cafouiller. Alors, je me dis la chose
+         suivante: à quoi bon offrir ces options si elles ne
+         fonctionnent pas? La prochaine page, portant sur
+         l'installation de Mac OS X, révèle certaines des limites
+         de VirtualBox.
+      </p>
+      <p>
+         Il serait long et fastidieux d'expliquer en détails
+         comment je m'y suis pris pour construire ma machine Ubuntu
+         sous VirtualBox et il existe sans aucun doute de très bons
+         tutoriels à ce sujet. Je vais donc me concentrer sur les
+         principales difficultés rencontrées et peut-être un jour
+         reprendrai-je le processus de zéro sur une nouvelle
+         machine virtuelle, possiblement avec une autre
+         distribution de Linux pour la tester, après avoir chargé
+         <a href="http://www.fraps.com/">FRAPS</a> et mon <a
+         href="http://www.zoom.co.jp/products/h2n">H2n</a> de tout
+         enregistrer fidèlement. On verra ça plus tard. Sachez
+         toutefois que la procédure est assez simple.
+      </p>
+      <p>
+         Samedi, 11 août 2012, j'ai d'abord construit la machine
+         virtuelle en utilisant l'assistant de VirtualBox. Je lui
+         ai donné 4Go de mémoire, deux processeurs, j'ai veillé à
+         ce que VT-x et la pagination imbriquée soient activées, et
+         me suis assuré que l'UEFI était désactivé. J'ai fait un
+         essai en UEFI, l'installation s'est bien passée, mais
+         l'amorçage a échoué. Un essai UEFI fructueux méritera une
+         capture vidéo intégrale! Quand à l'interface réseau, je
+         l'ai configurée en mode pont pour que la machine
+         apparaisse comme un membre du réseau auprès du routeur.
+         Cela améliore la communication entre les machines
+         virtuelles et les ordinateurs réels. Par exemple, avec ça,
+         mon système Linux invité pourrait transférer des données
+         vers mon HTPC ou se raccorder via wi-fi à un appareil
+         Android pour y copier un fichier.
+      </p>
+      <p>
+         L'élément le plus important pour installer Linux est de
+         s'assurer que la machine compte un lecteur DVD et associer
+         l'ISO d'Ubuntu à ce lecteur DVD virtuel. Pas besoin d'un
+         vrai DVD d'Ubuntu, juste l'image ISO téléchargée suffit!
+         VirtualBox fera croire à la machine virtuelle que c'est un
+         vrai DVD qu'il y a là et ça va démarrer l'installeur
+         d'Ubuntu. Ensuite, avec un peu de chance, l'installeur
+         détectera le disque dur et ça va être possible d'installer
+         Ubuntu là-dessus pour ensuite retirer le DVD virtuel (en
+         indiquant à VirtualBox d'émuler un lecteur vide).
+      </p>
+      <p>
+         Ce qui est bien avec Linux, c'est qu'il est tolérant aux
+         changements de matériel. Il est donc possible de faire
+         toutes sortes d'expérimentations sans risquer de tout
+         faire cafouiller. Au pire, il suffit de revenir en
+         arrière. Essayez donc de retirer un disque dur IDE de la
+         machine virtuelle et rajouter ce même disque en SATA. Avec
+         une machine virtuelle Windows, tout va cafouiller avec un
+         joli écran bleu et ce n'est même pas sûr que la machine,
+         remise dans sa configuration d'origine, démarrera
+         correctement après, à moins de prendre un instantané avant
+         le changement expérimental et de restaurer vers ce dernier
+         après plutôt que réinitialiser manuellement les
+         paramètres. Linux, lui, va simplement charger le bon
+         pilote et ça va passer quasiment inaperçu.
+      </p>
+      <p>
+         Mais certains paramètres sont plus sensibles que d'autres.
+         Par exemple, désactiver VT-x empêchera le démarrage d'un
+         système 64 bits invité. De plus, la gestion audio souffre
+         de bogues. Sous Linux, il m'a fallu utiliser l'audio AC97
+         plutôt que Intel HD Audio, car avec HD Audio, supposément
+         pris en charge sous Linux, je n'avais aucun son!
+      </p>
+      <p>
+         L'étape suivant une installation et un amorçage réussis de
+         Linux, c'est d'appliquer les extensions invités (guest
+         additions en anglais). Cela ajoute des modules sous Linux
+         virtualisé pour permettre une communication plus étroite
+         avec l'hôte, pour en particulier occuper toute la surface
+         d'affichage et partager des fichiers. La façon la plus
+         simple d'installer ces extensions est de passer par
+         VirtualBox lui-même, mais le problème ave ça, c'est que
+         les extensions doivent alors être réinstallées chaque fois
+         que Linux s'amuse à mettre son noyau à jour, et la
+         dernière fois que j'ai eu à le faire, VirtualBox ne
+         réagissait pas quand je tentais de démarrer
+         l'installation. J'ai dû retrouver l'image ISO des
+         extensions, la monter manuellement et démarrer le
+         programme d'installation depuis Linux. Une façon plus
+         fiable d'installer les extensions est d'appeler la
+         commande <tt>sudo apt-get install
+         virtualbox-guest-dkms</tt>. Cela va installer un paquet
+         qui va automatiquement recompiler les modules à chaque
+         mise à jour du noyau.
+      </p>
+      <p>
+         Le partage de données est effectué en déclarant sous
+         VirtualBox des dossiers qui doivent être rendus
+         accessibles par l'invité. Il est ensuite possible de
+         monter ces dossiers sous Linux, en utilisant un module
+         spécial de VirtualBox. De cette façon, Linux dispose d'un
+         accès en temps réel à tous les fichiers de mon disque de
+         données sous Windows!
+      </p>
+      <p>
+         Une stratégie alternative serait de passer par le réseau
+         Windows, en partageant les fichiers sous Windows et en se
+         connectant sous Linux via CIFS. Mais cela ajoute de la
+         complexité à la configuration et Windows est souvent
+         capricieux quant à la gestion réseau, surtout quand les
+         ordinateurs en cause exécutent différentes versions de
+         Windows ou pire, d'autres systèmes d'exploitation! Cette
+         stratégie risquait donc de demander beaucoup d'essais et
+         erreurs.
+      </p>
+      <p>
+         La prise en charge de périphériques USB est même possible
+         grâce à des extensions d'Oracle pour VirtualBox. Il faut
+         pour cela installer les extensions et activer la gestion
+         USB. Ensuite, il devient possible d'indiquer à VirtualBox
+         que tel périphérique réel doit être offert sous
+         l'environnement virtuel. Ainsi, une clé USB douteuse à
+         moitié morte pourrait être confiée aux soins de Linux pour
+         que je puisse tenter de la réparer avec des outils offerts
+         sous ce système. La prise en charge USB risque de devenir
+         encore plus intéressante pour Mac OS X, car il existe des
+         applications de bidouille pour iPod ne fonctionnant que
+         sous Mac OS X. Je pourrais leur donner une chance de
+         tenter de jailbreaker mon petit appareil pour m'amuser un
+         peu.
+      </p>
+      <p>
+         La performance de la machine virtuelle est étonnamment
+         bonne. Mieux encore, après l'installation des extensions
+         invités, j'ai pu activer Unity et bénéficier des
+         animations! J'ai même poussé l'audace jusqu'à essayer un
+         petit jeu dans cet environnement et ça s'est très bien
+         passé. Une semaine après ces victoires, j'étais
+         suffisamment confiant pour agrandir la partition Windows
+         sur mon SSD. Linux va pour le moment habiter dans une
+         machine virtuelle. Rien ne m'empêcherait plus tard
+         d'ajouter un nouveau SSD pour y installer Linux si la
+         performance de la machine virtuelle devient insuffisante.
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

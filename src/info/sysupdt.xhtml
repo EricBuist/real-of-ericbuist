@@ -1,0 +1,1273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         Mise à jour de mon système
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css" href="../main.css" />
+   </head>
+   <!--STYLESHEETLINE-->
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../index.xhtml" class="parents">Le royaume
+               de Eric Buist</a> &gt;&gt; <a href="index.xhtml"
+               class="parents">Informatique</a> &gt;&gt;
+               Configuration informatique
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../sitemap.xhtml" class="sitemap">Plan du
+               site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="rh9.xhtml"
+               class="leftsibling">Installation de RedHat Linux
+               9</a>
+            </td>
+            <td class="thispage">
+               Mise à jour de mon système
+            </td>
+            <td class="rightsibling">
+               <a href="mdk10.xhtml" class="rightsibling">Passage à
+               Mandrake 10</a> &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         Mise à jour de mon système
+      </h1>
+      <p>
+         Cela faisait un certain temps que j'y songeais, il me
+         fallut maintes analyses pour choisir les bons éléments,
+         mais en somme, la mise à jour de mon système qui a eu lieu
+         en été 2003 a été bénifique. En plus de donner de quoi
+         respirer à Linux, autant au niveau mémoire que vitesse de
+         disque dur, j'ai effectué mes premières manipulations
+         fructueuses dans le matériel. Puisqu'il existe des livres,
+         tels que l'excellent <i>Upgrading and Repairing PCs, 14th
+         edition</i> de Scott Mueller, qui traitent de la mise à
+         jour des PCs, je ne m'attarderai pas dans les détails de
+         toutes les procédures que j'ai eu à employer. Je me
+         concentrerai sur les aspects inhabituels des manoeuvres,
+         comme le fait que j'ai remplacé mon disque dur au lieu
+         d'en ajouter un second. L'opération se subdivise en
+         plusieurs phases qui s'échelonnent sur environ un mois.
+      </p>
+      <ul>
+         <li>
+            <a href="#speakers">Remplacement de mes
+            haut-parleurs</a>
+         </li>
+         <li>
+            <a href="#memory">Ajout de 512Mo de mémoire</a>
+         </li>
+         <li>
+            <a href="#hdd">Remplacement du disque dur</a>
+         </li>
+         <li>
+            <a href="#scanprint">Scanner et imprimante</a>
+         </li>
+         <li>
+            <a href="#linux">Résurrection de Linux</a>
+         </li>
+         <li>
+            <a href="#lcd">Remplacement de mon écran</a>
+         </li>
+         <li>
+            <a href="#hddrecycle">Recyclage de l'ancien disque dur
+            Samsung</a>
+         </li>
+         <li>
+            <a href="#hddrecycle2">Recyclage de l'ancien disque dur
+            Fujitsu</a>
+         </li>
+         <li>
+            <a href="#conc">Conclusion</a>
+         </li>
+      </ul>
+      <h2>
+         <a name="speakers" id="speakers">Remplacement de mes
+         haut-parleurs</a>
+      </h2>
+      <p>
+         Samedi, 14 juin 2003, je me suis acheté de nouveaux
+         haut-parleurs pour remplacer mes Logitech SoundMan X1. Ces
+         haut-parleurs n'ont pas été très difficiles à faire
+         fonctionner, mais le positionnement n'a pas été des plus
+         simples. J'ai changé mon bureau de travail pour qu'il
+         puisse accueillir un écran plus gros en face de moi plutôt
+         que de côté comme c'était arrangé avant. Toutefois, mon
+         nouveau bureau a moins de tablettes, donc moins d'endroits
+         pour placer les haut-parleurs avant et centre. Le centre a
+         été placé sur une tablette de bois que mon père a
+         installée sous ma fenêtre. Je voulais éviter de mettre le
+         haut-parleur sur le bord de ma fenêtre pour le mettre à
+         l'abri de la pluie subite! Quant aux haut-parleurs
+         arrière, il fallut ajouter une tablette au-dessus de mon
+         lit pour les y placer. Les fils demeurent tout de même
+         accrochants, le haut-parleur arrière droit, avant de
+         prendre sa place finale, se trouvait sur mon bureau et a
+         tombé sur mon plancher de céramique à deux reprises!
+         Heureusement, il a pu survivre aux coups.
+      </p>
+      <p>
+         Étant donné mon investissement à installer ALSA sous
+         RedHat 9, la configuration de mes haut-parleurs sous Linux
+         est plutôt optimale. Il m'a fallu ajouter, sous XMMS, un
+         plug-in du nom de AudioCD Reader afin d'utiliser
+         l'extraction audio pour diriger les données du CD à
+         travers ALSA. Si je joue simplement le disque de façon
+         classique, seuls les deux haut-parleurs avant se font
+         entendre. Quant aux MP3, tout est beau.
+      </p>
+      <h2>
+         <a name="memory" id="memory">Ajout de 512Mo de mémoire</a>
+      </h2>
+      <p>
+         Pourquoi 512Mo? J'avais initialement 256Mo de mémoire et
+         depuis RedHat 9, ma machine se mettait régulièrement à
+         swapper. Au début, je pensai en ajouter 256, mais quand
+         j'ai vu les machines du laboratoire d'optimisation à
+         l'Université de Montréal qui en possédaient 1Go, je me
+         suis dit qu'il valait mieux y aller un peu plus agressif.
+         Ma carte mère peut, au maximum, prendre trois barrettes de
+         512Mo, j'en ai à présent une de ces barrettes finales. Et
+         de la Kingston, à part ça! À moins d'un coup de foudre ou
+         d'un remaniement majeur de mes composantes dans le but de
+         bâtir une ou des nouvelles machines, cette barrette
+         restera dans ma machine jusqu'à cessation de
+         fonctionnement. Si, un jour, il me faut plus de mémoire,
+         je mettrai un autre 512Mo dans la troisième banque et
+         seulement après, j'aurai à me défaire du 256Mo. Mettre
+         512Mo de mémoire me permettra potentiellement d'éviter
+         d'avoir une barrette de mémoire inutile dans le futur.
+      </p>
+      <p>
+         L'installation, qui a eu lieu samedi, 5 juillet 2003, a
+         été du sport pour plusieurs raisons. Tout d'abord, je
+         voulus m'essayer moi-même plutôt que confier le travail à
+         mon père ou un technicien. Cela constituait pour moi un
+         entraînement et en cas de succès, je pourrais
+         ultérieurement utiliser la pratique acquise pour tenter de
+         réparer une machine problématique. Le premier obstacle
+         rencontré fut les fils du power supply qui me bloquaient
+         la voie vers les emplacements mémoire. Je les tassai un
+         peu pour pouvoir passer, mais je ne pouvais pas voir
+         comment la banque était faite avant d'y faire entrer la
+         barrette; il allait me falloir pratiquement opérer à
+         l'aveuglette! Même si j'avais introduit une lampe dans le
+         boîtier, pour bien voir la banque, il m'aurait fallu
+         m'approcher plus que je ne pouvais le faire, à moins de
+         sortir le plateau de montage de ma carte mère que je pense
+         être amovible. Bien entendu, cette solution aurait été
+         plus compliquée et risquée que tenter de faire entrer la
+         barrette dans les conditions actuelles. Bien entendu,
+         avant de commencer, je touchai au chassis pour décharger
+         l'éventuelle statique de mes mains.
+      </p>
+      <p>
+         Le véritable problème a été d'attacher la barrette à la
+         carte mère, car la clip de rétention ne s'ouvrait pas
+         totalement. Toute tentative fut vaine, car la carte
+         graphique ATI bloquait le chemin! Il me fallut finalement
+         retirer la carte graphique, mais elle refusait de sortir
+         totalement. Lorsqu'elle fut à moitié sortie de la fente,
+         elle ne bougeait plus, pas moyen de la faire sortir
+         totalement ou rentrer. Toute tentative se soldait par de
+         sinistres craquements qui ne présageaient rien de bon,
+         autant pour ma carte graphique avec TV Tuner que ma carte
+         mère! Sans slot AGP, ma GigaByte 7ZX serait sans doute, de
+         nos jours, bonne pour la poubelle.
+      </p>
+      <p>
+         Après en avoir sué à grosses gouttes (en plus, il faisait
+         chaud ce samedi!), je parvins à ôter la carte après avoir
+         localisé une clip à l'extrêmité de la fente la plus
+         éloignés du panneau arrière du chassis. Malheureusement,
+         je ne suis pas certain que je pourrais refaire la
+         manoeuvre plus facilement que la première fois, n'ayant
+         pas totalement saisi le fonctionnement de cette clip de
+         rétention. La carte ôtée, ce fut assez simple de placer la
+         barrette et refermer les deux clips de rétention. Puis je
+         remis en place ma carte graphique et la vis qui la
+         soutenait.
+      </p>
+      <p>
+         Puisque ma tour se trouve à présent sur une tablette sous
+         mon bureau, il m'a fallu débrancher tout pour la monter
+         sur le bureau pour pouvoir travailler. Pour tester, je me
+         contentai de brancher le minimum: l'écran. Je craignais un
+         coup de glas: un long beep suivi de trois courts, signe
+         que la carte graphique était mal posée ou endommagée.
+         Heureusement, la machine démarra sans histoires. Puisque
+         tout démarrait bien et qu'il m'affichait 768Mo et pas
+         uniquement 256, je remis ma machine sur la tablette sous
+         mon bureau puis rebranchai les éléments.
+      </p>
+      <p>
+         Telle ne fut pas ma surprise de constater que mon clavier
+         ne fonctionnait pas du tout. J'avais branché le clavier et
+         la souris dans les mauvais ports. J'inversai les deux
+         périphériques, redémarrai puis Linux détecta le retrait de
+         l'imprimante que je n'avais pas rebranchée et du modem! Je
+         redémarrai pour constater que le modem n'était plus
+         détecté par le BIOS, il était en quelque sorte disparu,
+         comme c'était arrivé le 1<sup>er</sup> avril 2003 (voir <a
+         href="hw/psbomb.xhtml">la bombe du power supply</a>). Je
+         dus de nouveau éteindre la machine, retirer le modem puis
+         le remettre en place. Cela tua le démon, en tout cas je
+         l'espère, car le modem fut détecté et fonctionna de
+         nouveau. Linux fonctionnait très bien avec la nouvelle
+         mémoire et lorsque je passai la barrière du 256Mo, tout
+         alla bien, pas de plantage. Le système ne se mettait à
+         présent plus à swapper pour simplement ouvrir une console
+         sous KDE.
+      </p>
+      <p>
+         La barrette était bien posée, car en cas contraire, la
+         machine aurait été instable par contact électrique
+         intermittent ou aurait détecté seulement 256Mo de RAM. Ce
+         succès constituait pour moi une condition essentielle pour
+         m'autoriser à tenter mon coup pour le disque dur. En cas
+         de fuckup, il m'aurait fallu laisser la tâche à quelqu'un
+         d'autre, mon père ou un technicien, soit chez MicroBytes
+         où j'ai pris mon nouveau matériel, soit chez Le Magicien
+         de l'Informatique où j'ai acheté ma machine. En supposant,
+         bien entendu, qu'il y ait encore une machine à réparer
+         après le fuckup... Dans le cas contraire, il m'aurait
+         fallu choisir un magasin où acheter la nouvelle carte
+         mère, le nouveau processeur, etc.
+      </p>
+      <h2>
+         <a name="hdd" id="hdd">Remplacement du disque dur</a>
+      </h2>
+      <p>
+         La sauvegarde de mes données permit de tester la machine
+         un peu plus, tout allait bien, la mémoire ajoutée ne
+         causait pas de problèmes. Ainsi, ce même samedi, 5 juillet
+         2003, je passai à la phase suivante: le disque dur. Je
+         voulais remplacer mon 30Go non pas parce qu'il était trop
+         petit mais pas suffisamment rapide. Je voulais un 7200rpm
+         ATA133 tandis que mon Samsung ne faisait que du 5400rpm et
+         en ATA33. Bien entendu, ma carte mère bloquerait la
+         vitesse du disque dur à 66Mo/s plutôt qu'au maximum de
+         133Mo/s, mais je prévoyais malgré tout avoir une
+         augmentation de la vitesse.
+      </p>
+      <p>
+         Ma procédure d'installation consistait à enlever le vieux
+         disque et le remplacer par le nouveau. Ensuite, je
+         m'efforcerais de placer le vieux dans la machine et le
+         brancher, d'une façon ou d'une autre. Le nouveau disque
+         serait master, le vieux, slave. Puis, avec Partition
+         Magic, je pourrais copier le contenu du vieux disque sur
+         le nouveau et redimensionner les partitions. La phase
+         finale de l'installation consistait à débrancher le vieux
+         disque, le sortir de la machine puis à démarrer le système
+         avec le nouveau disque.
+      </p>
+      <p>
+         Contrairement à l'installation de la mémoire, je dus cette
+         fois ouvrir les deux panneaux de mon boîtier, pas
+         seulement celui de gauche. Le débranchement du câble
+         d'alimentation causa problème, car le fil était difficile
+         à dégager. Finalement, j'y parvins, mais l'élan débrancha
+         dans la foulée le connecteur du lecteur de disquettes. Par
+         chance, je m'en rendis compte (Cela aurait pu être une
+         belle séance de troubleshooting... Au démarrage, la
+         machine aurait gelé, tentant d'interroger un lecteur de
+         disquettes qui ne répondrait pas! J'aurais pensé que
+         c'était le nouveau disque dur, la carte mère, peut-être la
+         mémoire, etc.). Je pus localiser où était le connecteur et
+         rebrancher le fil. Le câble plat ne fut pas trop dur à
+         débrancher, mais il allait causer bien des problèmes plus
+         tard. J'enlevai les trois vis qui soutenaient le disque
+         dans la cage et m'étonnai qu'il n'y en ait juste trois.
+         Avoir eu des vis de surplus, j'en aurais rajouté une
+         quatrième, comme il se doit d'y en avoir, mais je n'en
+         avais pas. Puis, avec précaution, je tentai de faire
+         glisser le disque hors de la tour. Il fut vite bloqué par
+         la carte graphique et toute tentative fut vaine! Il y
+         avait peut-être moyen de sortir la cage des lecteurs 3"
+         1/2 de la tour, mais je ne savais pas comment. En tentant
+         de la dévisser, je risquais d'ôter une vis soutenant le
+         plateau de montage de la carte mère ou un autre élément du
+         chassis! Je décidai de tenter de nouveau de retirer la
+         carte graphique, j'eus encore bien du mal avec la clip,
+         puis je pus enfin extraire le disque dur. Le Samsung
+         sortit par accoups, il bloquait par endroits, mais enfin,
+         je pus le dégager totalement.
+      </p>
+      <p>
+         Ensuite se présenta une étape délicate pour moi: celle de
+         régler les cavaliers! Cette petite pinouche de métal en
+         forme de fer à cheval pouvait bien être impossible à
+         retrouver si je l'échappais sur le plancher en la
+         manipulant et je n'étais pas du tout certain de pouvoir en
+         avoir d'autres, à moins peut-être d'en acheter une boîte
+         de vingt! Je ne comprenais pas trop le système de jumpers
+         du Maxtor et en plus, les schémas sur le disque étaient
+         pas mal petits. À ce que je voyais, il semblait en mode CS
+         (Cable Select). Si c'était le mode par défaut, il devait
+         convenir pour la plupart des machines, non? Peut-être
+         qu'en mode CS, il se règlerait automatiquement sur Master
+         ou Slave. On allait voir... En lisant CS, je pensai à
+         Carrier Sense et c'est en lisant, plus tard, <i>Upgrading
+         and Repairing PCs</i> que je découvris le vrai sens de cet
+         accronyme.
+      </p>
+      <p>
+         Le Samsung, lui, était réglé sur Master, le cavalier
+         reliant les deux premières pins. En sachant que le disque
+         était master dans mon système et en utilisant les
+         diagrammes encore minuscules sur le disque, je pus
+         extrapoler où exactement placer le cavalier pour le mettre
+         en mode Cable Select comme le Maxtor. Il me fallut
+         plusieurs tentatives, avec mes ongles, pour parvenir à
+         extraire le cavalier de là. Je pus le faire sortir
+         partiellement, le pogner fermement entre mon pouce et mon
+         index et le placer au bon endroit; aucun incident, aucune
+         perte de pièce! Mais j'étais loin d'être au bout de mes
+         peines!
+      </p>
+      <p>
+         Je plaçai le Maxtor dans ma machine, mais il n'y avait
+         apparemment pas de trous de vis dans le boîtier du disque.
+         J'étais pour le ressortir afin de l'examiner et en le
+         poussant un peu, j'aperçus avec soulagement les trous!
+         Ouf... Je ne me serais pas risqué avec une perceuse pour
+         ménager de tels trous en leur absence! Des plans, dans mon
+         cas, pour scraper le disque... Malheureusement, une vis
+         entra en oblique et il n'y eut aucun moyen de la rendre
+         parfaitement droite.
+      </p>
+      <p>
+         Lorsque le disque fut fixé, je le raccordai, aussi bien au
+         niveau alimentation que données. Restait à présent à
+         placer le vieux Samsung. Comme je ne voulais pas retirer
+         la carte graphique pour ressortir le Samsung, je lui
+         trouvai un emplacement temporaire: dans une baie 5" 1/4
+         vide! Il me restait un câble d'alimentation du power
+         supply, mais il ne se rendait pas là, si bien que je dus
+         débrancher mon lecteur DVD. Bien entendu, je remis en
+         place ma carte graphique.
+      </p>
+      <p>
+         Le branchement fut un cauchemar, car les câbles plats
+         étaient chiants à manipuler et s'entremêlaient facilement.
+         Vive les nouveaux câbles SATA qui sont beaucoup plus
+         minces! Mais ma carte mère n'était pas compatible SATA. Je
+         branchai le Samsung sur le même câble que le Maxtor,
+         voulant éviter de débrancher pour rien le câble du DVD.
+         Enfin, il vint le temps d'allumer la machine. Le BIOS
+         trouva le disque, mais se planta lors de la tentative de
+         détecter le secondary slave, c'est-à-dire le lecteur DVD.
+         Il me fallut débrancher le flat cable relié au DVD puis je
+         pus continuer. Avec Partition Magic, je transférai ma
+         partition NTFS Windows XP sur mon nouveau disque puis la
+         redimensionnai à 20Go. Pendant la très longue opération,
+         je pus me rafraîchir dans la piscine et j'en profitai pour
+         consulter <i>Upgrading and Repairing PCs</i> au sujet du
+         mode Cable Select. J'y découvris que ce mode permettait de
+         sélectionner le maître et l'esclave au moyen d'une pin sur
+         le câble IDE plutôt que des cavaliers. Le câble IDE a
+         ainsi trois connecteurs, un pour le système, un dédié au
+         maître et un affecté à l'esclave. Il s'adonnait justement
+         que mon Samsung était encore master tandis que je le
+         voulais slave. Il allait donc falloir brancher le Maxtor
+         sur le connecteur affecté au Samsung pour que cela
+         fonctionne après la phase finale. N'avoir pas obtenu cette
+         information, je n'aurais que débranché le Samsung sans
+         toucher à la connexion du Maxtor et la machine n'aurait
+         peut-être pas allumé. Il m'aurait fallu, en désespoir de
+         cause, ressortir le disque puis configurer le cavalier sur
+         Master.
+      </p>
+      <p>
+         Partition Magic 8 parvint à copier XP et à redimensionner
+         la partition à 20Go. Malheureusement, il m'afficha une
+         erreur "Invalid handle" pendant la copie de Linux et
+         stoppa là, environ à 50%. Je décidai d'adopter une
+         stratégie différente. Je créai une partition ext3fs pour
+         Linux, puis la partition étendue. Dans la partition
+         étendue, j'allouai 512Mo de Linux Swap, 20Go pour mes
+         données précédentes, 20Go pour des MP3 que j'avais
+         autrefois sur CD et le reste, une partition de données
+         vide.
+      </p>
+      <p>
+         Je démarrai, puisque mon Samsung était master, sous Linux
+         et de là, reformatai les partitions créées avec détection
+         des bad blocks. Pour ce faire, j'utilisai <tt>mkdosfs</tt>
+         avec l'option <tt>-c</tt>. Le disque dur ne présentait
+         aucun secteur défectueux, ce qui était bon signe autant
+         pour son fonctionnement que pour son installation
+         correcte. Pendant l'installation, j'aurais pu tordre le
+         câble IDE suffisamment pour l'endommager et des erreurs de
+         données auraient alors rendu le système instable, voire
+         inutilisable! La recopie de ma partition de données de
+         cette façon constitue la forme la plus élémentaire de
+         défragmentation. Le système de fichiers a ainsi
+         entièrement été reconstruit. Pour Linux, toutefois, cela
+         ne pouvait fonctionner ainsi, car je ne pouvais copier
+         <tt>/</tt> sans emporter avec moi <tt>/mnt/tst</tt> où je
+         montais mes partitions temporaires pour le transfert. Je
+         décidai donc de faire la copie en mode rescue, en bootant
+         depuis le CD 1 de RedHat 9, là où je pus monter mon vieux
+         Linux et mon nouveau dans deux répertoires différents.
+         Ensuite vint la phase finale, celle de rendre la machine
+         indépendante de mon vieux disque dur Samsung.
+      </p>
+      <p>
+         Je rebranchai mon lecteur DVD, isolant de ce fait mon
+         vieux Samsung que je laissai à l'intérieur de ma tour pour
+         mon premier test. Ensuite, je branchai mon Maxtor sur le
+         connecteur du câble plat où s'était trouvé le Samsung
+         pendant le transfert, ce qui le rendit master sur le port
+         IDE primaire. Le démarrage se fit sans histoire, j'accédai
+         au mode rescue avec le CD 1 de RedHat Linux 9 puis
+         installai GRUB sur mon nouveau disque. Ensuite, je tentai
+         mon premier amorçage depuis le nouveau disque dur et je
+         pus ainsi accéder à Windows XP. Pour mes transferts et mes
+         tests, j'avais laissé ma tour ouverte sur mon bureau et
+         branché uniquement mon clavier, ma souris et mon écran.
+      </p>
+      <p>
+         Windows XP était parfaitement intact, contrairement à ce
+         que je craignais. Linux, toutefois, avait subi de graves
+         avaries qui empêchaient totalement son fonctionnement. Au
+         premier démarrage, il demeurait en mode texte et lorsque
+         je tentai de me brancher en tant qu'utilisateur, il
+         m'afficha plusieurs messages d'erreur, car mon répertoire
+         <tt>/home/eric</tt> était passé aux mains du Seigneur,
+         c'est-à-dire l'usager root du système! Je découvris
+         bientôt que tout le système de fichiers était bousillé.
+         Tous les fichiers appartenaient à l'usager root et se
+         trouvaient dans le groupe root, sans distinction! La copie
+         en mode rescue avait effacé toutes les informations des
+         usagers et des groupes dont plusieurs logiciels avaient
+         besoin. Mon Linux était, on aurait dit, bien mort.
+      </p>
+      <h2>
+         <a name="scanprint" id="scanprint">Scanner et
+         imprimante</a>
+      </h2>
+      <p>
+         Le choix de mon scanner et de mon imprimante n'a pas été
+         aisé, car je voulais quelque chose qui fonctionnerait bien
+         sous Linux et remplirait mes besoins. Pour le cas de mon
+         imprimante, je portai tout d'abord ma préférence sur les
+         HP, car j'étais davantage certain qu'elles
+         fonctionneraient sous Linux. Je pensais à une laser, mais
+         je compris vite que pour le prix que j'étais prêt à payer,
+         je risquais de me retrouver avec un modèle bas de gamme
+         avec un langage bien à lui, ne fonctionnant peut-être que
+         sous Windows et ne pouvant imprimer qu'en noir et blanc!
+         Je portai donc mes investigations sur des imprimantes à
+         jet d'encre. Je voulais un modèle à cartouches couleurs
+         séparées, mais elles s'avéraient trop coûteuses pour mes
+         besoins. Un bon compromis consistait en la HP DeskJet 5550
+         Photo. Celle-ci fonctionnerait sous Linux, avait un module
+         en option pour le recto-verso, un bouton Annuler sur
+         l'imprimante, ... La Epson Stylus C82 semblait toutefois
+         supérieure question fonctionnalités. Elle avait les quatre
+         couleurs séparées et employait une encre DuraBrite de
+         bonne qualité. Elle imprimait plus de pages à la minute
+         que la HP. Dans un supplément de <i>Upgrading and
+         Repairing PCs</i>, 14th edition, portant sur les
+         imprimantes, l'auteur Scott Mueller conseillait de visiter
+         <a
+         href="http://www.linuxprinting.org">LinuxPrinting.org</a>
+         avant tout achat d'une imprimante destinée à un usage sous
+         Linux. Ce que je fis, bien entendu, et découvris que la
+         Stylus C82 pouvait elle aussi fonctionner sous Linux.
+         Contrairement à la HP, qui fonctionnerait elle aussi très
+         bien, le niveau d'encre pouvait être obtenu facilement. De
+         plus, l'adaptateur recto-verso en option augmenterait le
+         coût de l'imprimante HP et risquait de provoquer des paper
+         jams plus que des bénéfices! Les deux imprimantes avaient
+         des fonctionnalités si similaires que le dilemme fut
+         difficile à résoudre. Quant au scanner, une visite sur la
+         page de <a href="http://www.mostang.com/sane">Sane</a> me
+         convaincut d'acheter du Epson plutôt que du HP, puisque le
+         HP ne fonctionnait pas bien en modèle USB sous Linux. Le
+         choix du scanner ne fut pas très pointilleux, car il était
+         moins important que l'imprimante qui, elle, devait
+         fonctionner parfaitement.
+      </p>
+      <p>
+         Dimanche, 6 juillet 2003, je décidai de ne pas me battre
+         avec Linux; je voulais plutôt faire fonctionner mes
+         nouveaux appareils: mon scanner et mon imprimante.
+         L'installation du scanner ne causa aucun problème. Grâce
+         au pilote fourni, le Epson Perfection 1260 Photo
+         fonctionne très bien sous Windows XP. Sous Linux, le
+         scanner fut détecté sans aucune difficulté. En utilisant
+         XSane, je pus scanner, mais l'adaptateur pour transparents
+         ne semblait pas supporté. Cet adaptateur se présente sous
+         la forme d'un boîtier qui se raccorde au scanner par un
+         connecteur DIN semblable au port PS/2 reliant le clavier à
+         l'ordinateur. Il comporte une lampe intégrée qui doit se
+         substituer à la lampe du scanner lorsque du matériel
+         transparent est numérisé. Ainsi, si je voulais scanner des
+         négatifs de photos, il allait me falloir aller sous
+         Windows. Dimanche, le 10 août 2003, je lus que si
+         l'adaptateur de transparents était raccordé au scanner,
+         XSane devait présenter une option source me permettant de
+         l'activer. Comme cette option n'était pas présente et que
+         je n'avais jamais scanné de négatifs, je craignais que mon
+         adaptateur soit défectueux. Heureusement, sous Windows, il
+         était détecté par le logiciel d'Epson. Pour remédier au
+         problème, il me fallut découvrir que le scanner était
+         géré, à travers <a
+         href="http://www.mostang.com/sane">Sane</a>, par le pilote
+         (<i>backend</i>) Plustek et non pas Epson! Cette
+         découverte a été faite en regardant la fenêtre de XSane et
+         confirmée par le site de Sane. J'explorai le répertoire
+         <tt>/etc/sane.d</tt> et y trouvai plusieurs fichiers de
+         configuration, dont <tt>plustek.conf</tt>. Je le lus et y
+         trouvai une ligne indiquant <tt>option enableTPA 0</tt>,
+         je la modifiai pour remplacer <tt>0</tt> par <tt>1</tt>.
+         Je fixai également la ligne <tt>option lampOff 120</tt>
+         afin que la lampe du scanner s'éteigne après 120 secondes.
+         Bien entendu, ces modifications devaient se faire en root.
+      </p>
+      <p>
+         Pour ce qui est de l'imprimante Epson Stylus C82, ce fut
+         une autre affaire. Je dus m'assurer qu'aucun collant
+         n'était resté sur l'appareil avant de passer aux autres
+         étapes et je craignais réellement en laisser un pour ne
+         pas l'avoir vu. Le chargement des cartouches posa lui
+         aussi problème, car je les rentrais à l'envers. Sitôt ces
+         problèmes mineurs résolus, je pus brancher l'imprimante à
+         l'ordinateur par le port USB. La Stylus peut accepter une
+         connexion parallèle ou USB, mais j'ai choisi USB puisque
+         c'est plus moderne et un peu plus rapide. J'insérai
+         ensuite le CD-ROM fourni par Epson, un pilote s'installa,
+         mais un message d'erreur s'afficha et rien ne fut
+         installé. Il me demanda ensuite d'enregistrer le produit,
+         ce que je ne fis pas puisque le pilote ne fonctionnait
+         pas! Je tentai d'exécuter <tt>epson.exe</tt> sur le disque
+         et un autre menu s'offrit à moi. Je pus installer le bon
+         pilote, cette fois, et en français. L'installation
+         effectuée, le pilote se mit à chercher où était branchée
+         l'imprimante et ne trouvait pas, il attendait en boucle.
+         Bon, il allait me falloir tout laisser ça en plan et
+         acheter un câble parallèle puisque cela ne fonctionnait
+         pas par USB! Avant d'en venir là, j'accédai aux paramètres
+         de l'imprimante et la réglai pour qu'elle utilise le
+         nouveau port apparu, un port USB. Elle put alors imprimer
+         la page de test de Windows admirablement, quoiqu'elle est
+         plutôt bruyante quand elle charge le papier. Pourtant,
+         sous Linux, comme je le découvrirais plus tard, elle était
+         parfaitement silencieuse.
+      </p>
+      <h2>
+         <a name="linux" id="linux">Résurrection de Linux</a>
+      </h2>
+      <p>
+         Après le constat initial du bogue, samedi le 5 juillet
+         2003, je me branchai en tant que root et tapai <tt>chown
+         -R eric.eric /home/eric</tt> pour me redonner mon
+         répertoire. Naturellement, cela ne suffit pas. Un appel à
+         <tt>init 5</tt> me révéla que GDM ne parvenait plus à
+         démarrer, car le répertoire <tt>/var/gdm</tt> ne se
+         trouvait plus dans le bon groupe. Je tapai donc <tt>chown
+         -R gdm.gdm /var/gdm</tt> suivi de <tt>init 5</tt>. La
+         machine se mit alors à osciller continuellement du mode
+         graphique au mode texte sans me laisser faire quoi que ce
+         soit, si bien qu'il me fallut rebooter, heureusement avec
+         CTRL-ALT-DEL et non reset.
+      </p>
+      <p>
+         Dimanche soir, 6 juillet 2003, après avoir terminé
+         d'installer mes nouveaux périphériques, je m'attaquai une
+         nouvelle fois au cas de Linux. Pour booter sous mon Linux
+         endommagé, je dus utiliser l'option A sous GRUB pour
+         pouvoir passer 3 au noyau de Linux et ainsi lui interdire
+         de démarrer X. Je voulais éviter d'avoir à rebrancher le
+         vieux Samsung que j'avais sorti de la machine la veille,
+         avant de fermer la tour, de la remettre sur sa tablette et
+         me coucher. J'avais pensé obtenir les informations de
+         groupes et d'usagers sur une machine jugée fonctionnelle,
+         à savoir le serveur Phobos du DIRO de l'Université de
+         Montréal. Pour ce faire, je me bâtis un script shell qui
+         fit usage de <tt>find</tt> pour obtenir la liste de tous
+         les fichiers dont le GID ou le UID différaient de root. Le
+         script prenait chacun de ces fichiers et utilisait
+         <tt>stat</tt> pour obtenir le nom de l'utilisateur et du
+         groupe. Avec l'option <tt>-c</tt>, je pus obtenir un
+         formatage correct. En somme, le script produisait une
+         longue série de commandes <tt>chown</tt>, un véritable
+         programme de réparation pour mon système! Malheureusement,
+         lorsque je voulus l'appliquer sur Phobos, il émit des
+         messages d'erreur et rien ne fonctionna, car <tt>stat</tt>
+         ne possédait pas l'option <tt>-c</tt> sur le serveur! Je
+         dus modifier mon script pour qu'il utilise une autre
+         solution: Perl. Il me fallut rebooter sous Windows parce
+         que <tt>perldoc</tt> ne fonctionnait pas et l'Internet
+         aurait nécessité le mode graphique qui ne fonctionnait
+         plus. Le script final se présente comme suit, en deux
+         fichiers.
+      </p>
+      <p>
+         <tt>makerep</tt>:
+      </p>
+<pre>
+#!/bin/bash
+
+FILES=`find $1 \( -not -user root \) -or \( -not -group root \) -print`
+for FI in $FILES; do
+ perl mkchown.pl $FI
+done
+</pre>
+      <p>
+         <tt>mkchown.pl</tt>:
+      </p>
+<pre>
+#!/bin/perl
+
+use File::stat;
+
+$fname = $ARGV[0];
+$uid = stat($fname)-&gt;uid;
+$gid = stat($fname)-&gt;gid;
+
+print "chown " . getpwuid ($uid) . ":" . getgrgid ($gid) . " " . $fname . "\n";
+</pre>
+      <p>
+         Sur Phobos, j'invoquai ensuite <tt>mkrep /var &gt;
+         repvar</tt> pour générer le programme de reconstruction de
+         <tt>/var</tt>. Je le fis avec <tt>/dev</tt>,
+         <tt>/usr</tt>, et même avec <tt>/etc</tt> lorsque je me
+         rendis compte que cela pouvait peut-être sauver SSH. Il
+         fallut beaucoup de temps pour construire les fichiers de
+         réparation, après quoi je les téléchargeai et les exécutai
+         un à un; je n'avais rien à perdre, au fond. Bien entendu,
+         il y eut des erreurs, car les systèmes de fichiers ne
+         matchaient pas parfaitement. Certains groupes n'existent
+         pas sur ma machine, comme iroadmin et labs, certains
+         fichiers ne s'y trouvent pas. Cette divergence fut
+         suffisante pour que mes efforts soient vains: X ne
+         démarrait toujours pas!
+      </p>
+      <p>
+         Lorsque j'utilisai <tt>startx</tt> pour mon test, il me
+         disait qu'il ne pouvait pas accéder au socket dans le font
+         path et terminait sa complainte en me déclarant ne pas
+         pouvoir trouver la fonte Fixed! Je tentai de redémarrer
+         XFS, l'évident responsable du bogue, rien à faire. La
+         seule solution consista à modifier
+         <tt>/etc/X11/XF86Config</tt> pour changer le FontPath et
+         ôter <tt>unix/:7100</tt>. Je pouvais alors obtenir une
+         session KDE en mode root. En mode utilisateur, c'était un
+         message d'erreur instantané! Si je demandais à XFS de
+         créer un socket TCP et pas juste UNIX, et je modifiais
+         FontPath pour y mettre localhost:7100, cela fonctionnait.
+         En consultant <tt>/var/log/messages</tt>, je constatai que
+         XFS ne parvenait pas à créer son socket. Dans ses options
+         (fichier <tt>/etc/init.d/xfs</tt>, je lui retirai alors
+         <tt>-droppriv</tt> et il put de nouveau créer le socket.
+         Mais où Diable étaient stockées ces sockets?
+      </p>
+      <p>
+         C'était apparemment un vrai désastre, rien n'allait plus,
+         probablement même que le son non plus ne fonctionnerait
+         plus. La réinstallation semblait la seule solution. Je
+         tentai, pour sonder la gravité du bogue, de démarrer
+         <tt>esd</tt>. Ce dernier se plaignit de ne pas pouvoir
+         créer sa socket dans <tt>/tmp/.esd</tt>! Par
+         extrapolation, XFS cherchait à la créer à cet endroit lui
+         aussi. <tt>chmod a+w /tmp</tt> rendit <tt>/tmp</tt>
+         accessible à tous et Esound Daemon fonctionna comme un
+         charme. Je supprimai l'option <tt>-droppriv</tt> à XFS qui
+         ne s'en porta pas plus mal. Ainsi, je pus récupérer
+         l'usage de X.
+      </p>
+      <p>
+         Toutefois, lorsque je démarrai ma session KDE en mode
+         usager, j'obtins un nouveau message d'erreur selon lequel
+         aRts ne pouvait démarrer, car <tt>/tmp/mcop-eric</tt>
+         n'appartenait pas à l'utilisateur eric, mais KDE démarra
+         bouche cousue. En root, je supprimai le répertoire pour
+         nettoyer tout ça et tout se remit à fonctionner, son y
+         compris. Malheureusement, GAIM, que je tentai de démarrer,
+         gardait le silence. Au moins, le lien Internet
+         fonctionnait.
+      </p>
+      <p>
+         Je savais que GAIM utilisait ESD, je l'avais configuré
+         ainsi. Je tentai donc d'effectuer un test unitaire sur ESD
+         en invoquant <tt>esdplay</tt>. Le programme se planta, car
+         le socket <tt>/tmp/.esd</tt> ne m'appartenait plus.
+         Décidément, supprimer <tt>/tmp</tt> s'imposait. Cela
+         ferait le ménage et supprimerait les fichiers fautifs.
+         Malheureusement, <tt>rm -rf /tmp/*</tt> ne suffit pas, car
+         il restait des fichiers utilisés. Je dus utiliser le mode
+         rescue depuis le CD 1 de RedHat 9 et je supprimai
+         <tt>/tmp/*</tt> et <tt>/tmp/.*</tt>. Au redémarrage, le
+         son sous GAIM était revenu. Plume par plume, je retrouvais
+         mon système!
+      </p>
+      <p>
+         Malheureusement, un problème majeur subsistait: impossible
+         d'obtenir un terminal sous X! Konsole m'affichait un
+         message selon lequel il ne pouvait pas obtenir un
+         périphérique adapté tandis que XTerm et GNOME-Terminal se
+         plantaient et attendaient le Messie. Il n'y avait
+         apparemment rien à faire, il allait me falloir me taper
+         toute la réinstallation de RedHat 9, avec ALSA et tout le
+         reste. Je regrettai d'avoir acheté ce disque dur qui
+         m'avait causé plus de problèmes que l'augmentation de
+         vitesse!
+      </p>
+      <p>
+         Lundi soir, 7 juillet 2003, j'effectuai de nouvelles
+         tentatives. Le matin même, à l'Université de Montréal,
+         avant de commencer ma journée de stage, je vérifiai
+         quelques petites choses. Je pensais que les consoles en
+         mode X étaient gérées par les Pseudo-TTY (PTY) du kernel
+         Linux, mais avec la commande <tt>last | grep buisteri |
+         less</tt>, je me rendis compte qu'il en était peut-être
+         autrement. Ma console Linux sous X correspondait à
+         <tt>/dev/pts/0</tt> et il se créait un fichier dans
+         <tt>/dev/pts</tt> pour chaque console ouverte. Le fichier
+         disparaissait à la fermeture de la console qui avait
+         provoqué sa création. Ces fichiers se trouvaient dans le
+         groupe tty et m'appartenaient. Dans <tt>/dev</tt> où le
+         problème semblait être, il y avait des fichiers
+         <tt>pty*</tt> à peu près tous dans le groupe tty.
+         Malheureusement, tout correspondait chez moi, mais mon
+         système ne fonctionnait pas. Mon désespoir s'accrut
+         lorsque je constatai que Mozilla non plus ne fonctionnait
+         pas. Pour obtenir un système fonctionnel, il me fallait
+         dès lors me brancher sous l'usager root! Alors là, et
+         seulement là, tout allait bien. En mode usager, même la
+         commande SSH ne fonctionnait plus. J'avais réparé les UID
+         et GID dans <tt>/etc</tt> la veille, mais cela n'avait
+         rien donné. Rien n'allait plus.
+      </p>
+      <p>
+         En root, je tentai de configurer mon imprimante pour au
+         moins savoir si elle fonctionnait vraiment sous Linux.
+         J'avais consulté <a
+         href="http://www.linuxprinting.org">LinuxPrinting.org</a>
+         avant de l'acheter, mais qui sait... Il allait
+         effectivement me falloir réinstaller Linux, mais je ne le
+         ferais pas si mon imprimante ne fonctionnnait pas!
+         Heureusement (ou malheureusement...), elle fonctionna
+         merveilleusement bien!
+      </p>
+      <p>
+         Je tentai d'utiliser <tt>ldd</tt> pour savoir ce que
+         Konsole utilisait et je ne trouvai rien parmi la longue
+         liste de librairies. Avec XTerm, j'eus plus de succès; il
+         utilisait utempter, un module donnant des accès root à des
+         programmes utilisateurs dans des conditions contrôlées. Je
+         tentai de mettre <tt>/usr/sbin/utempter</tt> dans le
+         groupe utmp, tentai de supprimer <tt>/var/run/utmp</tt>,
+         j'essayai de mettre utempter SGID, rien n'y faisait! Je
+         tentai alors d'utiliser <tt>rpm -qf /dev/pts</tt> pour
+         voir de quel package RedHat tirait cela. Il y avait un
+         package <tt>dev</tt>! J'utilisai le CD 1 de RedHat,
+         localisai le RPM et forçai, avec <tt>rpm -Uvh --force
+         dev*.rpm</tt>, la réinstallation du package. Après,
+         miracle des miracles, Linux fonctionna parfaitement!
+      </p>
+      <p>
+         Malheureusement, de nouveaux bogues apparaissaient
+         toujours. Un jour, XDVI refusa de fonctionner, car le
+         répertoire <tt>/var/lib/texmf/pk</tt> appartenait à root
+         et non à eric; le changement d'utilisateur ne se
+         produisait plus lorsque je me branchais. Je ne pus jamais
+         découvrir pourquoi et la seule solution consista à donner
+         tous les droits d'accès à ce répertoire et ce, pour tous
+         les utilisateurs. Le logiciel MiniCOM ne fonctionnait pas
+         lui non plus; il ne pouvait verrouiller le périphérique
+         <tt>/dev/modem</tt>. Je découvris, au fil de recherches
+         sur Internet, que pour verrouiller le périphérique, il
+         devait créer un fichier dans <tt>/var/lock</tt>. Je dus
+         mettre ce répertoire dans le groupe lock et m'assurer que
+         ce groupe pouvait lire et écrire dans le répertoire. Il y
+         eut un autre bogue étrange dans <tt>/tmp</tt>. Je
+         découvris qu'un fichier nommé <tt>.created_by_emacs</tt>
+         se trouvait dans mon répertoire <tt>~/tmp</tt> et son
+         contenu indiquait que ce répertoire avait été créé par
+         Emacs parce que <tt>/tmp/eric</tt> n'était pas accessible
+         en écriture. Ce répertoire existait, mais il appartenait à
+         l'usager root, si bien que je dus le donner à l'usager
+         eric. Ensuite, XEmacs démarra plus rapidement qu'il ne le
+         faisait avant. Tous ces bogues me font croire que mon
+         Linux souffrira encore longtemps de ce transfert de disque
+         dur et qu'idéalement, il me faudrait le réinstaller. Je
+         souhaite pouvoir attendre une nouvelle version de la
+         distribution RedHat avant d'effectuer l'opération, mais
+         l'avenir seul me dira si c'est possible.
+      </p>
+      <h2>
+         <a name="lcd" id="lcd">Remplacement de mon écran</a>
+      </h2>
+      <p>
+         Cela faisait un certain temps que je songeais à changer
+         mon écran pour un plus gros. Pendant un bout de temps, je
+         pensais m'acheter un modèle plat puis j'appris qu'il y
+         avait les écrans plats et les écrans vraiment plats! Les
+         écrans plats consistent en des CRT (Cathode Ray Tube,
+         écran à rayons cathodiques, le classique de nos jours)
+         avec une surface non bombée mais plate. Pour avoir plus
+         plat encore, il fallait changer de technologie pour migrer
+         vers l'affichage à cristaux liquides, sans doute la
+         technologie d'affichage du futur. Je fus vite dissuadé par
+         les LCD lorsque je me fis dire que l'animation vidéo ne
+         fonctionnait pas bien là-dessus et le moniteur peut
+         souffrir du syndrome des pixels morts. Lorsqu'un pixel
+         mort apparaît, un point éternellement noir ou blanc surgit
+         à l'écran. Je pensais donc me doter d'un écran cathodique
+         le plus gros possible, peut-être 21 pouces, et d'une bonne
+         qualité. Je songeais à du Sony. Pendant des mois, je rêvai
+         à mon Sony 21 pouces que j'aurais durant l'été 2003,
+         jusqu'à ce que cet été vienne.
+      </p>
+      <p>
+         À l'Université de Montréal, au laboratoire d'optimisation
+         où je fis un second stage en simulation en préparation à
+         ma maîtrise, je vis un bon jour un écran LCD. Ces écrans,
+         ainsi que les machines noires sur lesquelles ils étaient
+         branchés, appartenaient bien au laboratoire; je pouvais
+         les utiliser en tant que stagiaire! J'en fis donc l'essai
+         et me rendis compte que le pointeur de la souris ne
+         disparaissait pas comme avec mon portable et l'image était
+         excellente. Je reconsidérai donc la question pour le LCD.
+         L'écran examiné était un Samsung SyncMaster 191T. Dans
+         <i>Upgrading and Repairing PCs</i>, 14th Edition, l'auteur
+         indiquait que la technologie LCD s'était améliorée avec le
+         temps et tout portait à croire que les pixels morts
+         seraient moins courants.
+      </p>
+      <p>
+         J'examinai si Sony pouvait proposer encore mieux et je
+         découvris que le Sony SDM-S91/B semblait parfait: 19
+         pouces, base amovible, temps de réaction de 15ms, mais pas
+         d'entrée DVI. J'étais prêt à la sacrifier puisque ma carte
+         graphique n'a pas de sortie DVI. Quant à la base amovible,
+         cela pouvait s'avérer utile si la base ne me convenait pas
+         et si je voulais monter l'écran sur un bras articulé ou
+         autre support similaire. Toutefois, au fil de mes
+         investigations, je découvris que le temps de réaction de
+         ce Sony était lui aussi de 25ms (15ms pour allumer un
+         pixel, 10 pour l'éteindre, et le temps de réaction est la
+         combinaison des deux.). Je voulais un bon temps de
+         réaction afin que mon TV Tuner demeure utilisable. Au prix
+         que je paierais l'écran, je le voulais polyvalent!
+      </p>
+      <p>
+         Je lus toutes sortes de choses à propos des LCD, dont des
+         mauvaises expériences avec les jeux pour le Samsung 191T.
+         On disait aussi, à quelques endroits, que le Samsung ne
+         semblait pas faire honneur au temps de réaction annoncé et
+         présentait plutôt du 40ms. De plus, à l'université,
+         certains écrans de veille se présentaient saccadés.
+         Toutefois, le driver <i>vesa</i> était utilisé sous X
+         parce que l'ATI Radeon 9000 n'est pas supportée par
+         XFree86 4.3, l'interface graphique de Linux. Ce driver ne
+         tire pas parti de toutes les capacités de la carte
+         graphique et il est normal que les performances en matière
+         d'animation ne soit pas optimales. Malheureusement, Sony
+         ne semblait plus produire des CRT. À la Maison Sony, en
+         tout cas, ainsi que sur <a
+         href="http://www.sonystyle.ca">SonyStyle</a>, on n'en
+         offrait que peu. Je pensai aller vers du ViewSonic Pro
+         19", la taille supérieure étant le 22" que je jugeais un
+         peu trop gros.
+      </p>
+      <p>
+         Jeudi, 10 juillet 2003, ce fut le moment de vérité.
+         J'appris, chez MicroBytes, que les écrans LCD ViewSonic
+         bénéficient d'un meilleur service que les Sony, car
+         ViewSonic possède un warehouse à Montréal. Les réparations
+         peuvent s'effectuer en deux semaines tandis qu'il faudrait
+         un mois pour envoyer le Sony à Toronto, le faire réparer
+         et le ravoir. Puisque les ViewSonic régnaient en maîtres
+         absolus dans les laboratoires étudiants au DIRO de
+         l'Université de Montréal, je me dis que ce devait être pas
+         pire. Ce choix de dernière minute a plus tard été remis en
+         question: pourquoi pas le Samsung SyncMaster 191T?
+      </p>
+      <p>
+         Le ViewSonic VG191b a le support du DVI, la base amovible,
+         le mode portrait (Qui ne fonctionne pas sous Linux, donc
+         ne m'est pas très utile.), le grand angle de vision de 170
+         degrés sur tous les côtés, les contrôles à l'écran, ... Le
+         Samsung, lui aussi, avait tout cela! Toutefois, l'angle de
+         vision vertical, comme je le découvris plus tard, était
+         plus petit dans le cas du Samsung. Tous ces écrans, comme
+         je le voyais bien, se ressemblaient beaucoup et la
+         concurrence était forte entre les fabricants.
+         L'installation du ViewSonic a été assez simple et il
+         fonctionnait très bien dès le début. Il y a toutefois
+         quelques défauts.
+      </p>
+      <p>
+         La clé de couleurs avec le numéro de série de Colorific
+         brille par son absence et je ne voulais pas retourner
+         l'écran pour le faire échanger pour ce simple oubli! J'ai
+         aussi eu quelques maux de tête les premiers temps, mais en
+         configurant bien le moniteur (luminosité et contraste) et
+         Linux (La résolution de 1280x1024 imposait de nouvelles
+         fontes plus grosses par endroits!), je pus solutionner le
+         problème. Toutefois, dans la console, il apparaît des
+         pixels blancs de temps en temps. Sur le SyncMaster 191T à
+         l'université, rien de tout cela! Toutefois, le Samsung
+         était en mode B, ce qui correspond, d'après le manuel de
+         Samsung heureusement accessible depuis Internet, au mode
+         DVI. Si je voulais encore améliorer mon affichage, ce
+         serait donc possible en passant au DVI. Mais pour cela, il
+         me faudrait remplacer ma carte graphique, ce que je ne
+         jugeais pas nécessaire pour le moment.
+      </p>
+      <p>
+         Pour le cas des pixels blancs, je pensai que le problème
+         pourrait être résolu en configurant X de façon à ce qu'il
+         utilise les paramètres optimaux de mon écran, à savoir le
+         mode 1280x1024 à 60Hz. Malheureusement, avec l'ATI
+         All-in-Wonder 128 Pro et les fréquences de mon ViewSonic
+         VG191b, je ne pouvais obtenir que du 75Hz en 1280x1024. Je
+         voulais contraindre X à adopter les paramètres optimaux.
+         Dans la section Screen du fichier
+         <tt>/etc/X11/XF86Config</tt>, je tentai d'indiquer
+         d'utiliser 1280x1024@60Hz comme résolution, mais il sauta
+         cette résolution et passa à la suivante: 1024x768. Il
+         semblait ne pas y avoir de moyens de réduire la fréquence
+         à 60Hz à moins de spécifier la modeline manuellement.
+      </p>
+      <p>
+         Dimanche, 20 juillet 2003, j'imprimai le HOWTO
+         XFree86-Video-Timings, en commençai la lecture et appris
+         l'existence du logiciel <a
+         href="http://john.fremlin.de/programs/linux/read-edid/">read-edid</a>
+         qui permet d'interroger un écran DDC sous Linux. Je
+         pensais l'utiliser pour voir la liste des modes qu'il
+         m'afficherait, mais lui me donna un modèle de section
+         Monitor XFree86 4.x pour mon ViewSonic! J'ajoutai à ce
+         patron les dimensions du moniteur en millimètres obtenues
+         dans le manuel d'utilisateur puis copiai/collai le tout
+         dans mon fichier <tt>/etc/X11/XF86Config</tt>. Au prochain
+         redémarrage de X, je me trouvais en 1280x1024@60Hz. Voici
+         la section Monitor qui a fonctionné pour mon ViewSonic
+         VG191b.
+      </p>
+<pre>
+Section "Monitor"
+        Identifier   "Monitor0"
+        VendorName   "ViewSonic"
+        ModelName    "VG191b"
+        HorizSync    30.0 - 82.0
+        VertRefresh  50.0 - 75.0
+        DisplaySize   376.32  301.05
+        Option      "dpms"
+
+        Mode    "1280x1024"
+                DotClock 108.000000
+                HTimings  1280  1328  1440  1688
+                VTimings  1024  1025  1028  1066
+                Flags   "+HSync" "+VSync"
+        EndMode
+EndSection
+</pre>
+      <p>
+         Toutefois, cela n'eut absolument aucun effet! Les pixels
+         blancs réapparurent, devenant de plus en plus agaçants. Je
+         commençais à me demander s'il n'allait pas me falloir
+         remplacer ma carte gaphique pour en obtenir une avec une
+         sortie DVI. Toutefois, à l'Université de Montréal, je
+         finis par régler la fonte sur Lucidatypewriter, comme je
+         l'avais fait sur la Konsole ici, et les pixels blancs
+         apparurent là-bas aussi! En fixant la fonte à Monospace
+         19, j'obtins à la fois une fonte fixe de Konsole correcte
+         et la disparition de ce bogue qui, en fait, n'était
+         nullement dû à mon écran!
+      </p>
+      <h2>
+         <a name="hddrecycle" id="hddrecycle">Recyclage de l'ancien
+         disque dur Samsung</a>
+      </h2>
+      <p>
+         Au lieu de mettre mon 30Go dans un placard, j'avais choisi
+         de le mettre dans l'ordinateur familial, pour remplacer le
+         10Go devenu trop petit. Samedi, 12 juillet 2003, ce fut le
+         moment de vérité. Je faillis ne pas opérer, par contre,
+         car ma machine bogua et cela pouvait être à la suite de
+         mes manipulations. Dans ce cas, il m'aurait fallu éviter
+         d'opérer la machine familiale de peur de la bousiller elle
+         aussi. Ma carte son avait tout simplement disparu, comme
+         l'avait fait le modem la semaine d'avant. Il me fallut la
+         retirer puis la remettre en place, en souhaitant que le
+         problème ne soit pas dans les fentes de la carte mère.
+      </p>
+      <p>
+         La partie matérielle du transfert de disque se passa très
+         bien. Je n'eus même pas besoin de retirer la carte
+         graphique, mais je dus changer deux cavaliers, cette fois.
+         Je mis le Samsung de nouveau en master et le Fujitsu, en
+         slave. Pour la fixation, j'adoptai une meilleure technique
+         que dans le cas de ma machine. Après avoir bien aligné les
+         trous de vis avec les trous dans la baie 3 1/2,
+         j'installai les vis sans les resserrer complètement. Je
+         pus ainsi parvenir à les avoir toutes droites, aucune en
+         oblique comme dans le cas de mon disque. Ensuite, lorsque
+         tout fut beau, je serrai les vis. Je programmai ensuite
+         Partition Magic 8 pour effacer le 30Go, transférer XP du
+         10Go au 30Go, agrandir la partition à 20Go, copier les
+         données, agrandir la partition à 10Go, puis me suis assuré
+         que la partition XP serait active. Partition Magic, pour
+         une nouvelle fois, produisit un message d'erreur: "Cannot
+         lock a locked drive"! Je redémarrai, repris l'opération,
+         cette fois une tâche à la fois. Je parvins à effacer le
+         Samsung puis copier XP du Fujitsu vers le Samsung.
+         Ensuite, je me créai une partiton NTFS pour remplir le
+         reste du disque. Je redémarrai sous XP, depuis le Samsung
+         qui était master, pour copier la partition de données vers
+         la nouvelle partition NTFS, ce qui reconstruirait le
+         système de fichiers.
+      </p>
+      <p>
+         Au démarrage: surprise! La machine se bloqua, tentant de
+         démarrer GRUB. Je dus démarrer avec une disquette système
+         de Windows 98 et utiliser <tt>fdisk /mbr</tt> pour
+         supprimer ce vestige de Linux. Ensuite, j'obtins mon
+         premier amorçage. La copie terminée, je débranchai le
+         Fujitsu et rebranchai le DVD. En effet, cette machine
+         n'avait plus de connecteurs d'alimentation de surplus, il
+         était donc indispensable de débrancher le lecteur DVD,
+         cette fois. Le connecteur du Fujitsu résista longtemps
+         avant de laisser partir le connecteur d'alimentation!
+      </p>
+      <p>
+         La machine démarrait parfaitement, affichait le logo de
+         XP, puis l'écran devenait bleu et Windows XP s'affichait
+         au centre. La machine figeait là, attendant le Messie. Je
+         tentai de redémarrer, même blocage. Une belle fin de
+         semaine s'annonçait pour moi: réinstaller Windows XP, des
+         drivers, des updates, des logiciels, ... En mode sans
+         échec, il plantait aussi, et tout était beau au niveau
+         matériel. Il n'y avait pas moyen de savoir si le disque
+         dur fonctionnait ou pas, car il était trop silencieux pour
+         trancher et la diode rouge du boîtier ne fonctionnait pas.
+         En effet, les connecteurs du panneau avant semblent
+         converger vers un seul connecteur et le fil de la diode du
+         disque dur ne fitte pas avec les pins de la carte mère! Je
+         sortis donc le CD de XP, j'allais tenter malgré moi de
+         réinstaller. Avant, j'essayai d'accéder à la console de
+         récupération et cela ne fonctionna pas, aucune commande
+         pour sauver le système, pas moyen d'accéder à la base de
+         registre. J'essayai avec la récupération automatique, mais
+         il me fallait une disquette qu'on ne m'a jamais demandé de
+         créer.
+      </p>
+      <p>
+         Je craignais un bogue hardware (peut-être le câble IDE)
+         qui rendrait la machine instable, la réinstallation,
+         impossible. Je me résolus finalement à tenter de
+         réinstaller par-dessus l'installation actuelle. Cela
+         provoquerait des mismatches de versions de fichiers, des
+         conflits, mais au moins, cela fonctionnerait
+         partiellement! Pour cette machine pas suffisamment
+         performante pour XP, cela ne valait pas la peine de
+         fine-tuner les choses à plus finir, au fond. Lors de
+         l'installation, on me proposa de réparer l'installation
+         actuelle, ce que je fis et le programme se mit à tout
+         réinstaller.
+      </p>
+      <p>
+         Lorsque j'accédai à l'Explorateur, une surprise s'offrit à
+         moi. La partition de données était nommée G: et le disque
+         NTFS principal, F:! Pas étonnant que Windows se soit mêlé
+         les pinceaux!
+      </p>
+      <p>
+         Probablement que l'installation XP avait un identifiant du
+         disque dur et a ajusté son système en fonction de l'ancien
+         disque qui lui était plus familier. Cette bizarrerie
+         semblait d'ailleurs irréversible, à moins que... Je
+         rebranchai l'ancien Fujitsu et recommençai le transfert de
+         XP, puis je ne rebootai sur le disque qu'après avoir
+         retiré le Fujitsu. Je passai au moins une minute à tenter
+         de débrancher le connecteur d'alimentation du Fujitsu!
+         Enfin, le système démarra et tout fonctionna parfaitement!
+         C'est cela qu'il m'aurait fallu faire pour mon propre
+         système afin d'éviter les bogues Linux. Peut-être qu'en
+         copiant les fichiers <tt>passwd</tt> et <tt>groups</tt>
+         dans le répertoire <tt>/etc</tt> du système rescue, la
+         copie aurait transféré les informations d'usagers et de
+         groupes. Mais j'eus cette idée après avoir effacé le
+         Samsung...
+      </p>
+      <h2>
+         <a name="hddrecycle2" id="hddrecycle2">Recyclage de
+         l'ancien disque dur Fujitsu</a>
+      </h2>
+      <p>
+         Samedi, 19 juillet 2003, j'ai entrepris la dernière étape
+         de cette mise à jour système. Mon père a trouvé, au marché
+         aux Puces, une vieille picouille Dell OptiPlex, un Pentium
+         100 MHz sur lequel nous avons pu installer Windows 95. La
+         machine avait hérité du disque dur Quantum de 1Go qui
+         avait séjourné dans le 486 puis le Pentium 150. J'avais
+         pensé mettre le 10Go dans la picouille, mais je
+         soupçonnais qu'il allait falloir un Disk Manager et
+         peut-être le transfert du système d'exploitation ne serait
+         pas possible.
+      </p>
+      <p>
+         La première étape consistant à ouvrir le boîtier LPX a
+         déjà causé des difficultés! Après avoir dévissé deux vis,
+         il ne m'était toujours pas possible de faire coulisser le
+         boîtier. Il semblait impossible d'ouvrir la machine.
+         J'examinai et essayai pendant longtemps avant de découvrir
+         une troisième vis. Mais j'étais loin, très loin, d'être au
+         bout de mes peines! La machine étant plus petite, les
+         câbles plats IDE étaient encore plus encombrants! Le
+         disque dur, je ne parvenais pas à le trouver, puis je
+         l'aperçus enfin. Il était fixé par un mécanisme de
+         rétention qui m'était inconnu. J'examinai, tentai de
+         retirer le disque, rien à faire. Pas moyen de voir comment
+         c'était fait.
+      </p>
+      <p>
+         Je décidai de tenter de démonter le power supply, car le
+         bloc était collé sur le disque. Il me fallut dévisser deux
+         vis à l'arrière puis j'en trouvai dans le boîtier. La vis
+         de gauche, si on se place au-dessus du boîtier, fut
+         difficile d'accès en raison de la couette de fils
+         émergeant du power supply. Lorsque tout fut dévissé, je
+         pus retirer le power supply et examiner comment était fixé
+         le disque. Je découvris une vis qui reliait deux plaques
+         de métal, je l'enlevai, puis je tentai d'éloigner les
+         plaques; en vain. Je ne sais plus comment, un moment
+         donné, le support à disque dur se déclippa, je débranchai
+         le fil d'alimentation (J'avais déjà écarté le flat cable
+         IDE qui m'empêchait d'explorer.) puis sortis complètement
+         le support. Je l'examinai et localisai quatre vis sous ce
+         dernier. Avec le tournevis cruciforme, je tentai de les
+         ôter, mais cela ne fonctionnait pas; ça tournait dans le
+         beurre. Était-ce des vis Philips? Oui, il y avait bien une
+         croix, pas une étoile Torx. La tête était, on aurait dit,
+         plus petite puisque ça tournait dans le beurre, et on
+         aurait dit qu'il y avait une pin au centre pour empêcher
+         le dévissage avec un tournevis classique. Je m'arrêtai
+         donc, ne souhaitant pas dévisser le couvercle du disque
+         dur!
+      </p>
+      <p>
+         J'examinai encore l'assemblage, tentant de démarquer le
+         disque et le support. Je tentai même de donner de petits
+         coups avec mes ongles pour évaluer la différence de sons.
+         Le métal du support résonnait tandis que le son était
+         amorti quand je tapais sur le disque. Cette technique
+         inhabituelle m'aida à bien cerner le support qui m'était
+         inconnu. Je comparai avec le Fujitsu et localisai quatre
+         trous de vis inférieurs en plus des trous latéraux.
+         Finalement, je parvins à ôter les quatre vis puis je
+         séparai le Quantum du support à disque. Les têtes étaient
+         de la même taille et forme que celles rencontrées
+         auparavant dans la machine, il s'agissait de bien
+         s'aligner avec le tournevis. Je l'examinai de tous bords
+         tous côtés à la recherche des cavaliers qui brillaient
+         semble-t-il par leur absence! Mais il y avait deux câbles
+         IDE, je pourrais mettre le Quantum comme maître
+         secondaire. Nul besoin, donc, de toucher au cavalier. Pour
+         le cas du Fujitsu, je dus le positionner sur maître puis
+         je vissai le disque dans le support. Il y eut des
+         problèmes lors de la remise en place du support dans le
+         boîtier, car le trou de vis ne s'alignait pas correctement
+         et le support ne voulait plus ressortir. J'éprouvai des
+         difficultés avec la vis gauche du power supply que je
+         n'arrivais pas à faire entrer dans le trou à cause des
+         fils de la couette. Finalement, le disque fut branché et
+         le power supply, vissé. C'est mon père qui m'aida à
+         réaligner les deux trous pour le support à disque et qui
+         me montra la clip de plastique qui l'empêchait de
+         ressortir. J'installai le vieux Quantum dans une baie 5
+         1/4, utilisant le câble lié au lecteur CD et un fil
+         d'alimentation qui traînait près de là. Il me fallut faire
+         sortir le fil par la baie, brancher le disque, le rentrer
+         dans la baie puis brancher le flat cable. Les
+         manipulations étaient difficiles en raison de l'étroitesse
+         du boîtier.
+      </p>
+      <p>
+         Partition Magic 8 ne voulut rien savoir du disque, car le
+         BIOS ne le supportait pas; il était trop gros. Il me
+         fallut installer le logiciel DiskGo, qui venait avec le
+         Fujitsu, pour faire fonctionner le disque sur la vieille
+         machine. Avec le Disk Manager, je pus utiliser Partition
+         Magic pour tenter d'effectuer le transfert. La copie se
+         passa très bien, mais le redimensionnement ne fonctionnait
+         pas. Le logiciel, à l'étape <i>Aligning Data</i>,
+         attendait le Messie ou progressait très lentement. Il
+         aurait sans doute fallu des jours pour mener à bien la
+         manipulation, avec probabilité d'erreurs pour mettre fin
+         aux essais. La copie directe des fichiers ne fonctionnait
+         pas non plus, car la version Dos 7 de <tt>xcopy</tt> ne
+         pouvait plus copier les sous-répertoires et même si elle
+         l'avait pu, les noms longs n'auraient pas passé!
+      </p>
+      <p>
+         Si je ne voulais pas réinstaller Windows, il me fallait
+         opter pour un compromis. Je copiai la partition de 1Go
+         contenant Windows 95 et créai une partition secondaire
+         pour remplir le reste du disque. C'était cela ou tout
+         réinstaller. Lorsque ce fut fait, je débranchai le disque
+         dur puis rebranchai le lecteur CD. Mais le lecteur CD ne
+         fonctionnait pas! Il me fallut donc rouvrir le boîtier,
+         jouer avec le fil puis refermer. Je ne pouvais travailler
+         à boîtier ouvert, car il n'y avait pas d'autre place pour
+         l'écran, sur cette petite table, que sur le boîtier! Cette
+         vieille machine a, en somme, été la plus difficile et la
+         moins profitable à opérer. Cette picouille n'a plus
+         tellement d'utilité et j'ai pourtant perdu pas mal de
+         temps à tenter de lui greffer le disque dur de 10Go.
+      </p>
+      <h2>
+         <a name="conc" id="conc">Conclusion</a>
+      </h2>
+      <p>
+         Cette mise à jour, malgré les problèmes engendrés, a été
+         bénifique. Cela m'a tout de même coûté cher, en temps et
+         en argent, mais cela valait la peine de bien m'équiper
+         pour ma maîtrise qui commençait en septembre 2003. Je
+         crains malheureusement que mon Linux garde des séquelles
+         de son transfert et qu'un bon jour, je sois effectivement
+         contraint de le réinstaller.
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

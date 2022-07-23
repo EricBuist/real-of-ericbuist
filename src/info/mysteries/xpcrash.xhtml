@@ -1,0 +1,519 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         STOP intermittents sous Windows XP
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css"
+      href="../../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../../index.xhtml" class="parents">Le
+               royaume de Eric Buist</a> &gt;&gt; <a
+               href="../index.xhtml"
+               class="parents">Informatique</a> &gt;&gt; Problèmes
+               marquants &gt;&gt; <a href="index.xhtml"
+               class="parents">Quelques mystères</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../../sitemap.xhtml" class="sitemap">Plan
+               du site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="stop.xhtml" class="leftsibling">La
+               machine qui fait du zèle</a>
+            </td>
+            <td class="thispage">
+               STOP intermittents sous Windows XP
+            </td>
+            <td class="rightsibling">
+            </td>
+         </tr>
+      </table>
+      <h1>
+         STOP intermittents sous Windows XP
+      </h1>
+      <h2>
+         Écrans bleus
+      </h2>
+      <p>
+         Tout commença le vendredi, 2 janvier 2004, peu de temps
+         après une réinstallation de Windows XP. Sans aucune
+         explication, la machine redémarra spontanément. On aurait
+         dit que le Diable était venu, avait coupé le courant puis
+         rétabli immédiatement. Le disque dur se remit en marche
+         et, après quelques secondes, tout fonctionna. Le bogue se
+         reproduisit mardi, le 20 janvier 2004. Cela pouvait être
+         Windows, la carte mère, le bloc d'alimentation ou
+         l'électricité, mais pas la peine de m'inquiéter puisque
+         cela ne se produisait pas fréquemment.
+      </p>
+      <p>
+         Je découvris plus tard, environ le 21 janvier, que lors
+         d'une défaillance critique, Windows redémarrait au lieu de
+         stopper. Il stocke des informations sur la mémoire dans le
+         répertorie <tt>C:\Windows\Minidump</tt>. Il est possible
+         d'ouvrir ces fichiers et retrouver les messages d'erreur
+         exacts dans la plupart des cas. J'y découvris un rapport
+         de plantage pour le 2 et le 20 janvier 2004. Puisque les
+         redémarrages n'arrivaient pas sous Linux, l'anomalie était
+         alors circonscrite à Windows. Le problème me semblait
+         logiciel, pas matériel!
+      </p>
+      <p>
+         Il est possible d'indiquer à Windows d'afficher un écran
+         bleu plutôt que redémarrer. Pour ce faire, j'ai accédé aux
+         <b>Propriétés</b> du <b>Poste de Travail</b> (ou icône
+         <b>Système</b> dans le Panneau de configuration). Sous
+         l'onglet <b>Avancé</b>, j'ai cliqué sur le bouton
+         <b>Paramètres</b> dans la section <b>Démarrage et
+         récupération</b>. Dans la fenêtre qui a surgi, j'ai
+         décoché la case <b>Redémarrer automatiquement</b>.
+         Finalement, j'ai fermé les fenêtres avec les boutons
+         <b>Ok</b>. Ainsi, plutôt qu'obtenir des redémarrages
+         spontanés me faisant croire à un bogue matériel,
+         j'obtenais des écrans bleus qui reflétaient davantage la
+         nature logicielle de l'anomalie, quoique... C'est une
+         préférence de nature psychologique plus qu'autre chose.
+      </p>
+      <p>
+         De temps en temps, Windows XP s'amusait à me faire un
+         écran bleu, surtout au démarrage. Par exemple, il y en eut
+         un le 13 avril, le 16 mai, le 5 octobre et le 19 octobre
+         2004. Il fallait, à ce moment-là, appuyer sur le bouton
+         Reset et reprendre le démarrage. Parfois, ce bogue
+         m'obligeait à démarrer mon système deux fois pour passer
+         sous XP, mais en général, tout restait stable après mise
+         en route. Ce problème ne semble pas fréquent, mais il faut
+         savoir que je démarre ma machine beaucoup plus souvent
+         sous Linux que sous Windows. J'estime que j'aurais très
+         souvent eu à démarrer ma machine deux fois plutôt qu'une
+         si j'avais utilisé Windows plutôt que Linux comme système
+         d'exploitation principal.
+      </p>
+      <p>
+         Vers la fin août 2004, j'ai installé la mise à jour
+         Windows XP Service Pack 2 afin de bénéficier des plus
+         récents correctifs. L'installation sur ma machine s'est
+         passée sans aucun problème, contrairement à celle sur la
+         machine familiale. Toutefois, j'ai assisté à une
+         prodigieuse multiplication des écrans bleus. Ce n'est
+         qu'en novembre 2004 que le bogue a frappé fort, car
+         j'utilise Linux beaucoup plus fréquemment que Windows.
+      </p>
+      <h2>
+         PC Scrabble bogue
+      </h2>
+      <p>
+         Mercredi après-midi, 24 novembre 2004, je voulus jouer une
+         partie de <a href="http://www.azursoft.fr/pcs99/">PC
+         Scrabble 99</a> avec ma mère. Je redémarrai sous Windows,
+         insérai le CD du jeu dans mon lecteur DVD puis démarrai la
+         partie multi-joueurs. Ma mère jouait sur l'ordinateur
+         familial tandis que j'utilisais ma machine.
+         Malheureusement, cette fois-ci, la connexion réseau ne
+         s'établit pas. Il semble que le Pare-feu de connexion du
+         SP2 bloquait tout, même après avoir utilisé l'option
+         <b>Débloquer</b> dans la fenêtre qui surgissait parfois au
+         démarrage du jeu. Durant mes tentatives pour savoir ce qui
+         n'allait pas, j'essayai de quitter le jeu et surprise:
+         redémarrage! Puisque le bogue des crash n'arrivait pas
+         souvent, j'avais réactivé le redémarrage automatique je ne
+         pourrais pas dire quand. Windows redémarra, puis je
+         constatai que chaque fois que je quittais PC Scrabble,
+         j'obtenais un redémarrage. La réinstallation semblait
+         nécessaire, j'allais devoir la tenter la fin de semaine
+         qui viendrait.
+      </p>
+      <p>
+         Le lendemain soir, je repris les recherches en tentant de
+         réinstaller PC Scrabble. En vain. Je transformai de
+         nouveau les redémarrages en écrans bleus et découvris
+         plusieurs types différents de crash. Lorsque la
+         défaillance critique se produisait, un cryptique message
+         d'erreur s'affichait. Le plantage de PC Scrabble était lié
+         au fichier <tt>win32k.sys</tt> dont je ne connais pas la
+         fonction exacte. Le message d'erreur affiché se lisait
+         comme suit:
+      </p>
+<pre>
+*** STOP: 0x0000008E (0xC0000005,0xBF8D324D,0xF06E060C,0x00000000)
+***    win32k.sys - Address BF8D324D base at BF800000, DateStamp 41107f7a
+</pre>
+      <h2>
+         Pivot Pro
+      </h2>
+      <p>
+         En tentant de supprimer des logiciels pour localiser le
+         potentiel fautif, je suis tombé sur un cas suspect: le
+         logiciel <a
+         href="http://personalcomputing.portrait.com/us/products/pp_overview.html">Pivot
+         Pro</a>. Ce dernier permet de retourner l'image affichée à
+         l'écran afin de profiter de la fonction portrait de mon
+         LCD. La désinstallation du Pivot Pro, un pilote graphique
+         pouvant interférer avec Scrabble, le pilote ATI ou autre
+         chose, provoquait irrémédiablement un écran bleu. Sur cet
+         écran s'affichait un message du genre
+      </p>
+<pre>
+*** STOP: 0x0000008E (0xC0000005,0xBF80324D,0xF0985878,0x00000000)
+</pre>
+      <p>
+         Que le logiciel Pivot Pro soit activé ou pas, il plantait
+         de cette façon à chaque tentative de désinstallation. J'ai
+         dû retranscrire ce message insensé sur une feuille de
+         papier pour le retranscrire ici. J'ai à présent découvert
+         qu'en fouillant dans les fichiers Minidump, il est
+         possible de retrouver le message. Grâce à cette
+         découverte, j'ai appris que l'erreur PC Scrabble était
+         identique à l'erreur Pivot Pro.
+      </p>
+      <p>
+         Que faire sous Windows lorsqu'un programme ne veut pas se
+         désinstaller? Tenter de le supprimer manuellement,
+         désinstaller en mode sans échec ou reformater. Certains
+         logiciels spécialisés dans la désinstallation offrent
+         <i>peut-être</i> de meilleures solutions, mais elles ont
+         un prix: ces logiciels ne sont pas gratuits et
+         ralentissent très probablement le système en général. De
+         plus, la constitution de la base de données nécessaire au
+         contrôle des fichiers installés doit prendre suffisamment
+         de temps pour mener à la conclusion qu'un AMD Athlon 1GHz
+         n'est qu'une vulgaire picouille! La première solution
+         était à exclure, car je ne savais pas quels fichiers
+         supprimer pour complètement ôter le pilote devenu fou.
+         Essayer la seconde s'imposait bien entendu avant la
+         troisième. Je ne pus jamais parvenir au mode sans échec!
+      </p>
+<pre>
+IRQ_NOT_LESS_OR_EQUAL
+*** STOP: 0x000000A (0xF7C8C354,0x000000FF,0x00000001,0x804E3400)
+</pre>
+      <p>
+         À chaque tentative de démarrage en sans échec, j'obtenais
+         cet irritant écran bleu et ne pouvais rien faire. De plus,
+         de temps en temps, au démarrage de Windows, j'obtiens
+         ceci:
+      </p>
+<pre>
+BAD_POOL_HEADER
+*** STOP: 0x00000019 (0x00000020,0xE357F920,0xE357F988,0x0C00020F)
+</pre>
+      <p>
+         Ce message différe de celui du 2 janvier 2004 qui était
+      </p>
+<pre>
+*** STOP: 0x0000008E (0xC0000005,0xBF96107A,0xF10A78AC,0x00000000)
+***    win32k.sys - Address BF96107A base at BF800000, DateStamp 3d6de5e5
+</pre>
+      <h2>
+         Ça pourrait être pire que de simples écrans bleus...
+      </h2>
+      <p>
+         Il y eut un autre écran bleu relatif à une erreur de page
+         lors d'un démarrage, mais je ne parviens pas à retrouver
+         sa trace. Ces messages, en plus d'être irritants, sont
+         imprécis. Si je n'avais pas Linux, sous lequel cela ne
+         plante pas ainsi, j'aurais envisagé le remplacement de ma
+         carte mère, croyant au bogue matériel!
+      </p>
+      <p>
+         Il arrive que des écrans bleus répétitifs soient dûs à une
+         incompatibilité matérielle. Il me semblait possible qu'une
+         mise à jour Windows Update ait provoqué cette
+         incompatibilité qui pourrait être liée à <a
+         href="../../info/acpi.xhtml">ACPI</a>. Windows utilise
+         ACPI tandis que Linux utilisait encore APM. Il se pouvait
+         que le bogue matériel ne se manifeste que lors de
+         l'utilisation de ACPI. Sous cette hypothèse, outre changer
+         de carte mère, la seule possibilité semblait de revenir à
+         Windows 98 ou Windows 2000. Il serait pratiquement
+         impossible de retrouver quelle mise à jour posait problème
+         et à chaque Windows Update, il faudrait vérifier que cette
+         fameuse mise à jour n'est pas installée. En cas d'erreur
+         de manipulation, la mise à jour risquait de ne pas pouvoir
+         être supprimée et le bogue reviendrait jusqu'à la
+         réinstallation complète du système! Aussi bien, dans ce
+         cas, revenir à Windows 98 et que cela ralentisse sans
+         cesse ou plante quelques fois de temps en temps, ou à
+         Windows 2000 et m'armer de patience pour les démarrage, ou
+         (encore une fois) changer de machine pour que ce soit plus
+         rapide.
+      </p>
+      <h2>
+         Le vrai coupable: ZoomText 8.0!
+      </h2>
+      <p>
+         Vendredi, 26 novembre 2004, avant d'entamer la
+         réinstallation complète avec reformatage, je tentai de
+         télécharger une mise à jour de Pivot Pro, je l'installai
+         puis je pus enfin désinstaller! La mise à jour (version
+         7.65) avait corrigé le bogue qui faisait planter à la
+         désinstallation dans la version 7.50! PC Scrabble
+         crashait, que le nouveau Pivot Pro soit installé ou pas.
+         Afin de bien éliminer le suspect, je ne réinstallai pas le
+         logiciel qui ne me servait pas de toute façon.
+      </p>
+      <p>
+         Le bogue était trop sérieux pour ne concerner que ce vieux
+         jeu Scrabble. Probablement que toute application
+         DirectDraw serait touchée. Je désinstallai ainsi le
+         suspect #2: <a href="http://www.aisquared.com">AiSquared
+         ZoomText</a> 8.0. Ce logiciel de grossissement m'a été
+         fourni par <a href="http://www.inlb.qc.ca">l'Institut
+         Nazareth et Louis-Braille</a> et ne me sert pas beaucoup
+         puisque je travaille davantage sous Linux que sous
+         Windows. La désinstallation se fit sans histoire et
+         solutionna le bogue!
+      </p>
+      <p>
+         Mon Windows XP souffrait d'un second bogue que la
+         désinstallation de ZoomText semble avoir fait disparaître.
+         De temps en temps, lorsque j'ouvrais l'Invite MS-DOS, la
+         saisie des commandes devenait très lente. Peu importait ma
+         vitesse de frappe, les caractères saisis s'affichaient à
+         l'écran en raison d'environ un par seconde. Taper
+         <tt>exit</tt> pour refermer la fenêtre puis la rouvrir,
+         passer en mode plein écran, tenter d'utiliser <a
+         href="http://www.cygwin.com">Cygwin</a> plutôt que
+         l'Invite MS-DOS ne réglaient absolument rien. Après
+         plusieurs réouvertures de la fenêtre, l'Invite MS-DOS
+         reprenait sa vitesse normale. Depuis la suppression de
+         ZoomText, je ne me rappelle pas d'une nouvelle occurrence
+         de ce bogue fâcheux.
+      </p>
+      <p>
+         Mon esprit scientifique me força toutefois à aller au-delà
+         de ce constat. Dimanche, 5 décembre 2004, je réinstallai
+         donc ZoomText 8.0 puis la mise à jour 8.04. Bien entendu,
+         le bogue Scrabble revint. Je tentai d'utiliser DXDiag afin
+         de vérifier que le bogue n'était pas lié à DirectX 9.0c.
+         Tous les tests passèrent, ce qui fut un grand soulagement.
+         Désinstaller DirectX est assez compliqué et le SP2 vient
+         avec DirectX 9. Il me faudrait ainsi ne pas installer SP2
+         pour pouvoir garder DirectX 8. Ne pas installer SP2
+         compliquera les mises à jour, car à chaque fois, il voudra
+         l'installer.
+      </p>
+      <p>
+         Après le test DXDiag suivant l'installation de ZoomText
+         (J'en avais fait un avant et il passa sans problèmes), je
+         retournai à Scrabble. L'insertion du CD dans mon lecteur
+         DVD fit planter le système. J'en arrivai à un lien étrange
+         entre ZoomText et mon lecteur DVD LG! Si ZoomText était
+         installé, la recette suivante faisait planter mon système
+         à tout coup!
+      </p>
+      <ol>
+         <li>
+            Démarrer <tt>dxdiag</tt> et attendre qu'il ait fini son
+            scan initial, indiqué par la barre de progression.
+         </li>
+         <li>
+            Appuyer sur <b>Page suivante</b> pour accéder à la page
+            des pilotes installés puis une autre fois sur <b>Page
+            suivante</b> pour aboutir à la page de tests
+            DirectDraw.
+         </li>
+         <li>
+            Cliquer sur <b>Tester DirectDraw</b> et répondre
+            <b>Oui</b> à tous les tests.
+         </li>
+         <li>
+            Cliquer sur <b>Quitter</b> pour refermer DXDiag.
+         </li>
+         <li>
+            Appuyer sur le bouton d'éjection du lecteur DVD LG
+            DRD-8120B, ce qui éjecte le plateau. C'est bien
+            important d'utiliser le lecteur DVD et non le graveur
+            Pioneer DVD-RW DVR-107D! Un nouvel appui sur le bouton
+            pour faire rentrer le plateau (pas besoin de disque!)
+            faisait crasher le système!
+         </li>
+      </ol>
+      <p>
+         Je pouvais utiliser mon lecteur DVD avant que DirectDraw
+         ne passe en plein écran, mais après, il était trop tard.
+         Cela expliquait pourquoi Scrabble pouvait démarrer mais
+         pas quitter. Si je démarrais Scrabble en insérant le
+         disque dans mon graveur plutôt que mon lecteur, tout
+         fonctionnait #1.
+      </p>
+      <p>
+         Je tentai, sous cette hypothèse, de mettre à jour le
+         firmware de mon lecteur. Ce fut <b>très</b> difficile, car
+         LG n'offre qu'un site difficile d'accès avec des
+         caractères minuscules et ce n'est qu'après que je
+         découvris comment inhiber CSS sous <a
+         href="http://www.mozilla.org">Firefox</a> afin de
+         court-circuiter de tels sites récalcitrants. Je ne pus
+         trouver le firmware qu'après de nombreuses recherches sur
+         Google et il ne vint pas du site LG officiel! Son
+         installation ne bousilla pas mon lecteur DVD, mais elle ne
+         régla rien.
+      </p>
+      <p>
+         Quel est le lien entre ZoomText, DirectDraw et mon lecteur
+         DVD LG? Je ne parviens pas à le savoir. Toutefois, même
+         après désinstallation de ZoomText, il arrivait
+         occasionnellement que Windows plantait au démarrage ou
+         lors de l'utilisation de mon lecteur DVD. Je songeai
+         tenter de revenir au firmware original pour le lecteur
+         DVD, mais je ne pensais pas que cela résoudrait quoi que
+         ce soit. Je pense, bien que je n'aie pas de disques pour
+         le tester, que le nouveau firmware a rendu mon lecteur
+         multizones, ce qui est un atout intéressant.
+      </p>
+      <h2>
+         La réinstallation semble réparer ZoomText 8.0, mais elle
+         ne règle en fait rien!
+      </h2>
+      <p>
+         Samedi, 2 avril 2005, j'ai réinstallé Windows au complet.
+         J'ai bien pris soin d'installer le Service Pack 2 dès le
+         début, après quoi j'ai installé mes pilotes puis ZoomText.
+         Le système fonctionna dès lors parfaitement! ZoomText ne
+         faisait plus planter la machine. Cette réinstallation de
+         Windows faillit bien me coûter un <a
+         href="../sw/xphd.xhtml">disque dur</a>, mais cela en valut
+         donc la peine!
+      </p>
+      <p>
+         Samedi, 21 mai 2005, je réinstallai Windows encore une
+         fois afin de tester un nouveau disque contenant le Service
+         Pack 2. J'ai construit ce disque moi-même en utilisant une
+         méthode appelée <i>slipstreaming</i>, en suivant les
+         instructions de deux sites Web: un site <a
+         href="http://www.clubic.com/article-15898-1-facilitez-vous-l-installation-de-windows-xp.html">français</a>
+         et un site <a
+         href="http://www.pcstats.com/articleview.cfm?articleid=1626">anglais</a>.
+         Après l'installation des pilotes, je testai ZoomText et
+         cette fois-ci, le système plantait aussitôt que DXDiag
+         démarre les tests Direct3D avec accélération matérielle!
+         Cette fois-ci, je n'ai pas réinstallé <a
+         href="http://www.mount-everything.com">Mount
+         Everything</a> puisque mes partitions Linux de données ont
+         été reconverties en FAT32. Mount Everything a fait planter
+         mon système sans aucune raison et un bon jour WinRAR fit
+         geler toute l'interface en décompressant une archive sur
+         une partition Ext3! Même sans ce logiciel, ZoomText
+         demeurait toujours instable; il faisait planter le système
+         même s'il n'était pas actif! Il semblait nécessaire, pour
+         réparer ZoomText, de tenter des modifications matérielles
+         dans ma machine, par exemple changer la carte graphique.
+      </p>
+      <h2>
+         ZoomText 8.1, un peu mieux mais encore des problèmes!
+      </h2>
+      <p>
+         Vendredi, 17 juin 2005, je reçus et testai la version 8.1
+         de ZoomText qui fut un peu mieux que la 8.0, mais elle ne
+         régla pas tout. L'installation se passa sans histoire,
+         puis le logiciel m'a affiché la boîte de dialogue avec le
+         bouton pour m'activer. J'ai fermé cette boîte pour
+         désactiver la synthèse vocale après quoi j'ai voulu la
+         rouvrir pour l'activation. Cela a fit planter ZoomText
+         avec une erreur de programme! ZoomText a au moins planté
+         proprement, ne laissant pas mon système dans un état zoomé
+         duquel je ne pourrais ressortir sans redémarrer Windows.
+         Après, je redémarrai ZoomText et finis par pouvoir
+         m'activer, ce qui demandait la saisie de certaines
+         informations. Malheureusement, certains champs me
+         demandant mon prénom et ma ville étaient invisibles. Le
+         champ était là, mais le libellé, absent! Je me doutais
+         bien que c'était un problème de résolution d'écran, mais
+         un tel problème ne devrait jamais surgir dans un logiciel
+         bien conçu, surtout pas dans un logiciel destiné aux
+         malvoyants! Pour pouvoir voir les libellés, je dus
+         refermer ZoomText et mettre 96 caractères par pouce plutôt
+         que 120, ce qui nécessita le redémarrage de Windows. Cela
+         rétrécit les fontes dans toutes les boîtes de dialogue (le
+         réglage de fonte standard n'a aucun effet!), mais j'eus
+         toute l'information pour activer ZoomText. Après, je refis
+         le test DirectX/lecteur DVD et ça passa. Toutefois, au
+         prochain démarrage, ZoomText fit carrément planter la
+         machine. Écran bleu! Lorsque je repartis ça, il avait tout
+         perdu ses paramètres: la synthèse vocale était réactivée,
+         le zoom était de nouveau 2x, etc. Finalement, lorsque
+         ZoomText était actif, le défilement sous Firefox était
+         toujours beaucoup plus lent, désagréablement lent, comme
+         avec ZoomText 8.0.
+      </p>
+      <p>
+         Parfois, il fallait deux essais pour démarrer la machine,
+         surtout depuis que j'ai installé l'anti-virus McAfee
+         VirusScan. Je songeais supprimer cet anti-virus pour
+         remettre AVG qui était moins pesant et fonctionnait très
+         bien. Je le fis même, mardi le 26 juillet 2005. ZoomText
+         faisait toujours planter la machine, quoique je fasse. Si,
+         après avoir démarré le logiciel, j'utilisais un programme
+         se servant de l'accélération matérielle Direct3D, la
+         machine plantait avec écran bleu. Toutefois, si
+         j'utilisais Direct3D sans démarrer ZoomText, contrairement
+         à la version 8.0, ça fonctionnait bien!
+      </p>
+      <p>
+         Ainsi, ZoomText semblait éprouver des problèmes de
+         compatibilité avec mon système. J'avais bien peur d'être
+         le seul à éprouver ce genre de difficultés et seul le
+         remplacement complet de mon ordinateur semblait pouvoir
+         résoudre le problème. Même si supprimer le Service Pack 2
+         avait pu refaire fonctionner ZoomText, je considérais que
+         cela n'en valait pas la peine. À chaque mise à jour,
+         Windows chercherait à réinstaller SP2 et un jour, il y
+         parviendrait et je devrais le désinstaller; ce qui
+         nécessiterait au moins vingt minutes de temps perdu sinon
+         davantage! Il se pouvait même que la désinstallation de
+         SP2 laisse des fichiers qui suffiraient à perturber
+         ZoomText. Ainsi, une installation automatique par erreur
+         du SP2 pourrait me forcer à réinstaller Windows au
+         complet!
+      </p>
+      <p>
+         Vendredi, 12 août 2005, je réinstallai encore Windows, car
+         VirusScan avait laissé des traces et perturbé la gestion
+         ActiveX par Internet Explorer, ce qui bloquait totalement
+         Windows Update. Même sur une installation fraîche,
+         ZoomText 8.1 était incompatible avec Direct3D. J'ai fini
+         par envoyer un message à l'INLB qui a été transmis à
+         VisuAide puis à AiSquared. J'ai alors appris que ce
+         problème était connu: ZoomText désactive certaines
+         fonctions de DirectDraw et le pilote ne se déchargeait pas
+         après la fermeture du logiciel. Le bogue, heureusement,
+         n'était pas grave puisqu'il suffisait de ne pas démarrer
+         de jeu après avoir utilisé ZoomText et peut-être que la
+         version 9 allait le corriger.
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

@@ -1,0 +1,328 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         Mon hypothèse actuelle sur le fonctionnement d'un
+         gestionnaire de disques
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css" href="../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../index.xhtml" class="parents">Le royaume
+               de Eric Buist</a> &gt;&gt; <a href="index.xhtml"
+               class="parents">Informatique</a> &gt;&gt;
+               Quelques-unes de mes recherches personnelles
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../sitemap.xhtml" class="sitemap">Plan du
+               site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="acpi.xhtml"
+               class="leftsibling">ACPI</a>
+            </td>
+            <td class="thispage">
+               Mon hypothèse actuelle sur le fonctionnement d'un
+               gestionnaire de disques
+            </td>
+            <td class="rightsibling">
+               <a href="pdfen.xhtml"
+               class="rightsibling">Agrandissement de fichiers
+               PDF</a> &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         Mon hypothèse actuelle sur le fonctionnement d'un
+         gestionnaire de disques
+      </h1>
+      <p>
+         Après avoir aidé quelqu'un aux prises avec des problèmes
+         causés par son gestionnaire de disques (<i>disk
+         manager</i> en anglais), j'ai voulu lui expliquer comment
+         fonctionnait la chose au meilleur de mes capacités. J'ai
+         pensé lui écrire tout cela par e-mail, mais pourquoi ne
+         pas en faire profiter plus de gens que cela pourrait
+         intéresser. Bien entendu, ce que vous trouverez là ne
+         demeure qu'une hypothèse. Cela aidera à comprendre ce qui
+         se passe lorsqu'on ajoute un gestionnaire de disques sur
+         une machine, mais ne pourra pas servir de référence
+         absolue.
+      </p>
+      <p>
+         De façon générale, un gestionnaire de disques est un
+         logiciel permettant à une machine de prendre en charge des
+         disques durs de plus grande capacité que ceux prévus au
+         départ par son fabricant.
+      </p>
+      <h2>
+         Le problème
+      </h2>
+      <p>
+         À plusieurs moments pendant l'histoire du PC, la capacité
+         maximale du disque dur s'est trouvée limitée par des
+         contraintes à différents niveaux de l'architecture du
+         système. Par exemple, beaucoup de vieux 486 ne peuvent pas
+         accepter de disques durs dont la capacité excède les
+         512Mo. D'autres machines refusent les disques de capacité
+         supérieure à 2Go, 8Go et, plus récemment, 137Go. Ces
+         limitations existent pour des raisons techniques sur
+         lesquelles je ne vais pas élaborer ici. Voir par exemple
+         le livre Upgrading and Repairing PCs de Scott Mueller pour
+         plus de détails à ce sujet.
+      </p>
+      <p>
+         Habituellement, un logiciel utilise le système
+         d'exploitation pour effectuer un accès au disque dur. Cela
+         évite aux développeurs de logiciels de se soucier de
+         comment accéder au disque dur. Seule une composante du
+         système, le pilote, doit savoir comment procéder. C'est ce
+         pilote qui va déterminer, au final, la limite de capacité
+         du disque dur.
+      </p>
+      <p>
+         Il existe essentiellement deux façons pour accéder à un
+         disque dur pour un tel pilote. La première et la plus
+         simple consiste à faire appel au BIOS, c'est-à-dire le
+         système d'entrée/sortie de base de la machine qui est mis
+         en branle lors de son démarrage et qui passe la main au
+         système d'exploitation après avoir terminé une batterie de
+         tests. Ce mode est employé seulement par les systèmes
+         d'exploitation primitifs tels que MS DOS, mais cela inclut
+         fort malheureusement le lanceur de systèmes plus
+         sophistiqués. La seconde technique pour accéder au disque
+         dur consiste à s'adresser directement au contrôleur de ce
+         dernier, ce que seuls les systèmes d'exploitation modernes
+         savent faire correctement. Cela inclut en particulier
+         Windows 95, Windows XP mais aussi Linux. Cette méthode est
+         la seule disponible lorsque le processeur se trouve dans
+         le mode protégé, le mode où le système d'exploitation peut
+         en exploiter toutes les capacités.
+      </p>
+      <p>
+         Les limitations de capacité des disques durs peuvent se
+         trouver à ces deux niveaux. Par exemple, la limite de
+         512Mo est posée par le BIOS tandis que la limite de 137Go
+         est due au contrôleur du disque. Il existe essentiellement
+         quatre façons de contourner ces limitations s'il est
+         nécessaire d'installer un disque dur de grande capacité:
+         mettre le BIOS à jour, installer une carte d'extension
+         remplaçant le contrôleur du disque dur de la machine,
+         installer un pilote dans le système d'exploitation ou
+         mettre en place un gestionnaire de disques. La première
+         solution est de loin la meilleure, car elle évite
+         d'ajouter du matériel ou un logiciel encombrants dans la
+         machine. Elle n'est malheureusement pas toujours
+         disponible. Ajouter un nouveau contrôleur est alors la
+         meilleure solution, mais c'est la plus coûteuse. Le
+         nouveau contrôleur peut ajouter de nouveaux ports
+         d'entrée/sortie à la machine mais aussi récrire certains
+         bouts du BIOS pour en retirer les limitations de capacité
+         du disque dur. Mais la carte d'extension coûte de l'argent
+         et doit être installée à l'intérieur de la machine.
+         L'installation d'un pilote pour le disque dur me semble
+         parfaitement possible en théorie, mais ne l'est pas
+         toujours en pratique. En effet, le pilote du disque dur
+         est conçu pour fonctionner en mode protégé tandis que le
+         lanceur du système d'exploitation s'exécute en mode réel.
+         Avant de pouvoir commuter en mode protégé, il doit souvent
+         lire des données sur le disque dur et ne pourra y arriver,
+         à moins qu'un pilote pour le mode réel ne soit développé
+         ou que le système n'utilise le BIOS, ce qui fera surgir
+         les limitations au niveau de la capacité du disque. La
+         troisième est celle sur laquelle je vais élaborer sur
+         cette page.
+      </p>
+      <h2>
+         Qu'est-ce qu'un gestionnaire de disques?
+      </h2>
+      <p>
+         Un gestionnaire de disques est un programme capable de
+         remplacer le code du BIOS en mémoire par un code plus
+         puissant, capable d'effectuer la gestion du disque sans
+         les limitations de capacité du BIOS original. Un tel
+         programme n'est nécessaire que pour les accès au disque en
+         mode réel. Lorsque le système passe en mode protégé, par
+         exemple lors du chargement de Windows ou de Linux, il perd
+         l'accès aux fonctions du BIOS. Il doit alors prendre
+         lui-même en charge l'accès au contrôleur du disque dur à
+         travers les ports d'entrées/sorties. Grâce à cette
+         contrainte, Windows pourra gérer les disques de grande
+         capacité tant qu'il n'est pas nécessaire d'en utiliser un
+         pour le démarrer. Par exemple, si un BIOS ne peut
+         supporter une taille de disque supérieure à 512Mo, il
+         serait possible d'installer Windows sur un petit disque
+         dur convenant au BIOS. Un second disque dur, plus grand,
+         serait détecté et accessible uniquement sous Windows.
+         Ainsi, le gestionnaire de disques n'est nécessaire que
+         lors du démarrage et du chargement du système
+         d'exploitation, à moins d'utiliser la bonne vieille
+         combinaison DOS/Windows 3.1. Le gestionnaire de disques
+         deviendra malheureusement nécessaire si le petit disque
+         dur rend l'âme et qu'on n'arrive plus à trouver un nouveau
+         disque convenant au BIOS pour le remplacer.
+      </p>
+      <h2>
+         Séquence de démarrage normal d'une machine, après le POST
+      </h2>
+      <p>
+         Lorsque le BIOS a fini ses tests, il recherche un
+         programme à amorcer selon une séquence définie par
+         l'utilisateur. Cette séquence inclut le lecteur de
+         disquettes, le lecteur de CD-ROM, le disque dur et plus
+         récemment la clé USB, la carte réseau, etc. Les
+         possibilités de séquence dépendent de la carte mère de la
+         machine.
+      </p>
+      <p>
+         Le BIOS peut facilement lire le premier secteur d'un
+         disque dur, même si sa capacité est plus grande que ceux
+         qu'il prend en charge. Par contre, le programme stocké
+         dans ce premier secteur doit se brancher à un secteur bien
+         précis du disque, soit le premier secteur de la partition
+         active. C'est là que se trouve le système d'exploitation à
+         amorcer. Ce simple branchement peut échouer si le disque
+         dur est trop grand pour le BIOS! Avec un peu de chance,
+         peut-être peut-on contourner cela en plaçant la partition
+         active avant la limite imposée par le BIOS, mais ceci
+         n'est pas certain.
+      </p>
+      <h2>
+         Amorçage avec le gestionnaire de disques
+      </h2>
+      <p>
+         Il faut donc incorporer un élément dans le circuit afin
+         qu'au moment opportun, le programme du BIOS soit écrasé et
+         pris en charge par un programme capable d'accéder au
+         disque. L'écriture d'un tel programme comporte des
+         complications que je ne connais pas complètement. Une
+         chose est certaine: il faut faire en sorte que le code ne
+         soit pas endommagé ou détruit par un travail sur le
+         disque, tel que l'installation d'un système d'exploitation
+         qui écrit sur le secteur d'amorçage de la partition active
+         et/ou dans le premier secteur du disque. Si un tel
+         mécanisme de protection ne peut être implémenté, il faut
+         prévoir des moyens de reconstituer le programme du
+         gestionnaire de disques sans devoir tout reformater le
+         disque dur.
+      </p>
+      <p>
+         Le programme DiskGo!, de Fujitsu, a solutionné le
+         problème, comme je l'ai vu lorsque j'ai été aux prises
+         avec la chose. Le programme va, lors de son installation,
+         trouver un moyen d'accéder au disque (avec les ports
+         d'entrées/sorties par exemple, sans passer par le BIOS) et
+         va y écrire un premier secteur suivi d'une structure
+         inhabituelle. Cette structure aura pour résultat de
+         bloquer tout programme amorcé d'une disquette système non
+         modifiée et tentant d'accéder au disque. De tels
+         programmes croiront que les structures de données en
+         charge de la structure logique du disque sont endommagées
+         et vont s'arrêter avec un amessage d'erreur. Cela évitera
+         des modifications sur le disque qui risqueraient
+         d'endommager le code du gestionnaire de disques et
+         l'intégrité des partitions se trouvant sur le disque. Il
+         sera impossible, à partir d'une disquette système non
+         modifiée, d'accéder au disque ou de le partitionner. C'est
+         presque comme si le disque n'existait pas.
+      </p>
+      <p>
+         Lorsque le BIOS se branche sur le premier secteur, il
+         amorce en fait le code d'initialisation du gestionnaire de
+         disques qui va, tout d'abord, vérifier si tout est beau,
+         et puis il va charger le Dynamic Drive Overlay. Cette
+         technologie va récrire les fonctions du BIOS pour les
+         accès aux disques. Mieux, ces nouvelles fonctions vont
+         refuser tout accès pouvant violer l'intégrité du
+         gestionnaire de disques. Il va permettre à tous les
+         programmes de voir une structure standard de disque, avec
+         table de partitions et tout, à travers une structure qui
+         n'est pas normale.
+      </p>
+      <p>
+         Supposons que la table des partitions standard à
+         l'intérieur du disque, celle que le gestionnaire de
+         disques fait apparaître en secteur 0 sur le disque, se
+         trouve au secteur A sur le disque physique. Lorsqu'une
+         requête d'accès au disque est émise pour accéder au
+         secteur 0, c'est le secteur A que le gestionnaire de
+         disques retourne, et non pas le secteur 0 physique du
+         disque. Ainsi, le code du gestionnaire, ainsi que ses
+         structures de données non standard, ne sont absolument pas
+         accessibles aux programmes, virus, etc. Cela évite donc de
+         devoir réinstaller le gestionnaire de disques lors de
+         chaque réinstallation système. C'est ainsi que j'explique
+         le fait que même après formatage du disque dur, le
+         gestionnaire demeure toujours en place.
+      </p>
+      <p>
+         Lorsque le gestionnaire de disques s'est amorcé, il va
+         demander à l'utilisateur d'appuyer sur la barre
+         d'espacement s'il veut amorcer sa machine depuis une
+         disquette système. Un amorçage à partir de là permet aux
+         programmes qui se trouvent sur la disquette, ou sur
+         d'autres disquettes, d'obtenir l'accès au disque,
+         notamment au C:. Si on n'appuie pas sur la barre
+         d'espacement, le gestionnaire de disques passe au premier
+         secteur logique du disque dur, celui qui ne contient pas
+         un gestionnaire de disques, mais le code standard
+         d'amorçage! La procédure se poursuite ainsi sans problèmes
+         et le gestionnaire de disques est pratiquement transparent
+         aux yeux de l'utilisateur moyen.
+      </p>
+      <h2>
+         Limitations du gestionnaire de disques
+      </h2>
+      <p>
+         Le gestionnaire de disques ne peut réguler que les accès
+         effectués en utilisant les fonctions du BIOS. Sitôt que le
+         système d'exploitation passe en mode protégé et effectue
+         les accès directement avec le contrôleur du disque, il
+         doit prendre en compte le fait que le contenu du disque ne
+         commence pas au même endroit en raison du décalage imposé
+         par le gestionnaire de disques. Windows et Linux semble
+         capables de le faire correctement. Mais un virus pourrait
+         sans problème briser la structure du gestionnaire de
+         disques et ainsi rendre la machine inopérante.
+      </p>
+      <p>
+         Le gestionnaire de disques ne peut pas modifier le
+         fonctionnement du contrôleur du disque dur. Si ce dernier
+         ne prend pas en charge l'adressage LBA sur 48 bits, la
+         capacité sera limitée à 137Go, quoique puisse faire le
+         logiciel. Seuls les premiers 137Go du disque seront
+         accessibles.
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

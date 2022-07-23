@@ -1,0 +1,418 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         La petite histoire de mon modem
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css"
+      href="../../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../../index.xhtml" class="parents">Le
+               royaume de Eric Buist</a> &gt;&gt; <a
+               href="../index.xhtml"
+               class="parents">Informatique</a> &gt;&gt; Problèmes
+               marquants &gt;&gt; <a href="../resolved.xhtml"
+               class="parents">Quelques bogues résolus</a> &gt;&gt;
+               <a href="index.xhtml" class="parents">Bogues
+               matériels résolus</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../../sitemap.xhtml" class="sitemap">Plan
+               du site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="atitvbug.xhtml"
+               class="leftsibling">Ma télévision virtuelle qui a
+               sauté!</a>
+            </td>
+            <td class="thispage">
+               La petite histoire de mon modem
+            </td>
+            <td class="rightsibling">
+               <a href="keyb.xhtml" class="rightsibling">Des
+               touches qui ne servent à rien!</a> &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         La petite histoire de mon modem
+      </h1>
+      <p>
+         Le 6 mars 2001, je suis allé faire monter ma machine que
+         je nomme Faucon de Fer. Je voulais qu'elle contienne tout
+         ce dont je pourrais avoir besoin, et même au-delà. Je ne
+         voulais pas avoir, quelques mois après, à ouvrir la tour
+         pour ajouter une carte. Cela faisait quelques temps que je
+         pensais au modem téléphonique que j'avais perdu lors de la
+         vente du Pentium 150. On n'en avait plus réellement besoin
+         en raison de la haute vitesse, mais il peut encore servir
+         pour envoyer des fax. Et avec un Voice modem, il me
+         semblait possible de transformer mon ordinateur en
+         téléphone main libre, ce qui pourrait s'avérer utile dans
+         certaines situations.
+      </p>
+      <p>
+         J'ai fini par me dire que la nouvelle machine devrait
+         contenir un modem, cela pourrait servir. Bien entendu, il
+         fallait que l'appareil puisse bien fonctionner sous
+         Windows mais aussi sous Linux, ce qui excluait les
+         Winmodem qui, règle générale, ne fonctionnent que sous
+         Windows. Le modem matériel comporte quant à lui tout ce
+         qu'il faut sur la puce, il s'initialise, se définit un
+         port série et on peut ensuite envoyer, à travers ce port,
+         des commandes AT telles ATA pour décrocher, ATZ pour
+         réinitialiser...
+      </p>
+      <p>
+         La configuration Linux d'un tel modem est relativement
+         simple, il suffit de créer un lien symbolique du nom de
+         <tt>/dev/modem</tt> qui pointera sur le bon port. Et
+         ensuite, il sera possible d'utiliser le modem. Sous
+         Windows, un hardware modem se caractérise par l'absence
+         d'un driver. On ne trouve qu'un simple fichier INF
+         contenant le nom et la marque de l'appareil, ainsi que
+         l'ensemble de ses fonctionnalités, pas plus.
+      </p>
+      <p>
+         Un Winmodem, de son côté, n'est formé que d'une puce DSP,
+         un Digital Signal Processor, qui constitue la passerelle
+         entre l'ordinateur et la ligne téléphonique. Le codage, la
+         compression des données et le contrôle de flux sont
+         effectués par un pilote de périphérique Windows. Le
+         fonctionnement du modem exige beaucoup du processeur
+         central, la machine va même se bloquer lors de l'étape de
+         connexion, celle où le modem effectue la numérotation et
+         le handshaking avec l'autre modem. Un Winmodem risque fort
+         bien de ne pas ou ne pas bien fonctionner sous Linux, car
+         le pilote est pour Windows et il arrive qu'il n'existe
+         aucun pilote Linux. Sans pilote, un Winmodem n'est PAS un
+         modem, il n'y a pas moyen de lui envoyer des commandes AT
+         pour le contrôler, car les commandes sont envoyées sous
+         Windows au pilote. Finalement, un Winmodem peut
+         occasionner des bogues des plus étranges. Par exemple,
+         l'appareil peut décider de ne pas se faire détecter par
+         Windows et dans ce temps-là, c'est très difficile à
+         configurer! C'est pourquoi je crains les Winmodems comme
+         la peste et je voulais un modem hardware.
+      </p>
+      <p>
+         Le vendeur m'offrit un modem hardware Motorola, je fus
+         très étonné du prix de 50$ par opposition aux 200$
+         qu'avait coûté le U.S. Robotics Sporster 56k du Pentium
+         150. Vendredi, 9 mars 2001, j'entre en possession de la
+         machine et je commence à expérimenter. Dans le Panneau de
+         Configuration, une icône inhabituelle est là, elle se
+         nomme <tt>HaM Configuration</tt>.
+      </p>
+      <p>
+         <img src="hamconfig.png" alt="HaM Configuration" />
+      </p>
+      <p>
+         On voit vite que cette boîte de dialogue contient les
+         paramètres du modem. Dans les captures d'écran qui
+         suivent, il faudra remplacer Intel par Ambient
+         Technologies pour réfléter la réalité passée. L'icône
+         Modem donne le nom du modem, bien entendu, avec
+         possibilités de consulter les propriétés de ce dernier et
+         les modifier.
+      </p>
+      <p>
+         <img src="modemprops.png"
+         alt="Propriétés du modem, on voit ici le Intel HaM Data Fax Voice." />
+      </p>
+      <p>
+         Déjà, cela me semblait un peu bizarre, car il n'y avait
+         pas de mention de Motorola et le CD livré avec le modem ne
+         contenait lui non plus rien de cela. Il s'intitulait
+         <tt>HAM 56K Fax/Modem</tt>, rien de plus. Je croyais donc
+         ainsi avoir de nouveau affaire à des problèmes de
+         recherche de pilotes futurs comme dans le cas de la carte
+         réseau de mon portable. Mais je mis ce détail de côté,
+         ayant d'autres chats à fouetter et voulant consacrer mon
+         temps à ma session plutôt qu'à l'analyse du simple
+         accessoire que serait pour moi un modem. Mais de temps en
+         temps, je regardais et je trouvai d'autres bizarreries.
+         Par exemple, dans la liste des propriétés Multimédia du
+         Panneau de Configuration, des périphériques mystérieux se
+         trouvent là.
+      </p>
+      <p>
+         <img src="mmprops.png"
+         alt="Propriétés Multimédia avec la liste des périphériques de lecture déroulée." />
+      </p>
+      <p>
+         <tt>SB Live Wave Device</tt> demeure facile à comprendre,
+         c'est la carte son, mais qu'en est-il des autres, qu'on
+         retrouve également comme périphériques d'enregistrement?
+         Le <tt>Périphérique compatible jeux</tt> est un mystère,
+         mais ce n'est pas relié au modem, il fera l'objet d'une
+         autre section si je perce là-dessus une bonne fois... Le
+         <tt>Voice Modem Wave #00 Line</tt> et le <tt>Voice Modem
+         Wave #00 Handset</tt> me montrent bien, au moins, qu'au
+         niveau logiciel, ce modem est un mode voice. Mais à quoi
+         ça sert? Cela demeure un mystère pour le moment.
+      </p>
+      <p>
+         À l'arrière du modem, donc de l'ordinateur, il y a deux
+         sorties de type téléphonique, une pour la ligne (Line) et
+         une pour le téléphone (Handset)! Il se peut donc qu'il
+         soit possible d'émettre sur ces sorties. Des possibilités
+         m'apparaissaient mais comment les exploiter?
+      </p>
+      <p>
+         Encore dans les propriétés Modem, il y a une bizarrerie,
+         cette fois au niveau sonore, mais je ne pense pas, avec
+         l'équipement dont je dispose (Il me faudrait presque un
+         studio d'enregistrement et des microphones sensibles,
+         peut-être même placer les micros sur le modem, dans la
+         machine!), pouvoir enregistrer le petit déclic qu'il se
+         produit. Dans l'onglet Diagnostics, on a ce qu'il faut.
+      </p>
+      <p>
+         <img src="mdiags.png" alt="Diagnostics du modem." />
+      </p>
+      <p>
+         Il suffit de cliquer sur Informations complémentaires
+         après avoir choisi COM4 dans la liste, le petit son se
+         fait entendre durant l'affichage d'une boîte intermédiaire
+         puis les informations s'affichent.
+      </p>
+      <p>
+         <img src="minfo.png"
+         alt="Informations complémentaires sur le modem." />
+      </p>
+      <p>
+         Je viens aussi de me rendre compte que lorsque le modem
+         renvoie ees propriétés, le son est coupé, le système est
+         comme bloqué.
+      </p>
+      <p>
+         Le 19 avril 2001, j'ai commencé à examiner plus
+         attentivement le modem, car je savais que dans peu de
+         temps, j'installerais Windows 2000 et Linux dans ma
+         machine et à ce moment-là, j'auras intérêt à bien
+         connaître ma machine pour me tirer de bogues éventuels.
+         J'ai tout d'abord commencé par chercher dans les fichiers
+         Readme, au cas où je ne trouverais pas d'informations. J'y
+         ai lu la procédure d'installation des pilotes mais rien de
+         plus sauf que... Il y avait des pilotes, tels
+         <tt>HAMPORT.VXD</tt> et <tt>HAM_DBS.VXD</tt>. Il y avait
+         donc des pilotes, et le modem n'était pas très coûteux...
+         Je pensais de plus en plus m'être fait avoir, je m'étais
+         fait passer un Winmodem!
+      </p>
+      <p>
+         Je me mis à chercher les spécifications techniques du
+         machin qui confirmeraient hors de tout doute quel type de
+         modem dormait dans ma machine. Je tentai de chercher du
+         côté de Ambient Technologies, mais rien à faire, pas moyen
+         de trouver le site! Je cherchai pendant presque un
+         après-midi et finalement, je trouvai le site qu'il
+         fallait. Le site décrit la spécification et fournit les
+         drivers du modem <a
+         href="http://www.intel.com/design/modems/support/drivers.htm">MD5628D</a>.
+      </p>
+      <p>
+         C'est ainsi que j'appris que je disposais d'un modem
+         Intel, la compagnie a peut-être acheté la puce de Ambient
+         Technologies. HaM signifie Host-accelerated Modem, c'est
+         une combinaison entre un hardware modem et un software
+         modem (Winmodem). Cette combinaison permet un coût plus
+         bas mais une utilisation du processeur moins grande que
+         celle faite par un Winmodem. Mais ça ne fonctionne pas
+         sous Linux, cette bêbite-là!
+      </p>
+      <p>
+         Je tentai ensuite de télécharger les pilotes et je
+         trouvai, sur le même site, un pilote Linux! Mais il
+         fallait savoir si le pilote fonctionnerait! Il se peut
+         bien que je n'aie pas trouvé le bon pilote et dans ce cas,
+         le modem ne fonctionnera pas, il ne sera pas détecté
+         correctement et cela va faire de jolis problèmes à n'en
+         plus finir... Malheureusement, je ne pouvais tester le
+         pilote à ce moment-là, car je téléchargeais Linux et je ne
+         pouvais pas redémarrer!
+      </p>
+      <p>
+         Le soir même, après m'être rendu compte que le
+         téléchargement ne finirait jamais et qu'il me faudrait
+         l'interrompre de toute façon, je tentai l'expérience. Sans
+         redémarrage, le modem devint un Intel HaM Data Fax Voice
+         et il semblait toujours fonctionner. Je dispose donc ainsi
+         du pilote pour Linux, Windows 9x, Windows ME, Windows 2000
+         et Windows NT4.
+      </p>
+      <p>
+         Il me reste à découvrir comment exploiter la fonction
+         Voice de l'appareil, si tant est qu'elle peut servir à
+         quelque chose. Si ce n'était pas le cas, et si je ne
+         pouvais pas trouver de logiciel de fax, alors le modem
+         serait condamné à ne rien servir...
+      </p>
+      <p>
+         Malheureusement, j'allais vite me rendre compte que le
+         pilote Linux ne fonctionnait pas à moins de reculer au
+         kernel 2.2 et que ce modem constitue plutôt un Winmodem
+         déguissé plutôt qu'un véritable hardware modem!
+      </p>
+      <p>
+         Le dimanche, 5 mai 2001, je testai enfin le modem en le
+         connectant sur le pool de modems de l'Université de
+         Montréal. Un bogue eut lieu, le machin ne fonctionnait
+         pas! Il me fallut brancher un téléphone dans la sortie
+         Phone afin de pouvoir entendre ce que le speaker cheap me
+         rendait trop mal et je me rendis compte que j'avais
+         inscrit 450 au lieu de 514 dans le numéro de téléphone. La
+         modification provoqua un bon fonctionnement du modem avec
+         HyperTerminal et un soulagement immense de savoir qu'au
+         moins, la bêbite pouvait marcher. Mais cela ne va pas plus
+         loin que cela.
+      </p>
+      <p>
+         Il faudra attendre quelques temps avant que je ne dispose
+         d'un fil téléphonique suffisamment long pour pouvoir
+         relier mon modem à la prise téléphonique sans devoir
+         déplacer l'ordinateur. C'est seulement à ce moment-là que
+         j'ai pu commencer de véritables tests intéressants. Ça a
+         entraîné quelques problèmes, bien entendu.
+      </p>
+      <p>
+         Lundi soir, le 24 septembre 2001, ma connexion haute
+         vitesse est tombée en panne à un moment critique. Je
+         voulais savoir si les démonstrateurs du cours de
+         Structures de données (IFT2010) avaient répondu à ma
+         question au sujet du TP1 et cela me chicotait. J'ai fini
+         par brancher le fil téléphonique et j'ai ajouté sous
+         Windows ME une connexion à accès réseau à distance sur le
+         *70,514-343-2411. Le *70 permet de désactiver
+         temporairement l'appel en attente qui ferait tout boguer
+         la chose, la virgule oblige un temps d'arrêt nécessaire au
+         bon fonctionnement de *70 puis le numéro est ensuite
+         signalé.
+      </p>
+      <p>
+         Comme login, j'avais entré mon nom d'utilisateur buiste et
+         mon mot de passe là où il le fallait. Après la
+         numérotation, le handshaking et un long temps d'arrêt,
+         Windows me rapporta une erreur dans le script d'ouverture,
+         l'ordinateur distant ne répondait pas. Cliquer sur Annuler
+         fit planter la machine et me fit choquer!
+      </p>
+      <p>
+         Une seconde tentative mena au même résultat. Après le
+         nouveau reboot, j'ai configuré une autre connexion, cette
+         fois vers Vidéotron mode téléphonique. Cela a fonctionné
+         et j'ai pu consulter mon courriel et obtenir réponse à ma
+         question sur le TP1. Le test montre que le modem peut
+         fonctionner, au moins...
+      </p>
+      <p>
+         Samedi, 22 septembre 2001, j'ai tenté un nouvel essai pour
+         la connexion PPP vers Magellan, plus pour ma simple
+         curiosité personnelle pour quelque chose d'utile, en fait.
+         Cette fois-ci, après avoir lu la veille des indications
+         sur le site de la <a
+         href="http://www.dgtic.umontreal.ca">DGTIC</a>, j'ai
+         compris qu'il me fallait activer le terminal après la
+         numérotation.
+      </p>
+      <p>
+         La fenêtre est apparue, j'y ai tapé mon username et mon
+         password puis <tt>umnet&gt;</tt> est apparu. J'ai alors
+         tapé <tt>ppp default</tt>, puis j'ai cliqué sur Continuer.
+         Ce qui a déclenché la connexion. Ainsi, le modem peut
+         servir à substituer temporairement ma connexion Internet
+         si Vidéotron, haute ou basse vitesse, tombe en panne. À
+         partir du pool de modems, je ne peux accéder qu'au domaine
+         umontreal.ca en mode graphique et à Internet au complet en
+         mode texte, mais cela suffit pour dépanner.
+      </p>
+      <p>
+         Dimanche, 11 novembre 2001, je mettais la main sur le
+         pilote du modem pour le kernel 2.4. Ce n'est que mercredi,
+         le 14 novembre 2001, que je tentai effectivement
+         l'installation. Mes tentatives de faire fonctionner le
+         driver précédent ayant altéré certains fichiers, cela ne
+         fonctionna pas du premier coup, mais après avoir inversé
+         les changements, le pilote se compila sans histoire et il
+         fonctionna. Le logiciel <tt>minicom</tt> permet certes de
+         communiquer avec le modem, mais la connexion PPP cause
+         problème. Sous Linux, pour accéder au modem, on utilise un
+         fichier spécial du nom de <tt>/dev/mode</tt>. Dans mon
+         cas, ce dernier pointe sur <tt>/dev/ham</tt> qui constitue
+         un lien vers un module du kernel. Dans le cas d'un modem
+         hardware, <tt>/dev/modem</tt> pourrait pointer sur
+         <tt>/dev/ttyS0</tt> pour dénoter le premier port série.
+         Une application désireuse d'accéder au modem ouvrira donc
+         le fichier <tt>/dev/mode</tt> en lecture et en écriture, y
+         entrera des commanes AT et y lira les résultats.
+      </p>
+      <p>
+         Pourquoi ne pouvons-nous donc pas taper une commande du
+         genre <tt>echo ATA &gt; /dev/modem</tt>? Simplement parce
+         que la commande ATA doit être suivie du caractère ^M (code
+         ASCII 13) et que ce caractère n'est pas envoyé par le
+         shell! La commande ATA constitue un bon test pour un
+         modem, car son résultat est audible; elle met le modem en
+         marche et lui demande d'attendre un appel téléphonique. Si
+         tout va bien, la tonalité se fera entendre dans le
+         haut-parleur du modem. Pour stopper ce tintamarre, ATZ
+         suffira.
+      </p>
+      <p>
+         Tout se passe pour le mieux avec un modem hardware ou
+         mieux, un modem externe (on est certain qu'il est
+         hardware!). Avec un winmodem, le parsing des commandes AT
+         est effectué en logiciel. Il s'adonne que mon driver de
+         modem Linux a la fâcheuse idée de réinitialiser le modem
+         (un petit déclic en témoigne) lors de l'ouverture de
+         <tt>/dev/modem</tt>. Ce déclic provoque le raccrochement
+         si le modem était en communication téléphonique.
+      </p>
+      <p>
+         Par exemple, si j'établis une connexion PPP en utilisant
+         <tt>minicom</tt>, tout va bien. Il existe une solution
+         pour éteindre l'application sans réinitialiser le modem.
+         Je retourne donc sous la console avec une connexion PPP
+         presqu'établie, reste à initialiser <tt>pppd</tt>. Le
+         daemon doit bien entendu ouvrir <tt>/dev/modem</tt> pour
+         poursuivre la communication, le module effectue le reset,
+         puis <tt>pppd</tt> tente de communiquer avec l'autre
+         modem, mais la communication est coupée; l'ordinateur
+         distant ne répond pas! Aucun remède n'a pu fonctionner
+         jusqu'à présent...
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

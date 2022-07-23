@@ -1,0 +1,967 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         Passage à Linux Mandrake 9
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css" href="../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../index.xhtml" class="parents">Le royaume
+               de Eric Buist</a> &gt;&gt; <a href="index.xhtml"
+               class="parents">Informatique</a> &gt;&gt;
+               Configuration informatique
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../sitemap.xhtml" class="sitemap">Plan du
+               site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="xpacpi.xhtml"
+               class="leftsibling">Support ACPI sous Windows XP</a>
+            </td>
+            <td class="thispage">
+               Passage à Linux Mandrake 9
+            </td>
+            <td class="rightsibling">
+               <a href="rh9.xhtml"
+               class="rightsibling">Installation de RedHat Linux
+               9</a> &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         Passage à Linux Mandrake 9
+      </h1>
+      <p>
+         Que ce soit HTML2LATEX, CDRDAO, une version de Xine
+         supportant le cryptage CSS pour la lecture de DVD,
+         EveryBuddy, il y avait souvent quelque chose à télécharger
+         et à installer, car beaucoup de composantes ne se
+         trouvaient pas sur les trois CD d'installation de RedHat
+         Linux 7.3. Et parlons-en, de ces trois CD! Organisation
+         incompréhensible des fichiers, peut-être des outils pour
+         effectuer des recherches mais accessibles unique depuis
+         GNOME pas même doté d'un raccourci clavier pour accéder au
+         menu principal. Souvent, quand il me fallait installer
+         quelque chose depuis les disques de RedHat, il me fallait
+         les insérer les trois, un après l'autre, puis je me
+         rendais compte qu'un autre élément était requis et se
+         trouvait sur un autre CD! De plus, CDRDAO produisait des
+         CD-R gravés apparemment pas complètement standard avec mon
+         graveur Sony. En effet, un CD en mode 1 produit par
+         mkisofs/cdrdao engendrait un disque illisible dans le
+         lecteur de mon portable Toshiba. Et que dire d'un CD Audio
+         produit par Linux et qui ne se lut pas sur un lecteur de
+         série dans une voiture. Et tout cela sans parler des
+         nombreux bogues avec mon imprimante! La version 8 du
+         système était sortie, mais après un examen des fichiers
+         RPM offerts, je me rendis compte que certaines librairies
+         de décodage MP3 avaient disparu. Il se pouvait ainsi que
+         XMMS n'ait pas son support pour les MP3. Ce qu'il allait
+         falloir installer manuellement par la suite, avec tous les
+         autres logiciels hors de la distribution.
+      </p>
+      <p>
+         Question support matériel et convivialité, il y avait
+         place à amélioration. De plus en plus, la nécessité
+         d'essayer une autre distribution émergeait. J'avais
+         entendu à plusieurs reprises que Mandrake produisait une
+         distribution plus simple à installer et mieux adaptée à
+         l'utilisation de Linux pour des non-initiés. Si cela
+         fonctionne bien pour des non-initiés, cela sera
+         merveilleux pour moi tant que des limites d'utilisation
+         n'apparaissent pas.
+      </p>
+      <p>
+         Toutefois, je tenais à mon petit monde RedHat 7.3 qui
+         commençait à être au point. Comme une forme de vie,
+         l'installation Linux de ma machine avait «grandi» et avait
+         atteint une certaine maturité. Ce dont j'avais besoin
+         était là, prêt à servir, prêt à fonctionner. Cela ne me
+         tentait pas non plus d'accomplir de nouveau l'épreuve du
+         téléchargement interminable comme dans le cas de RedHat
+         7.3.
+      </p>
+      <ul>
+         <li>
+            <a href="#download">Le téléchargement</a>
+         </li>
+         <li>
+            <a href="#install">L'installation de Mandrake</a>
+         </li>
+         <li>
+            <a href="#supermounts">Le lecteur DVD tourne dans le
+            beurre</a>
+         </li>
+         <li>
+            <a href="#bugx1">Ça prend une loupe pour lire à
+            l'écran!</a>
+         </li>
+         <li>
+            <a href="#msn">La communication est difficile</a>
+         </li>
+         <li>
+            <a href="#bugx2">De retour avec le bugX!</a>
+         </li>
+         <li>
+            <a href="#missing">Encore plus de composantes à
+            réinstaller!</a>
+         </li>
+         <li>
+            <a href="#printer">L'imprimante qui lambine</a>
+         </li>
+         <li>
+            <a href="#alsa">ALSA</a>
+         </li>
+         <li>
+            <a href="#dvd">Lecture de DVD Vidéo</a>
+         </li>
+         <li>
+            <a href="#conclusion">Conclusion</a>
+         </li>
+      </ul>
+      <h2>
+         <a name="download" id="download">Le téléchargement</a>
+      </h2>
+      <p>
+         Un bon jour, quelqu'un me demanda mon aide pour installer
+         Linux chez lui. Il voulait la distribution Mandrake et
+         avait la 8.2 sur CD. Quoique la 9 était sortie, je me
+         disais que la 8.2 ferait son bonheur et je ne me cassai
+         pas la tête à télécharger. Jeudi, le 7 novembre 2002, nous
+         prîmes rendez-vous et il me signala que Mandrake 9
+         comportait KDE 3 mais pas Mandrake 8.2. Je me rendis alors
+         compte que cela vaudrait la peine de lui obtenir Mandrake
+         9, ne serait-ce que pour la plus grande probabilité de
+         voir sa carte Sound Blaster Audigy fonctionner
+         correctement, mais puisque nous allions nous voir samedi
+         pour faire son installation, cela ne me donnerait pas
+         beaucoup de temps.
+      </p>
+      <p>
+         Vendredi, 8 novembre 2002, je tentai toutefois ma chance
+         malgré tout. J'utilisai le logiciel Download Accelerator
+         Plus et je programmai cinq miroirs, cette fois-ci dans
+         plusieurs pays. J'utilisai deux miroirs en allemagne, un
+         en russie, un en espagne et le dernier en italie. J'obtins
+         alors un taux de transfert stable à un peu plus de 300k/s!
+         Grâce à cette tactique distribuée, je parvins à obtenir
+         les trois CD d'installation de Mandrake 9 en une soirée
+         seulement. Quand j'avais téléchargé RedHat, j'avais visé
+         des miroirs aux États-Unis et au Canada.
+      </p>
+      <p>
+         L'installation de Linux fut difficile chez qui je rendais
+         service. Il y eut de multiples problèmes que je ne
+         détaillerai pas ici, sauf le cas du DVD puisqu'il m'est
+         retombé dessus lors de mon passage à Mandrake. Lors de
+         cette première tentative, des difficultés inexplicables
+         d'installation apparurent. Des erreurs de lecture des
+         fichiers provoquaient un plantage du programme
+         d'installation, si bien que je mettais mes disques en
+         cause. Toutefois, après plusieurs essais, l'installation
+         fut faite. La machine semble la cause du problème,
+         peut-être sa carte Radeon qui bogue le programme
+         d'installation en raison de l'absence du support sous
+         Linux. La carte ATI Radeon est trop récente et certains
+         modèles ne sont pas supportés en standard.
+      </p>
+      <h2>
+         <a name="install" id="install">L'installation de
+         Mandrake</a>
+      </h2>
+      <p>
+         Je m'étais rendu compte que Mandrake proposait des
+         panneaux de configuration pour configurer différentes
+         composantes, que son installation était simple lorsque
+         tout allait bien, mais cela ne valait toujours pas la
+         peine de faire le saut. Les supermounts ainsi que la
+         possibilité de résoudre le problème de lecture des DVD de
+         mon ami m'ont finalement convaincu. Un supermount permet
+         de monter en permanence les lecteurs de CD-ROM et de
+         disquettes. Lorsqu'une tentative d'accès au point de
+         montage (par défaut <tt>/mnt/cdrom</tt> pour le CD-ROM)
+         est effectuée, le module de supermount se charge de
+         vérifier si un disque se trouve dans le lecteur et
+         d'interdire l'accès si tel n'est pas le cas. Le supermount
+         permet d'utiliser des lecteurs comme on le fait sous
+         Windows, sans monter et démonter.
+      </p>
+      <p>
+         Dimanche, le 24 novembre 2002, je me décidai à supprimer
+         RedHat Linux 7.3 afin de mettre Mandrake Linux 9 en place.
+         J'utilisai pour ce faire simplement le programme
+         d'installation de Mandrake qui propose un module de
+         partitionnement du disque dur suffisamment complet pour
+         reformater la partition Linux. J'optai cette fois pour le
+         système ext3fs qui offre des fonctions de journalisation
+         des accès, favorisant la tolérance aux pannes.
+      </p>
+      <p>
+         Lors de l'installation, je sélectionnai plus de packages
+         qu'il ne m'en fallait vraiment afin d'éviter de passer mon
+         temps à installer par après. Je sélectionnai toutes les
+         catégories de packages, espérant que tout serait installé.
+         Je passai même en mode de sélection individuelle des
+         packages et me rendis compte que certains n'étaient pas
+         installés. La liste des packages disponibles étant très
+         longue, je finis par me lasser de la parcourir toute.
+      </p>
+      <p>
+         L'installation se passa sans le moindre incident ni
+         plantage que ce soit. Je m'étais promis que si cela
+         plantait, j'en concluerais que le problème provient des
+         ISO ou des CD, qu'il fallait acheter Mandrake 9 pour
+         l'obtenir et que dans ce cas, aussi bien m'en passer et
+         revenir à mon bon vieux RedHat 7.3. Le système résultant
+         comportait tous les pilotes de matériel, de la carte son à
+         la carte graphique, en passant par la carte réseau. Le
+         support 3D était là pour l'All-in-Wonder 128 Pro d'ATI,
+         ainsi que, comme je me rendrais compte plus tard, la
+         télévision.
+      </p>
+      <p>
+         L'imprimante avait été configurée lors de l'installation.
+         Un module se chargeait de la configuration de CUPS et
+         supportait bien entendu ma petite Canon BJC-250, utilisant
+         pour cela une combinaison de GhostScript et Gimp-Print.
+         Après l'installation, je constatai la présence d'un
+         panneau de configuration sous le menu K, sous-menu
+         Configuration. Ce panneau permet de configurer autant
+         l'imprimante que la résolution du système. Il est même
+         possible d'accéder à un module permettant d'installer des
+         nouveaux packages des CD de la distribution sans devoir
+         connaître les emplacements et les dépendances. Lors de
+         l'ajout d'un package, ce module indique sur quel CD le
+         trouver et effectue l'installation!
+      </p>
+      <p>
+         Le menu K est accessible par la touche Windows du clavier
+         et le clavier français fonctionne très bien. Malgré la
+         version 2.4.19 du kernel, le driver de modem d'Intel
+         théoriquement compatible uniquement avec la 2.4.18
+         s'installa sans poser problèmes et le petit bidule 56k
+         fonctionna sans peine. Le paradis, quoi? Ne parlons pas
+         trop vite...
+      </p>
+      <h2>
+         <a name="supermounts" id="supermounts">Le lecteur DVD
+         tourne dans le beurre</a>
+      </h2>
+      <p>
+         Ce premier bogue apparut dimanche, 24 novembre 2002, dès
+         ma première utilisation du panneau de configuration afin
+         d'installer un package. Au lieu d'ouvrir le tiroir du DVD,
+         le module ouvrit celui du graveur; il attendait un CD de
+         Mandrake dans ce lecteur et non dans le DVD que j'utilise
+         comme lecteur plutôt que le graveur. Ce phènomène est dû
+         aux points de montages. À <tt>/mnt/cdrom</tt> correspond
+         le fichier spécial <tt>/dev/cdrom</tt> qui est géré sous
+         Mandrake par DevFS et qui pointe sur
+         <tt>/dev/cdroms/cdrom0</tt>. Ce qui correspond, par
+         résolution du nouveau lien symbolique et par déduction
+         logique, au graveur. Le DVD, lui, est associé à
+         <tt>/dev/cdrom1</tt>. DevFS gérant les choses, je ne
+         pourrais pas résoudre ce problème de points de montage
+         simplement en inversant les deux liens symboliques comme
+         je l'avais fait sous RedHat.
+      </p>
+      <p>
+         Je dus donc modifier les points de montage dans
+         <tt>/etc/fstab</tt>, ce qui se fait très bien avec le
+         module adéquat du panneau de configuration de Mandrake.
+         Malheureusement, dès le premier accès au point de montage,
+         la diode témoin du lecteur ne contenant pas de CD se mit à
+         clignoter sans arrêt. Le module supermount utilisait, sur
+         ce lecteur DVD, l'attente active afin de déterminer si un
+         disque se trouvait dans le lecteur!!! Non seulement c'est
+         la méthode la plus inefficace mais appliquée ainsi, elle
+         risquait de diminuer la durée de vie de mon appareil.
+      </p>
+      <p>
+         Je dus ainsi désactiver la fonction supermount pour le
+         lecteur. Je fis de même pour le graveur afin de maximiser
+         les chances de fonctionnement de la gravure. Toutefois, si
+         je monte le lecteur sans CD, la diode se remet à clignoter
+         continuellement. Hypothèse: le lecteur est esclave du
+         graveur qui est géré par le module ide-scsi. Le module
+         ide-cd a peut-être besoin d'interroger le maître pour
+         savoir si l'esclave a un disque dans le lecteur, mais le
+         maître est inaccessible puisqu'il est sous la tutelle
+         d'ide-scsi! Toutefois, même en indiquant au noyau
+         d'utiliser ide-scsi pour le lecteur et le graveur, le
+         lecteur réagit toujours de façon indésirable.
+      </p>
+      <h2>
+         <a name="bugx1" id="bugx1">Ça prend une loupe pour lire à
+         l'écran!</a>
+      </h2>
+      <p>
+         De nouveaux problèmes de fontes étaient apparus avec ce
+         Mandrake, et ils étaient plus ardus à résoudre que sous
+         RedHat. Tout commença dimanche, le 24 novembre 2002, avec
+         XEmacs, que j'avais pu faire installer par le programme
+         d'installation. Il offrait moins de fontes que RedHat et
+         je dus chercher longtemps pour en trouver une. Problème
+         similaire avec la Konsole. Pour XEmacs, j'utilisai
+         finalement du Times 23 tandis que sous la Konsole, le
+         choix optimal actuel est le Lucidatypewriter 18.
+      </p>
+      <p>
+         KDE permet sans problèmes de grossir les fontes, mais il
+         n'en est rien pour GTK+/GNOME! Sous RedHat 7.3, j'avais
+         utilisé <tt>gnome-control-center</tt> et dans la section
+         des Thèmes, j'avais imposé ma préférence de fonte.
+         Toutefois, si j'agissais ainsi sous Mandrake (qui comporte
+         GNOME 2), KDE devenait inutilisable. Toutes les icônes du
+         Bureau disparaissaient et la touche ALT-F2 n'affichait
+         plus la boîte d'exécution de commandes. Il fallait
+         redémarrer la session et aucun effet n'était ressenti sur
+         les applications GTK+.
+      </p>
+      <p>
+         Après des recherches, je tentai à la devinette
+         <tt>gtkhtml-properties-capplet</tt>, mais cela ne
+         fonctionna pas. Il semblait donc impossible d'obtenir des
+         fontes plus grandes que la normale trop petite sous les
+         applications GTK+, ce qui affectait entre autres
+         EveryBuddy, GIMP et XMMS. Chez mon ami, le problème avait
+         été moins prononcé en raison de son écran de 21 pouces. Je
+         me demandai à quelques reprises si la seule solution
+         disponible ne serait pas de me doter d'un écran plus
+         grand. Toutefois, outre le prix du moniteur, je ne suis
+         pas certain que mon bureau pourra accueillir un mastodonte
+         de 21 pouces! Quant aux écrans plats, ils sont fondés sur
+         la technologie LCD que je crains en raison de la
+         possibilité de détérioration de l'image par extinction des
+         pixels et les animations plus floues, ainsi que le prix
+         plus élevé. Le simple déplacement du pointeur de la souris
+         constitue, au sens du terme, une animation et si le
+         pointeur disparaît lors du déplacement, ce qui arrive sur
+         mon Toshiba à écran LCD, l'utilisation de la souris sera
+         tout simplement insupportable pour moi!
+      </p>
+      <h2>
+         <a name="msn" id="msn">La communication est difficile</a>
+      </h2>
+      <p>
+         EveryBuddy, le tout en un de la messagerie instantanée
+         sous Linux, causa à son tour d'insolubles problèmes. Le
+         logiciel, installé avec Mandrake, fonctionne très bien,
+         mais il ne permet la communication qu'avec les protocoles
+         ICQ et AIM, pas MSN. Toutefois, plusieurs de mes amis
+         utilisent MSN et puisque j'utilise Linux de façon de plus
+         en plus fréquente, le contact avec eux ne sera plus
+         possible en ligne. Je tentai donc d'installer la version
+         de EveryBuddy que j'avais sous RedHat, mais il fallait la
+         compiler puisque le RPM n'avait jamais voulu fonctionner.
+         La compilation échouait, car il manquait un fichier à
+         libtool!
+      </p>
+      <p>
+         Dimanche, le 24 novembre 2002, je tentai d'utiliser le RPM
+         et il fonctionna uniquement quand je l'installai avec la
+         commande <tt>rpm -Uvh --force</tt>, car la version de
+         glibc était incompatible. La nouvelle version de
+         EveryBuddy fonctionnait, mais le plug-in MSN recherchait
+         la vieille version de glibc et ne démarrait pas
+         correctement. Il allait donc falloir attendre la nouvelle
+         version de EveryBuddy pour avoir MSN, ICQ et AIM sous
+         Mandrake. Une autre solution semblait de plus en plus
+         nécessaire, soit d'installer Wine ou peut-être même VMWare
+         afin de démerrer les clients originaux MSN Messenger,
+         Mirablis ICQ et AOL Instant Messenger sous un émulateur
+         Windows! Toutefois, rien ne garantissait le fonctionnement
+         d'une pareille solution, encore moins une performance
+         acceptable.
+      </p>
+      <p>
+         Je décidai de tenter ma chance avec GAIM, dont j'ai
+         entendu parler je ne sais plus comment. Malheureusement,
+         il semblait ne supporter qu'AIM. Toutefois, <tt>rpm -qi
+         gaim</tt> m'affirmait bien que GAIM supportait ICQ et MSN!
+         Je parvins à activer ces services en accédant à la fenêtre
+         des plug-ins et en chargeant les modules requis qui se
+         trouvaient dans <tt>/usr/lib/gaim</tt>.
+      </p>
+      <p>
+         Malheureusement, la connexion était très instable ce
+         dimanche, 24 novembre 2002. Il m'était impossible de me
+         brancher à ICQ, la connexion AIM se coupait après quelques
+         secondes, même chose pour MSN. Soient ils avaient changé
+         les protocoles, soit Vidéotron causait encore problème. En
+         effet, l'accès à Internet était globalement lent.
+      </p>
+      <p>
+         Le lendemain, la connexion était un peu plus rapide, mais
+         AIM se déconnectait fréquemment et ICQ était difficile à
+         brancher. Je pensai à plusieurs reprises retourner à
+         RedHat 7.3 ou même abandonner Linux à cause des
+         incompatibilités continuelles lors de changements de
+         version. Il me semble de plus en plus que plusieurs
+         logiciels ne se font que refaire parce que les librairies
+         systèmes ne sont pas toujours assez standard et leurs
+         interfaces changent de temps en temps. Un tel état de fait
+         affecte sérieusement l'évolutivité du système et pourrait
+         même dissuader complètement les compagnies de développer
+         pour Linux!
+      </p>
+      <p>
+         GAIM s'est avéré, plus tard, une excellente solution et
+         les connexions aux trois services sont stables. GAIM offre
+         de meilleures fonctionnalités qu'EveryBuddy, dont
+         l'affichage des alias des noms de contact, l'affichage de
+         l'icône du copain dans le cas de AIM et les accents ne
+         posent aucune problème!
+      </p>
+      <h2>
+         <a name="bugx2" id="bugx2">De retour avec le bugX!</a>
+      </h2>
+      <p>
+         Que ce soit GAIM, que ce soient les menus de Mozilla, tout
+         était trop petit et il ne semblait pas y avoir de façons
+         simples d'obtenir une fonte de taille correcte pour moi.
+         Le changement du thème Mozilla pour Modern au lieu de
+         Classic ne provoqua simplement aucun effet sur la taille
+         des fontes; les menus et boîtes de dialogues demeuraient
+         fatigants à lire.
+      </p>
+      <p>
+         Lundi, le 25 novembre 2002, dans KDE Control Center,
+         <b>Look &amp; Feel</b>, <b>Color</b>, je tentai de
+         désactiver l'utilisation des couleurs pour les
+         applications non-KDE. Suite à ce changement, si je
+         supprimais le fichier <tt>~/.gtkrc-kde</tt> et que je
+         redémarrais ma session, il ne se régénérait plus. Un
+         résultat encourageant: le fond de XEmacs avait changé pour
+         du gris au lieu du blanc; quelque chose se passait!
+      </p>
+      <p>
+         Afin d'éviter les déconnexions et reconnexions successives
+         à MSN, ICQ et AIM, je testai mes réglages sur une
+         application GNOME arbitraire, à savoir GNumeric, un
+         chiffrier à la Excel qui ne m'a jamais vraiment fasciné.
+         Dans les fichiers <tt>~/.gtkrc</tt> et
+         <tt>~/.gtkrc-kde</tt>, on trouvait des noms de fontes que
+         je modifiai, remplaçant les 12 par le 14. Il y eut un
+         apparent effet minime lorsque je redémarrai GNumeric, mais
+         ce n'était réellement pas suffisant. Je tentai de monter à
+         16, mais le système revint à se petite fonte 12 points. Le
+         changement entre 12 et 14 était si minime à mes yeux que
+         je conclus que ma manipulation avait été sans effets!
+      </p>
+      <p>
+         Je réactivai donc les couleurs pour les applications
+         non-KDE puis le fond de XEmacs redevint blanc, comme
+         avant. Je modifiai uniquement <tt>~/.gtkrc</tt>, remis les
+         fontes 14 et obtins le petit effet. Je ne pouvais faire
+         mieux et il y eut un autre problème d'accessibilité: les
+         menus d'Acrobat Reader 5 étaient inaccessibles du clavier;
+         la touche ALT-F n'activait pas le menu File, rien ne se
+         passait quand j'appuyais dessus! Le problème étant
+         insoluble, même après mise à jour, j'ai dû le contourner
+         en utilisant KGhostView pour lire les PDF; il le fait
+         aussi bien, sinon plus efficacement qu'Acrobat!
+      </p>
+      <p>
+         Je tentai d'utiliser <tt>xfontsel</tt> afin de trouver une
+         meilleure police à insérer dans <tt>.gtkrc</tt>, mais cet
+         utilitaire ne se trouvait même pas sur la machine! Par
+         comparaison avec le serveur de l'Université de Montréal
+         qui tourne sous RedHat 7.3, il devait se trouver dans le
+         package XFree86-tools, mais celui-ci ne se trouve même pas
+         sur les CD de Mandrake! La police GTK+ était encore trop
+         petite pour lire de longs textes tels que des courriels.
+         Je tentai d'utiliser <tt>xlsfonts</tt> et j'appris ainsi
+         que la fonte que je voulais existait en taille 18 mais pas
+         en taille 16. Si on donne une fonte inexistante à une
+         application X, elle utilise une fonte par défaut. En
+         remplaçant les 14 par des 18 dans <tt>~/.gtkrc</tt>,
+         j'obtins <b>enfin</b> une fonte de taille correcte!
+      </p>
+      <h2>
+         <a name="missing" id="missing">Encore plus de composantes
+         à réinstaller!</a>
+      </h2>
+      <p>
+         Je découvris rapidement que Mandrake était loin d'avoir
+         tout installé il en manquait beaucoup. Par défaut, il
+         n'installe même pas LaTeX! Le logiciel a2ps n'était pas
+         installé, de même que l'utilitaire <tt>hdparm</tt> utilisé
+         pourtant dans les scripts d'initialisation! Cet utilitaire
+         sert, dans ces scripts, à désactiver le DMA (source de
+         problèmes) pour les lecteurs CD, et à configurer le disque
+         dur. J'ai pensé que le problème des supermounts pouvait
+         venir d'une mauvaise initialisation des lecteurs IDE, mais
+         il n'en fut rien. Il fallut installer un grand nombre de
+         composantes dont j'ai oublié l'ensemble, y compris XawTV.
+      </p>
+      <h2>
+         <a name="printer" id="printer">L'imprimante qui
+         lambine</a>
+      </h2>
+      <p>
+         Eh oui, <b>encore</b> cette Canon qui est venue dire son
+         mot pour me demander de réinstaller RedHat! Lundi, le 25
+         novembre 2002, j'avais déjà découvert que l'impression
+         était lente avec la nouvelle version de CUPS et cette
+         damnée Canon. Que ce soit en 360dpi ou même en 180dpi, le
+         temps était long et je présumais même que la consommation
+         d'encre n'était pas optimale. Aucune combinaison d'options
+         me redonnait une vitesse d'impression égale à celle que
+         j'avais obtenue avec Windows ou TurboPrint.
+      </p>
+      <p>
+         J'effectuais mes impressions à l'aide de kprinter, une
+         interface KDE qui peut diriger la requête d'impression
+         vers CUPS ou un autre système d'impression. L'application
+         kprinter peut être appelée par la commande du même nom ou
+         par la fonction Print d'une application KDE. Elle permet
+         de paramétrer les options d'impression locales à l'usager
+         dans le cas de CUPS, ce qui m'est très utile pour faire
+         des tests.
+      </p>
+      <p>
+         Je retournai dans le Panneau de configuration de Mandrake
+         et modifiai l'imprimante afin qu'elle utilise Gimp-Print
+         au lieu de GhostScript+Gimp-Print. Ce qui eut pour effet
+         de perturber tous les réglages de contraste, brillance,
+         densité, ... Et ces réglages étaient inaccessibles depuis
+         le panneau de Mandrake. Je tentai malgré tout d'imprimer,
+         mais il sortit une page noire que je stoppai avant de
+         vider la cartouche. J'utilisai donc l'interface Web sur
+         <tt>http://localhost:631</tt> et je pus reconfigurer la
+         Canon comme il se devait. Gimp-Print était presque aussi
+         lent, il n'y avait rien à faire...
+      </p>
+      <p>
+         Mardi, le 26 novembre 2002, je constatais déjà que, peu
+         importe le réglage, l'impression demeurait trop pâle.
+         M'étant rendu compte de la diminution du poids de la
+         cartouche noire (la seule façon, sur cette Canon,
+         d'estimer très approximativement la quantité d'encre
+         restante!) en la sous-pesant (pas en utilisant une balance
+         pour la peser au gramme près, faut quand même pas
+         exagérer!), j'avais constaté qu'elle s'était vidée
+         beaucoup trop rapidement. La densité à 2 semblait boire
+         deux fois plus d'encre que la normale! Toutefois, encore
+         et encore, avec densité à 1, j'obtenais une impression
+         trop pâle. Avec 1.3, c'était un peu mieux, mais la qualité
+         n'était pas encore bonne.
+      </p>
+      <p>
+         J'envisageai, ce mardi-là, de ne plus utiliser
+         l'imprimante si la cartouche se vidait dans les jours à
+         venir. Je pensai à un certain nombre de solutions afin de
+         pouvoir terminer mes études sans ce cossin.
+      </p>
+      <ol>
+         <li>
+            Acheter une nouvelle imprimante, soit une autre jet
+            d'encre après m'être soigneusement informé de la
+            compatibilité avec Linux, soit une laser supportant le
+            PostScript. Ce choix sera davantage imposé par le prix,
+            car mes préférences s'orientent de plus en plus
+            sérieusement vers la laser qui sera moins coûteuse à
+            maintenir et pourra imprimer plus de feuilles avec un
+            toner, et de meilleure qualité.
+         </li>
+         <li>
+            Utiliser un vieux Pentium 100MHz que mon père s'est
+            acheté pour zigonner et y brancher l'imprimante Canon.
+            Il sera alors possible d'imprimer sur cette machine,
+            mais il me faudra le faire sous Windows ou démarrer
+            l'impression sur la machine même. En effet, SMB exige
+            de recevoir les données en format RAW; la conversion en
+            format d'imprimante se fait du côté client et c'est
+            justement cette étape qui bogue! L'utilisation d'une
+            vieille machine maximisera la disponibilité de la
+            ressource lorsque j'en aurai besoin. J'imprime plus
+            souvent le soir, en revenant de l'école, et mon père
+            travaille à ce moment-là; personne d'autre n'utilise
+            cette vieille machine.
+         </li>
+         <li>
+            Imprimer sur l'Epson de l'ordinateur familial avec les
+            mêmes contraintes que la solution de la picouille, avec
+            en plus celle de disponibilité. Si je ne veux pas
+            redémarrer sous Windows pour la simple tâche
+            d'imprimer, il me faudra imprimer depuis la machine
+            familiale et possiblement attendre que mon frère, ma
+            soeur ou quelqu'un d'autre en ait fini. En fait, cette
+            solution me semble meilleure que la précédente, car
+            elle impose moins de limitations de performance.
+         </li>
+         <li>
+            Imprimer uniquement à l'Université de Montréal où il y
+            a une excellente imprimante laser qui fait son travail!
+            Il m'en coûtera malheureusement 0.08$ la page.
+         </li>
+      </ol>
+      <p>
+         Je manipulai les paramètres sans succès puis retournai à
+         GhostScript+Gimp-Print. Je dus pour cela utiliser le
+         Panneau de Configuration de Mandrake et je me rendis
+         compte qu'un bouton <b>Avancé</b> me permettait de régler
+         les paramètres de densité, contraste, brillance, ...
+      </p>
+      <p>
+         Mercredi, le 27 novembre 2002, j'envisageai l'achat du
+         Universal Inkjet System si la cartouche se vidait dans les
+         jours qui suivraient. Ce système me permettrait de
+         remplir, à moindre coût mais à haut risque de gâchis, la
+         cartouche d'imprimante. Si jamais l'imprimante y passait,
+         encrassée d'encre, eh bien tant pis; elle n'avait qu'à
+         bien fonctionner! Mais pourquoi Gimp-Print ne serait-il
+         pas le fautif dans toute cette affaire? Lorsque
+         j'utilisais GhostScript et LPRng, tout allait bien sauf
+         que je ne pouvais pas modifier mes paramètres d'impression
+         en mode usager. C'est pour cela que j'ai fini par essayer
+         TurboPrint puis CUPS. Toutefois, CUPS offre le support des
+         options de tâches d'impression. Alors, je tentai
+         d'utiliser seulement GhostScript comme pilote CUPS. Avec
+         ma Canon BJC-250, c'est en plein ce qu'il faut! J'obtins
+         ainsi un rendement optimal et plus besoin de régler le
+         paramètre de densité à 2, car ce dernier avait disparu!
+      </p>
+      <p>
+         Depuis la veille, la procédure de test consistait à
+         imprimer page par page un document qui me serait utile
+         pour mes cours et à tester des réglages sur chaque page.
+         Le document final manquait d'uniformité, était difficile à
+         lire par endroits, mais l'économie de papier était au
+         moins réalisée, à défaut de pouvoir sauver de l'encre. Le
+         test d'impression avec GhostScript seul se fit sur un PDF
+         agrandi de psychologie traitant sur la lecture, et il
+         fonctionna très bien!
+      </p>
+      <p>
+         Toutefois, ce n'était que partie remise, car lundi, le 2
+         décembre 2002, la cartouche noire rendit l'âme après un
+         mois d'utilisation seulement! Je décidai d'attendre après
+         les fêtes pour la changer et je devais alors imprimer sur
+         l'Epson. Si la prochaine cartouche se vide en un mois, je
+         prévois cesser d'utiliser la Canon complètement.
+      </p>
+      <p>
+         Pour imprimer sur l'Epson, encore fallait-il la
+         configurer! L'impression avec SAMBA ne fonctionnait pas du
+         tout, rien ne transitait sur le réseau lorsque
+         j'imprimais. Lors de l'affichage de l'état par l'interface
+         Web ou avec <tt>lpstat -p</tt>, CUPS indiquait que la
+         connexion à l'imprimante ne pouvait s'établir et qu'il
+         allait essayer de nouveau dans soixante secondes. Je dus
+         reconfigurer l'imprimante en utilisant l'interface Web et
+         je donnai l'URI <tt>smb://eric@Buist
+         Group/Buist/Epson</tt>, ce qui ne produisit aucun nouvel
+         effet. Je découvris aussi que CUPS, par l'interface Web,
+         ne pouvait configurer GhostScript+Gimp-Print, seulement
+         CUPS+Gimp-Print pour l'Epson. Je modifiai une seconde fois
+         l'URI et cette fois, je mis le mot de passe après mon nom
+         d'usager. Ce qui activa le transfert vers l'imprimante.
+      </p>
+      <p>
+         Mais horrible fut ma surprise lorsque je constatai que
+         l'appareil était en train de vider sa cartouche dans
+         l'impression assidue d'une affreuse page <b>noire</b>!
+         Avant que la cartouche ne soit effectivement vide ou que
+         la page soit complètement remplie, j'éteignis l'imprimante
+         et démarrai une session sous Windows XP, sur l'ordinateur
+         familial. Je tentai de là la suppression de la tâche
+         fautive, mais elle ne se supprimait pas. Windows ne
+         faisait qu'attendre le Messie. Je tentai de rallumer
+         l'imprimante qui se mit alors à remplir une page de
+         gribouillis et passa à une autre page. Si je ne l'avais
+         pas arrêtée, elle aurait poursuivi ce jeu jusqu'à défaut
+         de fonctionnement!
+      </p>
+      <p>
+         Il fallut finalement redémarrer Windows XP complètement
+         afin de recouvrer l'usage de l'imprimante. Si bonne cette
+         Epson soit-il, elle semblait ne pas faire le poids sous
+         Linux! Avant de tenter mon coup de nouveau, je vérifiai
+         les paramètres d'impression proposés par CUPS lorsque
+         j'utilisais la commande Print de mon application. Tout
+         était beau, mais je pris la peine d'enregistrer les
+         options. L'impression sortit enfin, mais c'était encore un
+         peu lent. Toutefois, je me rendis compte que l'appareil
+         avait imprimé en bleu plutôt qu'en noir! J'utilisai alors
+         le Penneau de configuration de Mandrake pour remettre en
+         place GhostScript+Gimp-Print puis j'obtins un résultat
+         correct. Avec GhostScript seulement, plusieurs options
+         manquent et la résolution ne peut descendre sous les
+         360dpi. Avec GhostScript+Gimp-Print, j'ai pu obtenir une
+         qualité correcte même avec une densité de 1. Ce qui fait
+         croire que la consommation d'encre, à long terme, sera
+         correcte. Dans le cas contraire, il me faudra soit
+         n'utiliser cette imprimante que sous Windows, soit
+         réinstaller TurboPrint et tester plusieurs valeurs afin de
+         déterminer un offset qui neutralisera le décalage.
+         J'envisage de plus en plus d'opter pour la première
+         solution, car j'ai assez cherché pour cette tâche
+         élémentaire. Jeudi soir, 5 décembre 2002, j'imprimai un
+         document de trente page en 360dpi plutôt que 360dpi
+         micro-entrelacé, la valeur par défaut. J'obtins alors une
+         performance acceptable, semblable à celle sous Windows. Il
+         n'y eut aucun incident que ce soit lors de cette
+         impression.
+      </p>
+      <p>
+         Ainsi, pour imprimer avec ma Canon BJC-250, il me faut
+         utiliser GhostScript seulement tandis que dans le cas de
+         l'Epson Stylus Color 660, il me faut utiliser
+         GhostScript+Gimp-Print.
+      </p>
+      <h2>
+         <a name="alsa" id="alsa">ALSA</a>
+      </h2>
+      <p>
+         Mardi, le 26 novembre 2002, ma première tentative
+         d'écouter des MP3 se révéla problématique. Dès que GAIM
+         émit un son, la musique se mit à fausser, elle grinçait et
+         cela durait même après le son de GAIM. Je tentai de pauser
+         la musique et la repartir; le son redevint correct. Dès
+         que GAIM émit un nouveau son, XMMS se remit à grincer.
+         Désireux d'optimiser ces choses-là afin de bénéficier de
+         la meilleure expérience auditive possible, j'activai les
+         préférences de XMMS et constatai que malheureusement, XMMS
+         utilisait bien OSS. Le module de carte son était en cause.
+         Jusque-là, je croyais qu'OSS constituait la façon la plus
+         directe, la plus bas niveau, de produire du son sous
+         Linux. Après OSS, c'est le kernel et ses modules.
+         Toutefois, cette connaissance allait changer: OSS n'est
+         pas le seul support du son sous Linux, ALSA constitue une
+         autre solution.
+      </p>
+      <p>
+         Je tentai toutefois, à tout hasard, d'utiliser aRts, ce
+         qui produisit un son parfaitement acceptable,
+         contrairement à RedHat 7.3. La librairie aRts est utilisée
+         par KDE pour produire ses sons systèmes et est donc
+         chargée avec KDE. Je découvris que Mandrake utilisait
+         ALSA, contrairement à RedHat qui utilise OSS, pour gérer
+         le son. ALSA contient un module qui émule (mal) les
+         fonctions de OSS et qui permet donc de rester compatible.
+         Ce bogue, s'il est réel, pourrait aussi affecter
+         l'audition de disques DVD avec Xine.
+      </p>
+      <p>
+         ALSA constitue davantage une source de problèmes que de
+         bienfaits, comme j'ai pu le constater vendredi, le 20
+         décembre 2002. Par erreur, j'appuyai sur
+         CTRL-ALT-Backspace au lieu de CTRL-ALT-+, ce qui ferma ma
+         session X de façon abrupte. aRts, utilisé pour le son sous
+         KDE, garda certaines traces en mémoire et après que j'aie
+         ouvert ma session, je constatai que GAIM n'émettait plus
+         aucun son. Je découvris qu'ESound Daemon, utilisé par
+         GAIM, avait cessé de fonctionner correctement.
+      </p>
+      <p>
+         Un problème similaire s'était déjà produit un autre jour,
+         mais le son sous KDE avait disparu, contrairement au bogue
+         du 20 décembre. Si je remettais en marche ESD,
+         l'application <tt>esd</tt> se bloquait et aucun signal,
+         pas même un SIGKILL, ne pouvait lui faire quitter la
+         mémoire. La dernière fois, j'avais même tenté de fermer X,
+         de fermer ALSA, rien à faire.
+      </p>
+      <p>
+         La seule hypothèse plausible consiste en un sérieux bogue
+         dans ALSA, ou plus probablement dans le module EMU10k1
+         d'ALSA, module responsable de la gestion des Sound Blaster
+         Live!. Le module fautif alloue une ressource système qui
+         n'est jamais plus libérée et qui empêche ALSA de bien
+         fonctionner par la suite. Il est envisageable que ce bogue
+         se produise avec l'émulation OSS d'ALSA seulement, ce
+         qu'ESD utilise peut-être. La seule façon de retrouver le
+         son a été, dans les deux cas, de redémarrer l'ordinateur!
+         Sous Linux, une telle manipulation est tout bonnement
+         inacceptable.
+      </p>
+      <p>
+         ALSA constitue à lui seul un bogue qui va m'inciter, à la
+         longue, à revenir à RedHat. L'installation d'OSS serait
+         trop laborieuse pour en valoir le coup. Il faudra retirer
+         ALSA et recompiler le noyau pour y incorporer OSS, encore
+         faudra-t-il que le noyau de Mandrake soit muni d'OSS!
+      </p>
+      <p>
+         Samedi, 28 décembre 2002, j'effectuai des tests pour
+         tenter de réaliser de la capture vidéo avec ma carte ATI
+         et je me rendis compte, à ma grande déception, que
+         l'enregistrement audio ne fonctionnait pas du tout! Je
+         testai la fonction de façon isolée après avoir constaté
+         l'absence d'outil d'enregistrement dans la distribution et
+         avoir téléchargé yarec. Appelé sans paramètres, yarec se
+         bloqua et cessa de répondre à tout signal, y compris le
+         SIGKILL! Le bogue ALSA avait frappé; ESD non plus ne
+         fonctionnait plus.
+      </p>
+      <p>
+         Après plusieurs essais infructueux, je tentai de
+         désactiver aRts et obtins enfin un enregistrement audio.
+         Toutefois, la sélection de la source ne fonctionnait pas,
+         car yarec n'enregistrait que du silence. Je dus installer
+         de nouveaux packages, à savoir alsa-utils et
+         libalsa2-devel afin de régler le bogue. L'application
+         alsamixer constitue un mixer ALSA permettant de choisir
+         correctement la source pour l'enregistrement. Je découvris
+         aussi arecord, dans le package alsa-utils, qui effectue
+         l'enregistrement en utilisant ALSA.
+      </p>
+      <p>
+         Plus tard, je réactivai aRts pour retrouver mes sons KDE
+         et constatai qu'en inhibant le mode full duplex, je
+         pouvais enregistrer sans problèmes. Le mode full duplex
+         mobilise probablement le périphérique d'enregistrement qui
+         ne peut alors plus être utilisé par un autre logiciel.
+         Peut-être le réglage va-t-il aider à enrayer le bogue
+         ALSA.
+      </p>
+      <h2>
+         <a name="dvd" id="dvd">Lecture de DVD Vidéo</a>
+      </h2>
+      <p>
+         Le lecture de DVD pose de sérieux problèmes sous Linux en
+         raison du cryptage CSS. Pour lire le contenu des disques
+         vidéo, il est nécessaire d'utiliser une clé pour décrypter
+         le contenu CSS. Malheureusement, une telle clé doit être
+         achetée avec les redevances liées aux différents brevets
+         liés à la technologie du DVD! Aucune compagnie ne s'est
+         jusqu'à présent lancée dans la commercialisation d'un
+         lecteur DVD logiciel pour Linux. Bien que la carte
+         graphique ATI comporte des fonctions de décodage hardware,
+         un logiciel doit être là pour les piloter et ce dernier
+         aussi brille par son absence! La seule solution actuelle
+         consiste à utiliser des décodeurs faisant appel à des
+         librairies fondées sur DeCSS, un utilitaire très
+         controversé de décryptage CSS qui a servi pendant quelques
+         temps à la copie illicite de disques DVD.
+      </p>
+      <p>
+         Il existe plusieurs lecteurs DVD pour Linux dont Xine,
+         MPLayer et Oggle. J'ai choisi Xine parce qu'il était déjà
+         installé, mais le plug-in CSS ne l'était pas. Sous RedHat
+         7.3, après de longues et difficiles recherches, je tombai
+         sur un site offrant des versions non officielles du
+         logiciel avec CSS inclus. Je ne peux ici donner l'adresse
+         de ce site, car elle pourrait changer ou disparaître
+         n'importe quand!
+      </p>
+      <p>
+         Malheureusement, l'usage de cette mise à jour
+         non-officielle ne fonctionnait pas sous Mandrake 9, car la
+         version de libpng était incorrecte. RedHat 7.3 est livré
+         avec la version 1.0 de libpng tandis que Mandrake 9
+         fournit la version 1.2 qui comporte certaines différences.
+         Xine recherchait <tt>libpng.so.2</tt> tandis que Mandrake
+         contenait seulement <tt>libpng.so.3</tt>. Il allait me
+         falloir installer la vieille version de libpng tout en
+         évitant que cette installation n'affecte les fichiers de
+         la nouvelle version, limitant ainsi les problèmes de
+         compatibilité.
+      </p>
+      <p>
+         Vendredi, 29 novembre 2002, je téléchargeai <a
+         href="http://www.libpng.org">libpng</a> 1.0.15 et utilisai
+         les commandes suivantes pour traiter le fichier.
+      </p>
+<pre>
+tar -zxvf libpng-1.0.15.tar.gz
+cd libpng-1.0.15
+cp scripts/makefile.linux ./Makefile
+make
+    
+</pre>
+      <p>
+         Ce qui amorça la compilation de libpng qui se passa avec
+         succès. Ensuite, après être devenu l'utilisateur root,
+         j'ai recopié la nouvelle librairie et créé le lien
+         symbolique.
+      </p>
+<pre>
+cp libpng10.so.0.1.0.15 /usr/lib
+ln -s /usr/lib/libpng10.so.0.1.0.15 /usr/lib/libpng.so.2
+cd ..
+rm -rf libpng-1.0.15
+    
+</pre>
+      <p>
+         Grâce à ce réglage, Xine peut charger la vieille version
+         de libpng tandis que les nouvelles applications peuvent
+         charger la nouvelle. Pour installer Xine, il faudra
+         malheureusement forcer l'installation en raison des
+         fichiers déjà en place et de la dépendance au RPM de la
+         vieille version de libpng! Il faudra utiliser, en root, la
+         commande <tt>rpm -Uvh --nodeps --force *.rpm</tt> à
+         l'emplacement de la version non officielle de Xine.
+         Finalement, je m'assurai que les packages xine-arts,
+         xine-alsa et xine-esd étaient bien installés afin de
+         pouvoir forcer le logiciel à utiliser autre chose qu'OSS.
+         Pour ce faire, je dus démarrer <tt>xine --help</tt> pour
+         apprendre que l'option audio pouvait supporter aRts. Il me
+         fallut démarrer une seule fois <tt>xine -A arts</tt> afin
+         d'obtenir le changement de configuration.
+      </p>
+      <h2>
+         <a name="conclusion" id="conclusion">Conclusion</a>
+      </h2>
+      <p>
+         Le passage à Mandrake m'a amené bien plus de problèmes que
+         de bénéfices et je ne suis pas certain que, si c'était à
+         refaire, je prendrais la même décision. Il y eut un plus
+         grand nombre de packages à installer après l'installation
+         et ce, même si j'avais demandé à Mandrake de tout
+         installer. Les supermounts n'ont pas fonctionné du tout à
+         cause de ma configuration IDE et j'ai éprouvé de nombreux
+         problèmes supplémentaires avec mon imprimante.
+      </p>
+      <p>
+         Toutefois, le passage à ALSA offre une architecture de
+         gestion du son plus avancée et le NTFS lecture seule est
+         supporté par défaut. Je peux accéder à ma partition
+         Windows XP depuis Linux, mais je ne peux modifier son
+         contenu. Mandrake propose aussi de nouveaux jeux
+         intéressants tels que Frozen Bubble et Rocks n Diamonds.
+         Ces jeux font appel à la librairie SDL et offrent un
+         niveau de performance tout à fait surprenant, rivalisant
+         même avec les jeux Windows DirectX. Les panneaux de
+         configuration de Mandrake simplifient les tâches comme la
+         définition des points de montage, la configuration du
+         réseau et celle des imprimantes. Contrairement à RedHat 8.
+         Mandrake 9 a GNOME 2 mais aussi le support des MP3.
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

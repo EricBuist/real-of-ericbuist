@@ -1,0 +1,559 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         Un enregistreur DVD qui crée des disques incompatibles à
+         l'occasion
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css"
+      href="../../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../../index.xhtml" class="parents">Le
+               royaume de Eric Buist</a> &gt;&gt; <a
+               href="../index.xhtml"
+               class="parents">Informatique</a> &gt;&gt; Problèmes
+               marquants &gt;&gt; <a href="../resolved.xhtml"
+               class="parents">Quelques bogues résolus</a> &gt;&gt;
+               <a href="index.xhtml" class="parents">Bogues
+               logiciels résolus</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../../sitemap.xhtml" class="sitemap">Plan
+               du site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="envelopes.xhtml"
+               class="leftsibling">Impression d'enveloppes: encore
+               des problèmes!</a>
+            </td>
+            <td class="thispage">
+               Un enregistreur DVD qui crée des disques
+               incompatibles à l'occasion
+            </td>
+            <td class="rightsibling">
+            </td>
+         </tr>
+      </table>
+      <h1>
+         Un enregistreur DVD qui crée des disques incompatibles à
+         l'occasion
+      </h1>
+      <p>
+         Vendredi, 8 février 2008, ma mère s'est décidée à acheter
+         un enregistreur DVD DMR-ES16 de marque Panasonic. Cet
+         appareil possède toutes les fonctionnalités d'un
+         magnétoscope, sauf qu'il enregistre sur des DVD plutôt que
+         des cassettes VHS. Évidemment, le plus grand intérêt de
+         l'enregistrement sur DVD est de pouvoir facilement
+         retrouver le début d'un film, sans avoir à avancer et à
+         reculer une cassette. L'appareil comporte quelques autres
+         avantages intéressants, dont la possibilité de transférer
+         le contenu enregistré facilement vers un ordinateur pour
+         une édition future, la possibilité de copier les DVD
+         enregistrés pour en faire une sauvegarde du contenu et, en
+         théorie du moins, la préservation de la qualité de
+         l'enregistrement avec le temps. Malheureusement, ce
+         dernier point n'est pas vrai en pratique, car il semble
+         que les DVD inscriptibles s'usent et deviennent de plus en
+         plus difficiles à lire avec le temps; j'ai été obligé de
+         refaire des copies de disques à l'occasion.
+      </p>
+      <p>
+         L'appareil est presque aussi simple à utiliser qu'un
+         magnétoscope conventionnel. Il se branche de la même
+         façon, il est doté d'une minuterie permettant
+         l'enregistrement différé et se contrôle à l'aide d'une
+         télécommande. Il faut par contre passer par une étape de
+         formatage avant de pouvoir enregistrer sur un DVD et
+         finaliser les DVD non réinscriptibles avant de pouvoir les
+         utiliser dans un autre lecteur ou avec l'ordinateur.
+         L'appareil comporte quelques options absentes sur les
+         magnétoscopes à cassettes: la possibilité de nommer les
+         films enregistrés et de créer un menu de base, une option
+         permettant d'ajuster automatiquement la qualité de
+         l'enregistrement pour occuper tout l'espace restant sur le
+         disque et la possibilité de lire des DVD Vidéo du
+         commerce, des CD Audio et des disques contenant des photos
+         ou des fichiers MP3.
+      </p>
+      <p>
+         L'appareil soulève aussi son lot de problèmes. D'abord, il
+         peut arriver qu'il refuse d'enregistrer un film donné,
+         prétextant que le contenu est protégé. Ceci est dû à un
+         standard nommé CGMS qui permet d'inscrire dans le signal
+         analogique venant du cablo-distributeur une information
+         interdisant aux enregistreurs de conserver une copie du
+         signal. Contacter le cablo-distribteur ne sert à rien: il
+         vous dira que le problème vient des producteurs de
+         contenu. Contacter Panasonic ramène au cablo-distributeur
+         et aux distribteurs de contenus. Contacter les
+         distributeurs ramènera sans doute à Panasonic et au
+         cablo-distributeur! Par chance, ce problème n'est pas
+         encore très fréquent, du moins avec Vidéotron. S'il
+         devient vraiment problématique, des appareils appelés
+         <i>video stabilizers</i> existent pour le contourner, mais
+         ils sont un peu coûteux, entre 50$ et 100$. On peut en
+         trouver, par exemple, chez <a
+         href="http://www.lasourcecc.ca">La Source</a>.
+      </p>
+      <p>
+         Mais le problème principal de ces appareils est que,
+         parfois, ils n'arrivent pas à relire les disques qu'ils
+         ont produits ou à les finaliser! Dans ce cas-là, Panasonic
+         vous dira qu'il n'y a pas grand-chose à faire, à part
+         réessayer plus tard avec une autre marque de DVD! Ceci est
+         particulièrement choquant quand le film enregistré n'est
+         pas rediffusé plusieurs fois ou que des disques d'autres
+         marques avec lesquels il faudrait tester ne sont pas
+         disponibles dans les magasins de grande surface près de
+         chez soi.
+      </p>
+      <p>
+         Sur cette page, je vais regrouper tous les cas de disques
+         problématiques que je rencontrerai avec cet enregistreur.
+         Pour le moment, il y en a deux, mais je prévois qu'il y en
+         aura d'autres! J'ai placé cette page dans la section des
+         bogues logiciels, car j'ai bien l'impression que le
+         problème est causé non pas par l'électronique permettant
+         la gravure de DVD mais par le micro-logiciel qui s'exécute
+         sur l'appareil.
+      </p>
+      <h1>
+         Un DVD+RW devenu illisible
+      </h1>
+      <p>
+         Le DVD+RW en question contenait trois titres enregistrés
+         en mode LP (qui permet de stocker quatre heures sur un DVD
+         simple couche). Après avoir enregistré la troisième
+         émission sur le disque, j'ai créé le menu principal afin
+         de m'assurer que le disque soit lisible sur un autre
+         lecteur et que mes parents puissent accéder aux émissions
+         par le biais d'un menu. Mon père a pu sans problème
+         écouter l'émission enregistrée, mais quand ma mère a
+         essayé, elle s'est heurtée à un message d'erreur indiquant
+         que le disque était invalide!
+      </p>
+      <p>
+         Le disque était illisible dans les deux lecteurs en notre
+         possession tandis que l'enregistreur indiquait que le
+         disque était mal formaté et proposait de le reformater.
+         Évidemment, agir ainsi aurait effacé tout le contenu
+         enregistré! Mais sur l'ordinateur, on pouvait lire le
+         disque et en écouter les émissions!
+      </p>
+      <p>
+         J'ai alors tenté de recopier le disque avec mon
+         ordinateur. Pour cela, j'en ai extrait le contenu avec la
+         commande <tt>cp /dev/cdrom dvd.iso</tt> depuis Linux. J'ai
+         ensuite gravé l'image ISO résultante sur le DVD+RW. Le
+         disque recréé n'a pas fonctionné du tout! Mais il était
+         encore lisible dans l'ordinateur.
+      </p>
+      <p>
+         Ma deuxième tentative a été de recopier les fichiers sur
+         le DVD, à savoir le répertoire <tt>VIDEO_TS</tt> contenant
+         toute la vidéo. J'ai ensuite utilisé <tt>growisofs</tt>,
+         encore sous Linux, pour graver une nouvelle copie du DVD.
+         Cette copie-là n'a pas fonctionné du tout.
+      </p>
+      <p>
+         J'ai alors recréé la structure vidéo avec
+         <tt>dvdauthor</tt> sans aucune forme de succès. J'en suis
+         alors venu à tout réencoder la vidéo avec
+         <tt>mencoder</tt> pour obtenir encore une fois un disque
+         invalide! Pourtant, le contenu (mal)traité était toujours
+         lisible sur l'ordinateur.
+      </p>
+      <p>
+         Le problème était que <tt>genisoimage</tt>, employé par
+         <tt>growisofs</tt> pour créer la structure du DVD, boguait
+         sous Ubuntu 8.04. L'option <tt>-dvd-video</tt> nécessaire
+         pour formater le disque correctement ne faisait pas son
+         travail correctement. La seule solution que j'ai trouvée a
+         été de télécharger et recompiler moi-même <a
+         href="http://cdrecord.berlios.de/private/cdrecord.html">cdrtools</a>.
+         Avec la commande <tt>mkisofs</tt> ainsi obtenue, je pus
+         créer une image ISO compatible DVD que je gravai avec
+         <tt>growisofs</tt>. Le disque ainsi recréé fonctionna donc
+         enfin!
+      </p>
+      <p>
+         Ainsi, pour ce cas, il suffisait de copier le contenu du
+         DVD sur le disque dur et le regraver avec les options
+         nécessaires pour qu'il soit compatible avec les lecteurs
+         DVD. Sous Linux, on peut arriver à cela avec une suite de
+         commandes du genre:
+      </p>
+<pre>
+mkdir dvd
+cp -a /media/cdrom/* dvd
+mkisofs -dvd-video -V Titre -o dvd.iso dvd
+growisofs -Z /dev/cdrw1=dvd.iso -dvd-compat
+</pre>
+      <p>
+         Une variante simple de ce problème que je peux imaginer
+         est que le disque soit illisible même par l'ordinateur.
+         Dans ce cas, il vaut vraiment la peine de tester avec <a
+         href="http://www.isobuster.com/">IsoBuster</a> comme nous
+         allons voir dans la section suivante. Si le contenu
+         extrait n'est pas trop suspect, on peut le regraver sur un
+         DVD et tester.
+      </p>
+      <h1>
+         Finalisation impossible sur DVD+R
+      </h1>
+      <p>
+         Cette fois, le disque en question était un DVD+R contenant
+         deux titres: un enregistré en mode LP (qui permet un
+         maximum de quatre heures sur un DVD simple couche) et un
+         enregistré en mode FR (qui permet d'occuper tout l'espace
+         restant sur le disque). J'ai donné un nom au disque ainsi
+         qu'à chacun de mes deux titres, puis j'ai entamé la
+         finalisation. L'enregistreur commença alors à construire
+         le menu du disque et l'afficha, puis une barre de
+         progression apparut. Jusque-là, tout était normal, mais
+         peu après, je reçus un message d'erreur indiquant un échec
+         de finalisation. Choqué, je fis une autre tentative qui se
+         solda encore par un échec. J'essayai alors d'enregistrer
+         quelques secondes de vidéo sur le disque, d'effacer ce
+         troisième titre parfaitement inutile, puis de réessayer.
+         Encore une fois, j'obtins un échec de finalisation. De
+         plus en plus furieux, car les deux films de James Bond sur
+         le DVD ne seraient pas rediffusés de sitôt et je les
+         voulais pour avoir la collection complète, j'éjectai le
+         DVD tout en maudissant l'enregistreur, puis le remis
+         dedans. Le disque était encore lisible, mais l'appareil
+         s'obstinait à afficher que la finalisation était
+         impossible chaque fois que je lui demandais de
+         l'effectuer. Cette fois-ci, aucun travail n'était tenté,
+         seulement un message d'erreur était affiché!
+      </p>
+      <p>
+         J'éjectai donc le DVD, éteignis tout et retournai à ma
+         chambre disque en main. J'insérai la chose dans mon
+         lecteur d'ordinateur qui tourna un peu dans le beurre
+         avant de s'avouer vaincu. Il ne pouvait rien déchiffrer
+         sur le disque. J'essayai avec mon graveur qui tourna dans
+         le beurre un peu plus longtemps mais toujours sans
+         déchiffrer quoi que ce soit. J'essayai de finaliser le
+         disque avec <tt>wodim</tt>, mais celui-ci échoua. Je fis
+         plusieurs essais, refis une tentative dans l'enregistreur
+         DVD, mais celui échoua encore, me répétant que la
+         finalisation était impossible.
+      </p>
+      <p>
+         Mais il pouvait encore lire les deux films sur le disque.
+         Seul l'enregistreur pouvait les lire, dès lors.
+         J'envisageai alors de brancher la sortie de l'enregistreur
+         sur l'entrée du magnétoscope à cassettes pour pouvoir
+         enregistrer le contenu du disque sur une cassette VHS qui,
+         au moins, serait utilisable par n'importe quel
+         magnétoscope. Une autre variante me vint à l'esprit:
+         enregistrer le contenu du disque avec mon ordinateur et en
+         faire un nouveau DVD. Mais tout ceci demanderait de
+         modifier le branchement du cinéma maison, chose un peu
+         compliquée à faire étant donné que tout est derrière un
+         meuble et les fils sont trop courts si bien qu'il faut
+         tasser et le meuble, et le gros téléviseur pour venir à
+         bout d'aller en arrière. De plus, je n'avais pas du tout
+         envie de débrancher mon ordinateur de table et le
+         rebrancher ailleurs pour le test. Je ne pouvais pas faire
+         le travail avec mon portable, car ce dernier n'est pas
+         équipé d'un synthoniseur TV.
+      </p>
+      <p>
+         Avant d'en venir à cette solution, ou à l'achat par
+         Internet de la collection complète des James Bond, je fis
+         des recherches sur Google afin de trouver un moyen de
+         récupérer les données. Je ne trouvai absolument rien pour
+         Linux et me fatiguai bien assez vite de chercher. Je
+         redémarrai sous Windows Vista, pestai contre sa lenteur,
+         finis par désactiver Aero et tout le service des thèmes.
+         Puis j'essayai avec <a
+         href="http://www.diskinternals.com/cd-dvd-recovery/">CD-DVD-Recovery</a>
+         de DiskInternals et DVD Decryptor sans aucun succès. Puis
+         je tentai mon coup avec <a
+         href="http://www.isobuster.com/">IsoBuster</a>.
+      </p>
+      <p>
+         Ce dernier outil semblait trouver enfin quelque chose sur
+         le disque défectueux. Il détecta deux pistes, dont une
+         contenait des données dans le format ISO et UDF. Je
+         cliquai du bouton droit sur le titre <b>Track 01</b> et
+         indiquai au logiciel d'extraire le contenu de cette piste.
+         IsoBuster créa alors un fichier à l'extension
+         <tt>.tao</tt> et se mit à y inscrire des données, très
+         très très lentement. Il en vint très rapidement à
+         m'afficher une erreur. Je lui indiquai de remplacer le
+         secteur illisible par des zéros et de continuer. Le
+         logiciel continua ainsi pendant plus d'une heure. Rendu à
+         plus de 90%, le fichier créé ne comportait que quelques
+         méga-octets de données! Il n'y avait aucun espoir pour que
+         mon film soit là. Au mieux, j'en aurais les premières
+         secondes!
+      </p>
+      <p>
+         Pendant cette tantative désespérée, j'écrivis à Panasonic
+         pour leur demander conseil. J'étais tellement choqué,
+         tellement désespéré, que j'envisageais envoyer le disque
+         défectueux au diable le verre et payer un professionnel
+         qui pourrait en récupérer le contenu à l'aide d'un
+         appareil ou d'un logiciel spécial. Mais à bien y penser,
+         il se peut fort probablement que cette opération aurait
+         été plus coûteuse encore qu'acheter un coffret contenant
+         tous les James Bond sur DVD!
+      </p>
+      <p>
+         Je fis ensuite une seconde tentative avec IsoBuster. Cette
+         fois, je cliquai du bouton droit sur le sous-élément de
+         <b>Track 01</b> correspondant à l'image ISO, puis demandai
+         l'extraction. IsoBuster se mit alors à créer plusieurs
+         fichiers dans le répertoire que je lui indiquai. Je me
+         rendis vite compte qu'il était en train de reconstituer la
+         structure du DVD!
+      </p>
+      <p>
+         Mais mon espoir diminua quelque peu lorsque je vis le tas
+         de données grossir, grossir, grossir, puis dépasser la
+         barre des quatre giga-octets. Il se pouvait aussi que
+         IsoBuster ait enregistré ma commande de remplir les
+         secteurs défectueux avec des zéros et que je me retrouve,
+         au final, avec un véritable tas de merde ne contenant rien
+         de lisible! Mais l'opération finit par prendre fin, et
+         IsoBuster ne rapporta aucune erreur.
+      </p>
+      <p>
+         Je me fis alors une copie des fichiers, déplorant la
+         petite taille de mon disque dur occasionnée par son
+         partitionnement. Pour des projets de traitement de DVD de
+         ce genre, il faut conserver chaque étape, ce qui demande
+         des giga-octets d'espace libre qui ne sont pas toujours
+         disponibles sur une même partition du disque. Par chance,
+         il y avait encore beaucoup de place sur une autre
+         partition. Je pus donc faire la copie, puis exécuter
+         l'outil <a
+         href="http://www.videohelp.com/tools/FixVTS">FixVTS</a>
+         sur cette copie. Cet outil fit un grand ménage de
+         printemps dans mon tas de données, en ramenant la taille à
+         environ quatre giga-octets. Il y avait donc un certain
+         espoir que mes deux films soient là!
+      </p>
+      <p>
+         Je jugeai bon de redémarrer sous Linux pour tester les
+         fichiers, car je n'avais rien d'installé sous Windows
+         Vista pour lire les DVD et je craignais que Windows ne
+         fasse le fou. Sous Linux, je savais au moins MPlayer
+         capable de lire les fichiers. Et il le fut! Je pus revoir
+         le début des deux films enregistrés, avec l'image et le
+         son corrects!
+      </p>
+      <p>
+         Mais je craignais que FixVTS n'ait effacé des bouts de
+         films et que la structure créée par l'enregistreur soit
+         endommagée. Je décidai donc de ne pas graver le répertoire
+         traité par FixVTS tel quel et de plutôt recréer la
+         structure vidéo. Mais il se peut que graver le répertoire
+         traité par FixVTS, avec les options nécessaires pour la
+         compatibilité avec les lecteurs DVD, eut été suffisant
+         pour résoudre mon épineux problème.
+      </p>
+      <p>
+         Ainsi, je supprimai la copie traitée par FixVTS. Les
+         fichiers extraits par IsoBuster se trouvaient dans
+         <tt>/media/windata/TST/DVD_VIDEO_RECORDER</tt>. Il y avait
+         là un répertoire <tt>VIDEO_TS</tt> contenant environ 8
+         giga-octets de données vidéo. La première étape de mon
+         traitement consista à en extraire les deux films, ce qui
+         peut se faire facilement et sans aucune perte de qualité
+         avec MEncoder:
+      </p>
+<pre>
+mencoder -oac copy -ovc copy -of mpeg -mpegopts format=dvd:tsaf -dvd-device /media/windata/TST/DVD_VIDEO_RECORDER/ -o moonraker.mpg dvd://1
+mencoder -oac copy -ovc copy -of mpeg -mpegopts format=dvd:tsaf -dvd-device /media/windata/TST/DVD_VIDEO_RECORDER/ -o yeux.mpg dvd://2
+</pre>
+      <p>
+         Non seulement MEncoder se débrouilla-t-il très bien avec
+         la structure vidéo endommagée, mais en plus, il produisit
+         deux fichiers MPEG totalisant une taille d'à peu près
+         quatre giga-octets. Je les testai et constatai avec joie
+         qu'ils semblaient contenir les deux films enregistrés! Il
+         ne restait donc plus qu'à créer une structure vidéo toute
+         neuve pour les héberger, puis à graver cela sur un nouveau
+         DVD.
+      </p>
+      <p>
+         Pour créer la structure, j'utilisai l'utilitaire
+         <tt>dvd-menu</tt> qui vient avec DVD Slideshow. Voici la
+         commande que j'appelai pour cela:
+      </p>
+<pre>
+dvd-menu -t Moonraker -t "Rien que pour vos yeux" -f moonraker.mpg -f yeux.mpg  -n "James Bond" -c -D
+</pre>
+      <p>
+         Cette ligne de commande crée un fichier <tt>vmgm.xml</tt>
+         compatible avec la commande <tt>dvdauthor</tt> qui crée la
+         structure vidéo proprement dite. J'ai utilisé l'option
+         <tt>-D</tt> afin d'empêcher <tt>dvd-menu</tt> d'appeler
+         automatiquement <tt>dvdauthor</tt>, car je voulais
+         examiner le fichier XML créé. Voici le contenu de ce
+         fichier.
+      </p>
+<pre>
+&lt;dvdauthor dest="/media/data/Movies/Bond/dvd_fs" jumppad="0"&gt;
+        &lt;vmgm&gt;
+           &lt;menus&gt;
+               &lt;pgc entry="title" &gt;
+                    &lt;vob file="/media/data/Movies/Bond/menu.vob" pause="inf"/&gt;
+                        &lt;button&gt; jump title 1; &lt;/button&gt;
+                        &lt;button&gt; jump title 2; &lt;/button&gt;
+                    &lt;post&gt; jump vmgm menu 1; &lt;/post&gt;
+                &lt;/pgc&gt;
+           &lt;/menus&gt;
+        &lt;/vmgm&gt;
+        &lt;titleset&gt;
+        &lt;titles&gt;
+                &lt;pgc&gt;
+                &lt;vob file="moonraker.mpg"  /&gt;
+                &lt;post&gt; jump title 2; &lt;/post&gt;
+                &lt;/pgc&gt;
+                &lt;pgc&gt;
+                &lt;vob file="yeux.mpg"  /&gt;
+                &lt;post&gt; call vmgm menu 1; &lt;/post&gt;
+                &lt;/pgc&gt;
+        &lt;/titles&gt;
+&lt;/titleset&gt;
+&lt;/dvdauthor&gt;
+</pre>
+      <p>
+         Pour traiter ce fichier, il suffit d'appeler <tt>dvdauthor
+         -x vmgm.xml</tt>, ce qui crée la structure vidéo dans le
+         répertoire <tt>dvd_fs</tt> indiqué dans le fichier XML.
+         Malheureusement, DVD Author afficha un avertissement à
+         propos de la résolution dans le cas du second fichier
+         vidéo. J'aurais certes pu passer outre et graver la
+         structure résultante, mais je m'en serais peut-être mordu
+         les doigts éventuellement. Je tentai plutôt d'investiguer
+         en appliquant la commande <tt>tcprobe -i</tt> sur le
+         fichier et constatai que sa résolution était 352x480 au
+         lieu de 720x480. Ainsi, le mode FR avait diminué la
+         résolution pour que le fichier vidéo prenne moins
+         d'espace! Cela compliqua un peu les choses avec DVD
+         Author, car sur un DVD, un titre ne peut pas contenir
+         plusieurs programmes avec des résolutions différentes. Je
+         dus créer un ensemble de titres pour chacun de mes films,
+         puis altérer les instructions de saut dans le menu pour
+         que le tout fonctionne. Mais cela ne fonctionna pas tant
+         que je n'activai pas l'option <tt>jumppad</tt>. Voici le
+         fichier XML final qui me permet d'avoir ma structure vidéo
+         avec DVD Author.
+      </p>
+<pre>
+&lt;dvdauthor dest="/media/data/Movies/Bond/dvd_fs" jumppad="1"&gt;
+        &lt;vmgm&gt;
+           &lt;menus&gt;
+               &lt;pgc entry="title" &gt;
+                    &lt;vob file="/media/data/Movies/Bond/menu.vob" pause="inf"/&gt;
+                        &lt;button&gt; jump titleset 1 title 1; &lt;/button&gt;
+                        &lt;button&gt; jump titleset 2 title 1; &lt;/button&gt;
+                    &lt;post&gt; jump vmgm menu 1; &lt;/post&gt;
+                &lt;/pgc&gt;
+           &lt;/menus&gt;
+        &lt;/vmgm&gt;
+          &lt;titleset&gt;
+            &lt;titles&gt;
+                &lt;pgc&gt;
+                &lt;vob file="moonraker.mpg"  /&gt;
+                &lt;post&gt; call vmgm menu; &lt;/post&gt;
+                &lt;/pgc&gt;
+            &lt;/titles&gt;
+          &lt;/titleset&gt;
+        &lt;titleset&gt;
+     &lt;titles&gt;
+                &lt;pgc&gt;
+                &lt;vob file="yeux.mpg"  /&gt;
+                &lt;post&gt; call vmgm menu; &lt;/post&gt;
+                &lt;/pgc&gt;
+        &lt;/titles&gt;
+&lt;/titleset&gt;
+&lt;/dvdauthor&gt;
+</pre>
+      <p>
+         La structure VOB enfin créée, je l'ai testée avec succès
+         sous Totem (Totem est plus sensible aux erreurs que
+         MPlayer si bien que c'est un meilleur test), puis j'ai
+         créé l'image ISO avec <tt>mkisofs</tt>, puis enfin un
+         prototype sur DVD+RW avec <tt>growisofs</tt>. Le disque
+         fonctionna, à ma grande joie, et l'image me sembla
+         parfaitement correcte! Je gravai donc une seconde copie,
+         cette fois sur DVD-R; ce serait la version définitive.
+      </p>
+      <p>
+         Voilà! Loin d'être simple, n'est-ce pas? Mais au moins,
+         j'ai pu récupérer mon disque.
+      </p>
+      <h1>
+         Comment éviter ces problèmes?
+      </h1>
+      <p>
+         Pour éviter les problèmes de finalisation, il vaut
+         toujours mieux ne graver que sur des disques
+         réinscriptibles avec les enregistreurs DVD. Même si
+         l'appareil merde d'une façon ou d'une autre, le disque
+         ainsi produit demeure lisible par l'ordinateur et son
+         contenu peut donc être récupéré plus facilement. Mais
+         habituellement, il suffira de recopier le DVD+RW sur un
+         DVD+R ou un DVD-R avec un ordinateur pour en obtenir une
+         copie finale non réinscriptible.
+      </p>
+      <p>
+         Il faut bien entendu utiliser des disques de qualité pour
+         réduire les chances de défaillance. D'après ce que j'ai
+         lu, il vaudrait mieux employer des disques de marque
+         Panasonic avec les enregistreurs de cette marque, et
+         privilégier les disques fabriqués au Japon sur ceux
+         importés de Taïwan.
+      </p>
+      <p>
+         Et les DVD-RAM, dans tout ça? Eh bien, ils sont à exclure,
+         car leur compatibilité avec d'autres lecteurs est plutôt
+         limitée. Bon nombre de lecteurs sur ordinateur peuvent les
+         lire, mais le format vidéo écrit par l'enregistreur sur
+         ces disques est différent du DVD standard. Il faudra donc
+         utiliser des outils spécialisés pour convertir ce DVD VR
+         en DVD Vidéo et je n'ai trouvé que très peu de choses sous
+         Linux pour cela.
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

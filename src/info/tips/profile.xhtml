@@ -1,0 +1,344 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         Établir le profil d'une machine Linux
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css"
+      href="../../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../../index.xhtml" class="parents">Le
+               royaume de Eric Buist</a> &gt;&gt; <a
+               href="../index.xhtml"
+               class="parents">Informatique</a> &gt;&gt;
+               Quelques-unes de mes recherches personnelles
+               &gt;&gt; <a href="index.xhtml" class="parents">Trucs
+               et astuces</a> &gt;&gt; Astuces spécifiques au DIRO
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../../sitemap.xhtml" class="sitemap">Plan
+               du site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="printing.xhtml"
+               class="leftsibling">Imprimer de quoi</a>
+            </td>
+            <td class="thispage">
+               Établir le profil d'une machine Linux
+            </td>
+            <td class="rightsibling">
+               <a href="touch.xhtml" class="rightsibling">Ajouter
+               une touche personnelle</a> &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         Établir le profil d'une machine Linux
+      </h1>
+      <p>
+         Il faut tout d'abord déterminer quels sont les invariants
+         d'une machine. On en retrouve un bon nombre, qu'on ne
+         pourra pas nécessairement détecter du point de vue
+         logiciel. Certaines données peuvent être obtenues
+         facilement, d'autres demandent de la devinette. Sous
+         Windows, on retrouve toutes les données dans le
+         Gestionnaire de Périphériques, soit en cliquant droit sur
+         le Poste de Travail et en choisissant Propriétés.
+         Toutefois, ces paramètres dépendent des pilotes qui gèrent
+         le matériel. Après l'installation de Windows 98, une carte
+         ATI All-in-Wonder 128 apparaîtra comme une carte VGA PCI!
+         Pourtant, la signature de la carte doit bien exister en
+         mémoire, non? Windows ne nous la donne pas, les données
+         sont trop complexes pour l'utilisateur moyen! Sous Linux,
+         il est possible d'entreprendre une analyse de la machine
+         sans quitter le clavier et sans nécessiter des pilotes
+         déjà installés. Vous pouvez entreprendre l'analyse
+         immédiatement après l'installation. Cela se fait en
+         examinant les fichiers du <a
+         href="../linux/hwaccess.html#procfs">système de fichiers
+         /proc</a>. Nous allons ici examiner les fichiers
+         principaux décrivant une machine du DIRO se trouvant dans
+         un laboratoire d'informatique.
+      </p>
+      <h2>
+         Le processeur
+      </h2>
+      <p>
+         Ces données sont localisées dans <tt>/proc/cpuinfo</tt>.
+         Voici ce qui s'affiche si on entre <tt>cat
+         /proc/cpuinfo</tt> au clavier sous le shell.
+      </p>
+<pre>
+processor  : 0
+vendor_id       : GenuineIntel
+cpu family      : 6
+model           : 6
+model name      : Celeron (Mendocino)
+stepping        : 0
+cpu MHz         : 399.106
+cache size      : 128 KB
+fdiv_bug        : no
+hlt_bug         : no
+sep_bug         : no
+f00f_bug        : no
+coma_bug        : no
+fpu             : yes
+fpu_exception   : yes
+cpuid level     : 2
+wp              : yes
+flags           : fpu vme de pse tsc msr pae mce cx8 sep mtrr pge mca cmov pat pse36 mmx fxsr
+bogomips        : 796.26
+</pre>
+      <p>
+         Autant vous le dire tout de suite, je ne dispose pas des
+         connaissances pour effectuer l'analyse exhaustive de ce
+         qu'on voir là. On apprend toutefois sans mal que c'est un
+         Intel Celeron 400Mhz. Ce processeur peu coûteux dispose
+         d'une mémoire cache de 128 KB, ce qui est un peu petit.
+         Les autres informations sont superflues pour nous et elles
+         feront fuir l'utilisateur moyen, c'est dommage tout de
+         même. Un jour, nous pourrons, je l'espère, tout comprendre
+         ce qu'il y a là.
+      </p>
+      <h2>
+         La mémoire
+      </h2>
+      <p>
+         J'admets que l'on peut obtenir cette information lors de
+         l'ouverture de la machine, mais il arrive que nous ne
+         puissions pas avoir l'occasion de voir la machine
+         s'amorcer. Il serait illogique de redémarrer une machine
+         sur le campus pour répondre à une simple et impérieuse
+         curiosité tandis que la commande <tt>cat
+         /proc/meminfo</tt> nous livrera l'information en peu de
+         temps! Le résultat de cette commande sur la même machine
+         que pour le processeur est le suivant.
+      </p>
+<pre>
+        total:    used:    free:  shared: buffers:  cached:
+Mem:  130883584 108068864 22814720 62394368  9760768 50515968
+Swap: 1077501952   917504 1076584448
+MemTotal:    127816 kB
+MemFree:      22280 kB
+MemShared:    60932 kB
+Buffers:       9532 kB
+Cached:       49332 kB
+SwapTotal:  1052248 kB
+SwapFree:   1051352 kB
+</pre>
+      <p>
+         En arrondissant un peu, on en conclut que la machine
+         dispose d'une mémoire de 128MB, ce qui n'est pas mal du
+         tout. L'espace de swap, à peu près équivalent à la mémoire
+         virtuelle de Windows, s'élève à 1 Gb, ce qui n'est pas mal
+         du tout. Comme vous vous rendez compte, interpréter ces
+         données est simple, cela ne relève que de simples lectures
+         et conversions si besoin.
+      </p>
+      <h2>
+         Le bus PCI
+      </h2>
+      <p>
+         Mais la simplicité ne peut pas durer en informatique.
+         Allons voir ce qui se cache dans <tt>/proc/pci</tt>.
+         Lorsque je regarde cela, je me dis que cela ne vaut pas la
+         peine de tout débouler le fichier comme ça. Je vais donc
+         le diviser en sections et tenter de tirer ce que je peux
+         de chacune d'elles.
+      </p>
+<pre>
+PCI devices found:
+  Bus  0, device   0, function  0:
+    Host bridge: Intel 440BX - 82443BX Host (rev 3).
+      Medium devsel.  Master Capable.  Latency=64.  
+      Prefetchable 32 bit memory at 0xf8000000 [0xf8000008].
+  Bus  0, device   1, function  0:
+    PCI bridge: Intel 440BX - 82443BX AGP (rev 3).
+      Medium devsel.  Master Capable.  Latency=128.  Min Gnt=140.
+  Bus  0, device   7, function  0:
+    ISA bridge: Intel 82371AB PIIX4 ISA (rev 2).
+      Medium devsel.  Fast back-to-back capable.  Master Capable.  No bursts.  
+</pre>
+      <p>
+         On apprend ici que le chipset de la machine est un Intel
+         440BX. On découvre aussi que le board est capable d'AGP,
+         ce qui en fait nécessairement un board assez récent,
+         peut-être supporte-t-il ACPI, mais rien ne nous le dit
+         pour le moment. Ces trois lignes décrivent ainsi le
+         chipset, le pont de AGP vers PCI et le pont de PCI vers
+         ISA.
+      </p>
+<pre>
+  Bus  0, device   7, function  1:
+    IDE interface: Intel 82371AB PIIX4 IDE (rev 1).
+      Medium devsel.  Fast back-to-back capable.  Master Capable.  Latency=64.  
+      I/O at 0x1060 [0x1061].
+  Bus  0, device   7, function  2:
+    USB Controller: Intel 82371AB PIIX4 USB (rev 1).
+      Medium devsel.  Fast back-to-back capable.  IRQ 9.  Master Capable.  Latency=64.  
+      I/O at 0x1040 [0x1041].
+</pre>
+      <p>
+         Bon, cela ne sert pas à grand-chose, à part qu'on sait que
+         la machine pourrait disposer d'un port USB et a, comme
+         tout le monde, ses contrôleurs IDE.
+      </p>
+<pre>
+  Bus  0, device   7, function  3:
+    Bridge: Intel 82371AB PIIX4 ACPI (rev 2).
+      Medium devsel.  Fast back-to-back capable.  
+</pre>
+      <p>
+         Bon, cela dit de quoi! On vient de voir la mention ACPI,
+         le board possède donc un certain support de cette norme.
+         Cela laisse supposer que nous avons affaire à un boîtier
+         d'alimentation ATX avec SoftOff et tout ce que
+         l'ordinateur moderne comporte à ce niveau. Pour le
+         démontrer formellement, il faudrait éteindre l'ordinateur
+         avec <tt>shutdown -h now</tt>, encore un test que je
+         préfère ne pas tenter pour ne pas me faire taper sur les
+         doigts.
+      </p>
+<pre>
+  Bus  0, device  12, function  0:
+    Multimedia audio controller: Unknown vendor Unknown device (rev 3).
+      Vendor id=1073. Device id=c.
+      Medium devsel.  IRQ 11.  Master Capable.  Latency=64.  Min Gnt=5.Max Lat=25.
+      Non-prefetchable 32 bit memory at 0xf4000000 [0xf4000000].
+</pre>
+      <p>
+         QUOI? Lorsque j'ai vu cela, j'ai été surpris. Cette entrée
+         semble dire que la machine posséderait une carte son bas
+         de gamme, peut-être du noname. Il se peut que cette carte
+         soit intégrée à même la carte mère.
+      </p>
+<pre>
+  Bus  0, device  14, function  0:
+    Ethernet controller: Intel 82557 (rev 8).
+      Medium devsel.  Fast back-to-back capable.  IRQ 10.  Master Capable.  Latency=66.  Min Gnt=8.Max Lat=56.
+      Non-prefetchable 32 bit memory at 0xf4008000 [0xf4008000].
+      I/O at 0x1000 [0x1001].
+      Non-prefetchable 32 bit memory at 0xf4100000 [0xf4100000].
+</pre>
+      <p>
+         Bon, on a une carte réseau, mais il me semble impossible
+         d'en obtenir la vitesse. C'est une Ethernet soit 10 Mbits,
+         soit 100 Mbits, mais rien ne peut le confirmer. Il se peut
+         fort bien que ce soit une 10, car les 100 sont souvent
+         notées Fast Ethernet.
+      </p>
+<pre>
+  Bus  1, device   0, function  0:
+    VGA compatible controller: ATI Mach64 GB (rev 92).
+      Medium devsel.  Fast back-to-back capable.  IRQ 11.  Master Capable.  Latency=66.  Min Gnt=8.
+      Non-prefetchable 32 bit memory at 0xf5000000 [0xf5000000].
+      I/O at 0x9000 [0x9001].
+      Non-prefetchable 32 bit memory at 0xf4200000 [0xf4200000].
+</pre>
+      <p>
+         La carte graphique est là, c'est une ATI Mach64. On peut
+         effectuer une recherche sur le site de ATI et se rendre
+         compte que cette carte n'est pas AGP. Elle est PCI, étant
+         mentionnée sur le bus PCI, mais pas AGP. Ce qui permet
+         d'affirmer que la fente AGP de l'ordinateur est vide.
+      </p>
+      <h2>
+         Le disque dur
+      </h2>
+      <p>
+         Pour celui-là, on va se contenter du premier. On suppose
+         que la machine est bien montée et qu'on a branché ce
+         disque comme Primary Master, ce qui est la convention. Le
+         fichier spécial pour ce disque sera donc <tt>hda</tt>, il
+         faut donc chercher un répertoire de ce genre dans /proc.
+         Le disque dur est un IDE, on va donc chercher dans
+         <tt>/proc/ide</tt>. Là se trouve le sous-répertoire hda
+         qui contient les fichiers que nous avons besoin. Le
+         fichier <tt>/proc/ide/hda/model</tt> contient
+      </p>
+<pre>
+FUJITSU MPD3130AT
+</pre>
+      <p>
+         Le fichier <tt>/proc/ide/hda/capacity</tt> contient, quant
+         à lui,
+      </p>
+<pre>
+25431840
+</pre>
+      <p>
+         Cela ne parle pas fort, on sort donc la pitonneuse et on
+         obtient, après deux divisions par 1024, 24.25. Il nous
+         manque des unités, il va falloir les déduire. On a
+         effectué une double conversion, donc il faut exclure
+         l'octet et le kilo-octet, puisque l'unité fondamentale en
+         informatique est l'octet ou bien le bit. Mais il est
+         illogique de spécifier une capacité de disque dur en bits.
+         La valeur est soit 24.25MB (à rejeter!) ou 24.25 GB (un
+         peu mieux). On va tout de même traiter le cas des bits
+         pour regarder la marge d'erreur amenée par la déduction.
+         On obtient alors 3178980. Il faudrait que la valeur de la
+         capacité soit en kilo-bits pour refléter un disque
+         plausible de 3GB. Je devrai retourner sur la machine en
+         question chercher plus de données. Je ne peux pas, par
+         cette simple valeur, obtenir la capacité réelle du disque.
+      </p>
+      <h2>
+         Le lecteur de CD-ROM
+      </h2>
+      <p>
+         Il faut tout d'abord obtenir le fichier spécial du
+         lecteur, en tapant <tt>ls -l /dev/cdrom</tt>. Sur la
+         machine que j'ai observée, j'ai obtenu un lien symbolique
+         vers <tt>/dev/hdc</tt>. On va donc retourner dans /proc
+         pour obtenir l'information voulue. Il faut regarder le
+         fichier <tt>/proc/ide/hdc/model</tt> qui contient
+      </p>
+<pre>
+MATSHITA CR-589
+</pre>
+      <p>
+         Bon, on aimerait mieux sa vitesse, non? On va tenter de la
+         trouver! Il faut tout d'abord se rendre sur le site de
+         Matshita. Le site n'existe pas et il faut faire une
+         recherche pour trouver du Matshita, ce qui nous mène à
+         Panasonic. Après des recherches sur le site de Panasonic,
+         j'ai enfin trouvé la <a
+         href="http://www.panasonic.com/industrial_oem/computer/storage/cd-rom/prods/current/589.htm">page</a>
+         qui nous intéresse. On y apprend qu'on a affaire à un
+         lecteur 32x.
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

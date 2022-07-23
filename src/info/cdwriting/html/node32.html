@@ -1,0 +1,265 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.1//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>6.1 Paramètres de base des fichiers vidéo</TITLE>
+<META NAME="description" CONTENT="6.1 Paramètres de base des fichiers vidéo">
+<META NAME="keywords" CONTENT="cdwriting">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cdwriting.css">
+
+<LINK REL="next" HREF="node33.html">
+<LINK REL="previous" HREF="node31.html">
+<LINK REL="up" HREF="node31.html">
+<LINK REL="next" HREF="node33.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1367"
+  HREF="node33.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1361"
+  HREF="node31.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1355"
+  HREF="node31.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1363"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1365"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html1368"
+  HREF="node33.html">6.2 Différents formats vidéo</A>
+<B> monter:</B> <A NAME="tex2html1362"
+  HREF="node31.html">6. La vidéo numérique</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html1356"
+  HREF="node31.html">6. La vidéo numérique</A>
+ &nbsp; <B>  <A NAME="tex2html1364"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1366"
+  HREF="node106.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Sous-sections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html1369"
+  HREF="node32.html#SECTION05511000000000000000"><SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">1</SPAN> Résolution</A>
+<LI><A NAME="tex2html1370"
+  HREF="node32.html#SECTION05512000000000000000"><SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">2</SPAN> Le rapport largeur/hauteur</A>
+<LI><A NAME="tex2html1371"
+  HREF="node32.html#SECTION05513000000000000000"><SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">3</SPAN> Profondeur des couleurs</A>
+<LI><A NAME="tex2html1372"
+  HREF="node32.html#SECTION05514000000000000000"><SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">4</SPAN> Fréquence d'image</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION05510000000000000000">
+<SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">1</SPAN> Paramètres de base des fichiers vidéo</A>
+</H1>
+
+<P>
+Comme dans le cas de l'audio, la numérisation vidéo consiste à
+échantillonner un signal à partir d'une source analogique. En audio,
+le signal se présentait comme une fonction à deux dimensions:
+l'amplitude en fonction du temps. Ici, nous avons quatre dimensions:
+la couleur en fonction de la position horizontale et verticale ainsi
+que du temps. L'augmentation de la dimension est à l'origine de
+l'accroissement de complexité de traitement et de la taille des
+fichiers résultants.
+
+<P>
+
+<H2><A NAME="SECTION05511000000000000000">
+<SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">1</SPAN> Résolution</A>
+</H2>
+
+<P>
+La résolution définit le nombre de pixels avec lequel les images de la
+vidéo seront représentées. Puisque l'image est en deux dimensions, la
+résolution s'exprime sous forme de deux paramètres: largeur et
+hauteur. Par exemple, avec une résolution de 352x240, nous avons 352
+pixels en largeur et 240 pixels en hauteur. Pour représenter une
+image, il nous faut alors <SPAN CLASS="MATH">352*240=84480</SPAN> pixels! La résolution
+détermine la précision de l'image et non pas sa taille finale. Un
+téléviseur 46" peut afficher une image 352x240 tout aussi facilement
+qu'un écran d'ordinateur 17", mais la qualité de l'image sera beaucoup
+moins bonne sur la 46" puisque la trop basse résolution ne suffit pas
+pour un tel appareil.
+
+<P>
+
+<H2><A NAME="SECTION05512000000000000000">
+<SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">2</SPAN> Le rapport largeur/hauteur</A>
+</H2>
+
+<P>
+La résolution détermine aussi le format de l'image qui sera
+affichée. Afin d'éviter que le dispositif d'affichage (ordinateur ou
+téléviseur) n'ait à déformer
+l'image ou à en rogner une partie, le rapport entre la largeur et la
+hauteur (<SPAN  CLASS="textit">aspect ratio</SPAN><A NAME="1217"></A>)
+doit être adéquat. Les écrans d'ordinateur et les téléviseurs
+bon marché utilisent de nos jour le rapport 4&#58;3. Par exemple,
+la résolution 800x600 est très adaptée au rapport 4&#58;3
+(<SPAN CLASS="MATH">800/600</SPAN> se réduit à <SPAN CLASS="MATH">4/3</SPAN>.), de même
+que la résolution 1024x768. Il est étonnant d'observer que la
+résolution VCD (352x240) ne correspond pas au rapport
+4&#58;3<A NAME="1218"></A> et il ne semble pas exister
+d'explications à cette
+inconsistance. Pour la télévision, seul le nombre de lignes de 480
+pour NTSC ou 576 pour le PAL importe. La résolution VCD est réduite à
+240 lignes, car le téléviseur affiche l'image en mode entrelacé. Une
+ligne sur deux est affichée lors de chaque balayage afin de donner au
+spectateur une meilleure illusion de mouvement. Pour obtenir un
+rapport 4&#58;3, la résolution 320x240 est utilisée et étirée à
+352x240 pour l'encodage VCD.
+Lors de la restitution du signal, le lecteur DVD ou la carte graphique
+s'occupe d'ajuster l'image de façon à respecter le rapport 4&#58;
+3.
+
+<P>
+Le rapoprt 16&#58;9<A NAME="1219"></A> est utilisé sur
+certains téléviseurs haute définition, car il est plus proche du
+véritable cinéma et le format DVD peut l'utiliser.
+Malheureusement, l'usage du 16&#58;9 ne doit pas briser la
+compatibilité avec les anciens équipements 4&#58;3. Ainsi, il est
+nécessaire d'encoder l'image 16&#58;9 dans un signal de type
+4&#58;3. Pour ce faire, plusieurs procédés sont utilisés et
+l'appareil restituant l'image doit être réglé selon le type d'image
+reçu.
+
+<P>
+<DL>
+<DT><STRONG>Letterboxing<A NAME="1221"></A></STRONG></DT>
+<DD>Consiste à n'utiliser qu'une fraction du nombre de lignes
+disponibles. Ce qui affiche des barres noires en haut et en bas sur un
+téléviseur ne supportant pas le mode 16&#58;9. Sur un téléviseur
+16&#58;9, il suffit de régler le mode wide screen pour effectuer un
+zoom qui va supprimer ces barres.
+</DD>
+<DT><STRONG>Anamorphique<A NAME="1222"></A></STRONG></DT>
+<DD>Il est aussi
+possible d'utiliser l'encodage anamorphique dans lequel une image
+16&#58;9 est comprimée pour donner une image 4&#58;3. Sur un
+téléviseur ne supportant pas ce mode ou un appareil mal réglé, les
+personnages apparaîtront
+allongés. Le téléviseur 16&#58;9 comprend un réglage wide screen
+permettant d'effectuer l'étirement plein écran. Si ce mode était
+utilisé avec une vraie image 4&#58;3, les personnages
+apparaîtraient applatis.
+</DD>
+</DL>
+
+<P>
+Le lecteur DVD peut effectuer des adaptations à l'image afin
+de gérer le 16&#58;9. Si le disque comprend une image anamorphique,
+il peut la recompresser pour afficher les barres sur un téléviseur
+4&#58;3 plutôt que les silhouettes allongées. Il peut aussi être
+réglé en mode Pan &amp; Scan<A NAME="1224"></A> pour afficher une partie
+de l'image sans
+tenter de la redimensionner, afin qu'elle remplisse tout
+l'écran. Un lecteur DVD logiciel supposera souvent un affichage
+4&#58;3, ce qui sera toujours vrai à moins de brancher la machine
+sur un téléviseur 16&#58;9, en utilisant une sortie TV Out. Dans ce
+cas, il n'est pas nécessaire de disposer d'une carte graphique
+compatible 16&#58;9 pour visionner des DVD mais simplement d'un
+logiciel capable de rendre l'image DVD telle quelle, sans la
+recompresser si elle est anamorphique. Ceci passera sans doute par une
+option dans le lecteur DVD logiciel choisi.
+Ainsi, le mode 16&#58;9 nécessite un support soit du côté
+du téléviseur pour son affichage (écran plus large et réglages wide
+screen), soit du côté du lecteur DVD ou de l'ordinateur pour le
+réajustement de l'image.
+
+<P>
+
+<H2><A NAME="SECTION05513000000000000000">
+<SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">3</SPAN> Profondeur des couleurs</A>
+</H2>
+
+<P>
+Chaque pixel d'une image doit fournir l'information à propos de sa
+couleur et cette couleur peut être encodée de plusieurs
+façons. Dans la vidéo, la synthèse additive est utilisée, ce qui
+suggère le système RVB (rouge, vert et bleu). Un pixel comporte ainsi
+un pourcentage de rouge, de vert et de bleu qu'il est nécessaire
+d'encoder sur un certain nombre de bits. Souvent, la couleur est codée
+sur 24 bits avec 8 bits par couleur, ce qui impose 3 octets par pixel
+dans l'image. La profondeur des couleurs n'est que rarement spécifiée
+lors de l'encodage d'une image, car les normes de compression telles
+que MPEG encodes les couleurs différemment.
+
+<P>
+
+<H2><A NAME="SECTION05514000000000000000">
+<SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">4</SPAN> Fréquence d'image</A>
+</H2>
+
+<P>
+La fréquence d'image (ou <SPAN  CLASS="textit">framerate</SPAN><A NAME="1228"></A>)
+constitue le nombre d'images par
+seconde dans le fichier vidéo. Ce nombre doit être suffisamment élevé
+afin de permettre à l'<IMG
+ WIDTH="19" HEIGHT="23" ALIGN="MIDDLE" BORDER="0"
+ SRC="img2.png"
+ ALT="\oe">il humain de percevoir un effet fluide
+d'animation. Toutefois, si ce nombre est trop élevé, l'affichage des
+images sera trop coûteux et les fichiers produits, trop gros. La
+fréquence habituelle se situe à environ 30 images par seconde.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1367"
+  HREF="node33.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1361"
+  HREF="node31.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1355"
+  HREF="node31.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1363"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1365"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html1368"
+  HREF="node33.html">6.2 Différents formats vidéo</A>
+<B> monter:</B> <A NAME="tex2html1362"
+  HREF="node31.html">6. La vidéo numérique</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html1356"
+  HREF="node31.html">6. La vidéo numérique</A>
+ &nbsp; <B>  <A NAME="tex2html1364"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1366"
+  HREF="node106.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Eric Buist
+2005-11-13
+</ADDRESS>
+</BODY>
+</HTML>

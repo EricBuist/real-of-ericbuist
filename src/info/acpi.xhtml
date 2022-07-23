@@ -1,0 +1,829 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         ACPI
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css" href="../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../index.xhtml" class="parents">Le royaume
+               de Eric Buist</a> &gt;&gt; <a href="index.xhtml"
+               class="parents">Informatique</a> &gt;&gt;
+               Quelques-unes de mes recherches personnelles
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../sitemap.xhtml" class="sitemap">Plan du
+               site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="tips/index.xhtml"
+               class="leftsibling">Trucs et astuces</a>
+            </td>
+            <td class="thispage">
+               ACPI
+            </td>
+            <td class="rightsibling">
+               <a href="dm.xhtml" class="rightsibling">Mon
+               hypothèse actuelle sur le fonctionnement d'un
+               gestionnaire de disques</a> &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         ACPI
+      </h1>
+      Advanced Configuration and Power Interface, je dirais plutôt
+      Annoying Complicated Problems and Interference. C'est un
+      standard relativement récent en ce qui a trait à la gestion
+      d'énergie sur ordinateurs. Il établit une collaboration entre
+      le micro-logiciel d'entrée/sortie de base de l'ordinateur
+      (appelé BIOS), le système d'exploitation (par exemple Windows
+      ou Linux) et les logiciels pour fournir une meilleure gestion
+      de l'énergie sur l'ordinateur. Il peut toutefois devenir, par
+      la même occasion, une source de problèmes étranges et parfois
+      insurmontables. Ayant été victime de certains problèmes liés
+      à ACPI, j'ai voulu rassembler mes connaissances sur le sujet
+      en une page Web qui, peut-être, portera secours à quelqu'un
+      ou fera comprendre à un autre les problèmes qu'il me restent
+      à résoudre. 
+      <p>
+         D'abord, je vais exposer la situation telle qu'elle était
+         avant la gestion de l'énergie. J'exposerai ensuite
+         brièvement APM, le standard qui précédait ACPI, pour
+         ensuite me consacrer à ACPI lui-même. Je donnerai ensuite
+         quelques indications sur comment choisir entre les deux
+         normes puis comment configurer le système d'exploitation
+         pour passer de l'une à l'autre.
+      </p>
+      <ul>
+         <li>
+            <a href="#old">Dans le bon vieux temps</a>
+         </li>
+         <li>
+            <a href="#apm">Advanced Power Management (APM)</a>
+         </li>
+         <li>
+            <a href="#acpi">Advanced Configuration and Power
+            Interface (ACPI)</a>
+         </li>
+         <li>
+            <a href="#apmoracpi">APM ou ACPI?</a>
+         </li>
+         <li>
+            <a href="#apmtoacpi">De APM vers ACPI</a>
+         </li>
+         <li>
+            <a href="#acpitoapm">De ACPI vers APM</a>
+         </li>
+      </ul>
+      <h1>
+         <a name="old" id="old">Dans le bon vieux temps</a>
+      </h1>
+      <p>
+         Jusqu'à l'époque des 386 et des 486, la gestion d'énergie
+         n'existait pas. Pour qu'un appareil informatique consomme
+         moins d'électricité, il fallait l'éteindre manuellement.
+         Un écran restait ainsi allumé tant et aussi longtemps
+         qu'on ne l'éteignait pas par son bouton de mise sous
+         tension. Cela fit naître la nécessité d'éteindre son
+         moniteur quand on quittait l'ordinateur.
+      </p>
+      <p>
+         Le disque dur aussi tournait tant et aussi longtemps que
+         la machine fonctionnait. Ce sont les ordinateurs portables
+         fonctionnant sur piles qui souffraient le plus d'une
+         mauvaise gestion de l'énergie. Faute de ne pas disposer de
+         la pile atomique portative et sans danger pour quiconque,
+         on a affaire à des piles de durée limitée si bien qu'il
+         faut économiser l'énergie pour que la machine reste
+         allumée suffisamment longtemps pour être utile. Plus
+         encore, de nos jours, la nécessité d'économiser l'énergie
+         pour la sauvegarde de l'environnement (d'où des normes
+         telles qu'Energy Star) nous mène à éviter le gaspillage
+         même pour les ordinateurs de bureau branchés sur des
+         prises murales. Graduellement, les BIOS des ordinateurs se
+         mirent donc à implanter des systèmes de gestion d'énergie
+         tout en maximisant la transparence pour le système
+         d'exploitation. Par exemple, après un certain temps
+         possiblement défini par l'utilisateur, le BIOS
+         interrompait le moteur du disque dur, éteignait l'écran ou
+         ralentissait le processeur.
+      </p>
+      <p>
+         La gestion de l'énergie est ensuite passée des portables
+         aux ordinateurs de table. Elle permet de minimiser la
+         consommation électrique de la machine et augmenter la
+         longévité des composantes. De plus en plus d'écrans et
+         cartes graphiques supportèrent le standard Display Power
+         Management Signaling (DPMS) qui permet une extinction par
+         voie logicielle du moniteur. Il devenait alors possible de
+         laisser son moniteur sous tension puisqu'il s'éteignait
+         après un temps donné d'inactivité. Les disques durs
+         acquirent également la capacité de stopper leur moteur à
+         l'issue d'un appel effectué au contrôleur. Mais tout ceci
+         pouvait perturber le système d'exploitation qui devenait
+         de plus en plus complexe et fragile aux perturbations.
+      </p>
+      <h1>
+         <a name="apm" id="apm">Advanced Power Management (APM)</a>
+      </h1>
+      <p>
+         De plus en plus, la nécessité de mettre au courant le
+         système d'exploitation des activités en ce qui a trait à
+         la gestion d'énergie émergeait. Une coopération plus
+         étroite permet par exemple de stopper le logiciel
+         d'économie d'écran si le moniteur est éteint (cela évite
+         d'utiliser le processeur pour afficher des images que
+         personne ne voit!), de différer les opérations d'écriture
+         sur un disque dur mis en veille afin d'éviter de le
+         redémarrer pour rien, etc. Cela permet aussi de plonger la
+         machine dans un mode de veille qui stoppe complètement le
+         processeur jusqu'à la réception d'un signal donné. Pour
+         parvenir à effectuer ce saut sans heurts, une préparation
+         s'avère nécessaire au niveau du système d'exploitation:
+         les pilotes de périphériques doivent par exemple
+         sauvegarder l'état des composantes qu'ils gèrent et il est
+         envisageable de sauvegarder certaines données sur le
+         disque dur avant le plongeon.
+      </p>
+      <p>
+         APM est né de cette nécessité. Le système d'exploitation
+         initialise APM par le biais d'un appel au BIOS puis doit
+         ensuite interroger le BIOS APM à intervalle régulier pour
+         se tenir au courant des événements. Le BIOS peut ainsi
+         demander au système d'exploitation de se préparer à un
+         passage en stand-by, requête initiée soit par le système
+         d'exploitation lui-même, soit par l'utilisateur appuyant
+         sur un bouton de l'ordinateur. Le système prépare alors
+         les choses puis indique au BIOS d'accepter le passage ou
+         même de le rejeter si nécessaire.
+      </p>
+      <p>
+         Avec les boîtiers ATX, le commutateur n'est plus
+         simplement mécanique si bien que le BIOS a son mot à dire
+         lors de son utilisation pour éteindre l'ordinateur. Cela
+         amène la possibilité d'éteindre la machine par la voie
+         logicielle. Cette capacité a été ajoutée à APM au fil du
+         temps et Windows 95 et supérieur en font bon usage lorsque
+         l'on souhaite arrêter le système. Linux a lui aussi
+         intégré cette fonctionnalité; il peut depuis longtemps
+         éteindre la machine lorsqu'il est arrêté.
+      </p>
+      <p>
+         APM est constitué d'un ensemble de fonctions du BIOS que
+         le système d'exploitation peut utiliser. La plupart des
+         systèmes le supportent, incluant Windows et Linux. La
+         gestion d'énergie proprement dite est effectuée par le
+         BIOS et les composantes de la carte mère. La qualité de la
+         gestion dépend ainsi grandement du matériel utilisé et le
+         système d'exploitation n'a que peu de contrôle sur
+         celle-ci. Un pilote de périphérique peut indiquer à APM de
+         ne pas appliquer de gestion pour un périphérique donné, ce
+         qui lui permet de prendre cette gestion en charge.
+         Malheureusement, il n'y a aucun standard quant à la
+         méthode de gestion d'énergie; elle dépend dans ce cas du
+         périphérique. APM fournit aussi un indicateur de charge
+         pour les batteries d'ordinateurs portables et peut avertir
+         le système d'exploitation en cas de changement d'état des
+         batteries, par exemple un branchement sur secteur.
+      </p>
+      <h1>
+         <a name="acpi" id="acpi">Advanced Configuration and Power
+         Interface (ACPI)</a>
+      </h1>
+      <p>
+         Cette interface permet au système d'exploitation de mieux
+         contrôler la gestion d'énergie de l'ordinateur. Selon la
+         norme ACPI, chaque composante peut se trouver en
+         différents modes de gestion d'énergie. Pour qu'un système
+         fonctionne dans ce mode, le BIOS doit tout d'abord y être
+         compatible. Tous les périphériques de la machine doivent
+         aussi se conformer à la norme ACPI et les pilotes doivent
+         également y être adaptés. Le système d'exploitation doit
+         aussi pouvoir tirer parti des fonctionnalités nouvelles.
+         Le BIOS de toutes les machines modernes contient les
+         éléments nécessaires pour ACPI tandis que tous les
+         périphériques récents se conforment à la norme. Les
+         systèmes d'exploitation Windows 98/98SE, Windows ME,
+         Windows 2000, Windows XP, Windows Vista et Linux (à partir
+         du noyau 2.4 mais idéalement 2.6) supportent ce standard.
+      </p>
+      <p>
+         ACPI n'est pas seulement un standard de gestion d'énergie.
+         Il englobe les aspects d'APM mais aussi ceux de PNPBIOS.
+         Plus précisément, ACPI fournit un standard qui permet de
+         détecter les composantes de la machine et les configurer
+         par la voie logicielle. Au coeur du système réside le
+         langage ACPI Machine Language (AML), un jeu d'instructions
+         génériques que le système d'exploitation se doit
+         d'implanter afin de décoder les blocs de contrôle des
+         tables fournies par le BIOS. Par le biais de ce langage,
+         les périphériques peuvent indiquer au système
+         d'exploitation la marche à suivre pour leur initilisation
+         individuelle, ainsi que leur configuration. En fait, si
+         les concepteurs d'ACPI avaient poussé cette idée jusqu'au
+         bout, on n'aurait plus besoin de pilotes spécifiques à
+         chaque périphérique! Malheureusement, tel n'est pas le
+         cas.
+      </p>
+      <p>
+         Par le biais d'ACPI, le système d'exploitation dispose de
+         la possibilité de configurer le mode opératoire de chacun
+         des périphériques de la machine. Par exemple, si le
+         système juge que le modem n'est plus utilisé, il peut
+         l'éteindre électriquement. L'appareil ne sera réalimenté
+         qu'au besoin. Le système d'exploitation dispose de la
+         connaissance nécessaire pour établir une meilleure gestion
+         de l'énergie. Par exemple, le système pourrait établir des
+         profils d'utilisation pour les différentes composantes. Si
+         une machine est pourvue de deux lecteurs de CD-ROM, dont
+         un graveur qui n'est utilisé que pour graver des CD, le
+         système pourrait maintenir ce graveur en mode de
+         consommation minimale d'énergie et ne l'alimenter
+         uniquement lorsque le logiciel de gravure se met en
+         marche. Le système d'exploitation peut aussi tenir compte
+         des applications dans sa gestion de l'énergie. Par
+         exemple, lorsqu'un fichier doit être écrit sur un disque
+         dur mis en veille, il peut juger de l'importance du
+         contenu à écrire et décider soit de le différer, soit de
+         rallumer le disque dur pour l'écrire de toute urgence. Les
+         systèmes d'exploitation actuels ne sont peut-être pas en
+         mesure d'appliquer de telles politiques, mais ceci demeure
+         possible en théorie.
+      </p>
+      <p>
+         Naturellement, ACPI fournit la possibilité d'éteindre
+         l'ordinateur ou le mettre en mode veille. Avant de passer
+         en mode de consommation énergétique minimale, le système
+         peut fournir à certains périphériques la possibilité de
+         réveiller la machine. Par exemple, sur un ordinateur
+         configuré comme répondeur téléphonique, si la machine est
+         en veille, le modem doit pouvoir la ramener en mode
+         nominal. La fonction des boutons du système est aussi
+         déterminée par le système d'exploitation. Le bouton de
+         mise sous tension, par exemple, peut au choix de
+         l'utilisateur éteindre Windows proprement ou plonger la
+         machine en mode veille, ou bien en hibernation.
+      </p>
+      <p>
+         Le mode d'hibernation hybride de Windows Vista est un bon
+         exemple du genre de politiques de gestion qui sont
+         possibles avec ACPI. Windows peut par exemple placer un
+         ordinateur portable en mode veille, c'est-à-dire éteindre
+         le processeur, l'affichage, le clavier, etc., mais
+         continuer à alimenter la mémoire en électricité pour que
+         la machine puisse être rallumée pratiquement
+         instantanément. Grâce à ACPI, Windows Vista est en mesure
+         de surveiller l'état de la batterie même dans ce mode de
+         consommation minimale d'énergie. Si le niveau de batterie
+         devient trop faible, Windows peut rallumer l'ordinateur,
+         transférer la mémoire sur le disque dur et passer en
+         hibernation. Dans ce mode, l'ordinateur se trouve
+         complètement éteint, mais dès qu'on le rallume, il
+         recharge la mémoire depuis le disque dur et rend la main à
+         l'utilisateur beaucoup plus rapidement qu'après un
+         redémarrage complet.
+      </p>
+      <p>
+         ACPI permet aussi un contrôle plus fin des batteries du
+         système. Il peut obtenir la charge maximale réelle, la
+         dernière charge maximale et la charge actuelle. Il est en
+         mesure, contrairement à un système APM, d'obtenir des
+         informations sur les batteries telles que leur
+         technologie. Il peut aussi altérer le point critique où un
+         avertissement sera envoyé à l'utilisateur.
+      </p>
+      <p>
+         ACPI fournit également un modèle de zones thermiques. Une
+         zone thermique englobant tout l'ordinateur est définie par
+         défaut, mais il peut en exister d'autres. Par exemple, des
+         zones thermiques pourraient englober le boîtier de
+         l'ordinateur, le processeur, l'intérieur du disque dur, le
+         boîtier de lecteurs DVD, etc. La responsabilité de réguler
+         la température de ces zones revient également au système
+         d'exploitation. Cette régulation peut se faire de façon
+         passive en inhibant des périphériques pour minimiser la
+         consommation énergétique (et la dissipation de chaleur) ou
+         de façon active en activant des ventilateurs. Encore une
+         fois, tout ceci est théorique; plusieurs ordinateurs ne
+         définissent qu'une zone thermique et ne donnent aucun
+         contrôle des ventilateurs au système d'exploitation.
+      </p>
+      <p>
+         Contrairement à APM, le BIOS n'intervient aucunement dans
+         la gestion d'énergie sitôt que le système d'exploitation a
+         initialisé ACPI. Toutefois, en cas de dommages possibles
+         du matériel, le BIOS peut intervenir, mais en informera le
+         système d'exploitation. Par exemple, si la température du
+         système est trop élevée, des périphériques pourraient être
+         mis en mode d'énergie minimale avant de surchauffer et
+         endommager la machine. Une telle non-ingérence autorise
+         l'évolution en parallèle du matériel et du système
+         d'exploitation. Sur un portable, les bienfaits d'ACPI
+         peuvent ainsi être appréciables. Toutefois, sur une
+         machine de bureau, ils sont souvent imperceptibles.
+      </p>
+      <h1>
+         <a name="apmoracpi" id="apmoracpi">APM ou ACPI?</a>
+      </h1>
+      <p>
+         ACPI est le standard de gestion de l'énergie le plus
+         récent et le plus sophistiqué. Ses possibles bienfaits
+         devraient justifier son utilisation, en tout cas aux yeux
+         de Microsoft. ACPI est désormais la norme par défaut,
+         aussi bien sous Windows que sous Linux et, sur certaines
+         machines modernes, c'est la seule norme qui peut être
+         utilisée. Toutefois, il arrive parfois, surtout avec de
+         vieilles machines datant des premiers temps d'ACPI, que
+         des problèmes surviennent en mode ACPI, comme par exemple
+         des CD gravés défectueux dans mon cas. Dans ce cas,
+         utiliser APM est mieux mais seulement temporairement. Il
+         peut aussi arriver que des bogues soient présents dans le
+         BIOS ACPI, empêchant certains systèmes d'exploitation de
+         bien fonctionner. Linux est malheureusement assez sensible
+         à ce genre de problèmes. La solution temporaire est un
+         retour à APM, mais une mise à jour du BIOS peut rendre de
+         nouveau possible l'utilisation d'ACPI.
+      </p>
+      <p>
+         Comment savoir, maintenant, si le système utilise APM,
+         ACPI ou aucun des deux?
+      </p>
+      <p>
+         Sous DOS/Windows 3.1, la réponse est simple: aucun des
+         deux! Il est possible de programmer l'arrêt des disques
+         dur et du moniteur à partir du Setup du BIOS seulement et
+         la procédure dépend du BIOS de l'ordinateur utilisé. Il se
+         peut également, avec un vieux système, qu'APM ne soit même
+         pas supporté par le BIOS.
+      </p>
+      <p>
+         Sous Linux, on peut détecter APM par la présence du
+         fichier spécial <tt>/proc/apm</tt>. ACPI est de son côté
+         activé si <tt>/proc/acpi</tt> existe. Ces deux tests ne
+         montrent que la présence et l'activité d'APM ou d'ACPI
+         dans le noyau du système. Pour utiliser les normes
+         pleinement, il faut en plus charger des démons (apmd pour
+         APM et acpid pour ACPI). Dans les deux cas, l'utilisation
+         de la commande <tt>powerdown</tt> permettra alors, sur une
+         machine à boîtier ATX, d'éteindre l'ordinateur
+         automatiquement.
+      </p>
+      <p>
+         Sous Windows 95, on peut détecter la présence de l'APM par
+         le biais du <b>Gestionnaire de périphériques</b>. Pour y
+         accéder, dans le menu <b>Démarrer</b>, on sélectionne
+         <b>Panneau de Configuration</b> puis <b>Système</b>. Sous
+         l'onglet <b>Gestionnaire de périphériques</b> se trouve
+         une boîte de dialogue permettant de recenser les
+         composantes de la machine. Sous la branche
+         <b>Périphériques systèmes</b>, on devrait trouver
+         <b>Gestion avancée de l'énergie</b> ou similaire. La
+         présence d'APM se caractérise également par la possibilité
+         d'éteindre l'ordinateur automatiquement ou de mettre la
+         machine en veille.
+      </p>
+      <p>
+         Quant à Windows NT, son support d'APM est très
+         rudimentaire. Si la machine peut s'éteindre
+         automatiquement, c'est qu'il a été installé. Dans le cas
+         contraire, il ne l'est pas.
+      </p>
+      <p>
+         La même technique que pour Windows 95 permet de détecter
+         APM sous Windows 98/98SE/ME. Si, dans le <b>Gestionnaire
+         de périphériques</b>, branche <b>Périphériques
+         systèmes</b>, on trouve plutôt des éléments ACPI,
+         notamment <b>Bouton ACPI</b>, <b>Interface avancée de
+         configuration Power</b>, c'est que le mode ACPI est en
+         fonction.
+      </p>
+      <p>
+         Sous Windows 2000/XP, la technique est un peu différente
+         mais semblable. Dans le <b>Panneau de configuration</b>,
+         option <b>Système</b>, onglet <b>Matériel</b>, on retrouve
+         le <b>Gestionnaire de périphériques</b>. Sous la branche
+         <b>Ordinateur</b>, si on trouve <b>PC Standard</b>, il est
+         clair qu'ACPI n'est pas installé. Dans le cas contraire,
+         on trouvera <b>PC à interface avancée de configuration
+         Power</b>.
+      </p>
+      <p>
+         Pour ce qui est de Windows Vista, je ne sais pas puisque
+         je ne l'ai jamais essayé. Étant donné que ce système est
+         destiné à des machines très récentes et compte tenu de la
+         refonte totale du coeur à l'origine d'innombrables (et la
+         plupart du temps insurmontables) problèmes de
+         compatibilité autant avec le matériel que le logiciel,
+         cela ne me surprendrait pas du tout que Vista ne prenne en
+         charge qu'ACPI.
+      </p>
+      <h1>
+         <a name="apmtoacpi" id="apmtoacpi">De APM vers ACPI</a>
+      </h1>
+      <p>
+         Pour supporter ACPI, un ordinateur doit comporter un BIOS
+         suffisamment récent. Il se peut donc qu'une mise à jour
+         (flash) soit nécessaire. La fonction ACPI doit être
+         activée dans le Setup du BIOS et il arrive également
+         qu'APM doive être inhibé. En effet, les deux standards ne
+         peuvent coexister simultanément sur la machine. Lorsque le
+         système d'exploitation commande au BIOS d'initialiser
+         ACPI, tout appel APM subséquent échouera. La première
+         étape consiste donc à vérifier la présence de mises à jour
+         du BIOS, ce qui est une opération délicate dont la
+         complexité et la faisabilité dépend du manufacturier de la
+         carte mère et des connaissances techniques de
+         l'utilisateur qui la tente. Voir par exemple <a
+         href="biosupdt.xhtml">mon expérience personnelle sur la
+         mise à jour de BIOS</a>.
+      </p>
+      <p>
+         Le système d'exploitation doit être conçu pour supporter
+         ACPI. Windows 98 est le plus ancien à le prendre en
+         charge. Après une mise à jour du BIOS, il existe deux
+         façons de passer à ACPI: soit reconfigurer le système,
+         soit réinstaller le système au complet.
+      </p>
+      <h2>
+         Reconfiguration de Windows pour ACPI
+      </h2>
+      <p>
+         Cette méthode permet de faire basculer le système en mode
+         ACPI sans réinstaller. La modification provoquera
+         l'effacement de l'ensemble des informations traitant des
+         périphériques de la machine et Windows devra refaire la
+         détection du matériel. Certains pilotes non livrés avec
+         Windows devront peut-être être réinstallés, il faut donc
+         s'assurer d'en posséder une copie sur son ordinateur ou
+         sur support de stockage permanent. Il se peut également
+         que certaines composantes ne soient pas réinstallées
+         correctement et que la réinstallation complète de Windows
+         soit finalement nécessaire. <b>Il est donc important de
+         s'y préparer en faisant des sauvegardes de toute donnée
+         sensible.</b>
+      </p>
+      <h3>
+         Windows 98/98SE/ME
+      </h3>
+      <p>
+         Dans le menu <b>Démarrer</b>, sélectionner
+         <b>Paramètres</b> puis <b>Panneau de Configuration</b>.
+         Activer alors l'icône <b>Ajout de Matériel</b> et suivre
+         les indications. Si le BIOS est supporté par Windows comme
+         étant un BIOS ACPI, le système détectera des composantes
+         ACPI et les installera. Le CD de Microsoft Windows sera
+         alors nécessaire pour terminer la procédure. Sans ce
+         disque, des composantes vitales manqueront à l'appel. Il
+         est même recommandé de recopier les fichiers de
+         l'installation de Windows du CD vers le disque dur, car il
+         arrive parfois que le lecteur CD ne soit plus fonctionnel
+         au cours de la procédure (après le redémarrage). En effet,
+         le système devra redémarrer et se retrouvera alors en mode
+         minimal. Plusieurs périphériques devraient être détectés,
+         puis des pilotes installés. Après cette opération pouvant
+         se poursuivre pendant quelques minutes, le système
+         redémarrera encore. Normalement, tous les périphériques, y
+         compris le lecteur de CD-ROM, devraient fonctionner à
+         nouveau.
+      </p>
+      <p>
+         Il faut alors vérifier si tout a bien été réinstallé et
+         remettre en place les pilotes de périphériques manquants.
+         Si le système ne peut retrouver un niveau de
+         fonctionnalité nominal suite à ce passage, il n'y a aucun
+         remède autre que la réinstallation, à moins d'utiliser un
+         point de restauration sous Windows ME ou un logiciel de
+         sauvegarde sous Windows 98/98SE/ME.
+      </p>
+      <p>
+         Il existe un autre cas à traiter: que faire si l'ajout de
+         matériel ne détecte pas le PC ACPI? Tout d'abord, il
+         importe de s'assurer que le BIOS dispose bien de la
+         fonctionnalité ACPI. Si tel n'est pas le cas, un passage
+         vers ce standard provoquera des dysfonctionnements pouvant
+         conduire à la nécessité de réinstaller Windows! Un
+         utilisateur certain de la présence d'un BIOS ACPI non
+         détecté par Windows peut effectuer une manipulation de la
+         base de registre pour forcer le système à passer en ACPI.
+      </p>
+      <p>
+         Pour ce faire, dans le menu <b>Démarrer</b>, sélectionner
+         <b>Exécuter</b>. Puis taper <tt>regedit</tt> avant de
+         cliquer sur le bouton <b>Ok</b>. L'éditeur apparaît et il
+         suffit d'atteindre la clé
+         <tt>HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\Current
+         Version\Detect</tt>. Dans le menu <b>Édition</b>,
+         sélectionner <b>Nouveau</b> puis <b>Valeur DWORD</b>. Le
+         nom de la valeur à créer sera demandé; spécifier
+         <tt>ACPIOption</tt>. Double-cliquer sur cette nouvelle
+         valeur et lui affecter la valeur <tt>1</tt>.
+      </p>
+      <p>
+         La manipulation effectuée, quitter l'éditeur de base de
+         registre et reprendre la procédure de configuration ACPI
+         qui devrait alors aboutir.
+      </p>
+      <h3>
+         Windows 2000/XP
+      </h3>
+      <p>
+         Dans le menu <b>Démarrer</b>, sélectionner
+         <b>Paramètres</b> puis <b>Panneau de configuration</b>, y
+         activer l'icône <b>Système</b>. Sous l'onglet
+         <b>Matériel</b> se trouve un bouton nommé <b>Gestionnaire
+         de périphériques</b> sur lequel il faut cliquer pour
+         activer ce gestionnaire. Dans le gestionnaire, développer
+         la branche <i>Ordinateur</i> en double-cliquant sur cette
+         dernière puis double-cliquer sur <b>PC Standard</b>. La
+         boîte de dialogue d'état du PC Standard apparaîtra. Sous
+         l'onglet <b>Pilote</b> de cette boîte se trouve un bouton
+         <b>Mettre à jour le pilote...</b> sur lequel il faut
+         cliquer.
+      </p>
+      <p>
+         Dans l'assistant qui surgit, sélectionner <b>Installer à
+         partir d'une liste ou d'un emplacement spécifié</b> puis
+         cliquer sur <b>Suivant</b>. À cette étape, sélectionner
+         <b>Ne pas rechercher</b>, ce qui va sauver un peu de
+         temps. Si le <b>PC Standard</b> est le seul à apparaître,
+         décocher la case <b>Afficher les matériels
+         compatibles</b>. Si le <b>PC à interface avancée de
+         configuration Power</b> n'apparaît toujours pas, un
+         problème au niveau du BIOS demeure. Désactiver APM dans le
+         Setup du BIOS puis réessayer.
+      </p>
+      <p>
+         Sélectionner le <b>PC à interface avancée de configuration
+         Power</b> puis le bouton <b>Suivant</b>; le système va
+         alors installer les fichiers nécessaires puis redémarrer.
+         Après le redémarrage, Windows va peut-être apparaître en
+         16 couleurs. Il faut se connecter en tant
+         qu'administrateur pour que le système puisse détecter et
+         installer tous les périphériques de la machine. Un nouveau
+         redémarrage sera nécessaire, puis les pilotes devront être
+         réinstallés si nécessaire.
+      </p>
+      <h2>
+         Réinstallation de Windows
+      </h2>
+      <p>
+         Cette méthode est plus longue, mais elle fournit un
+         système plus robuste. Il n'y aura plus traces de
+         l'ancienne configuration APM et certains problèmes seront
+         évités. Bien qu'il semble possible d'effectuer
+         l'installation sans formatage, juste en démarrant le
+         programme d'installation et en suivant les instructions,
+         je préfère reformater pour maximiser le peu de stabilité
+         dans le cas de Windows 98 et minimiser la taille de
+         l'installation dans le cas de Windows XP.
+      </p>
+      <p>
+         La procédure consiste uniquement à réinstaller Windows
+         après avoir mis le BIOS à jour ou configuré ses options.
+         Il est possible de se retrouver de nouveau avec un système
+         APM et l'utilisateur le saura uniquement après la
+         réinstallation, ce qui fait de cette méthode une procédure
+         longue et fastidieuse s'il faut tester plusieurs
+         paramètres. Pour éviter le tâtonnement, il est possible
+         d'imposer ACPI de la façon suivante.
+      </p>
+      <p>
+         Dans le cas de Windows 98/98SE/ME, il est possible
+         d'imposer le mode ACPI en utilisant le commutateur <tt>/p
+         j</tt> lors de l'appel de <tt>setup</tt>, le programme
+         d'installation de Windows.
+      </p>
+      <p>
+         Sous Windows 2000/XP, il faut intervenir lors de la phase
+         en mode texte de l'installation. Après avoir démarré le
+         programme d'installation, l'utilisateur reçoit le message,
+         dans la ligne d'état en bas de l'écran, d'appuyer sur F6
+         si des périphériques SCSI doivent être installés. Appuyer
+         alors non pas sur F6 mais plutôt sur F5. Le programme
+         d'installation fournira alors la possibilité de choisir le
+         type d'ordinateur à configurer. Il sera alors possible de
+         sélectionner <b>PC à interface avancée de configuration
+         Power</b>.
+      </p>
+      <h2>
+         Linux
+      </h2>
+      <p>
+         Du côté de Linux, les choses sont plus simples, car il est
+         possible de passer de APM à ACPI sans aucune
+         reconfiguration des périphériques. Par défaut, le noyau de
+         Linux utilise ACPI pour les BIOS récents et APM pour ceux
+         qui sont trop anciens. Pour forcer l'utilisation de ACPI,
+         il faut passer l'option <tt>acpi=force</tt> au noyau. Les
+         options <tt>noacpi</tt> et <tt>acpi=off</tt> permettent de
+         forcer l'utilisation d'APM. La façon de passer ces options
+         au noyau dépend du gestionnaire d'amorçage utilisé (GRUB
+         ou LILO). Voir son mode d'emploi pour plus de précisions à
+         ce sujet.
+      </p>
+      <h1>
+         <a name="acpitoapm" id="acpitoapm">De ACPI vers APM</a>
+      </h1>
+      <p>
+         La désactivation d'ACPI peut régler certains problèmes et
+         peut même accélérer la performance de certains jeux. ACPI
+         active un système de partage des IRQ qui n'est pas
+         souhaitable dans le cas de la carte graphique qui reçoit
+         beaucoup de données lors des jeux. Ces problèmes sont de
+         moins en moins présents de nos jours, mais cette section
+         est conservée pour couvrir le cas de vieilles machines. Là
+         encore, il existe deux méthodes: la reconfiguration ou la
+         réinstallation, avec les mêmes avantages et inconvénients
+         pour chacune d'elles.
+      </p>
+      <h2>
+         Reconfiguration de Windows
+      </h2>
+      <h3>
+         Windows 98/98SE/ME
+      </h3>
+      <p>
+         Si le BIOS le permet, il suffit de désactiver ACPI dans le
+         Setup et de réactiver APM. Dans le cas contraire, la
+         meilleure méthode consiste sans doute à flasher le BIOS à
+         une version précédente qui ne supportait pas du tout ACPI.
+         Au démarrage suivant la mise à jour, Windows apparaîtra
+         alors en 16 cuoleurs et demandera à l'utilisateur
+         d'insérer le CD de Windows. Il est recommandé de copier
+         les fichiers du CD de Windows sur le disque dur avant la
+         mise à jour du BIOS afin d'éviter des problèmes de
+         disponibilité du lecteur CD-ROM dans le mode minimal. Si
+         tout va bien, le système détectera tous ses périphériques
+         et reviendra au nominal. Il est possible que certains
+         pilotes doivent être réinstallés manuellement, toutefois.
+         Il se peut aussi que des fonctionnalités manquent suite à
+         la procédure et que la réinstallation de Windows soit
+         nécessaire.
+      </p>
+      <p>
+         Si la procédure ne fonctionne pas, il faudra tenter une
+         réinstallation. Il se peut même qu'il soit impossible de
+         désactiver le mode ACPI!
+      </p>
+      <h3>
+         Windows 2000/XP
+      </h3>
+      <p>
+         Cela consiste à effectuer la manoeuvre inverse de la
+         procédure d'installation. Au lieu de sélectionner le <b>PC
+         à interface avancée de configuration Power</b>, on
+         sélectionnera le <b>PC Standard</b>. La détection du
+         matériel aura de nouveau lieu et le système devrait
+         fonctionner de façon nominale, sauf que...
+      </p>
+      <p>
+         Cette technique laisse des traces de l'ancienne
+         configuration ACPI, il semble que Windows effectue
+         toujours des appels d'initialisation ACPI au BIOS, ce qui
+         inhibe notamment APM. La méthode enlève alors la
+         possibilité d'éteindre son ordinateur de façon
+         automatique. Lors de la fermeture de Windows, le système
+         indiquera <i>Vous pouvez éteindre votre ordinateur en
+         toute sécurité</i>, mais ne l'éteindra pas comme il le
+         faisait avant. Bien que la plupart du temps, ce problème
+         ne puisse être résolu qu'en réinstallant Windows, il
+         existe quelques parades que l'on peut tenter avant d'en
+         venir là.
+      </p>
+      <p>
+         La première chose à essayer est de vérifier dans le
+         <b>Panneau de Configuration</b>, icône <b>Options
+         d'alimentation</b>, si l'onglet <b>APM</b> existe. Si tel
+         est le cas, cocher <b>Activer la prise en charge de
+         l'alimentation avancée</b>.
+      </p>
+      <p>
+         Si tel n'est pas le cas, dans le <b>Gestionnaire de
+         périphériques</b>, utiliser la commande <b>Afficher les
+         périphériques cachés</b> du menu <b>Affichage</b>. Une
+         nouvelle branche nommée <b>Prise en charge NT
+         APM/hérité</b> devrait apparaître. Elle ne contient qu'un
+         élément, soit <b>Noeud d'interface NT APM/hérité</b>. Si
+         son icône associée à ce noeud comporte un X, cela signifie
+         que la prise en charge est désactivée. Cliquer avec le
+         bouton droit sur l'élément, puis sélectionner
+         <b>Activer</b> pourrait solutionner le problème. L'onglet
+         <b>APM</b> apparaîtra alors dans les <b>Options
+         d'alimentation</b>.
+      </p>
+      <p>
+         Il se peut aussi, comme dans mon cas, que l'icône associée
+         au <b>Noeud d'interface NT APM/hérité</b> soit un point
+         d'exclamation. Un double-clic sur le <b>Noeud d'interface
+         NT APM/hérité</b> provoque alors l'affichage d'une boîte
+         d'état. Dans mon cas, cette boîte indique un code d'erreur
+         32. Si une erreur apparaît ainsi, le diagnostic peut se
+         poursuivre avec l'utilitaire <tt>apmstat</tt> de Windows
+         Support Tools, présent dans le répertoire <tt>Support</tt>
+         du CD de Windows 2000 ou XP. Ce programme (commande
+         <tt>apmstat -v</tt>) a pour moi rapporté la présence d'une
+         machine ACPI même si le HAL (Hardware Abstraction Layer)
+         APM avait été installé.
+      </p>
+      <p>
+         Le passage de ACPI vers APM sous Windows XP n'est ainsi
+         pas parfait et il se peut qu'il en soit de même pour
+         Windows 98. Il faudrait découvrir un registry tweak pour
+         retirer toute trace de configuration ACPI pour terminer
+         cette procédure.
+      </p>
+      <h2>
+         Réinstallation de Windows
+      </h2>
+      <p>
+         Si Windows s'obstine à se réinstaller en mode ACPI, dans
+         le cas de Windows 98/98SE/ME, l'option <tt>/p i</tt>
+         passée au programme <tt>setup</tt> pourrait être d'un
+         grand secours. Je n'ai jamais testé cette option, j'ai
+         seulement appris qu'elle désactivait ACPI mais aussi le
+         BIOS Plug-and-Play, alors elle n'est peut-être pas
+         souhaitable.
+      </p>
+      <p>
+         Sous Windows 2000/XP, il suffit d'utiliser la touche F5 au
+         début du programme d'installation et de sélectionner <b>PC
+         Standard</b> dans le menu qui apparaîtra.
+      </p>
+      <h1>
+         Références
+      </h1>
+      <ul>
+         <li>
+            <a
+            href="http://www.tweakersasylum.com/Guides/ACPI/ACPITweak/00000001.htm">Tweakers
+            Asylum - "Home for the Hardcore"</a>
+         </li>
+         <li>
+            <a href="http://www.techadvice.com/w98/A/acpi.htm">ACPI
+            with Windows 98</a>
+         </li>
+         <li>
+            <a
+            href="http://support.microsoft.com/default.aspx?scid=kb;EN-US;q299340">How
+            to Force a HAL During Windows XP Setup</a>
+         </li>
+         <li>
+            <a
+            href="http://support.microsoft.com/default.aspx?scid=kb;en-us;Q237556">Troubleshooting
+            Windows 2000 Hardware Abstraction Layer Issues</a>
+         </li>
+         <li>
+            <a
+            href="http://support.microsoft.com/default.aspx?scid=kb;EN-US;q186111">Windows
+            95, Windows 98, and Windows Me Setup Switches</a>
+         </li>
+         <li>
+            <a
+            href="http://www.microsoft.com/hwdev/archive/BUSBIOS/amp_12.asp">Advanced
+            Power Management v. 1.2</a>
+         </li>
+         <li>
+            <a href="http://www.acpi.info">ACPI, Advanced
+            Configuration &amp; Power Interface</a>
+         </li>
+         <li>
+            <a
+            href="http://webpages.charter.net/dperr/dpms.htm">DPMS
+            monitor specification</a>
+         </li>
+      </ul>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

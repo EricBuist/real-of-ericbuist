@@ -1,0 +1,372 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.1//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>18.1 L'obtention des fichiers sonores</TITLE>
+<META NAME="description" CONTENT="18.1 L'obtention des fichiers sonores">
+<META NAME="keywords" CONTENT="cdwriting">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cdwriting.css">
+
+<LINK REL="next" HREF="node86.html">
+<LINK REL="previous" HREF="node84.html">
+<LINK REL="up" HREF="node84.html">
+<LINK REL="next" HREF="node86.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2348"
+  HREF="node86.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2342"
+  HREF="node84.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2336"
+  HREF="node84.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2344"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2346"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html2349"
+  HREF="node86.html">18.2 La méthode du</A>
+<B> monter:</B> <A NAME="tex2html2343"
+  HREF="node84.html">18. La création de</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2337"
+  HREF="node84.html">18. La création de</A>
+ &nbsp; <B>  <A NAME="tex2html2345"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2347"
+  HREF="node106.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Sous-sections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html2350"
+  HREF="node85.html#SECTION07511000000000000000"><SPAN CLASS="arabic">18</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">1</SPAN> Extraction audio</A>
+<LI><A NAME="tex2html2351"
+  HREF="node85.html#SECTION07512000000000000000"><SPAN CLASS="arabic">18</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">2</SPAN> Téléchargement</A>
+<LI><A NAME="tex2html2352"
+  HREF="node85.html#SECTION07513000000000000000"><SPAN CLASS="arabic">18</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">3</SPAN> Conversion</A>
+<LI><A NAME="tex2html2353"
+  HREF="node85.html#SECTION07514000000000000000"><SPAN CLASS="arabic">18</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">4</SPAN> Échantillonnage</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION07510000000000000000">
+<SPAN CLASS="arabic">18</SPAN>.<SPAN CLASS="arabic">1</SPAN> L'obtention des fichiers sonores</A>
+</H1>
+
+<P>
+Malheureusement, cette étape s'avère ardue sous Linux. Toutes les
+cartes sons ne sont pas bien supportées, ce qui peut compliquer
+l'enregistrement à partir de vinyles, cassettes, etc. 
+Le nombre de logiciels d'échange de fichiers est aussi plus petit
+que sous Windows.
+
+<P>
+
+<H2><A NAME="SECTION07511000000000000000">
+<SPAN CLASS="arabic">18</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">1</SPAN> Extraction audio</A>
+</H2>
+
+<P>
+L'extraction audio permet d'obtenir des fichiers sonores à partir de
+pistes sur un CD Audio. Comme sous Windows, il convient d'utiliser un
+logiciel adapté à cette tâche plutôt qu'un logiciel d'enregistrement
+sonore général. L'usage d'un logiciel d'extraction audio, en
+conjonction avec un lecteur qui la supporte, permet de sauver du temps
+et d'assurer une bonne synchronisation entre le début et la fin des
+fichiers sonores et les véritables pistes du disque original. Sous
+Linux, l'extraction peut s'effectuer en ligne de commandes avec
+plusieurs utilitaires différents.
+CDParanoia<A NAME="4023"></A> [<A HREF="node105.html#url:cdparanoia">URL13</A>], par
+exemple, permet
+d'extraire toutes les pistes d'un disque ou une partie seulement, avec
+correction des erreurs.
+
+<P>
+
+<DIV CLASS="alltt" ALIGN="LEFT">
+<TT>
+ 
+<BR>
+cdparanoia -Bw out.wav
+<BR></TT>
+</DIV>
+
+<P>
+La commande extrait toutes les pistes du CD Audio inséré dans le
+lecteur et les place dans des fichiers individuels (option
+<TT>-B</TT>) au format WAV (option <TT>-w</TT>). Les fichiers seront
+de la forme <TT>track1.out.wav</TT>, <TT>track2.out.wav</TT>, ...,
+<TT>trackN.out.wav</TT>. Naturellement, tous ces fichiers sont d'une
+taille impressionnante et si vous souhaitez les archiver, il vaut
+mieux les encoder en MP3 ou en Ogg Vorbis. L'utilitaire 
+BladeEnc<A NAME="4032"></A> [<A HREF="node105.html#url:bladeenc">URL10</A>] permet
+de résoudre ce problème avec une ligne de commande.
+
+<P>
+
+<DIV CLASS="alltt" ALIGN="LEFT">
+<TT>
+ 
+<BR>
+bladeenc *.wav
+<BR></TT>
+</DIV>
+
+<P>
+Le logiclel LAME<A NAME="4036"></A> [<A HREF="node105.html#url:lame">URL42</A>]
+permet également
+l'encodage en format MP3. Il ne peut malheureusement encoder qu'un
+fichier à la fois:
+
+<P>
+
+<DIV CLASS="alltt" ALIGN="LEFT">
+<TT>
+ 
+<BR>
+lame input.wav output.mp3
+<BR></TT>
+</DIV>
+
+<P>
+Pour encoder en Ogg Vorbis, l'utilitaire
+oggenc fourni avec les Vorbis Tools permet peut être utilisé.
+
+<P>
+
+<DIV CLASS="alltt" ALIGN="LEFT">
+<TT>
+ 
+<BR>
+oggenc *.wav
+<BR></TT>
+</DIV>
+
+<P>
+Le logiciel grip<A NAME="4042"></A> [<A HREF="node105.html#url:grip">URL36</A>]
+constitue une interface graphique permettant d'effectuer l'extraction
+et l'encodage en une seule étape, un peu comme avec CDEX sous
+Windows. Grip a aussi l'avantage de faire appel à FreeDB pour obtenir
+le nom des chansons sur le disque, ce qui peut vous éviter des pertes
+de temps en renommage de fichiers.
+
+<P>
+<TABLE BORDER="1">
+<TR><TD VALIGN="top">
+<DIV STYLE="text-align:center; color:red"> Information
+</DIV><P>
+Sous l'onglet
+<SPAN  CLASS="textbf">Configuration</SPAN> du logiciel, sous-onglet <SPAN  CLASS="textbf">Extraction</SPAN>,
+vous pouvez contrôler le format du nom des fichiers produits. Pour
+obtenir une présentation semblable à CDEX sous Windows, le format à
+utiliser est <code>~/mp3/%A - %d/%t - %n.wav</code>. Sous l'onglet
+<SPAN  CLASS="textbf">Codage</SPAN>, il faudra également modifier le format du nom de
+fichiers en conséquence: <code>~/mp3/%A - %d/%t - %n.%x</code>. Sous
+l'onglet <SPAN  CLASS="textbf">Divers</SPAN>, cochez également les options <SPAN  CLASS="textbf">Ne pas
+  passer les fichiers en minuscules</SPAN>, <SPAN  CLASS="textbf">Autoriser les caractères
+  8 bits dans les noms de fichiers</SPAN> et <SPAN  CLASS="textbf">Ne pas changer les
+  espaces en blancs soulignés</SPAN>.</TD></TR></TABLE> 
+<P>
+
+<H2><A NAME="SECTION07512000000000000000">
+<SPAN CLASS="arabic">18</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">2</SPAN> Téléchargement</A>
+</H2>
+
+<P>
+Plusieurs logiciels de téléchargement tels que KaZaA et Shareaza ne
+sont pas disponibles sous Linux. Il y a quelques années, seul le
+logiciel LimeWire [<A HREF="node105.html#url:limewire">URL45</A>], utilisant le protocole
+Gnutella, était disponible pour Linux. De
+nos jours, il y a également le logiciel xMule [<A HREF="node105.html#url:xmule">URL77</A>] qui
+constitue une adaptation de eMule pour Linux.
+Le logiciel aMule [<A HREF="node105.html#url:amule">URL6</A>] est un autre portage intéressant de
+xMule, lui aussi compatible avec Linux.
+Le logiciel gIFT [<A HREF="node105.html#url:gift">URL35</A>] constitue également une solution
+intéressante quoiqu'assez complexe à installer. Le client BitTorrent
+[<A HREF="node105.html#url:bittorrent">URL9</A>] est également disponible.
+
+<P>
+Les logiciels Mp3Wrap et Mp3Splt mentionnés à la
+section&nbsp;<A HREF="node60.html#sec:winaudiodownload">12.1.2</A> peuvent également être employés
+sous Linux.
+Mp3Splt permet entre autre de scinder des fichiers MP3 en plusieurs
+morceaux sans les décoder, ce qui peut être utile pour construire des
+compilations d'albums téléchargés sur Internet.
+
+<P>
+
+<H2><A NAME="SECTION07513000000000000000">
+<SPAN CLASS="arabic">18</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">3</SPAN> Conversion</A>
+</H2>
+
+<P>
+L'utilitaire SoX [<A HREF="node105.html#url:sox">URL62</A>] constitue le meilleur outil pour
+convertir un fichier sonore d'un format vers un autre. Toutefois, il
+ne supporte que les formats audio. De façon similaire à Winamp, XMMS
+[<A HREF="node105.html#url:xmms">URL76</A>] peut être utilisé comme décodeur pratiquement
+universel. La ligne de commande la plus simple est <TT>sox in out</TT>
+Le logiciel Zinf Audio Player [<A HREF="node105.html#url:zinf">URL80</A>] constitue
+une autre alternative à XMMS. Malheureusement, ces logiciels ne
+supportent pas le format MIDI. 
+Timidity++ [<A HREF="node105.html#url:timidity">URL65</A>] permet quant à lui de convertir un
+fichier MIDI en WAV. La ligne de commande typique est <TT>timidity
+  -Ow -o out.wav in.mid</TT>.
+
+<P>
+
+<H2><A NAME="SECTION07514000000000000000">
+<SPAN CLASS="arabic">18</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">4</SPAN> Échantillonnage</A>
+</H2>
+
+<P>
+Avant de pouvoir échantillonner, votre carte son doit pouvoir
+fonctionner sous Linux. Le support de toute carte son repose sur une
+couche logicielle dans le noyau. Il existe trois systèmes de gestion
+de
+carte son sous Linux: OSS/Free<A NAME="4068"></A>,
+OSS<A NAME="4069"></A> et ALSA<A NAME="4070"></A>. Pendant de nombreuses
+années, Open Sound System [<A HREF="node105.html#url:oss">URL55</A>]
+demeura le seul système de gestion de carte
+son sous Linux. OSS ne supporte que deux canaux audio et son système
+MIDI est plutôt limité. Toutefois, OSS fonctionne sous Linux et
+certaines variantes de UNIX.
+Le système OSS est devenu commercial, mais
+OSS/Free constitue une branche gratuite de OSS.
+Pour une trentaine de dollars, un utilisateur Linux peut mettre
+OSS/Free à jour et obtenir le support de canaux multiples et la
+gestion de davantage de cartes son. OSS constitue la solution la plus
+simple pour ajouter le support de canaux multiples sous Red Hat&nbsp;9 qui
+utilise OSS/Free.
+Le système <SPAN  CLASS="textit">Advanced Linux Sound
+  Architecture</SPAN> [<A HREF="node105.html#url:alsa">URL2</A>] constitue un système de
+gestion du son spécifique à Linux et permettant le support de canaux
+multiples et un nombre plus étendu d'options de configuration des
+cartes son. Il fournit une interface pour le support du MIDI et
+supporte un plus grand nombre de cartes son que OSS.
+Puisque ALSA est intégré au noyau&nbsp;2.6 en remplacement de
+OSS/Free dans le noyau&nbsp;2.4, ce système tend à supplanter son
+prédecesseur.
+
+<P>
+Par-dessus OSS/Free, OSS ou ALSA, il est courant de trouver une
+couche logicielle additionnelle fournie par le gestionnaire de
+bureau. GNOME propose ainsi EsounD<A NAME="4074"></A>
+tandis que KDE propose aRts<A NAME="4075"></A>. Grâce
+à ces couches, GNOME et KDE peuvent fonctionner en utilisant OSS ou
+ALSA et sont en mesure de jouer plusieurs sons simultanément même si
+la carte son, par exemple une vieille Sound Blaster&nbsp;16, ne le supporte
+pas toujours. La configuration du son sous Linux dépasse
+malheureusement le
+cadre de ce document, mais il existe plusieurs how-tos pour effectuer
+cette tâche. Le site du projet ALSA, par exemple, fournit un guide de
+configuration spécifique à chaque carte son supportée.
+
+<P>
+Il existe plusieurs logiciels pour effectuer l'opération
+d'échantillonnage. Tout d'abord, vous devez utiliser un mixer pour
+configurer le volume de l'enregistrement ainsi que la source audio sur
+laquelle numériser. Le choix du mixer dépend à la fois de vos
+préférences personnelles et du système de gestion du son installé. Si
+vous utilisez OSS, vous pouvez utiliser à peu près tous les
+mixers. AuMix<A NAME="4076"></A> constitue un mixer possible. Si vous
+utilisez
+ALSA, il
+vaut mieux utiliser ALSAMixer<A NAME="4077"></A> afin d'exploiter toutes
+les sources
+audio offertes par ALSA. Si vous enregistrez en utilisant
+aRts, vous
+pouvez utiliser le mixer intégré à KDE, KMix<A NAME="4078"></A>. Avec aRts,
+vous pouvez également utiliser un mixer adéquat au gestionnaire de son
+de votre noyau.
+
+<P>
+Il existe plusieurs logiciels d'enregistrement audio dont le choix
+dépend encore une fois du gestionnaire de sons du noyau. Avec OSS,
+vous pouvez utiliser
+yarec<A NAME="4079"></A> [<A HREF="node105.html#url:yarec">URL79</A>].
+Sa ligne de commande ressemble en général à <TT>yarec -r 44100 -b
+  16 -c 2 snd.wav</TT>. Une petite interface graphique surgit et vous
+permet d'amorcer ou stopper l'enregistrement audio.
+
+<P>
+ALSA, quant à lui, fournit l'utilitaire arecord<A NAME="4082"></A> qui effectue
+l'enregistrement sonore. La commande <TT>arecord -t wav -f cd
+  snd.wav</TT> permet d'effectuer l'enregistrement qui sera terminé par un
+appui sur CTRL-C. Si vous utilisez aRts avec OSS ou ALSA, vous pouvez
+utiliser la commande <TT>artsrec -r 44100 -b 16 -c 2 snd.wav</TT>.
+
+<P>
+En cas de dysfonctionnement de l'enregistrement, essayez de
+désactiver aRts ou EsounD. Vous pouvez aussi tenter de désactiver le
+mode full duplex de ces gestionnaires. La plupart des cartes sons
+fournissent plusieurs périphériques de restitution, mais un seul
+périphérique d'enregistrement est offert. Si aRts active
+l'enregistrement sans vraiment l'utiliser, aucun logiciel
+d'échantillonnage ne fonctionnera.
+
+<P>
+Après l'échantillonnage, vous pouvez utiliser un logiciel tel
+qu'Audacity [<A HREF="node105.html#url:audacity">URL7</A>] afin de manipuler le fichier
+sonore. Audacity permet également d'effectuer l'échantillonnage par le
+biais d'une interface graphique.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2348"
+  HREF="node86.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2342"
+  HREF="node84.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2336"
+  HREF="node84.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2344"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2346"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html2349"
+  HREF="node86.html">18.2 La méthode du</A>
+<B> monter:</B> <A NAME="tex2html2343"
+  HREF="node84.html">18. La création de</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2337"
+  HREF="node84.html">18. La création de</A>
+ &nbsp; <B>  <A NAME="tex2html2345"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2347"
+  HREF="node106.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Eric Buist
+2005-11-13
+</ADDRESS>
+</BODY>
+</HTML>

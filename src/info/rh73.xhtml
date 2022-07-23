@@ -1,0 +1,766 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         Mise à jour à RedHat 7.3
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css" href="../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../index.xhtml" class="parents">Le royaume
+               de Eric Buist</a> &gt;&gt; <a href="index.xhtml"
+               class="parents">Informatique</a> &gt;&gt;
+               Configuration informatique
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../sitemap.xhtml" class="sitemap">Plan du
+               site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="linuxrebirth.xhtml"
+               class="leftsibling">Résurrection de Linux</a>
+            </td>
+            <td class="thispage">
+               Mise à jour à RedHat 7.3
+            </td>
+            <td class="rightsibling">
+               <a href="xpacpi.xhtml" class="rightsibling">Support
+               ACPI sous Windows XP</a> &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         Mise à jour à RedHat 7.3
+      </h1>
+      <ul>
+         <li>
+            <a href="#download">Téléchargement</a>
+         </li>
+         <li>
+            <a href="#linuxconf">Linuxconf a disparu!</a>
+         </li>
+         <li>
+            <a href="#xemacs">XEmacs manque à l'appel</a>
+         </li>
+         <li>
+            <a href="#modem1">Le modem qui fait des misères</a>
+         </li>
+         <li>
+            <a href="#printer1">L'imprimante qui s'y met elle
+            aussi!</a>
+         </li>
+         <li>
+            <a href="#xfsetup">Quelques réglages dans XFree86</a>
+         </li>
+         <li>
+            <a href="#printer2">Encore des problèmes
+            d'impression!</a>
+         </li>
+         <li>
+            <a href="#modem2">Le modem revient au nominal</a>
+         </li>
+         <li>
+            <a href="#printer3">L'imprimante qui récidive!</a>
+         </li>
+         <li>
+            <a href="#conclusion">Conclusion</a>
+         </li>
+      </ul>
+      <h2>
+         <a name="download" id="download">Téléchargement</a>
+      </h2>
+      <p>
+         Lundi, 20 mai 2002, je me suis décidé à entamer le
+         téléchargement de la version 7.3 de RedHat Linux. Comme
+         d'habitude, l'opération fut plutôt... rock'n roll! Afin de
+         profiter du gestionnaire de téléchargement Download
+         Accelerator Plus, je devais l'effectuer sous Windows et
+         Internet Explorer allait servir à établir les premiers
+         contacts avec les sites FTP. Les adresses des sites
+         miroirs sont inscrites sur une page Web et il serait long
+         et fastidieux de les copier/coller une par une dans un
+         client FTP, effectuer le branchement, puis trouver le
+         fichier. Souvent, un clic sur un site FTP provoquait un
+         blocage complet d'Internet Explorer et il fallait alors
+         tuer le processus avec CTRL+ALT+DEL. Lorsqu'un branchement
+         était établi, il fallait par la suite accéder au site,
+         trouver les images ISO puis copier/coller l'URL complète
+         afin de la passer à DAP.
+      </p>
+      <p>
+         Il y avait un total de six images ISO et la connexion
+         était extrêmement lente, car j'avais mal choisi mes
+         miroirs. Je finis par le découvrir et parvins enfin à
+         accélérer les choses un peu. À quelques reprises, je me
+         demandai s'il serait possible, cette fois, d'obtenir Linux
+         de cette façon. Dans le cas contraire, il m'aurait fallu
+         soit acheter une distribution, soit tenter de tomber sur
+         quelqu'un qui aurait eu plus de chance que moi...
+         J'effectuais cette mise à jour en grande partie pour
+         passer à KDE 3 et obtenir une version intégrée à ma
+         distribution de XFree86 4.2, version à partir de laquelle
+         les fonctionnalités 3D de ma carte ATI sont prises en
+         charge par le DRI.
+      </p>
+      <p>
+         Samedi, le 25 mai 2002, je disposais enfin de tous les
+         fichiers et j'avais gravé les disques. Tout était fin prêt
+         pour la réinstallation. Tout d'abord, je supprimai ma
+         partition ext2fs pour en créer une nouvelle. En fait,
+         j'aurais simplement pu la reformater sans la supprimer. Je
+         dus indiquer au programme d'installation de monter cette
+         partition dans <tt>/</tt>, comme d'habitude en fait. La
+         procédure se passa comme un charme, sauf que des surprises
+         m'attendaient...
+      </p>
+      <h2>
+         <a name="linuxconf" id="linuxconf">Linuxconf a
+         disparu!</a>
+      </h2>
+      <p>
+         J'eus beau le chercher sur les 3 CD de la distribution, le
+         logiciel de configuration avait disparu complètement.
+         C'est pourtant avec ce dernier que je configurais le
+         réseau, les points de montage, les utilisateurs, ... Bref,
+         c'est un gros morceau que je perds là! Le point de montage
+         de ma partition de données fut configuré à la main.
+         J'utilisai <tt>man fstab</tt> afin de connaître la syntaxe
+         du fichier <tt>/etc/fstab</tt> et j'y ajoutai la ligne
+         nécessaire.
+      </p>
+<pre>
+/dev/hda6               /mnt/data               vfat    auto,nouser,rw,umask=0    0 0
+</pre>
+      <p>
+         L'option <tt>auto</tt> indique de monter le disque au
+         démarrage, <tt>nouser</tt> indique que l'utilisateur ne
+         peut ni le démonter, ni le monter. <tt>rw</tt> active la
+         possibilité de lire et écrire tandis que le
+         <tt>umask=0</tt> indique de n'inhiber aucun droit. Ainsi,
+         l'usager peut lire et écrire dans tous les répertoires,
+         comme c'est le cas sur un lecteur FAT32 sous Windows. Je
+         dus aussi paramétrer pour permettre l'utilisation du
+         CD-ROM par l'utilisateur. J'indiquai <tt>owner</tt> et
+         <tt>user</tt> comme options de montage.
+      </p>
+      <p>
+         GRUB n'avait pas détecté Windows XP et je dus lui indiquer
+         où le trouver afin que le système apparaisse dans le menu.
+         Ce qui se résuma à calquer l'entrée commentée pour le DOS.
+      </p>
+<pre>
+title Windows XP Professionnel
+        rootnoverify (hd0,0)
+        chainloader +1
+</pre>
+      <p>
+         Dès que ces lignes furent ajoutées à
+         <tt>/etc/grub.conf</tt>, Windows XP put démarrer de
+         nouveau grâce au boot loader.
+      </p>
+      <p>
+         Restait le problème de la configuration réseau. Je
+         découvris, sur le Bureau KDE, une icône <b>Control
+         Panel</b> qui activait un panneau de configuration
+         regroupant plusieurs outils de configuration RedHat. J'y
+         découvris un outil de configuration réseau avec lequel je
+         pus effectuer le travail.
+      </p>
+      <p>
+         Je nommai la machine <tt>faucondefer.buistgroup.ca</tt>,
+         ce qui eut pour effet de modifier <tt>/etc/hosts</tt> et
+         <tt>/etc/sysconfig/network</tt>. Le dernier fichier reçut
+         également l'IP de la passerelle, soit 192.168.0.1. En
+         utilisant le logiciel de configuration, j'assignai à ma
+         carte réseau une IP fixe, soit 192.168.0.2, masque de
+         sous-réseau 255.255.255.0. C'est la seule façon d'avoir le
+         réseau et de pouvoir démarrer ma machine Linux sans que
+         l'ordinateur familial soit toujours ouvert. Ce qui eut
+         pour effet de modifier le fichier
+         <tt>/etc/sysconfig/networking/devices/ifcfg-eth0</tt>. Le
+         fichier <tt>/etc/resolv.conf</tt> contenait le nom du DNS
+         utilisé, soit 192.168.0.1, lorsque la manipulation fut
+         terminée. Je lui indiquai d'utiliser le domaine
+         <tt>buistgroup.ca</tt>, ce qui ne veut rien dire, mais il
+         en voulait un...
+      </p>
+      <h2>
+         <a name="xemacs" id="xemacs">XEmacs manque à l'appel</a>
+      </h2>
+      <p>
+         Il allait encore me falloir installer XEmacs, mais je ne
+         me souvenais plus de quels packages il fallait installer.
+         Malheureusement, utiliser <tt>rpm</tt> pour installer le
+         package <tt>xemacs-21.4.6-7</tt> ne suffisait pas, car
+         <tt>libcanna.so</tt> et <tt>libpq.so</tt> étaient
+         nécessaires. Naturellement, aucun package ne portait ce
+         nom!
+      </p>
+      <p>
+         Il me fallut user d'astuce pour retrouver ces librairies.
+         Tout d'abord, je dus dresser la liste de tout ce que
+         procurait chacun des packages de la distribution de
+         RedHat! Heureusement, une simple ligne de commande permet
+         de l'obtenir pour un disque donné. Après avoir inséré le
+         disque, j'ai tapé quelques commandes.
+      </p>
+<pre>
+mount /mnt/cdrom
+cd /mnt/cdrom/RedHat/RPMS
+for i in *.rpm; do echo $i; rpm -qp --provides $i; done &gt; ~/diskx.txt
+</pre>
+      <p>
+         Chacun des fichiers fut alors examiné et, grâce à la
+         fonction de recherche de GNU Emacs, je pus trouver dans
+         quelques packages se trouvait quoi.
+      </p>
+      <table border="1">
+         <tr>
+            <th>
+               Package
+            </th>
+            <th>
+               Librairie
+            </th>
+            <th>
+               Disque
+            </th>
+         </tr>
+         <tr>
+            <td>
+               <tt>Canna-libs-3.5b2-62</tt>
+            </td>
+            <td>
+               <tt>libcanna.so</tt>
+            </td>
+            <td>
+               1
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <tt>postgresql-libs-7.2.1-5</tt>
+            </td>
+            <td>
+               <tt>libpq.so</tt>
+            </td>
+            <td>
+               2
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <tt>xemacs-21.4.6-7</tt>
+            </td>
+            <td>
+               -
+            </td>
+            <td>
+               3
+            </td>
+         </tr>
+         <tr>
+            <td>
+               <tt>xemacs-info-21.4.6-7</tt>
+            </td>
+            <td>
+               -
+            </td>
+            <td>
+               3
+            </td>
+         </tr>
+      </table>
+      <p>
+         Bref, rock'n'roll! XEmacs fonctionnait après tout cela,
+         mais il restait à paramétrer la taille des polices.
+         J'utilise actuellement la fonte <i>LucidaBright</i>, avec
+         une taille de 24 points depuis que j'ai augmenté ma
+         résolution à 1024x768. Malheureusement, l'éditeur affiche
+         certaines fontes en minuscule et il n'y a rien à faire
+         pour lui indiquer de faire autrement d'une façon simple et
+         rapide. Avec le temps, j'ai aussi découvert que quelques
+         lignes étaient absolument nécessaire dans
+         <tt>~/.xemacs/init.el</tt>, soient
+      </p>
+<pre>
+(require 'tex-site)
+(setq bell-volume 0)
+(setq sgml-catalog-files (append sgml-catalog-files '("/usr/lib/xemacs/xemacs-packages/etc/psgml/CATALOG")))
+</pre>
+      <p>
+         La première active le système AuC-TeX, utile pour les
+         documents LaTeX. La seconde inhibe les beeps très
+         fatigants que l'éditeur émet encore avec le PC Speaker. La
+         troisième indique où trouver les DTD pour le HTML, ce qui
+         permet d'utiliser le mode HTML de l'éditeur pour
+         travailler sur des pages Web. Sans cette ligne, je
+         recevais constamment le message <i>External entity not
+         found</i> et l'indentation était très mauvaise.
+      </p>
+      <h2>
+         <a name="modem1" id="modem1">Le modem qui fait des
+         misères</a>
+      </h2>
+      <p>
+         Mon modem Intel MD5628D me causa aussi des problèmes
+         infinis lors de cette mise à jour. Je constatai rapidement
+         que le pilote développé par Intel ne supportait pas le
+         kernel 2.4.18. Une version était disponible pour les
+         kernels 2.2, l'autre allait jusqu'à 2.4.12. Il allait me
+         falloir oublier le modem ou recompiler une ancienne
+         version du noyau. Pour un modem, cela n'en valait pas le
+         coup, mais je voulais tout de même le faire fonctionner.
+      </p>
+      <p>
+         Avant de tenter la compilation, il fallut bien entendu
+         installer le package <tt>kernel-source-2.4.18-3</tt> afin
+         de disposer du code source du noyau et des en-têtes
+         requises pour compiler les modules pour le modem.
+      </p>
+      <p>
+         Je tentai malgré tout de compiler le pilote et j'eus droit
+         à des messages d'erreur incompréhensibles. Je tentai alors
+         d'obtenir une version à jour du fichier et j'obtins le
+         fichier <tt>Intel-v92ham-440-RH72</tt>. La commande
+         <tt>make ham</tt>, utilisée à l'intérieur du répertoire
+         produit en décompressant le fichier, provoqua de nouvelles
+         erreurs.
+      </p>
+      <p>
+         Si je tenais à faire fonctionner ce modem sous Linux, il
+         allait me falloir modifier ce pilote! Je découvris que le
+         bogue venait d'une macro, <tt>EXPORT_SYMBOLS_NOVERS</tt>.
+         En examinant cette macro, je découvris un moyen de
+         contourner le bobo. Dans le fichier
+         <tt>coredrv/makefile</tt>, je dus modifiai la ligne
+         <tt>CFLAGS</tt> pour y ajouter <tt>-DEXPORT_SYMTAB</tt>.
+         Après cette découverte relevant d'un peu de logique, de
+         chance et de devinette, le module principal du pilote du
+         modem, <tt>hamcore</tt>, compila avec succès!
+      </p>
+      <p>
+         Toutefois, le serial driver servant d'interface entre ce
+         module principal et l'utilisateur s'obstinait à ne pas
+         compiler. Le fichier <tt>serialdrv/clmdrvr.c</tt> ne
+         compilait pas pour xyz raisons. L'erreur était due à un
+         champ interne d'une structure qui n'existait plus. Il
+         semblait nécessaire qu'Intel révise le pilote une nouvelle
+         fois et en attendant, je retournais à la case départ: pas
+         de modem sous Linux. Heureusement, je n'en ai pas besoin,
+         car j'accède à Internet par carte réseau, mais je voulais
+         le faire fonctionner!
+      </p>
+      <p>
+         Aux grands maux les grands moyens! J'ouvris le fichier
+         problématique dans XEmacs et localisai la ligne causant
+         l'erreur, soit la ligne 776 dont voici le texte
+      </p>
+<pre>
+      current-&gt;counter = 0;  /* make us low-priority*/
+</pre>
+      <p>
+         Cela ressemblait à une petite optimisation, le jeu en
+         valait la chandelle; je la commentai! Cela fonctionna, le
+         pilote compila enfin et je pus exécuter le reste de la
+         procédure d'installation pour l'intégrer à mon noyau.
+         Quelques raffinements furent nécessaires pour permettre à
+         l'utilisateur d'accéder au modem, mais il semble
+         fonctionner. Je faillis en conclure autrement lors d'un
+         test avec l'utilitaire <tt>minicom</tt>, car celui-ci se
+         bloquait sans établir de communication avec le modem. Je
+         me rappelai toutefois qu'il fallait utiliser, au moins une
+         fois et en root, la commande <tt>minicom -s</tt> afin de
+         configurer le logiciel de communication. Par défaut,
+         <tt>minicom</tt> utilise un modem branché sur
+         <tt>/dev/ttyS0</tt>. Je dus lui apprendre que le modem se
+         trouvait dans <tt>/dev/modem</tt>, un lien symbolique vers
+         <tt>/dev/ham</tt>. On ne saura toutefois jamais si ce
+         pilote est réellement fonctionnel, les conséquences de mon
+         acte plutôt téméraire pourraient se faire sentir à tout
+         moment!
+      </p>
+      <p>
+         Un tel scénario démontre toutefois clairement la
+         flexibilité qu'offre un système à code source ouvert. Sous
+         Windows, une telle incompatibilité aurait été impossible à
+         lever temporairement. Bien entendu, lorsque je saurai
+         qu'Intel a fabriqué un nouveau pilote fonctionnant
+         réellement pour mon kernel, je le mettrai en place!
+      </p>
+      <h2>
+         <a name="printer1" id="printer1">L'imprimante qui s'y met
+         elle aussi!</a>
+      </h2>
+      <p>
+         Imprimer sous Linux avec une imprimante non PostScript
+         relève parfois du tour de magie! J'eus droit à des
+         problèmes lors de ma première tentative d'impression sous
+         mon nouveau système Linux. La commande <tt>lpr</tt> ne
+         fonctionnait pas, car le daemon <tt>lpd</tt> ne tournait
+         pas du tout. Je tentai donc, en root, de passer la
+         commande <tt>/etc/rc.d/init.d/lpd restart</tt>, ce qui eut
+         pour effet d'afficher un message d'erreur. Non seulement
+         <tt>lpd</tt> ne fonctionnait-il pas, en plus il ne voulait
+         pas fonctionner!
+      </p>
+      <p>
+         TurboPrint, le logiciel me permettant d'imprimer sous
+         Linux avec plus de simplicité qu'avec les outils de
+         RedHat, causait décidément problème. J'utilisai donc
+         <tt>xtpsetup</tt> pour tenter de reconfigurer les
+         imprimantes; ma Canon était bien là. Et pourtant,
+         <tt>lpd</tt> ne la détectait pas, car elle ne figurait pas
+         dans <tt>/etc/printcap</tt>. Je découvris que le Common
+         UNIX Printing System (CUPS) avait été installé dans RedHat
+         7.3 et TurboPrint l'avait pris en charge au lieu du
+         système LPRng. <tt>lpr</tt>, <tt>lpq</tt>, <tt>lprm</tt>
+         et compagnie n'avaient donc plus cours. Je tentai de
+         trouver les équivalents, rien à faire. On aurait dit que
+         pour contrôler CUPS, il fallait impérativement appeler des
+         fonctions de librairie ou, pour l'utilisateur, utiliser la
+         fonction Print des applications KDE qui proposait de
+         choisir entre LPRng et CUPS pour l'impression.
+      </p>
+      <p>
+         Désireux de conserver la possibilité de contrôler mon
+         imprimante, je tentai de contourner le bobo, mais rien à
+         faire: TurboPrint se prenait toujours les pieds dans CUPS.
+         Je dus donc supprimer complètement les packages
+         <tt>cups</tt> et <tt>cups-drivers</tt>.
+      </p>
+      <p>
+         TurboPrint voulait toujours en découdre. Conservateur, il
+         cherchait à reconfigurer son affaire avec CUPS. Je devrais
+         donc supprimer ses fichiers de configuration. Je supprimai
+         donc le répertoire <tt>/etc/turboprint</tt>, mais le
+         logiciel ne voulait plus se reconfigurer du tout, car il
+         manquait d'informations.
+      </p>
+      <p>
+         Je dus donc le réinstaller, mais la bête se réinitialisa
+         sur CUPS de nouveau. Je dus finalement tenter de modifier
+         la configuration, un fichier
+         <tt>/etc/turboprint/system.cfg</tt> semblait un bon
+         candidat et il contenait la ligne <tt>TP_CUPS=1</tt>. Je
+         la remplaçai par <tt>TP_CUPS=0</tt> puis essayai de
+         nouveau. Enfin, cela fonctionna après un nouveau
+         <tt>xtpsetup</tt>! Le démarrage de <tt>lpd</tt> réussit
+         par la suite et je pus imprimer!
+      </p>
+      <h2>
+         <a name="xfsetup" id="xfsetup">Quelques réglages dans
+         XFree86</a>
+      </h2>
+      <p>
+         J'aime qu'après un certain temps d'inutilisation, l'écran
+         de mon ordinateur s'éteigne automatiquement pour ne se
+         rallumer qu'à l'appui sur une touche de clavier ou au
+         mouvement de la souris. Malheureusement, ce réglage n'est
+         pas acquis sous X. Sous KDE, on peut le régler à l'aide du
+         Control Panel, mais il n'est pas effectif lorsque KDE ne
+         tourne pas. Il n'est pas <i>system-wide</i>.
+      </p>
+      <p>
+         La commande <tt>xset</tt> permet d'effectuer des réglages
+         au niveau du serveur X. Avec le temps, et un <tt>man
+         xset</tt>, j'avais découvert que <tt>xset dpms standby
+         suspend off</tt> permettait de configurer le nombre de
+         secondes après lesquelles l'écran entrait dans les modes
+         d'énergie minimale. Je pensais donc placer la ligne
+         <tt>xset dpms 900 1050 1200</tt> le plus tôt possible dans
+         la séquence d'amorçage de X. Je décidai de la placer dans
+         <tt>/etc/X11/prefdm</tt>. Je découvrirais plus tard
+         qu'elle n'a là aucun autre effet que d'afficher un message
+         d'erreur qui se perd.
+      </p>
+      <p>
+         Afin de paramétrer les options DPMS par défaut, une
+         modification du fichier <tt>/etc/X11/XF86Config-4</tt>. Je
+         consultai pour cela le manpage et je me rendis compte avec
+         étonnement qu'il allait me falloir créer une nouvelle
+         section qui se présente comme suit.
+      </p>
+<pre>
+Section "ServerFlags"
+        Option   "StandbyTime"   "15"
+        Option   "SuspendTime"  "17"
+        Option   "OffTime"          "20"
+EndSection
+</pre>
+      <p>
+         Je modifiai également mon fichier <tt>~/.Xresources</tt>
+         afin d'y intégrer la ligne <tt>*visualBell: True</tt>, ce
+         qui évite d'entendre des beeps provenant du damné
+         haut-parleur interne du PC qui devrait à mon avis
+         disparaître des machines modernes! Les cartes sons,
+         devenues presque un standard, parfois même intégrées à la
+         carte mère, effectuent un travail infiniment meilleur.
+         Reste malheureusement à établir une interface standard...
+      </p>
+      <h2>
+         <a name="printer2" id="printer2">Encore des problèmes
+         d'impression!</a>
+      </h2>
+      <p>
+         Décidément, je devrais faire l'achat d'une coûteuse
+         imprimante PostScript, installer VMWare pour utiliser
+         Windows et Linux simultanément (avec perte de performance
+         sur l'un d'eux), avoir deux PC (une machine Windows et une
+         machine Linux côte à côte) ou opter pour la simplicité et
+         renoncer à Linux! Pour des raisons aussi personnelles que
+         pratiques, aucune de ces solutions radicales ne
+         m'intéressaient et pourtant, les bogues d'imprimante
+         persistaient toujours!
+      </p>
+      <p>
+         Cette fois-ci, lors de l'impression, le contenu se
+         trouvait décalé vers le bas de la page et le bas était
+         tout simplement perdu! Le bogue se produisait autant avec
+         des document LaTeX convertis par la commande
+         <tt>dvips</tt> que de simples fichiers textes traités par
+         <tt>a2ps</tt>. Seul Acrobat Reader pouvait, pour des
+         raisons inconnues, imprimer les PDF correctement.
+         Vendredi, le 13 avril 2002, je me rendis compte que pour
+         le cours de Technologie de l'Internet (IFT3220), les
+         énoncés de devoir se trouvaient en format HTML et non en
+         PDF. Pour imprimer l'énoncé avec Mozilla, il me fallut
+         imprimer dans un PostScript, convertir en PDF avec
+         <tt>ps2pdf</tt> puis imprimer le PDF avec Adobe Acrobat
+         Reader. Cela fait plutôt beaucoup d'acrobaties pour
+         imprimer un simple fichier!
+      </p>
+      <p>
+         Le lendemain soir, l'opération échoua pour l'impression du
+         plan de cours de IFT3220. Sur papier, le texte se trouvait
+         minuscule, si bien qu'il me fallut utiliser une stratégie
+         plus complexe consistant à convertir la page Web en LaTeX
+         en utilisant <a
+         href="http://html2latex.sourceforge.net/">html2latex</a>.
+         Le fichier dut être modifié de fond en comble afin de
+         devenir imprimable.
+      </p>
+      <p>
+         L'application commerciale nommée TurboPrint
+         n'accomplissait plus son travail adéquatement, je n'en
+         voulais donc plus! Je me décidai à la supprimer par
+         <tt>rpm -e turboprint</tt> puis réinstallai CUPS,
+         souhaitant savoir de quoi il retournait avec ce système.
+         J'installai non pas seulement <tt>cups</tt> et
+         <tt>cups-drivers</tt> du premier CD de RedHat mais aussi
+         <tt>gimp-print-cups</tt> du second disque et
+         <tt>qtcups</tt> et <tt>qtcups-devel</tt> du troisième.
+      </p>
+      <p>
+         Maintenant, comment savoir faire fonctionner CUPS? Une
+         astucieuse commande allait vite m'y aider: <tt>rpm -ql
+         cups | grep bin</tt>. Je découvris ainsi
+         <tt>lpq.cups</tt>, <tt>lpr.cups</tt> et
+         <tt>lprm.cups</tt>, mais aussi <tt>cupsconfig</tt>. Je
+         démarrai donc la commande et obtins l'affichage d'un
+         navigateur avec un message d'erreur: la page demandée
+         était introuvable!
+      </p>
+      <p>
+         Je dus démarrer le service CUPS par l'entremise de la
+         commande <tt>/etc/rc.d/init.d/cups start</tt> puis un
+         nouvel essai me révéla la page. Mieux encore, il suffit de
+         pointer tout navigateur Web sur
+         <tt>http://localhost:631</tt> pour pouvoir configurer
+         CUPS! Je pus ajouter avec grande aisance, après avoir à
+         tout hasard entré <tt>root</tt> et le mot de passe
+         approprié pour mon système lorsqu'il me fut demandé de
+         m'authentifier, ajouter mon imprimante Canon BJC-250. Bien
+         entendu, je m'étais rendu compte, avant de passer mon mot
+         de passe root, que je me trouvais sur un site hébergé
+         localement. Le système aurait bien pu me rediriger à un
+         endroit sur le Web et fournir mon mot de passe root était
+         bien entendu inadmissible en un tel cas!
+      </p>
+      <p>
+         Un test me révéla que l'imprimante fonctionnait, et elle
+         ne décalait plus le contenu des pages. CUPS a ainsi résolu
+         mon problème d'impression! Il restait par la suite à
+         utiliser <tt>/sbin/chkconfig --add cups</tt> puis
+         <tt>/sbin/chkconfig --del cups</tt> pour que CUPS démarre
+         au lieu de LPRng lors du démarrage système. Je raffinai le
+         réglage en conservant l'ordre des services. Pour ce faire,
+         je renommai toutes les instances, dans
+         <tt>/etc/rc.d/rc[0-6].d</tt>, de <tt>S99cups</tt> en
+         <tt>S60cups</tt> et <tt>K00cups</tt> en <tt>K60cups</tt>.
+      </p>
+      <p>
+         Quelques temps plus tard, je me rendis compte que
+         l'imprimante produisait du texte très pâle, souvent
+         difficile à lire. Il me fallut beaucoup de temps et
+         beaucoup de feuilles pour enfin découvrir que régler la
+         densité à 2.0 plutôt que 1.0 permet de résoudre le
+         problème.
+      </p>
+      <h2>
+         <a name="modem2" id="modem2">Le modem revient au
+         nominal</a>
+      </h2>
+      <p>
+         Mardi, le 15 octobre 2002, je constatai qu'une nouvelle
+         version des pilotes de mon modem était disponible sur le
+         site d'Intel. Je me rendis compte qu'elle supportait le
+         kernel 2.2.18, j'allais donc l'installer et enfin avoir un
+         pilote de modem réellement fonctionnel!
+      </p>
+      <p>
+         La compilation se passa sans histoires, l'installation
+         aussi se passa bien. Un petit bogue écarté.
+      </p>
+      <h2>
+         <a name="printer3" id="printer3">L'imprimante qui
+         récidive!</a>
+      </h2>
+      <p>
+         Non, cette fois-ci, ce n'est pas ma Canon, c'est l'Epson
+         Stylus Color 660 branchée à l'ordinateur familial. Je
+         manquais d'encre noire dans ma Canon mais souhaitais
+         imprimer une version modifiée par mes propres soins des
+         notes de cours de processus cognitifs 1 (PSY1065) afin de
+         pouvoir faire mon étude dans des conditions optimales.
+         Toutefois, pour parvenir à imprimer les PDF, il fallait
+         interfacer CUPS avec une imprimante Windows, à savoir
+         l'Epson!
+      </p>
+      <p>
+         Ma première tentative d'ajouter l'imprimante distante fut
+         un échec, car CUPS ne supporte pas bien ce type de
+         traitement. Il semblait nécessaire de disposer d'une HP
+         commerciale implantant le protocole AppSocket ou d'un
+         puissant serveur Windows équipé de Internet Information
+         Service (IIS) bien configuré pour gérer l'imprimante à
+         travers Internet Printing Protocol (IPP).
+      </p>
+      <p>
+         Je renonçai pour le moment à configurer l'imprimante, mais
+         jeudi, le 17 octobre 2002, le problème refaisait surface:
+         il fallait imprimer! Je tentai pour la seconde fois
+         d'effectuer des recherches sur le Web et je trouvai, sur
+         le site <a
+         href="http://www.bsdtoday.com/2001/January/Features396.html">BSDToday</a>,
+         un article indiquant que CUPS pouvait gérer des
+         imprimantes Windows par le biais de SAMBA. Je consultai
+         donc la documentation de CUPS et découvris comment la
+         configurer avec Samba. Je tapai tout d'abord la commande
+         qu'ils prescrivaient, soit <tt>ln -s `which smbspool`
+         /usr/lib/cups/backend/smb</tt>, bien entendu après avoir
+         vérifié si <tt>smbspool</tt> était bien installé.
+      </p>
+      <p>
+         Je passai ensuite par l'interface Web afin d'ajouter
+         l'imprimante Epson. J'utilisai comme URI
+         <tt>smb://buist/Epson</tt>. Toutefois, l'interface
+         n'accepta pas le nom de méthode <tt>smb</tt>. Je dus donc
+         créer une imprimante temporaire avec une URI fictive, à
+         savoir <tt>file:///tmp/test.prn</tt>. En cas d'échec de la
+         tentative, je pourrais toujours garder cette URI et
+         utiliser la commande <tt>print</tt> de <tt>smbclient</tt>
+         afin de réaliser l'impression manuellement.
+      </p>
+      <p>
+         Je modifiai ensuite le fichier
+         <tt>/etc/cups/printers.conf</tt>. Ce fichier identifie
+         toutes les imprimantes configurées et un fichier PPD se
+         trouve dans un sous-répertoire pour compléter le tout.
+         Seul le fichier <tt>printers.conf</tt> semblait nécessiter
+         des changements, j'y modifiai l'URI puis redémarrai CUPS.
+      </p>
+      <p>
+         Dès lors, je pouvais taper <tt>lpr.cups -PEpson
+         fichier</tt> et le fichier était pris en main par CUPS.
+         Toutefois, aucune feuille ne sortait de l'imprimante
+         distante. En consultant l'état de l'imprimante, je me
+         rendis compte que CUPS tentait en vain de se connecter
+         avec SAMBA.
+      </p>
+      <p>
+         Je tentai de modifier l'URI pour
+         <tt>smb://192.168.0.1/Epson</tt>, puisque 192.168.0.1
+         constitue l'IP de la machine Buist, sans effet. Bien
+         entendu, lors de chaque changement, il fallait redémarrer
+         CUPS avec <tt>/etc/rc.d/init.d/cups restart</tt>. Je
+         commençais à croire que SAMBA était resté en arrière et
+         effectuait certaines connexions avec le protocole NetBEUI
+         plutôt que TCP. Windows XP ne supporte plus, par défaut,
+         le protocole NetBEUI et pour obtenir son support, il faut
+         l'installer à part. Je ne voulais pas encombrer le système
+         pour un système récalcitrant et des impressions plutôt
+         occasionnelles.
+      </p>
+      <p>
+         Je découvris que le répertoire <tt>/etc/samba</tt>
+         comprenait un fichier <tt>lmhosts</tt>. J'y ajoutai
+         <tt>192.168.0.1 buist</tt> afin d'établir la
+         correspondance aux yeux de SAMBA. Une autre tentative
+         n'amena aucun résultat. Je tentai avec
+         <tt>smb://buist/Epson</tt> puis avec
+         <tt>smb://BUIST/Epson</tt>. BUIST constitue le nom donné
+         par la commande <tt>smbclient -L buist</tt>.
+      </p>
+      <p>
+         Je modifiai une nouvelle fois l'URI pour <tt>smb://BUIST
+         GROUP/BUIST/Epson</tt>, mais cela n'améliora aucunement
+         mon sort! Cette imprimante semblait définitivement
+         condamnée à en pas fonctionner depuis mon Linux. Puis je
+         tentai avec <tt>smb://eric:pwd@BUIST
+         GROUP/BUIST/Epson</tt> et j'obtins plus de succès!
+      </p>
+      <p>
+         <tt>eric</tt> constitue un nom d'utilisateur valide sur la
+         machine Buist Windows XP. <tt>pwd</tt> représente le mot
+         de passe associé que je ne révélerai pas ici pour des
+         raisons évidentes. Ainsi, je peux imprimer, mais en cas de
+         problèmes d'impression, il me faut pour le moment me
+         brancher sur la machine Buist et supprimer manuellement la
+         tâche d'impression de la file d'attente; pas moyen de le
+         faire à distance.
+      </p>
+      <h2>
+         <a name="conclusion" id="conclusion">Conclusion</a>
+      </h2>
+      <p>
+         Tout cela ne donne pas une très bonne vision de Linux et
+         j'en conviens. Ce n'est toutefois qu'une partie du
+         système. La configuration relève parfois des tours de
+         passe-passe, mais lorsque le système est au point, Linux
+         constitue un système stable et capable de rassasier les
+         informaticiens les plus curieux.
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

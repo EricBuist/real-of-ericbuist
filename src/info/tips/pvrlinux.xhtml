@@ -1,0 +1,656 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         Configuration d'un synthoniseur TV Hauppauge WinTV sous
+         Linux
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css"
+      href="../../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../../index.xhtml" class="parents">Le
+               royaume de Eric Buist</a> &gt;&gt; <a
+               href="../index.xhtml"
+               class="parents">Informatique</a> &gt;&gt;
+               Quelques-unes de mes recherches personnelles
+               &gt;&gt; <a href="index.xhtml" class="parents">Trucs
+               et astuces</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../../sitemap.xhtml" class="sitemap">Plan
+               du site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="offlinesetup.xhtml"
+               class="leftsibling">Installer des logiciels sans
+               connexion Internet, de plus en plus difficile!</a>
+            </td>
+            <td class="thispage">
+               Configuration d'un synthoniseur TV Hauppauge WinTV
+               sous Linux
+            </td>
+            <td class="rightsibling">
+               Astuces spécifiques au DIRO &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         Configuration d'un synthoniseur TV Hauppauge WinTV sous
+         Linux
+      </h1>
+      <p>
+         Bien que les cartes de la firme <a
+         href="http://www.hauppage.com">Hauppauge</a> portent le
+         nom de WinTV, certaines peuvent en théorie fonctionner
+         sous Linux. Toutefois, en pratique, rien n'est simple,
+         mais il est possible d'aller plus loin qu'avec une carte
+         All-In-Wonder de <a href="http://www.atitech.com">ATI</a>.
+         La configuration nécessite d'abord d'installer un pilote
+         pour ensuite déterminer l'environnement logiciel à
+         utiliser.
+      </p>
+      <ul>
+         <li>
+            <a href="#products">Produits de Hauppauge</a>
+         </li>
+         <li>
+            <a href="#ivtv">Installation de IvTV (WinTV PVR
+            seulement)</a>
+         </li>
+         <li>
+            <a href="#test">Test du synthoniseur</a>
+         </li>
+         <li>
+            <a href="#config">Configuration permanente</a>
+         </li>
+         <li>
+            <a href="#mythtv">Logiciel plus convivial pour écouter
+            la TV</a>
+         </li>
+         <li>
+            <a href="#ondemand">TV sur demande</a>
+         </li>
+         <li>
+            <a href="#recording">Enregistrement</a>
+         </li>
+         <li>
+            <a href="#remote">Qu'en est-il de la télécommande?</a>
+         </li>
+      </ul>
+      <h2>
+         <a name="products" id="products">Produits Hauppauge</a>
+      </h2>
+      <p>
+         <a href="http://www.hauppage.com">Hauppauge</a> propose
+         plusieurs produits pour la capture d'images TV. Parmi les
+         plus intéressants pour Linux figurent les produits de la
+         série WinTV Go et WinTV PVR. La série WinTV Go est très
+         intéressante, car elle utilise des puces compatibles avec
+         <a
+         href="http://linux.bytesex.org/v4l2/bttv.html">BTTV</a>,
+         le pilote de capture vidéo le plus mature sous Linux.
+         Avoir su que j'allais éprouver autant de difficultés avec
+         mon synthoniseur TV, j'aurais opté pour le WinTV Go. La
+         configuration sous Linux est très simple, car elle ne
+         nécessite aucun pilote additionnel. Malheureusement, le
+         WinTV Go produit des images non compressées que le
+         processeur doit encoder. Il faut donc une machine très
+         puissante pour pouvoir enregistrer les données capturées
+         en format MPEG, surtout si des DVD-Vidéo doit être créé à
+         partir des captures. Bien évidemment, il faut aussi un
+         logiciel d'encodage MPEG. Il en existe certes pour Linux,
+         mais leur maniement est très loin d'être simple.
+      </p>
+      <p>
+         La série WinTV PVR a l'avantage de comporter un encodeur
+         MPEG-2 intégré au matériel. De cette façon,
+         l'enregistrement ne nécessite pas une machine surpuissante
+         et le copier/coller d'une ligne de commande obscure afin
+         d'appeler un encodeur dont on ne se souvient jamais même
+         du nom! Hauppauge produit une gamme de modèles destinés à
+         Windows XP Media Center Edition; ceux-ci n'incluent aucune
+         télécommande et aucun décodeur MPEG-2. En revanche, les
+         modèles qui ne sont pas MCE incluent la télécommande et le
+         décodeur MPEG-2. Dans le cas de Linux, la version MCE peut
+         très bien convenir, car la télécommande qui vient avec le
+         modèle non MCE ne sert strictement à rien (elle ne
+         fonctionne pas sous Linux, à moins d'installer un autre
+         reécepteur infrarouge que celui intégré à la carte!)
+         tandis que le décodeur MPEG-2 de Hauppauge ne fonctionne
+         que sous Windows.
+      </p>
+      <p>
+         Le WinTV PVR-150 est le produit de base qui comporte le
+         synthoniseur TV. Le PVR-250 ajoute le synthoniseur radio
+         et probablement un meilleur synthoniseur TV, car son prix
+         est le double du PVR-150! Le PVR-350, quant à lui, ajoute
+         une sortie TV par laquelle peut transiter une séquence
+         vidéo MPEG-2 décodée par la carte elle-même. Quant au
+         PVR-500, il comporte deux synthoniseurs TV permettant
+         d'enregistrer une émission et d'en écouter une autre
+         simultanément! Cette ligne de produits n'était pas tout à
+         fait compatible avec Linux dans le passé, car il fallait
+         installer un pilote qui n'était pas inclus avec la plupart
+         des distributions et parfois, ce pilote ne fonctionnait
+         pas! De plus, la plupart des logiciels de TV sous Linux ne
+         permettent pas de recevoir du MPEG-2 et sont par le fait
+         même inutilisables avec ce synthoniseur.
+      </p>
+      <p>
+         Il faut aussi mentionner une gamme de produits USB qui
+         n'était pas du tout compatible avec Linux au moment où
+         j'ai acheté mon synthoniseur mais qui semblent fonctionner
+         en 2006. Des pilotes, mentionnés dans la section
+         SupportedHardware de la page de <a
+         href="http://ivtvdriver.org/">IvTV</a>, ont vu le jour et
+         ont subi de nombreuses améliorations. Un synthoniseur USB
+         est une excellente option pour un ordinateur portable, à
+         supposer que d'autres composantes de la machine ne mènent
+         pas la vie dure à Linux... Nous allons ici nous concentrer
+         sur les versions PCI de ces cartes puisque je ne connais
+         pas les détails pour les versions USB2.
+      </p>
+      <p>
+         Depuis la version 2.6.22 du noyau, les pilotes nécessaires
+         sont inclus avec le noyau. Il n'est donc plus nécessaire
+         d'installer des modules, mais les logiciels IvTV peuvent
+         encore servir pour effectuer des réglages sur le
+         synthoniseur.
+      </p>
+      <h2>
+         <a name="ivtv" id="ivtv">Installation de IvTV (WinTV PVR
+         seulement)</a>
+      </h2>
+      <p>
+         Dans le cas des WinTV PVR-150/250/350/500, il est
+         nécessaire d'ajouter un module spécial au noyau de Linux.
+         Ce module se nomme <a
+         href="http://ivtvdriver.org/">IvTV</a> et ne supportait en
+         2005 que les synthoniseurs PVR-250 et PVR-350. Pour les
+         modèles WinTV PVR-150 et PVR-500, il fallait utiliser la
+         version de développement. Par chance, la prise en charge
+         de ces modèles est à présent intégrée au pilote stable
+         dont les versions les plus récentes s'adaptent aux
+         nouvelles version du noyau. À présent, sous Ubuntu, il
+         suffit d'installer le paquet <tt>ivtv</tt> pour que le
+         synthoniseur fonctionne.
+      </p>
+      <p>
+         La première étape est de télécharger le paquetage. Je suis
+         parvenu à un résultat probant pour la première fois
+         dimanche, 2 octobre 2005 avec la version 0.3.9 de IvTV,
+         sous Fedora Core 4 avec le noyau 2.6.12. La même technique
+         fonctionne avec la nouvelle version stable 0.4.0. Pour
+         Fedora Core 5 et 6, avec le noyau 2.6.17, il faut utiliser
+         la version 0.7 tandis que la version 0.8 est nécessaire
+         pour le noyau 2.6.18 et la version 0.9 pour le noyau
+         2.6.19. Lorsque le fichier est téléchargé, il faut le
+         décompacter avec la commande suivante.
+      </p>
+<pre>
+tar -zxf ivtv-0.3.9.tgz
+</pre>
+      <p>
+         Il faut ensuite se rendre dans le répertoire décompressé,
+         compiler puis installer.
+      </p>
+<pre>
+cd ivtv-0.3.9
+make
+make install
+</pre>
+      <p>
+         La dernière commande ainsi que les manipulations suivantes
+         doivent être exécutées en mode super-utilisateur (root).
+         Cela installe le module IvTV mais aussi des utilitaires
+         pour paramétrer le synthoniseur. Le code source du noyau
+         (paquetage <tt>kernel-source</tt>) devra souvent être
+         installé pour compiler les modules. Dans le cas de
+         distributions récentes telles que Fedora Core 4, il suffit
+         d'installer le paquetage <tt>kernel-devel</tt> qui
+         contient les en-têtes nécessaires sans inclure tout le
+         code source. Il était souvent nécessaire de supprimer des
+         modules créant des conflits, par exemple
+         <tt>msp3400.ko</tt>. Il suffit de renommer de tels modules
+         en leur ajoutant l'extension <tt>.HIDE</tt> pour les
+         cacher. Par exemple, <tt>mv msp3400.ko
+         msp3400.ko.HIDE</tt>. La commande <tt>make install</tt>
+         indiquera quels conflits sont à prévoir. L'utilisation de
+         <tt>/sbin/depmod -a</tt> est nécessaire après ces
+         renommages. Heureusement, depuis le noyau 2.6.15, cette
+         étape n'est plus nécessaire.
+      </p>
+      <p>
+         Note: cette procédure est à refaire à chaque mise à jour
+         du noyau.
+      </p>
+      <p>
+         Dans le cas du WinTV PVR-150, il faut en plus installer le
+         firmware se trouvant sur le CD fourni par Hauppauge ou
+         téléchargé sur le site du fabricant. Pour cela, jusqu'à la
+         version 0.4.0 de ivtv, il suffit de copier les fichiers
+         <tt>HcwFalcn.ROM</tt> et <tt>HcwMakoA.ROM</tt> dans
+         <tt>/lib/modules</tt>. Le premier correspond au firmware
+         vidéo tandis que le second contient le firmware audio. Ces
+         firmwares ne sont pas toujours nécessaires si bien qu'il
+         est possible d'essayer de les omettre et déterminer quelle
+         configuration est optimale. Tester avec différentes
+         versions du firmware est aussi envisageable. Dans mon cas,
+         il m'a fallu les deux firmwares du CD original (version
+         2.3B) et je n'ai pas cherché à trouver une meilleur
+         combinaison. Il est également nécessaire de créer un lien
+         symbolique pour le firmware vidéo avec <tt>ln -s
+         /lib/modules/HcwFalcn.ROM
+         /lib/modules/ivtv-fw-enc.bin</tt>.
+      </p>
+      <p>
+         Avec la version 0.4.1 de ivtv et les versions suivantes,
+         <tt>HcwFalcn.ROM</tt> et <tt>HcwMakoA.ROM</tt> doivent
+         plutôt être copiés dans <tt>/lib/firmware</tt> et les deux
+         commandes suivantes doivent être exécutées:
+      </p>
+<pre>
+ln -s /lib/firmware/HcwFalcn.rom /lib/firmware/v4l-cx2341x-enc.fw
+ln -s /lib/firmware/HcwMakoA /lib/firmware/v4l-cx25840.fw
+</pre>
+      <p>
+         L'emplacement de ces firmware peut varier selon la
+         distribution de Linux et un troisième firmware est
+         nécessaire pour le décodeur MPEG du PVR350. Voir <a
+         href="http://www.ivtvdriver.org/index.php/Firmware">le
+         guide sur IVTVDriver.org</a> pour plus d'informations.
+         J'ai obtenu l'adresse de ce guide dans le <tt>README</tt>
+         inclus dans IVTV 0.4.1.
+      </p>
+      <p>
+         Au moment de charger <tt>ivtv</tt>, il est important de
+         vérifier que <tt>eeprom</tt> n'est pas chargé. Ce module
+         est parfois utilisé par lm_sensors pour les capteurs de
+         température de la carte mère. Pour le décharger au besoin,
+         il suffit d'utiliser <tt>modprobe -r eeprom</tt>. Ce
+         problème a disparu avec le noyau 2.6.15.
+      </p>
+      <p>
+         La commande <tt>modprobe ivtv</tt> permet de charger le
+         module IvTV ainsi que tout autre module qui pourrait être
+         nécessaire à son fonctionnement. Si tout est configuré
+         correctement, cela devrait créer des entrées
+         <tt>/dev/video</tt> pour un système utilisant udev (Fedora
+         Core 3 ou ultérieur par exemple). Pour un système
+         n'utilisant pas udev, il faudra créer ces entrées à la
+         main, avec <tt>mknod</tt>. Voir par exemple pour cela <a
+         href="http://www.cs.duke.edu/~reynolds/pvr150/">PVR-150
+         MCE (NTSC) and MythTV</a> Après avoir chargé le pilote TV,
+         il est bien entendu recommandé de recharger
+         <tt>eeprom</tt> s'il a été déchargé.
+      </p>
+      <p>
+         En cas de bogue, il faut vérifier le fichier
+         <tt>/var/log/messages</tt> qui contient parfois des
+         informations indispensables pour trouver ce qui ne va pas.
+         Les problèmes les plus courants sont liés au firmware qui
+         n'est pas trouvé ou bogué.
+      </p>
+      <h2>
+         <a name="test" id="test">Test du synthoniseur</a>
+      </h2>
+      <p>
+         Il faut d'abord utiliser l'utilitaire <tt>ivtv-tune</tt>
+         pour régler le synthoniseur sur une chaîne. Dans le cas de
+         IvTV 0.2, il faudra utiliser ptune et installer divers
+         modules Perl pour le rendre exploitable. Voir pour cela la
+         page de IvTV. Par exemple, <tt>ivtv-tune -c5</tt>
+         synthonise le canal 5. Sans cette étape préalable, le test
+         n'affichera que de la statique ou un écran noir.
+      </p>
+      <p>
+         Pour une carte raccordée à un terminal de télévision
+         numérique ou un récepteur satellite (par exemple, Illico,
+         ExpressVu, StarChoice, etc.), il faut souvent reconfigurer
+         le synthoniseur pour qu'il prenne son entrée depuis le
+         port Composite ou S-Video plutôt que le coaxial. Pour ce
+         faire, il suffit d'utiliser <tt>ivtvctl -n</tt> pour
+         lister les entrées. Avec IVTV 0.8, il faudra plutôt
+         employer <tt>v4l2-ctl -n</tt>. Cela devrait faire surgir
+         une sortie semblable à ce qui suit.
+      </p>
+<pre>
+ioctl: VIDIOC_ENUMINPUT
+        Input   : 0
+        Name    : S-Video 0
+        Type    : 0x00000002
+        Audioset: 0x00000003
+        Tuner   : 0x00000000
+        Standard: 0x00000000007F3FFF ( PAL NTSC SECAM )
+        Status  : 0
+
+        Input   : 1
+        Name    : S-Video 1
+        Type    : 0x00000002
+        Audioset: 0x00000003
+        Tuner   : 0x00000000
+        Standard: 0x00000000007F3FFF ( PAL NTSC SECAM )
+        Status  : 0
+
+        Input   : 2
+        Name    : Composite 0
+        Type    : 0x00000002
+        Audioset: 0x00000003
+        Tuner   : 0x00000000
+        Standard: 0x00000000007F3FFF ( PAL NTSC SECAM )
+        Status  : 0
+
+        Input   : 3
+        Name    : Composite 1
+        Type    : 0x00000002
+        Audioset: 0x00000003
+        Tuner   : 0x00000000
+        Standard: 0x00000000007F3FFF ( PAL NTSC SECAM )
+        Status  : 0
+
+        Input   : 4
+        Name    : Composite 2
+        Type    : 0x00000002
+        Audioset: 0x00000003
+        Tuner   : 0x00000000
+        Standard: 0x00000000007F3FFF ( PAL NTSC SECAM )
+        Status  : 0
+
+        Input   : 5
+        Name    : Composite 3
+        Type    : 0x00000002
+        Audioset: 0x00000003
+        Tuner   : 0x00000000
+        Standard: 0x00000000007F3FFF ( PAL NTSC SECAM )
+        Status  : 0
+
+        Input   : 6
+        Name    : Tuner 0
+        Type    : 0x00000001
+        Audioset: 0x00000003
+        Tuner   : 0x00000000
+        Standard: 0x0000000000003000 ( NTSC )
+        Status  : 0
+
+        Input   : 7
+        Name    : Tuner 1
+        Type    : 0x00000001
+        Audioset: 0x00000003
+        Tuner   : 0x00000000
+        Standard: 0x0000000000003000 ( NTSC )
+        Status  : 0
+</pre>
+      <p>
+         Dans cet exemple, <tt>ivtvctl -p 0</tt> (ou <tt>v4l2-ctl
+         -i 0</tt>) active l'entrée S-Video tandis que <tt>ivtvctl
+         -p 6</tt> active le synthoniseur. Le module IvTV semble
+         gérer une puce générique dont les capacités ne seraient
+         pas exploitées à fond par la carte Hauppauge. Il est
+         possible que la puce puisse accueillir plus d'une entrée
+         Composite, mais Hauppauge n'en utilise qu'une. Il faudra
+         ainsi, possiblement, tester toutes ces entrées pour
+         trouver celle qui fonctionne. Malheureusement, je ne peux
+         garantir le fonctionnement de cette technique puisque je
+         n'ai pas moi-même raccordé mon synthoniseur à une source
+         vidéo composite ou S-Video.
+      </p>
+      <p>
+         Le test du synthoniseur est très simple: <tt>gmplayer
+         /dev/video</tt>. MPlayer considérera le périphérique comme
+         un fichier, y découvrira un flux MPEG-2 et se mettra à le
+         décoder. J'ai déjà essayé cette même astuce avec Xine,
+         mais ce dernier refuse de décoder le flux vidéo,
+         prétextant qu'il lui faut un plug-in spécial pour lire sur
+         <tt>/dev/video</tt>. Une autre façon de tester consiste à
+         appeler <tt>cp /dev/video test.mpg</tt> et à appuyer sur
+         Ctrl-C après quelques secondes. Le fichier MPEG-2
+         résultant, si le synthoniseur fonctionne, devrait pouvoir
+         être décodé avec n'importe quel logiciel compatible avec
+         cette norme. Sous Linux, cela inclut Xine, MPlayer et
+         quelques autres.
+      </p>
+      <h2>
+         <a name="config" id="config">Configuration permanente</a>
+      </h2>
+      <p>
+         Pour que le synthoniseur soit toujours accessible, il
+         suffit de faire en sorte que <tt>modprobe ivtv</tt> soit
+         appelé au démarrage de Linux. Dans le cas de Fedora Core
+         4, il m'a fallu ajouter <tt>modprobe tveeprom</tt> dans
+         <tt>/etc/rc.d/rc.sysinit</tt>, car le module
+         <tt>lm_sensors</tt> chargeait <tt>eeprom</tt>. Dans
+         <tt>/etc/rc.d/rc.local</tt>, il m'a ensuite fallu ajouter
+         <tt>modprobe ivtv</tt>. Ces manipulations doivent bien
+         entendu être adaptées à la distribution de Linux
+         particulière qui est mise en oeuvre.
+      </p>
+      <h2>
+         <a name="mythtv" id="mythtv">Logiciel plus convivial pour
+         écouter la TV</a>
+      </h2>
+      <p>
+         Avec les cartes WinTV Go, plusieurs options sont
+         disponibles pour écouter la télévision sous Linux: <a
+         href="http://linux.bytesex.org/xawtv">XawTV</a>, <a
+         href="http://tvtime.sourceforge.net">TVTime</a>, <a
+         href="http://www.kdetv.org">KDETV</a>, etc.
+         Malheureusement, aucun logiciel courant de télévision sous
+         Linux ne fonctionne avec les WinTV PVR, même si le pilote
+         IvTV est en place et fonctionne. Les logiciels courants
+         s'attendent à recevoir des données YUV et non du MPEG-2,
+         si bien qu'ils ne sont pas compatibles avec le pilote
+         IvTV. Une modification du pilote pour permettre
+         l'utilisation du logiciel diminuerait les fonctionnalités
+         du synthoniseur, car il faudrait que le module IvTV décode
+         le flux MPEG et le transforme en flux YUV! Plusieurs
+         néophytes ne se rendraient compte de rien et utiliseraient
+         leur logiciel préféré de télévision pour enregistrer des
+         programmes, provoquant un double encodage (une fois par la
+         carte PCI et une seconde fois par le processeur!)
+         affectant la qualité de l'image produite.
+      </p>
+      <p>
+         La seule solution totalement intégrée pour utiliser les
+         synthoniseurs Hauppauge WinTV PVR est <a
+         href="http://mythtv.sourceforge.net">MythTV</a>.
+         Malheureusement, ce fantastique logiciel éprouve des
+         problèmes de compilation avec GCC 4 si bien que je n'ai
+         pas pu le tester pour le moment sous Fedora Core. Il n'est
+         possible d'obtenir une version précompilée pour Fedora
+         Core que sur <a href="http://www.atrpms.net">ATrpms</a> et
+         l'installation se fait au prix du remplacement de
+         plusieurs paquetages Fedora par des versions plus récentes
+         et moins stables. Il semble possible que ATrpms ait
+         compilé MythTV avec un compilateur autre que GCC 4,
+         peut-être GCC 3.3. Le site de MythTV fournit un guide
+         permettant de l'installer et de le configurer. <a
+         href="http://www.wilsonet.com/mythtv/fcmyth.php">Fedora
+         Myth(TV)ology :: HOWTO</a> fournit également un guide
+         expliquant comment installer MythTV. MythTV permet de
+         visionner et d'enregistrer des émissions. Malheureusement,
+         je ne suis parvenu à rien avec MythTV. Après avoir réussi
+         à l'installer, les caractères étaient trop gros et je ne
+         pouvais accéder aux options pour le configurer
+         correctement. Il semblait y avoir des problèmes avec les
+         fontes qui nécessitaient l'installation de paquetages de
+         Fedora Core 2 et la reconfiguration de Yum pour empêcher
+         les mises à jour de ces paquetages. Pourtant, MythTV est
+         le seul à éprouver de la difficulté avec ces fontes.
+      </p>
+      <p>
+         En attendant que MythTV soit disponible d'une façon plus
+         standard sous Fedora Core, il est toujours possible
+         d'utiliser la méthode de test montrée précédemment pour
+         regarder la TV et la simple commande <tt>cp</tt> pour
+         réaliser un enregistrement. Ce n'est pas idéal, mais cela
+         fonctionne. Il est même envisageable d'utiliser des
+         scripts pour automatiser l'enregistrement et ainsi se
+         construire un enregistreur personnel sommaire.
+      </p>
+      <h2>
+         <a name="ondemand" id="ondemand">TV sur demande</a>
+      </h2>
+      <p>
+         La TV sur demande est une option très intéressante offerte
+         par plusieurs logiciels sous Windows. Elle permet
+         d'enregistrer la fin d'une émission tout en écoutant le
+         début. Par exemple, supposons que le téléphone sonne
+         pendant votre émission préférée. Avant de répondre, il
+         suffit alors d'activer la fonction TV sur demande et de
+         mettre la lecture en mode pause. Pendant l'appel
+         téléphonique, l'ordinateur enregistrera la fin de
+         l'émission. De retour devant la machine, il est possible,
+         même si l'émission n'est pas encore terminée, de reprendre
+         la lecture au moment où elle a été arrêtée! Avec un
+         magnétoscope, il aurait fallu attendre la fin de
+         l'émission, rembobiner la cassette et reprendre l'écoute
+         approximativement au point précédent.
+      </p>
+      <p>
+         Il existe une astuce pour obtenir ce comportement avec
+         MPlayer. Pour cela, il faut taper <tt>cp /dev/video
+         temp.mpg &amp;</tt> suivi (possiblement quelques minutes
+         plus tard) de <tt>gmplayer temp.mpg</tt>. MPlayer lira
+         alors le fichier MPEG depuis le début tandis que CP,
+         indifférente, continuera à y ajouter du contenu. MPlayer
+         est «intelligent»: il détecte que le fichier grossit! Par
+         contre, après avoir arrêté MPlayer, il ne faut pas oublier
+         de taper <tt>killall cp &amp;&amp; rm temp.mpg</tt> pour
+         arrêter la copie et supprimer le fichier temporaire, sinon
+         le fichier temporaire continuera de grossir, jusqu'à
+         remplissage du disque dur ou extinction de la machine!
+      </p>
+      <h2>
+         <a name="recording" id="recording">Enregistrement</a>
+      </h2>
+      <p>
+         La commande <tt>cp</tt> permet certes d'enregistrer un
+         programme télévisé grâce au synthoniseur, mais il faut la
+         démarrer manuellement et surtout, ne pas oublier de la
+         stopper à la fin de l'enregistrement, sinon elle
+         continuera assidument son travail jusqu'à remplissage du
+         disque dur ou extinction de la machine. Il est
+         heureusement assez facile de se construire un script
+         permettant de se construire un magnétoscope virtuel
+         rudimentaire. La pierre angulaire de ma solution est le
+         script suivant, combiné à la commande <tt>at</tt> de
+         Linux.
+      </p>
+<pre>
+#!/bin/bash
+
+if [ $# -lt 3 ]; then
+   echo "Usage: startrecording channel outputfile duration"
+  exit
+fi
+
+CHANNEL=$1
+OUTPUT=$2
+shift
+shift
+DURATION=$*
+
+ivtv-tune -c$CHANNEL
+cp /dev/video $OUTPUT &amp;
+echo "kill $!" | at now + $DURATION
+</pre>
+      <p>
+         Ce script Bash synthonise le canal demandé par
+         l'utilisateur et démarre la copie de <tt>/dev/video</tt>
+         vers un fichier encore une fois choisi par l'utilisateur.
+         Il programme ensuite une commande <tt>kill</tt> destinée à
+         arrêter la copie après la durée d'enregistrement fixée par
+         l'utilisateur grâce à l'outil <tt>at</tt> (voir <tt>man
+         at</tt> pour le format des durées). Ici, j'utilise
+         <tt>kill</tt> plutôt que <tt>killall cp</tt> afin de
+         cibler le processus exact que mon script a démarré. Cela
+         permet d'éviter qu'une autre commande <tt>cp</tt> en cours
+         d'exécution se fasse stopper inopinément.
+      </p>
+      <p>
+         Par exemple <tt>startrecording 26 startrek.mpg 1 hour</tt>
+         démarre l'enregistrement sur la chaîne 26, stocke
+         l'information dans le fichier <tt>startrek.mpg</tt> et
+         arrête l'enregistrement après une heure.
+      </p>
+      <p>
+         Bien entendu, il est possible d'utiliser <tt>at</tt> pour
+         appeler cette commande au moment voulu, ce qui permet
+         effectivement d'obtenir notre magnétoscope rudimentaire.
+         Encore grâce à <tt>at</tt>, il est même possible de
+         programmer l'extinction de la machine quelques minutes
+         après la fin de l'enregistrement. Ceci peut être
+         particulièrement utile en cas d'enregistrement nocturnes,
+         pour éconimiser l'énergie et ainsi contribuer à la qualité
+         de notre environnement. Par exemple,
+      </p>
+<pre>
+at 20:00
+startrecording 26 startrek.mpg 1 hour
+CTRL-D
+at 21:05
+poweroff
+CTRL-D
+</pre>
+      <p>
+         La combinaison de touches CTRL-D permet de terminer le
+         script envoyé à <tt>at</tt>.
+      </p>
+      <p>
+         Malheureusement, l'allumage programmé de l'ordinateur est
+         plus compliqué puisqu'il dépend de la carte mère de la
+         machine. Je n'ai pas eu beaucoup de succès avec cela.
+      </p>
+      <h2>
+         <a name="remote" id="remote">Qu'en est-il de la
+         télécommande?</a>
+      </h2>
+      <p>
+         Malheureusement, étant donné que la télécommande Hauppauge
+         n'est pas reliée à la machine par port série, parallèle,
+         Firewire ou USB, les seuls ports totalement supportés par
+         Linux, un pilote spécial est nécessaire pour l'utiliser.
+         Ce pilote semble, sauf pour le modèle PVR-150, intégré au
+         logiciel <a href="http://www.lirc.org">LIRC</a> qui permet
+         la gestion de l'infrarouge sous Linux. Le site <a
+         href="http://mysettopbox.tv/phpBB2/viewtopic.php?t=4609">LIRC
+         HOWTO: Hauppauge PVR 150 silver remote</a> indique une
+         procédure permettant de la faire fonctionner, mais elle
+         implique de recompiler LIRC 0.7.0 avec une patch spéciale
+         et risque de ne pas fonctionner avec les versions
+         actuelles du paquetage.
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

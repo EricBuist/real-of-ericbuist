@@ -1,0 +1,1024 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         Passage dans le monde réel: installation de Linux sur le
+         Drake
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css"
+      href="../../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../../index.xhtml" class="parents">Le
+               royaume de Eric Buist</a> &gt;&gt; <a
+               href="../index.xhtml"
+               class="parents">Informatique</a> &gt;&gt;
+               Configuration informatique &gt;&gt; <a
+               href="index.xhtml" class="parents">Le Drake</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../../sitemap.xhtml" class="sitemap">Plan
+               du site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="macosx.xhtml"
+               class="leftsibling">Installation de Mac OS X</a>
+            </td>
+            <td class="thispage">
+               Passage dans le monde réel: installation de Linux
+               sur le Drake
+            </td>
+            <td class="rightsibling">
+               <a href="macosxhd.xhtml" class="rightsibling">Mac OS
+               X sur le Drake</a> &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         Passage dans le monde réel: installation de Linux sur le
+         Drake
+      </h1>
+      <p>
+         Comme le montre la fin de la page précédente, j'ai éprouvé
+         des problèmes de performance avec Mac OS X sous
+         VirtualBox. Avec Ubuntu, ça semblait fonctionner pas si
+         mal, mais il y avait des bogues rendant l'utilisation du
+         système difficile et frustrante. Voici une liste des
+         problèmes que j'ai rencontrés:
+      </p>
+      <ol>
+         <li>
+            La roulette de la souris cesse de fonctionner sous
+            Linux dès qu'on bascule entre la fenêtre de VirtualBox
+            et une application sous Windows. Cela réduit beaucoup
+            le potentiel de synergie entre la machine virtuelle et
+            l'hôte.
+         </li>
+         <li>
+            Parfois, le clavier cesse complètement de fonctionner
+            dans l'interface de VirtualBox, rendant difficile la
+            fermeture complète de ce dernier. Il faut alors cliquer
+            avec la souris et parfois même basculer vers une autre
+            application pour revenir à VirtualBox.
+         </li>
+         <li>
+            Lors du passage de contrôle d'un périphérique USB de
+            l'hôte vers l'invité, il arrive que l'opération échoue
+            et qu'elle ne puisse plus être retentée à moins de
+            redémarrer la machine virtuelle. Avec une Webcam, il se
+            produit un plantage catastrophique exigeant de
+            redémarrer l'hôte!
+         </li>
+         <li>
+            Un an plus tôt, j'avais essayé d'installer VirtualBox
+            temporairement sur le laptop de la compagnie où je
+            travaille afin de montrer quelques bases de Linux à une
+            amie. L'opération a été extrêmement frustrante, car
+            sans aucune raison, VirtualBox décidait que le
+            démarrage du système invité devenait impossible, à
+            moins de détruire la machine virtuelle et la recréer.
+            Rien ne me disait que la même chose n'allait pas finir
+            par arriver avec ma machine virtuelle Linux, et ce
+            après des mois d'évolution et d'ajustements!
+         </li>
+      </ol>
+      <p>
+         J'ai fait une tentative avec VMWare Player, mais ce
+         logiciel ne m'a pas plus du tout. En effet, vers la fin de
+         l'installation d'Ubuntu, qui a été plus longue que sous
+         VirtualBox, VMWare a gelé et plus rien ne permettait de
+         faire quoi que ce soit. J'ai dû tuer le processus depuis
+         le Gestionnaire de Tâches de Windows!
+      </p>
+      <p>
+         Il y avait ainsi un risque important que ma machine
+         virtuelle Linux doive éventuellement migrer vers une
+         machine réelle. Mac OS X avait déjà subi le même sort, car
+         l'accélération graphique de VirtualBox n'était pas
+         compatible avec Mac OS X, rendant le système peu
+         performant. Je ne savais pas s'il serait possible de faire
+         cohabiter Linux et Mac OS X sur le même système et
+         risquais de saboter mon installation de Mac OS X en
+         essayant d'ajouter Linux plus tard. Il valait donc mieux
+         essayer d'installer Linux avant Mac OS X pour au moins ne
+         pas détruire une installation configurée et ajustée depuis
+         des mois. Je voulais aussi mieux comprendre le
+         fonctionnement de l'UEFI, dont Mac OS X dépend, et tenter
+         d'installer Linux en mode UEFI m'y aiderait.
+      </p>
+      <p>
+         Malheureusement, un nouveau problème guettait: la capacité
+         de mon SSD de 120Go, insuffisante pour faire tenir
+         Windows, Linux, Mac et les applications. Déjà, j'en étais
+         à 100Go de remplis, en partie à cause de mes deux machines
+         virtuelles! Elles disparaîtraient certes, mais elles
+         feraient place à de vraies partitions. Je m'attendais au
+         pire, car je n'avais même pas encore installé sous Windows
+         des logiciels de conception de musique et de montage
+         vidéo! En effet, je souhaitais éventuellement m'amuser
+         avec <a
+         href="http://www.propellerheads.se/products/reason/index.cfm?fuseaction=get_article&amp;article=reason-essentials">Reason</a>
+         de Propellerhead et <a
+         href="http://www.corel.com/corel/product/index.jsp?pid=prod4650075&amp;cid=catalog50008&amp;segid=6100016&amp;storeKey=ca&amp;languageCode=en">Video
+         Studio</a> de Corel.
+      </p>
+      <p>
+         J'ai donc dû traiter ce problème avant tout, ensuite de
+         quoi j'ai tenté d'installer Ubuntu. L'installation a
+         échoué plusieurs fois, me mettant à la torture. J'ai cru
+         que c'étaient la carte mère, l'UEFI, le SSD, le bloc
+         d'alimentation, je ne savais plus quoi faire ni penser. Il
+         faut croire que j'étais bloqué par un affreux bogue dans
+         le noyau d'Ubuntu 12.04 qui persiste même avec les mises à
+         jour les plus récentes. J'ai heureusement eu plus de
+         chance avec Fedora 17.
+      </p>
+      <p>
+         Par contre, même Fedora finit par se planter. Il semblait
+         bel et bien y avoir un vilain défaut dans ma carte mère,
+         quelque chose qui ne serait jamais traité puisque ça ne se
+         manifestait pas sous Windows. Il m'a fallu bien des essais
+         et erreurs pour enfin trouver le coupable et stabiliser
+         Fedora tout en rendant possible l'installation d'Ubuntu.
+      </p>
+      <ul class="pagemenu">
+         <li>
+            <a href="#ssd2">L'installation du deuxième SSD: un
+            autre petit casse-tête de fils</a>
+         </li>
+         <li>
+            <a href="#ubuntu-power">Ubuntu prend trop de
+            courant!</a>
+         </li>
+         <li>
+            <a href="#isoupd">Une nouvelle ISO, de nouveaux
+            problèmes</a>
+         </li>
+         <li>
+            <a href="#fedora">Fedora, celui-là fonctionne</a>
+         </li>
+         <ul>
+            <li>
+               <a href="#partitionn">Partitionnement</a>
+            </li>
+            <li>
+               <a href="#demarrage_">Démarrage de Windows</a>
+            </li>
+            <li>
+               <a href="#configurat">Configuration</a>
+            </li>
+         </ul>
+         <li>
+            <a href="#ubuntu">Ubuntu, prise 2</a>
+         </li>
+         <li>
+            <a href="#dropbox">Le point faible de Dropbox</a>
+         </li>
+         <li>
+            <a href="#psudead">La fin du Drake</a>
+         </li>
+      </ul>
+      <h1>
+         <a id="ssd2" name="ssd2">L'installation du deuxième SSD:
+         un autre petit casse-tête de fils</a>
+      </h1>
+      <p>
+         J'ai acheté un deuxième SSD vendredi, 28 septembre 2012.
+         Malheureusement, le vendeur chez Microbytes, où je suis
+         allé chercher le disque, m'a mis en garde de bien faire
+         les mises à jour du firmware pour les Agility 3 de OCZ,
+         car il y avait eu des bogues dans le passé causant
+         l'effacement complet du disque! Inquiet, j'ai vérifié la
+         version de mon firmware. Malheureusement, j'ai eu bien du
+         mal à trouver l'outil de mise à jour de OCZ. La version
+         que j'ai obtenue, apparemment compatible avec le Agility,
+         était très primitive. C'était une image ISO qu'il fallait
+         graver et utiliser pour démarrer l'ordinateur, après avoir
+         reconfiguré le mode SATA dans le BIOS en IDE, pas AHCI!
+      </p>
+      <p>
+         Malheureusement, mon graveur refusa catégoriquement de
+         produire des CD-RW fonctionnels. J'ai été obligé de
+         gaspiller un CD-R pour l'occasion! J'ai fini par atteindre
+         le programme de mise à jour, mais il proposait seulement
+         la version 1.7 du firmware tandis que j'avais la 2.22 sur
+         le SSD!
+      </p>
+      <p>
+         Au moins trois quarts d'heure plus tard, après
+         d'interminables recherches, j'ai fini par trouver où
+         obtenir le logiciel adapté au Agility 3! Il fallait
+         choisir l'item de menu <a
+         href="http://www.ocztechnology.com/ssd_tools/SandForce_Based/">OCZ
+         VERTEX 3, VERTEX 3 MAX IOPS, AGILITY 3, SOLID 3, REVODRIVE
+         3, REVODRIVE 3 X2, SYNAPSE AND NOCTI</a> à travers une
+         liste énumérant sur chaque ligne plusieurs modèles
+         différents. La version Windows était disponible, mais elle
+         ne fonctionnerait pas si Windows était sur le SSD! Je dus
+         donc gaspiller un second CD-R, y gravant une nouvelle ISO.
+         J'ai alors pu démarrer ce nouveau logiciel et vérifier que
+         mon SSD était bien à jour. Fiou!
+      </p>
+      <p>
+         Le lendemain, j'ai installé le nouveau SSD dans la
+         machine. J'ai d'abord eu beaucoup de mal à fixer les deux
+         disques (le vieux et le nouveau) dans mon adaptateur
+         Thermaltake, car les disques bougeaient tandis que je
+         tentais d'insérer les vis de fixation. On peut voir
+         l'assemblage sur l'image de droite. <img src="ssd2.jpg"
+         class="floatright"
+         alt="Les deux SSD dans mon adaptateur Thermaltake" />
+         Faire entrer l'assemblage dans le boîtier a été super
+         chiant à cause des fils du bloc d'alimentation qui
+         bloquaient le passage, puis j'ai eu beaucoup, non
+         énormément de mal, à brancher les fils de données et
+         d'alimentation.
+      </p>
+      <p>
+         Étant donné que les deux SSD étaient collés, je ne pouvais
+         utiliser ni de connecteurs SATA à 90 degrés, ni de fils
+         d'alimentation intermédiaires. J'ai dû réorganiser
+         l'alimentation de sorte que les SSD étaient branchés avec
+         les extrémités des câbles SATA, et utiliser les
+         connecteurs SATA à 90 degrés que j'avais pour le DVD et le
+         disque dur de données plutôt que les SSD. C'est seulement
+         un mois plus tard que j'ai découvert comment utiliser les
+         câbles à 90 degrés: en branchant l'extrémité courbée dans
+         les ports de la carte mère plutôt que les SSD. Mais
+         idéalement, il m'aurait fallu un jeu de patch cables pour
+         réussir ça plus facilement! Non, mieux encore, une tour
+         avec des supports intégrés pour les SSD! L'image suivante
+         donne une idée d'à quel point le câblage de ma machine
+         était rendu une vraie jungle! <img src="jungle.jpg"
+         alt="Une véritable jungle de câbles!" class="floatleft" />
+      </p>
+      <p>
+         L'installation physique terminée, j'ai procédé à la
+         vérification du firmware: 2.22! Tout était donc OK, pas de
+         quoi me faire du souci de ce côté-là.
+      </p>
+      <h1>
+         <a id="ubuntu-power" name="ubuntu-power">Ubuntu prend trop
+         de courant!</a>
+      </h1>
+      <p>
+         Samedi après-midi, 29 septembre 2012, j'ai d'abord tenté
+         de tester la capacité d'Ubuntu à s'installer en UEFI en
+         simulant sous VirtualBox avant de le mettre en place pour
+         de vrai. Eh bien ça n'a pas fonctionné du tout. À présent,
+         VirtualBox plante quand on démarre en UEFI et ça a fini
+         que j'ai encore eu des problèmes avec le clavier.
+         VirtualBox affichait une fenêtre et AUCUNE touche ne
+         permettait de faire quoi que ce soit!
+      </p>
+      <p>
+         Je me suis tanné, j'ai installé VMWare Player, lui a
+         procédé à l'installation d'Ubuntu automatiquement, et sur
+         le disque dur au lieu du SSD, c'était super lent et ça a
+         fini par planter comme avec iATKOS. Absolument plus rien
+         ne fonctionnait, à part CTRL-ALT-DELETE et tuer VMWare.
+         J'ai tout désinstallé ça une seconde fois.
+      </p>
+      <p>
+         Convaincu à 100% que le mieux à faire était d'abandonner
+         les machines virtuelles, j'ai alors entrepris
+         l'installation de Linux en natif, sur le second SSD, en
+         utilisant un CD-R de Ubuntu 12.04 que j'avais depuis
+         quelques temps. Mais pendant l'installation, la machine a
+         redémarré et a rapporté une surcharge du bloc
+         d'alimentation! Le message était le suivant:
+      </p>
+<pre>
+Power supply surges detected during the previous power on.
+ASUS Anti-Surge was triggered to protect system from unstable power supply unit!
+</pre>
+      <p>
+         Ma première idée était un branchement déséquilibré des
+         composantes: si tous les disques se trouvaient sur le même
+         câble d'alimentation, peut-être cela surchargeait un des
+         circuits de l'unité, qui coupait alors le courant. J'ai
+         donc gossé pour essayer de rebrancher les choses. Le
+         disque dur et le DVD, tous deux nécessitant du 12V,
+         étaient sur le même câble d'alimentation. J'ai rebranché
+         ça différemment, mais là, la machine ne détectait plus
+         tous les disques. Des fois, il manquait le Western
+         Digitial (le disque de données). D'autres fois,
+         l'ordinateur ne trouvait pas le nouveau SSD! Je me
+         demandais donc de plus en plus si le bloc d'alimentation
+         avait un bogue qui allait m'empêcher de raccorder plus
+         qu'un SSD. Mais après de frustrants essais qui me
+         rendirent presque fou, ça a fini par tenir bon!
+      </p>
+      <p>
+         Suite à ces difficultés, je jugeai bon de tester la
+         machine un peu sous Windows avant de tenter une nouvelle
+         installation de Linux. J'ai pu écouter un peu de musique
+         et jouer à Quantum Conundrum, un jeu 3D pas mal bien qui a
+         fini plus tard, malheureusement, par m'en faire baver à
+         mort. Il n'y a eu aucun redémarrage de la machine, aucun
+         plantage, tout était OK.
+      </p>
+      <p>
+         Le lendemain, après une nuit agitée et un entraînement au
+         gym, je me suis attaqué au bogue Linux de nouveau. La
+         machine a pété les plombs encore un coup, me mettant dans
+         un état de colère indescriptible. Bon, finis-je par
+         penser, c'est peut-être le lecteur DVD qui prend trop de
+         courant et ça bogue avec les deux SSD. Si c'est ça, je
+         tenterai de traiter plus tard, mais je ne voulais pas
+         tenter d'acheter un nouveau bloc d'alimentation par essai
+         et erreur, puis rester pris avec. Que dire d'utiliser le
+         bloc du Salvator, ou au pire celui de A.R.D.-NAS? Eh bien
+         aucun de ces deux blocs ne possédait deux connecteurs
+         auxiliaires de 12V, et ma nouvelle carte mère en avait
+         besoin.
+      </p>
+      <p>
+         Il existait par chance un moyen super simple de tester
+         sans débourser le moindre sou: créer une clé USB
+         d'amorçage Ubuntu. Je l'ai fait depuis la version
+         installée sous VirtualBox. J'ai alors entrepris
+         l'installation depuis ce nouveau médium. Cela alla plus
+         vite qu'avec le CD, mais pouf, encore le redémarrage!
+      </p>
+      <p>
+         Bon, ok, c'est Ubuntu qui est le problème. ça ne
+         fonctionnera pas sur cette machine. Alors essayons avec
+         une autre distribution: Fedora, je la connais, l'ayant
+         déjà utilisée. J'ai donc téléchargé ça, foutu ça sur une
+         clé USB en utilisant le logiciel <a
+         href="http://unetbootin.sourceforge.net/">UNetBootIn</a>,
+         et testé. Je ne pouvais pas me servir de la méthode sous
+         Ubuntu, car elle ne permet que de créer des clés Ubuntu!
+         Le démarrage UEFI échoua encore: un fichier était
+         introuvable. Là, j'en eus ma claque de l'UEFI! Je te
+         démarrai ça en BIOS et eus encore une erreur. Ainsi, l'ISO
+         officielle de cette distribution était boguée!!!! C'était
+         stupéfiant, à couper le souffle. On n'a rien parce qu'on
+         ne paie pas, là c'était on ne peut plus vrai!
+      </p>
+      <p>
+         Tanné de me battre, j'ai mis ça de côté et m'attaquer à
+         l'installation de Mac OS X! Je vais regrouper mes <a
+         href="macosxhd.xhtml">péripéties dans le monde d'Apple</a>
+         sur la page suivante et donc me concentrer ici sur les
+         ennuis avec Linux, car c'était loin d'être fini.
+      </p>
+      <p>
+         En effet, je ne pouvais me résoudre à complètement oublier
+         Linux. J'en avais besoin minimalement pour utiliser <a
+         href="http://www.cis.upenn.edu/~bcpierce/unison/">Unison</a>
+         afin de synchroniser mes fichiers entre mes machines.
+         Dimanche soir, j'ai eu l'idée d'essayer de graver l'ISO de
+         Fedora 17 sur un CD, me disant que c'était peut-être
+         UNetBootin qui avait fait une mauvaise job avec. Eh bien,
+         le CD résultant fonctionna super bien!
+      </p>
+      <h1>
+         <a id="isoupd" name="isoupd">Une nouvelle ISO, de nouveaux
+         problèmes</a>
+      </h1>
+      <p>
+         Malheureusement, j'ai eu une autre idée à essayer pour
+         Ubuntu! Lundi, 1<sup>er</sup> octobre, après une nuit
+         encore plus agitée que la précédente, vers 6h30, j'ai
+         rallumé le Drake. Je voulais tenter de bâtir une ISO
+         d'Ubuntu avec tous les paquets mis à jour. Ce fut très
+         pénible. L'utilitaire <a
+         href="http://doc.ubuntu-fr.org/uck">UCK</a> supposé
+         m'aider, eh bien il était bogué et plantait dès le début!
+         Je dus suivre une <a
+         href="https://help.ubuntu.com/community/LiveCDCustomization">procédure
+         manuelle</a> fastidieuse, copiant/collant d'innombrables
+         commandes. Mais j'ai fini par avoir l'ISO et elle
+         démarrait bien sous VirtualBox! Je l'ai balancée sur ma
+         clé USB avec mon installation virtualisée de Linux, un peu
+         comme j'avais fait pour obtenir la clé USB Unibeast
+         quelques semaines plus tôt. C'est aussi avec
+         l'installation virtualisée que j'ai pu bâtir l'ISO
+         modifiée. Je dus ensuite mettre tout ça de côté pour me
+         consacrer à mon travail.
+      </p>
+      <p>
+         Samedi, 6 octobre 2012, j'ai inséré ma clé USB avec ma
+         version mise à jour de Ubuntu dessus et tenté
+         l'installation. L'amorçage s'est bien passé, j'ai pu
+         démarrer l'installation, mais encore une fois, la machine
+         a redémarré en plein milieu et m'a ressorti le message
+         d'erreur à propos de la surcharge.
+      </p>
+      <p>
+         J'ai essayé d'autres choses, je ne me rappelle plus quoi,
+         mais ça m'a redonné le message d'erreur et le redémarrage.
+         J'ai fini par désactiver la fonction anti-surge, car
+         j'avais lu la semaine précédente qu'elle donnait parfois
+         de fausses alertes, et refaire un essai. Aucun progrès, à
+         part un redémarrage sans message d'erreur.
+      </p>
+      <p>
+         J'ai essayé de faire de nouvelles recherches qui furent
+         vaines, toujours vaines. Quand le problème est unique de
+         cette façon, c'est souvent un signe qu'il est matériel et
+         il n'y a dans ce cas rien à faire. J'ai fait un essai avec
+         Fedora 17, mais là cette fois, il refusait de démarrer
+         complètement, affichant sans cesse qu'une erreur avait eu
+         lieu. C'était soit la carte mère qui déconnait, soit le
+         fait que la puce graphique Intel HD 4000 n'était pas prise
+         en charge par les pilotes offerts sous X.Org, ou prise en
+         charge partiellement de sorte que ça boguait. Ainsi, ça se
+         pouvait que je sois obligé de rajouter une carte graphique
+         dans la machine pour installer Linux.
+      </p>
+      <p>
+         Bon, on va essayer de mettre le BIOS à jour. J'ai donc
+         démarré ça sous Windows, activé ASUS Update, la solution
+         qui me semblait la plus simple, et tenté d'effectuer la
+         mise à jour. Eh bien, ASUS Update ne voulut RIEN faire, à
+         part attendre. Il affichait un message indiquant qu'il
+         essayait de se connecter, point! J'ai fait des recherches
+         là-dessus et il n'y avait rien à faire, à part essayer
+         avec l'utilitaire EZ Flash démarré depuis un CD, et ce
+         après avoir téléchargé le nouveau BIOS et EZ Flash
+         manuellement.
+      </p>
+      <p>
+         Bon, j'ai fini par me décider à le faire, mais l'interface
+         réseau de la carte mère s'y mit, ralentissant l'accès à
+         Internet. C'était impossible que ce soit aussi lent, ça
+         n'avait pas d'allure. Le site de ASUS, eh bien il ne
+         répondait même plus.
+      </p>
+      <p>
+         Tanné, je décidai de faire un essai depuis le Salvator. Je
+         rebranchai donc la vieille machine, l'allumai et tentai de
+         l'utiliser pour accéder au site d'ASUS. Eh bien cela
+         fonctionna! Je pus aller ramasser le nouveau BIOS et le
+         copier sur une clé USB, espérant que j'allais pouvoir
+         démarrer un utilitaire de Flash directement depuis le
+         programme de configuration de l'UEFI. J'ai aussi transféré
+         quelques fichiers de la nouvelle vers la vieille machine
+         tant qu'à y être.
+      </p>
+      <p>
+         Je repassai ensuite sur la nouvelle machine et redémarrai,
+         clé USB branchée. J'entrai dans le programme de
+         configuration en utilisant la touche Delete, fouillai un
+         peu et trouvai dans une section Tools le EZ Flash. Je
+         partis ça et pus appliquer la mise à jour. Le programme a
+         détecté la clé USB. Pas besoin d'une disquette ou d'un CD.
+         La mise à jour a aidé, rendant l'amorçage de la machine
+         plus rapide. Mais j'ai toujours du mal à atteindre le menu
+         de sélection d'amorçage.
+      </p>
+      <p>
+         Je réussis à l'avoir un moment donné, après beaucoup de
+         misère et même un plantage dans le POST m'obligeant à
+         faire un reset. Mais l'installation d'Ubuntu se péta la
+         gueule encore: même problème d'anti-surcharge!
+      </p>
+      <h1>
+         <a id="fedora" name="fedora">Fedora, celui-là
+         fonctionne</a>
+      </h1>
+      <p>
+         Après mes échecs de samedi, 6 octobre, je me résolus à
+         tenter ma chance avec une autre distribution qu'Ubuntu.
+         L'installation de Fedora a fonctionné, par chance, et n'a
+         pas causé de nouveau bogue de bloc d'alimentation. J'ai eu
+         d'autres problèmes, dont des difficultés avec la souris.
+         J'ai par contre abouti à un système pas mal fonctionnel.
+         Même le NTFS s'est mis à fonctionner par magie quand j'ai
+         activé <a href="http://rpmfusion.org/">RPM Fusion</a> et
+         appliqué une mise à jour.
+      </p>
+      <h2>
+         <a name="partitionn" id="partitionn">Partitionnement</a>
+      </h2>
+      <p>
+         Tout d'abord, après la mise à jour du BIOS, je pouvais
+         démarrer le CD de Fedora 17, en UEFI. J'étais bien
+         content! Je démarrai alors l'installation et pus me rendre
+         sans problème à la phase de partitionnement. Je désignai
+         une partition de 20Go du second SSD, la formatai en ext4
+         et la configurai comme la racine du système, en lui
+         associant le point de montage <tt>/</tt>. Une seconde
+         partition de 30Go, elle aussi sur le SSD, reçut le
+         formatage ext4 et le point de montage <tt>/home</tt>; ce
+         serait là qu'iraient mes paramètres et données spécifiques
+         à Linux. J'ai créé une partition de 17Go sur le SSD pour
+         le swap, une seconde partition de 20Go pour un éventuel
+         autre système Linux, et le reste devait être dédié à Mac
+         OS X. Il y avait aussi la partition spéciale ESP au début
+         du disque.
+      </p>
+      <p>
+         Malheureusement, bien que tout soit en place, je ne
+         pouvais aller plus loin dans l'installation: l'installeur
+         m'affichait un message d'erreur critique concernant
+         l'amorceur de phase 2 (stage 2 boot loader en anglais).
+         J'ai cherché longtemps pour celle-là, j'ai bien cru que
+         j'allais devoir réorganiser le disque pour aménager une
+         stupide et inutile partition <tt>/boot</tt>. En fait, il
+         suffisait simplement d'associer le point de montage
+         <tt>/boot/efi</tt> à l'ESP!!! Je vérifiai aussi que Linux
+         le considérait comme la partition d'amorçage EFI. Cet
+         obstacle surmonté, je pus progresser dans l'installation
+         et me rendre à son terme! Comment aurais-je dû savoir
+         qu'il fallait faire ainsi? Je ne sais pas trop, il ne
+         semble pas y avoir moyen de savoir autre que par une série
+         de déductions!
+      </p>
+      <h2>
+         <a name="demarrage_" id="demarrage_">Démarrage de
+         Windows</a>
+      </h2>
+      <p>
+         Après cette installation, Fedora avait enregistré une
+         entrée dans la NVRAM et l'avait mise en priorité. Ainsi,
+         si je démarrais la machine, je me retrouvais sous Linux.
+         Windows 7 ne se trouvait pas dans le menu de GRUB; il
+         semblait avoir disparu. Un profane aurait paniqué et tenté
+         de restaurer l'amorçage de Windows, en utilisant son DVD
+         d'installation. Il se serait retrouvé avec un amorçage
+         Windows seulement et aurait alors cru qu'il ne pouvait pas
+         faire cohabiter les deux systèmes sur la même machine.
+      </p>
+      <p>
+         Une première solution consiste à ajouter Windows 7 dans le
+         menu de GRUB, ce que GRUB devrait normalement accomplir
+         automatiquement. Le fait que Windows soit installé en UEFI
+         a probablement empêché cela. Je tentai de reconfigurer
+         GRUB manuellement, mais surprise: aucune procédure ne
+         fonctionnait! Toutes se référaient à un fichier
+         <tt>/boot/grub/grub.conf</tt> qui n'existait même pas!
+         Encore une fois, il m'a fallu recourir à mon savoir
+         naissant au sujet de l'UEFI pour déduire que certains
+         fichiers de GRUB se trouvaient dans l'ESP! Partant de
+         cela, je pus trouver le fichier dans
+         <tt>/boot/efi/EFI/redhat/grub.conf</tt>! Pour rendre
+         Windows accessible, je dus y ajouter la petite formule
+         magique qui suit:
+      </p>
+<pre>
+title Windows 7
+        root (hd1,0)
+        chainloader /EFI/microsoft/BOOT/bootmgfw.efi
+</pre>
+      <p>
+         Bâtir cette incantation demande un certain raisonnement
+         encore une fois. Il faut que <tt>root</tt> identifie l'ESP
+         du SSD contenant Windows. En raison de branchements à
+         tôtons que j'ai faits, Windows 7 s'est retrouvé sur le
+         deuxième port SATA plutôt que le premier et je n'ai jamais
+         osé changer ça de peur de briser l'activation ou tout
+         bousiller le système et devoir réinstaller.
+      </p>
+      <p>
+         Mais il existe un moyen plus simple: rEFInd. Il suffit de
+         l'installer depuis Linux et lui va offrir un menu
+         permettant de choisir le chargeur EFI pour Windows ou GRUB
+         pour Linux. Malheureusement, rEFInd affiche d'autres
+         icônes inutiles qui ne fonctionnent pas et ne m'a pas
+         encore permis de démarrer sous Mac OS X. Il peut le faire
+         facilement seulement sur un vrai Mac.
+      </p>
+      <h2>
+         <a name="configurat" id="configurat">Configuration</a>
+      </h2>
+      <p>
+         Pour agrandir les pointeurs de la souris, vraiment trop
+         petits, j'ai dû télécharger <a
+         href="http://gnome-look.org/content/show.php/Large+Mouse+Cursors?content=140787">LargeMouseCursors</a>
+         et le décompresser dans mon répertoire d'origine. J'ai
+         ensuite installé Gnome-Tweak-Tool qui m'a permis de
+         changer le thème de souris. Contrairement au cas d'Ubuntu,
+         le changement fut instantané: pas besoin de rendre le jeu
+         de pointeurs par défaut pour tout le système ou redémarrer
+         la session.
+      </p>
+      <p>
+         Le coin supérieur gauche m'a causé beaucoup de problèmes,
+         mais j'ai fini par m'y faire quelque peu. Lorsque je perds
+         le pointeur de la souris sur l'écran, je suis habitué de
+         le ramener en haut à gauche pour le retrouver. Mais GNOME
+         3 s'amuse à activer un menu montrant toutes les
+         applications démarrées lorsque la souris atteint ce coin.
+         Je n'ai pu trouver aucune option permettant de désactiver
+         cela.
+      </p>
+      <p>
+         J'ai pu configurer l'audio en 5.1, installer Audacious,
+         Emacs, écrire un peu, accéder à Internet avec Google
+         Chrome, à ma messagerie avec Thunderbird, etc. Tout
+         semblait là. Quand j'ai branché mon iPod, j'ai même vu son
+         contenu apparaître, ce qu'Ubuntu a cessé de faire depuis
+         au moins un an. Bref, ça semblait presque mieux qu'Ubuntu.
+      </p>
+      <p>
+         Malheureusement, cela n'a pas duré. Lundi soir, 15 octobre
+         2012, pendant un cycle d'installation de mises à jour, eh
+         bien la machine redémarra encore: nouvelle surcharge du
+         bloc d'alimentation. J'ai refait des tests, un peu le soir
+         même mais aussi le lendemain matin, avant de commencer à
+         travailler. J'ai pu exécuter des tests avec l'utilitaire
+         Stress sans aucun problème, aucun redémarrage. Mais dès
+         que la machine tentait de télécharger des mises à jour ou
+         d'installer un paquet, il y avait une chance qu'elle me
+         redémarre en pleine face. J'ai pensé que ça pouvait être
+         le lecteur de cartes USB 3, car sous Fedora, il se
+         déconnectait et se reconnectait sans cesse. Je l'ai
+         débranché, mais le lendemain matin, tandis que
+         j'installais le paquet Stress, j'ai eu un autre
+         redémarrage. Donc encore une fois, ce n'était pas la cause
+         du problème. Toujours aucun redémarrage sous Windows, à
+         croire que cette carte mère était totalement incompatible
+         avec Linux. C'était vraiment choquant!
+      </p>
+      <h1>
+         <a id="ubuntu" name="ubuntu">Ubuntu, prise 2</a>
+      </h1>
+      <p>
+         Ce problème de redémarrages m'a beaucoup fait jongler.
+         J'ai émis toutes sortes d'hypothèses là-dessus, allant du
+         bloc d'alimentation à la carte mère en passant par le
+         processeur. Il se pouvait en effet que le noyau comporte
+         un bogue faisant en sorte que sur les processeurs Ivy
+         Bridge dont le multiplicateur de fréquence est non
+         verrouillé se trouvaient mal configurés, opérant à un
+         voltage trop haut. Il en résulterait alors des surcharges
+         qui se traduiraient par des plantages ou des redémarrages.
+         Le problème se manifestait même avec le plus récent noyau
+         3.6 sous Fedora si bien qu'il ne semblait pas y avoir
+         d'espoir de solution à court terme. J'ai pensé aussi que
+         ça pouvait être la carte mère: peut-être y avait-il un
+         bogue dans l'UEFI, la DSDT, l'interface d'accès à une
+         composante, quelque chose que Windows ou un pilote de ASUS
+         sauraient contourner mais pas Linux. Je dus me faire
+         violence à de multiples reprises, rejetant l'hypothèse
+         d'une pièce défectueuse, qui revenait toujours. Pourquoi,
+         me répétais-je, est-ce que ça fonctionne sous Windows?
+         Pourquoi, ajoutais-je, est-ce qu'il n'y a pas de
+         redémarrages sous Mac OS X? Il y avait aussi la
+         possibilité que le problème vienne du second SSD. Mais
+         encore une fois, pourquoi pas sous Mac OS X, lui aussi
+         installé sur le SSDÛ Vérifier la moindre de ces théories
+         promettait d'être difficile, exigeant de retirer et
+         remplacer des composantes de la machine sans aucune
+         garantie de succès. ça me semblait si fastidieux que j'ai
+         envisagé confier cela à des techniciens: amener la machine
+         chez Microbytes et leur demander de tout essayer pour que
+         Linux roule dessus sans redémarrer pour rien!
+      </p>
+      <p>
+         J'estime que certains auraient pu devenir fou avec ça
+         tandis que plusieurs autres auraient abandonné le combat
+         et laissé la machine aux mains de Microsoft, ou s'en
+         débarrasser pour de bon, mais par chance, jeudi soir, 18
+         octobre 2012, j'eus une idée qui me permit enfin de
+         trouver un début de piste sans avoir à démonter la
+         machine. C'était simple, très simple: installer Ubuntu sur
+         un disque dur externe USB. En cas de succès, j'isolais
+         presque le SSD, sans ouvrir le boîtier de la machine!
+      </p>
+      <p>
+         J'ai appliqué mon idée samedi matin, 20 octobre 2012. Eh
+         bien, l'installation se passa très bien et j'ai même pu
+         démarrer le système depuis le disque dur externe. J'avais
+         donc enfin un résultat positif. Évidemment, je ne pouvais
+         pas en rester là puisque je souhaitais installer le
+         système sur un disque à l'intérieur de ma machine.
+      </p>
+      <p>
+         J'ai donc fait des recherches sur Internet et trouvé une
+         nouvelle hypothèse: les câbles SATA 3. Il se pouvait que
+         les fils soient différents, capables de supporter une plus
+         grande charge. Je devais donc m'assurer que les SSD se
+         trouvaient branchés par des câbles SATA 3. J'en avais au
+         moins deux: ceux livrés avec ma carte mère. Mais ils
+         étaient à angle, pas droits. Par contre, j'eus l'idée
+         géniale d'insérer l'extrémité en angle dans les
+         connecteurs de la carte mère, et l'extrémité droite dans
+         les SSD vissés près l'un de l'autre dans l'adaptateur
+         Thermaltake. La modification fut un peu tortueuse, car il
+         y a bel et bien trop de fils là-dedans. Mais le pire, ce
+         fut de refermer le boîtier de la machine. Le panneau
+         latéral s'est tordu, rendant la fermeture très difficile.
+         J'en ai bavé pendant près de quinze minutes avec ça!
+      </p>
+      <p>
+         J'ai tenté la nouvelle installation en fin d'après-midi,
+         au retour du gym. Cela semblait parti pour fonctionner.
+         J'observais la progression, qui alla plus loin qu'avant,
+         avec excitation. J'ai bien cru qu'il allait l'avoir
+         quand... Encore une fois, l'écran noir et retour au point
+         de départ. Tanné, à bout de patience, j'ai ouvert le
+         boîtier une nouvelle fois et carrément débranché le
+         2<sup>e</sup> SSD et, sans aucune précaution,
+         redimensionné le disque dur de données sous Windows! J'ai
+         garoché Ubuntu là-dessus et ça a fonctionné. Ok, cool,
+         donc ça peut fonctionner sur un disque interne si bien que
+         ce n'est pas le contrôleur SATA. Mais je ne pouvais pas me
+         contenter de ça, sinon j'allais être obligé de sortir le
+         2<sup>e</sup> SSD de là et éventuellement me taper la
+         réinstallation/reconfiguration de Mac OS X sur le disque
+         dur de données. J'ai donc réinstallé encore, cette fois
+         sur le SSD, rebranché en SATA 2 plutôt que SATA 3. Pour
+         reconfigurer le disque en SATA 2, je l'ai juste branché
+         dans un port SATA 2 de la carte mère; il n'y avait aucun
+         moyen de désactiver SATA 3 juste pour Linux. Devine quoi?
+         L'installation a réussi!
+      </p>
+      <p>
+         Mais j'ai eu des problèmes avec le son sous Ubuntu. Il ne
+         voulait jouer qu'en stéréo. J'ai bien cru qu'il ne
+         gérerait pas l'audio 5.1 de ma carte mère, laissant les
+         jacks par défaut configurés comme entrées. Par chance, un
+         paramètre dans AlsaMixer m'a permis de reconfigurer les
+         jacks pour 6ch. FIOU! Sinon, j'aurais redémarré ça sous
+         Fedora. Mais je voulais tester avec Ubuntu, qui était plus
+         instable que Fedora, pour que le bogue de redémarrages
+         refasse surface plus vite s'il n'est pas réglé.
+      </p>
+      <p>
+         Toutes ces expérimentations ont perturbé la NVRAM. Après
+         mon installation fructueuse, le système ne pouvait
+         démarrer qu'Ubuntu. Comme avec Fedora, Windows n'était
+         plus dans le menu de GRUB. J'ai vérifié le contenu de la
+         NVRAM avec EFIBootMGR pour constater que Fedora et rEFInd
+         étaient disparus. J'ai par chance pu reconstituer les
+         entrées manquantes en utilisant EFIBootMGR. Voici les
+         commandes que j'ai employées pour y arriver:
+      </p>
+<pre>
+sudo efibootmgr -c -d /dev/sdb -L Fedora -l \\EFI\\redhat\\grub.efi
+sudo efibootmgr -c -d /dev/sdb -l \\EFI\\refind\\refind_x64.efi -L rEFInd
+</pre>
+      <p>
+         Autre fait intéressant: l'ordre des SSD s'est inversé
+         depuis que j'ai rebranché le second en SATA 2. Ainsi,
+         <tt>/dev/sda</tt> est devenu le SSD avec Windows tandis
+         que <tt>/dev/sdb</tt> contient Linux et Mac OS X. Avant la
+         modification, c'était l'inverse! Par chance, Windows n'a
+         pas rechigné contrairement à ce que je craignais.
+      </p>
+      <p>
+         Quelle galère! C'était la machine la plus complexe sur
+         laquelle je me suis escrimé jusqu'à présent: deux SSD
+         exactement pareils (rend la sélection difficile pendant
+         l'installation et propice à une erreur catastrophique qui
+         va me faire pleurer de désespoir), une tour dont les
+         panneaux trop mous tendent à se déformer et dont le bouton
+         reset nécessite un stylo pour être enfoncé et le bouton
+         power risque de rester enfoncé pour toujours d'une
+         pression à l'autre, tellement de fils là-dedans que s'il
+         n'y a pas déjà des noeuds dans cette jungle c'est proche,
+         le Hackintosh et l'UEFI qui remplace le BIOS. Ah là là!
+         Quelle galère, mais aussi quelle victoire!
+      </p>
+      <h1>
+         <a id="dropbox" name="dropbox">Le point faible de
+         Dropbox</a>
+      </h1>
+      <p>
+         Lundi soir, 22 octobre, je suis venu à bout d'installer
+         toute la suite TeXLive ainsi qu'OpenJDK, sous Ubuntu, et
+         sans aucun redémarrage. Cela m'a permis d'exécuter un
+         programme Java de mon crû permettant de recompiler
+         l'intégralité de mes récits imaginaires écrits en LaTeX.
+         J'avoue que si je repartais de zéro, j'utiliserais plutôt
+         LibreOffice, mais j'ai commencé à écrire ces textes voilà
+         dix ans, à une époque où les traitements de texte sous
+         Linux étaient loin de rivaliser avec ceux offerts sous
+         Windows. Pendant le processus, j'ai découvert qu'un
+         fichier manquait à l'appel; il était vide! Je l'ai
+         restauré depuis une sauvegarde et ça a débloqué mon
+         script.
+      </p>
+      <p>
+         Deux jours plus tard, en exécutant un <tt>find ~/Dropbox
+         -size 0c</tt>, je me suis rendu compte que plusieurs
+         autres fichiers avaient été vidés! Beaucoup de mes récits
+         imaginaires en LaTeX étaient touchés, mais j'avais aussi
+         perdu de vieux souvenirs en Word et en OpenOffice! Il
+         semblait que Dropbox souffrait d'un grave problème,
+         effaçant des fichiers sans raison. J'aurais certes pu tout
+         restaurer ça depuis une sauvegarde, mais j'aurais alors
+         perdu tous les changements apportés depuis en plus de ma
+         confiance en Dropbox et été obligé de cesser de
+         l'utiliser. J'ai par chance fini par trouver la cause.
+      </p>
+      <p>
+         J'ai d'abord récupéré une sauvegarde intacte de mon
+         répertoire Dropbox: celle qu'il y avait sur ma partition
+         de Mac OS X! La version sous Windows a aussi été
+         endommagée. J'ai dressé une liste des fichiers vides avec
+         la commande Find et je l'ai transformée en script pour les
+         recopier depuis ma version intacte. J'ai alors pu
+         récupérer tout le contenu perdu sans effacer les
+         modifications au contenu récent. J'ai ensuite appliqué une
+         synchronisation avec Unison pour m'assurer que vraiment
+         rien n'avait été détruit.
+      </p>
+      <p>
+         Ce qui s'est passé est bien simple. La semaine précédant
+         cette affreuse découverte, le lundi soir où Fedora m'a
+         redémarré en pleine face, j'ai tenté d'installer Dropbox
+         sur ma machine Linux. L'installation faite, j'ai découvert
+         que des mises à jour étaient disponibles selon le
+         gestionnaire PackageKit, et j'en ai démarré
+         l'installation. C'est là que la machine a redémarré,
+         pendant le téléchargement des mises à jour mais aussi en
+         même temps que Dropbox téléchargeait mon répertoire de
+         données. Dropbox a alors interprété les téléchargements
+         incomplets comme des modifications et a envoyé la mise à
+         jour sur le serveur! Durant la semaine, j'ai redémarré la
+         machine sous Windows pour écouter de la musique en
+         travaillant, sans risquer que ça redémarre, et Dropbox a
+         alors propagé les fichiers défectueux sur ma copie
+         Windows. Par chance, je n'ai pas touché à Mac OS X avant
+         d'avoir découvert le problème si bien que mon répertoire
+         Dropbox était intact sur cette partition. La copie sur mon
+         HTPC était probablement endommagée aussi, car j'avais
+         démarré la machine pendant la fin de semaine pour écouter
+         de la musique, un film et quelques épisodes de Fringe. Il
+         restait celle sur ma vieille machine, que je n'avais pas
+         rallumée depuis le 6 octobre.
+      </p>
+      <p>
+         Ainsi, Dropbox a ses failles. Il ne faut pas s'y fier
+         aveuglément. C'est une chance que j'aie plusieurs copies
+         de mon répertoire Dropbox, sur une clé USB et un disque
+         dur externe. Je me posais la question suivante: dois-je
+         installer Dropbox dans un répertoire différent pour chacun
+         de mes trois systèmes ou encore partager le répertoire? Eh
+         bien j'ai ma réponse: une copie par système!
+      </p>
+      <h1>
+         <a id="psudead" name="psudead">La fin du Drake</a>
+      </h1>
+      <p>
+         Toute la semaine, la machine a fonctionné comme un charme.
+         Pratiquement tous les soirs, j'ai démarré la machine sous
+         Ubuntu et travaillé à temps perdu sur la mise à jour de
+         cette page. Plus les jours passaient, plus ma confiance en
+         mon installation augmentait. J'avais enfin réussi. Lundi
+         et vendredi, j'ai travaillé chez moi et utilisé le Drake,
+         démarré sous Ubuntu pour écouter de la musique. ça
+         fonctionnait super bien. La vitesse à laquelle Ubuntu
+         démarrait là-dessus me faisait frétiller d'excitation à
+         chaque fois.
+      </p>
+      <p>
+         Vendredi, 26 octobre, j'ai laissé la machine allumée après
+         ma journée de travail. Elle a fonctionné pendant mon
+         souper, pendant que j'ai écouté une émission de TV, puis
+         je l'ai laissée allumée tandis que je suis parti pour la
+         piscine. J'avais dans l'idée d'utiliser la machine après
+         pour écrire un peu. Au retour de la piscine, il régnait
+         chez moi une odeur étrange. Qu'est-ce que ça sent, me
+         demandai-je? On dirait une odeur de brûlé. J'ai vite
+         constaté que l'ordinateur était éteint et ne rallumait
+         plus.
+      </p>
+      <p>
+         La cause la plus probable était le bloc d'alimentation,
+         mais il se pouvait que la carte mère soit impliquée dans
+         cette panne. Le bloc défectueux pouvait l'avoir
+         court-circuitée, ou inversement, la carte mère en panne
+         pouvait avoir fait sauter le bloc. Il se pouvait aussi que
+         le bloc ait été endommagé à cause du SSD ou de quelque
+         chose sous Linux qui a mal réglé le voltage du CPU. Je
+         craignais donc que le problème soit très difficile à
+         résoudre. Si c'était la carte mère, j'allais être obligé
+         de réinstaller Windows et peut-être même Linux et Mac. Je
+         craignais aussi que l'activation de Windows 7 échoue en
+         raison du changement de carte mère.
+      </p>
+      <p>
+         Au moins, le disque dur de données fonctionnait encore. Je
+         l'ai branché à mon adaptateur SATA vers USB et j'ai
+         utilisé ce lien pour transférer des données du nouveau
+         disque vers le vieux. J'ai ainsi ressuscité mon Salvator.
+         Mais cela ne suffit pas à soulager mon anxiété. Je ne pus
+         pratiquement pas dormir la nuit suivante, ne pouvant
+         cesser de penser à ça ainsi qu'à d'autres problèmes que
+         j'avais eus au travail le jour même.
+      </p>
+      <p>
+         Vers 4h du matin, je n'en pouvais plus. J'avais super
+         chaud, j'avais super faim et je ne pouvais cesser de
+         penser à cette maudite machine. Aucune technique de
+         relaxation de ma connaissance ne me permit de surmonter
+         cette crise. N'en pouvant plus, j'ai fini par me lever,
+         aller dans mon bureau et ouvrir les panneaux de mon Drake
+         pour la énième fois. J'ai ensuite sorti le vieux bloc
+         d'alimentation Antec de mon Salvator, remplacé par un
+         Orion depuis des mois. Le Antec avait des problèmes avec
+         la sortie +5V empêchant les ports USB de bien fonctionner,
+         mais cela devrait suffire pour un test de base. J'ai
+         longtemps jonglé à la possibilité que ça ne puisse pas
+         fonctionner étant donné que mon ancien bloc n'avait qu'une
+         sortie +12V ATX. J'avais lu quelque part qu'il était
+         possible de brancher seulement un des connecteurs, mais la
+         stabilité du système pouvait en souffrir. Par chance,
+         l'idée n'était pas de tester la stabilité mais simplement
+         de vérifier si cette damnée carte mère fonctionnait
+         toujours. En cas de succès, le soulagement résultant
+         m'aiderait à dormir. En cas d'échec, je ne pourrais rien
+         conclure avant d'obtenir un nouveau bloc d'alimentation.
+      </p>
+      <p>
+         Plutôt qu'installer le bloc Antec dans la machine, je l'ai
+         placé à côté et tenté de brancher le fil ATX 24 broches
+         ainsi que le ATX +12V à ma carte mère. J'ai été obligé de
+         placer le bloc sur un livre pour que le câble ATX atteigne
+         la carte mère. J'ai utilisé comme livre la Bible PC; ça me
+         semblait bien cadrer avec la situation! La figure
+         ci-contre montre de quoi avec l'air l'installation de
+         test. <img src="psutest.jpg" class="floatright"
+         alt="Le bloc d'alimentation de test à l'extérieur de la machine" />
+         J'ai établi le branchement de base et mis le courant.
+         Immédiatement, un grésillement inquiétant s'est fait
+         entendre dans le vieux bloc. Mais la diode verte de la
+         carte mère était allumée! Hésitant, un peu nerveux, j'ai
+         allumé la machine: ça a fonctionné, mais l'écran est resté
+         noir et il n'y a eu qu'un petit bip. Inquiet, j'ai été
+         obligé de corriger le problème d'écran: il était tout
+         simplement branché sur la vieille machine. Je ne fus
+         soulagé que lorsque j'ai eu une image! Ainsi, la carte
+         mère était correcte!
+      </p>
+      <p>
+         Je me suis ensuite attaqué à enlever le vieux bloc afin de
+         prendre de l'avance pour le lendemain. Le fil
+         d'alimentation coincé dans le lecteur de cartes USB 3 m'a
+         causé beaucoup de problèmes. Pour le retirer, je devais
+         enlever le lecteur, le démonter et débrancher enfin le fil
+         d'alimentation. Le lecteur était coincé dans la baie. Je
+         suis venu à bout de me couper jusqu'au sang avant de finir
+         par le retirer! Après ça, j'ai tenté d'installer une
+         extension Molex que j'avais trouvée dans les accessoires
+         venant avec mon boîtier pour ne plus avoir à ouvrir le
+         lecteur de cartes. Puis j'ai eu d'infinies misères avec
+         l'entrelac de fils dans le boîtier. J'ai dû prendre bien
+         des précautions pour éviter de débrancher un fil du
+         panneau avant en essayant d'isoler la couette de fils du
+         bloc d'alimentation mort, pour pouvoir le retirer
+         complètement.
+      </p>
+      <p>
+         J'ai pu dormir un peu après ça. Le lendemain matin, je
+         suis allé me chercher un nouveau bloc d'alimentation chez
+         Microbytes et j'ai installé ça dans le Drake. J'ai eu
+         beaucoup de mal à poser les vis de fixation, mais ça a
+         mieux été pour les branchements puisqu'il y avait moins de
+         fils. Le nouveau bloc Corsair de 600W avait moins de
+         connecteurs que le Antec. Le résultat final est que les
+         câbles sont moins enchevêtrés, comme on peut le voir sur
+         la figure ci-contre. <img src="betterJungle.jpg"
+         class="floatleft"
+         alt="Câbles de la machine avec le nouveau bloc d'alimentation" />
+         Le branchement du lecteur de cartes a encore causé des
+         difficultés. Je n'y arrivai tout simplement jamais. Le
+         lecteur me fit pogner les nerfs une fois de trop: je me
+         suis tanné et l'ai abandonné. Je planifiai installer le
+         vieux du Salvator et renoncer au satanné USB 3, mais je
+         n'avais pas le temps, ce samedi 27 octobre, de m'attaquer
+         à ça. La machine a rallumé. Il y a eu des nouvelles
+         difficultés avec l'UEFI, mais au moins, Linux était bien
+         encore là et Windows a démarré sans problème. Ainsi, mon
+         système semblait sauvé!
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

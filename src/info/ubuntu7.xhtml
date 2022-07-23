@@ -1,0 +1,1960 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <meta name="generator" content="Bluefish 1.0.7" />
+      <title>
+         Passage à Ubuntu 7.04
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css" href="../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../index.xhtml" class="parents">Le royaume
+               de Eric Buist</a> &gt;&gt; <a href="index.xhtml"
+               class="parents">Informatique</a> &gt;&gt;
+               Configuration informatique
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../sitemap.xhtml" class="sitemap">Plan du
+               site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="fc6.xhtml"
+               class="leftsibling">Passage à Fedora Core 6</a>
+            </td>
+            <td class="thispage">
+               Passage à Ubuntu 7.04
+            </td>
+            <td class="rightsibling">
+               <a href="vista.xhtml"
+               class="rightsibling">Installation de Windows
+               Vista</a> &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         Passage à Ubuntu 7.04
+      </h1>
+      <p>
+         Installer et configurer Linux correctement a toujours été
+         pour moi une tâche longue et parfois difficile: problèmes
+         de configuration du matériel, nécessité d'installer
+         (parfois manuellement) plusieurs logiciels pour aboutir à
+         une configuration fonctionnelle, etc. En cas de problèmes,
+         trouver une solution en cherchant sur Internet demeurait
+         long et très frustrant, car souvent, il n'y avait rien de
+         simple ou cela concernait une autre distribution que la
+         mienne. De plus, tout cela était à refaire à chaque mise à
+         jour de ma distribution puisqu'il fallait alors tout
+         réinstaller. Tous ces facteurs commençaient sérieusement à
+         affecter mon désir de conserver Linux sur mes machines.
+         J'en étais rendu à considérer la possibilité de rester
+         avec une ancienne version fonctionnelle de Linux, Fedora
+         Core 6 par exemple, ou encore revenir au bon vieux
+         Microsoft Windows. Exécuter Linux dans une machine
+         virtuelle, en utilisant VMWare par exemple, me passa aussi
+         par la tête. Mais avant d'en arriver là, je me dis que
+         cela pourrait valoir la peine d'essayer une autre
+         distribution de Linux: <a
+         href="http://www.ubuntu-fr.org">Ubuntu</a>. Plusieurs
+         recherches de solutions pour divers problèmes
+         aboutissaient sur des messages de forums concernant Ubuntu
+         et quelques personnes, dont les membres du <a
+         href="http://www.iro.umontreal.ca/~gulum">GULUM</a>, m'en
+         parlèrent en bien. J'en fis donc l'essai et j'en fus très
+         satisfait. Malgré quelques petites lacunes (rien n'est
+         parfait, après tout), Ubuntu s'avéra une distribution
+         beaucoup plus simple à configurer et très fonctionnelle.
+         Voici donc les grandes lignes de mon aventure
+         d'installation, aussi bien sur mon PC de table que sur mon
+         portable.
+      </p>
+      <p>
+         Avec Ubuntu, j'ai l'avantage de pouvoir mettre la
+         distribution à jour sans tout réinstaller. Pour cela, je
+         ne vais pas créer une page pour chaque version d'Ubuntu
+         que je vais tester. Je vais plutôt mettre cette page à
+         jour avec les éléments qui vont changer lors des mises à
+         jour.
+      </p>
+      <ul class="pagemenu">
+         <li>
+            <a href="#salva">Installation sur le Salvator</a>
+         </li>
+         <ul>
+            <li>
+               <a href="#instsalva">Installation</a>
+            </li>
+            <li>
+               <a href="#nvidia">Pilote NVIDIA</a>
+            </li>
+            <li>
+               <a href="#mettre_le_">Mettre le pilote NVIDIA à
+               jour</a>
+            </li>
+            <li>
+               <a href="#java">Installation de Java</a>
+            </li>
+            <li>
+               <a href="#eclipse">Eclipse</a>
+            </li>
+            <ul>
+               <li>
+                  <a href="#eclipse_in">Eclipse intégré à
+                  Ubuntu</a>
+               </li>
+               <li>
+                  <a href="#la_plus_re">La plus récente version sur
+                  Eclipse.org</a>
+               </li>
+               <li>
+                  <a href="#plantages_">Plantages sous x64</a>
+               </li>
+               <li>
+                  <a href="#eclipse_en">Eclipse en 32 bits</a>
+               </li>
+            </ul>
+            <li>
+               <a href="#netbeans">NetBeans</a>
+            </li>
+            <li>
+               <a href="#firefox">Navigateur Web</a>
+            </li>
+            <li>
+               <a href="#ivtv">Synthoniseur TV</a>
+            </li>
+            <li>
+               <a href="#xorg">Configuration de X.Org</a>
+            </li>
+            <li>
+               <a href="#ntfs">NTFS</a>
+            </li>
+            <li>
+               <a href="#medibuntu">Medibuntu</a>
+            </li>
+            <li>
+               <a href="#mp3">Gestion du MP3</a>
+            </li>
+            <li>
+               <a href="#vpn">Réseau privé virtuel</a>
+            </li>
+            <li>
+               <a href="#ooo3">OpenOffice.org 3</a>
+            </li>
+            <li>
+               <a href="#fonts">Polices de caractères</a>
+            </li>
+            <li>
+               <a href="#chroot">Environnement 32 bits</a>
+            </li>
+            <li>
+               <a href="#divers">Problèmes divers</a>
+            </li>
+            <li>
+               <a href="#conclusion">Conclusion</a>
+            </li>
+         </ul>
+         <li>
+            <a href="#nightmare">Installation sur le Nightmare</a>
+         </li>
+         <ul>
+            <li>
+               <a href="#instnightmare">Installation</a>
+            </li>
+            <li>
+               <a href="#wifi">Connexion Internet sans fil</a>
+            </li>
+            <li>
+               <a href="#915resolution">L'écran 16:9</a>
+            </li>
+            <li>
+               <a href="#ext">Écran externe</a>
+            </li>
+            <li>
+               <a href="#hibernate">Hibernation</a>
+            </li>
+            <li>
+               <a href="#miscn">Problèmes divers</a>
+            </li>
+            <li>
+               <a href="#conclusion1">Conclusion</a>
+            </li>
+         </ul>
+         <li>
+            <a href="#ecchi">Se faciliter l'installation</a>
+         </li>
+         <li>
+            <a href="#dist-upgrade">Évolution de l'installation</a>
+         </li>
+      </ul>
+      <h1>
+         <a id="salva" name="salva"></a>Installation sur le
+         Salvator
+      </h1>
+      <h2>
+         <a id="instsalva" name="instsalva"></a>Installation
+      </h2>
+      <p>
+         Dimanche, 3 juin 2007
+      </p>
+      <p>
+         J'ai d'abord téléchargé l'image ISO du CD Desktop, version
+         AMD64, depuis le site de Ubuntu. J'ai utilisé BitTorrent
+         pour cette tâche, car le téléchargement est beaucoup plus
+         rapide avec ce protocole qu'avec HTTP ou FTP utilisés par
+         les navigateurs Web. J'ai gravé l'image ISO sur un CD-R
+         que j'ai ensuite utilisé pour amorcer ma machine. Un menu
+         s'afficha alors; je choisis de démarrer ou installer
+         Ubuntu. Après un chargement qui dura au moins une minute,
+         je me retrouvai devant un Bureau GNOME fonctionnel,
+         quoiqu'un peu rudimentaire. C'est ainsi que je constatai
+         que j'avais un live CD, c'est-à-dire un disque permettant
+         de faire tourner Linux sans l'installer sur sa machine. Le
+         live CD trouva pas mal tout mon matériel, incluant la
+         carte son. Par contre, il n'installa rien pour mon
+         synthoniseur TV.
+      </p>
+      <p>
+         Après avoir constaté que ça pouvait fonctionner, j'ai
+         double-cliqué sur l'icône <b>Install</b> afin de débuter
+         l'installation proprement dite. On me demanda de choisir
+         la langue dans laquelle je voulais installer mon système
+         si bien que j'optai pour le Français. Ensuite, je dus
+         choisir mon fuseau horaire, ce qui me posa quelques
+         difficultés mineures, car il y avait un grand nombre de
+         villes dans la liste. Bien qu'il serait bon que les villes
+         soient regroupées par pays, j'ai découvert plus tard que
+         la sélection peut se faire plus simplement en cliquant sur
+         la carte du monde qui s'affiche à cette étape de
+         l'installation. Comme clavier, je choisis ensuite
+         <b>Canada</b> dans la section <b>Canada</b>, ce qui me
+         donna le clavier Canadien Français auquel je suis habitué.
+      </p>
+      <p>
+         Le partitionnement du disque dur, qui suit la sélection du
+         clavier, demeure tout de même une étape délicate qui peut
+         provoquer de gros dégâts en cas d'erreur de manipulation.
+         Les options proposées, à savoir effacer tout le disque
+         pour y installer Ubuntu ou redimensionner la partition
+         Windows, ne me convenaient pas. Je dus alors accéder au
+         partitionnement personnalisé et régler le point de montage
+         à <tt>/</tt> pour la partition déjà créée qui devait
+         abriter Ubuntu. Je dus également ajuster le nom des points
+         de montage pour toutes les autres partitions afin que cela
+         corresponde davantage à mes besoins. L'installation, par
+         la suite, se passa très bien.
+      </p>
+      <p>
+         Ubuntu a installé le gestionnaire d'amorçage GRUB
+         correctement et a même détecté ma partition Windows et mon
+         installation de Fedora Core 6; il a inséré des liens
+         permettant de les démarrer depuis GRUB.
+      </p>
+      <p>
+         Pendant l'installation, Ubuntu me demanda un nom
+         d'utilisateur et un mot de passe afin de créer un premier
+         compte sur lequel je pourrais me brancher. Ensuite, il
+         m'offrait la possibilité intéressante d'importer mes
+         données et paramètres depuis un compte sous Windows ou
+         sous une autre distribution de Linux. Par contre, je
+         trouvais dommage qu'il soit obligatoire de créer un compte
+         utilisateur principal même si des comptes étaient créés à
+         partir de paramètres importés. Par exemple, j'aurais voulu
+         importer mes paramètres de mon compte <tt>eric</tt> défini
+         sous Fedora Core 6, mais il m'aurait alors fallu créer un
+         second compte, <tt>eric2</tt> par exemple, pour satisfaire
+         Ubuntu. Par contre, je découvris plus tard, lors d'un
+         InstallFest, que je pouvais donner au système
+         d'importation le nom du compte principal demandé par
+         Ubuntu: pas besoin de créer deux comptes pour importer les
+         paramètres.
+      </p>
+      <p>
+         L'installation terminée, le système me fit redémarrer
+         après m'avoir conseillé de retirer le CD d'Ubuntu du
+         lecteur. Malheureusement, il avait besoin du disque pour
+         faire son redémarrage si bien que le système se planta.
+         Heureusement, l'installation était finie à ce point.
+         Ainsi, il ne fallait pas obéir au message indiquant de
+         retirer le CD d'Ubuntu. Il fallait plutôt laisser le CD
+         dans le lecteur jusqu'à ce que Ubuntu soit éteint, ensuite
+         de quoi un message indiquait d'extraire le disque avant
+         d'appuyer sur la touche Entrée. L'ordinateur redémarrait à
+         ce moment-là.
+      </p>
+      <p>
+         Lorsque mon nouveau Ubuntu fut démarré, je me branchai en
+         entrant mon nom d'utilisateur et mon mot de passe. Une
+         icône apparut alors dans le coin supérieur droit de
+         l'écran pour m'indiquer que des mises à jour étaient
+         disponibles. Je cliquai sur l'icône, entrai de nouveau mon
+         mot de passe et laissai le programme installer les mises à
+         jour. Jusque-là, tout allait bien.
+      </p>
+      <h2>
+         <a id="nvidia" name="nvidia"></a>Pilote NVIDIA
+      </h2>
+      <p>
+         Je constatai vite que le pilote de NVIDIA n'était pas
+         installé sur ma machine; l'affichage n'était pas à sa
+         pleine vitesse et <tt>glxgears</tt> que j'utilisai pour
+         confirmer mes soupçons me donna un nombre d'images par
+         seconde inférieur à 1000 tandis qu'il était à 4000 sous
+         Fedora Core 6. Conclusion: pas d'accélération 3D, car pas
+         de pilote NVIDIA. Je savais d'ores et déjà que
+         <tt>apt-get</tt> permettait d'installer des paquets si
+         bien que je tentai <tt>sudo apt-get install
+         kmod-nvidia</tt> pour installer le pilote comme je le
+         faisais sous Fedora, mais cela échoua, le paquet
+         <tt>kmod-nvidia</tt> n'étant pas disponible.
+      </p>
+      <p>
+         La commande <tt>sudo</tt> permet d'exécuter la commande
+         donnée en argument comme administrateur. Sous Ubuntu,
+         cette commande fonctionne par défaut et exécute son
+         argument après avoir demandé le mot de passe de
+         l'utilisateur. Dans le cas de Fedora Core, il faut
+         configurer <tt>/etc/sudoers</tt> manuellement, la façon
+         standard d'exécuter des commandes d'administration étant
+         de se brancher en administrateur en utilisant <tt>su</tt>.
+      </p>
+      <p>
+         Revenons maintenant au problème du pilote NVIDIA. Il
+         fallait en fait installer <tt>nvidia-glx-dev</tt> ou
+         <tt>nvidia-glx-new-dev</tt> pour obtenir le pilote NVIDIA.
+         Je dus utiliser la commande <tt>nvidia-xconfig
+         --add-argb-glx-visuals -d 24</tt> pour reconfigurer
+         <tt>xorg.conf</tt> afin que X.Org utilise le nouveau
+         pilote.
+      </p>
+      <p>
+         Une autre technique pour installer le pilote consiste à
+         utiliser le Gestionnaire de pilotes propriétaires
+         accessible dans le menu <b>Administration</b> du menu
+         <b>Système</b>.
+      </p>
+      <p>
+         Cette étape accomplie, l'accélération 2D/3D fonctionna
+         parfaitement. Je n'eus pas à installer manuellement le
+         pilote de NVIDIA, encore moins à compiler un module de
+         noyau. Contrairement à Fedora Core, je n'eus même pas à
+         ajouter une autre source de paquets pour obtenir le
+         pilote.
+      </p>
+      <p>
+         Je testai de nouveau AIGLX et Beryl, mais encore une fois,
+         cela bogua. Cette fois-ci, je me retrouvai avec des
+         fenêtres sans barre de titre. J'eus beau tout essayer;
+         rien n'y fit pour résoudre le problème!
+      </p>
+      <p>
+         Heureusement, je trouvai <a
+         href="http://doc.ubuntu-fr.org/beryl">cette page</a> qui
+         m'aida beaucoup. C'est là que j'appris qu'il fallait
+         ajouter l'option pour ARGB visuals dans <tt>xorg.conf</tt>
+         et que le paquet à installer pour Beryl était
+         <tt>beryl-ubuntu</tt>. La ligne <tt>nvidia-xconfig</tt>
+         précédente tient compte de cette subtilité. Le réglage
+         effectué, j'ai pu démarrer Beryl sans problème. J'ai
+         aussi, suivant les conseils sur le même site, désactivé la
+         synchronisation VBlank depuis Beryl, car cette
+         synchronisation pouvait occasionner des blocages au moment
+         de passer du mode console ou mode graphique ou en revenant
+         d'un écran de veille.
+      </p>
+      <p>
+         Malheureusement, Beryl empêchait tout programme Java doté
+         d'une interface graphique de fonctionner convenablement.
+         Il me fallut attendre Compiz Fusion, qui ne fut disponible
+         que sous la version 7.10 d'Ubuntu, pour enfin disposer
+         d'une solution à ce problème.
+      </p>
+      <h2>
+         <a name="mettre_le_" id="mettre_le_">Mettre le pilote
+         NVIDIA à jour</a>
+      </h2>
+      <p>
+         Plus tard, je découvrirais que le pilote de NVIDIA proposé
+         dans les dépôts d'Ubuntu n'est mis à jour à peu près que
+         lors de la sortie d'une nouvelle version de la
+         distribution. En général, ce n'est pas un gros problème,
+         mais cela peut devenir gênant quand le pilote proposé ne
+         fonctionne pas correctement. En effet, en décembre 2007,
+         mon système Ubuntu 7.10 gelait régulièrement peu après le
+         démarrage. Je devais alors soit appuyer sur le bouton
+         reset, soit me brancher en SSH sur la machine, en
+         utilisant mon ordinateur portable par exemple, pour tuer
+         le serveur X. Heureusement, grâce à <a
+         href="http://www.albertomilone.com/nvidia_scripts1.html">Envy</a>,
+         je pus effectuer la mise à jour du pilote et éliminer les
+         plantages. Je devais par contre appeler Envy à chaque mise
+         à jour du noyau, sous peine de voir revenir en force les
+         problèmes de stabilité. Conjugué à un <a
+         href="hw/black.xhtml">problème intermittent de
+         démarrage</a>, ce bogue faillit me pousser à changer ma
+         carte mère pour rien!
+      </p>
+      <p>
+         Sous Ubuntu 8.04, il existe même un paquet nommé
+         <tt>envyng-gtk</tt> qui permet d'installer Envy avec
+         <tt>apt-get</tt> ou Synaptic. Il est donc possible de
+         tenir son pilote NVIDIA à jour plus facilement encore!
+      </p>
+      <h2>
+         <a id="java" name="java">Installation de Java</a>
+      </h2>
+      <p>
+         Comme on peut s'y attendre, Ubuntu vient avec GCJ plutôt
+         que la version Sun de Java. Je voudrais bien utiliser GCJ,
+         qui est libre contrairement à l'implantation de Sun de la
+         spécification Java, mais encore faudrait-il qu'il prenne
+         en charge Java 5, ce qui n'est pas encore le cas. Il me
+         fallait donc installer la machine virtuelle de Sun. Avant
+         d'utiliser la technique classique (exécuter l'installeur
+         téléchargé depuis le site de Sun et configurer la variable
+         d'environnement <tt>PATH</tt> pour rendre Java
+         accessible), je fis quelques recherches et découvris qu'un
+         simple <tt>sudo apt-get install sun-java6-jdk</tt> pouvait
+         régler la question de Java! Il est aussi possible
+         d'installer <tt>sun-java6-plugin</tt> pour le plug-in Java
+         de Mozilla/Firefox, <tt>sun-java6-demo</tt> pour les
+         exemples de programmes Java, etc. Mais avec une
+         distribution AMD64, il n'est pas possible d'installer le
+         plugin Java.
+      </p>
+      <p>
+         Pour le plugin Java sous AMD64, il faudra attendre Ubuntu
+         8.04 qui vient avec IcedTea, un prototype de Java 7.
+         Installer le paquet <tt>icedtea-java7-plugin</tt> résoud
+         le problème du plugin une bonne fois pour toutes! IcedTea
+         en est peut-être encore au stade bêta, mais Fedora Core 8
+         et Ubuntu intègrent déjà des paquets pour cela et,
+         avouons-le, l'installation du paquet est mille fois plus
+         simple que mettre en place une version 32 bits de Firefox
+         dans laquelle s'exécute le plugin de Sun! Sous les
+         versions plus récentes d'Ubuntu, le paquet se nomme
+         <tt>icedtea6-plugin</tt>.
+      </p>
+      <p>
+         Apparemment, les paquets relatifs à IcedTea pointent
+         maintenant sur OpenJDK, qui correspond à la majeure partie
+         de l'implantation Sun de Java 6 qui a été rendue open
+         source. D'après ce que j'ai lu, OpenJDK ressemblerait à
+         Java 6, mais je ne suis sûr de rien et n'ai encore jamais
+         essayé de l'utiliser.
+      </p>
+      <p>
+         Malheureusement, appeler <tt>java</tt>, <tt>javac</tt>,
+         etc. démarrait GCJ et non pas Java de Sun. Outre modifier
+         manuellement la variable d'environnement <tt>PATH</tt> ou
+         désinstaller GCJ, il existe une solution très simple et
+         élégante sous Ubuntu: la commande <tt>sudo
+         update-java-alternatives -s java-6-sun</tt>. La commande
+         <tt>update-java-alternatives -l</tt> affiche une liste des
+         machines Java installées, ce qui permet d'obtenir le bon
+         nom de machine à passer comme argument à l'option
+         <tt>-s</tt>.
+      </p>
+      <p>
+         Le plugin Java sous AMD64 souffre par contre d'instabilité
+         chronique. Par exemple, sous Ubuntu 10.04, quand j'ai
+         essayé d'ajouter des photos sur Facebook, le processeur
+         s'est mis à tourner à fond la caisse et Firefox ne
+         répondait plus. Je n'ai jamais trouvé de solution, à part
+         installer une version 32 bits de Firefox. Plutôt que faire
+         ainsi, j'ai trouvé FireUploader avec lequel je peux
+         transférer les photos, sans passer par l'application de
+         Facebook.
+      </p>
+      <h2>
+         <a id="eclipse" name="eclipse">Eclipse</a>
+      </h2>
+      <p>
+         Pour compléter mon environnement Java, j'ai dû installer
+         Eclipse (paquet <tt>eclipse</tt>). Malheureusement, il y a
+         deux facteurs principaux qui font boguer Eclipse, surtout
+         sur l'architecture x64. D'abord, il faut installer le
+         paquet <tt>sun-java6-jdk</tt> pour ensuite utiliser
+         <tt>sudo update-java-alternatives -s java-6-sun</tt> comme
+         j'ai fait plus haut. Cela remplace la VM par défaut, GCJ,
+         qui n'est vraiment pas assez performante pour faire
+         tourner Eclipse efficacement, par la VM de Sun. Ensuite,
+         il faut choisir la version d'Eclipse à utiliser: celle
+         livrée avec Ubuntu ou encore la plus récente sur <a
+         href="http://www.eclipse.org">Eclipse.org</a> et la
+         configurer correctement pour ne pas constamment manquer de
+         mémoire.
+      </p>
+      <p>
+         Faire fonctionner Eclipse sous Ubuntu est donc un
+         casse-tête. Plusieurs personnes, d'après des messages lus
+         sur des forums, ont préféré utiliser Fedora ou garder
+         Ubuntu 7.10 plutôt que se battre avec Ubuntu 8.04 qui pose
+         des difficultés additionnelles.
+      </p>
+      <h3>
+         <a name="eclipse_in" id="eclipse_in">Eclipse intégré à
+         Ubuntu</a>
+      </h3>
+      <p>
+         Pour Eclipse version Ubuntu, il faut installer le paquet
+         <tt>eclipse</tt>. Il fallu plusieurs versions d'Ubuntu
+         avant de pouvoir obtenir quelque chose de plus récent que
+         la version 3.2. Rendu à Ubuntu 10.04, nous en étions à la
+         version 3.5, mais Ubuntu 10.10 n'intégrait toujours pas la
+         plus récente version 3.6 d'Eclipse.
+      </p>
+      <p>
+         Ensuite, le fichier <tt>/etc/eclipse/java_home</tt> doit
+         contenir <tt>/usr/lib/jvm/java-6-sun</tt> sur la première
+         ligne; cela va indiquer à Eclipse d'utiliser la VM de Sun
+         et non GCJ. Le fichier <tt>~/.eclipse/eclipserc</tt> doit
+         ensuite être créé et contenir quelque chose ressemblant à
+         ceci.
+      </p>
+<pre>
+#!/bin/sh
+
+VMARGS="-Xmx800m -Xms600m -XX:MaxPermSize=512m"
+</pre>
+      <p>
+         De cette façon, Eclipse disposera d'assez de mémoire pour
+         travailler dans planter à répétition. Je n'ai
+         malheureusement pas trouvé de manière de fixer ce
+         paramètre globalement, pour tous les utilisateurs de la
+         machine.
+      </p>
+      <h3>
+         <a name="la_plus_re" id="la_plus_re">La plus récente
+         version sur Eclipse.org</a>
+      </h3>
+      <p>
+         Pour Eclipse téléchargé depuis <a
+         href="http://www.eclipse.org">Eclipse.org</a> et installé
+         dans <tt>/usr/local/eclipse</tt>, il faut éditer le
+         fichier <tt>eclipse.ini</tt> pour ajouter les lignes pour
+         la mémoire. Dans mon cas, j'avais le fichier suivant pour
+         Eclipse 3.3:
+      </p>
+<pre>
+-showsplash
+org.eclipse.platform
+-vmargs
+-Xms600m
+-Xmx800m
+-XX:MaxPermSize=512m
+</pre>
+      <p>
+         Ensuite, j'ai dû taper <tt>/usr/local/eclipse/eclipse
+         -initialize</tt> pour terminer l'installation.
+      </p>
+      <p>
+         Si la version x86_64 d'Ubuntu est installée, il faut
+         utiliser Eclipse pour x86_64 aussi, sinon il y aura une
+         incompatibilité entre Eclipse et la machine virtuelle Java
+         installée. Pour utiliser la version 32 bits d'Eclipse, une
+         machine virtuelle 32 bits est nécessaire.
+      </p>
+      <h3>
+         <a name="plantages_" id="plantages_">Plantages sous
+         x64</a>
+      </h3>
+      <p>
+         Il arrive que le compilateur HotSpot de Java 6 bogue pour
+         des raisons obscures, seulement sur les architectures 64
+         bits et peut-être même seulement sous Linux! Lorsque cela
+         se produit, il faut indiquer à HotSpot de ne pas compiler
+         les méthodes causant problème. Ce problème touche bien
+         évidemment Eclipse qui est un système très complexe. Pour
+         contourner cela, il faut créer un fichier
+         <tt>~/.hotspot_compiler</tt> et y mettre la ligne
+      </p>
+<pre>
+exclude  org/eclipse/jdt/internal/compiler/parser/Scanner optimizedCurrentTokenSource3
+exclude org/eclipse/jdt/internal/core/util/CommentRecorderScanner recordComment
+exclude org/eclipse/core/internal/dtree/DataTreeNode forwardDeltaWith
+exclude org/eclipse/jdt/internal/compiler/lookup/ParameterizedMethodBinding &lt;init&gt;
+</pre>
+      <p>
+         J'ai trouvé ces lignes en regardant les fichiers
+         <tt>hs_*.log</tt> produits lors de plantages d'Eclipse. Il
+         faut regarder dans quelle méthode il y a eu une erreur de
+         segmentation et indiquer à la JVM de ne pas compiler ces
+         méthodes. Il est en effet possible que, selon la version
+         d'Eclipse, il soit nécessaire d'ajouter d'autres lignes de
+         ce genre dans <tt>.hotspot_compiler</tt>. Les lignes que
+         je montre ici convient pour Eclipse 3.3.2 et 3.4. Cette
+         solution fonctionnait dans mon cas, mais Eclipse se
+         mettait périodiquement à faire ramer le processeur à fond,
+         surtout les premières minutes suivant son démarrage.
+      </p>
+      <h3>
+         <a name="eclipse_en" id="eclipse_en">Eclipse en 32
+         bits</a>
+      </h3>
+      <p>
+         Si les instructions précédentes ne fonctionnent pas, il
+         reste encore la possibilité de faire tourner Eclipse en 32
+         bits. Pour cela, il faut installer le paquet
+         <tt>ia32-sun-java6-bin</tt>. Ensuite, il faut télécharger
+         et installer la version 32 bits d'Eclipse depuis <a
+         href="http://www.eclipse.org">Eclipse.org</a>, puis créer
+         un script qui va appeler Eclipse avec l'option <tt>-vm
+         /usr/lib/jvm/ia32-java-6-sun/bin/java</tt>.
+         Malheureusement, cela n'a pas été très fructueux dans mon
+         cas, car je ne pouvais pas accéder à CVS sous cet
+         environnement 32 bits.
+      </p>
+      <p>
+         Une variante de cette solution est d'utiliser
+         <tt>update-java-alternatives</tt> pour mettre la VM 32
+         bits par défaut, mais ce n'est pas idéal puisque cette VM
+         ne devrait être nécessaire QUE pour Eclipse. Mais il se
+         peut que faire ainsi règle le problème de connexion
+         Internet pour CVS sous Eclipse.
+      </p>
+      <h2>
+         <a id="netbeans" name="netbeans"></a>NetBeans
+      </h2>
+      <p>
+         À un moment donné, Eclipse me rendit fou, ne cessant de
+         lambiner ou planter, au point où je voulus essayer
+         NetBeans. Sous Ubuntu 8.04, je constatai alors son absence
+         sur mon système, bien que je l'aie déjà installé. Je
+         tentai de le réinstaller avec la commande <tt>sudo apt-get
+         install netbeans</tt>, mais j'obtins alors des messages
+         d'erreur:
+      </p>
+<pre>
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+Some packages could not be installed. This may mean that you have
+requested an impossible situation or if you are using the unstable
+distribution that some required packages have not yet been created
+or been moved out of Incoming.
+
+Since you only requested a single operation it is extremely likely that
+the package is simply not installable and a bug report against
+that package should be filed.
+The following information may help to resolve the situation:
+
+The following packages have unmet dependencies:
+  netbeans: Depends: libnb-apisupport1-java (&gt;= 6.0.1) but it is not going to be installed
+            Depends: libnb-ide8-java (&gt;= 6.0.1) but it is not going to be installed
+            Depends: libnb-java1-java (&gt;= 6.0.1) but it is not going to be installed
+</pre>
+      <p>
+         M'inspirant de ce message d'erreur aussi clair qu'un
+         morceau de plomb, j'essayai d'installer les paquets qui ne
+         pouvaient être installés, ce qui me donna un autre message
+         d'erreur avec davantage de paquets qui ne pouvaient pas
+         être installés. Cela faisait beaucoup de paquets à
+         énumérer sur la ligne de commande sans certitude que ça
+         finisse par fonctionner un jour.
+      </p>
+      <p>
+         Un ami qui a rencontré ce problème a tout simplement
+         contourné la difficulté en téléchargeant le logiciel sur
+         <a href="http://www.netbeans.org">NetBeans.org</a> et en
+         l'installant. C'est très ennuyeux de devoir faire ainsi,
+         car après l'installation il faut tout faire soi-même pour
+         intégrer le logiciel au système. À quoi bon disposer d'un
+         système de gestion des paquets si, au final, il faut le
+         contourner à tous moments?
+      </p>
+      <p>
+         Pour ma part, je suis parvenu à installer le logiciel avec
+         la commande <tt>sudo aptitude install netbeans</tt>.
+         Aptitude, contrairement à Apt-get, a détecté que le paquet
+         <tt>tzdata-java</tt>, nécessaire pour NetBeans, n'était
+         pas compatible avec la version installée de
+         <tt>tzdata</tt>. J'acceptai la proposition d'installer une
+         version antérieure de <tt>tzdata</tt>, ce qui permit
+         d'installer <tt>tzdata-java</tt> et NetBeans!
+      </p>
+      <p>
+         Malheureusement, à chaque fois que j'activais le
+         gestionnaire de mises à jour d'Ubuntu, je recevais un
+         message m'indiquant que la mise à jour ne pouvait être
+         effectuée complètement. Si j'acceptais de faire une mise à
+         jour partielle, cela supprimait NetBeans!
+      </p>
+      <p>
+         Ce problème était connu sous Ubuntu 8.04 puisqu'on trouve
+         un <a
+         href="https://bugs.launchpad.net/ubuntu/+source/apt/+bug/23967">rapport
+         de bogue</a> sur LaunchPad. Par contre, rien n'était fait
+         pour le résoudre! Pour une raison que je ne connais pas,
+         Apt-get ne détectait pas de version ultérieure à 2008b
+         pour <tt>tzdata-java</tt> tandis qu'il a pu trouver
+         <tt>tzdata</tt> 2008c et plus tard 2008e! Il suffirait
+         pour les responsables de la distribution Ubuntu de
+         reconfigurer <tt>tzdata-java</tt> pour qu'il soit détecté
+         par Apt-get, mais il fallut attendre octobre 2008 pour
+         cela, que la version 8.10 d'Ubuntu voie le jour!
+         Entre-temps, il existait deux solutions, à refaire à
+         chaque mise à jour de <tt>tzdata</tt>:
+      </p>
+      <ol>
+         <li>
+            Le problème semble disparaître si les mises à jour en
+            pré-version sont activées. Pour rendre ces mises à jour
+            accessibles, sous Synaptic, activez l'option
+            <b>Dépôts</b> du menu <b>Configuration</b>. Sous
+            l'onglet <b>Mises à jour</b>, cochez la case <b>Mises à
+            jour en pré-version (hardy-proposed)</b> et cliquez sur
+            le bouton <b>Fermer</b>. Cliquez ensuite sur
+            <b>Recharger</b> au haut de la fenêtre de Synaptic puis
+            sélectionnez les paquets <tt>tzdata</tt> et
+            <tt>tzdata-java</tt> pour mise à jour. Cliquez enfin
+            sur <b>Appliquer</b>. L'installation terminée, vous
+            pouvez désactiver les mises à jour en pré-version. 
+            <p>
+               Cette solution a pour sérieux désavantage
+               d'impliquer une altération de la configuration du
+               système. Si vous oubliez de désactiver les mises à
+               jour en pré-version, le gestionnaire de mises à jour
+               installera éventuellement tous ces paquets qui ne
+               sont pas nécessairement encore bien testés. Pire
+               encore, il sera ensuite difficile de déterminer
+               quels paquets sont en pré-version, pour les
+               désinstaller.
+            </p>
+         </li>
+         <li>
+            Télécharger <tt>tzdata</tt> et <tt>tzdata-java</tt> sur
+            <a
+            href="http://packages.ubuntu.com/tzdata">packages.ubuntu.com/tzdata</a>
+            et les installer manuellement avec <tt>sudo dpkg
+            -i</tt>. La commande <tt>dpkg -i</tt> prend en argument
+            le nom des fichiers <tt>.deb</tt> contenant les paquets
+            à installer; il faut donc lui donner le nom des
+            fichiers téléchargés. C'est à mon avis la meilleure
+            solution, car elle évite d'altérer temporairement la
+            configuration du système.
+         </li>
+      </ol>
+      <h2>
+         <a id="firefox" name="firefox"></a>Navigateur Web
+      </h2>
+      <p>
+         Firefox 2 était déjà préinstallé par Ubuntu, ce qui est
+         une bonne chose. Par contre, il manquait quelques plug-ins
+         que je ne parvins pas à obtenir sous Linux 64 bits. Pour
+         Java, il faut installer le paquet
+         <tt>sun-java6-plugin</tt> tandis que pour Flash, le paquet
+         <tt>flashplugin-nonfree</tt> est nécessaire. Ces deux
+         paquets sont absents dans la distribution 64 bits de
+         Ubuntu 7.04. Pour Flash, j'ai essayé avec un clone
+         open-source nommé Gnash, mais cela ne fonctionna que plus
+         ou moins bien.
+      </p>
+      <p>
+         Pour ce qui est de Adobe Reader, il n'est disponible qu'à
+         condition de l'installer manuellement ou d'ajouter une
+         nouvelle source de paquets, à savoir <a
+         href="http://www.medibuntu.org">Medibuntu</a>. Voir <a
+         href="http://www.ubuntugeek.com/how-to-install-adobe-pdf-reader-with-plug-in-for-mozilla-firefox-in-feisty-fawn.html">cette
+         page</a> pour plus d'informations. Mais il faut dire
+         qu'Evince s'est assez amélioré pour rendre Adobe Reader
+         pratiquement inutile, à part pour des formulaires PDF.
+         Bref, pour avoir tous les plug-ins, j'aurais besoin d'une
+         version 32 bits de Firefox comme sous Fedora Core 6. Je
+         croyais que cela nécessitait de créer un <a
+         href="#chroot">environnement 32 bits</a>, ce qui est
+         plutôt long et pénible.
+      </p>
+      <p>
+         Ubuntu 7.10 a apporté une amélioration notable de ce côté,
+         le paquet <tt>flashplugin-nonfree</tt> étant disponible
+         pour AMD64! Le plugin Flash fourni par ce paquet est 32
+         bits, mais il peut fonctionner sous Firefox 64 bits grâce
+         à un logiciel appelé NSPluginWrapper. Par contre, ce
+         dernier logiciel n'était d'aucun secours pour Java.
+      </p>
+      <p>
+         Sous Ubuntu 8.04, le paquet <tt>icedtea-java7-plugin</tt>
+         apporte une solution presque parfaite au problème du
+         plugin. Il faut par contre garder à l'esprit que IcedTea
+         en était encore au stade de développement si bien que des
+         problèmes de stabilité pouvait résulter de l'utilisation
+         du plugin.
+      </p>
+      <p>
+         Ubuntu 8.04 vient avec Firefox 3 bêta 5. Cela m'a déçu
+         quelque peu, car je craignais pour la stabilité du
+         navigateur encore en développement. Fort heureusement,
+         Firefox 3 fonctionne très bien. Dans le pire cas, le
+         paquet <tt>firefox-2</tt> permet d'installer la bonne
+         vieille version stable de Firefox 2. Mieux encore: dès que
+         la version finale de Firefox 3 a vu le jour, une mise à
+         jour a été disponible sous Ubuntu.
+      </p>
+      <p>
+         Malheureusement, Flash bogue parfois sous Ubuntu 8.04 à
+         cause d'une incompatibilité avec PulseAudio.
+         L'installation du paquet <tt>libflashsupport</tt> peut
+         parfois résoudre le problème ou l'empirer en rendant
+         Firefox instable. Mardi après-midi, 26 août 2008, c'était
+         rendu que Firefox plantait à chaque fois que j'accédais à
+         une page contenant du Flash! La seule solution que j'ai
+         trouvée a été de désinstaller <tt>flashplugin-nonfree</tt>
+         ainsi que <tt>libflashsupport</tt> pour ensuite installer
+         <a
+         href="http://labs.adobe.com/downloads/flashplayer10.html">Flash
+         10 en pré-version</a> d'Adobe. Par chance, tout ceci est
+         résolu sous Ubuntu 8.10 et 9.04!
+      </p>
+      <h2>
+         <a id="ivtv" name="ivtv"></a>Synthoniseur TV
+      </h2>
+      <p>
+         La commande <tt>sudo apt-get install ivtv.*</tt> me permit
+         d'installer <a href="http://www.ivtvdriver.org">IvTV</a>
+         0.10, le module nécessaire pour mon synthoniseur TV
+         Hauppauge WinTV PVR-150. Aucune compilation manuelle et
+         aucune copie de micro-logiciel ne furent nécessaires comme
+         c'était le cas sous Fedora Core. Tout fonctionna
+         parfaitement du premier coup!
+      </p>
+      <p>
+         Non, pas tout à fait, en réalité. Pour tester le
+         synthoniseur, j'installai le paquet <tt>mplayer-gui</tt>.
+         Malheureusement, <tt>gmplayer /dev/video</tt> plantait au
+         démarrage puisqu'il ne trouvait pas le fichier demandé. Il
+         fallait en fait utiliser <tt>/dev/video0</tt> pour accéder
+         à l'image produite par mon synthoniseur TV. De plus,
+         MPlayer était mal configuré, utilisant MGA au lieu de XV
+         comme sortie vidéo. Je dus rectifier cela pour qu'il
+         fonctionne correctement. L'image apparut ensuite si bien
+         que le problème était dû à MPlayer et non pas à IvTV.
+      </p>
+      <h2>
+         <a id="xorg" name="xorg"></a>Configuration de X.Org
+      </h2>
+      <p>
+         Outre le pilote NVIDIA, deux problèmes survinrent avec
+         X.Org: les boutons latéraux de la souris ne fonctionnaient
+         pas et la résolution était 1024x768 tandis que j'avais
+         besoin de 1280x1024 pour mon écran LCD ViewSonic VG191b.
+         Par chance, ces problèmes ne sont plus d'actualité sous
+         Ubuntu 8.10 et 9.04. Sous les versions antérieures, je pus
+         résoudre ces deux problèmes simplement en éditant
+         <tt>/etc/X11/xorg.conf</tt>. Pour la souris, cela revient
+         à la même chose que sous <a
+         href="fc6.html#btnnight">Fedora Core 6</a>. D'abord, je
+         dus localiser la section du fichier concernant la souris.
+         Cette section se nommait <tt>Configured Mouse</tt>. Pour
+         le protocole, je mis <tt>auto</tt> au lieu de
+         <tt>ImPS/2</tt>, je réglai <tt>Emulate3Buttons</tt> à
+         <tt>false</tt> et j'ajoutai une option réglant
+         <tt>ButtonMapping</tt> sur <tt>1 2 3 6 7 8 9</tt>. Sous
+         Ubuntu 8.04, je dus par contre mettre
+         <tt>ButtonMapping</tt> à <tt>1 2 3 8 9 6 7</tt> pour que
+         les boutons latéraux fonctionnent sous Firefox 3. Mais
+         avec ce changement, ils ne fonctionnent plus sous Firefox
+         2.
+      </p>
+      <p>
+         Pour la résolution, j'ai modifié la section nommée
+         <tt>Default Screen</tt> pour ajouter <tt>"1280x1024"</tt>
+         à chaque clause <tt>Modes</tt>, juste avant le texte
+         <tt>"1024x768"</tt>.
+      </p>
+      <p>
+         Pour ce qui est des touches spéciales de mon clavier, je
+         pensais avoir résolu la difficulté en installant le paquet
+         <tt>keytouch</tt>. Il me fallut ensuite démarrer KeyTouch
+         et lui indiquer la marque et le modèle de mon clavier.
+         Malheureusement, certaines touches additionnelles ne
+         fonctionnent pas et il ne semble y avoir aucun moyen de
+         rectifier la situation. D'après <a
+         href="http://keytouch.sourceforge.net/">le site de
+         KeyTouch</a>, il y aurait des problèmes avec les claviers
+         USB, la seule solution étant de rebrancher le clavier dans
+         le port PS/2. Puisque ces touches additionnelles ne
+         servent que peu, je n'en fis rien et laissai le clavier
+         dans le port USB que je trouve beaucoup plus commode que
+         le port PS/2.
+      </p>
+      <p>
+         Sous Ubuntu 8.04, KeyTouch faisait carrément planter GNOME
+         lorsque j'éteignais ou redémarrais l'ordinateur. Sa
+         suppression résolut le problème sans même m'enlever
+         l'usage des quelques touches spéciales qui fonctionnaient!
+         Conclusion: KeyTouch ne sert pas à grand-chose avec un
+         clavier USB! Depuis quelques temps, ils ont réglé le
+         problème, mais Ubuntu, même la version 9.04, n'intègre pas
+         une version suffisamment récente de KeyTouch.
+      </p>
+      <h2>
+         <a id="ntfs" name="ntfs"></a>NTFS
+      </h2>
+      <p>
+         Avec Ubuntu, j'obtins l'accès à mes partitions NTFS
+         gratuitement, sans avoir à installer un paquet téléchargé
+         sur un site Web ou à ajouter une source de paquets externe
+         comme c'était le cas avec Fedora. NTFS est le système de
+         fichiers utilisé par défaut sous Windows 2000/XP/Vista.
+         Par contre, l'accès demeurait en lecture seule. Pour
+         remédier à cela, il suffit d'installer les paquets
+         <tt>ntfs-3g</tt> et <tt>ntfs-config</tt>. Dans le menu
+         <b>Outils systèmes</b> de GNOME, je trouvai alors l'option
+         <b>Outil de configuration NTFS</b> qui me permit d'activer
+         l'écriture sans modifier manuellement <tt>/etc/fstab</tt>.
+         L'écriture NTFS semble fonctionner très bien. Du moins,
+         elle n'a pas causé de dommages sur mes partitions Windows
+         pour le moment...
+      </p>
+      <p>
+         Un petit raffinement intéressant est d'ajouter l'option
+         <tt>streams_interface=windows</tt> pour le montage des
+         partitions avec NTFS-3G. Cela permet de lire et de créer
+         des flux de données nommés pour n'importe quel fichier.
+         Voir <tt>man ntfs-3g</tt> pour plus d'informations.
+      </p>
+      <p>
+         Puisque Linux peut dès lors lire et écrire du NTFS, est-ce
+         la fin de FAT32, l'autre système de fichiers plus simple
+         que Windows sait déchiffrer par défaut? Non, pas tout à
+         fait, car FAT32 est encore le système le plus simple et
+         universel. Il est excellent pour les clés USB et les
+         lecteurs MP3, voire même les disques durs externes de
+         faible capacité. Je ne formaterais par contre pas un
+         disque de 500Go ou plus en FAT32, car il en résulterait
+         des unités d'allocation beaucoup trop grandes faisant en
+         sorte qu'un paquet de petits fichiers prendrait beaucoup
+         d'espace sur le disque. Les outils FAT32 sous Linux sont
+         fiables et éprouvés tandis que les outils pour le NTFS
+         sont encore jeunes. Vu la nature propriétaire de NTFS et
+         son incroyable complexité, c'est encore beau qu'on puisse
+         lire et écrire sur des partitions de ce type! Il faut dire
+         que le développement de NTFS-3G a nécessité des années de
+         travail et il y a eu plusieurs autres tentatives de
+         projets avant qui n'ont pas abouti.
+      </p>
+      <p>
+         Puisque j'utilise Linux la majorité du temps, durant l'été
+         2008, j'ai opté pour une autre solution afin d'éliminer
+         FAT32 de mon disque dur: tout convertir en Ext3! Je n'ai
+         gardé le NTFS que pour la partition de Windows. Pour
+         accéder aux partitions Ext3 sous Windows,j'utilisais <a
+         href="http://www.fs-driver.org/">Ext2 IFS</a> qui était
+         tout simplement excellent! Cela fonctionnait même avec les
+         versions 64 bits de Windows Vista! Malheureusement,
+         l'incompatibilité de Ext2 IFS avec Ext4 et même certaines
+         configurations de Ext3 en réduisit notablement l'utilité.
+      </p>
+      <h2>
+         <a id="medibuntu" name="medibuntu"></a>Medibuntu
+      </h2>
+      <p>
+         Ajouter la source de paquets <a
+         href="http://www.medibuntu.org">Medibuntu</a>, en suivant
+         les instructions sur le site, permet d'avoir accès à
+         quelques paquets intéressants, notamment <tt>acroread</tt>
+         pour Adobe Reader, <tt>googleearth</tt> pour Google Earth
+         et <tt>xmms-wma</tt> pour que XMMS puisse lire les
+         fichiers WMA. J'ai aussi pu installer <tt>w64codecs</tt>
+         qui contient des codecs 64 bits pour quelques formats
+         vidéos. Finalement, j'ai obtenu <tt>libdvdcss2</tt> qui
+         permet de décrypter les DVD protégés.
+      </p>
+      <p>
+         Mais Adobe Reader n'est presque jamais nécessaire, à part
+         de temps en temps pour remplir des formulaires
+         électroniques. Il vaut beaucoup mieux utiliser Evince ou
+         tout autre lecteur PDF open source!
+      </p>
+      <h2>
+         <a id="mp3" name="mp3"></a>Gestion du MP3
+      </h2>
+      <p>
+         Pour la gestion du MP3, je dus installer plusieurs
+         paquets: <tt>gstreamer0.10-plugins-ugly</tt> pour GNOME,
+         <tt>libk3b2-mp3</tt> pour k3b (logiciel de gravure de
+         CD/DVD), <tt>mpg123</tt> pour lire des MP3 depuis la ligne
+         de commande. Le paquet <tt>lame</tt> est quant à lui
+         nécessaire pour pouvoir encoder des fichiers MP3, par
+         exemple à partir de CD audio.
+      </p>
+      <h2>
+         <a id="vpn" name="vpn"></a>Réseau privé virtuel
+      </h2>
+      <p>
+         Étant donné que le réseau privé virtuel (VPN) est employé
+         à l'Université de Montréal, je voulais savoir si Ubuntu me
+         permettrait d'établir un branchement de ce genre. J'ai
+         alors découvert qu'il y a plusieurs types de VPN: PPTP de
+         Microsoft, Cisco, OpenVPN et peut-être d'autres encore.
+         Network Manager, sous GNOME, les prend tous en charge, à
+         condition d'installer les paquets adéquats.
+      </p>
+      <p>
+         Pour le PPTP, celui qui m'intéressait, j'ai dû installer
+         <tt>network-manager-pptp</tt>, ce qui a ajouté les options
+         nécessaires pour créer une connexion. Pour tester cela,
+         j'ai ajouté une connexion vers le VPN de l'Université de
+         Montréal, comme montré <a
+         href="http://open-source.ecchi.ca/?voir=articles/20070311-vpn_umontreal">ici</a>.
+         J'ai alors eu la surprise de constater que cela ne
+         fonctionnait pas du tout.
+      </p>
+      <p>
+         Premier problème: il y avait un bogue avec le module VPN
+         spécifique à x86_64! Voir <a
+         href="http://ubuntuforums.org/showthread.php?p=2803012">cette
+         page</a> pour une discussion à propos de ce bogue. J'ai pu
+         contourner le problème en téléchargeant cette <a
+         href="http://craig.dubculture.co.nz/blog/2007/05/13/new-networkmanager-pptp-package-fixes-amd64-crashes/">patch</a>
+         et en l'installant, avec <tt>sudo dpkg -i</tt>.
+         Heureusement, cela ne devrait plus être nécessaire avec
+         Ubuntu 7.10 et les versions ultérieures.
+      </p>
+      <p>
+         Second problème: j'avais oublié de configurer le MTU et le
+         MRU à 1500, ce qui était nécessaire pour le serveur VPN de
+         l'Université. Lorsque ce fut fait, je pus enfin me
+         connecter!
+      </p>
+      <p>
+         Troisième problème: le pare-feu Firestarter interféra et
+         m'empêcha de continuer; je dus non pas seulement le
+         désactiver mais le désinstaller, car il se réactivait
+         quand la connexion VPN démarrait.
+      </p>
+      <p>
+         Quatrième problème: je n'avais plus accès à Internet
+         lorsque le VPN était en marche. Cela s'explique par le
+         fait que seul le réseau de l'Université est accessible
+         depuis VPN et non pas Internet au complet. Il faut donc
+         indiquer, dans les options de GNOME, que seules les
+         transmissions vers 132.204.0.0 doivent passer par le VPN;
+         tout le reste passe par la connexion réseau usuelle.
+      </p>
+      <p>
+         Cinquième problème: sous Ubuntu 8.10, l'option permettant
+         de configurer le MTU a <i>disparu</i>! Il n'y a donc plus
+         rien à faire pour obtenir le VPN de type PPTP avec
+         l'Université de Montréal, aussi simple et stupide que ça!
+         Même avec la version 9.04 d'Ubuntu, le problème persiste.
+         La seule solution est d'utiliser <a
+         href="http://pptpclient.sourceforge.net">PPTPConfig</a>
+         pour configurer le VPN, mais celui-ci n'est disponible que
+         pour les machines 32 bits, pas 64 bits!
+      </p>
+      <p>
+         En 2009, peu après que j'aie été embauché chez Nuance,
+         j'ai voulu essayer par curioristé de me raccorder au VPN
+         Cisco de la compagnie, depuis Ubuntu 8.10. J'ai alors
+         appris que c'était un réseau de type IPSec. Lorsque j'eus
+         rassemblé les informations de connexion (nom du serveur,
+         mot de passe de groupe) et intégré à cela mon propre nom
+         d'utilisateur et mot de passe, j'ai pu me brancher. Dès
+         lors, je pouvais accéder, depuis mon ordinateur personnel,
+         à l'Intranet de la compagnie et me brancher sur le serveur
+         de recherche de mon groupe de travail.
+      </p>
+      <p>
+         Étant donné que la compagnie me fournit un ordinateur
+         portable (tournant sous Windows et sur lequel je n'ai
+         jamais osé installer Linux!), je n'ai pas un grand besoin
+         de me relier à l'Intranet depuis ma machine personnelle.
+         Mais il m'est arrivé de le faire à quelques reprises pour
+         obtenir une information sur le site interne, sans avoir à
+         allumer mon portable. Le fonctionnement correct de la
+         connexion a transcendé les versions, de 8.10 à 10.04! Je
+         n'ai pas encore testé sous 10.10.
+      </p>
+      <h2>
+         <a id="ooo3" name="ooo3"></a>OpenOffice.org 3
+      </h2>
+      <p>
+         Durant l'automne 2008, la version 3 de la suite
+         bureautique <a
+         href="http://www.openoffice.org">OpenOffice.org</a> a
+         enfin vu le jour, offrant en particulier la prise en
+         charge du format Office OpenXML, utilisé par Office 2007
+         de Microsoft. J'étais bien content de cette nouveauté, car
+         avant cela, il n'y avait aucun moyen fiable sans Office
+         2007 de Microsoft de traiter un document venant d'Office
+         2007, outre demander à son auteur de le convertir vers un
+         autre format et <i>espérer</i> qu'il accepte.
+      </p>
+      <p>
+         Malheureusement, je constatai vite l'absence de mise à
+         jour vers OpenOffice.org 3 sous Ubuntu 8.04. Même la
+         version 8.10, qui sortit en octobre 2008, après
+         OpenOffice.org 3, n'offrait pas la nouvelle version de la
+         suite bureautique. Pire encore, la nouvelle version
+         n'était intégrée dans aucune distribution de Linux du
+         moment, que ce soit Debian, Fedora, etc.
+      </p>
+      <p>
+         Pour avoir OpenOffice.org 3, il ne restait plus que la
+         solution consistant à l'installer depuis <a
+         href="http://www.openoffice.org">son site officiel</a>.
+         Par chance, ce site offrait des versions 64 bits, pas
+         seulement 32 bits. Au pire, la version 32 bits aurait en
+         théorie pu fonctionner sur une plate-forme 64 bits; je
+         n'aurais pas eu à revenir à une version 32 bits pour un
+         seul logiciel, et je ne l'aurais pas fait étant donné que
+         je n'avais pas absolument besoin de ce logiciel.
+      </p>
+      <p>
+         Par contre, pour 64 bits, il n'y avait que la version
+         anglaise. Pour avoir la version française, je dus
+         installer le pack de langue, offert pour 32 bits
+         seulement, avec <tt>dpkg -i --force-architecture
+         fr.deb</tt> où <tt>fr.deb</tt> est le nom du fichier
+         contenant le pack de langue. Je dus, en d'autres mots,
+         installer la version 64 bits anglaise d'OpenOffice.org,
+         pour ensuite lui ajouter le pack de langue française 32
+         bits. Cela fonctionnait, mais ce n'est à présent plus
+         nécessaire puisque la version française 64 bits est
+         disponible.
+      </p>
+      <p>
+         Ensuite, comme je m'y attendais, OpenOffice.org n'était
+         pas intégré au système: impossible d'y accéder depuis le
+         menu de GNOME ou même avec une commande simple comme
+         <tt>oowriter</tt>. La version officielle comprend certes
+         un fichier <tt>.deb</tt> permettant d'intégrer le logiciel
+         au bureau, mais installer cette version oblige à
+         désinstaller OpenOffice.org d'Ubuntu, ce qui supprime par
+         le fait même la vérification orthographique pour
+         <b>tous</b> les programmes! Je renonçai donc à installer
+         ce paquet et intégrai OpenOffice.org 3 comme je pus,
+         ajoutant des raccourcis à la main dans les menus ainsi que
+         le répertoire de programmes de la suite dans ma variable
+         <tt>PATH</tt>.
+      </p>
+      <p>
+         Par contre, quelques temps après, je me rendis compte que
+         le son ne fonctionnait pas dans les présentations
+         PowerPoint. En particulier, si ma mère ou mon grand-père
+         m'envoyaient un diaporama, la musique ne se faisait pas
+         entendre. Avec OpenOffice.org 3, il n'y avait tout
+         simplement aucun son et rien de ce qui était indiqué dans
+         les forums ne fonctionnait pour arranger les choses! Avec
+         la version de OpenOffice.org 2.4 intégrée à Ubuntu 8.10,
+         j'avais du son qui sautait.
+      </p>
+      <p>
+         Pour arranger les choses, je tentai d'installer
+         OpenOffice.org 3 en utilisant un <a
+         href="http://news.softpedia.com/news/How-To-Install-OpenOffice-org-3-0-in-Ubuntu-8-10-96449.shtml">PPA</a>.
+         J'obtins alors une meilleur intégration dans GNOME, mais
+         le son était saccadé.
+      </p>
+      <p>
+         Pour résoudre le problème du son, je dus remplacer le
+         paquet <tt>gstreamer0.10-plugins-ugly</tt> par la version
+         d'Ubuntu 8.04, que je téléchargeai manuellement sur <a
+         href="http://packages.ubuntu.com">packages.ubuntu.com</a>.
+      </p>
+      <p>
+         Avec Ubuntu 9.04, ces problèmes ont été résolus:
+         OpenOffice.org 3 est intégré et les problèmes de sons
+         semblent résolus. Par contre, utiliser un <a
+         href="http://news.softpedia.com/news/How-to-Install-OpenOffice-org-3-1-on-Ubuntu-9-04-111105.shtml">PPA</a>
+         permet d'obtenir OpenOffice.org 3.1 sous Ubuntu 9.04. Les
+         versions 10.10, 10.04 et peut-être même 9.10 proposent la
+         version 3.2.
+      </p>
+      <h2>
+         <a id="fonts" name="fonts"></a>Polices de caractères
+      </h2>
+      <p>
+         Comme d'habitude, je dus ajuster la taille des caractères
+         à différents endroits, pour GNOME, Firefox, Thunderbird et
+         Emacs. Cela ne posa pas de difficultés particulières.
+      </p>
+      <p>
+         Par contre, un bon jour, je reçus un fichier PowerPoint
+         que je tentai de lire avec OpenOffice.Org Impress. Le
+         texte du diaporama affiché se trouva alors coupé, comme si
+         les caractères étaient trop gros. J'en conclus qu'il
+         devait manquer une fonte présente sous Windows, essayai de
+         trouver comment ajouter des fontes et n'obtins pas
+         grand-chose. Heureusement, je découvris que le paquet
+         <tt>msttcorefonts</tt> permet d'ajouter les fontes
+         standard de Microsoft Windows, en particulier Times New
+         Roman, Arial, etc.
+      </p>
+      <p>
+         Il peut également être nécessaire d'installer les
+         nouvelles fontes incluses avec Windows Vista et Office
+         2007 de Microsoft. Ces fontes ne sont malheureusement pas
+         incluses dans le paquet <tt>msttcorefonts</tt> si bien
+         qu'une méthode spéciale est nécessaire. Le site <a
+         href="http://www.oooninja.com/2008/01/calibri-linux-vista-fonts-download.html">suivant</a>
+         explique comment procéder pour installer les fontes.
+      </p>
+      <p>
+         Un autre problème de fontes m'a frappé sous
+         OpenOffice.Org: les caractères dans l'aide en ligne
+         étaient beaucoup trop petits et aucune option ne
+         permettait de les agrandir. Pour résoudre ce problème, je
+         dus modifier le fichier
+         <tt>/usr/lib/openoffice/help/fr/default.css</tt> afin d'en
+         changer les éléments <tt>font-size</tt>.
+      </p>
+      <h2>
+         <a id="chroot" name="chroot"></a>Environnement 32 bits
+      </h2>
+      <p>
+         Après avoir installé la version 64 bits de Ubuntu, j'ai
+         constaté qu'aucune bibliothèque 32 bits n'était installée,
+         à part les pilotes OpenGL de NVIDIA. Cela me mena à
+         constater qu'il n'y a pas d'architecture double, sous
+         Ubuntu, comme c'est le cas avec Fedora. Dans un système à
+         double architecture, un paquet peut être disponible pour
+         deux architectures. Ainsi, les bibliothèques sont
+         installées en versions 32 bits et 64 bits. Cela permet
+         d'installer des logiciels 32 bits dans un système 64 bits.
+         Par contre, avec Ubuntu, un paquet ne peut pas être
+         installé pour plusieurs architectures. Ainsi, aucun
+         logiciel 32 bits ne peut tourner facilement, à moins
+         d'être conçu spécifiquement pour la configuration 64 bits.
+      </p>
+      <p>
+         Il y a heureusement quelques exceptions. En installant
+         <tt>ia32-.*</tt>, j'ai pu obtenir quelques bibliothèques
+         32 bits de base. Cela suffit pour installer Adobe Reader,
+         depuis Medibuntu, et Firefox, depuis le site Web du
+         logiciel, quoique je n'ai pas essayé. Par contre, Wine
+         n'était pas disponible, en tout cas pas via AptGet. Je dus
+         attendre Ubuntu 7.10 pour l'avoir.
+      </p>
+      <p>
+         Pour résoudre ce problème complètement, le mieux à faire
+         consiste à se créer un environnement 32 bits comme décrit
+         <a
+         href="http://doc.ubuntu-fr.org/installation/chroot32bits">ici</a>.
+         Ce n'est pas très compliqué, juste un peu long. J'ai
+         apporté quelques variantes à la procédure décrite sur le
+         site que j'ai cité, car cela ne fonctionnait pas à mon
+         goût. Je vais terminer cette section avec ces variantes.
+         Sachant que j'ai détruit cet environnement avant de migrer
+         à Ubuntu 7.10 et n'ai pas ressenti le besoin de le recréer
+         par la suite, le lecteur pourra sans problème sauter à la
+         section suivante.
+      </p>
+      <p>
+         La première étape de la procédure consiste à installer le
+         paquet <tt>dchroot</tt> et à le configurer. Ensuite, en
+         utilisant <tt>debootstrap</tt>, il faut créer une
+         distribution Debian de base dans un répertoire qui
+         deviendra l'environnement 32 bits. Ici, plutôt qu'utiliser
+         <tt>cp</tt> pour copier <tt>resolv.conf</tt> dans
+         l'environnement 32 bits comme c'est fait dans la
+         procédure, j'ai employé <tt>ln</tt> qui crée un lien dur.
+         Ainsi, chaque modification dans <tt>/etc/resolv.conf</tt>
+         est automatiquement répercutée dans l'environnement 32
+         bits. La procédure demande aussi de copier d'autres
+         fichiers dans l'environnement 32 bits. J'ai aussi utilisé
+         <tt>ln</tt> pour relier les fichiers <tt>passwd</tt>,
+         <tt>shadow</tt>, <tt>group</tt>, <tt>sudoers</tt> et
+         <tt>hosts</tt> au lieu de les copier.
+      </p>
+      <p>
+         La procédure crée ensuite des points de montage dans
+         l'environnement 32 bits. Au lieu de monter chaque
+         sous-répertoire de <tt>/media</tt> indépendamment, j'ai
+         jugé bon d'ajouter ceci dans <tt>/etc/fstab</tt>:
+      </p>
+<pre>
+/media /chroot/feisty/32bits/media none rbind 0 0
+</pre>
+      <p>
+         Noter l'utilisation de l'option <tt>rbind</tt> au lieu de
+         <tt>bind</tt>. Cela fait en sorte que tout le contenu de
+         <tt>/media</tt>, incluant les systèmes de fichiers montés
+         (CD-ROM, disques durs, etc.), est accessible dans
+         <tt>/chroot/feisty/32bits/media</tt>.
+      </p>
+      <p>
+         Pour entrer dans mon environnement 32 bits, je dois taper
+         <tt>dchroot -d</tt>. J'ai alors installé toutes sortes de
+         choses, dont <tt>language-selector</tt>. En démarrant
+         <tt>gnome-language-selector</tt> depuis mon environnement
+         32 bits, j'ai alors pu remettre le Français comme langue
+         dans mon environnement 32 bits; par défaut, c'était
+         l'Anglais.
+      </p>
+      <p>
+         Pour démarrer un programme 32 bits depuis l'environnement
+         64 bits habituel, je dois utiliser <tt>dchroot -d
+         programme</tt>. Le script donné sur le site qui m'a
+         enseigné à construire l'environnement ne fonctionnait
+         malheureusement pas pour moi.
+      </p>
+      <p>
+         Tout ceci est bien compliqué pour rien. Heureusement, j'ai
+         pu installer Firefox, Flash et Java dans cet
+         environnement. Malheureusement, l'accélération 3D ne
+         fonctionna jamais si bien que Wine ou Cedega ne pourraient
+         pas faire tourner de jeux dans cet environnement.
+      </p>
+      <h2>
+         <a id="divers" name="divers"></a>Problèmes divers
+      </h2>
+      <p>
+         Évidemment, je dus installer plusieurs paquets en
+         utilisant <tt>apt-get</tt> puis plus tard Synaptic que je
+         découvris. Le second logiciel, à interface graphique, est
+         souvent nécessaire quand le nom du paquet à installer est
+         inconnu. Le système Apt-Get, qui nous vient de Debian, est
+         plus rapide que le RPM de Red Hat/Fedora/Mandriva. J'ai pu
+         installer tous les logiciels dont j'avais besoin via
+         Apt-Get, incluant GNU Emacs (éditeur de texte), LaTeX
+         (création de documents), Eclipse (environnement de
+         développement), GnuPG (cryptage de documents), Thunderbird
+         (courrier électronique), Enigmail (extension GnuPG pour
+         Thunderbird), etc. Un paquet intéressant à installer est
+         <tt>ubuntu-restricted-extras</tt> qui ajoute plusieurs
+         éléments simultanément dont Java et la gestion du MP3 sous
+         GNOME et KDE. Seul un petit nombre de logiciels ne sont
+         pas accessibles via Apt-Get, par exemple ManDVD, mais
+         habituellement, ils ne me sont pas nécessaires.
+      </p>
+      <p>
+         Je me suis rendu compte que Totem ne parvenait pas à lire
+         les DVD Vidéo. J'avais le son mais pas l'image et des
+         messages d'erreur à la pelle. Solution: installer
+         <tt>totem-xine</tt>! Cela supprima
+         <tt>totem-gstreamer</tt> et commuta à Xine pour la lecture
+         de vidéos plutôt que GStreamer. Sous Ubuntu 8.10 et les
+         suivantes, par contre, les deux paquets peuvent être
+         installés en parallèle et il existe des commandes pour
+         passer d'un backend à l'autre; voir par exemple <a
+         href="http://www.funnestra.org/ubuntu/intrepid/#totem">cette
+         page</a>. Mais la façon la plus simple d'avoir le backend
+         Xine au lieu de GStreamer est encore de désinstaller
+         <tt>totem-gstreamer</tt>, ce que j'ai fait.
+         Malheureusement, depuis Ubuntu 9.04 ou 9.10, je ne me
+         rappelle plus, le backend Xine de Totem n'existe plus du
+         tout. Totem a semblé fonctionner au début, mais il souffre
+         d'importantes limitations, comme l'impossibilité de rogner
+         les barres noires ou d'envoyer le son 5.1 à travers S/PDIF
+         et des instabilités lors de l'avance rapide ou du recul
+         pendant la lecture de DVD. MPlayer, par chance, peut très
+         bien lire les DVD Vidéos et fournit en plus un puissant
+         logiciel d'encodage vidéo appelé MEncoder. Mais XBMC
+         demeure la meilleure solution du moment pour la lecture de
+         fichiers multimédias. Allié à MakeMKV, XBMC permet la
+         gestion d'une bibliothèque de films stockée sur le disque
+         dur.
+      </p>
+      <p>
+         L'absence de pare-feu sous Ubuntu est un autre problème
+         que je trouve important. Certes, <a
+         href="http://www.netfilter.org">IPTables</a> est inclus
+         dans le noyau et peut agir comme pare-feu, mais sa
+         configuration est plutôt compliquée. Sous Fedora Core, un
+         utilitaire est disponible pour accomplir les tâches
+         courantes, comme ouvrir un port pour permettre à SSH,
+         Samba, Telnet, etc. de fonctionner. Sous Ubuntu, il n'y a
+         rien. J'ai essayé avec le logiciel <a
+         href="http://www.fs-security.com">Firestarter</a> qui
+         semblait la référence pour ce genre de tâches, mais cela
+         ne m'a apporté que des difficultés. Par exemple, avec
+         Firestarter, l'exploration de réseaux Microsoft ne
+         fonctionne plus et toute tentative de connexion VPN
+         échoue. Firestarter démarre automatiquement lorsqu'une
+         connexion réseau est établie, ce qui n'est pas toujours
+         souhaitable, et laisse des traces lors de sa
+         désinstallation. Pour effacer toutes ces traces, il faut
+         démarrer Synaptic, cliquer du bouton droit sur
+         <tt>firestarter</tt> et sélectionner le paquet pour une
+         suppression complète. Le mieux est de ne pas installer
+         Firestarter; votre système ne s'en portera que mieux!
+      </p>
+      <p>
+         Avec Ubuntu 8.04, il y a le logiciel <a
+         href="http://doc.ubuntu-fr.org/ufw">UFW</a> qui est très
+         simple d'utilisation, mais, encore une fois, il faut
+         renoncer aux réseaux Microsoft. Je pourrais facilement m'y
+         résigner s'il y avait un moyen simple de mettre en place
+         un serveur SSH sur une machine Windows, mais cela implique
+         <a
+         href="http://pigtail.net/LRP/printsrv/cygwin-sshd.html">d'installer
+         Cygwin et beaucoup de bidouillage</a> pour que le serveur
+         s'active au démarrage de la machine!
+      </p>
+      <p>
+         Depuis Ubuntu 7.10, j'ai bénéficié de Compiz Fusion qui me
+         procure une fonction de zoom très utile. Malheureusement,
+         lorsque Compiz était activé, la machine plantait
+         régulièrement pendant que l'écran de veille était activé.
+         Je découvris par chance que le plantage n'était causé que
+         par un seul écran de veille: braid! Pour faire cesser les
+         plantages, j'ai simplement modifié le fichier
+         <tt>/usr/share/applications/screensavers/braid.desktop</tt>.
+         À la fin de la ligne débutant par <tt>Exec=</tt>, j'ai
+         ajouté <tt>-ncolors 16 -cycles 5 -count 5</tt>. Un bogue
+         similaire est revenu sous Ubuntu 8.04, avec
+         <tt>rd-bomb</tt> cette fois. Frustré par d'autres bogues
+         qui commençaient à me faire envisager un changement de
+         distribution de Linux, j'ai été moins délicat que la fois
+         précédente: j'ai supprimé
+         <tt>/usr/share/applications/screensavers/rd-bomb.desktop</tt>
+         sans aucune forme de procès! Malheureusement, cela ne
+         s'arrêta pas là si bien que je dus en fin de compte
+         désinstaller le paquet <tt>xscreensaver-data-extra</tt>,
+         ce qui m'enleva un certain nombre d'écrans de veille.
+         Malgré cela, je suis parvenu à conserver Compiz sur ma
+         machine de travail. Sur mon HTPC par contre, j'ai été
+         obligé de l'enlever, car il est incompatible avec XBMC.
+      </p>
+      <p>
+         Sous Ubuntu 8.04, le logiciel <tt>mkisofs</tt> pour créer
+         des images à graver sur des CD ou des DVD a été remplacé
+         par <tt>genisoimage</tt>. Par contre, l'option
+         <tt>-dvd-video</tt> de ce dernier logiciel, supposée
+         permettre la création de disques compatibles avec les
+         lecteurs DVD indépendants, ne fonctionne pas correctement.
+         Le seul moyen de contourner le problème a été de
+         télécharger et de compiler moi-même <a
+         href="http://cdrecord.berlios.de/private/cdrecord.html">CDRTools</a>
+         qui fournit <tt>mkisofs</tt>. Ce qui est vraiment
+         choquant, c'est qu'il faudra attendre Ubuntu 8.10 pour
+         avoir une version de <tt>genisoimage</tt> corrigée!
+      </p>
+      <p>
+         Faire fonctionner <tt>dvd-slideshow</tt> et
+         <tt>dvd-menu</tt> sous Ubuntu 8.04 a demandé un peu de
+         bidouille. D'abord, j'ai dû installer
+         <tt>libsox-fmt-all</tt>. Ensuite, dans
+         <tt>/usr/bin/dvd-slideshow</tt> et
+         <tt>/usr/bin/dvd-menu</tt>, j'ai remplacé <tt>-ab 192</tt>
+         par <tt>-ab 192k</tt> puis <tt>-compose src-over</tt> par
+         <tt>-compose Over</tt>.
+      </p>
+      <p>
+         Ubuntu 9.04 ne détectait plus mon lecteur MP3 SanDisk E250
+         de Sansa. Lorsque je branchais le lecteur, absolument rien
+         ne se passait. Pour résoudre ce problème des plus gênants,
+         j'ai dû modifier
+         <tt>/usr/share/hal/fdi/preprobe/10osvendor/20-libgphoto2.fdi</tt>
+         afin d'y enlever toute référence à mon lecteur MP3. La
+         solution m'a été donné par ce <a
+         href="https://bugs.launchpad.net/ubuntu/+bug/345916">rapport
+         de bogue</a>. Sans cela, j'envisageais très sérieusement
+         supprimer Linux de ma machine, car cette régression me
+         frustrait très profondément. C'est un réel soulagement que
+         le problème ait eu une solution relativement simple.
+      </p>
+      <h2>
+         <a name="conclusion" id="conclusion">Conclusion</a>
+      </h2>
+      <p>
+         La migration vers Ubuntu m'a été initialement très
+         bénéfique et a renouvelé mon enthousiasme pour Linux qui
+         commençait à décliner. Avec la sortie de Windows 7 qui
+         menace de prendre possession de tous les nouveaux
+         ordinateurs, en réduisant la performance et peut-être même
+         les fonctionnalités (à cause du DRM), il me semble
+         important qu'une distribution de Linux facile à installer
+         et à utiliser soit disponible en tant qu'alternative.
+         Ubuntu est une distribution de ce type! Le système est
+         facile à installer, beaucoup de paquets sont disponibles
+         et l'exécution des programmes est rapide.
+      </p>
+      <p>
+         Par contre, la version x86_64 de la distribution semble
+         plus difficile à configurer que sa cousine 32 bits en
+         raison de l'absence de l'architecture double qu'on
+         retrouve sous Fedora et Mandriva. De plus, certains bogues
+         sont spécifiques à la version x64, notamment des plantages
+         de Eclipse en raison de la machine virtuelle Java de Sun,
+         un problème avec le VPN sous Network Manager et
+         l'application GDesklets qui ne fonctionne pas du tout.
+         Heureusement, ça s'est amélioré au fil des versions. J'ai
+         rencontré beaucoup moins de bogues grossiers avec Ubuntu
+         10.04 et 10.10 qu'avec les versions précédentes.
+      </p>
+      <p>
+         De plus, peu importe l'architecture choisie, les mises à
+         jour des paquets sont peu fréquentes. Par exemple, il
+         faudra attendre Ubuntu 7.10 pour bénéficier de Thunderbird
+         2 et même de Pidgin qui a remplacé GAIM depuis quelques
+         mois. OpenOffice.org 3 n'a été intégrée que dans Ubuntu
+         9.04 et Ubuntu incluait encore Eclipse 3.2 tandis que la
+         version 3.4 a vu le jour. Utiliser des versions
+         précompilées par les concepteurs des logiciels en question
+         est envisageable, mais souvent seulement pour une
+         distribution 32 bits. En effet, la plupart du temps,
+         aucune version 64 bits n'est proposée par les concepteurs.
+      </p>
+      <p>
+         Il est possible de mettre la distribution à jour via Apt,
+         sans tout réinstaller. J'ai expérimenté cela à deux
+         reprises lors du passage à Ubuntu 7.10 puis à 8.04.
+         Malheureusement, le téléchargement de giga-octets par HTTP
+         ou FTP est plutôt long, d'où une mise à jour plutôt
+         longue; c'est pratiquement plus efficace de tout
+         réinstaller si on tient compte des problèmes possibles
+         causés par la mise à jour.
+      </p>
+      <h1>
+         <a id="nightmare" name="nightmare"></a>Installation sur le
+         Nightmare
+      </h1>
+      <h2>
+         <a id="instnightmare"
+         name="instnightmare"></a>Installation
+      </h2>
+      <p>
+         Vendredi, 15 juin 2007
+      </p>
+      <p>
+         Cette fois-ci, cela se passe un petit peu moins bien.
+         Évidemment, je dus télécharger la version 32 bits de
+         Ubuntu pour cet ordinateur portable. Lorsque ce fut fait,
+         je pus démarrer le live CD comme avec la version 64 bits.
+         J'eus l'agréable surprise de constater que le pilote pour
+         la carte réseau sans fil s'était installé de lui-même,
+         sans intervention manuelle. Cela me libérait du plus gros
+         problème de configuration que j'avais eu avec Fedora!
+         C'est probablement ce soulagement qui me rendit moins
+         attentif et qui fit en sorte que j'oubliai de sélectionner
+         la langue au début de l'installation. Je me retrouvai
+         ainsi avec un système en Anglais.
+      </p>
+      <p>
+         La solution la plus simple aurait été de laisser le
+         système en Anglais ou au pire tout réinstaller pour
+         l'avoir en Français, mais je ne voulais pas en arriver là,
+         pas dès le début en tout cas. La meilleure façon de
+         corriger le problème est d'accéder à la fonction
+         <b>Support linguistique</b> du menu <b>Administration</b>
+         du menu <b>Système</b>. De là, il est possible d'installer
+         des nouvelles langues et de changer la langue par défaut.
+         Ubuntu installe alors tout le nécessaire pour changer la
+         langue et modifie automatiquement les paramètres adéquats!
+         Par contre, avant d'accéder au support linguistique, il
+         est crucial d'établir une liaison vers Internet, sinon
+         seules les langues installées apparaîtront.
+      </p>
+      <h2>
+         <a id="wifi" name="wifi"></a>Connexion Internet sans fil
+      </h2>
+      <p>
+         J'ai écrit dans la section précédente que Ubuntu a pris en
+         charge ma carte réseau sans fil automatiquement, mais cela
+         ne veut pas dire qu'il parvint sans assistance à établir
+         une liaison vers Internet. En effet, je dus ajouter
+         manuellement ma connexion puisqu'il ne la détectait pas.
+         Je dus pour cela cliquer sur l'icône représentant le
+         réseau sous GNOME et choisir l'option adéquate pour
+         ajouter une connexion. À partir de là, j'indiquai que la
+         connexion était de type WPA2 et je dus entrer mon mot de
+         passe WPA. Lorsque mon portable fut enfin branché à mon
+         routeur, la connexion Internet se fit sans histoire.
+      </p>
+      <p>
+         Mais le réseau sans fil bogua périodiquement, pour rien,
+         peut-être cause du logiciel de régulation à code source
+         fermé fourni par Intel qui plantait sans rien indiquer. À
+         quelques reprises, en effet, je perdis l'accès au réseau,
+         en particulier le jour où j'essayai de passer de Ubuntu
+         7.10 à Ubuntu 8.04. Je devais alors, dans ces
+         circonstances, redémarrer la machine ou brancher le câble
+         Ethernet dans la prise réseau. En filaire, ça fonctionnait
+         à 100%!
+      </p>
+      <p>
+         Sous Ubuntu 8.04, j'eus encore plus de problèmes avec le
+         réseau sans fil, assez pour envisager l'achat d'un dongle
+         wi-fi USB. Malheureusement, de tels dongles sont souvent
+         compatibles avec Windows seulement, ce qui est très
+         décevant. La page <a
+         href="http://linux-wless.passys.nl/">linux-wless</a> donne
+         certes une liste d'adaptateurs pour la plupart
+         compatibles, mais ceux-ci sont souvent anciens et non
+         disponibles dans les magasins. Un des rares candidats que
+         je parviens encore à trouver en ligne est le WUSB54G de
+         Linksys, qui est un dongle USB. Une autre possibilité
+         serait de remplacer ma carte réseau interne mini-PCI par
+         un ancien modèle Wireless 2200 d'Intel, mais, encore une
+         fois, je ne parviens pas à le trouver!
+      </p>
+      <p>
+         Le problème avec l'adaptateur Intel PRO/Wireless 3945 ABG
+         sous Ubuntu 8.04 est dû au fait que le module original,
+         <tt>ipw3945</tt>, a été remplacé par <tt>iwl3945</tt>
+         depuis le noyau 2.6.24 justement livré avec Ubuntu 8.04.
+         Le nouveau module, complètement à code source ouvert
+         contrairement à l'ancien, ne prend pas en charge la diode
+         d'activité du réseau ainsi que l'interrupteur permettant
+         de couper la communication sans fil. Pour la diode, il n'y
+         a rien à faire tandis que pour l'interrupteur, il faut
+         appeler <tt>sudo modprobe -r iwl3945</tt> suivi de
+         <tt>sudo modprobe iwl3945</tt> pour décharger et recharger
+         le module si jamais le réseau ne fonctionne pas.
+      </p>
+      <p>
+         Par chance, installer le paquet
+         <tt>linux-backports-modules-hardy-generic</tt> et
+         redémarrer suffit à résoudre les deux précédents problèmes
+         en mettant à jour le pilote <tt>iwl3945</tt>! Cette
+         solution a été trouvée sur un <a
+         href="http://ubuntuforums.org/showthread.php?p=4810672#post4810672">forum</a>.
+         Fort malheureusement, cela n'a pas suffi dans mon cas pour
+         tout régler. La connexion était souvent très lente, à
+         savoir moins de 200k/s pour un transfert en réseau interne
+         versus 2Mo/s avant, et la carte réseau, très très sensible
+         aux perturbations du signal radio! J'ai longtemps pesté à
+         cause de ce bogue et soupçonné la carte réseau mini-PCI de
+         mon portable puis mon routeur. Mais je suis parvenu à
+         améliorer les choses en réglant, sur mon routeur, la
+         puissance de transmisson à 84 mW au lieu de 28 mW. Il faut
+         mentionner que j'ai la chance d'avoir un routeur WRT54GS
+         v2.1 de Linksys acceptant le micro-logiciel alternatif
+         ouvert <a href="http://www.dd-wrt.com">DD-WRT</a>,
+         autrement je ne pourrais probablement pas ajuster ce
+         paramètre. Plus tard, j'ai remarqué que le problème de
+         ralentissement est plus marqué après un retour de veille.
+      </p>
+      <p>
+         Une solution plus radicale consiste à installer l'ancien
+         module <a
+         href="http://ipw3945.sourceforge.net">IPW3945</a>, mais
+         cela demanda un peu de <a
+         href="http://www.nabble.com/linux-restricted-modules-2.6.24-2-generic-and-ipw3945-td14475536.html">bidouille</a>
+         étant donné que le module n'est pas compatible avec le
+         noyau 2.6.24. Plutôt que faire cela, j'ai tenté ma chance
+         avec <a
+         href="http://ndiswrapper.sourceforge.net">NDISWrapper</a>.
+         Ce logiciel est supposé permettre d'exécuter le pilote
+         réseau de Windows sous Linux, mais au lieu de cela, il n'a
+         pu que faire planter ma machine complètement! Probablement
+         que tous les pilotes ne sont pas compatibles. Une solution
+         possible pour ceux qui migrent de Ubuntu 7.10 à Ubuntu
+         8.04 à l'aide d'une mise à jour de distribution est de ne
+         pas utiliser le noyau 2.6.24 mais plutôt démarrer avec
+         l'ancien noyau 2.6.22 encore installé. L'ancien pilote
+         wi-fi s'activera alors sans bidouille. Cette solution ne
+         m'est pas accessible, car j'ai dû faire une installation
+         propre en raison d'une panne de disque dur qui a coïncidé
+         avec ma migration à Ubuntu 8.04.
+      </p>
+      <h2>
+         <a id="915resolution" name="915resolution"></a>L'écran
+         16:9
+      </h2>
+      <p>
+         Encore une fois, j'eus la résolution 1024x768 au lieu du
+         1280x800 que je voulais. Pour résoudre le problème, je dus
+         simplement installer le paquet <tt>915resolution</tt>. Ce
+         dernier détermina lui-même la résolution à ajouter et fit
+         l'ajustement dans le BIOS vidéo. Ainsi, un redémarrage du
+         serveur X.Org plus tard, j'étais en 1280x800!
+      </p>
+      <p>
+         Une solution encore plus élégante que je trouvai plus tard
+         sur <a
+         href="http://doc.ubuntu-fr.org/materiel/intel_i9">cette
+         page</a> consiste à installer le paquet
+         <tt>xserver-xorg-video-intel</tt> et à remplacer
+         <tt>i810</tt> par <tt>intel</tt> dans <tt>xorg.conf</tt>.
+         Cela me fournit un pilote prenant ma carte graphique en
+         charge et gérant lui-même la commutation du mode
+         graphique, sans passer par le BIOS. Malheureusement, ce
+         pilote ne prend plus en charge la gestion d'écrans
+         multiples puisqu'il ne tient pas compte de l'option
+         <tt>MonitorLayout</tt> dans <tt>xorg.conf</tt>. Il faudra
+         attendre la venue de Ubuntu 7.10 pour une solution à ce
+         problème, à travers XRandR.
+      </p>
+      <h2>
+         <a id="ext" name="ext"></a>Écran externe
+      </h2>
+      <p>
+         Depuis X.Org 7.3, la configuration d'un écran externe a
+         été grandement facilitée pour toutes les cartes graphiques
+         pour lesquelles un pilote compatible avec XRandR 1.2
+         existe. C'est le cas avec la Intel GMA de mon portable. Il
+         n'est maintenant plus nécessaire de disposer de plusieurs
+         fichiers de configuration et de redémarrer X.Org pour
+         passer d'une configuration à l'autre. Je suis même parvenu
+         à obtenir un affichage différent sur l'écran intégré de
+         mon portable et sur un écran externe, en suivant les
+         instruction sur <a
+         href="http://intellinuxgraphics.org/dualhead.html">Intel
+         Linux Graphics</a>; ceci est appelé <i>dual head</i> en
+         anglais. Dans ce mode, le bureau de GNOME se trouve en
+         quelque sorte étendu aux deux écrans. Il est possible, par
+         exemple, de placer une fenêtre d'Evince pour afficher une
+         présentation sur l'écran externe et ouvrir une fenêtre de
+         notes sur l'écran intégré.
+      </p>
+      <p>
+         Les informations trouvées dans cette section peuvent
+         malheureusement encore servir, car les pilotes à code
+         source fermé de NVIDIA et de ATI s'obstinent à ne pas
+         prendre en charge XRandR 1.2. Le problème est que ces deux
+         firmes ont développé leurs propres solutions pour le
+         multi-écrans avant que XRandR 1.2 ne voie le jour et ne
+         voient pas le besoin de mettre leur code à jour. Le <a
+         href="http://gentoo-wiki.com/HOWTO_Dual_Monitors">wiki de
+         Gentoo</a> fournit aussi des informations très
+         intéressantes pour configurer le <i>dual head</i> sur un
+         système à base de NVIDIA ou de ATI. Mais on arrive
+         inévitablement à un fichier X.Org pour le mode simple
+         écran et un autre pour le mode multi-écrans.
+      </p>
+      <p>
+         Avec Fedora Core 6, j'avais réussi à me construire un
+         petit script qui modifiait <tt>xorg.conf</tt> pour le
+         branchement sur un écran externe. Malheureusement, ce
+         script ne fonctionne pas sous Ubuntu, car les extensions
+         de Python nécessaires à son exécution manquent et sont
+         très difficiles à installer. Il faudrait au minimum que je
+         recompile X.Org pour les avoir! Je n'ai pas réussi pour le
+         moment et je ne voulais pas y passer un temps
+         interminable. Je suis donc revenu à la solution la plus
+         simple: créer plusieurs fichiers de configuration qu'un
+         script permet de changer au besoin.
+      </p>
+      <p>
+         Ainsi, quand je veux me brancher sur un écran externe, je
+         copie <tt>xorg.conf.crt</tt> dans <tt>xorg.conf</tt> avant
+         de redémarrer X.Org. Mais pour une raison obscure, le
+         pilote i810 de X.Org ne détecte pas l'écran et commute en
+         640x480! Si je redémarre X.Org, je me retrouve avec un
+         écran noir ou de nouveau un affichage en basse résolution.
+         Solution: attendre une dizaine de secondes en 640x480 puis
+         redémarrer X.Org! Alors là, ça fonctionne! Ainsi, je n'ai
+         pas eu à entrer manuellement les paramètres de l'écran sur
+         lequel je travaille chez Bell Canada, comme j'ai eu à le
+         faire avec Fedora Core 6. Cela m'a aussi permis de donner
+         ma présentation, pour mon examen pré-doctoral, en
+         utilisant Ubuntu. Si X.Org n'avait pas su détecter un
+         écran, il n'aurait pas pu obtenir les paramètres du
+         projecteur sur lequel je devais brancher le portable si
+         bien que j'aurais eu un affichage en basse résolution.
+         Utiliser Windows aurait alors été la seule solution.
+      </p>
+      <h2>
+         <a id="hibernate" name="hibernate"></a>Hibernation
+      </h2>
+      <p>
+         La mise en veille et l'hibernation sont des éléments très
+         instables sous Linux. Cela fonctionne avec certaines
+         versions du noyau, cesse de fonctionner suite à une mise à
+         jour, fonctionne de nouveau après quelques mois, etc. Pour
+         faire fonctionner l'hibernation sous Ubuntu 8.04, j'ai dû
+         effectuer les étapes suivantes.
+      </p>
+      <ul>
+         <li>
+            Installer le paquet <tt>uswsusp</tt>.
+         </li>
+         <li>
+            Après cela, il se peut que la machine puisse plonger en
+            hibernation mais redémarre normalement, ignorant son
+            état précédent avant l'hibernation! Pour remédier à
+            cela, il faut modifier <tt>/boot/grub/menu.lst</tt>
+            afin de mettre à jour la ligne débutant par <tt>#
+            kopt=</tt>. Sur cette ligne, il faut ajouter
+            <tt>resume=/dev/swap</tt> précédé d'un espace, sans
+            enlever le symbole <tt>#</tt> en début de ligne. Le
+            paramètre <tt>/dev/swap</tt> doit être remplacé par le
+            nom de la partition de swap, par exemple
+            <tt>/dev/sda5</tt>. Ce nom peut être retrouvé dans
+            <tt>/etc/fstab</tt> au besoin.
+         </li>
+         <li style="list-style: none">
+            <p>
+               Enfin, la commande <tt>sudo update-grub</tt> doit
+               être appelée pour mettre GRUB à jour avec la
+               nouvelle option de noyau.
+            </p>
+         </li>
+         <li>
+            En cas de plantage lors de l'hibernation, mettre le
+            BIOS à jour peut parfois aider.
+         </li>
+         <li>
+            Sur mon Dell Inspiron 6400, j'ai dû créer un fichier
+            <tt>/etc/pm/sleep.d/96keyb</tt> avec le contenu
+            suivant:
+         </li>
+         <li style="list-style: none">
+<pre>
+#!/bin/bash
+case "$1" in
+    thaw|resume)
+           echo -n "i8042" &gt; /sys/bus/platform/drivers/i8042/unbind
+           echo -n "i8042" &gt; /sys/bus/platform/drivers/i8042/bind
+           ;;
+     *)   
+          ;;
+esac
+
+exit $?
+</pre>
+            <p>
+               J'ai ensuite rendu le fichier exécutable par
+               <tt>sudo chmod 755 /etc/pm/sleep.d/96keyb</tt>. Sans
+               cette bidouille, il arrivait parfois que le clavier
+               ne réponde plus au retour de veille si bien que je
+               devais alors éteindre la machine avec le bouton et
+               tout redémarrer! J'ai trouvé cela sur un forum dont
+               je me souviens plus du lien exact.
+            </p>
+         </li>
+      </ul>
+      <h2>
+         <a id="miscn" name="miscn"></a>Problèmes divers
+      </h2>
+      <p>
+         La plupart des autres manipulations ont été semblables à
+         celles nécessaires pour le Salvator, à l'exception de
+         l'environnement 32 bits. KeyTouch prit admirablement en
+         charge les touches multimédia de mon ordinateur Dell
+         tandis que les boutons latéraux de ma souris externe se
+         configurènt exactement comme sur le Salvator. Avec Ubuntu
+         8.04, je n'eus même rien à faire pour les boutons!
+         KeyTouch, en fait, n'est même plus nécessaire! La mise en
+         veille et l'hibernation fonctionnèrent à la perfection,
+         sauf si l'ordinateur est branché sur un écran externe.
+         Dans ce dernier cas, l'écran LCD intégré s'allume et
+         devient blanc, mais au moins, ça ne plante pas.
+         Malheureusement, sous Ubuntu 7.10, la mise en veille se
+         remit à tout faire planter! Elle fonctionne de nouveau
+         avec Ubuntu 8.04.
+      </p>
+      <p>
+         Établir la connexion PPPoE pour mon travail chez Bell
+         Canada nécessita l'utilisation de <tt>pppoeconf</tt>; il
+         n'y avait pas un module dans Network Manager pour cela.
+         Pour me brancher en PPPoE, je dois utiliser <tt>pon
+         dsl-provider</tt>, pas le Network Manager de GNOME.
+         Pourtant, Network Manager permet de gérer tous les autres
+         types de connexions dont j'ai besoin: connexion DHCP
+         filaire, connexion sans fil et même VPN, jusqu'à un
+         certain point.
+      </p>
+      <p>
+         L'incompatibilité entre Compiz et les économiseurs d'écran
+         s'est aussi manifestée sur cette machine, surtout avec
+         Ubuntu 8.04. Par contre, le problème est plus accentué,
+         intermittent et touche plusieurs écrans de veille. Il n'y
+         a rien à faire, à part désactiver Compiz (ce que je ne
+         veux pas faire) ou sélectionner un écran de veille
+         particulier qui ne plante pas; finis l'écran de veille
+         aléatoire!
+      </p>
+      <p>
+         De temps en temps, l'écran externe branché au portable
+         devient noir spontanément. Je peux alors basculer vers
+         l'écran intégré qui fonctionne toujours, mais pour l'écran
+         externe, il n'y a plus rien à faire à moins de redémarrer
+         la machine. Le problème persiste depuis l'installation
+         d'Ubuntu 8.04 et rien de ce que j'ai essayé ne l'a résolu.
+         J'ai bien cru que c'était la machine qui donnait des
+         signes de faiblesse, mais je ne peux tirer de conclusion
+         de ce genre tant que la panne ne se produit pas sous
+         Windows; cela ne s'est pas encore produit. Mais comme je
+         travaille rarement sous Windows, il se peut que cela
+         puisse arriver. En attendant, je m'accroche à l'espoir que
+         le problème n'est pas encore survenu avec la version 2.3
+         du pilote vidéo d'Intel.
+      </p>
+      <h2>
+         <a name="conclusion1" id="conclusion1">Conclusion</a>
+      </h2>
+      <p>
+         Passer à Ubuntu a été une bonne chose pour cet ordinateur
+         portable aussi. Je n'y ai perdu aucune fonctionnalité et
+         l'installation a été beaucoup plus simple que celle de
+         Fedora. Par contre, les choses se sont dégradées avec
+         Ubuntu 8.04 qui m'a apporté de nouveaux problèmes vidéo
+         sans aucune solution, même après trois mois d'utilisation.
+         Il semble que cette puce graphique Intel GMA soit un choix
+         très regrettable, mais l'alternative disponible en 2006,
+         une puce ATI, me semblait pire encore. Eh bien peut-être
+         les choses ont-elles changé et ce serait mieux, ATI,
+         maintenant? Ou peut-être aurait-il mieux valu attendre
+         avant d'acheter mon portable puisque maintenant, Dell
+         offre des configurations avec puce graphique NVIDIA.
+      </p>
+      <h1>
+         <a id="ecchi" name="ecchi">Se faciliter l'installation</a>
+      </h1>
+      <p>
+         Après avoir installé Ubuntu, il est possible d'utiliser le
+         script <a href="http://ubuntu.ecchi.ca/">ECCHI</a> pour
+         installer automatiquement plusieurs paquets nécessaires,
+         dont Adobe Reader, Flash, etc. Par contre, le script ne
+         semble pas conçu pour x86_64 si bien que je n'ai pas osé
+         l'essayer sur ma machine 64 bits. De toute façon, j'ai
+         réussi à trouver tous les paquets dont j'avais besoin.
+      </p>
+      <h1>
+         <a id="dist-upgrade" name="dist-upgrade">Évolution de
+         l'installation</a>
+      </h1>
+      <p>
+         Avec Red Hat/Fedora et Mandrake/Mandriva, il est
+         recommandé de reformater la partition abritant Linux afin
+         d'effectuer une migration vers une version plus récente.
+         Cette opération est longue et fait souvent survenir de
+         nombreux problèmes. Dans le meilleur cas, il est
+         nécessaire de refaire tous les paramétrages précédents et
+         réinstaller tous les logiciels qui ne sont pas installés
+         par défaut.
+      </p>
+      <p>
+         Avec Ubuntu, les choses sont différentes: il est possible
+         de mettre à jour sa distribution sans reformater. Jusqu'à
+         ce que je l'aie expérimenté moi-même, j'avais un peu de
+         mal à y croire, mais cela fonctionne vraiment! C'est ainsi
+         qu'en fin octobre 2007, je suis passé de la version 7.04
+         Feisty Fawn d'Ubuntu à la version 7.10 Gutsy Ribbon. La
+         nouvelle version m'a donné Compiz Fusion, un gestionnaire
+         de fenêtres avec effets 3D qui fonctionne enfin. Mon
+         portable a également bénéficié de toutes les
+         fonctionnalités de la version 2 du pilote vidéo Intel qui
+         permet de reconfigurer l'affichage sans redémarrer X.Org.
+         En particulier, je peux brancher la machine sur un écran
+         externe sans redémarrage et surtout sans bidouiller les
+         fichiers de configuration.
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

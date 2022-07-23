@@ -1,0 +1,580 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         La bombe du power supply
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css"
+      href="../../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../../index.xhtml" class="parents">Le
+               royaume de Eric Buist</a> &gt;&gt; <a
+               href="../index.xhtml"
+               class="parents">Informatique</a> &gt;&gt; Problèmes
+               marquants &gt;&gt; <a href="../resolved.xhtml"
+               class="parents">Quelques bogues résolus</a> &gt;&gt;
+               <a href="index.xhtml" class="parents">Bogues
+               matériels résolus</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../../sitemap.xhtml" class="sitemap">Plan
+               du site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="swdevil.xhtml"
+               class="leftsibling">Le démon du subwoofer</a>
+            </td>
+            <td class="thispage">
+               La bombe du power supply
+            </td>
+            <td class="rightsibling">
+               <a href="epsonbug.xhtml" class="rightsibling">Encore
+               un autre bogue d'imprimante</a> &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         La bombe du power supply
+      </h1>
+      <p>
+         <b>ATTENTION: La solution à ce bogue que j'ai employée
+         n'est pas recommandée et est à vos risques si vous
+         l'appliquez. La recommandation officielle, si vous
+         éprouvez le même type de problème que j'ai eu, consiste à
+         remplacer le bloc d'alimentation de l'ordinateur.</b>
+      </p>
+      <h2>
+         La découverte de la bombe
+      </h2>
+      <p>
+         Samedi, le 2 novembre 2002, mon ordinateur se mit à
+         produire un son étrange et inquiétant. Cela ressemblait à
+         un moteur qui forçait. Je ne me souviens plus si ce bruit
+         s'était produit avant, mais ce jour-là, je décidai
+         d'enquêter. Je plongeai ma machine en mode veille (<tt>apm
+         -s</tt> sous Linux), ce qui désactiva le disque dur et
+         ralentit le ventilateur à CPU. Le son continuait à se
+         faire entendre, ce qui éliminait à coup sûr le disque dur
+         comme candidat. Le bruit venait de la partie supérieure
+         arrière de la tour, je tâtai l'arrière et découvris une
+         seconde anomalie. Il ne sortait plus de vent par le
+         grillage à droite de l'endroit où est branché le fil
+         d'alimentation électrique. J'administrai une tape sur le
+         grillage, ce qui mit un ventilateur en marche! Du vent se
+         remit à sortir. À ce moment, mes connaissances en hardware
+         étaient insuffisantes pour même savoir qu'il y avait un
+         bogue! Je le soupçonnais, mais je n'avais aucune idée de
+         la marche à suivre pour l'aborder, encore moins pour le
+         résoudre! Je me doutais que le bloc d'alimentation (power
+         supply) se trouvait près de là, mais ne connaissant pas la
+         forme de cette pièce, je pensais avoir affaire à un
+         ventilateur de boîtier. Je ne pouvais ouvrir la machine,
+         car la garantie du magasin me l'interdisait (en fait,
+         j'aurais pu, mais je ne le savais pas à ce moment-là...).
+         La seule solution possible aurait été d'amener la machine
+         au magasin, mais le bogue risquait de ne pas se produire
+         en face du vendeur et la machine me reviendrait inchangée.
+      </p>
+      <p>
+         Mardi soir, 3 décembre 2002, j'écoutai la télévision de
+         20h à 22h puis je revins fermer l'ordinateur. J'entendis
+         le ventilateur boguer de nouveau et cette fois, la partie
+         arrière du plafond de ma tour était chaude! L'anomalie
+         semblait localisée où devait être le bloc d'alimentation,
+         mais encore une fois, je n'étais sûr de rien. Toutefois,
+         le bogue commençait sérieusement à m'inquiéter, car un de
+         mes amis m'a dit que sa machine avait pris feu. Je résolus
+         donc de garder un oeil vigilant sur ce bogue de
+         ventilateur et d'éviter de laisser l'ordinateur sous
+         tension lorsque je ne serais pas chez moi. Je craignais
+         que l'ordinateur ne prenne feu, que les flammes
+         jaillissent du grillage du bloc d'alimentation comme de la
+         gueule d'un dragon et qu'elles consument mon bureau, les
+         murs de ma chambre et la maison tout entière si personne
+         ne s'y trouvait pour maîtriser l'incendie! En fait, ces
+         craintes étaient exagérées, comme je le découvrirais plus
+         tard. La bombe du power supply était là et j'en
+         connaissais l'existence, bien que je tentais de la nier.
+         Je me rassurais en me disant que les arrêts du ventilateur
+         étaient normaux (Quand il ne sortait plus de vent, je
+         croyais que le ventilateur était arrêté, mais là encore,
+         j'avais tort...), régis par un thermostat interne quelque
+         part.
+      </p>
+      <h2>
+         Le problème se fait réel
+      </h2>
+      <p>
+         À quelques reprises, je donnais des tapes sur le grillage
+         ou des fois, je laissais cela comme tel, me disant que
+         j'éteindrais la machine si une anomalie trop inquiétante
+         se pointait. Le ventilateur avait cessé d'émettre des sons
+         suspects, seul le vent cessait de sortir. Il me fallut une
+         autre machine pour faire évoluer ma perception de ce
+         bogue. Durant tout ce temps, j'avais la machine familiale
+         comme point de comparaison, mais l'idée ne m'était jamais
+         venue d'examiner. Mercredi, 5 mars 2003, une amie qui
+         avait des problèmes avec sa machine suivit mon conseil et
+         m'apporta sa tour pour que je puisse faire davantage de
+         tests. Ma semaine de relâche m'offrirait le temps de les
+         effectuer et, bien que je ne découvris pas la cause exacte
+         des redémarrages spontanés, je me rendis compte qu'il
+         sortait du vent frais par le grillage du bloc
+         d'alimentation et non un petit vent chaud ou pas de vent
+         du tout. Il y avait un bogue dans ma machine, une
+         véritable bombe qui menaçait de la faire griller en entier
+         d'après l'expérience de mon ami l'été d'avant!
+      </p>
+      <p>
+         Jeudi, 6 mars 2003, à bout d'hypothèses à base de réglages
+         dans le BIOS et de futiles modifications dans Windows,
+         j'en vins à ouvrir la machine de mon amie pour y extraire
+         la carte graphique GeForce2 MX 200 que je soupçonnais
+         depuis le début. C'était la première fois que je pouvais
+         observer l'intérieur d'une tour ATX à loisir, mais j'avais
+         déjà retiré des cartes, donc l'opération n'était pas à si
+         haut risque que ça. Mes observations se limitèrent à part
+         ça au niveau visuel, je connaissais trop bien la menace de
+         la statique pour les composantes électroniques! J'aperçus
+         un ventilateur, mais ce dernier était perpendiculaire au
+         panneau arrière de la tour, il ne pouvait souffler par le
+         grillage extérieur. Comme je le découvrirais plus tard,
+         c'était le ventilateur à CPU. Je compris que le
+         ventilateur défectueux de ma machine se trouvait DANS le
+         bloc d'alimentation, si bien que mon bogue porta le nom de
+         bombe du power supply. Je me rendis progressivement compte
+         qu'il ne me serait pas possible d'accéder à ce ventilateur
+         à moins d'ouvrir le boîtier du bloc d'alimentation, ce que
+         je ferais mais beaucoup plus tard... Maintenant, je
+         comprenais qu'il y avait un problème et qu'il pouvait
+         devenir sérieux, très sérieux. Alors, me demandera-t-on,
+         pourquoi ne pas tenter de le résoudre? Encore la
+         garantie... Je pensais qu'elle durait trois ans, je ne
+         voulais pas ouvrir la tour à moins d'extrême nécessité.
+         Pourquoi ne pas apporter la machine au magasin? Je
+         craignais que cela ne soit long, quelques jours, la
+         semaine entière, et j'avais des travaux à faire, documents
+         à imprimer, ... Le vendeur risquait encore une fois de ne
+         pas intervenir et me dire de revenir si le cas empirait.
+      </p>
+      <p>
+         N.B.: Je n'effectuerais pas les manipulations hasardeuses
+         qui vont suivre sur d'autres machines que la mienne!
+      </p>
+      <p>
+         Lors de mes tests sur la machine de mon amie, je découvris
+         que si on soufflait sur le ventilateur de la carte
+         graphique GeForce (Vaine tentative de chasser la
+         poussière), il ralentissait puis repartait à vitesse
+         nominale. Si un simple souffle pouvait le ralentir, j'en
+         conclus que le moteur était plutôt faible et je me dis que
+         les ventilateurs des ordinateurs fonctionnaient sur le
+         même principe. Ainsi, la technique de test que j'imaginais
+         n'était pas si risquée qu'il n'y paraissait. Lundi, 10
+         mars 2003, j'introduisis une broche de métal dans le
+         grillage pendant que le ventilateur ne produisait pas de
+         vent. À ma grande surprise, je ne touchai pas des pales
+         immobiles. J'entendis plutôt un grincement puis je repris
+         ma broche. J'avais utilisé un objet assez long pour
+         pouvoir opérer sans risques qu'il ne se perde dans les
+         méandres de la machine et assez solide pour qu'il ne se
+         brise pas en morceaux! Une mine de pousse-mine, par
+         exemple, aurait été la pire sonde que je puisse imaginer
+         actuellement! Cette exploration me permit de découvrir que
+         le ventilateur tournait toujours mais parfois lentement,
+         très lentement. Il existait deux hypothèses: soit le
+         ventilateur était à vitesse variable, soit il y en avait
+         plus d'un et l'un d'eux cessait de tourner. La seconde
+         hypothèse serait écartée lors d'une étape ultérieure. Je
+         n'arrivais toujours pas à figurer pourquoi le ventilateur
+         ne tourne pas assez vite.
+      </p>
+      <p>
+         Lorsque j'allumais l'ordinateur, aucun vent ne sortait par
+         le grillage du bloc d'alimentation. Si je tentais
+         d'administrer des tapes, ce que je faisais beaucoup plus
+         souvent depuis la découverte de la bombe, rien ne se
+         passait. J'appellerai cet état initial la <i>période
+         transitoire</i>. Après quelques minutes, le temps
+         approximatif de démarrer Linux et me trouver sous KDE, le
+         ventilateur se mettait en marche et du vent commençait à
+         sortir. La plupart du temps, il ralentissait et plus de
+         vent ne sortait. Rarement, il pouvait fonctionner jusqu'à
+         ce que j'éteigne l'ordinateur. À l'état dit
+         <i>stationnaire</i>, les tapes produisaient la plupart du
+         temps un effet, soit celui de repartir le ventilateur à
+         vitesse maximale. Parfois, il en fallut plus que d'autres
+         fois. Quelques fois, les tapes n'avaient aucun effet, même
+         à la période stationnaire. Plus étonnant encore: si
+         j'éteignais la machine en période stationnaire et la
+         rallumais immédiatement, elle ne retraversait pas la
+         période transitoire, c'est-à-dire que le ventilateur
+         reprenait sa vitesse nominale. Le même phénomène, que je
+         nommai la <i>persistance de la période stationnaire</i>,
+         pouvait se produire et se reproduire, même après quelques
+         minutes hors tension! Après quelques heures ou une nuit,
+         elle devait toutefois retraverser la période transitoire.
+         Ce comportement me menait à croire à l'existence d'un
+         thermostat dans le bloc d'alimentation et malheureusement,
+         s'il devait dysfonctionner, il allait me falloir remplacer
+         l'unité.
+      </p>
+      <h2>
+         Tentatives de solutions
+      </h2>
+      <p>
+         Dimanche, 16 mars 2003, sur les conseils de mon ami qui
+         étudie l'électronique, je tentai de nettoyer le
+         ventilateur à l'aspirateur. Je retirai le bout de
+         l'appareil et plaçai le tuyau sur le grillage. Après ce
+         traitement, j'allumai la machine et je désespérai de voir
+         qu'il n'y avait eu aucune amélioration. Toutefois, après
+         avoir traversé la période transitoire, le bloc
+         d'alimentation mit le ventilateur à vitesse nominale et il
+         la conversa pour la journée, sans taloches! Pour remettre
+         le ventilateur en marche s'il a ralenti en période
+         stationnaire, une simple bonne tape ne suffisait pas. En
+         effet, taper trop fort risquait seulement de déformer le
+         grillage, ce qui est finalement arrivé... Il me fallait
+         donner plusieurs petites tapes suivies d'une plus forte!
+         Mercredi, 19 mars 2003, je me rendis compte que
+         l'aspirateur n'avait amené aucun effet notable puisqu'il
+         me fallait toujours administrer des tapes sur mon
+         grillage, ce qui ne constitue pas une bonne solution, très
+         loin de là... Jeudi, le 20 mars 2003, je découvris la
+         persistance de la période stationnaire du ventilateur qui
+         constitue à mes yeux une véritable aberration illogique.
+      </p>
+      <h2>
+         La quête de la bombe
+      </h2>
+      <p>
+         Vendredi, 21 mars 2003, je voulais en avoir le coeur net
+         quant à la durée réelle de ma garantie chez Le Magicien de
+         l'Informatique. J'avais l'intuition qu'elle durait un an,
+         mais mon père m'avait dit qu'elle en durait trois. Je
+         retrouvai la facture et y découvris que sa durée était
+         d'un an seulement. Ainsi, elle avait expiré le 6 mars
+         2002, bien avant le découverte de la bombe du power
+         supply! Il me faudrait à présent payer pour faire réparer
+         la machine, mais il existait peut-être une possibilité de
+         la remettre moi-même en état et cela constituait pour moi
+         une occasion de m'initier au hardware. En effet, j'avais
+         échoué à plusieurs reprises lors de tentatives de déboguer
+         des machines. L'échec le plus récent à cette heure
+         constituait sans nul doute celui de la semaine de relâche
+         Hiver 2003 et c'est ce dernier qui m'incita le plus à
+         tenter de franchir de nouvelles limites, celles du monde
+         hardware.
+      </p>
+      <p>
+         Toutefois, ce terrain n'est pas tout à fait pour moi. Il
+         existe un grand nombre de types de connecteurs, plusieurs
+         types de fixations (vis, clips, snaps, ...), des
+         cavaliers, des inscriptions minuscules, plusieurs ennemis
+         quand on pense à mon handicap visuel... Toutefois, je
+         considérais que je pouvais acquérir une bonne base
+         théorique et quelques expérimentations pratiques.
+      </p>
+      <p>
+         L'opération que je voulais entreprendre seul n'était pas
+         des plus aisées et, comme je m'en rendrais compte plus
+         tard, pas des moins risquées... Heureusement, mes cours de
+         physique électrique au cégep m'auront sensibilisé à
+         l'existence des condensateurs et m'auront peut-être évité
+         un bon choc électrique! Je comptais ouvrir mon bloc
+         d'alimentation, dévisser le ventilateur et le nettoyer à
+         l'aspirateur, cela sous l'hypothèse que l'appareil n'avait
+         pas été suffisamment efficace depuis l'extérieur du
+         grillage. Toutefois, pour y parvenir, il me fallait ouvrir
+         mon boîtier et ensuite, je devrais ouvrir le bloc
+         d'alimentation.
+      </p>
+      <p>
+         Mercredi, 26 mars 2003, je parlai avec un ami qui me
+         conseilla, lorsqu'il eut appris mon bogue (Je lui avais
+         écrit à propos de Windows XP et lui avais parlé du bogue
+         dans la foulée.), de remplacer le bloc au complet et non
+         pas seulement le ventilateur. Jeudi soir, 27 mars 2003, la
+         nécessité d'opérer fut prenante, car le bogue semblait
+         empirer. Je comptais traiter le bogue après la fin de ma
+         session, après mes finaux, mais tout me montrait qu'il
+         fallait agir le plus vite possible.
+      </p>
+      <p>
+         Vendredi, 28 mars 2003 vint le soir de vérité. Il me
+         fallait le faire avant d'allumer la machine, pour que tout
+         soit froid et déchargé. C'était une bonne idée, car les
+         condensateurs du bloc d'alimentation ne contiendraient pas
+         de courant. Je débranchai bien entendu le cordon
+         d'alimentation pour pouvoir ouvrir le bloc sans problèmes.
+         Par chance (ou par malchance), le bloc était fermé par de
+         simples vis cruciformes, pas de Torx avec pin au centre et
+         encore moins des rivets.
+      </p>
+      <p>
+         Pendant que je passais l'aspirateur sur le ventilateur, il
+         se mit à tourner, mais je le laissai en rotation, me
+         disant que cela aiderait à chasser plus de poussière. Il
+         n'y eut pas d'incidents majeurs lors de l'opération, sauf
+         une vis qui revola et qu'heureusement, je parvins à
+         retrouver.
+      </p>
+      <h2>
+         Vaines recherches
+      </h2>
+      <p>
+         Samedi, 29 mars 2003, j'avais déjà conclu que ma tentative
+         de nettoyage du ventilateur avait été infructueuse et
+         j'effectuai des recherches sur la possibilité de le
+         remplacer. Je découvris que le remplacement du ventilateur
+         du bloc d'alimentation ne constituait pas une opération
+         aussi simple qu'il n'y paraît. Comme le montre <a
+         href="http://www.phamcomputer.com/PhC%20PSMod2.htm">Replacing
+         a Power Supply Fan With a Performance Case Fan</a>, les
+         ventilateurs vendus séparément ne comportent pas deux pins
+         mais trois ou quatre. Pour parvenir à le brancher dans le
+         bloc d'alimentation, il faut bricoler et parfois couper
+         les fils! Il semblait plus simple de remplacer le bloc
+         d'alimentation au complet.
+      </p>
+      <p>
+         Toutefois, je souhaitais me doter d'un bloc qui serait de
+         meilleure qualité que mon actuel, si bien que j'effectuai
+         encore d'autres recherches. Un ami m'a affirmé que les
+         Enermax Whisper sont très silencieux et de bonne qualité
+         et que le ventilateur dure plus d'un an. Je découvris
+         toutefois que les <a
+         href="http://www.7volts.com/seasonic.htm">Seasonic</a>
+         sont encore davantage silencieux que les Enermax. Un autre
+         ami me dit que les <a
+         href="http://www.antec-inc.com">Antec</a> sont les
+         meilleurs et plusieurs magasins d'informatique en offrent.
+         Finalement, dans <i>Upgrading and Repairing PCS, 14th
+         edition</i>, Scott Mueller affirme que les blocs
+         d'alimentation de <a
+         href="http://www.pcpowerandcooling.com">PC Power &amp;
+         Cooling</a> sont excellents. Maintenant, il me fallait
+         découvrir un moyen d'obtenir un tel bloc d'alimentation.
+         Au magasin où j'ai acheté ma machine, le Magicien de
+         l'Informatique, il se pouvait que le vendeur me demande
+         d'apporter ma tour au complet pour vérifier lui-même que
+         le bloc était défectueux puis m'en mettre un neuf d'une
+         marque inconnue, avec le même bogue potentiel de
+         ventilateur dans un an ou deux... Sur le <a
+         href="http://fredrik.hubbe.net/silence/fans.html">Silent
+         PC Guide</a>, j'appris que le site de <a
+         href="http://www.pcpowercooling.com/">PC Power and
+         Cooling</a> offrait des blocs d'alimentation en vente en
+         ligne. Toutefois, ni Enermax Whisper, ni Seasonic, ni
+         Antec, n'étaient disponibles. Sur d'autres sites, un
+         Seasonic était disponible, mais il fallait résider aux
+         États-Unis pour en obtenir la livraison! De plus, acheter
+         un bloc d'alimentation en ligne exigerait une carte de
+         crédit dont je ne disposais pas. Quant au remplacement du
+         ventilateur uniquement, c'était extrêmement embêtant. Il
+         se vendait des ventilateurs à trois pins ou à quatre pins,
+         il me fallait un quatre pins et encore une fois une carte
+         de crédit avec probabilité que cela ne fonctionne pas! En
+         effet, le ventilateur pouvait ne pas s'ajuster aux
+         dimensions du bloc d'alimentation ou la connexion pouvait
+         s'avérer impossible.
+      </p>
+      <p>
+         Mon désespoir s'accrut au fil de mes recherches, car je me
+         rendis compte que le câble d'alimentation du disque dur et
+         celui du lecteur de disquettes étaient différents! Je
+         n'étais pas certain de pouvoir les distinguer lors du
+         branchement du nouveau bloc d'alimentation. Heureusment,
+         je découvris plus tard que les connecteurs sont
+         différents, plus petits dans le cas du lecteur de
+         disquettes. Le ventilateur ralentissait de plus en plus
+         souvent et je donnais de plus en plus de taloches, si bien
+         que mon grillage commençait à s'en ressentir. Le premier
+         avril 2003, le bogue s'envenima encore davantage quand la
+         machine gela suite à un trop grand nombre de tapes. Je
+         redémarrai Linux pour constater qu'il ne reconnaissait
+         plus la carte son. Je redémarrai encore et me rendis
+         compte que la carte son n'apparaissait même plus parmi les
+         données fournies par le BIOS au démarrage: ma Sound
+         Blaster Live! ne faisait même plus partie du bus PCI!
+         Démarrer sous Windows produisit le même effet: plus de
+         son. Changer la carte son ou la carte mère? Je ne pouvais
+         répondre à cette question. Heureusement, après un nouveau
+         redémarrage, la carte son réapparut comme par magie. Il se
+         peut que la carte ait bougé un peu dans la fente et
+         qu'elle se soit remise en place d'elle-même, mais cette
+         hypothèse demeure spéculative. Toutefois, la machine
+         demeura stable après ce bogue des plus inquiétants.
+      </p>
+      <p>
+         Mercredi, 2 avril 2003, je tentai de redresser le grillage
+         de mon bloc d'alimentation. J'y parvins un peu en
+         utilisant un médaillon en métal comme levier. Ce qui
+         minisa le contact entre le grillage et le centre du
+         ventilateur et il tourna à vitesse nominale après
+         l'opération! Le redressement du grillage, que je fis
+         lorsque l'ordinateur était hors tension, semblait avoir
+         amélioré mon sort. Cette fois-ci, la machine ne traversa
+         pas une période transitoire, le ventilateur tourna au
+         nominal dès le démarrage. Vendredi, 4 avril 2003, je
+         poursuivis le travail de redressage, cette fois-ci à
+         l'aide d'un anneau de porte-clé. En effet, le médaillon
+         risquait trop de renfoncer les parties extérieures du
+         grillage et il fallait donc un meilleur outil pour les
+         rayons internes. J'y parvins, il était presque droit, mais
+         j'allais l'amocher de nouveau en tapant dessus...
+      </p>
+      <p>
+         Samedi, 5 avril 2003, je tentai de souffler sur les pales
+         du ventilateur, en ligne droit et pas en oblique. J'avais
+         déjà tenté de souffler, mais peut-être n'était-ce pas
+         suffisamment fort. Le souffle fonctionna une fois puis ce
+         fut sans effet. Je tentai d'éteindre la machine et de
+         faire tourner le ventilateur à l'aide d'une broche, puis
+         remis la machine en marche. Le ventilateur tourna pour
+         s'arrêter quelques secondes après. Je finis par me
+         remettre à taper dessus, c'était sans espoir si bien que
+         j'éteignis la machine. J'aimais mieux voir sur mon bureau
+         un ordinateur éteint qu'une machine ayant complètement
+         toasté!
+      </p>
+      <h2>
+         Le coup de grâce
+      </h2>
+      <p>
+         Samedi soir, 5 avril 2003, mon père et moi tentâmes une
+         autre approche. Mon père travaille dans la mécanique et
+         non en informatique, mais il est pas mal bricoleur. Il a
+         déniché un certain nombre de vieilles picouilles au Marché
+         aux Puces et l'une d'elles ne fonctionnait pas du tout, si
+         bien qu'il en extraya le bloc d'alimentation AT de 250W,
+         l'ouvrit et déconnecta le ventilateur. Ce dernier était
+         branché par un connecteur de plastique à deux pins.
+         Toutefois, dans le mien, il n'y avait pas de connecteur;
+         les fils étaient soudés à une carte de circuits imprimés.
+         Il dut donc couper les fils pour complètement détacher mon
+         ventilateur défectueux du bloc d'alimentation puis il
+         sectionna les siens puisque le connecteur n'avait pas sa
+         place. Il mit les fils bout à bout, les couleurs ensemble,
+         et les fixa à l'aide de ruban d'électricien. Il en profita
+         pour redresser le grillage depuis l'intérieur du boîtier
+         du bloc, simplement avec ses doigts. Ensuite, un test
+         montra que le ventilateur tournait à plein régime et il
+         sortait du vent! Mon ventilateur fut ensuite branché dans
+         le bloc d'alimentation du vieux Dell OptiPlex 66MHz et il
+         ne fonctionnait pas bien du tout, il tournait lentement.
+         Ainsi, c'était bien le ventilateur et non un thermostat
+         dans mon bloc d'alimentation! Quelque chose viendrait
+         encore et encore nuancer cette conclusion...
+      </p>
+      <p>
+         Jeudi, 10 avril 2003, j'appris la véritable histoire de
+         l'ordinateur en feu de mon ami. Sa machine s'était
+         subitement éteinte un bon jour, durant l'été 2002, il
+         avait pensé que Windows Me causait problème et l'avait
+         rallumée. Elle s'était éteinte de nouveau et il l'avait
+         rallumée. Après une nouvelle extinction, elle n'allumait
+         plus et il constata que l'intérieur de son bloc
+         d'alimentation était rouge! Il ramena la machine au
+         magasin et le vendeur lui fit peur; peut-être autre chose
+         avait grillé dans la machine, ce n'était peut-être pas
+         uniquement le bloc d'alimentation. Toutefois, le bloc
+         n'avait pas réellement pris feu, il avait coupé la
+         connexion avant que cela ne se produise! Ainsi, au pire,
+         si je n'avais pas résolu mon bogue, l'unité aurait
+         disjoncté et n'aurait plus fonctionné ensuite. À moins
+         d'un coup de foudre, il demeurait plutôt peu probable que
+         tout l'ordinateur ne grille en même temps que le bloc,
+         bien que tout soit possible...
+      </p>
+      <h2>
+         Ce que la carte mère a à dire dans tout ça
+      </h2>
+      <p>
+         Le bloc d'alimentation de l'ordinateur permet de produire
+         différents types de courants: le +12V pour les moteurs et
+         ventilateurs, le +5V pour la logique des lecteurs et
+         périphériques ainsi que les cartes ISA et le +3.3V pour la
+         logique de la carte mère et des cartes PCI. La carte mère
+         dispose de senseurs capables de mesure ces potentiels et
+         ma connaissance de ces voltages s'étant accrue avec le
+         bogue et la lecture de <i>Upgrading and Repairing PCS</i>,
+         je cherchai davantage à les lire sous Linux puis sous
+         Windows. Puisque les voltages obtenus sous Linux ne sont
+         pas corrigés par les bons facteurs, ils divergent de ceux
+         obtenus sous Windows et avec le BIOS. Toutefois, les
+         variations se produisent dans le même sens. Je vais ici
+         reporter les valeurs données par SIV for GBT, utilitaire
+         livré avec ma carte mère GigaByte.
+      </p>
+      <p>
+         Pour le +12V, ma carte mère reporte 12.300V. Dans le cas
+         du +5V, elle reporte 4.780V, ce qui demeure malgré tout
+         acceptable. Le +3.3V me donne 3.280V et le CPU Core se
+         chiffre à 1.710V. La vitesse du ventilateur à CPU oscille
+         constamment entre 5371, 5416 et 5461 tours par minute!
+         Maintenant, voyons ce qui se produit si le processeur se
+         met en activité constante, par exemple si je démarre
+         SETI@Home ou simplement une boucle infinie. J'utilise la
+         commande <tt>yes</tt> sous Cygwin pour provoquer une telle
+         boucle et examiner simultanément les effets sur les
+         voltages. Le +5V diminue à 4.70V, ce qui est plausible
+         puisque la carte mère alimente le CPU en 1.710V en
+         utilisant un régulateur de tension et à partir du 5V dans
+         le cas des ThunderBird. Toutefois, il n'est pas très
+         normal que le +12V augmente à 12.480V. La vitesse de le
+         ventilateur à CPU se balade alors entre 5461, 5416, 5371
+         et 5507 tours par minute d'une façon irrégulière. Ma carte
+         mère effectue ses relevés une fois par seconde, ce qui
+         explique les variations discrètes plutôt que continues.
+         Avec un compte-tour et un multimètre, j'obtiendrais
+         peut-être des variations continues, mais il demeure
+         étrange que les capteurs retournent toujours les mêmes
+         valeurs discrètes. Dans des conditions d'utilisation
+         normale, l'activité CPU fluctue, ainsi les voltages
+         varient souvent. Puisque le 12V est affecté, cela pourrait
+         expliquer pourquoi le ventilateur n'a pas résisté et dans
+         ce cas, le moteur de mon disque dur et mon ventilateur à
+         CPU (et probablement mon CPU lui-même) sont menacés! Ceci,
+         ajouté à l'impression qu'il sort parfois moins de vent
+         derrière la tour, me fait parfois croire que le bogue est
+         toujours là. Dans ce cas, le problème serait dû à un
+         thermostat ou un autre défaut et le nouveau ventilateur
+         fonctionnerait moins bien avec le temps. Si cela se
+         produit, je changerai le bloc d'alimentation au complet.
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

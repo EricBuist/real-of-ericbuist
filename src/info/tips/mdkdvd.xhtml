@@ -1,0 +1,861 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         Comment graver Mandrake 10 sur un DVD
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css"
+      href="../../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../../index.xhtml" class="parents">Le
+               royaume de Eric Buist</a> &gt;&gt; <a
+               href="../index.xhtml"
+               class="parents">Informatique</a> &gt;&gt;
+               Quelques-unes de mes recherches personnelles
+               &gt;&gt; <a href="index.xhtml" class="parents">Trucs
+               et astuces</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../../sitemap.xhtml" class="sitemap">Plan
+               du site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="atilinux.xhtml"
+               class="leftsibling">Configuration d'une carte
+               graphique ATI sous Linux</a>
+            </td>
+            <td class="thispage">
+               Comment graver Mandrake 10 sur un DVD
+            </td>
+            <td class="rightsibling">
+               <a href="offlinesetup.xhtml"
+               class="rightsibling">Installer des logiciels sans
+               connexion Internet, de plus en plus difficile!</a>
+               &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         Comment graver Mandrake 10 sur un DVD
+      </h1>
+      <ul>
+         <li>
+            <a href="#req">Éléments requis</a>
+         </li>
+         <li>
+            <a href="#get">Se procurer la distribution</a>
+         </li>
+         <li>
+            <a href="#copy">Rendre l'arborescence totalement
+            accessible</a>
+         </li>
+         <li>
+            <a href="#iso">Construire les images ISO</a>
+         </li>
+         <li>
+            <a href="#makecdrh">Appeler <tt>MakeCD</tt> sous des
+            distributions non Mandrake</a>
+         </li>
+         <li>
+            <a href="#config">Les fichiers de configuration</a> 
+            <ul>
+               <li>
+                  <a href="#excd">Exemple pour les images CD</a>
+               </li>
+               <li>
+                  <a href="#exdvd">Exemple pour une image DVD</a>
+               </li>
+            </ul>
+         </li>
+      </ul>
+      <p>
+         De nos jours, la taille des distributions Linux croît avec
+         le nombre de paquetages incorporés dans les distributions.
+         Autrefois, Linux tenait sur un CD-R. Maintenant, il en
+         faut deux, trois et parfois même davantage. Il en faut
+         tellement que des compagnies comme Mandrake n'en offrent
+         gratuitement qu'un certain nombre et proposent davantage
+         de disques à ceux qui paient. Lors d'une mise à jour vers
+         une nouvelle version de la distribution Linux choisie, de
+         nouveaux disques doivent être gravés. Bien que le prix des
+         CD-R ait beaucoup baissé, il n'en demeure pas moins que
+         tous ces disques prennent de l'espace et lors d'une
+         installation, il faut changer de disque. Souvent, les
+         distributions n'installent pas tous les paquetages sur les
+         disques et il faut alors insérer tour à tour chaque CD
+         afin de trouver la composante voulue pour souvent se
+         rendre compte qu'elle n'est pas disponible et qu'il faut
+         la télécharger (et souvent la recompiler).
+      </p>
+      <p>
+         Heureusement, une solution est en train de devenir de plus
+         en plus abordable: le DVD. Un tel disque n'est pas
+         uniquement destiné à stocker de la vidéo, il peut aussi
+         stocker des données et pourquoi pas une distribution
+         Linux? Sachant cela, j'ai décidé d'attendre d'avoir un
+         graveur de DVD avant de mettre à jour mon RedHat 9. J'eus
+         malheureusement droit à plusieurs surprises et déceptions.
+      </p>
+      <ul>
+         <li>
+            RedHat ne fournit que des versions CD de sa
+            distribution. Heureusement, un site explique comment <a
+            href="http://www.mjmwired.net/resources/redhat8-dvd.html">créer
+            son propre DVD RedHat 8</a>. La procédure semble assez
+            générale pour fonctionner avec RedHat 9.
+         </li>
+         <li>
+            <a href="http://www.redhat.com">RedHat</a> ne produit
+            plus de versions Linux gratuites, la compagnie se
+            concentre à présent sur la production pour les
+            entreprises. La version 9 constitue la dernière de
+            cette belle famille.
+         </li>
+         <li>
+            <a href="http://fedora.redhat.com">Fedora</a>, le
+            «successeur» de RedHat Linux, est disponible en version
+            DVD. Fedora Core 2, qui intègre le noyau 2.6, est
+            installé sur quelques machines des laboratoires de
+            recherche de l'Université de Montréal et semble assez
+            bien fonctionner d'après les quelques fois où je l'ai
+            utilisé.
+         </li>
+         <li>
+            <a href="http://www.debian.org">Debian</a> est
+            disponible sur DVD, mais j'ai appris que son
+            installation est assez ardue et je n'ai pas beaucoup de
+            temps à consacrer à des tâtonnements, recompilations et
+            reconfigurations en tous genres. Avec Debian, je risque
+            de passer un dur moment à faire fonctionner tout mon
+            système pour ensuite abdiquer et changer de
+            distribution.
+         </li>
+         <li>
+            <a href="http://www.mandrakelinux.com">Mandrake</a> 10
+            semble la meilleure distribution du moment, mais seule
+            la version sur trois CD est disponible en
+            téléchargement. Une version DVD officielle ne peut être
+            obtenue que sur <a
+            href="http://store.mandrakesoft.com">MandrakeStore</a>,
+            aucune image ISO DVD n'est disponible en
+            téléchargement.
+         </li>
+         <li>
+            Je ne suis pas parvenu à trouver, sur Internet, une
+            procédure permettant de construire un DVD Mandrake 10
+            (ou même 9.2!) à partir des 3 images ISO CD. Le mieux
+            que je pus trouver fut une tentative de mélange des
+            trois images qui échoua. Il semble bien qu'il faille un
+            certain nombre de méta-données pour que l'installation
+            réussisse et aucune source ne m'indiquait comment
+            générer ces informations. Seul le site <a
+            href="http://qa.mandrakesoft.com/twiki/bin/view/Main/MakeCD">Mandrake
+            Linux Development Community - Main.MakeCD</a>
+            fournissait quelques informations.
+         </li>
+         <li>
+            Même au début mai 2004, les images ISO de Mandrake 10
+            n'étaient toujours pas disponibles et il semblait
+            falloir attendre indéfiniment ou installer la
+            distribution par FTP, ce qui risquait d'être très long.
+            Au mieux, il semblait possible d'installer la
+            distribution depuis le disque dur.
+         </li>
+      </ul>
+      <p>
+         Après avoir réussi, j'ai décidé d'écrire une page Web
+         exposant de la façon la plus exhaustive possible la
+         procédure de construction d'un DVD d'installation
+         Mandrake. Ce DVD est bootable et contient tout le
+         nécessaire pour installer Linux. Il est avantageux de
+         graver Linux sur un DVD non seulement pour les
+         particuliers mais aussi pour les revues qui voudraient
+         livrer Linux avec un exemplaire. Le DVD contenant 4.3GB
+         d'information, il n'est plus nécessaire de restreindre les
+         utilisateurs au seul premier CD.
+      </p>
+      <p>
+         Bien entendu, la procédure n'est pas à la portée de tous
+         et pour un débutant souhaitant découvrir Linux, il vaut
+         mieux emprunter les CD (ou le DVD) d'un ami ou faire
+         l'achat de la version commerciale. La version commerciale
+         comporte l'avantage d'être livrée avec un manuel qui ne
+         disparaîtra pas avec le contenu du disque dur en cas
+         d'erreur de manipulation.
+      </p>
+      <p>
+         La construction du DVD Linux s'effectue en plusieurs
+         phases. Après s'être procuré la distribution Linux, il
+         faut rendre tous ses éléments accessibles simultanément
+         par le système. Un fichier de configuration doit être
+         construit avant d'exécuter un script de génération des
+         disques. Les disques finaux se présentent sous la forme
+         d'images ISO qu'il est possible de graver sous Linux comme
+         sous Windows ou de transférer par le biais d'Internet ou
+         de tout autre moyen. Ces images comportent trois types de
+         méta-données que Windows ne parvient que difficilement à
+         construire.
+      </p>
+      <dl>
+         <dt>
+            Extensions Rock Ridge à la norme ISO9660
+         </dt>
+         <dd>
+            Ces extensions fournissent le support des noms de
+            fichiers longs, des permissions et des liens
+            symboliques. Il est possible que l'installeur de
+            Mandrake 10 utilise ces informations pour valider le
+            CD. Les images ISO contiennent aussi, dans leur
+            en-tête, une somme de contrôle MD5 qui permet de
+            valider le média.
+         </dd>
+         <dt>
+            Informations d'amorçage
+         </dt>
+         <dd>
+            Lors de l'installation de Linux, le CD doit être inséré
+            dans le lecteur au démarrage de la machine. Le BIOS, si
+            configuré pour cela, examine le disque et s'il trouve
+            un point d'amorçage, peut exécuter le code machine qui
+            s'y trouve. Ceci permet de démarrer le programme
+            d'installation de Mandrake 10 sans devoir recourrir à
+            une disquette ou une partition sur le disque dur.
+            L'image ISO doit comporter les informations requises
+            pour effectuer cet amorçage afin de faciliter
+            l'installation.
+         </dd>
+         <dt>
+            Informations sur les paquetages
+         </dt>
+         <dd>
+            Il ne suffit pas qu'un paquetage soit dans le
+            répertoire <tt>Mandrake/RPMS</tt> du CD ou du DVD pour
+            que son installation soit effectuée. Une base de
+            données doit être construite à l'intention du programme
+            d'installation. Outre le nom des paquetages, le
+            programme doit connaître de quel paquetage dépend un
+            autre, quelle est sa taille, quelle est sa fonction
+            pour l'afficher à l'utilisateur, quel est son degré
+            d'importance pour l'installation. Contrairement à
+            Microsoft Windows XP, une installation totale n'est pas
+            envisageable pour tous les disques durs, car elle prend
+            plus de 5GB! Si la base de données des paquetages est
+            incorrecte, l'installation ne réussira pas et il se
+            peut même que le programme n'affiche le fatal message
+            d'erreur qu'après avoir formaté la partition Linux de
+            destination!
+         </dd>
+      </dl>
+      <h2>
+         <a id="req" name="req">Éléments requis</a>
+      </h2>
+      <ul>
+         <li>
+            Un graveur DVD ou un lien haute vitesse vers une
+            machine disposant d'un tel graveur
+         </li>
+         <li>
+            Quelques disques DVD, car il faudra peut-être plusieurs
+            essais. Le type de disque (DVD+ ou DVD-) n'a aucune
+            importance, du moment que le graveur peut les graver et
+            que le(s) lecteur(s) cible(s) peut les lire.
+         </li>
+         <li>
+            Une connexion Internet haute vitesse ou les CD de
+            Mandrake 10 à incorporer sur DVD
+         </li>
+         <li>
+            Malheureusement, un système Linux fonctionnel! Ceci est
+            nécessaire pour construire les méta-données et les
+            images ISO finales.
+         </li>
+         <li>
+            Beaucoup d'espace disque dur, au moins 6GB, idéalement
+            sur une partition ext2fs ou ext3fs
+         </li>
+      </ul>
+      <h2>
+         <a id="get" name="get">Se procurer la distribution</a>
+      </h2>
+      <p>
+         Le meilleur moyen consiste à obtenir les CD originaux,
+         mais ce n'est pas toujours pratique ou possible. Tant qu'à
+         acheter la distribution sur MandrakeStore, autant choisir
+         la version DVD et le problème est résolu! Tant qu'à
+         emprunter les disques d'un ami, aussi bien les graver tels
+         quels et éviter les risques de mauvaises installations. Il
+         n'est pas essentiel d'obtenir les images ISO. Seuls les
+         fichiers de la distribution Mandrake sont nécessaires pour
+         construire le DVD. En effet, comme nous le verrons plus
+         loin, il sera nécessaire d'extraire le contenu des images
+         ISO afin de construire le DVD. Le téléchargement de la
+         distribution Linux par FTP est à première vue fastidieux,
+         car il faut télécharger une centaine de fichiers et les
+         disposer aux bons endroits dans l'arborescence locale.
+         Heureusement, il existe d'excellents utilitaires pour
+         reproduire l'arborescence Mandrake 10 sans aucun tracas.
+         J'ai utilisé <a
+         href="http://www.gnu.org/directory/GNU/wget.html">Wget</a>
+         pour parvenir à mes fins, mais sous Windows, il en existe
+         probablement d'autres. Pour le téléchargement des ISOs, il
+         est aussi possible d'utiliser Wget. <a
+         href="http://www.speedbit.com">Download Accelerator
+         Plus</a> constitue aussi un excellent choix.
+      </p>
+      <p>
+         Bien entendu, le téléchargement prendra du temps, selon le
+         serveur FTP choisi et la connexion Internet. Les mirroirs
+         FTP Mandrake comportent deux répertoires principaux:
+         <tt>i586</tt> et <tt>contrib</tt>. Le premier comprend
+         l'arborescence Linux principale, seul élément nécessaire
+         pour la construction du DVD. Le tout pèse environ 3GB.
+         Cette arborescence principale comprend un sous-répertoire
+         <tt>Mandrake/RPMS</tt> comprenant tous les paquetages. Les
+         sous-répertoires <tt>Mandrake/RPMS2</tt> et
+         <tt>Mandrake/RPMS3</tt> constituent des liens symboliques
+         vers le répertoire <tt>contrib</tt> qui n'est pas
+         nécessaire. Toutefois, il est possible d'intégrer des
+         packages de cet endroit sur le DVD. Le téléchargement de
+         <tt>i586</tt> et <tt>contrib</tt> pèse plus de 6GB! Il est
+         crucial de veiller, avant que le téléchargement aille trop
+         loin, que le fichier <tt>i586/VERSION</tt> comporte les
+         bonnes informations. Ce dernier doit comprendre
+         <tt>MandrakeLinux 10.0 Official-Download-i586</tt> suivi
+         d'une date et non la version <tt>Community</tt>. Certains
+         mirroirs, au moment de mon téléchargement, contenaient
+         encore la version Community.
+      </p>
+      <h2>
+         <a id="copy" name="copy">Rendre l'arborescence totalement
+         accessible</a>
+      </h2>
+      <p>
+         Le script de construction d'images a besoin d'accéder à la
+         totalité des fichiers RPMs de la distribution. Ce qu'il ne
+         peut faire si elle est répartie sur plusieurs CD ou dans
+         plusieurs images ISOs. Dans le cas d'une distribution sur
+         CD, il est simple de solutionner ce problème en copiant
+         les fichiers sur le disque dur. Il est bon de les copier
+         tous au même endroit afin de simplifier les choses, mais
+         le script peut aller chercher des éléments sur plusieurs
+         partitions, disques et points de montage réseau. Pour plus
+         de simplicité, nous allons considérer un seul répertoire
+         <tt>/Mandrake</tt> contenant toute la distribution.
+      </p>
+      <p>
+         Dans le cas d'images ISO téléchargées, il faut extraire le
+         contenu de ces images avant de construire le DVD. La
+         technique la plus intuitive consiste à les graver sur CD,
+         mais aussi bien garder ces disques et les utiliser pour
+         installer Linux! Puisque les dernières étapes se feront
+         sous Linux, dans le cas d'images ISO, le mieux consiste à
+         les monter en loopback pour les copier. Le montage en
+         loopback s'effectue en tapant la commande suivante, en
+         root:
+      </p>
+<pre>
+mount -t iso9660 -o loop /download/Mandrake/cd1.iso /mnt/cdrom
+</pre>
+      <p>
+         Les noms de ces fichiers et répertoires devront être
+         adaptés à la configuration du système. Le premier argument
+         donne le nom du fichier ISO à ouvrir tandis que le second
+         donne le répertoire dans lequel pourra être lu le contenu
+         de l'image. La copie peut se faire par <tt>cp -rv
+         /mnt/cdrom/* /Mandrake/i586</tt>. Le démontage peut se
+         faire par <tt>umount /mnt/cdrom</tt>. Bien que le loopback
+         doive se faire en root, la construction des images peut se
+         faire en mode utilisateur. Lors de copies depuis des CD ou
+         images ISO, il vaut mieux supprimer <tt>.rr_moved</tt> et
+         <tt>isolinux/boot.cat</tt> qui pourraient perturber
+         <tt>MakeCD</tt>.
+      </p>
+      <h2>
+         <a id="iso" name="iso">Construire les images ISO</a>
+      </h2>
+      <p>
+         La solution pour construire les images ISO se trouve
+         simplement dans l'arborescence Mandrake 10. Nul besoin de
+         télécharger et de recompiler le code source du programme
+         d'installation! Le script se nomme <tt>MakeCD</tt> et se
+         trouve dans le répertoire <tt>misc</tt> de la
+         distribution. Ce répertoire se trouve sur le premier CD de
+         Mandrake 10 dans le cas des images CD. Malheureusement,
+         <tt>MakeCD</tt> est plus complexe qu'il n'y paraît. Le
+         script comporte plusieurs options plus ou moins
+         documentées et son démarrage est ardu sur d'autres
+         distributions que Mandrake.
+      </p>
+      <p>
+         La technique la plus simple pour construire les images ISO
+         consiste à utiliser une machine Mandrake et à copier toute
+         l'arborescence de la distribution (le téléchargement FTP
+         ou les 3 CD ou images ISO) sur une partition ext2fs ou
+         ext3fs. Depuis la racine de cette arborescence, il suffit
+         alors d'appeler
+      </p>
+<pre>
+./misc/MakeCD -a $PWD
+</pre>
+      <p>
+         Il vaut en effet mieux donner des chemins absolus à ce
+         script qui s'avère parfois tâtillon. La variable
+         d'environnement <tt>$PWD</tt> sera remplacée par le chemin
+         absolu du répertoire courant. Le script va examiner les
+         répertoires <tt>Mandrake/RPMS</tt> et va dresser une liste
+         de tous les paquetages trouvés. Il va construire une ou
+         plusieurs HdLists et va répartir les fichiers sur
+         plusieurs disques. Au bout de la procédure qui peut durer
+         plusieurs minutes, un répertoire <tt>iso</tt> sera créé et
+         contiendra toutes les images. Malheureusement, ces images
+         font 650MB et il y en aura cinq ou six! Dans le cas du
+         téléchargement complet, si des liens symboliques vers
+         <tt>contrib</tt> se trouvent dans le répertoire
+         <tt>Mandrake</tt>, <tt>MakeCD</tt> incluera plus de
+         paquetages et produira plus de 15 images ISO! Ce sont des
+         images CD, pas des images DVD. Pour obliger le script à
+         créer des images DVD, il faut lui passer une option:
+      </p>
+<pre>
+./misc/MakeCD --discsize 4.36g -a $PWD
+</pre>
+      <p>
+         L'option <tt>-c 1</tt> peut être ajoutée après l'option
+         <tt>-a</tt> et avant <tt>$PWD</tt> afin de limiter le
+         nombre de disques à 1. L'ordre des options peut avoir un
+         impact pour ce script. Entre chaque tentative de
+         construction d'images, il est bon de supprimer les
+         répertoires <tt>build</tt>, <tt>iso</tt> et <tt>tmp</tt>
+         afin d'éviter les problèmes avec le script.
+      </p>
+      <p>
+         Le script <tt>MakeCD</tt> ne fonctionne bien que sous
+         Mandrake, ce qui est plutôt restrictif. Que faire lors
+         d'un passage de RedHat 9 vers Mandrake 10? Transférer les
+         fichiers téléchargés vers une machine Mandrake? Cette
+         solution n'étant pas pratique dans mon cas, j'ai dû
+         chercher un moyen de contourner le problème et je l'ai
+         trouvé. Le DVD construit de cette façon ne présentera pas
+         tous les attributs d'un disque officiel. Il portera le nom
+         très original de <tt>Cooker-download</tt> et pourrait
+         comporter un jeu de paquetages différent de celui fourni
+         sur les disques originaux de Mandrake. Pour solutionner
+         ces problèmes, il faut contraindre le script à l'aide d'un
+         fichier de configuration.
+      </p>
+      <h2>
+         <a id="makecdrh" name="makecdrh">Appeler <tt>MakeCD</tt>
+         sous des distributions non Mandrake</a>
+      </h2>
+      <p>
+         Pourquoi <tt>MakeCD</tt> ne fonctionne-t-il pas sous
+         RedHat 9? Parce que Mandrake a personnalisé Perl pour
+         qu'il supporte les fichiers <tt>.pm.gz</tt>. Les fichiers
+         <tt>.pm</tt> constituent des modules Perl tandis que les
+         fichiers <tt>.pm.gz</tt> représentent des modules
+         compressés à l'aide de GZip. Comme tous les interpréteurs
+         Perl ne savent pas traiter les modules compressés,
+         certains ne pourront parvenir à utiliser <tt>MakeCD</tt>.
+         On pourrait penser à les décompresser, mais ceci va
+         modifier leur taille et débalancer les structures du CD,
+         voire même perturber le programme d'installation! La
+         solution: les décompresser hors de l'arborescence
+         Mandrake!
+      </p>
+      <p>
+         Tout d'abord, un répertoire de travail doit être créé.
+         Appelons-le <tt>~/mdkinst</tt>. Ce répertoire contiendra
+         les fichiers décompressés, les images ISO finales et les
+         fichiers de configuration. Les fichiers problématiques se
+         trouvent dans
+         <tt>Mandrake/mdkinst/usr/lib/perl5/vendor_perl/5.8.3</tt>.
+         Il faudra ainsi utiliser une commande comme <tt>cp -r
+         /Mandrake/i586/Mandrake/mdkinst/usr/lib/perl5/vendor_perl/5.8.3/*
+         ~/mdkinst/PL</tt> pour copier les fichiers dans le
+         répertoire de travail. Ensuite, chaque fichier
+         <tt>.pm.gz</tt> doit être décompressé avec <tt>gunzip</tt>
+         pour être transformé en fichier <tt>.pm</tt>. Reste à
+         obliger <tt>MakeCD</tt> à lire ces fichiers plutôt que les
+         originaux. Le meilleur moyen semble de recopier
+         <tt>MakeCD</tt> et le modifier: <tt>cp
+         /Mandrake/i586/misc/MakeCD ~/mdkinst</tt>. Au début du
+         fichier, la ligne <tt>REP=</tt> doit être remplacée afin
+         de contenir le chemin absolu vers la racine de
+         l'arborescence Mandrake. Par exemple, cela pourrait être
+         <tt>REP=/Mandrake/i586</tt>. Au début de la définition de
+         <tt>PERL5LIB</tt>, il faut ajouter le chemin absolu vers
+         l'emplacement des modules décompressés. Par exemple:
+      </p>
+<pre>
+export PERL5LIB="$HOME/mdkinst/PL:$REP/Mandrake/mdkinst/usr/lib/perl5/$PERL/:$REP/Mandrake/mdkinst/usr/lib/perl5/$PERL/i386-linux-thread-multi/:$REP/misc:$REP/misc/perl5/$PERL:$REP/misc/perl5/vendor_perl/$PERL:$REP/misc/perl5/vendor_perl/i386-linux-thread-multi/:$REP/misc/perl5/vendor_perl/$PERL/i386-linux-thread-multi/:$REP/Mandrake/mdkinst/usr/lib/perl5/vendor_perl/"
+</pre>
+      <p>
+         Avec ce subterfuge, il sera possible d'appeler
+         <tt>MakeCD</tt> depuis <tt>~/mdkinst</tt>.
+      </p>
+      <h2>
+         <a id="config" name="config">Les fichiers de
+         configuration</a>
+      </h2>
+      <p>
+         En utilisant un fichier de configuration, il est possible
+         de spécifier plus exactement la taille, le nom et le
+         contenu de chaque disque. Un tel fichier permet de
+         produire un DVD qui s'approche davantage de ce que
+         Mandrake pourrait produire si une image ISO DVD était
+         accessible par FTP et qui a ainsi plus de chances de
+         s'installer sans difficulté. Il est aussi possible de
+         recréer des images ISO CD à partir d'une arborescence.
+         Ceci peut être utile pour installer Linux sur des machines
+         dépourvues de lecteurs DVD. Toutefois, il est bon de
+         savoir que l'intégralité des packages <tt>i586</tt> tient
+         non pas sur 3 CD mais bien sur 4 et le sixième d'un
+         cinquième. Ainsi, le téléchargement de la version ISO ne
+         donne pas accès à tous les paquetages.
+      </p>
+      <p>
+         La construction d'un fichier de configuration n'est pas
+         simple et il vaut beaucoup mieux démarrer avec un modèle.
+         Le premier CD (ou l'arborescence) de Mandrake 10 comprend
+         un tel modèle dans <tt>misc/doc</tt>. Les fichiers
+         <tt>10.0.conf</tt>, <tt>contrib</tt>, <tt>download</tt> et
+         <tt>main</tt> devront être copiés dans un répertoire de
+         travail, comme <tt>~/mdkinst/conf</tt> afin d'être
+         manipulés. Le fichier doit être modifié, car il convient à
+         Mandrake 9.2 et les chemins d'accès ne sont pas valides.
+         Il faut aussi, bien entendu, l'adapter pour DVD!
+      </p>
+      <p>
+         Pour utiliser ce fichier, il suffit de taper
+      </p>
+<pre>
+&lt;MakeCD&gt; -s ~/mdkinst/conf/10.0.conf -m 1,2,3,4,5
+</pre>
+      ou pour le DVD 
+<pre>
+&lt;MakeCD&gt; -s ~/mdkinst/conf/10.0dvd.conf -m 1
+</pre>
+      <p>
+         <tt>&lt;MakeCD&gt;</tt> peut être <tt>./MakeCD</tt> ou
+         <tt>./misc/MakeCD</tt>, selon la nécessité de le modifier
+         pour le faire fonctionner.
+      </p>
+      <p>
+         Un dernier problème demeure: comment créer le fichier de
+         configuration? Pour cela, il faut comprendre comment le
+         programme le lit et comment il est possible de le
+         personnaliser. Le script utilise plusieurs éléments pour
+         son fonctionnement.
+      </p>
+      <dl>
+         <dt>
+            Liste de paquetages
+         </dt>
+         <dd>
+            Une telle liste fournit un ensemble de paquetages qui
+            peuvent être installés par l'utilisateur. Elle ne
+            comprend que des paquetages pouvant être installés. Si
+            un paquetage dépend d'autres paquetages absents dans la
+            liste ou dans une autre liste, il sera exclu. Deux
+            éléments définissent cette liste pour le script: un
+            fichier listant les paquetages et un emplacement où
+            trouver les fichier <tt>.rpm</tt> correspondants.
+         </dd>
+         <dt>
+            Disques
+         </dt>
+         <dd>
+            Un disque comprend un certain nombre de listes de
+            paquetages et des informations additionnelles comme le
+            programme d'installation, l'image d'amorce et parfois
+            du contenu commercial. Un disque comprend un nom et une
+            taille fixe et correspond, au final, à une image ISO.
+         </dd>
+      </dl>
+      <p>
+         L'option <tt>-h</tt> du script documente les éléments de
+         fichier, mais cette documentation n'est pas toujours très
+         précise. Plutôt que tenter de décrire toutes les options
+         de façon exhaustive, nous allons aborder deux exemples de
+         configuration, une pour le CD et une pour le DVD. Avec un
+         peu de chance, ceci s'appliquera de façon semblable pour
+         les futures versions de Mandrake.
+      </p>
+      <h3>
+         <a id="excd" name="excd">Exemple pour les images CD</a>
+      </h3>
+<pre>
+#
+
+10.0
+
+list -k /mnt/cdrom/i586/Mandrake/base/pubkey 1 /home/eric/mdkinst/config/download /home/eric/mdkinst/config/main
+rpmlist -b /Mandrake/i586/Mandrake/RPMS
+
+# download
+
+disc 1 695m 100DOWNLOAD1 "Installation CD 1 (x86)" "MandrakeLinux10.0-Download-1" -p Mandrakesoft
+dir rpms Mandrake/RPMS
+generic --synthesis rpms 1
+advertising /Mandrake/i586/Mandrake/share/advertising/dwd-01.png /Mandrake/i586/Mandrake/share/advertising/dwd-02.png /Mandrake/i586/Mandrake/share/advertising/dwd-03.png /Mandrake/i586/Mandrake/share/advertising/dwd-04.png /Mandrake/i586/Mandrake/share/advertising/dwd-05.png /Mandrake/i586/Mandrake/share/advertising/dwd-06.png /Mandrake/i586/Mandrake/share/advertising/dwd-07.png /Mandrake/i586/Mandrake/share/advertising/dwd-08.png /Mandrake/i586/Mandrake/share/advertising/dwd-09.png /Mandrake/i586/Mandrake/share/advertising/drweb.png
+installation -o 50,3,0.1 --synthesis -l fr,it,en,de,es -t Official-Download-i586 -i /Mandrake/i586/ -d 1/rpms 2/rpms 3/rpms 4/rpms 5/rpms
+boot --isolinux isolinux -b isolinux/isolinux.bin --first /Mandrake/i586/isolinux -f /Mandrake/i586/images 
+
+disc 2 695m 100DOWNLOAD2 "Installation CD 2 (x86)" "MandrakeLinux10.0-Download-2" -p Mandrakesoft
+dir rpms Mandrake/RPMS2
+generic --synthesis rpms 1
+boot -b Boot/cdrom-changedisk.img -- -d -f Boot/ /Mandrake/i586/images/cdrom-changedisk.img
+
+disc 3 695m 100DOWNLOAD3 "Applications CD 1 (x86)" "MandrakeLinux10.0-Download-3" -p Mandrakesoft
+dir rpms Mandrake/RPMS3
+generic --synthesis rpms 1
+
+disc 4 695m 100DOWNLOAD4 "Applications CD 2 (x86)" "MandrakeLinux10.0-Download-4" -p Mandrakesoft
+dir rpms Mandrake/RPMS4
+generic --synthesis rpms 1
+
+disc 5 695m 100DOWNLOAD5 "Extras (x86)" "MandrakeLinux10.0-Download-5" -p Mandrakesoft
+dir rpms Mandrake/RPMS4
+generic --synthesis rpms 1
+</pre>
+      <p>
+         D'abord, tous les chemins doivent être absolus. Il vous
+         faudra ainsi adapter ce script si vous souhaitez en faire
+         usage. Avant de définir les disques, une liste de
+         paquetages est définie. Cette liste comprend tous les
+         paquetages indiqués par <tt>main</tt> et
+         <tt>download</tt>. Je n'ai pas eu besoin de modifier ces
+         fichiers, mais il est possible de le faire pour ajouter de
+         nouveaux paquetages. Le script accepte des noms de
+         paquetages absolus mais aussi des expressions régulières.
+         Il est aussi possible d'indiquer quels paquetages sont
+         absolument requis, quels paquetages sont exclus de la
+         distribution, ... Il est également envisageable de
+         remplacer des fichiers <tt>.rpm</tt> de
+         <tt>Mandrake/RPMS</tt> par des versions plus à jour.
+         Toutefois, dans ce cas, si les paquetages ne viennent pas
+         de Mandrake, il vaut mieux créer une seconde liste. En
+         effet, la commande <tt>list</tt> est spécifiée avec
+         l'option <tt>-k</tt> afin de fournir une clé publique PGP
+         servant à vérifier la signature des paquetages. Si un
+         paquetage non signé est introduit dans la liste, il risque
+         d'être ignoré ou de causer des erreurs lors de
+         l'installation. L'option <tt>-b</tt> passée à
+         <tt>rpmlist</tt> indique que les paquetages sont des
+         binaires. Il est possible d'utiliser l'option <tt>-s</tt>
+         pour fournir un emplacement pour des paquetages de code
+         source.
+      </p>
+      <p>
+         Si l'utilisateur ajoute de nouveaux paquetages, ceux-ci ne
+         sont pas affichés dans le programme d'installation, à
+         moins que l'utilisateur n'affiche la liste complète. Pour
+         solutionner ce problème, il suffit d'ajouter le paquetage
+         dans <tt>Mandrake/base/rpmsrate</tt>. Il est même possible
+         de définir des groupes en modifiant
+         <tt>Mandrake/base/compssUsers</tt>. Les HdLists (Headers
+         Lists) ainsi que <tt>Mandrake/base/compss</tt> sont
+         construits automatiquement par le script <tt>MakeCD</tt>.
+      </p>
+      <p>
+         Vient ensuite la définition de disques débutant par la
+         commande <tt>disc</tt>. Le premier argument donne un
+         numéro au disque. Ce numéro est utilisé pour nommer des
+         répertoires dans le processus de construction et peut-être
+         par le programme d'installation. La taille est ensuite
+         donnée en méga-octets, mais elle peut aussi être fournie
+         dans d'autres unités comme le giga-octet. Le numéro de
+         série est probablement utilisé pour identifier le disque,
+         mais rien n'indique à quoi il sert. Le nom long semble
+         servir à fournir un message à l'utilisateur semblable à
+         <tt>Please insert Installation CD 2 (x86)</tt> pendant
+         l'installation, lors d'un changement de disque ou si le
+         disque donné est invalide. Le dernier argument obligatoire
+         donne le nom de label du disque, ce qui devrait s'afficher
+         dans l'Explorateur Windows lorsque le disque est ouvert
+         par ce dernier. L'option <tt>-p</tt> définit le champ
+         Publisher de l'image ISO qui n'est que rarement utilisé.
+      </p>
+      <p>
+         La seconde ligne définit un alias appelé <tt>rpms</tt> et
+         pointant sur <tt>Mandrake/RPMS</tt> sur le disque en cours
+         de définition. La commande <tt>generic</tt> est utilisée
+         pour indiquer au programme d'utiliser la liste 1 de
+         paquetages pour placer des fichiers dans le répertoire
+         dont l'alias est <tt>rpms</tt>. L'option
+         <tt>--synthesis</tt> semble permettre de générer des
+         résumés pour les paquetages, résumés qui seront affichés
+         dans le sélecteur de paquetages lors de l'installation.
+      </p>
+      <p>
+         Vient ensuite une ligne à la fois délicate et
+         intéressante: <tt>advertising</tt>. Pendant
+         l'installation, le programe affiche des images avec du
+         texte dont l'ordre est justement défini par cette ligne.
+         L'option est délicate, car dans le fichier original, les
+         noms des fichiers ne sont pas à jour. Si le script ne
+         trouve pas un de ces fichiers, il peut entrer dans une
+         boucle infinie et se mettra à créer des répertoires
+         récursivement. Les noms valides ont pu être trouvés dans
+         <tt>Mandrake/share/advertising/list</tt>, ainsi que
+         l'ordre. Chaque image est au format PNG et comporte un
+         fond blanc. Ce fond est retiré par le programme
+         d'installation, il sert de couleur de transparance. À
+         chaque image <tt>.png</tt> correspond un fichier
+         <tt>.pl</tt>. Ce fichier fournit la taille de l'image au
+         script, ainsi que le texte correspondant à afficher. Le
+         texte à afficher est donné en Anglais. Pour fournir des
+         traductions, il faut modifier le fichier de traduction
+         correspondant à la langue. Par exemple, pour le français,
+         le nom correspond à
+         <tt>Mandrake/mdkinst/usr/share/locale_special/fr/LC_MESSAGES/libDrakX.mo</tt>.
+         La commande <tt>msgunfmt</tt> peut être utilisée pour
+         décompiler le fichier, un éditeur supportant UTF-8 doit
+         être utilisé puis le fichier doit être recompilé avec
+         <tt>msgfmt</tt>.
+      </p>
+      <p>
+         La commande <tt>installation</tt> est utilisée sur le
+         premier disque et fournit des informations pour le
+         programme d'installation. L'option <tt>-o</tt> permet de
+         définir l'importance des différents critères utilisés pour
+         trier la liste des paquetages. L'option
+         <tt>--synthesis</tt> ajoute des fichiers de résumé, rien
+         n'indique ce que c'est exactement. L'option <tt>-l</tt>
+         donne les langues considérées par le programme
+         d'installation tandis que l'option <tt>-t</tt> spécifie le
+         texte à ajouter au fichier <tt>VERSION</tt>. Plutôt que
+         <tt>GuessWhat</tt>, il vaut mieux mettre
+         <tt>Official</tt>, mais ce texte ne change pas le
+         fonctionnement du programme. L'option <tt>-i</tt> indique
+         le répertoire où lire les fichiers d'installation, en
+         l'occurrence la racine de la distribution Mandrake.
+         L'option <tt>-d</tt> sélectionner les répertoires de
+         paquetages à prendre en compte lors de l'installation. Ces
+         répertoires peuvent se situer sur plusieurs disques.
+      </p>
+      <p>
+         La commande <tt>boot</tt> permet de rendre le disque
+         amorçable; elle est nécessaire au moins pour le premier
+         disque. L'option <tt>--isolinux</tt> active le mode
+         Isolinux, ce qui semble permettre d'afficher un menu lors
+         de l'amorçage pour choisir différentes options comme
+         installer, activer le mode rescue, installer en mode
+         texte, ... Un réperoire <tt>isolinux</tt> sera créé sur la
+         première image de CD. L'option <tt>-b</tt> donne le nom de
+         l'image, dans ce cas <tt>isolinux.bin</tt>. L'option
+         <tt>--first</tt> indique de placer les fichiers du
+         répertoire <tt>isolinux</tt> au tout début du disque. Cela
+         permet d'éviter les problèmes d'amorçage si le BIOS ne
+         supporte l'opération que dans les premiers secteurs du CD.
+         L'option <tt>-f</tt> indique un ensemble de fichiers à
+         copier sur le CD.
+      </p>
+      <p>
+         Le second disque comprend lui aussi une commande
+         <tt>boot</tt>. Comme le nom de l'image l'indique, lors de
+         l'amorçage avec le second CD, une invite demandera à
+         l'utilisateur d'insérer le premier CD. Quant aux autres
+         disques, ils ne sont pas amorçables et ne contiennent que
+         des paquetages.
+      </p>
+      <h3>
+         <a id="exdvd" name="exdvd">Exemple pour une image DVD</a>
+      </h3>
+<pre>
+#
+
+10.0
+
+list -k /Mandrake/i586/Mandrake/base/pubkey 1 /home/eric/mdkinst/config/download /home/eric/mdkinst/config/main
+rpmlist -b /Mandrake/i586/Mandrake/RPMS
+
+list 2 /home/eric/mdkinst/config/contribdvd
+rpmlist -b /Mandrake/contrib/RPMS
+
+list 3 /home/eric/mdkinst/config/java
+rpmlist -b /Mandrake/contrib/jpackage/i586
+
+# download
+
+disc 1 4.36g 100DVD "Installation DVD (x86)" "MandrakeLinux10.0-Download-DVD" -p Mandrakesoft
+dir rpms Mandrake/RPMS
+dir rpms2 Mandrake/RPMS2
+dir rpms3 Mandrake/RPMS3
+generic --synthesis rpms 1
+generic --synthesis rpms2 2
+generic --synthesis rpms3 3
+advertising /Mandrake/i586/Mandrake/share/advertising/dwd-01.png /Mandrake/i586/Mandrake/share/advertising/dwd-02.png /Mandrake/i586/Mandrake/share/advertising/dwd-03.png /Mandrake/i586/Mandrake/share/advertising/dwd-04.png /Mandrake/i586/Mandrake/share/advertising/dwd-05.png /Mandrake/i586/Mandrake/share/advertising/dwd-06.png /Mandrake/i586/Mandrake/share/advertising/dwd-07.png /Mandrake/i586/Mandrake/share/advertising/dwd-08.png /Mandrake/i586/Mandrake/share/advertising/dwd-09.png /Mandrake/i586/Mandrake/share/advertising/drweb.png
+installation -o 50,3,0.1 --synthesis -l fr,it,en,de,es -t Official-Download-i586 -i /Mandrake/i586/ -d 1/rpms 1/rpms2 1/rpms3
+boot --isolinux isolinux -b isolinux/isolinux.bin --first /Mandrake/i586/isolinux -f /Mandrake/i586/images 
+</pre>
+      <p>
+         Cette fois-ci, l'image définit trois listes de paquetages.
+         La première constitue la liste standard tandis que les
+         deux autres représentent une sélection personnalisée de
+         paquetages dans le répertoire <tt>contrib</tt>. Les
+         paquetages standard se voient placés dans
+         <tt>Mandrake/RPMS</tt>. Les paquetages contribués sont
+         dans <tt>Mandrake/RPMS2</tt> tandis que les paquetages
+         Java (jPackage) se trouvent dans <tt>Mandrake/RPMS3</tt>.
+         La commande <tt>generic</tt> est utilisée trois fois, une
+         fois pour chaque répertoire. Il aurait été possible de
+         mélanger tous les paquetages dans un même répertoire en
+         utilisant <tt>generic --synthesis rpms 1 2 3</tt>. Dans ce
+         cas, il ne faut bien entendu pas définir les répertoires
+         <tt>rpms2</tt> et <tt>rpms3</tt>. La commande
+         <tt>installation</tt> ne doit pas référencer les
+         répertoires s'ils n'existent pas. Il est aussi possible de
+         supprimer les deux listes additionnelles et de n'inclure
+         que les paquetages standard afin d'éviter d'avoir à
+         télécharger <tt>contrib</tt>.
+      </p>
+      <p>
+         Il semble également possible de modifier des éléments de
+         l'arborescence assez librement. Il est possible d'ajouter
+         ses propres paquetages mais aussi ses propres fichiers. Il
+         est possible de placer des documents dans la racine, dans
+         <tt>doc</tt>, ... Toutes ces étapes effectuées, une image
+         ISO peut enfin être créée pour ensutie être gravée sur un
+         DVD. Le DVD sera amorçable et contiendra tout ce qu'il
+         faut pour installer Linux. Il est bon de savoir que cette
+         procédure n'est pas à répéter lors de la création de
+         chaque copie du DVD. Lorsqu'un disque est gravé, il peut
+         être recopié. Il faut bien entendu utiliser un utilitaire
+         de copie de DVD et non pas recréer une image ISO à partir
+         du contenu du disque.
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

@@ -1,0 +1,1402 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         Mac OS X sur le Drake
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css"
+      href="../../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../../index.xhtml" class="parents">Le
+               royaume de Eric Buist</a> &gt;&gt; <a
+               href="../index.xhtml"
+               class="parents">Informatique</a> &gt;&gt;
+               Configuration informatique &gt;&gt; <a
+               href="index.xhtml" class="parents">Le Drake</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../../sitemap.xhtml" class="sitemap">Plan
+               du site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="linuxhd.xhtml"
+               class="leftsibling">Passage dans le monde réel:
+               installation de Linux sur le Drake</a>
+            </td>
+            <td class="thispage">
+               Mac OS X sur le Drake
+            </td>
+            <td class="rightsibling">
+               <a href="gfx.xhtml" class="rightsibling">Ajout d'une
+               carte graphique</a> &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         Mac OS X sur le Drake
+      </h1>
+      <p>
+         L'installation de Linux sur le Drake fut certes plus
+         pénible qu'elle n'aurait dû l'être. Celle de Mac OS X, je
+         dirais qu'elle fut pire encore! Juste l'obtention de la
+         clé USB d'installation a déjà été une aventure rivalisant
+         avec une chasse aux trésors. L'installation avec ce médium
+         s'est certes bien passée, mais rendre le système
+         complètement fonctionnel a demandé quelques tours de
+         passe-passe.
+      </p>
+      <ul class="pagemenu">
+         <li>
+            <a href="#inst">Facile à installer, mais basse
+            résolution et pas de son</a>
+         </li>
+         <li>
+            <a href="#brittle">Une installation fragile qui brise à
+            rien</a>
+         </li>
+         <li>
+            <a href="#utc">Conflit horaire</a>
+         </li>
+         <li>
+            <a href="#progress">Quelques progrès</a>
+         </li>
+         <li>
+            <a href="#sync">Synchronisation de fichiers: plus
+            difficile que prévu</a>
+         </li>
+         <li>
+            <a href="#emacs">GNU Emacs qui pose encore des
+            problèmes</a>
+         </li>
+         <li>
+            <a href="#ntfs">Écriture NTFS</a>
+         </li>
+         <li>
+            <a href="#lftp">LFTP fait des siennes</a>
+         </li>
+         <li>
+            <a href="#oskiller">Le jour où Mac OS X finit par tout
+            casser!</a>
+         </li>
+         <li>
+            <a href="#mouse">La souris qui disparaît et qui devient
+            folle</a>
+         </li>
+         <li>
+            <a href="#hwbug">Problèmes avec le son et
+            l'affichage!</a>
+         </li>
+         <li>
+            <a href="#clover">Clover, pour rendre l'installation
+            native UEFI</a>
+         </li>
+         <li>
+            <a href="#">Cul-de-sac: la mort de mon Mac</a>
+         </li>
+         <li>
+            <a href="#realmac">Est-ce que ça aurait été mieux avec
+            un vrai Mac?</a>
+         </li>
+      </ul>
+      <h1>
+         <a id="inst" name="inst">Facile à installer, mais basse
+         résolution et pas de son</a>
+      </h1>
+      <p>
+         L'installation de Mac OS X sur une véritable partition de
+         mon second SSD, sur le Drake, a eu lieu dimanche, 30
+         septembre 2012. Du moins, la première tentative
+         d'installation eut lieu ce jour-là. La première tentative
+         pour créer la partition d'installation a échoué, mais un
+         second essai a réussi.
+      </p>
+      <p>
+         J'ai commencé la configuration le soir même, après avoir
+         soupé et écouté un peu la TV. Après mes émissions, j'ai
+         installé les mises à jour d'Apple, ça a jammé, j'ai été
+         obligé de redémarrer la machine de force, puis j'ai
+         installé MultiBeast. Cela a rendu le système amorçable
+         depuis le disque dur, mais totalement inopérant! Il me
+         sortait un kernel panic dès le début: impossible d'aller
+         plus loin. Pire encore: aucune touche du clavier ne
+         permettait de sortir de ce mauvais pas; il fallait
+         redémarrer avec le bouton reset! Sur ma maudite tour
+         CoolerMaster, il faut un stylo pour appuyer sur ce bouton,
+         que j'ai dû utiliser souvent pendant cette pénible
+         installation.
+      </p>
+      <p>
+         J'ai alors tenté de déboguer ça, à plus finir, mais en
+         vain. J'ai pioché après ça, cherché sur Internet, en vain.
+         J'ai fini par tester le CD de Fedora, qui a démarré en
+         UEFI. J'ai pu faire des recherches sur Internet depuis la
+         session live. Je suis tombé sur un très bon tutoriel
+         expliquant comment <a
+         href="http://www.youtube.com/watch?v=IxtxWVj6kOk">déboguer
+         le démarrage de Mac OS X</a>.
+      </p>
+      <p>
+         Il était près de minuit lorsque je sortis de la douche
+         après tout ça. Mais je me sentais trop tendu pour pouvoir
+         dormir. J'ai alors fait quelques recherches avec ma
+         tablette au sujet de rEFInd et quelques autres petits
+         cossins au sujet du AppleCPUPowerManagement, qui semblait
+         causer le plantage.
+      </p>
+      <p>
+         Je me suis couché à 1h et ne pus pratiquement pas dormir.
+         Vers 6h30, je rallumais le Drake pour tenter de bâtir une
+         ISO d'Ubuntu avec tous les paquets mis à jour. J'ai
+         ensuite fait quelques tentatives pour ressusciter mon Mac:
+         en vain.
+      </p>
+      <p>
+         Tanné, j'ai fini par me décider à tout réinstaller. Au
+         moment d'appliquer Multibeast, je testai avec d'autres
+         options, que j'avais vues sur un <a
+         href="http://www.tonymacx86.com/mountain-lion-desktop-support/61141-asus-p8z77-v-lx-multibeast-configuration.html">forum</a>
+         la veille à minuit (avec ma tablette). En vain, cela péta
+         un autre coup. Il fallait donc tout réinstaller encore.
+      </p>
+      <p>
+         Sur l'heure du midi, j'ai allumé mon Mac sous VirtualBox
+         et j'ai transféré un petit morceau:
+         NullCPUPowerManagement, un kext que Multibeast m'avait
+         installé puisque j'avais utilisé le mode EasyBest plutôt
+         que UserDSDT. Je l'ai mis sur une clé USB. Cette extension
+         permet de désactiver la gestion de l'énergie du CPU telle
+         que supportée par Mac OS X. Il se pouvait fort bien que
+         Mountain Lion ne prenne pas en charge mon processeur
+         particulier et que ça cause le crash.
+      </p>
+      <p>
+         En fin de journée (longue, fatigante, mais bonne), j'ai
+         démarré l'installeur de Mountain Lion. De là, j'ai ouvert
+         un terminal et j'ai copié le kext dans le répertoire
+         <tt>/System/Library/Extensions</tt> sur ma partition Mac.
+         Il n'y était pas. J'ai alors pu démarrer ma machine!!! Eh
+         oui! Et j'ai le soir même trouvé comment résoudre le
+         problème pour avoir la résolution native de mon écran.
+         Pour y parvenir, il m'a fallu modifier
+         <tt>/Extra/org.chameleon.Boot.plist</tt> pour qu'il
+         ressemble à ceci:
+      </p>
+<pre>
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;
+&lt;plist version="1.0"&gt;
+&lt;dict&gt;
+        &lt;key&gt;EthernetBuiltIn&lt;/key&gt;
+        &lt;string&gt;Yes&lt;/string&gt;
+        &lt;key&gt;GenerateCStates&lt;/key&gt;
+        &lt;string&gt;Yes&lt;/string&gt;
+        &lt;key&gt;GeneratePStates&lt;/key&gt;
+        &lt;string&gt;Yes&lt;/string&gt;
+        &lt;key&gt;GraphicsEnabler&lt;/key&gt;
+        &lt;string&gt;Yes&lt;/string&gt;
+        &lt;key&gt;Graphics Mode&lt;/key&gt;
+         &lt;string&gt;1680x1050x32&lt;/string&gt;
+        &lt;key&gt;Kernel&lt;/key&gt;
+        &lt;string&gt;mach_kernel&lt;/string&gt;
+        &lt;key&gt;Kernel Flags&lt;/key&gt;
+        &lt;string&gt;darkwake=0&lt;/string&gt;
+        &lt;key&gt;Legacy Logo&lt;/key&gt;
+        &lt;string&gt;Yes&lt;/string&gt;
+        &lt;key&gt;Timeout&lt;/key&gt;
+        &lt;string&gt;2&lt;/string&gt;
+        &lt;key&gt;UseKernelCache&lt;/key&gt;
+        &lt;string&gt;Yes&lt;/string&gt;
+&lt;/dict&gt;
+&lt;/plist&gt;
+</pre>
+      <p>
+         Les éléments importants sont les options
+         <tt>GraphicsEnabler</tt>, <tt>Graphics Mode</tt>. Il faut
+         aussi absolument modifier les paramètres du BIOS pour
+         fixer la taille de la mémoire vidéo à 64Mo, car le pilote
+         Intel de Mac OS X prend pour acquise cette taille!
+      </p>
+      <p>
+         Quand cette taille était réglée à Auto (valeur par
+         défaut), les ajustements précédents produisaient un
+         affichage complètement mauvais. J'ai alors, à tâtons,
+         ajouté l'option au noyau <tt>PciRoot=1</tt>. Cela a
+         apparemment corrigé le problème, mais au prix le plus
+         élevé: désactiver l'accélération graphique, complètement!
+         J'ai découvert cela dimanche, 2 décembre 2012, en
+         exécutant le benchmark CineBench.
+      </p>
+      <p>
+         Qu'en est-il de l'audio? Eh bien l'installation de
+         MultiBeast m'a fourni le pilote nécessaire si bien que le
+         son fonctionnait à présent!
+      </p>
+      <p>
+         Ce fut une grande victoire, mais d'autres obstacles
+         étaient à venir. Je ne pouvais pas écrire sur mes
+         partitions NTFS, ce qui serait nécessaire dans le futur.
+         J'ai eu des difficultés avec les vidéos YouTube, mais le
+         logiciel <a
+         href="http://www.mediahuman.com/mediatube/">MediaTube</a>
+         me permet de les lire, donc ce n'est pas le pipeline
+         graphique. J'avais la roulette de la souris qui
+         fonctionnait dans tous les sens. Des fois, il fallait
+         défiler vers le haut, d'autres vers le bas. ça va finir
+         que ça va mieux aller avec les barres de défilement.
+      </p>
+      <h1>
+         <a id="brittle" name="brittle">Une installation fragile
+         qui brise à rien</a>
+      </h1>
+      <p>
+         Samedi, 6 octobre, j'ai fait des progrès du côté Linux.
+         Par contre, du côté Mac OS X, ça n'allait pas très bien.
+         Le système s'est mis à planter au démarrage, me forçant à
+         faire des reset en série. Le bouton reset de cette damnée
+         tour ne va pas bien, exigeant un stylo pour être enfoncé!
+         Le bouton power de la tour risquait lui aussi de rester
+         coincé pratiquement une fois sur dix.
+      </p>
+      <p>
+         Je suis venu à bout, en fin de journée, de repartir le
+         Mac, mais ça a été de haute lutte et a pris beaucoup de
+         temps. En plus, je n'arrivais pas à amorcer Mac OS X
+         depuis GRUB ou rEFInd, que j'ai fini par installer pour
+         essayer. Le problème est que Chameleon, qui sert à
+         démarrer Mac OS X sur PC, fonctionne en BIOS tandis que le
+         reste roule en UEFI. Je ne suis pas parvenu à démarrer un
+         truc BIOS depuis le mode UEFI. rEFInd permet de démarrer
+         une partition du disque dur en mode BIOS, mais une partie
+         de Chameleon se trouve sur la MBR du disque tandis que
+         l'autre, sur le premier secteur de la partition de Mac OS
+         X. Pour le moment, la seule façon de démarrer Mac OS X est
+         d'appuyer sur F8 et choisir le deuxième SSD dans la liste.
+      </p>
+      <h1>
+         <a id="utc" name="utc">Conflit horaire</a>
+      </h1>
+      <p>
+         Un petit problème d'apparence bénigne a bien failli faire
+         cafouiller mon système à amorçage multiple. Windows et Mac
+         OS X ne considèrent pas, par défaut, le temps donné par
+         l'horloge système de la même façon. Sous Windows,
+         l'horloge est initialisée à l'heure courante tenant compte
+         du fuseau horaire. Par contre, sous Mac OS X, l'horloge
+         est en UTC et le système applique un décalage. Ainsi,
+         quand je démarrais Mac OS X après être passé sous Windows,
+         il était quatre heures plus tard sur le Mac! De retour
+         sous Windows, l'heure était de nouveau incorrecte.
+      </p>
+      <p>
+         Que se passe-t-il sous Mac quand on installe Windows? Eh
+         bien Boot Camp fait un peu de magie pour que l'horloge de
+         Windows soit elle aussi en UTC. Je dus ainsi appliquer
+         cette magie-là manuellement. Par chance, j'ai trouvé une
+         <a
+         href="http://superuser.com/questions/185773/does-windows-7-support-utc-as-bios-time">passe-passe
+         de base de registre</a> me permettant d'arriver à mes
+         fins. Depuis RegEdit, sous la clé
+         <tt>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\TimeZoneInformation</tt>,
+         j'ai créé la valeur <tt>RealTimeIsUniversal</tt> et lui ai
+         associé le DWord 1. Un redémarrage plus tard, Windows 7
+         considérait l'horloge en UTC. Pour ce qui est de Ubuntu,
+         je ne sais pas ce qui s'est passé exactement, mais ça
+         cohabite avec Windows sans problème.
+      </p>
+      <h1>
+         <a id="progress" name="progress">Quelques progrès</a>
+      </h1>
+      <p>
+         Lundi, 8 octobre, j'ai rallumé ma machine sous Mac OS X et
+         commencé à rebâtir le setup que j'avais dans VirtualBox.
+         iTunes, cette fois, fonctionnait super bien. J'ai pu
+         écouter de la musique avec ça. J'ai eu du trouble avec le
+         NTFS, car le logiciel NTFS-3G existe mais date de 2010 et
+         a des problèmes de performance en raison de la façon
+         qu'Apple gère les entrées/sorties. La seule solution pour
+         que ce ne soit pas lent à mort est d'y aller avec <a
+         href="http://www.tuxera.com/products/tuxera-ntfs-for-mac/">Tuxera
+         NTFS for Mac</a>, qui est encore un autre logiciel payant.
+         Je décidai de l'essayer pendant 15 jours puis ensuite
+         décider de soit l'acheter, tenter ma chance avec NTFS-3G,
+         reformater la partition de données ou oublier le
+         Hackintosh.
+      </p>
+      <p>
+         J'ai tenté de transférer mes photos prises la veille et ça
+         a fonctionné #1. J'ai réussi à les visualiser dans le
+         Finder, puis j'en ai transféré sur Facebook. Je me suis
+         aussi amusé à faire des captures d'écran de gros plans
+         d'icônes. De proche, les icônes d'Apple sont pas mal cool.
+         En voici quelques exemples.
+      </p>
+      <p>
+         <img width="75%" src="mac1.jpg" />
+      </p>
+      <p>
+         <img width="75%" src="mac2.jpg" />
+      </p>
+      <p>
+         <img width="75%" src="mac3.jpg" />
+      </p>
+      <p>
+         <img width="75%" src="mac4.jpg" />
+      </p>
+      <p>
+         <img width="75%" src="mac5.jpg" />
+      </p>
+      <p>
+         <img width="75%" src="mac6.jpg" />
+      </p>
+      <p>
+         <img width="75%" src="mac7.jpg" />
+      </p>
+      <p>
+         Par contre, ça a moins bien été quand j'ai voulu
+         reconfigurer Emacs. Je voulais me servir du fichier que
+         j'avais monté sous VirtualBox, mais je ne pus jamais
+         retrouver le fichier et je ne pus pas non plus accéder à
+         mon image VirtualBox. Il aurait fallu que j'aie construit
+         un fichier VDI de taille fixe pour pouvoir le monter sous
+         Mac OS X. N'ayant pas copié le fichier ou noté les
+         changements apportés, j'ai été obligé de redémarrer la
+         machine sous Windows pour pouvoir partir VirtualBox et de
+         là ramasser le foutu fichier!
+      </p>
+      <h1>
+         <a id="sync" name="sync">Synchronisation de fichiers: plus
+         difficile que prévu</a>
+      </h1>
+      <p>
+         Pendant la fin de semaine du 13 et du 14 octobre, j'ai
+         utilisé Mac OS X avec succès pour écrire une partie de ce
+         site et pour écouter de la musique. Je commençais enfin à
+         apprécier quelque peu ma nouvelle machine et sentir que
+         mes efforts étaient enfin couronnés de succès.
+      </p>
+      <p>
+         Mais dimanche après-midi, il y a par contre eu des ratés
+         quand j'ai été prêt à téléverser le fruit de mon travail
+         vers mon hébergeur. Le logiciel LFTP, que j'utilisais
+         habituellement pour cela puisqu'il permet de transférer
+         les fichiers modifiés seulement, brillait par son absence
+         et il ne semblait exister aucune version Mac officielle.
+         Je n'ai rien trouvé pour synchroniser autre que SSHFS
+         combiné à RSync. La commande RSync toute seule se
+         plantait, car HostPapa ne permet pas d'accès SSH direct.
+      </p>
+      <p>
+         Malheureusement, installer SSHFS fut aussi difficile. Je
+         suis tombé sur un truc intéressant, <a
+         href="http://www.macports.org/">MacPorts</a>, permettant
+         d'installer plusieurs logiciels open source. Je l'ai
+         installé, mais c'est vite devenu un foutoir. Il y avait
+         tellement d'options et d'éléments à configurer que ça
+         semblait plus compliqué encore que compiler LFTP depuis le
+         code source!!! Et comment venir à bout de compiler quand
+         GCC manque à l'appel? Probablement la même chose que
+         iLife: ne vient pas avec Mac OS X mais est livré avec un
+         Mac flambant neuf. Ainsi, j'allais me faire bloquer et
+         pincer de toutes parts.
+      </p>
+      <p>
+         J'ai fait d'autres recherches pour tomber sur une page
+         expliquant comment installer SSHFS en le combinant avec <a
+         href="http://fuse4x.github.com/">Fuse4X</a> et <a
+         href="http://mxcl.github.com/homebrew/">Homebrew</a>.
+         Fuse4X est une autre implémentation de FUSE pour Mac OS X
+         tandis que Homebrew est un clone de MacPorts ou quelque
+         chose de similaire. Il me fallait donc encore remplacer
+         des composantes mal choisies (FUSE for OSX et MacPorts)
+         par d'autres), ou tout installer ça en même temps et
+         risquer que ça cafouille solide encore plus. Outre faire
+         ainsi, je pouvais toujours essayer avec <a
+         href="http://panic.com/transmit/">Transmit</a> ou <a
+         href="http://www.yummysoftware.com/">Yummy</a>, mais il
+         faudrait payer pour faire de quoi que je pouvais accomplir
+         sous Linux gratuitement.
+      </p>
+      <p>
+         J'ai songé installer une machine virtuelle sous Mac. Mais
+         là, si je pars dans cette direction, je me retrouverai
+         avec un VirtualBox sous Windows, Linux et Mac! Chacun des
+         VirtualBox aura une VM des deux autres systèmes! Tant qu'à
+         faire ainsi, ce qui sera un travail de configuration
+         colossal, autant investir dans deux autres ordinateurs et
+         avoir trois machines indépendantes! Mieux encore, rendu à
+         ce point-là, autant tout éteindre ça et réfléchir à fond
+         pour déterminer le dénominateur commun, et ne conserver
+         uniquement lui.
+      </p>
+      <p>
+         J'ai tenté ma chance avec <a
+         href="http://macfusionapp.org/">MacFusion</a>, combiné à
+         la couche de compatibilité MacFuse de FUSE for OSX. Eh
+         bien, il ne fonctionna jamais, se contentant sans cesse de
+         se plaindre que mon mot de passe était invalide.
+      </p>
+      <p>
+         En fin de compte, la solution était sur le wiki de <a
+         href="https://github.com/osxfuse/osxfuse/wiki/SSHFS">FUSE
+         for OSX</a>. Ils listaient les systèmes de fichiers les
+         plus courants et il y avait SSHFS, une version pour FUSE
+         for OSX. Je l'ai installée et ça a fonctionné. J'ai alors
+         pu monter mon espace Web dans un répertoire local de la
+         machine, ce qui m'a permis d'utiliser RSync pour
+         synchroniser ce répertoire virtuel avec la version mise à
+         jour de mon site, sur mon disque dur. Par contre, la
+         synchronisation avec RSync fut longissime et échoua
+         encore: il n'y eut apparemment aucun fichier copié! J'ai
+         donc fini par devoir copier manuellement les fichiers qui
+         avaient changé. Il y en avait deux cette fois, donc ce fut
+         facile.
+      </p>
+      <p>
+         Plus tard, j'ai découvert un guide pour démarrer avec <a
+         href="http://guide.macports.org/">MacPorts</a>. Les
+         commandes de base sont très simples. Autre élément
+         important pour que ça fonctionne: installer XCode et ses
+         outils en ligne de commande. Cela permet d'obtenir GCC qui
+         est nécessaire pour compiler des machins-trucs de
+         MacPorts. Ensuite, on installe les logiciels comme des
+         packages et ils se compilent automatiquement. MacPorts
+         résoud les dépendances et télécharge ce qui manque. Je
+         l'ai utilisé avec succès pour obtenir WGet, LFTP et il
+         semble même possible d'avoir TeXLive de cette façon! C'est
+         dingue! Là enfin, j'ai commencé à avoir du fun.
+      </p>
+      <p>
+         J'ai dû mettre ce projet d'exploration sur la glace, car
+         la machine est devenue instable par la suite. Il y a eu
+         des ratés avec Ubuntu et finalement des problèmes avec le
+         bloc d'alimentation, peut-être la carte mère ou le SSD.
+         Mon installation de Mac OS X était aussi fragile. Je ne
+         savais même pas, après avoir réussi à installer Ubuntu, si
+         elle n'était pas bousillée, mais je savais que réparer
+         cela me prendrait des heures et des heures. Ainsi, les
+         systèmes d'exploitation se nuisaient mutuellement de plus
+         en plus, me menant à croire que je serais peut-être aussi
+         bien acheter une machine par système, ou choisir un
+         système. mais Mac OS X n'est pas suffisamment versatile
+         pour mes besoin, et difficile à utiliser en plus. Ce ne
+         sera pas lui qui va gagne; ce sera Linux ou peut-être même
+         Windows, s'il ne doit en rester qu'un.
+      </p>
+      <h1>
+         <a id="emacs" name="emacs">GNU Emacs qui pose encore des
+         problèmes</a>
+      </h1>
+      <p>
+         Dimanche, 11 novembre, après presque trois semaines
+         d'interruption, je suis retourné sous mon environnement
+         Mac. Par chance, rien n'a été endommagé par mes essais et
+         erreurs avec Ubuntu! Je n'ai donc pas perdu une journée à
+         galérer comme un porc pour réparer l'amorçage Mac.
+      </p>
+      <p>
+         Pour rappel, j'ai déjà eu beaucoup de difficultés à faire
+         <a href="macosx.xhtml#emacs">fonctionner GNU Emacs sous
+         Mac OS X virtualisé</a>. Eh bien les problèmes ont
+         continué sur mon «vrai» Mac! Dimanche, 11 novembre 2012,
+         je ne pouvais plus démarrer GNU Emacs du tout: je me
+         retrouvais avec une fenêtre blanche.
+      </p>
+      <p>
+         J'ai cherché longtemps pour celle-là, et fini par
+         découvrir qu'il fallait que je maximise la fenêtre de GNU
+         Emacs pour ensuite la redimensionner manuellement en
+         utilisant le coin inférieur droit de la fenêtre, pas un
+         autre coin et pas les bordures. C'est un bogue dans GNU
+         Emacs qui, à la réception de l'événement de
+         redimensionnement, renvoie de nouvelles dimensions à la
+         fenêtre, ce qui déclenche un nouvel événement et cause
+         toutes sortes de problèmes. Ils ont fait la même erreur
+         sous X11 et ne semblent pas pouvoir facilement corriger
+         cela sous Cocoa. Toute tentative pour obtenir une version
+         X11 de GNU Emacs a échoué.
+      </p>
+      <h1>
+         <a id="ntfs" name="ntfs">Écriture NTFS</a>
+      </h1>
+      <p>
+         Dimanche, 11 novembre, comme ça pour rien, je ne pouvais
+         plus écrire sur mon disque dur de données. Submergé par
+         mes difficultés avec GNU Emacs, j'avais oublié que Tuxera
+         for NTFS, en mode démo depuis trois semaines, s'était
+         désactivé dans mon dos. J'ai été obligé d'acheter une clé
+         d'activation et l'insérer dans le logiciel.
+      </p>
+      <p>
+         Malheureusement, il y a eu des problèmes pour recevoir la
+         clé par e-mail, car l'application Mail de Mac OS X avait
+         planté! J'ai dû la tuer de force, en cliquant du bouton
+         droit sur son icône dans le Dock et en appuyant sur Alt,
+         ce qui a changé la commande <strong>Quitter</strong> en
+         <strong>Forcer à quitter</strong>. Puis j'ai redémarré
+         Mail.
+      </p>
+      <p>
+         Activer Tuxera m'a aussi posé des difficultés. D'abord, il
+         fallait trouver où procéder à l'opération. C'était par le
+         biais d'une icône ajoutée dans les Préférences systèmes.
+         J'y suis allé et j'ai constaté que je ne pouvais même pas
+         entrer mon code. Par chance, j'ai remarqué le petit
+         cadenas en bas à gauche. En cliquant dessus et en entrant
+         mon mot de passe, j'ai pu déverrouiller le panneau et
+         entrer mon code!
+      </p>
+      <p>
+         Mais même le logiciel activé, je ne pouvais toujours pas
+         écrire sur mon disque dur! Il semblait falloir redémarrer
+         la machine pour remonter les disques, mais au lieu de
+         faire ainsi, j'ai tenté d'éjecter le disque. Cela l'a fait
+         disparaître du Finder purement et simplement. Mais j'ai pu
+         le retrouver dans l'Utilitaire de disques et le remonter.
+         Là, je pouvais y écrire!
+      </p>
+      <h1>
+         <a id="lftp" name="lftp">LFTP fait des siennes</a>
+      </h1>
+      <p>
+         Après mes difficultés avec GNU Emacs et le NTFS, j'ai eu
+         des problèmes de synchronisation avec mon espace Web. Le
+         logiciel LFTP, eh bien il ne fonctionnait pas. La commande
+         <tt>mirror</tt> que j'espérais utiliser ne trouvait pas
+         mon répertoire de données sur le disque dur. Plutôt
+         qu'utiliser mon script habituel, j'ai été obligé de
+         démarrer LFTP manuellement et entrer <tt>lcd</tt>
+         &lt;répertoire&gt; pour m'en aller vers le bon répertoire,
+         suivi de <tt>mirror -R . ~/www</tt> pour enfin démarrer le
+         processus!
+      </p>
+      <h1>
+         <a id="oskiller" name="oskiller">Le jour où Mac OS X finit
+         par tout casser!</a>
+      </h1>
+      <p>
+         Jeudi après-midi, 27 décembre 2012, j'ai allumé mon
+         ordinateur sous Mac OS X et vécu plusieurs difficultés.
+         D'abord, j'ai découvert l'absence de iDVD sur l'App Store:
+         plus moyen de construire des DVD vidéos avec Mac OS X
+         comme on pouvait le faire sous Snow Leopard, à moins de se
+         rabattre sur une alternative et comme dans le monde
+         Windows, aucune solution ne se démarque par rapport aux
+         autres. Elles sont soit trop coûteuses (par exemple Final
+         Cut) ou très difficiles à mettre en oeuvre (par exemple
+         DVDAuthor). On peut par contre installer iMovie qui permet
+         de faire du montage vidéo de base pour une distribution
+         via le Web.
+      </p>
+      <p>
+         Je voulais aussi savoir s'il me serait possible
+         d'installer une version d'essai de Reason Essentials et
+         éventuellement en faire l'achat. J'avais aussi trouvé une
+         application sur le App Store fournissant des didacticiels
+         au sujet du logiciel Reason; ça pourrait donc être
+         intéressant de travailler avec le logiciel sous Mac pour
+         le jumeler avec cette application. Malheureusement, le
+         logiciel se comporta plutôt mal. D'abord, il n'émettait
+         absolument aucun son. Ensuite, il contribua au problème
+         qui a tout cassé: Mac OS X commençait à me dire que sa
+         partition était presque pleine! Déjà!
+      </p>
+      <p>
+         Le problème audio a été terriblement frustrant à traiter,
+         car toute recherche sur Google n'apportait strictement
+         aucune solution. Le site de Propellerhead indiquait que
+         des plantages avaient été observés sous Mac OS X 10.8 et
+         pour toute solution, la firme proposait de reculer à Mac
+         OS X 10.7. Mais je ne peux pas reculer, bon sang, parce
+         que j'ai besoin de 10.8 pour la prise en charge de l'Ivy
+         Bridge! De toute façon, ce n'était pas un plantage que
+         j'observais mais l'absence de son. Tout portait à croire
+         que mon problème était non répertorié, probablement
+         spécifique à la gestion audio de mon Hackintosh.
+      </p>
+      <p>
+         De temps en temps, Chrome se bloquait: bouton précédent
+         cessant de fonctionner, recherche très lente, caractères
+         vraiment trop petits, etc. Bref, chaque fois que je me
+         fixe un but précis sous Mac OS X, ça devient très
+         difficile. Je ne sais pas exactement comment j'ai pu
+         réussir à avoir le son. J'ai fait plusieurs essais et
+         erreurs avec la sortie audio dans le logiciel, mais rien
+         n'y faisait. Un moment donné, plusieurs redémarrages et
+         peut-être la fermeture de iTunes plus tard, j'avais ENFIN
+         le son!
+      </p>
+      <p>
+         Mais je n'avais plus le temps de m'amuser avec le
+         logiciel, souhaitant travailler aussi dans mon univers
+         imaginaire Minecraft que je partage avec un ami. Pas de
+         problème: on va démarrer Minecraft sous Mac OS X! Eh non!
+         Bien que le jeu soit en Java, il fait appel à une
+         bibliothèeque OpenGL apparemment non compatible avec Mac
+         OS X, probablement encore quelque chose qui fonctionne
+         sous Snow Leopard et pas Mountain Lion! Toute recherche
+         sur Google me donna des atrocités avec des traces de piles
+         d'exécution native ou Java, sans aucun indice valable pour
+         me sortir de ce guêpier. J'ai fini par laisser tomber et
+         me résoudre à redémarrer sous Linux pour accéder au jeu.
+         Pourquoi pouvais-je accéder au même univers Minecraft
+         depuis Windows, Linux et Mac? Eh bien parce qu'un serveur
+         Minecraft s'exécutait sur mon vieil ordinateur!
+      </p>
+      <p>
+         Idéalement, il aurait mieux valu tout abandonner ça là et
+         laisser tomber Mac OS X. Mais je ne pouvais le faire,
+         trouvant inacceptable qu'un système d'exploitation me
+         résiste. J'ai déjà suffisamment de limitations dans le
+         monde réel à cause de ma déficience visuelle. Il n'est pas
+         question qu'Apple m'en impose une infranchissable dans le
+         monde virtuel, <em>mon</em> monde! Je savais aussi que si
+         je capitulais, je serais tenté, semaine après semaine, de
+         reprendre le combat... sur un vrai Mac! Ce sera pire, avec
+         ça, car j'aurai toujours la nette impression d'avoir perdu
+         plus de 2000$ tant que je n'aurai pas dompté la bête; ce
+         sera une pression supplémentaire.
+      </p>
+      <p>
+         Pour poursuivre l'exploration (ou la bataille...), j'avais
+         besoin de résoudre le problème d'espace disque. Je me
+         disais pouvoir le faire en réaménageant un peu les
+         partitions sur mon deuxième SSD. En utilisant GParted,
+         j'ai alors supprimé la partition de Fedora, fait passer
+         mon répertoire d'origine sous Linux de 30Go à 15Go et
+         déplacé la partition HFS+ de Mac OS X vers le haut du
+         disque. Cela permit de libérer 35Go d'espace que je
+         voulais réallouer à Mac OS X. Mais GParted refusait
+         d'agrandir la partition HFS+! Pas de problème, pensai-je,
+         on va le faire avec l'Utilitaire de Disques sous Mac OS X!
+      </p>
+      <p>
+         L'opération de réorganisation se passa très bien et assez
+         rapidement puisque c'était sur un SSD. Je redémarrai la
+         machine avec la clé USB d'installation obtenue via
+         UniBeast (de haute lutte, rappelons-le) et passai le
+         contrôle à l'Utilitaire de Disques. Eh bien celui-là non
+         plus ne pouvait pas agrandir ma partition! J'ai fait des
+         recherches sur Google, appris que GParted pouvait le
+         faire, mais il fallait désactiver la journalisation du
+         système de fichiers. Je l'ai fait, mais ça n'a rien
+         changé.
+      </p>
+      <p>
+         D'autres résultats de recherche parlaient d'une commande
+         <tt>diskutil</tt> offrant une option pour redimensionner
+         les partitions. Je l'ai essayée depuis un terminal démarré
+         sous l'installeur de Mac OS X, me disant que jamais ça
+         n'allait fonctionner sur un volume monté. Eh non, encore
+         une autre erreur, indiquant que le système de fichiers
+         n'était pas supporté! En réactivant la journalisation, je
+         suis allé plus loin! Le programme <tt>diskutil</tt>
+         commençait à vérifier le disque puis se plantait avec une
+         erreur indiquant que la partition avait été endommagée! Il
+         se peut que Linux, en montant le volume HFS+ en écriture
+         pour me permettre de corriger un kernel panic causé par
+         une expérimentation passée n'ayant rien à voir avec le
+         problème présent, ait saboté la structure du système de
+         fichiers.
+      </p>
+      <p>
+         De retour sous l'Utilitaire de Disques en mode graphique,
+         j'ai tenté de réparer la partition. Malheureusement,
+         quelque chose de cochon s'est passé qui a sélectionné le
+         SSD de Windows au lieu de la partition supposément
+         endommagée! Je ne me rappelle plus si j'ai cliqué sur
+         Vérifier ou Réparer, mais j'ai eu un message d'erreur
+         indiquant que ce disque n'avait pas de ESP. En fait, le
+         disque n'avait <em>plus</em> de ESP... Je n'avais aucune
+         idée du drame que ça allait engendrer plus tard! Pensant
+         que Mac OS X n'avait rien touché, j'ai continué à
+         m'acharner sur la partition endommagée et suis venu à bout
+         de la réparer. J'ai alors tenté ma chance avec
+         <tt>diskutil</tt>: encore la même erreur, et la partition
+         était de nouveau diagnostiquée comme endommagée par
+         l'Utilitaire de Disques!
+      </p>
+      <p>
+         Ainsi, il n'y avait plus rien à faire avec ça, à moins de
+         tout réinstaller! Je pourrais toujours essayer de recopier
+         les fichiers sur un autre disque, recréer la partition,
+         puis remettre les fichiers à leur place, mais je me
+         doutais que je risquais de perdre des méta-données vitales
+         pour le fonctionnement du système.
+      </p>
+      <p>
+         Tanné, je voulus mettre tout ça de côté pour aller
+         rejoindre mon ami dans Minecraft. Mais malheur: plus aucun
+         moyen d'atteindre Ubuntu ou même Windows! rEFInd, encore
+         en place sur le deuxième SSD, n'affichait plus l'icône de
+         Windows. Il y avait encore une icône pour Fedora et pour
+         Ubuntu, mais aucune des deux ne fonctionnait! Celle de
+         Fedora était brisée depuis des semaines tandis que celle
+         d'Ubuntu se référait à un autre disque sur lequel j'avais
+         essayé d'installer Ubuntu pendant mes tentatives de
+         débogage, pour un autre problème de plantages n'ayant
+         aucun lien avec Mac OS X.
+      </p>
+      <p>
+         Que se passait-il donc? L'utilitaire de Disques m'avait
+         tout simplement supprimé l'ESP de mon premier SSD,
+         nécessaire pour démarrer les deux systèmes en mode UEFI!
+         Reconstituer l'ESP s'avéra tout simplement impossible. J'y
+         passai des heures à essayer, refusant de réinstaller
+         Ubuntu et surtout Windows pour si peu.
+      </p>
+      <p>
+         Pour Linux, j'ai essayé toutes sortes de choses depuis le
+         live CD. J'ai d'abord recréé une partition FAT32 avec
+         GParted et l'ai marquée comme Boot. Cela, espérai-je,
+         allait rebâtir l'ESP. J'ai ensuite tenté de trouver
+         comment contraindre GRUB à se réinstaller là-dedans, mais
+         les instructions que je trouvai s'appliquaient à la
+         version MBR de GRUB! Tout ce que je trouvais par rapport à
+         GRUB EFI exigeait de compiler l'outil depuis le code
+         source! Pourquoi avais-je à tout recompiler tandis que
+         l'installeur peut effectuer la configuration
+         automatiquement? J'ai trouvé un utilitaire que j'ai
+         essayé, en vain encore.
+      </p>
+      <p>
+         Ce qui a fonctionné est bien simple en fait. Dans le
+         répertoire <tt>/boot/grub</tt>, il y avait un fichier
+         <tt>grub.efi</tt>. Je l'ai recopié dans mon ESP, sous le
+         nom de <tt>grubx64.efi</tt>, dans le répertoire
+         <tt>EFI\ubuntu</tt>. J'ai copié le fichier dans l'ESP de
+         mon deuxième SSD, remplaçant la version non fonctionnelle
+         du second SSD. Au démarrage suivant, rEFInd affichait le
+         logo d'Ubuntu et l'icône fonctionna!
+      </p>
+      <p>
+         Il se peut que ce fichier soit apparu suite à
+         d'innombrables manipulations effectuées. La plus
+         prometteuse était la suivante:
+      </p>
+<pre>
+sudo -i
+mkdir /mnt/ubuntu
+mount -t ext4 /dev/sdb3 /mnt/ubuntu
+mount --bind /dev /mnt/ubuntu/dev
+mount --bind /dev/pts /mnt/ubuntu/dev/pts
+mount --bind /proc /mnt/ubuntu/proc
+mount --bind /sys /mnt/ubuntu/sys
+chroot /mnt/ubuntu
+apt-get install --reinstall grub-efi
+exit
+</pre>
+      <p>
+         Il faut bien entendu remplacer <tt>/dev/sdb3</tt> par
+         l'identifiant de la partition sur laquelle se trouve
+         installé Ubuntu! Avouons que ce n'est pas trop intuitif et
+         plaisant à écrire, et récrire pour essayer des variantes
+         de ça. Cette complexité contribua largement à rendre cet
+         exercice excessivement frustrant.
+      </p>
+      <p>
+         Mais ce n'était que le début. Avec Windows, ça a été
+         <strong>pire</strong>! Bon, on va y aller avec l'intution
+         Microsoft: exécuter l'assistant de réparation proposé sur
+         le DVD d'installation de Windows 7, démarré en mode UEFI.
+         L'outil s'exécuta et s'avoua vaincu dès le début, refusant
+         de reconstituer l'ESP. Il semblait falloir tout
+         réinstaller!
+      </p>
+      <p>
+         Bon, il suffit d'avoir <tt>bootmgfw.efi</tt>, non? Mais où
+         le trouver? Toute recherche sur le DVD d'installation
+         échoua. Il m'a fallu piocher dans le fichier
+         <tt>install.wim</tt> et même le dézipper au complet avec
+         7-Zip (il fallut donc que mon Ubuntu fonctionne pour
+         pouvoir essayer ça!) pour enfin avoir le fichier. En vain:
+         j'avais le logo Windows dans rEFInd mais un message
+         d'erreur au démarrage. Même après restauration partielle
+         de l'ESP, Windows 7 refusait de réparer l'amorçage!
+      </p>
+      <p>
+         Il ne restait plus qu'un recours avant d'avoir à opter
+         entre tout réinstaller ou amener la machine dans un
+         magasin d'informatique dans l'espoir qu'un technicien,
+         avec un logiciel spécialisé que je n'ai et ne connais pas,
+         puisse réussir à faire un miracle (mais cela allait me
+         priver du Drake pour tout le temps des fêtes, peut-être
+         pas une mauvaise chose à bien y penser mais bon). Cette
+         solution, c'était une sauvegarde intégrale de mon premier
+         SSD, que j'avais tenté d'effectuer avec CloneZilla un
+         dimanche matin, juste avant d'entreprendre un voyage sous
+         Windows 8. La frustration causée par la lenteur du
+         processus de sauvegarde m'a finalement dissuadé d'essayer
+         Windows 8 ce jour-là (j'ai préféré relaxer et garder mon
+         énergie pour la semaine de travail qui allait suivre) et
+         j'ai par la suite lu de très mauvaises choses sur ce
+         système. Mais il n'en demeure pas moins que c'est la
+         possession de Windows 8 et le désir naissant de l'essayer
+         qui a engendré la création de cette sauvegarde intégrale.
+         Et cette sauvegarde qui, ce jeudi-là, allait tout sauver!
+      </p>
+      <p>
+         J'ai d'abord tenté d'extraire l'ESP depuis les fichiers
+         créés par CloneZilla, en installant l'utilitaire
+         PartClone. Mais ce dernier m'affichait qu'il fallait 45Go
+         de mémoire pour effectuer l'extraction, n'importe quoi!!!
+         J'ai fini par redémarrer la machine sous CloneZilla et
+         tenté la restauration partielle. Je me suis alors fait
+         servir un message d'erreur supposant que ma sauvegarde
+         était elle aussi endommagée! Là, j'en eus tellement assez
+         des fichiers endommagés que j'ai tenté le tout pour le
+         tout: restauration intégrale du premier SSD. Ça a
+         fonctionné!
+      </p>
+      <p>
+         Que s'est-il passé exactement? La recréation de l'ESP a
+         créé un volume <tt>/dev/sda3</tt> au lieu de
+         <tt>/dev/sda1</tt> et CloneZilla se plaignait à cause de
+         ça. Il y aurait peut-être eu moyen de contourner en
+         changeant les options passées à la commande de bas niveau,
+         mais fatigué par tous ces échecs et ayant quelque peu
+         perdu espoir d'une solution simple, j'ai tenté la
+         restauration totale. Par chance, elle a fonctionné et ne
+         m'a pas fait perdre trop de données. Après tout, les
+         données étaient sur un disque dur de 1To séparé,
+         relativement à l'abri de cette catastrophe.
+      </p>
+      <p>
+         Après cette restauration, je pouvais démarrer Windows,
+         Ubuntu et Mac OS X! J'ai joué un peu à Minecraft, puis
+         suis retourné sous Mac OS X pour vérifier que ça démarrait
+         encore. Eh oui! J'ai alors tenté une dernière
+         manipulation: <tt>diskutil resizeVolume /dev/disk1s5
+         limits</tt>, comme ça, sous Mac OS X, partition Mac OS X
+         montée! Pourquoi est-ce que ça a fonctionné? Je ne sais
+         pas, mais cela m'a permis d'apprendre que je pouvais
+         agrandir mon volume jusqu'à 66.3G. Je le fis, avec
+         <tt>diskutil resizeVolume /dev/disk1s5 66.3G</tt>, et ça
+         fonctionna enfin! Bien entendu, pour appliquer cette
+         formule magique, il faut trouver le nom de la partition.
+         Une façon d'y parvenir est d'utiliser <tt>df -H</tt> et
+         prendre celle qui correspond à <tt>/</tt>.
+      </p>
+      <p>
+         C'est ainsi que je suis parvenu à réparer mon système et
+         rendre possible la poursuite de mon exploration de Mac OS
+         X sans l'achat d'un vrai Mac. Je me résolus à actualiser
+         mes sauvegardes CloneZilla régulièrement et envisageai
+         l'achat d'un nouveau disque dur externe dédié au stockage
+         de plusieurs versions de ces sauvegardes. Outre la
+         migration vers trois machines différentes, une par
+         système, c'était la seule façon pour solidifier ma
+         configuration et la rendre plus étanche aux erreurs de
+         manipulation ou interférences dévastatrices entre
+         systèmes.
+      </p>
+      <h1>
+         <a id="mouse" name="mouse">La souris qui disparaît et qui
+         devient folle</a>
+      </h1>
+      <p>
+         Samedi matin, 11 mai 1013, j'ai eu des problèmes avec mon
+         Mac quand j'ai allumé ça pour essayer d'installer Clover
+         EFI, qui était susceptible d'améliorer l'efficacité de
+         l'amorçage.
+      </p>
+      <p>
+         Premier problème: la souris, sous Mac OS X, ne
+         fonctionnait plus <strong>du tout</strong>! J'ai en effet
+         dû remplacer ma souris voilà quelques temps et la
+         nouvelle, un truc cheapo trouvé dans un magasin près de
+         chez moi, fonctionnait sous Windows, sous Linux mais pas
+         sous Mac! C'était bien surprenant, parce que la gestion de
+         la souris est standard HID! Eh bien pour la faire
+         fonctionner, j'ai été obligé de brancher une vieille
+         souris temporairement et d'installer un autre logiciel,
+         qui remplace le pilote de souris par défaut de Apple! Le
+         premier que j'ai essayé, <a
+         href="http://www.usboverdrive.com/USBOverdrive/News.html">USB
+         OverDrive</a>, ne fonctionnait pas du tout, ne produisant
+         aucun effet positif. Le deuxième, <a
+         href="http://plentycom.jp/en/steermouse/">SteerMouse</a>,
+         a fonctionné, mais c'était un partagiciel qui allait
+         fonctionner seulement quelques jours, après quoi je
+         devrais cesser d'utiliser mon Mac, trouver une autre
+         souris ou acheter le logiciel.
+      </p>
+      <p>
+         Le lendemain après-midi, j'ai commencé à avoir d'autres
+         problèmes avec la souris: le pointeur sautait d'une
+         position à l'autre de l'écran chaque fois que je déplaçais
+         la souris pendant quelques secondes. Le seul contournement
+         consistait à régler la vitesse à une valeur très basse,
+         rendant l'utilisation de la machine très fastidieuse.
+         Plusieurs recherches me menèrent à des solutions ne
+         fonctionnant que sous Snow Leopard, encore! Par chance, il
+         existait un logiciel très simple pour m'aider: <a
+         href="https://itunes.apple.com/ca/app/decelerate/id449448909?mt=12">Decelerate</a>.
+         Il fallait encore l'acheter, App Store a rechigné avec mon
+         mot de passe, a voulu me le faire réinitialiser ENCORE (ça
+         fait des dizaines et des dizaines de sites qui me font ça,
+         il faudrait que je passe mes fins de semaine à me brancher
+         continuellemnt sur des sites pour maintenir des comptes
+         actifs!), mais une autre tentative plus tard et tout était
+         OK. Decelerate m'a permis de désactiver l'accélération du
+         pointeur de souris, adaptée au trackpad de Apple mais ne
+         fonctionnant pas bien du tout avec une vraie souris. Il a
+         fallu que je désactive l'accélération pour trackpad et
+         pour souris, sinon mon ajustement n'avait aucun effet. De
+         plus, j'ai découvert qu'il faut redémarrer l'utilitaire
+         Decelerate au début de chaque session, car son effet n'est
+         pas permanent. Enfin, j'ai troqué SteerMouse pour une
+         autre vieille souris de laptop que j'avais, et qui, elle,
+         a fonctionné sous Mac!
+      </p>
+      <h1>
+         <a id="hwbug" name="hwbug">Problèmes avec le son et
+         l'affichage!</a>
+      </h1>
+      <p>
+         Les difficultés avec la souris avaient une cause bien
+         définie: le remplacement de la souris par un autre modèle.
+         Mais tandis que je déboguais ce problème de souris pas mal
+         stupide, eh bien j'ai découvert que le son ne fonctionnait
+         plus, encore. Et effectivement, plus de sortie audio dans
+         les préférences systèmes. Ça n'avait absolument rien à
+         voir avec la souris et je n'ai aucune idée de la cause.
+         Pour tenter de résoudre ce nouveau bogue, j'ai réinstallé
+         MultiBeast. Ça s'est bien passé, mais après, plus moyen de
+         démarrer la machine; ça affichait des gribouillis
+         multicolores et plus rien!
+      </p>
+      <p>
+         Encore une fois, j'étais choqué, découragé et il était
+         déjà midi. J'ai perdu presque tout un avant-midi avec le
+         problème de souris précédent et cette nouvelle niaiserie
+         avec le son! Et en plus, ça n'avait rien à voir avec
+         Clover. Si j'avais seulement allumé mon Mac pour m'amuser
+         un peu, j'aurais quand même buté là-dessus. J'étais assez
+         tanné que j'ai songé supprimer Mac OS X de la machine,
+         voire même Ubuntu tant qu'à faire puisque lui aussi a eu
+         des problèmes de pilote la semaine précédente.
+      </p>
+      <p>
+         La première façon que j'ai trouvée pour débloquer mon
+         sytème Mac en mauvaise posture, c'était de démarrer en
+         utilisant l'installeur de Mountain Lion, construit de
+         haute lutte avec Unibeast, mais l'opération nécessitait
+         beaucoup trop de temps: plusieurs secondes d'attente pour
+         que la maudite machine finisse son POST et me laisse
+         appuyer sur F8 pour atteindre le menu d'amorçage,
+         plusieurs secondes pour amorcer depuis la clé USB et
+         enfin, la perspective qu'il faille répéter le processus
+         des dizaines de fois pour enfin trouver ce qui cloche et
+         le réparer! Peut-être, effectivement, le problème vient de
+         ma clé USB qui est trop lente ou des ports USB avant sur
+         mon boîtier qui sont trop lents, mais là, j'en avais plus
+         qu'assez de tout le temps me tromper lors de l'achat de
+         pièces et étais en train, progressivement, de perdre
+         confiance en moi à cause de toutes ces difficultés qui
+         n'en finissaient plus. Et ce maudit bouton power, sur ma
+         tour, coinçait maintenant à tout coup, me mettant à la
+         torture!
+      </p>
+      <p>
+         Depuis Ubuntu, j'ai localisé le fichier d'amorçage qui
+         semble avoir été réinitialisé par MultiBeast. Pour cela,
+         j'ai monté ma partition Mac OS X et trouvé
+         <tt>/Extra/org.chameleon.Boot.plist</tt>. Il manquait la
+         résolution que GraphicsEnabler devait passer manuellement
+         au pilote capricieux de Apple. Il fallait donc que je
+         modifie ce fichier d'une façon ou d'une autre avant de
+         pouvoir redémarrer mon Mac.
+      </p>
+      <p>
+         J'ai essayé de procéder au correctif en passant par le
+         pilote HFS+ de Linux, mais ce dernier ne permettait de
+         rien faire à moins que le système de fichiers soit
+         reconfiguré, depuis Mac OS X que je ne pouvais plus
+         démarrer, de façon à désactiver la journalisation! J'ai lu
+         qu'on pouvait le forcer à monter le disque en
+         lecture/écriture quand il est journalisé, mais maintenant,
+         peut-être en raison d'un nouveau bogue mineur sous Ubuntu,
+         le montage en écriture ne fonctionnait plus! Comme
+         solution de rechange, outre essayer avec une autre
+         distribution de Linux, je pouvais tenter ma chance avec <a
+         href="http://www.paragon-software.com/home/ntfs-linux-per/">NTFS&amp;HFS
+         Express de Paragon</a> qui va affecter le NTFS en plus du
+         HFS+, s'incruster dans le noyau et risquer de causer des
+         problèmes pour mes <strong>trois</strong> systèmes!!!! Il
+         y avait aussi <a
+         href="http://www.mediafour.com/products/macdrive">MacDrive
+         de Media Four</a>, sous Windows, mais c'était encore un
+         produit commercial qui allait me coûter plusieurs dizaines
+         de dollars. Ces solutions me semblaient trop coûteuses et
+         trop risquées pour l'intégrité de ma configuration déjà
+         trop fragile pour le temps et l'énergie que je suis prêt à
+         lui consacrer. Il ne semblait rester que la solution
+         consistant à démarrer l'installeur de Mountain Lion depuis
+         la clé USB.
+      </p>
+      <p>
+         Plutôt que faire ainsi, j'ai démarré Chameleon et de là,
+         j'ai trouvé que je pouvais passer <tt>"Graphics
+         Mode"="1680x1050x32"</tt> directement au noyau. Cela a
+         permis de corriger le bogue temporairement, me donnant
+         accès au système. Puis j'ai réparé le fichier de
+         configuration de Chameleon pour rendre le correctif de
+         nouveau permanent.
+      </p>
+      <h1>
+         <a id="clover" name="clover">Clover, pour rendre
+         l'installation native UEFI</a>
+      </h1>
+      <p>
+         J'en avais un peu assez de devoir appuyer sur F8 au bon
+         moment pour démarrer Mac OS X sur mon système, en passant
+         par le menu propre à ma carte mère. Je ne voulais pas
+         employer le correctif simple universellement proposé sur
+         les forums consistant à tout formater et réinstaller
+         Windows et Linux en MBR pour que tous les trois systèmes
+         démarrent avec Chameleon. Je trouvais ça aberrant qu'il y
+         ait une technologie UEFI dont le seul rôle est de faire
+         perdre du temps et obliger à refaire l'installation deux
+         fois, la première pour essayer UEFI, la seconde pour
+         remettre ça comme avant en MBR.
+      </p>
+      <p>
+         <a
+         href="http://sourceforge.net/projects/cloverefiboot/">Clover
+         EFI</a> semblait offrir la solution à mon problème.
+         Malheureusement, l'installation a loin d'avoir été simple.
+         J'ai eu des difficultés à tester le logiciel sur une clé
+         USB, j'ai eu de la misère à le configurer, il y a eu des
+         problèmes d'amorçage du noyau de Mac OS X et des
+         difficultés avec la carte graphique. Enfin, je me demande
+         encore si la configuration résultante sera stable ou si je
+         ne vais pas ravoir des problèmes de redémarrages comme
+         j'avais sous Ubuntu au début.
+      </p>
+      <p>
+         Samedi, 11 mai 2013, j'ai d'abord téléchargé une archive
+         ZIP qui m'a donné un fichier PKG. Que faire avec cela?
+         J'ai découvert qu'il fallait l'exécuter sous Mac OS X. Je
+         l'ai fait, j'ai choisi comme support d'installation une
+         clé USB vierge là uniquement pour faire des tests, puis
+         j'ai personnalisé un peu la configuration pour indiquer
+         que je voulais une installation pour cartes mère à base de
+         EFI. Eh bien l'installation a échoué encore! J'ai fini par
+         tenter ma chance avec une installation de base, sans
+         personnalisation, et ma clé USB s'est vue peuplée de
+         fichiers, dont le précieux répertoire <tt>EFI</tt> dont ma
+         carte mère aurait besoin pour tenter un amorçage.
+      </p>
+      <p>
+         J'ai redémarré la machine, accédé au menu d'amorçage et
+         indiqué à ma carte mère d'amorcer la clé USB en UEFI. J'ai
+         eu le menu de Clover dans lequel j'ai pu choisir ma
+         partition Mac. Il y a eu quelques lignes de texte qui se
+         sont affichées, puis j'ai eu une erreur fatale indiquant
+         que la mémoire ne pouvait pas être allouée pour charger le
+         noyau. Merde.
+      </p>
+      <p>
+         Pour aller plus loin, j'ai dû me rendre sur le <a
+         href="http://sourceforge.net/p/cloverefiboot/wiki/Troubleshooting%20UEFI%20Boot/">wiki
+         de Clover</a>. J'y ai trouvé une très intéressante page
+         donnant des idées pour résoudre les problèmes d'amorçage.
+         L'idée consistant à ajouter des pilotes, chargés dans
+         l'UEFI par Clover, pour patcher l'environnement afin de le
+         rendre compatible avec le noyau de Mac OS X! Pour faire
+         fonctionner l'amorçage, j'ai dû ajouter les pilotes
+         <tt>OsxLowMemFixDrv-64.efi</tt> et
+         <tt>OsxAptioFixDrv-64.efi</tt>. Ces fichiers ne se
+         trouvaient pas sur la clé USB initialisée par l'installeur
+         de Clover si bien que j'ai dû télécharger la version ISO,
+         la décompacter avec 7-Zip puis y piger les fichiers
+         manquants!
+      </p>
+      <p>
+         La chose faite, j'ai enfin vu le noyau s'amorcer et il m'a
+         craché plusieurs logs. Puis l'écran est devenu noir avec
+         un rectangle blanc en haut et ça s'est terminé là. Il y
+         avait un problème de gestion de la puce graphique, encore!
+         Décidément, ça ne fonctionne vraiment pas très bien avec
+         ces Intel HD 4000.
+      </p>
+      <p>
+         J'ai bien cru que ça allait s'arrêter là, car au moins une
+         heure de recherche me ramenait toujours à des discussions
+         très techniques au sujet de patch à appliquer dans les
+         données PCI retournées par l'UEFI patchée à Mac OS X et un
+         fichier <tt>boot.log</tt> que je n'avais pas.
+      </p>
+      <p>
+         Par chance, j'ai trouvé une page <a
+         href="http://www.insanelymac.com/forum/topic/282787-clover-v2-instructions/">d'instructions
+         d'installation</a> très complète qui m'a enfin aidé! Il
+         m'a fallu ajouter quelques lignes dans le fichier
+         <tt>config.plist</tt> pour enfin débloquer les choses.
+         D'abord, il fallait que j'active le GraphicsInjector pour
+         injecter à Mac OS X les informations graphiques. J'ai
+         aussi injecté l'EDID de l'écran, ce qui a enfin débloqué
+         les choses et permis à Mac OS X de démarrer, en UEFI
+         natif!
+      </p>
+      <p>
+         Voici le fichier de config final.
+      </p>
+<pre>
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;
+&lt;plist version="1.0"&gt;
+&lt;dict&gt;
+        &lt;key&gt;PCI&lt;/key&gt;
+        &lt;dict&gt;
+                &lt;key&gt;USBInjection&lt;/key&gt;
+                &lt;string&gt;Yes&lt;/string&gt;
+                &lt;key&gt;USBFixOwnership&lt;/key&gt;
+                &lt;string&gt;Yes&lt;/string&gt;
+                &lt;key&gt;InjectClockID&lt;/key&gt;
+                &lt;string&gt;Yes&lt;/string&gt;
+        &lt;/dict&gt;
+        &lt;key&gt;SystemParameters&lt;/key&gt;
+        &lt;dict&gt;
+                &lt;key&gt;boot-args&lt;/key&gt;
+                &lt;string&gt;-v npci=0x2000 slide=0 NoKexts&lt;/string&gt;
+                &lt;key&gt;prev-lang:kbd&lt;/key&gt;
+                &lt;string&gt;en:0&lt;/string&gt;
+                &lt;key&gt;InjectSystemID&lt;/key&gt;
+                &lt;string&gt;Yes&lt;/string&gt;
+                &lt;key&gt;LegacyBoot&lt;/key&gt;
+                &lt;string&gt;PBR&lt;/string&gt;
+        &lt;/dict&gt;
+        &lt;key&gt;Graphics&lt;/key&gt;
+        &lt;dict&gt;
+     &lt;key&gt;GraphicsInjector&lt;/key&gt;
+     &lt;string&gt;Yes&lt;/string&gt;
+                &lt;key&gt;PatchVBios&lt;/key&gt;
+                &lt;string&gt;No&lt;/string&gt;
+      &lt;key&gt;InjectEDID&lt;/key&gt;
+      &lt;string&gt;Yes&lt;/string&gt;
+        &lt;/dict&gt;
+&lt;/dict&gt;
+&lt;/plist&gt;
+</pre>
+      <p>
+         Lorsque l'amorçage a enfin réussi depuis la clé USB, j'ai
+         recopié le répertoire CLOVER dans mon ESP et utilisé
+         EFIBootMgr pour ajouter Clover dans la NVRAM. J'ai ainsi
+         évité tout dommage à Chameleon et le reformatage de mon
+         ESP en HFS+, que l'installeur de Clover aurait bien pu
+         essayer! J'ai alors eu le menu de Clover au démarrage de
+         ma machine. Je pouvais démarrer Windows, Ubuntu et Mac OS
+         X depuis ce menu!
+      </p>
+      <p>
+         Malheureusement, j'ai eu d'autres difficultés. La machine
+         détectait un second écran et étendait le bureau sur ce
+         dernier. J'ai dû activer la recopie vidéo pour contourner
+         ce problème de détection. J'ai aussi eu un redémarrage
+         spontané de la machine qui m'a bien découragé, mais c'est
+         probablement une tentative de mise en veille automatique
+         qui a échoué à cause de ma carte mère.
+      </p>
+      <h1>
+         <a id="deadend">Cul-de-sac: la mort de mon Mac</a>
+      </h1>
+      <p>
+         La fin de semaine du 8 au 9 juin 2013, j'ai encore eu
+         beaucoup de problèmes avec mon maudit Mac. D'abord, sans
+         raison logique, une simple mise à jour de iTunes a
+         bousillé le KEXT (module de noyau) pour l'audio. Résultat:
+         plus de son. iTunes devrait logiquement être une
+         <em>application</em>, ne pas contenir de pilotes en soit!
+         Et pourtant...
+      </p>
+      <p>
+         Samedi, je fis des recherches dans le but de trouver un
+         moyen de recopier le module audio à chaque démarrage de la
+         machine. Comme ça, le problème ne serait plus! C'est là
+         que je me suis rendu compte que les boutons latéraux de ma
+         souris Microsoft Comfort 4500 ne fonctionnaient pas. Pour
+         le son, je n'ai rien trouvé à part réinstaller Multibeast
+         chaque fois qu'il cesse de fonctinner. Faudra peut-être le
+         faire après chaque mise à jour de iTunes ou peut-être même
+         de n'importe quelle application!!!
+      </p>
+      <p>
+         Alors la souris, il n'y avait pas grand-chose à faire sans
+         l'installation de <a
+         href="http://plentycom.jp/en/steermouse/">SteerMouse</a>
+         ou, ai-je découvert, <a
+         href="http://www.orderedbytes.com/controllermate/">ControllerMate</a>.
+         Ben oui, SteerMouse n'est peut-être plus le bon,
+         maintenant, il faut en prendre un nouveau! Mais plutôt que
+         payer 25$ pour encore un autre cossin stupide qui devrait
+         être intégré au système, j'ai installé le pilote
+         IntelliPoint de Microsoft. Avec un peu de bidouille, il a
+         fonctionné sous Mountain Lion et amélioré la prise en
+         charge de la souris au point de ne plus nécessiter le
+         démarrage de Decelerate en début de session. Le seul
+         problème était que l'utilitaire IntelliPoint ne démarrait
+         pas automatiquement. C'est sur un post de forum que j'ai
+         trouvé <a
+         href="http://apple.stackexchange.com/questions/58226/does-the-microsoft-intellipoint-software-work-with-mountain-lion">comment
+         faire démarrer IntelliPoint avec la session</a>.
+      </p>
+      <p>
+         Durant l'après-midi, après avoir fait des commissions,
+         j'ai gossé sur l'adaptateur wi-fi obtenu de chez
+         DealExtreme et destiné à étendre la portée de mon routeur.
+         J'ai eu énormément de misère, l'appareil semblait
+         défectueux, l'ordinateur ne le détectait pas, etc. J'ai
+         fini par réussir à le configurer, mais il m'a fallu
+         redémarrer sous Ubuntu pour enfin réussir! En effet, Mac
+         OS X, lui, s'est tout mélangé et ne voulait plus se
+         brancher à Internet. J'ai cru que c'était encore le
+         routeur qui avait perdu les pédales, mais non, il était
+         hors de cause.
+      </p>
+      <p>
+         Mac OS X m'a fait chier à MORT! Chaque fois que j'essayais
+         de faire de quoi, je me faisais bloquer ben raide. La
+         touche Commande-W ne ferme pas toujours la fenêtre en
+         cours, Commande-Tab ignore les frontières mises en place
+         par les bureaux multiples et change de fenêtre comme si
+         tout était sur le même plan de travail, les caractères
+         sont trop petits et le système n'arrête jamais de me faire
+         perdre du temps à zoomer en me posant des questions
+         stupides. Tanné, en intense furie, au point de jeter la
+         machine à bout de bras, j'ai redémarré sous Linux et là,
+         la connexion Internet est revenue. Puis ça a débloqué pour
+         le routeur wi-fi.
+      </p>
+      <p>
+         Dimanche, j'ai allumé ma machine sous Mac et tenté de
+         jouer à Minecraft un peu. Quelques semaines plus tôt,
+         j'avais réussi à faire fonctionner le jeu en mettant LWJGL
+         à jour vers la version 2.9. Mais ce dimanche, encore, le
+         jeu boguait. Maintenant, l'affichage est à l'envers et il
+         n'y a AUCUNE solution! J'ai cherché en vain sur les forums
+         et sur Google, je suis apparemment le seul aux prises avec
+         ce problème, peut-être le seul tentant de jouer sous Mac
+         OS X. J'ai tenté ma chance avec Java 6 au lieu de Java 7,
+         en vain encore une fois. J'ai fini par envoyer un ticket
+         de support technique aux gens de Feed The Beast, mais
+         plusieurs jours plus tard, tout ce qu'ils avaient comme
+         solution était de réinstaller le jeu encore, ce que
+         j'avais déjà fait.
+      </p>
+      <p>
+         Pour essayer de régler le problème de taille de caractères
+         lors de l'envoi de courriel, j'ai tenté d'installer
+         Thunderbird au lieu d'employer Mail de Apple. Eh bien
+         Thunderbird ne m'offrit aucune solution: IMPOSSIBLE de
+         grossir les caractères. CTRL-+, utilisé sous Windows et
+         Linux, ne faisait rien. Commande-+ faisait comme un Tab!
+         Fou furieux, vraiment à bout, constatant qu'absolument
+         AUCUN, mais AUCUN programme n'offrait de moyen de grossir
+         les caractères, j'ai fini par baisser la réolution de
+         l'écran. Rendu à ce point, j'étais profondément découragé,
+         autant sinon plus encore qu'après une longue journée de
+         travail ponctuée de dizaines de problèmes différents sans
+         solution correcte!
+      </p>
+      <p>
+         Mais à bien y penser, Mac est un système d'exploitation
+         parmi tant d'autres. Il y a plein de systèmes comme ça qui
+         sont utilisés par une minorité de gens et qui ne
+         fonctionnent que sur certaines machines, que pour des
+         usages très spécifiques, genre FreeBSD, Solaris, OS/2 et
+         toutes sortes de variantes de Linux comme Gentoo, Arch,
+         Slackware, etc. Vais-je faire une crise existentielle pour
+         chacun d'eux, parce que je ne peux pas les dompter?
+         Ouin... L'objectif Mac est atteint, maintenant. L'idée
+         était de savoir si ça valait la peine d'acheter un Mac et
+         si je pouvais travailler sur Mac OS X. La réponse à la
+         première question est Non, puisque je ne peux pas expoiter
+         Mac OS X à fond. La réponse à la deuxième question est
+         Oui, mais à condition de baisser la résolution ou de
+         travailler pas mal juste avec le terminal, Emacs et
+         Chrome.
+      </p>
+      <p>
+         Il me fallut plusieurs semaines pour me décider, mais
+         samedi, 13 juillet 2013, j'ai entamé le début de mes
+         vacances par la salvatrice suppression de Mac OS X de mon
+         ordinateur. Voilà qui faisait une source de stress de
+         moins! J'ai constaté avec le temps que ce système était en
+         train de devenir un vrai catalyseur de burn out et une
+         gangrène pour ma machine que j'allais finir, dans un coup
+         de folie, par lancer à bout de bras du haut de mon balcon!
+         Une copie de sauvegarde de mon installation faite avec
+         CloneZilla dort sur un disque dur externe en cas de
+         nostalgie, mais pour le moment, c'est sans regret.
+      </p>
+      <h1>
+         <a id="realmac" name="realmac">Est-ce que ça aurait été
+         mieux avec un vrai Mac?</a>
+      </h1>
+      <p>
+         Oui et non. Le vrai Mac, séparé de mon PC, m'aurait permis
+         de simplifier certaines choses. J'aurais pu accéder à mes
+         données par réseau, donc pas de problèmes avec le NTFS, et
+         je n'aurais pas eu autant de misère à obtenir et
+         configurer Mac OS X!
+      </p>
+      <p>
+         D'un autre côté, avec un PC rapide prêt à me dépanner à
+         tout moment, j'aurais été porté à transférer toute tâche
+         posant des difficultés sous Mac vers Windows ou Linux. Je
+         n'aurais peut-être pas été assez patient pour chercher un
+         moyen d'accomplir la tâche difficile sous Mac OS X. Le
+         fait qu'un redémarrage soit nécessaire pour me dépanner
+         avec Windows ou Linux m'a obligé à rechercher des moyens
+         d'accomplir la tâche sous Mac. L'objectif, après tout,
+         n'était-il pas d'explorer la plate-forme Mac?
+      </p>
+      <p>
+         Alors peut-on affirmer que le Hackintosh m'a permis
+         d'explorer Mac davantage qu'un vrai Mac? Oui et non,
+         encore une fois! Le Hackintosh m'a empêché d'avoir, sous
+         la main, un système Windows ou Linux en parallèle avec le
+         Mac, me forçant à trouver des moyens de me débrouiller
+         sous Mac. Mais avec un vrai Mac, j'aurais bénéficié de
+         l'aide des Genius de l'Apple Store qui m'auraient
+         possiblement orienté vers les bonnes façons de faire.
+      </p>
+      <p>
+         Est-ce que tout cela valait la peine? C'est à se demander.
+         Je me pose la question encore.
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

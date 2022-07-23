@@ -1,0 +1,980 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         Configuration d'une carte graphique ATI sous Linux
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css"
+      href="../../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../../index.xhtml" class="parents">Le
+               royaume de Eric Buist</a> &gt;&gt; <a
+               href="../index.xhtml"
+               class="parents">Informatique</a> &gt;&gt;
+               Quelques-unes de mes recherches personnelles
+               &gt;&gt; <a href="index.xhtml" class="parents">Trucs
+               et astuces</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../../sitemap.xhtml" class="sitemap">Plan
+               du site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="qtwin.xhtml"
+               class="leftsibling">Qt sous Windows</a>
+            </td>
+            <td class="thispage">
+               Configuration d'une carte graphique ATI sous Linux
+            </td>
+            <td class="rightsibling">
+               <a href="mdkdvd.xhtml" class="rightsibling">Comment
+               graver Mandrake 10 sur un DVD</a> &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         Configuration d'une carte graphique ATI sous Linux
+      </h1>
+      <p>
+         Si vous êtes possesseur d'une carte graphique de marque
+         ATI et que vous installez Linux, croyez-moi: vous
+         remettrez un jour ou l'autre en question votre achat!
+         Lorsque l'installation sera terminée, vous obtiendrez une
+         interface graphique X Window System dans la résolution de
+         votre choix, avec une profondeur de couleurs de 16 ou 24
+         bits. Tout utilisateur non initié concluera avec
+         satisfaction que sa carte graphique fonctionne très bien.
+         Cela a été mon cas pour moi aussi!
+      </p>
+      <p>
+         Un bon jour, toutefois, vous tenterez d'utiliser une
+         application 3D, telle que des écrans de veille de
+         XScreenSaver, et vous constaterez peut-être que certains
+         écrans de veille ne fonctionnent pas, d'autres sont très
+         lents, même sur une machine moderne. Vous essaierez
+         peut-être le gestionnaire de fenêtres Compiz Fusion et
+         constaterez qu'il refuse de démarrer, faute d'accélération
+         3D Quant à la petite quantité de jeux 3D disponibles sous
+         Linux, il faudra l'oublier elle aussi. Plus encore, si
+         vous disposez d'une carte de la famille All-In-Wonder avec
+         synthoniseur TV, vous ne pourrez probablement pas regarder
+         la télévision sous Linux, encore moins réaliser des
+         captures d'images fixes ou de vidéo. Tous ces problèmes
+         sont dus au fait que les cartes graphiques ATI ne sont pas
+         bien supportées, en standard, sous Linux. Comme nous le
+         verrons, la situation s'améliore graduellement, mais il
+         reste encore du chemin à faire!
+      </p>
+      <p>
+         Nous nous pencherons davantage sur les cartes ATI à puce
+         Rage128 (Rage128, Rage128 Pro, All-In-Wonder 128,
+         All-In-Wonder 128 Pro, ...) et Radeon. Nous étudierons le
+         cas du DRI, le support de la fonction TV et finalement la
+         capture d'images fixes et animées.
+      </p>
+      <ul>
+         <li>
+            <a href="#dri">Direct Rendering Interface (DRI)</a>
+         </li>
+         <li>
+            <a href="#tv">Utilisation de la fonction TV</a>
+         </li>
+         <li>
+            <a href="#capture">La capture vidéo</a>
+         </li>
+         <li>
+            <a href="#radeon">Radeon200 et Radeon300</a>
+         </li>
+         <li>
+            <a href="#rh9">Le cas de RedHat Linux 9</a>
+         </li>
+         <li>
+            <a href="#k26">Le cas du kernel 2.6</a>
+         </li>
+         <li>
+            <a href="#conc">Conclusion</a>
+         </li>
+      </ul>
+      <h2>
+         <a name="dri" id="dri">Direct Rendering Interface
+         (DRI)</a>
+      </h2>
+      <p>
+         Introduit avec XFree86 4.0, la technologie DRI offre un
+         accès plus direct au matériel afin de permettre des
+         performances accrues pour les jeux et les applications
+         multimédia. DRI permet entre autres une meilleure
+         performance des applications 3D ainsi que l'utilisation de
+         la bibliothèque Simple DirectMedia Layer (<a
+         href="http://www.libsdl.org">SDL</a>) pour les jeux sous
+         Linux. La technologie DRI comporte deux palliers
+         principaux: un pilote DRM au niveau du noyau et un pilote
+         DRI au niveau de l'environnement graphique. Un pilote DRM
+         (Direct Rendering Module) se trouve chargé dans le noyau
+         au démarrage du système ou du serveur X et y demeure tout
+         au long du fonctionnement de l'ordinateur. Ce pilote
+         fournit des fonctions d'accès au matériel à un module DRI
+         qui, lui, se trouve chargé dans le serveur X. Le module
+         DRI tourne tant que le serveur X tourne. Pour savoir si
+         votre système utilise bien DRI, démarrez <tt>glxinfo |
+         grep "direct rendering"</tt> sur un terminal X (XTerm,
+         Konsole, ...). Si la commande affiche <tt>direct
+         rendering: yes</tt>, c'est que DRI est activé!
+      </p>
+      <p>
+         Pour être utilisé, DRI doit d'abord être activé. Cette
+         activation s'effectue en modifiant le fichier de
+         configuration de XFree86 qui se nomme
+         <tt>/etc/X11/XF86Config-4</tt> ou
+         <tt>/etc/X11/XF86Config</tt> selon les distributions
+         Linux. Avec X.Org, le fichier devient
+         <tt>/etc/X11/xorg.conf</tt>. Il est recommandé d'effectuer
+         une copie de sauvegarde de ce fichier avant toute
+         modification, car une erreur pourrait empêcher votre
+         serveur X (et donc l'interface graphique) de démarrer. Ce
+         fichier se subdivise en sections de la forme
+      </p>
+<pre>
+Section "nom"
+...
+EndSection
+</pre>
+      <p>
+         Les points de suspension représentent un contenu
+         quelconque mais valide selon le format du fichier; le type
+         de contenu requis varie selon le type de section. La
+         section <b>Module</b> indique l'ensemble des modules
+         d'extension à charger. Les modules <tt>dri</tt> et
+         <tt>glx</tt> doivent être chargés pour pouvoir utiliser
+         DRI. La section devrait présenter le profil suivant:
+      </p>
+<pre>
+Section "Module"
+...
+   Load "glx"
+   Load "dri"
+...
+EndSection
+</pre>
+      <p>
+         La section <b>DRI</b>, quant à elle, fixe les permissions
+         d'utilisation de DRI; elle est indispensable pour
+         permettre aux utilisateurs de faire usage de DRI.
+         Habituellement, elle présente le contenu suivant.
+      </p>
+<pre>
+Section "DRI"
+   Group 0
+   Mode 0666
+EndSection
+</pre>
+      <p>
+         Il est également possible de limiter l'utilisation de DRI
+         à certains utilisateurs seulement; voir la documentation
+         de X.Org ou de XFree86 à cet effet. Si vous modifiez le
+         fichier de configuration de X, vous devrez redémarrer le
+         serveur X pour qu'il tienne compte des changements. Pour
+         redémarrer le serveur, fermez votre session afin de
+         retourner à l'écran de branchement. Si aucun bouton ne
+         permet de redémarrer le serveur depuis cet écran, appuyez
+         alors sur CTRL-ALT-Backspace.
+      </p>
+      <p>
+         Si DRI n'est pas supporté sur votre ATI, mettez <a
+         href="http://www.xfree86.org">XFree86</a> à jour afin
+         d'utiliser la version 4.2 ou ultérieure ou, mieux encore,
+         passez à <a href="http://www.x.org">X.Org</a>. Cette
+         dernière comporte déjà, en standard, un module DRI pour la
+         carte graphique ATI Rage 128 et Radeon. Ces pilotes
+         prennent en charge l'accélération 3D.
+      </p>
+      <p>
+         Malheureusement, si vous possédez une carte récente, vous
+         devrez installer un pilote provenant du site <a
+         href="http://www.atitech.com">ATI</a> pour obtenir le
+         support du 3D. Avec certaines distributions de Linux, ce
+         pilote peut être installé plus facilement qu'en utilisant
+         le programme mis au point par ATI. Par exemple, avec
+         Fedora Core, il faudra installer un paquet depuis Livna.
+         Avec Ubuntu, un paquet est offert en standard. Quant à
+         Mandriva, il faut opter pour la version MandrivaOne ou
+         être abonné au MandrivaClub pour obtenir un pilote facile
+         à installer.
+      </p>
+      <h2>
+         <a name="tv" id="tv">Utilisation de la fonction TV</a>
+      </h2>
+      <p>
+         Si vous disposez d'une carte ATI All-In-Wonder ou d'une
+         carte ATI Rage 128 ou Radeon munie d'une extension TV,
+         vous pouvez brancher un câble coaxial afin de lui fournir
+         un signal TV. Malheureusement, la carte ne supporte qu'un
+         signal analogique; elle ne peut réaliser le décodage dans
+         le cas de la télévision numérique par câble ou par
+         satellite. Toutefois, il est possible de raccorder un
+         récepteur ou décodeur externe à votre carte graphique en
+         utilisant les entrées composite ou S-Video. Sous Windows,
+         vous utiliserez ATI Multimedia Center pour visionner des
+         émissions sur votre écran d'ordinateur, mais qu'en est-il
+         de Linux? Il vous faut tout d'abord l'application <a
+         href="http://bytesex.org/xawtv/">XawTV</a> qui constitue
+         un lecteur TV pour X. Bien que ce programme manque un peu
+         de convivialité en raison de son interface graphique
+         parfois récalcitrante, il était le seul que je connaisse
+         capable de remplir les fonctions voulues.
+      </p>
+      <p>
+         Malheureusement, XawTV ne peut travailler seul; il a
+         besoin d'un autre élément, un pilote permettant
+         d'interagir avec la carte graphique ATI. XawTV peut
+         utiliser un pilote Video4linux 1 ou 2, mais il n'en existe
+         aucun suffisamment au point pour bien fonctionner.
+         Heureusement, XawTV supporte aussi l'extension X XVidéo
+         qui permet de projeter une image animée à l'écran sans
+         malheureusement autoriser la capture.
+      </p>
+      <p>
+         Le pilote XVideo n'est pas toujours intégré avec X. Sous
+         RedHat 7.3, il ne l'était pas, mais on le trouve en
+         standard avec Mandrake 9. Pour savoir si le pilote est là,
+         démarrez XawTV. Mais depuis Mandrake 10, tout a cessé de
+         fonctionner. Un écran de bienvenue s'affiche.
+      </p>
+      <p>
+         <img src="xawtvwelc.png"
+         alt="Écran de bienvenue de XawTV" />
+      </p>
+      <p>
+         Si vous n'avez reçu aucun message d'erreur, c'est déjà bon
+         signe, même si votre télévision virtuelle semble ne pas
+         bien fonctionner pour le moment. Validez par <b>Ok</b>
+         puis cliquez droit dans la fenêtre TV pour afficher le
+         panneau de réglages. Réglez l'option <b>TV norm</b> sur
+         <b>NTSC</b>, <b>Video source</b> sur <b>tuner</b> puis
+         <b>Frequency table</b> sur <b>us-cable</b>. Cliquez
+         ensuite dans la fenêtre de la TV et appuyez sur la flèche
+         Haut afin de syntoniser le prochain canal. Comme vous
+         pouvez vous en rendre compte, le changement de canal est
+         plutôt lent; vous devrez utiliser les signets pour
+         compenser ou vous armer de patience. Dans le cas d'un
+         récepteur/décodeur numérique, vous devrez régler la source
+         sur <b>composite</b> ou <b>svideo</b> selon le
+         raccordement effectué. Le changement de chaîne
+         s'effectuera alors uniquement à l'aide du terminal et non
+         de XawTV.
+      </p>
+      <p>
+         Si vous obtenez une image, vous pouvez alors régler son
+         contraste, sa brillance ainsi que le volume sonore.
+         Cliquez sur <b>Chanel Editor</b>, associez un nom au canal
+         courant en remplissant le champ <b>Station ID</b>, puis
+         cliquez sur <b>Add</b>. Le canal ainsi ajouté à vos
+         favoris pourra être accédé par le menu surgissant lors
+         d'un clic gauche sur la fenêtre de XawTV. Appuyez sur
+         <b>Save</b> pour sauvegarder la liste et les réglages.
+         Finalement, appuyez sur <b>Close</b>.
+      </p>
+      <p>
+         Si vous n'avez pu démarrer XawTV ou si aucune image
+         n'apparaît après syntonisation d'un canal que vous savez
+         accessible depuis votre antenne ou votre
+         cablodistributeur, vous devrez installer les pilotes
+         XFree86 du projet <a
+         href="http://gatos.sourceforge.net">GATOS</a>.
+         Malheureusement, ces pilotes ne semblent plus actuels si
+         bien qu'il se peut que l'utilisation de votre synthoniseur
+         TV ATI soit vouée à l'échec.
+      </p>
+      <p>
+         Avant d'installer quoi que ce soit, sauvegardez les
+         fichiers suivants sur votre disque, s'ils sont disponibles
+      </p>
+      <table border="1">
+         <tr>
+            <td>
+               Dans <tt>/usr/X11R6/lib/modules/drivers</tt>
+            </td>
+            <td>
+               <ul>
+                  <li>
+                     <tt>r128_drv.o</tt>
+                  </li>
+                  <li>
+                     <tt>radeon_drv.o</tt>
+                  </li>
+                  <li>
+                     <tt>ati_drv.o</tt>
+                  </li>
+                  <li>
+                     <tt>atimisc_drv.o</tt>
+                  </li>
+               </ul>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               Dans <tt>/usr/X11R6/lib/modules/multimedia</tt>
+            </td>
+            <td>
+               <ul>
+                  <li>
+                     <tt>bt829_drv.o</tt>
+                  </li>
+                  <li>
+                     <tt>fi1236_drv.o</tt>
+                  </li>
+                  <li>
+                     <tt>msp3430_drv.o</tt>
+                  </li>
+                  <li>
+                     <tt>tda8425_drv.o</tt>
+                  </li>
+                  <li>
+                     <tt>tda9850_drv.o</tt>
+                  </li>
+                  <li>
+                     <tt>theatre_drv.o</tt>
+                  </li>
+                  <li>
+                     <tt>tda9885_drv.o</tt>
+                  </li>
+                  <li>
+                     <tt>saa7114_drv.o</tt>
+                  </li>
+               </ul>
+            </td>
+         </tr>
+         <tr>
+            <td>
+               Dans <tt>/lib/modules/`uname
+               -r`/kernel/drivers/char/drm</tt>
+            </td>
+            <td>
+               <ul>
+                  <li>
+                     <tt>mga.o</tt>
+                  </li>
+                  <li>
+                     <tt>r128.o</tt>
+                  </li>
+                  <li>
+                     <tt>radeon.o</tt>
+                  </li>
+               </ul>
+            </td>
+         </tr>
+      </table>
+      <p>
+         Tous ces fichiers seront modifiés par la mise à jour qui
+         pourrait, en prime, rendre votre système instable, alors
+         il vaut mieux effectuer des sauvegardes! Sur le site du
+         projet GATOS, vous devrez télécharger le module ATI.2 pour
+         le pilote DRI et drm-kernel pour le module de noyau DRM.
+         Il y a un pilote différent pour chaque version de XFree86
+         4 et un module DRM correspondant à chacune des versions de
+         ATI.2. Choisissez le ATI.2/drm-kernel le plus récent, à
+         moins que celui-ci ne fonctionne pas. Vous devrez
+         également vous assurer que les sources de votre noyau sont
+         installées sur votre machine.
+      </p>
+      <p>
+         Décompressez l'archive du module DRM, qui porte un nom
+         similaire à <tt>drm-kernel-1.2.0-15.tar.gz</tt>. Tapez les
+         commandes suivantes, en adaptant bien entendu le nom du
+         fichier d'archive.
+      </p>
+<pre>
+tar -zxvf drm-kernel-1.2.0-15.tar.gz
+cd drm-kernel
+make -f Makefile.linux
+</pre>
+      <p>
+         Si vous utilisez Mandrake 9, vous devrez compresser les
+         différents modules avant de les installer. Pour ce faire,
+         utilisez la commande <tt>gzip *.o</tt>. Passez en root,
+         c'est là que cela commence à devenir dangereux... Copiez
+         ensuite tous les fichiers <tt>.o</tt> ou <tt>.o.gz</tt>
+         dans le répertoire <tt>/lib/modules/`uname
+         -r`/kernel/drivers/char/drm</tt>. La mise à jour des
+         modules de noyau est terminée! Vous pouvez à présent
+         supprimer le répertoire <tt>drm-kernel</tt> qui n'est plus
+         nécessaire.
+      </p>
+      <p>
+         Tapez maintenant les commandes suivantes, en adaptant le
+         chemin et le nom du fichier d'archive ATI.2.
+      </p>
+<pre>
+cd /usr
+tar -zxvf ~/ATI-4.2.0-15.i386.tar.gz
+</pre>
+      <p>
+         Il vous faut à présent activer ces nouveaux réglages. Ce
+         qui implique la modification du fichier de configuration
+         de XFree86, qui se nomme soit
+         <tt>/etc/X11/XF86Config-4</tt> ou
+         <tt>/etc/X11/XF86Config</tt>. Ce fichier se subdivise en
+         sections dont chacune traite d'éléments distincts.
+         Assurez-vous que, dans la section <b>Device</b>, le Driver
+         <b>r128</b> ou <b>radeon</b>, selon le cas, est utilisé
+         pour la carte graphique.
+      </p>
+      <p>
+         Vous devez à présent réinitialiser le DRM et le serveur X
+         afin que les nouveaux pilotes soient utilisés. Bien qu'un
+         redémarrage complet fasse le travail, je n'aime pas les
+         reboots et j'ai voulu faire mieux. Quittez votre session X
+         si une telle session est ouverte puis accédez à une
+         console avec CTRL-ALT-F1. Connectez-vous en root et tapez
+         la commande <tt>/sbin/init 3</tt>, ce qui passe au niveau
+         d'exécution 3 et désactive l'interface graphique.
+         Déchargez alors le module DRM ancien par <tt>/sbin/rmmod
+         r128</tt> ou <tt>/sbin/rmmod radeon</tt> puis installez le
+         nouveau avec <tt>/sbin/insmod r128</tt> ou <tt>/sin/insmod
+         radeon</tt>, selon votre carte graphique. Repassez ensuite
+         au niveau d'exécution 5 avec <tt>/sbin/init 5</tt>,
+         appuyez sur ALT-F7 si l'écran de branchement en mode
+         graphique ne surgit pas puis reconnectez-vous. Testez la
+         présence du DRI et le fonctionnement de la TV.
+      </p>
+      <p>
+         Dans le cas des cartes à puce Radeon200, comme la
+         All-In-Wonder Radeon 8500DV, le pilote GATOS supporte la
+         fonction TV mais non le DRI. Dans le cas des cartes à puce
+         Radeon300, comme la All-In-Wonder 9700, la fonction TV
+         n'est pas supportée du tout.
+      </p>
+      <p>
+         Un autre problème se présente avec XFree86 4.3 dans le cas
+         des cartes All-In-Wonder 128 et All-In-Wonder 128 Pro.
+         L'image TV s'affiche, mais elle est partielle et d'autres
+         problèmes, telles que des barres indésirables, se
+         manifestent. Pour solutionner ce problème, utilisez le
+         pilote DRM GATOS pour XFree86 4.3 (Experimental 10 à
+         l'heure de mes tests) et le ATI.2 pour XFree86 4.2
+         (Experimental 16 lors de mes tests). Bien que ces deux
+         éléments ne sont pas de la même version, le couplage
+         semble fonctionner correctement et le DRI fonctionne
+         également.
+      </p>
+      <h2>
+         <a name="capture" id="capture">La capture vidéo</a>
+      </h2>
+      <p>
+         L'extension XVideo permet certes d'afficher l'image
+         provenant du câble TV, d'un décodeur/récepteur, d'un
+         magnétoscope, d'un caméscope ou autre, mais enregistrer
+         cette image ou une séquence de ces images sur disque
+         constitue une toute autre histoire. Pour réaliser une
+         capture, il vous faut un module Video4linux pour les
+         cartes ATI et ce module n'est disponible qu'en version de
+         développement. Pire encore, il n'est pas encore au point
+         et ne fonctionne qu'avec une seule application, AVview,
+         qui nécessite une librairie de compression nommée ffmpeg
+         pour la capture vidéo et <a
+         href="http://www.alsa-project.org">ALSA</a> pour la
+         capture audio. ALSA est installé par défaut sur certaines
+         distributions de Linux telles que Mandrake 9 mais pas sur
+         d'autres comme RedHat 9. Sans ALSA, la capture du son
+         n'est pas possible avec AVview et donc, pour l'instant,
+         avec une carte ATI! Il est possible d'enregistrer la bande
+         sonore séparément, en utilisant un outil d'enregistrement
+         comme yarec, mais des problèmes de synchronisation entre
+         son et image apparaîtront à coup sûr!
+      </p>
+      <p>
+         Si vous utilisez KDE 2 ou supérieur et ALSA, assurez-vous
+         d'inhiber le mode full-duplex dans le Centre de
+         Configuration de KDE, section <b>Son</b>, sous-section
+         <b>Serveur de son</b>, onglet <b>Entrées/sorties
+         sonores</b>. Indiquez <b>Advanced Linux Sound
+         Architecture</b> comme méthode d'entrées/sorties. Si vous
+         n'effectuez pas ces réglages, aRts risque d'allouer le
+         périphérique d'enregistrement qui, sur certaines cartes
+         modernes comme la Sound Blaster Live!, ne peut être
+         utilisé par plusieurs processus simultanément. Pour qu'il
+         en soit ainsi, il faudrait que la carte son soit dotée de
+         plusieurs processeurs ADC ou d'une puce ADC à canaux
+         multiples.
+      </p>
+      <p>
+         Vient ensuite le moment de télécharger, sur le site du <a
+         href="http://gatos.sourceforge.net">projet GATOS</a>, le
+         module km. Tapez ensuite les commandes suivantes.
+      </p>
+<pre>
+tar -zxvf km-0.2.1.tgz
+cd km
+make
+</pre>
+      <p>
+         Passez en root et tapez
+      </p>
+<pre>
+make install
+cd ..
+rm -rf km
+/sbin/insmod videodev
+/sbin/insmod km_api
+/sbin/insmod km_drv
+</pre>
+      <p>
+         Si vous n'avez reçu aucun message d'erreur, le pilote se
+         trouve en mémoire. Si le fichier <tt>/dev/video0</tt> n'a
+         pas été créé, créez-le avec les commandes suivantes.
+      </p>
+<pre>
+mknod /dev/video0 c 81 0
+chmod 666 /dev/video0
+</pre>
+      <p>
+         Afin de pouvoir réaliser la capture proprement dite, vous
+         devez installer ffmpeg et AVview du projet GATOS. Utilisez
+         la version 0.10.8 qui ne fait pas appel à Tcl/Tk 8.4,
+         encore en stade de développement. Téléchargez également la
+         version de ffmpeg correspondant à celle d'AVview, pas une
+         plus récente. L'installation consiste encore une fois en
+         une suite de commandes. Toutefois, assurez-vous que les
+         packages de développement d'ALSA sont bien installés, car
+         vous en aurez besoin. Par exemple, sous Mandrake 9, il
+         vous faudra libalsa2-devel.
+      </p>
+<pre>
+cd
+tar -zxvf ffmpeg-snapshot-avview-0.10.8.tar.gz
+cd ffmpeg
+./configure
+make
+make install (en root)
+cd ..
+tar -zxvf avview-0.10.8.tar.gz
+cd avview-0.10.8
+./configure --with-ffmpeg=$HOME/ffmpeg
+make
+make install (en root)
+</pre>
+      <p>
+         Si toute l'installation s'est bien passée, vous pouvez
+         alors supprimer les répertoires <tt>avview-0.10.8</tt> et
+         <tt>ffmpeg</tt> créés par <tt>tar</tt>. Tapez
+         <tt>start_avview</tt> pour activer le logiciel AVview.
+         Bien que ce logiciel soit pire au niveau interface
+         graphique que XawTV en raison de ses menus qui ont
+         tendance à se refermer trop vite, la syntonisation est
+         nettement plus rapide et la capture fonctionne avec le
+         pilote Video4linux ATI plutôt primitif pour le moment. Au
+         premier démarrage, un panneau de configuration s'affiche.
+      </p>
+      <p>
+         <img src="avviewsetup.png"
+         alt="Configuration de AVview" />
+      </p>
+      <p>
+         Utilisez cette fenêtre pour configurer les paramètres
+         vidéo (élément <b>Video device parameters</b>). Indiquez
+         d'utiliser l'encodage NTSC, et la diffusion us-cable. Sous
+         la section <b>User interface settings</b>, cochez
+         <b>Display setup window on startup</b>, <b>Display
+         capture(V4L) subsection</b> et <b>Display mixer(ALSA)
+         subsection</b>. Dans la section <b>Compression
+         parameters</b>, ajustez les paramètres de qualité vidéo et
+         audio. Dans le champ <b>File format</b>, spécifiez MPEG.
+      </p>
+      <p>
+         Fermez la fenêtre de configuration; les réglages seront
+         sauvegardés aussitôt. Si le panneau de contrôle ne s'est
+         pas affiché, cliquez droit dans la fenêtre de TV et
+         sélectionnez <b>Show control window</b> du sous-menu
+         <b>User interface</b> dans le menu qui surgit lors d'un
+         clic droit. Vous devrez maintenir le bouton de la souris
+         enfoncé tout au long de la sélection.
+      </p>
+      <p>
+         Cliquez droit sur la fenêtre de TV, pointez sur le menu
+         <b>Channel</b> et pointez sur une chaîne. AVview
+         syntonisera alors la chaîne sélectionnée, mais il se peut
+         que vous n'ayiez pas de son. Utilisez alors le AV Control
+         pour augmenter le volume dans la section Attributes. Vous
+         pouvez également configurer les autres attributs
+         d'ajustement de l'affichage TV. Sauvegardez les réglages
+         en cliquant sur <b>perform now</b> à côté de <b>Set
+         defaults</b>.
+      </p>
+      <p>
+         <img src="avviewctrl.png" alt="AV Control" />
+      </p>
+      <p>
+         Le panneau de contrôle permet d'effectuer la capture
+         proprement dite. Si ALSA, Video4linux et le pilote km sont
+         bien en place, les trois panneaux devraient apparaître
+         comme sur la figure précédente. Cliquez sur le bouton à
+         droite de <b>ALSA Audio device</b> et sélectionnez votre
+         carte son. La table de mixage apparaît alors. Localisez un
+         réglage ayant trait à la source de capture et affectez-lui
+         la source sur laquelle votre carte ATI émet des signaux
+         audio. Cette source dépend du branchement de votre carte
+         graphique à votre carte son. Si vous devez brancher le
+         câble de sortie fourni avec la carte dans l'entrée line-in
+         de votre carte son, la source sera Line. Si la connexion
+         est interne, la source sera CD, Aux ou peut-être autre!
+         Elle peut être déterminé par élimination si nécessaire.
+         Pour ce faire, rendez une source muette en cliquant sur la
+         case à cocher correspondante das le mixer. Si le son de la
+         télévision cesse et que vous n'avez pas rendu Master
+         muette, vous avez localisé votre source de capture sonore!
+      </p>
+      <p>
+         Passons à présent à la section V4L. Sous <b>V4L
+         device</b>, sélectionnez <b>/dev/video0</b>. Sous
+         <b>Recording mode</b>, indiquez <b>deinterlace-bob</b>. À
+         droite de <b>Save to file</b>, cliquez sur <b>Change</b>
+         et indiquez un nom de fichier qui sera créé; attribuez-lui
+         l'extension <tt>.mpg</tt>. Laissez les autres réglages
+         tels quels.
+      </p>
+      <p>
+         Cliquez sur <b>Snapshot</b> afin de tester si la capture
+         d'image fixe fonctionne. Si tel est le cas, cliquez sur
+         <b>Record</b>! Les indicateurs <b>Audio levels</b> et
+         <b>Luminosity histogram</b> devraient afficher quelque
+         chose lors de l'enregistrement. Lorsque vous avez fini la
+         capture, cliquez de nouveau sur <b>Record</b> puis
+         utilisez un lecteur MPEG (Xine par exemple) pour tester le
+         fichier MPEG résultant.
+      </p>
+      <p>
+         Quant à la fonction magnétoscope programmable, oubliez-la
+         pour le moment; elle n'est pas implantée! Comme vous
+         pourrez le constater, si tout va bien, l'image capturée
+         sera d'une bonne qualité, en fonction bien entendu du
+         signal fourni en entrée. Si tout a fonctionné, vous pouvez
+         inclure le chargement des modules Video4linux dans vos
+         scripts d'initialisation. Visitez régulièrement le site du
+         projet GATOS, car la situation pourrait évoluer pour ce
+         qui est de la capture vidéo.
+      </p>
+      <h2>
+         <a name="radeon" id="radeon">Radeon200 et Radeon300</a>
+      </h2>
+      <p>
+         Avec XFree86 4.3, la 3D est bien supportée avec les cartes
+         à puce Radeon200. Il suffit d'activer le mode DRI pour
+         pouvoir en bénéficier.
+      </p>
+      <p>
+         Avec XFree86 4.2 ou 4.1, ou avec une carte à puce
+         Radeon300, une autre solution doit être employée. À partir
+         de la Radeon 8500, ATI semble avoir modifié les API 3D, ce
+         qui cause des problèmes avec les pilotes DRI inclus avec
+         XFree86 4.2.1. Les fonction TV et la capture se trouvent
+         elles aussi affectées. Heureusement, ATI fournit un
+         support partiel pour ces cartes, ce qui se limite
+         malheureusement strictement au DRI. Vous devrez
+         télécharger le pilote sur le site d'<a
+         href="http://www.atitech.com">ATI</a> qui se présente
+         comme un fichier RPM portant un nom semblable à
+         <tt>fglrx-glc22-4.2.0-2.5.1.i586.rpm</tt>. Toutefois, ce
+         package ne fonctionne pas bien avec les distributions
+         récentes de RedHat 7.3 et Mandrake 9!
+      </p>
+      <p>
+         Avant d'effectuer l'installation, n'oubliez pas de
+         sauvegarder le fichier <tt>/etc/X11/XF86Config-4</tt>. En
+         cas de problème de démarrage de X après l'installation,
+         restaurez ce fichier et cela pourrait vous épargner la
+         réinstallation de votre distribution Linux!
+      </p>
+      <p>
+         Normalement, pour installer le pilote, en root, vous
+         taperiez <tt>rpm -Uvh
+         fglrx-glc22-4.2.0-2.5.1.i586.rpm</tt> et tout se passerait
+         bien. Dans certains cas, il n'en sera rien. Avec RedHat
+         8.0, par exemple, vous obtiendrez un conflit avec libGL
+         (voir les Release notes du pilote). Avec Mandrake 9, on
+         vous demandera d'installer Qt 2! Pour lever les conflits
+         de fichiers, utilisez <tt>rpm -Uvh --force
+         fglrx-glc22-4.2.0-2.5.1.i586.rpm</tt>. Si RPM vous indique
+         que d'autres packages sont nécessaires pour installer le
+         RPM d'ATI, installez-les. Dans le cas de Qt 2, il existe
+         une meilleure solution. Si Qt2 est le seul package
+         manquant, ajoutez l'option <tt>--nodeps</tt> après
+         l'option <tt>--force</tt>.
+      </p>
+      <p>
+         Prenez bien connaissance des messages affichés par la
+         commande RPM, car le script de post-installation contenu
+         dans le RPM d'ATI vous indiquera les étapes à suivre pour
+         bien terminer l'installation. Comme l'indiquent les
+         Release Notes du pilote, démarrez <tt>fglrxconfig</tt>
+         aprè l'installation afin de configurer le pilote. Avec un
+         peu de chance, un des modules de noyau intégrés avec le
+         pilote fonctionnera avec votre noyau. Dans le cas
+         contraire, vous devrez en construire un nouveau.
+         Référez-vous pour cela aux Release Notes du pilote ATI.
+      </p>
+      <p>
+         Lorsque tout est terminé, redémarrez X. Utilisez
+         <tt>fglrxinfo</tt> afin de savoir si votre carte est bien
+         gérée. Si vous utilisez KDE, dans le menu K, un nouvel
+         élément comportant l'icône ATI sera installé. Ce <b>ATI
+         Control</b> permet d'effectuer des réglages divers.
+         Toutefois, si vous utilisez KDE 3 qui fait appel à Qt 3,
+         vous ne pourrez accéder au panneau de configuration! Outre
+         compiler et installer Qt 2 en plus de Qt 3, ce qui
+         constitue une perte de temps et d'espace disque, vous
+         pouvez recompiler le panneau.
+      </p>
+      <p>
+         Assurez-vous tout d'abord que les packages de
+         développement de Qt 3 (par exemple libqt3-devel sous
+         Mandrake 9) et de libMesaGLU (libMesaGLU1-devel sous
+         Mandrake 9) sont bien installés avant d'entreprendre la
+         compilation. Tapez les commandes suivantes, possiblement
+         en tant qu'usager normal.
+      </p>
+<pre>
+mkdir ~/panel
+cd ~/panel
+tar -zxvf /usr/src/fglrx_panel_sources.tar.gz
+export QTDIR=/usr/lib/qt3
+export PATH=$QTDIR/bin:$PATH
+</pre>
+      <p>
+         Les deux dernières lignes ne sont pas nécessairement
+         obligatoires pour toutes les distributions et peuvent
+         varier. Elles fonctionnent sous Mandrake 9, mais il n'en
+         est peut-être rien pour les autres distributions. Sous
+         RedHat 9, il faudra utiliser <tt>/usr/lib/qt-3.1</tt>. La
+         variable QTDIR indique au Makefile que nous allons appeler
+         sous peu où trouver la librairie Qt 3. Quant à la variable
+         PATH, nous lui ajoutons le répertoire bin de Qt afin que
+         <tt>moc</tt> puisse être appelé depuis le shell.
+      </p>
+      <p>
+         Avec Qt 3, le nom de la librairie principale semble avoir
+         changé, ce qui implique que le Makefile du panneau de
+         contrôle est incorrect et l'édition de liens échouera.
+         Pour corriger cela, ouvrez le Makefile avec votre éditeur
+         de texte préféré et remplacez toutes les occurrences de
+         <tt>-lqt</tt> par <tt>-lqt-mt</tt>. Enfin, tapez
+         <tt>make</tt>! Avec toutes ces corrections, la compilation
+         devrait réussir et un exécutable verra le jour sous les
+         coups du forgeron! Passez en root et copiez-le à un
+         endroit accessible à tous avec une commande du genre
+         <tt>cp fireglcontrol /usr/X11R6/bin</tt>.
+      </p>
+      <p>
+         Cette technique devrait fonctionner dans le cas de la
+         Radeon300. Dans le cas de telles cartes, elle est presque
+         obligatoire, car XFree86 ne semble pas disposer en
+         standard de pilotes capables de la faire fonctionner. Si
+         vous souhaitez malgré tout utiliser une ATI à puce
+         Radeon300 sans les pilotes ATI, par exemple si ces pilotes
+         ne fonctionnent pas sur votre distribution, il existe une
+         astuce permettant d'y arriver. Dans le fichier de
+         configuration de XFree86, section <b>Device</b>, indiquez
+         <b>vesa</b> comme <b>Driver</b> au lieu de <b>r128</b> ou
+         <b>radeon</b>. L'interface graphique fonctionnera alors
+         normalement, mais vous ne pourrez pas profiter des
+         accélérations 2D ou 3D offertes par la carte graphique. En
+         général, cette solution n'est pas très intéressante et
+         relèguera Linux, sur votre machine, à un système
+         d'exploitation secondaire; seul Windows pourra utiliser
+         pleinement votre carte graphique.
+      </p>
+      <h2>
+         <a name="rh9" id="rh9">Le cas de RedHat Linux 9</a>
+      </h2>
+      <p>
+         De nouveaux problèmes surgissent avec RedHat Linux 9. Tout
+         d'abord, cette version inclut XFree86 4.3 avec laquelle le
+         module ATI.2 ne fonctionne pas bien en ce qui a trait à la
+         télévision. De plus, RedHat a ajouté au kernel 2.4.20 des
+         améliorations issues du 2.5, ce qui cause un gênant
+         problème de compatibilité lors de la compilation de
+         modules tiers. En modifiant le pilote DRM du projet Gatos,
+         je suis certes parvenu à le compiler sous le kernel
+         2.4.20-9 de RedHat, mais la fonction TV ne produisait pas
+         un effet correct et km demeure tout bonnement impossible à
+         compiler. Il existe par contre deux moyens de faire
+         fonctionner le synthoniseur TV. L'approche classique est
+         la plus fiable et la plus longue.
+      </p>
+      <ol>
+         <li>
+            Télécharger le kernel 2.4.20 original de <a
+            href="http://www.kernel.org">The Linux Kernel
+            Archives</a> et le recompiler. Ce qui supprime les
+            problèmes de compatibilité avec DRM et km.
+         </li>
+         <li>
+            Lorsque le noyau est installé, télécharger <a
+            href="http://www.alsa-project.org">ALSA</a> et
+            l'installer.
+         </li>
+         <li>
+            Télécharger XFree86 4.2 depuis <a
+            href="http://www.xfree86.org">The XFree86 Project,
+            Inc.</a>.
+         </li>
+         <li>
+            Sur une console texte en mode root, taper <tt>init
+            3</tt> pour désactiver X puis utiliser <tt>rpm -e
+            --nodeps `rpm -qa | grep ^XFree86`</tt> pour supprimer
+            XFree86 4.3.
+         </li>
+         <li>
+            Installer et configurer XFree86 4.2 et finalement
+            ATI.2!
+         </li>
+      </ol>
+      <p>
+         Il existe une autre technique moins fiable mais moins
+         fastidieuse à employer. Les manipulations à effectuer
+         ayant été déterminées empiriquement, elles ne sont pas
+         toujours logiques et pourraient entraîner une diminution
+         de stabilité du système. Malheureusement, c'est le prix à
+         payer pour ce genre de fonctionnalités sous Linux.
+      </p>
+      <ol>
+         <li>
+            Télécharger les pilotes GATOS DRM et ATI.2 pour XFree86
+            4.3. J'ai obtenu mon premier succès avec la version
+            Experimental 10. Dans le cas du DRM, le fichier
+            <tt>drmP.h</tt> devra être modifié, remplaçant la
+            partie 
+<pre>
+#if LINUX_VERSION_CODE &lt; KERNEL_VERSION(2,5,0)
+#define DRM_RPR_ARG(vma)
+#else
+#define DRM_RPR_ARG(vma) vma,
+#endif
+</pre>
+            <p>
+               par
+            </p>
+<pre>
+#define DRM_RPR_ARG(vma) vma,
+</pre>
+            <p>
+               Le module se comportera approximativement comme s'il
+               tournait toujours sous le kernel 2.5. Ensuite, DRM
+               peut être compilé normalement.
+            </p>
+         </li>
+         <li>
+            Installer DRM et ATI.2 comme avec une version
+            précédente de Linux.
+         </li>
+         <li>
+            Tester la télévision. Il se peut que cela fonctionne
+            parfaitement! Toutefois, avec les cartes ATI
+            All-In-Wonder 128 et All-In-Wonder 128 Pro, des
+            problèmes apparaissent et peuvent mystérieusement être
+            résolus en utilisant le pilote ATI.2 XFree86 4.2,
+            Experimental 16! Le module DRM correspondant ne
+            fonctionne pas avec le nouveau noyau, mais le DRM pour
+            XFree86 4.3 correspondant à la version Experimental 10
+            de ATI.2 fonctionne parfaitement. Aucun sacrifice n'est
+            à prévoir pour DRI.
+         </li>
+      </ol>
+      <p>
+         Toutefois, km ne peut actuellement être compilé sous le
+         kernel de RedHat Linux 9; la capture vidéo ne fonctionnera
+         pas, à moins d'appliquer la première méthode.
+      </p>
+      <h2>
+         <a name="k26" id="k26">Le cas du kernel 2.6</a>
+      </h2>
+      <p>
+         Certaines distributions comme Mandrake incluent le pilote
+         GATOS pour ATI, mais dans le cas de Mandrake 10, ce pilote
+         n'est pas inclus. Cette lacune semble dûe au fait que le
+         kernel 2.6, installé avec Mandrake 10, est encore trop
+         récent. Le kernel 2.6 cause de nouveaux problèmes pour le
+         support du synthoniseur TV ATI. À l'heure actuelle, GATOS
+         ne produit toujours pas de modules DRM pour ce kernel, ce
+         qui implique que le synthoniseur TV ne peut pas
+         fonctionner. Il existe deux solutions que je n'ai jamais
+         essayées, car elles impliquent trop de sacrifice pour
+         l'usage que je peux faire du synthoniseur TV sous Linux.
+         Sans capture vidéo, un tel périphérique n'est pas d'une
+         très grande utilité. Sous Linux, le synthoniseur ATI
+         permet à peine de convertir son ordinateur en poste de
+         télévision. La première solution consiste à installer le
+         module ATI.2 sans mettre le module DRM à jour. La 3D
+         <i>pourrait</i> fonctionner, mais le système risque d'être
+         instable, surtout avec les cartes Radeon mais probablement
+         aussi avec les Rage 128. Pour supprimer cette instabilité,
+         il faudrait décharger le module DRM en inhibant le DRI
+         sous X, ce qui supprime la 3D complètement. Une autre
+         solution consiste à retourner au kernel 2.4, mais je n'ai
+         pas voulu l'employer puisque je justifiais mon passage à
+         Mandrake 10 par le kernel 2.6!
+      </p>
+      <h2>
+         <a name="conc" id="conc">Conclusion</a>
+      </h2>
+      <p>
+         Tous ces problèmes passés, présents et futurs me font
+         regretter d'avoir opté pour une carte de marque ATI. Bien
+         que ces cartes soient d'excellents combos TV/3D, elles
+         fonctionnent parfaitement uniquement sous certaines
+         versions de Windows. Encore sous Windows XP, j'ai éprouvé
+         des difficultés avec la fonction TV-On-Demand de ma
+         All-In-Wonder 128 Pro. Si vous prévoyez acheter une carte
+         graphique pour usage intensif sous Linux, ATI n'est
+         peut-être pas le meilleur choix, quoique l'accélération 3D
+         est désormais bien supportée pour les Rage128, Radeon et
+         Radeon200. Malheureusement, il semble que l'achat d'une
+         carte de seconde main soit la meilleure option, car les
+         nouvelles cartes risquent de ne pas fonctionenr sous X.
+         Avec certaines cartes, il se peut que même l'accélération
+         2D ne fonctionne pas! Il faut alors attendre des mois
+         avant de ne serait-ce que pouvoir utiliser l'environnement
+         graphique efficacement. En raison du mauvais support du
+         synthoniseur TV, les All-In-Wonder ne sont pas adéquates
+         pour la capture vidéo sous Linux. Les cartes graphiques
+         NVIDIA GeForce bénéficient d'un meilleur support en ce qui
+         a trait aux pilotes. Quant au synthoniseur TV, il en
+         existe sous forme de cartes PCI, tels que ceux de Hauppage
+         s'appuyant sur la puce BTTV qui est bien supportée par
+         Video4Linux. Mais malheureusement, tout cela peut changer
+         d'une carte à l'autre et il semble bien que le support du
+         matériel soit voué à un éternel recommencement.
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

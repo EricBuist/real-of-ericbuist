@@ -1,0 +1,202 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.1//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>16.2 Gravure de l'image extraite</TITLE>
+<META NAME="description" CONTENT="16.2 Gravure de l'image extraite">
+<META NAME="keywords" CONTENT="cdwriting">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cdwriting.css">
+
+<LINK REL="next" HREF="node77.html">
+<LINK REL="previous" HREF="node75.html">
+<LINK REL="up" HREF="node74.html">
+<LINK REL="next" HREF="node77.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2192"
+  HREF="node77.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2186"
+  HREF="node74.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2180"
+  HREF="node75.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2188"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2190"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html2193"
+  HREF="node77.html">16.3 Copie à la</A>
+<B> monter:</B> <A NAME="tex2html2187"
+  HREF="node74.html">16. La copie de</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2181"
+  HREF="node75.html">16.1 Extraction de l'image</A>
+ &nbsp; <B>  <A NAME="tex2html2189"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2191"
+  HREF="node106.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION07320000000000000000">
+<SPAN CLASS="arabic">16</SPAN>.<SPAN CLASS="arabic">2</SPAN> Gravure de l'image extraite</A>
+</H1>
+
+<P>
+La seconde phase de la copie, aussi décisive que la première, consiste
+à graver votre image. Si vous avez obtenu une image ISO en phase
+d'extraction, rien ne vous empêche de la transférer sur une partition
+FAT32 et d'effectuer la gravure sous Windows si bon vous chante, à
+moins que cette image ait une taille supérieure à 4 Go. Pour
+transférer une telle image, il vous faudra utiliser un logiciel
+Windows tel que Explore2fs [<A HREF="node105.html#url:explore2fs">URL32</A>] pour lire l'image
+depuis Windows. Un
+logiciel tel que Nero traitera sans mal une telle
+image. Toutefois, il est possible d'effectuer la gravure sous Linux,
+sans redémarrer l'ordinateur!
+
+<P>
+Le cas le plus simple se produit lorsque vous avez extrait une
+image BIN par copie physique analytique. Il faut alors impérativement
+réutiliser CDRDAO pour graver le disque autant de fois que désiré.
+
+<P>
+
+<DIV CLASS="alltt" ALIGN="LEFT">
+<TT>
+ 
+<BR>
+cdrdao write -v 1 cd.toc
+<BR></TT>
+</DIV>
+
+<P>
+Pour la gravure d'une image ISO, il existe plusieurs façons. La
+plus simple consiste à utiliser <TT>cdrecord -v -dao -data
+  cd.iso</TT>. L'option <TT>-dao</TT> active le mode  Disk-at-once qui est le
+plus approprié pour la copie.
+L'option <TT>-data</TT> crée
+une piste en mode&nbsp;1, mais il est également possible de créer une piste
+en mode&nbsp;2 avec <TT>-mode2</TT>. Vous pouvez aussi créer des pistes XA
+avec <TT>-xa1</TT> ou <TT>-xa2</TT>. 
+
+<P>
+Il est aussi possible, dans le cas d'un CD, de copier en mode
+ Disk-at-once avec CDRDAO.
+Malheureusement, ce logiciel ne prend pas en paramètre l'image
+ISO mais bien une table de contenu qu'il va falloir créer!
+Heureusement, cette table répond à un modèle très simple que vous
+pourrez adapter à vos besoins.
+
+<P>
+
+<DIV CLASS="alltt" ALIGN="LEFT">
+<TT>
+ 
+<BR>
+CD_ROM
+<BR>
+<BR>
+TRACK MODE1 DATAFILE &#34;cd.iso&#34;
+<BR></TT>
+</DIV>
+
+<P>
+Appelez ensuite CDRDAO avec cette TOC.
+
+<P>
+
+<DIV CLASS="alltt" ALIGN="LEFT">
+<TT>
+ 
+<BR>
+cdrdao write -v 1 cd.toc
+<BR></TT>
+</DIV>
+
+<P>
+<TT>cd.toc</TT> constitue la table du contenu que vous aurez créée.
+Dans le cas d'un DVD, il faudra utiliser CDRecord-ProDVD,
+CDRecord avec patch DVD,
+DVDRecord ou <TT>growisofs</TT> pour effectuer lag ravure.
+Les trois premiers outils fonctionnent comme CDRecord et fonctionnent
+pour les CD et les DVD-R(W). L'utilitaire <TT>growisofs</TT> ne fonctionne
+quant à lui que pour les DVD<SPAN CLASS="MATH"><IMG
+ WIDTH="20" HEIGHT="36" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$\pm$"></SPAN>R(W).
+La ligne de commande <TT>growisofs</TT> est
+
+<P>
+
+<DIV CLASS="alltt" ALIGN="LEFT">
+<TT>
+ 
+<BR>
+growisofs -dvd-compat -Z /dev/hdc=cd.iso
+<BR></TT>
+</DIV>
+
+<P>
+L'option <TT>-dvd-compat</TT> indique au logiciel de fermer le
+disque après la copie et maximise la compatibilité du DVD avec les
+lecteurs. L'option <TT>-Z</TT> indique de commencer un nouveau disque
+et d'utiliser <TT>/dev/hdc</TT> comme graveur, afin d'y copier l'image
+<TT>cd.iso</TT>.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2192"
+  HREF="node77.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2186"
+  HREF="node74.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2180"
+  HREF="node75.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2188"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2190"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html2193"
+  HREF="node77.html">16.3 Copie à la</A>
+<B> monter:</B> <A NAME="tex2html2187"
+  HREF="node74.html">16. La copie de</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2181"
+  HREF="node75.html">16.1 Extraction de l'image</A>
+ &nbsp; <B>  <A NAME="tex2html2189"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2191"
+  HREF="node106.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Eric Buist
+2005-11-13
+</ADDRESS>
+</BODY>
+</HTML>

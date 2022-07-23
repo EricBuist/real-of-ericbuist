@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.1//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>18.5 Cas de l'espace disque insuffisant</TITLE>
+<META NAME="description" CONTENT="18.5 Cas de l'espace disque insuffisant">
+<META NAME="keywords" CONTENT="cdwriting">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cdwriting.css">
+
+<LINK REL="previous" HREF="node88.html">
+<LINK REL="up" HREF="node84.html">
+<LINK REL="next" HREF="node90.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2406"
+  HREF="node90.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2400"
+  HREF="node84.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2396"
+  HREF="node88.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2402"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2404"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html2407"
+  HREF="node90.html">19. Création d'un disque</A>
+<B> monter:</B> <A NAME="tex2html2401"
+  HREF="node84.html">18. La création de</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2397"
+  HREF="node88.html">18.4 Cas particulier des</A>
+ &nbsp; <B>  <A NAME="tex2html2403"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2405"
+  HREF="node106.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION07550000000000000000">
+<SPAN CLASS="arabic">18</SPAN>.<SPAN CLASS="arabic">5</SPAN> Cas de l'espace disque insuffisant</A>
+</H1>
+
+<P>
+Si vous n'avez qu'un petit disque dur et que vous souhaitez tout de
+même graver des disques audio, il existe, comme sous Windows, une
+astuce permettant de graver avec peu d'espace disque. Vous devrez
+décoder un petit nombre de fichiers audio puis les graver en utilisant
+CDRecord; le disque ne pourra être gravé qu'en mode Track-At-Once.
+
+<P>
+
+<DIV CLASS="alltt" ALIGN="LEFT">
+<TT>
+ 
+<BR>
+cdrecord -v -nofix -audio snd1.wav snd2.wav ...
+<BR></TT>
+</DIV>
+
+<P>
+L'usage de l'option <TT>-nofix</TT> évite de fermer la session audio
+et vous pouvez ainsi graver d'autres fichiers WAV après votre premier
+appel à CDRecord afin de créer le disque par étapes. N'oubliez pas de
+ne pas utiliser <TT>-nofix</TT> lorsque vous graverez les dernières
+chansons du disque. Si vous ne fermez pas la session, le disque sera
+illisible dans la plupart des lecteurs de CD Audio de salon. Si par
+mégarde vous avez utilisé <TT>-nofix</TT> pour la dernière phase
+d'écriture, utilisez <TT>cdrecord -fix</TT> pour refermer la session;
+le disque aussi sera refermé et le CD Audio sera lisible sur un
+lecteur de salon. Si vous souhaitez créer un CD Extra, remplacez
+<TT>-nofix</TT> par <TT>-multi</TT> lors de la dernière phase
+d'écriture puis réutilisez une dernière fois CDRecord pour graver,
+dans la deuxième session, les données et fermer le disque.
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2406"
+  HREF="node90.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2400"
+  HREF="node84.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2396"
+  HREF="node88.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2402"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2404"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html2407"
+  HREF="node90.html">19. Création d'un disque</A>
+<B> monter:</B> <A NAME="tex2html2401"
+  HREF="node84.html">18. La création de</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2397"
+  HREF="node88.html">18.4 Cas particulier des</A>
+ &nbsp; <B>  <A NAME="tex2html2403"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2405"
+  HREF="node106.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Eric Buist
+2005-11-13
+</ADDRESS>
+</BODY>
+</HTML>

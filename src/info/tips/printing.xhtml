@@ -1,0 +1,414 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         Imprimer de quoi
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css"
+      href="../../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../../index.xhtml" class="parents">Le
+               royaume de Eric Buist</a> &gt;&gt; <a
+               href="../index.xhtml"
+               class="parents">Informatique</a> &gt;&gt;
+               Quelques-unes de mes recherches personnelles
+               &gt;&gt; <a href="index.xhtml" class="parents">Trucs
+               et astuces</a> &gt;&gt; Astuces spécifiques au DIRO
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../../sitemap.xhtml" class="sitemap">Plan
+               du site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="security.xhtml"
+               class="leftsibling">Protéger son territoire
+               virtuel</a>
+            </td>
+            <td class="thispage">
+               Imprimer de quoi
+            </td>
+            <td class="rightsibling">
+               <a href="profile.xhtml" class="rightsibling">Établir
+               le profil d'une machine Linux</a> &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         Imprimer de quoi
+      </h1>
+      <p>
+         Non, je ne répéterai pas ici ce que l'on trouve sur le
+         site du <a
+         href="http://www.iro.umontreal.ca/support/faq.html">support
+         technique</a>, c'est bien fait et pas besoin d'ajouter, à
+         part des petites subtilités, juste pour compliquer les
+         choses un peu...
+      </p>
+      <ul>
+         <li>
+            <a href="#q3185">Sur l'imprimante matricielle du
+            3185</a> 
+            <ul>
+               <li>
+                  <a href="#manpageq">Impression d'une page de
+                  manuel Linux</a>
+               </li>
+               <li>
+                  <a href="#webq">Imprimer une page Web</a>
+               </li>
+               <li>
+                  <a href="#psq">Imprimer un fichier PostScript</a>
+               </li>
+            </ul>
+         </li>
+         <li>
+            <a href="#hp3189">Imprimer sur l'imprimante laser du
+            3189</a> 
+            <ul>
+               <li>
+                  <a href="#webhp">Impression d'une page Web</a>
+               </li>
+               <li>
+                  <a href="#texthp">Prendre le contrôle sur
+                  l'impression d'un fichier texte</a>
+               </li>
+               <li>
+                  <a href="#manpagehp">Impression d'une man
+                  page</a>
+               </li>
+               <li>
+                  <a href="#atops">Le secret de la sortie texte</a>
+               </li>
+            </ul>
+         </li>
+         <li>
+            <a href="#state">État de l'impression</a>
+         </li>
+         <li>
+            <a href="#def">Modification de l'imprimante par
+            défaut</a>
+         </li>
+      </ul>
+      <h2>
+         <a id="q3185" name="q3185">Sur l'imprimante matricielle du
+         3185</a>
+      </h2>
+      <p>
+         Comme vous le savez probablement, cette imprimante
+         n'accepte que des fichiers textes. Il faudra donc
+         s'arranger pour obtenir un tel fichier, ce qui n'est pas
+         toujours de tout repos. Si vous possédez un tel fichier,
+         pas de problèmes, vous pourrez l'imprimer, sinon...
+      </p>
+      <p>
+         La commande de base est bien entendu <tt>lpr</tt>. On peut
+         taper <tt>lpr fichier</tt> où rediriger la sortie d'une
+         commande sur l'entrée de <tt>lpr</tt>.
+      </p>
+      <h3>
+         <a id="manpageq" name="manpageq">Impression d'une page de
+         manuel Linux</a>
+      </h3>
+      <p>
+         Il est possible d'imprimer, pour consultation future, une
+         page de manuel Linux. Par exemple, si vous souhaitez de la
+         documentation sur <tt>lpr</tt>, vous taperez <tt>man
+         lpr</tt>. Mais si vous la voulez sur papier, que faire? On
+         pourrait taper <tt>man lpr | lpr</tt>, mais je ne suis pas
+         certain que cela fonctionnerait aussi bien que l'on
+         voudrait. La page de manuel contient en effet des
+         caractères indiquant au programme de lecture de mettre
+         certaines portions en gras, de souligner ... Une
+         imprimante qui n'imprime que le texte risque de ne pas
+         pouvoir comprendre ce charabia et va tout stupidement
+         l'imprimer, rendant la page difficile à lire. Il va donc
+         falloir appliquer un filtre qui va nous débarrasser de
+         cette crasse. Il se nomme <tt>ul</tt>. La commande
+         d'impression deviendra ainsi <tt>man lpr | ul | lpr</tt>.
+         Si on veut s'assurer que la sortie ira sur la bonne
+         imprimante, on remplacera alors <tt>lpr</tt> par <tt>lpr
+         -Pq3185</tt>, qui est l'imprimante matricielle. Mais,
+         faute d'absence de tests, je ne suis pas encore certain
+         que cela fonctionnerait. Il vaudrait mieux faire passer la
+         sortie dans un second filtre, afin de la débarrasser des
+         caractères non ASCII! On écrira donc <tt>man lpr | ul |
+         iso2ptx | lpr -Pq3185</tt>! Cela commence à être complexe
+         et un script est de plus en plus envisageable...
+      </p>
+      <h3>
+         <a id="webq" name="webq">Imprimer une page Web</a>
+      </h3>
+      <p>
+         Encore là, il faudra ruser. La commande Print de Netscape
+         est bien prête à nous imprimer notre page Web mais en
+         PostScript, ce qui va faire cracher beaucoup de blabla à
+         la pauvre imprimante matricielle qui ne peut interpréter
+         le PostScript. En fait, elle le pourrait si on lui
+         ajoutait un filtre adéquat, ie un logiciel qui lui
+         traduirait le PostScript en son langage. S'il n'y en a
+         pas, c'esst donc bien que les administrateurs du réseau,
+         pour d'obscures raisons, n'ont pas voulu en mettre.
+      </p>
+      <p>
+         Il va donc falloir ruser pour trouver un moyen de
+         n'extraire que le texte de la page Web à imprimer. Or, il
+         existe un navigateur texte appelé <tt>lynx</tt>, alors
+         pourquoi ne pas nous en servir? Si vous tapiez <tt>lynx
+         --dump url</tt>, vous verriez apparaître le contenu de la
+         page Web. Il faut donc envoyer cela à l'imprimante. J'ai
+         découvert cette technique à partir d'instructions pour
+         imprimer le devoir 1 de IFT1213 et ils utilisaient un
+         filtre nommé <tt>iso2ptx</tt>. Ce filtre permet d'éliminer
+         les accents du document puisqu'en plus, cette imprimante
+         ne prend pas les accents! Pour imprimer la page sur
+         l'imprimante matricielle, on écrira <tt>lynx --dump url |
+         iso2ptx | lpr -Pq3185</tt>. <tt>url</tt> constitue
+         simplement l'adresse du site, par exemple
+         http://www.iro.umontreal.ca/~dift1213.
+      </p>
+      <h3>
+         <a id="psq" name="psq">Imprimer un fichier PostScript</a>
+      </h3>
+      <p>
+         Je ne connais pas de moyen de parvenir à un tel résultat.
+         Il faudrait un programme permettant de convertir le
+         fichier PostScript en texte, ce qui ne sera pas mince
+         affaire à trouver!
+      </p>
+      <h2>
+         <a id="hp3189" name="hp3189">Imprimer sur l'imprimante
+         laser du 3189</a>
+      </h2>
+      <p>
+         Le site du support technique indique déjà bien la façon de
+         procéder pour cela. Le plus difficile sera probablement
+         d'ajouter du crédit à votre compte. Cela implique de
+         localiser le Caissier Automatique le plus proche, celui du
+         Pavillon Principal dans notre cas, de réussir à le faire
+         fonctionner pour mettre de l'argent sur la carte étudiant.
+         Ensuite, le reste est assez simple. Ici, la commande de
+         base deviendra <tt>lpr -Php3189 fichier</tt>. Vous pouvez
+         lui passer, cette fois, des fichiers PostScript.
+      </p>
+      <h3>
+         <a id="webhp" name="webhp">Impression d'une page Web</a>
+      </h3>
+      <p>
+         Netscape possède là la fonction qu'il nous faut, mais
+         l'imprimante par défaut est malheureusement celle du 3185!
+         Il ne faut pas lui envoyer un fichier PostScript, quand
+         même. Il va donc falloir, dans la boîte Print de Netscape,
+         changer la commande d'impression. Au lieu de <tt>lpr</tt>,
+         on mettra <tt>lpr -Php3189</tt>. Avec un peu de chance, il
+         devrait sortir des feuilles de l'imprimante.
+      </p>
+      <h3>
+         <a id="texthp" name="texthp">Prendre le contrôle sur
+         l'impression d'un fichier texte</a>
+      </h3>
+      <p>
+         La première tentative d'impression s'est portée vers un
+         fichier texte contenant les exercices du cours MAT1400.
+         Outre écrire petit, l'imprimante a produit des en-têtes
+         peu souhaitables dans le cadre d'un devoir. Finalement, le
+         tout était formaté en paysage, ce qui n'est pas plaisant à
+         lire lorsque c'est dans un cartable. Sur l'imprimante
+         matricielle, on cherche à ramener en ASCII. Sur la hp, il
+         faut faire le contraire: ramener en PostScript! Mais
+         comment Diable allons-nous réussir à transformer un petit
+         fichier texte anodin en fichier PostScript? La réponse:
+         OpenOffice.
+      </p>
+      <p>
+         Il faudra l'installer avec <tt>inclure openoffice</tt>
+         suivie de <tt>/usr/local/OpenOffice.org1.0/setup</tt>.
+         tout est sur le site du support technique, pas
+         d'inquiétudes à y avoir pour l'installation. Lorsque c'est
+         fait, ouvrez OpenWriter et importez-y le fichier texte.
+         Vous pouvez maintenant lui faire subir toutes les
+         manucures que vous voulez afin de le rendre esthétiquement
+         correct, puis vous l'imprimez avec la commande Imprimer,
+         sur la hp3189. Un fichier PostScript sera créé en interne
+         puis envoyé à l'imprimante.
+      </p>
+      <h3>
+         <a id="manpagehp" name="manpagehp">Impression d'une man
+         page</a>
+      </h3>
+      <p>
+         Ici, je cherche encore. Les pages de manuel sont rédigées
+         en format troff, un autre interpréteur de texte que je
+         n'ai pas le goût ni le temps d'apprendre. La commande
+         <tt>troff</tt> doit pouvoir "compiler" le fichier et le
+         transmettre sur une sortie. Toutefois, elle supprime toute
+         la mise en forme de la page de manuel et enlève des
+         parties de texte, ce qui la rend pratiquement illisible.
+         On se retrouve avec un amas de texte, les paragraphes
+         n'étant même plus délimités. Il faudrait probablement que
+         je fasse cracher beaucoup de feuilles à l'imprimante laser
+         avant de lui faire sortir une page correcte, ce qui va me
+         coûter cher pour quelques lignes sur cette page!
+      </p>
+      <h3>
+         <a id="atops" name="atops">Le secret de la sortie
+         texte</a>
+      </h3>
+      <p>
+         Pourquoi le nom d'usager sur les impressions lorsqu'on
+         passe directement un fichier texte à <tt>lpr</tt>?
+         Pourquoi donc est-ce que la police est si petite et
+         pourquoi donc est-ce en paysage? Y a-t-il donc un moyen
+         plus commode que de faire sortir un fichier PostScript par
+         OpenOffice pour prendre le contrôle de tous ces facteurs?
+         Et la réponse est oui!
+      </p>
+      <p>
+         Y a-t-il moyen de modifier ces paramètres, de lui faire
+         imprimer plus gros, voire même désactiver le recto verso?
+         Peut-on réussir à imprimer une page de manuel et espérer
+         qu'elle sorte correctement? La réponse est encore OUI!
+         Mais quel est le secret de tout cela? A2PS!
+      </p>
+      <p>
+         <tt>a2ps</tt> signifie ASCII to PostScript, c'est un
+         véritable programme de conversion d'un texte ASCII vers un
+         fichier PostScript. Lorsque l'on envoie un fichier vers
+         l'imprimante laser, si c'est un fichier texte, il passe
+         dans a2ps et devient un PostScript qui, lui, est imprimé.
+         Toutefois, a2ps est appelé avec les paramètres par défaut
+         et pas moyen d'influer... à moins d'appeler a2ps
+         directement! Rien ne nous empêche de le faire et cela va
+         nous donner un contrôle pas mal plus grand sur ce que l'on
+         peut faire.
+      </p>
+      <p>
+         On appelle <tt>a2ps</tt> un peu comme on le fait avec
+         <tt>lpr</tt>. Toutefois, il y a pas mal plus d'options que
+         <tt>lpr</tt>. Taper <tt>man a2ps</tt> donnera la
+         cauchemardesque liste de toutes ces options. Voici
+         quelques lignes de commande qui peuvent s'avérer d'une
+         grande utilité.
+      </p>
+      <p>
+         <tt>a2ps -f12 -Php3389 --columns=1 -R --borders=no
+         --left-footer="" --right-footer="" &lt;fichiers&gt;</tt>
+         permet d'imprimer une liste de fichiers. Vous pouvez
+         passer plus d'un fichiers séparés par des espaces et le
+         programme va faire un fichier PostScript unique. L'option
+         <tt>-f12</tt> met une police 12 points plutôt que 6
+         points, <tt>-Php3389</tt> effectue le choix de
+         l'imprimante. On pourrait la remplacer par
+         <tt>-Pdisplay</tt> afin d'obtenir une fenêtre GhostView
+         qui affichera l'aperçu avant l'impression du document. Ce
+         qui permet d'effectuer des tests et éviter de gaspiller
+         trop de papier. Au lieu d'une imprimante, il est également
+         possible d'écrire <tt>-o &lt;fichier.ps&gt;</tt> afin
+         d'obtenir un fichier PostScript. Grâce à ce fichier, il
+         est possible de transporter le résultat sur une machine
+         Windows qui n'est pas munie de a2ps et de l'imprimer chez
+         soi si on le veut. L'option <tt>--columns=1</tt> demande
+         une sortie sur une colonne tandis que <tt>-R</tt> provoque
+         le passage en mode portrait plutôt que le mode paysage par
+         défaut. <tt>--left-footer=""</tt> et
+         <tt>--right-footer=""</tt> enlèvent le contenu des pieds
+         de page tandis que <tt>--borders=no</tt> supprime les
+         bordures autour des pages.
+      </p>
+      <p>
+         À noter que le programme effectue la mise en surbrillance
+         des mots-clés dans plusieurs langages de programmation,
+         dont le C/C++ et le Java. Il permet aussi l'impression
+         d'une page de manuel, bien entendu. Il suffit de rediriger
+         la sortie de la commande <tt>man</tt> vers l'entrée de
+         <tt>a2ps</tt>. La commande <tt>man &lt;manpage&gt; | a2ps
+         &lt;options&gt;</tt> effectuera ce travail et produira un
+         résultat élégant.
+      </p>
+      <p>
+         Cette commande solutionne ainsi tout problème de sortie de
+         fichiers texte, il existe des centaines d'autres options,
+         dont par exemple celle pour désactiver le recto-verso:
+         <tt>-DDuplex:false</tt>.
+      </p>
+      <p>
+         Sur les imprimantes HP du DIRO, et peut-être sur d'autres
+         imprimantes HP ou non imprimant recto-verso, il existe une
+         façon de désactiver ce mode d'impression sans devoir
+         modifier le fichier PostScript. Ce qui est bien commode
+         pour paramétrer des fichiers générés avec d'autres
+         programmes que <tt>a2ps</tt>. Le paramètre <tt>-Z
+         simplex</tt>, ajouté à la commande <tt>lpr</tt> permettra
+         la désactivation du mode recto-verso.
+      </p>
+      <h2>
+         <a id="state" name="state">État de l'impression</a>
+      </h2>
+      <p>
+         Si on ne veut pas attendre devant l'imprimante, il existe
+         un moyen simple de savoir si et quand les feuilles sont
+         sorties et prêtes. Il faut juste entrer <tt>lpq</tt> sur
+         la ligne de commande. Cela va nous donner les jobs que
+         l'imprimante est en train d'accomplir. On trouvera entre
+         autres le nom d'usager qui a lancé l'impression, ce qui
+         permet de facilement la reconnaître. Pour l'imprimante
+         laser, on tapera <tt>lpq -Php3189</tt>. Sur cette dernière
+         imprimante, votre crédit ne sera débité que si
+         l'impression s'est effectuée. La machine sort les pages
+         assez rapidement, lorsqu'elle est prête, pour que je ne
+         sois pas en mesure de tester ce qui se passerait si on
+         enlevait un travail d'impression au moment où il est en
+         cours d'impression.
+      </p>
+      <h2>
+         <a id="def" name="def">Modification de l'imprimante par
+         défaut</a>
+      </h2>
+      <p>
+         Que se passe-t-il si on tape <tt>lpr</tt>, <tt>lpq</tt> ou
+         <tt>lprm</tt> sans paramètres spécifiant l'imprimante à
+         utiliser. Eh bien, le programme se tournera vers
+         l'imprimante par défaut fixée par l'administrateur
+         système. À l'heure où j'écris, je crois que c'est la
+         hp3352 ou quelque chose du genre. Il est possible de
+         modifier cela en changeant la variable d'environnement
+         <tt>PRINTER</tt>. Par exemple, la commande <tt>setenv
+         PRINTER=hp3189</tt>, insérée dans le fichier
+         <tt>.cshrc</tt> ou tapée sur la ligne de commande,
+         définiera l'imprimante laser du 3189 par défaut. Après ce
+         petit changement, il sera possible de taper <tt>lpr</tt>
+         seulement plutôt que <tt>lpr -Php3189</tt>.
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

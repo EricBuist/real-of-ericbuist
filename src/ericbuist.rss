@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8" ?>
+ <rss version="0.91">
+
+ <channel>
+ <title>Le Royaume de Eric Buist</title>
+ <link>http://www.ericbuist.com</link>
+ <description>Mes expériences personnelles et informatiques </description>
+ <language>fr-ca</language>
+
+ <image>
+ <title>Photo de moi</title>
+ <url>http://www.ericbuist.com/meico.jpg</url>
+ <link>http://www.ericbuist.com</link>
+ </image>
+
+<item>
+ <title>Enfin des photos de l'intérieur de mon HTPC!</title>
+ <link>http://www.ericbuist.com/info/ard-nas/hdd.xhtml</link>
+ <description>
+   J'ai ajouté un disque dur de 3To à
+   mon HTPC dans le but d'y transférer plus de disques blu-ray, qui
+   prennent BEAUCOUP d'espace. J'ai profité de cette opération pour
+   prendre quelques photos de l'intérieur de la machine.
+ </description>
+ </item>
+
+<item>
+ <title>Installation d'une carte graphique, moins simple que prévu</title>
+ <link>http://www.ericbuist.com/info/drake/gfx.xhtml</link>
+ <description>
+   Voyez comment une simple installation de carte graphique est vite devenue un vrai casse-tête.
+   Par chance, ça s'est très bien terminé.
+ </description>
+ </item>
+
+<item>
+ <title>Problèmes de souris, de son et d'affichage avec mon Mac</title>
+ <link>http://www.ericbuist.com/info/drake/macosxhd.xhtml#mouse</link>
+ <description>
+   J'ai encore eu de décourageants problèmes avec Mac OS X: la souris
+   qui cesse de fonctionner, des difficultés avec le son et avec
+   l'affichage, puis des tentatives pour améliorer l'amorçage qui ont
+   été difficiles.
+ </description>
+ </item>
+
+<item>
+ <title>Le jour où Mac OS X finit par tout casser!</title>
+ <link>http://www.ericbuist.com/info/drake/macosxhd.xhtml#oskiller</link>
+ <description>
+   Voyez comment une machine à plusieurs systèmes d'exploitation est
+   fragile, les raisons de mon obstination à faire fonctionner Mac OS
+   X sur mon PC et comment Windows 8, indirectement, a sauvé ma
+   configuration!
+ </description>
+ </item>
+
+<item>
+ <title>Cul-de-sac: la mort de mon Mac</title>
+ <link>http://www.ericbuist.com/info/drake/macosxhd.xhtml#deadend</link>
+ <description>
+   Voici comment j'en suis arrivé à en avoir suffisamment assez de Mac
+   OS X pour le supprimer de mon ordinateur. 
+ </description>
+ </item>
+
+
+<item>
+ <title>Tests de performance du Drake</title>
+ <link>http://www.ericbuist.com/info/drake/benchmark.xhtml</link>
+ <description>
+   Enfin des tests de performance objectifs pour ma nouvelle
+   machine! Après quelques ajustements, le système a très bien passé
+   ces tests et a donné des résultats s'apparentant à ceux d'un vrai
+   MacBook Pro.
+ </description>
+ </item>
+
+<item>
+ <title>GRUB et l'UEFI: peuvent-ils être réunis?</title>
+ <link>http://www.ericbuist.com/info/grub-uefi.xhtml</link>
+ <description>
+   Certains disent que GRUB2 est bogué et ne fonctionne pas dans un
+   environnement UEFI. Pour ma part, j'ai obtenu un résultat fructueux
+   après être passé par des problèmes non reliés à l'UEFI.
+   Voici ce que j'en pense.
+ </description>
+ </item>
+
+<item>
+ <title>La capture vidéo sur ordinateur</title>
+ <link>http://www.ericbuist.com/info/screencast.xhtml</link>
+ <description>
+   Découvrez tous les trucs et astuces que j'ai découverts pour capter
+   ce qui se passe à l'écran, pour filmer ses exploits virtuels dans des jeux
+   vidéos et bâtir des tutoriels vidéos.
+ </description>
+ </item>
+
+<item>
+ <title>Quelques nouveaux problèmes avec mon Hackintosh</title>
+ <link>http://www.ericbuist.com/info/drake/macosxhd.xhtml#emacs</link>
+ <description>
+   Des difficultés avec GNU Emacs, l'application Mail qui plante,
+   incroyablement difficile de transférer du contenu vers mon site Web,
+   impossible d'écrire sur mon disque de données à moins de le reformat,
+   à se demander si les possesseurs de Mac ne finissent pas tous par abandonner
+   Mac OS X au profit de Windows!
+ </description>
+ </item>
+
+<item>
+ <title>Mac OS X sur le Drake</title>
+ <link>http://www.ericbuist.com/info/drake/macosxhd.xhtml</link>
+ <description>
+   Cette installation a été relativement facile, mais obtenir la clé USB qui m'a permis
+   de le faire ne l'a pas été, j'ai eu des problèmes de configuration et l'utilisation de Mac
+   OS X cause divers problèmes.
+ </description>
+ </item>
+
+<item>
+ <title>Passage dans le monde réel: installation de Linux sur le Drake</title>
+ <link>http://www.ericbuist.com/info/drake/linuxhd.xhtml</link>
+ <description>
+   Après plusieurs problèmes avec VirtualBox, j'ai décidé d'installer Ubuntu et Mac OS X
+   sur de véritables partitions. Cela a posé quelques difficultés, mais j'ai fini par aboutir
+   à une configuration fonctionnelle.
+ </description>
+ </item>
+
+<item>
+ <title>Mes premiers pas sous mon Mac virtuel: beaucoup de misère pour
+ bien peu</title>
+ <link>http://www.ericbuist.com/info/drake/macosx.xhtml#emacs</link>
+ <description>
+   Après avoir réussi à installer Mac OS X dans une machine virtuelle,
+   sur mon PC, j'ai tenté de faire fonctionner GNU Emacs dessus et
+   éprouvé toutes sortes de difficultés imprévues.
+ </description>
+ </item>
+
+<item>
+ <title>Installer Mac OS X sur un PC, c'est possible, mais est-ce simple?</title>
+ <link>http://www.ericbuist.com/info/drake/macosx.xhtml</link>
+ <description>
+Plusieurs guides sur Internet expliquent comment parvenir à installer
+certaines versions du système d'exploitation d'Apple, Mac OS X, sur un
+PC non Apple. La lecture de ces guides mène à croire que l'opération
+est simple, mais en fait, tel n'est pas le cas, surtout quand on n'a
+pas un vrai Mac à portée de la main. Est-ce Lion qui a
+apporté des complications à la procédure, est-ce que ça ne fonctionne
+bien qu'avec des ordinateurs de l'année précédente, ou est-ce moi qui
+m'y suis mal pris? Probablement un peu de tout ça!
+ </description>
+ </item>
+<item>
+ <title>Le Drake, successeur du Salvator</title>
+ <link>http://www.ericbuist.com/info/drake/index.xhtml</link>
+ <description>
+Pour tout savoir sur la machine que je me suis assemblée en août 2012
+et comment je m'y suis pris pour en faire un Hackintosh, voir cette
+section de mon site.
+ </description>
+ </item>
+<item>
+ <title>Spécifications de ma nouvelle machine, le Drake</title>
+ <link>http://www.ericbuist.com/info/ordis.xhtml#drake</link>
+ <description>
+ Liste des pièces composant cette nouvelle machine que j'ai assemblée
+ durant l'été 2012.
+ </description>
+ </item>
+<item>
+ <title>Rafistolage d'un tiroir brisé</title>
+ <link>http://www.ericbuist.com/me/condo/epreuves.xhtml#tiroir</link>
+ <description>
+ J'explique dans cet article comment je suis venu à bout de réparer le
+ tiroir de ma commode brisé depuis des mois. 
+ </description>
+ </item>
+ <item>
+ <title>Installation d'un SSD: encore de la bidouille et des problèmes
+ avec Windows</title>
+ <link>http://www.ericbuist.com/info/ssd.xhtml</link>
+ <description>
+Cette page relate les différents épisodes de cette histoire qu'a été
+ l'installation de mon SSD. Il m'a fallu user de beaucoup d'astuce pour
+ le faire entrer dans mon boîtier d'ordinateur actuel et pour venir à
+ bout de transférer mes logiciels dessus sans tout réinstaller. Mais
+ le résultat est satisfaisant.
+ </description>
+ </item>
+ </channel>
+ </rss>

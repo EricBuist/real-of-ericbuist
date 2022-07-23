@@ -1,0 +1,526 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         Installation de Microsoft Windows XP
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css"
+      href="../../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../../index.xhtml" class="parents">Le
+               royaume de Eric Buist</a> &gt;&gt; <a
+               href="../index.xhtml"
+               class="parents">Informatique</a> &gt;&gt;
+               Configuration informatique &gt;&gt; <a
+               href="index.xhtml" class="parents">Le Salvator,
+               successeur du Faucon de Fer</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../../sitemap.xhtml" class="sitemap">Plan
+               du site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="asm.xhtml"
+               class="leftsibling">L'assemblage</a>
+            </td>
+            <td class="thispage">
+               Installation de Microsoft Windows XP
+            </td>
+            <td class="rightsibling">
+               <a href="lin.xhtml"
+               class="rightsibling">Installation de Linux Fedora
+               Core 4</a> &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         Installation de Microsoft Windows XP
+      </h1>
+      <p>
+         Vendredi, 6 janvier 2006, tout me sembla fin prêt pour
+         l'installation de Windows XP. Avant de commencer, je
+         divisai le disque dur en partitions. Je dus me créer une
+         disquette pour le Serial ATA, contrairement à ce que je
+         croyais initialement, puis l'installation se passa comme
+         un charme. Cela se passa suffisamment bien pour que je
+         puisse envisager le transfert de mes données et de mon
+         synthoniseur TV sur la nouvelle machine que je baptisai
+         enfin le Salvator plutôt que le Faucon de Fer B.
+      </p>
+      <ul>
+         <li>
+            <a href="#part">Partitionnement</a>
+         </li>
+         <li>
+            <a href="#hdd">Pas de disque dur!</a>
+         </li>
+         <li>
+            <a href="#drivers">Plusieurs pièces manquantes</a>
+         </li>
+         <li>
+            <a href="#trans">Transferts depuis la vieille
+            machine</a>
+         </li>
+      </ul>
+      <h2>
+         <a name="part" id="part">Partitionnement</a>
+      </h2>
+      <p>
+         Le partitionnement du disque dur est une phase délicate,
+         car il est difficile, coûteux et risqué de modifier cette
+         division dans le futur. J'utilisai le logiciel Partition
+         Magic de <a
+         href="http://www.powerquest.com">PowerQuest</a> pour cette
+         tâche, car il peut créer des partitions de tous les types
+         et je pensais qu'il ferait un formatage long, vérifiant la
+         surface du disque. Il n'en fit malheureusement rien.
+         Peut-être aurait-il fallu activer une option spéciale pour
+         cela.
+      </p>
+      <p>
+         D'abord, j'allouai une partition de 30Go pour Windows et
+         une seconde partition de 30Go pour Linux. J'en créai une
+         troisième, encore de 30Go, cette fois-ci non formatée,
+         pour permettre le test de systèmes d'exploitation. Un
+         jour, cette partition accueillerait Windows XP édition
+         x64, Windows Vista, Fedora Core 5, Debian, etc.
+      </p>
+      <p>
+         Les problèmes commencèrent au moment d'aménager la
+         partition étendue qui avait une taille de 110Go. Je
+         pensais que cette partition ne pouvait pas accueillir plus
+         de quatre partitions logiques par analogie avec les
+         partitions primaires et j'utilisai une de ces partitions
+         pour le swap Linux. Je fixai la taille de la zone
+         d'échange à 2Go, le double de ma mémoire. Il me restait
+         donc 108Go à diviser en trois. La solution la plus simple
+         consiste à diviser cet espace en trois parts égales, mais
+         malheureusement, Linux vient causer ici un très sérieux
+         problème: l'incompatibilité des systèmes de fichiers. Pour
+         que les partitions lui soient accessibles en
+         lecture/écriture, elles doivent être en FAT32 ou Extended.
+         Or, je croyais que la taille d'une partition FAT32 ne peut
+         pas excéder 32Go tandis que Windows ne lit pas le
+         Extended. L'usage de NTFS résoud certes le problème, mais
+         Linux ne pouvait pas, en janvier 2006, écrire sur un tel
+         système de fichiers. Multiplions ce nombre 32 par 3 et
+         nous obtenons 96Go, ce qui est inférieur à 108Go! Ainsi,
+         je ne pouvais pas allouer tout mon espace en FAT32, du
+         moins selon les informations dont je disposais.
+      </p>
+      <p>
+         Pour résoudre ce problème, je créai une partition de
+         données communes en FAT32, d'une taille de 30Go encore une
+         fois. Je créai ensuite une partition de 35Go en format
+         NTFS et une partition Ext3 pour allouer l'espace restant.
+         Ainsi, chaque système d'exploitation aurait sa propre
+         grande partition de données en plus de sa partition
+         système tandis qu'une zone commune existerait. Seule
+         l'émergence d'un système de fichiers universel plus
+         efficace que FAT32, utilisable sans logiciel commercial
+         sous Windows comme sous Linux, permettra de mieux résoudre
+         ce problème.
+      </p>
+      <p>
+         Une autre solution serait de faire un choix déchirant et
+         de ne garder qu'un système d'exploitation. Pour pouvoir
+         tirer parti de toute la puissance de mon imprimante et
+         garder la possibilité de traiter les DVD Video, je serais
+         alors contraint d'opter pour Windows XP et de tout
+         formater en NTFS! Une possibilité serait alors de garder
+         ma vieille machine et de lui installer Linux. Autre
+         possibilité plus coûteuse: acheter un second ordinateur
+         identique au premier (d'où l'importance d'élucider le
+         mystère du dissipateur de chaleur LGA775 si je décide de
+         retenter l'assemblage moi-même...) et d'avoir une machine
+         par système d'exploitation. Par contre, il serait
+         nécessaire d'installer un commutateur pour partager
+         plusieurs périphériques (clavier, souris, haut-parleurs,
+         peut-être l'imprimante et le numériseur). Ce commutateur à
+         multiples ports, incluant des ports PS/2, USB et audio,
+         risquait d'être difficile à trouver (à cause des ports
+         USB) et coûteux. Quant à mon écran, le commutateur est
+         déjà inclus puisqu'il comporte une entrée VGA et une
+         entrée DVI. La vieille machine serait branchée en mode VGA
+         tandis que la nouvelle, en mode DVI. Il restait également
+         la connexion réseau posant problème. Solutions: demander à
+         mon père de passer un second fil RJ45 dans le mur, essayer
+         avec un concentrateur (hub) ou mettre une des deux
+         machines sur du Wifi (sans fil, carte réseau Wifi PCI à
+         acheter). Probablement que la machine Windows serait
+         l'heureuse élue pour le Wifi afin de m'éviter encore du
+         trouble avec Linux! Mais je renonçai à cette possibilité,
+         car je souhaitais vendre le Faucon de Fer à mes parents
+         pour écarter la machine Buist devenue trop lente et
+         atteinte de son incurable syndrôme des bruits de picouille
+         récurrents. Je n'avais pas non plus envie d'acheter une
+         seconde machine neuve.
+      </p>
+      <p>
+         En fait, selon Upgrading and Repairing PCs 14th Edition,
+         la table des partitions logiques dans la partition étendue
+         est une liste chaînée si bien qu'elle peut (théoriquement)
+         accueillir un nombre illimité de partitions logiques! En
+         pratique, le nombre de partitions logiques se trouve
+         limité à 23, car Windows ne peut rendre accessible que 26
+         disques par le biais des lettres de lecteurs, incluant le
+         lecteur de disquettes et le lecteur de CD-ROM. En ajoutant
+         le disque dur local sur lequel Windows est installé, il ne
+         reste plus que 23 partitions logiques possibles. Ainsi,
+         j'aurais pu me créer autant de partitions FAT32 de 32Go
+         que nécessaire pour allouer l'espace de mon disque.
+      </p>
+      <p>
+         Mieux encore, selon le même livre, une partition FAT32
+         peut avoir une taille allant jusqu'à 2To (2&nbsp;048Go!),
+         ce qui dépasse très largement 32Go. Par contre, Windows
+         2000/XP ne peuvent pas formater des partitions d'une
+         taille supérieure à 32Go. J'aurais bien pu formater mes
+         partitions avec Linux et les voir accessibles, sans
+         problème, sous Windows.
+      </p>
+      <p>
+         Ainsi, comme je le constatai dimanche, 22 janvier 2006,
+         j'aurais pu formater tout mon disque en FAT32 et m'éviter
+         que des parties soient inaccessibles à un ou l'autre des
+         systèmes d'exploitation. Je songeai même repartitionner,
+         mais je me rappelai d'un détail qui me fit changer d'avis:
+         la limite de 4Go. Sur FAT32, aucun fichier ne peut
+         dépasser la taille de 4Go tandis que de tels gros fichiers
+         peuvent exister en NTFS et en Ext3. Je pourrais avoir
+         besoin d'un fichier de plus de 4Go pour la gravure de DVD.
+         De plus, il est fort possible qu'une distribution
+         ultérieure de Linux soit offerte en image ISO DVD d'une
+         taille excédant légèrement 4Go. L'usage de mon
+         synthoniseur TV pourrait également produire de
+         gigantesques fichiers que je devrais par la suite
+         segmenter. Dans ces situations, seule la partition système
+         pourra accueillir le fichier et l'espace libre sur cette
+         partition tend à se faire rare, surtout sous Windows, avec
+         le temps. Ainsi, avoir des partitions de données NTFS et
+         Ext3 est extrêmement judicieux, tant que cela ne diminue
+         pas trop l'espace disque accessible par le système
+         d'exploitation. Dans le pire cas, le coût des disques durs
+         en 2006 ne justifie pas l'adoption d'un système de
+         partitionnement trop restrictif. Si Windows manque
+         d'espace, je pourrais toujours ajouter un nouveau disque
+         de 200Go ou plus, même si repartitionner mon disque actuel
+         pourrait résoudre le problème! Il y a quatre plateaux dans
+         mon boîtier et trois connecteurs Serial ATA sur ma carte
+         mère qui ne demandent qu'à servir à quelque chose!
+      </p>
+      <h2>
+         <a name="hdd" id="hdd">Pas de disque dur!</a>
+      </h2>
+      <p>
+         Vint ensuite le moment d'amorcer le CD de Windows XP pour
+         entamer l'installation. J'allumai donc la machine, insérai
+         le disque et redémarrai. L'amorçage se fit sans difficulté
+         et le programme d'installation chargea différents pilotes
+         pour ensuite afficher son écran de bienvenue. Tout se
+         passa bien jusqu'à ce que j'appuie sur Entrée pour
+         indiquer que je voulais débuter l'installation. Le système
+         m'indiqua alors qu'il n'avait détecté aucun disque dur et
+         qu'il ne pouvait pas continuer l'installation. Je pensais
+         que le support du Serial ATA était inclus dans le Service
+         Pack 1 et que Windows serait alors livré avec un pilote
+         AHCI. Je me trompais, car même AHCI ne permet pas à
+         Windows de trouver le disque dur sans un pilote
+         additionnel. Cela m'inquiéta un peu, car il se pouvait
+         qu'en fait, mon contrôleur Serial ATA ne soit pas AHCI et
+         qu'alors, rien ne fonctionne sous Linux. En fait, ce qu'il
+         faut à Windows XP pour s'installer sans disquette, c'est
+         l'émulation PATA que j'avais choisi de désactiver au
+         profit de AHCI.
+      </p>
+      <p>
+         Le pilote Serial ATA se trouve sur une disquette qu'il
+         faut créer à partir du CD de la carte mère... sous
+         Windows! Avant de rebrancher ma vieille machine ou faire
+         un second essai sur l'ordinateur familial, je démarrai
+         avec une disquette système et examinai le CD de la carte
+         mère. Plus tard, je découvrirais qu'il est possible
+         d'amorcer le CD de la carte mère et que ce CD contient un
+         DOS. Il est donc possible d'éviter la disquette système
+         pour amorcer la machine.
+      </p>
+      <p>
+         D'abord, je formatai une disquette en tapant <tt>format a:
+         /u</tt> sous l'invite DOS. Je changeai ensuite la lettre
+         du lecteur pour accéder au CD. Si je me souviens bien,
+         c'était <tt>h:</tt> ou <tt>i:</tt>. Ensuite, la commande
+         DOS <tt>dir</tt> m'afficha les répertoires du CD et je
+         choisis d'explorer <tt>Drivers</tt> plus en détails.
+         <tt>cd Drivers</tt> suivi de <tt>dir</tt> m'afficha donc
+         une nouvelle liste. Je ne trouvais pas <tt>ide</tt>, le
+         répertoire le plus probable pour un pilote Serial ATA.
+         Étant donné que le contrôleur Serial ATA se trouve sur le
+         jeu de puces, j'essayai le sous-répertoire
+         <tt>Chipset</tt>. J'accédai ensuite au sous-répertoire
+         <tt>Intel</tt>. Puis j'explorai le sous-répertoire
+         <tt>MakeDisk</tt> étant donné que je souhaitais me créer
+         une disquette. Je savais que je risquais de me retrouver
+         confronté à un utilitaire ne pouvant fonctionner que sous
+         Windows, mais je souhaitais tenter ma chance malgré tout.
+         Rebrancher ma vieille machine serait long et harrassant
+         juste pour créer une disquette tandis qu'utiliser la
+         machine Buist reviendrait presque au même tant elle est
+         rendue lente.
+      </p>
+      <p>
+         Le sous-répertoire <tt>DOS</tt> suscita mon intérêt: soit
+         il me fournirait un utilitaire DOS pour créer la
+         disquette, soit il permettrait de créer une disquette
+         système DOS avec des pilotes Serial ATA. Le second cas
+         était inutile, mais le premier pouvait me sauver la vie!
+      </p>
+      <p>
+         Un nouveau choix difficile s'offrit alors à moi:
+         <tt>ICH732.exe</tt> ou <tt>ICH764.exe</tt>? Je choisis
+         <tt>ICH732.exe</tt>, car c'était pour la version 32 bits
+         de Windows! Je tentai de l'exécuter et obtins une série de
+         messages d'erreur puisque c'était une archive
+         auto-extractable qui tentait d'écrire des fichiers dans le
+         répertoire courant. Je dus ainsi retourner sur ma
+         disquette formatée (commande <tt>a:</tt>) pour ensuite
+         taper <tt>i:.\ich732</tt>. Cela créa ma disquette SATA
+         nécessaire pour installer Windows! Sur la disquette, le
+         nom de certains fichiers incluait AHCI, ce qui me redonna
+         confiance pour Linux. Ce problème aurait pu être résolu
+         plus simplement si j'avais mieux examiné les menus sous
+         Windows.
+      </p>
+      <p>
+         Je redémarrai ensuite le système pour de nouveau amorcer
+         le CD de Windows XP. J'utilisai ensuite la touche F6 et
+         suivis les instructions pour charger la disquette. Je me
+         retrouvai alors avec une liste de plusieurs pilotes,
+         encore un autre choix à faire! Je choisis le pilote AHCI
+         pour ICH7 et par chance, ce fut le bon. L'installation de
+         Windows se passa ensuite normalement. Je retirai la
+         disquette SATA seulement au moment où le programme
+         d'installation voulut redémarrer la machine. Le premier
+         amorçage depuis le disque dur se passa sans difficulté et
+         l'installation de Windows continua.
+      </p>
+      <p>
+         Au moment du premier amorçage du système d'exploitation
+         installé, il y eut des ratés avec l'affichage. La moitié
+         droite de l'écran était constellée de rayures, si je me
+         rappelle bien horizontales, tandis que quelque chose de
+         déformé s'affichait du côté gauche. Je crus que mon écran
+         ne ferait pas le poids et que j'allais devoir le
+         rebrancher en VGA plutôt qu'en DVI, voire le remplacer,
+         mais Windows finit par lui trouver un mode graphique pour
+         le stabiliser. Je finis par enfin obtenir une image!
+      </p>
+      <h2>
+         <a name="drivers" id="drivers">Plusieurs pièces
+         manquantes</a>
+      </h2>
+      <p>
+         Je dus ensuite utiliser le CD de la carte mère pour
+         installer divers pilotes: jeu de puces, carte son et carte
+         réseau. Rien de cela ne fut compliqué et tout se passa
+         bien. Enfin, cette machine commençait à bien se comporter!
+         Par contre, lorsque la carte réseau fut prise en charge,
+         elle m'indiqua qu'aucun câble n'était branché. Je me
+         rendis compte que je n'avais pas suffisamment enfoncé le
+         câble dans la prise. Lorsque ce fut fait, cela fonctionna
+         très bien. Quant à la carte son, je dus la configurer pour
+         6 canaux et le haut-parleur arrière gauche resta
+         mystérieusement muet. Après des ajustements dans les fils,
+         un redémarrage ou une combinaison des deux, le
+         haut-parleur redevint fonctionnel. J'installai ensuite PC
+         Probe pour pouvoir obtenir les informations de température
+         et de vitesse de rotation des ventilateurs.
+      </p>
+      <p>
+         Il y eut ensuite le cas de la carte graphique. Encore une
+         fois, cela se passa très bien. Pour des raisons
+         mystérieuses, mon écran afficha <tt>Pas de signal</tt>
+         pendant un bout de temps lors du changement de résolution,
+         mais il finit par obtempérer et une image en 1280x1024
+         (résolution native de l'écran) apparut.
+      </p>
+      <h2>
+         <a name="trans" id="trans">Transferts depuis la vieille
+         machine</a>
+      </h2>
+      <p>
+         Après avoir testé la machine vendredi après-midi, 6
+         janvier 2006, je considérais qu'elle était suffisamment
+         stable pour pouvoir accueillir mes données et mon
+         synthoniseur TV. Elle n'a pas planté pendant
+         l'installation de Windows et a très bien fonctionné
+         lorsque j'ai joué à Myst IV.
+      </p>
+      <p>
+         En fin d'après-midi, j'ai donc effectué le transfert de
+         mes données. J'ai pour cela branché ma vieille machine sur
+         mon routeur et envoyé les fichiers par réseau. Pour une
+         raison inconnue, Salvator ne voulut jamais accéder à
+         Faucon de Fer par le réseau Microsoft, mais l'inverse
+         fonctionna! Décidément, il me faudra une meilleure
+         technique de transfert de fichiers que ce protocole-là,
+         car il bogue très régulièrement. Grâce à mon réseau
+         100Mbps, le transfert a été assez rapide. J'ai ainsi pu
+         recopier mes fichiers musicaux, mes documents et mes
+         travaux d'université, sans passer par une disquette, ma
+         clé USB ou un disque compact. J'aurais aussi pu tenter une
+         transplantation temporaire de disque dur, mais retirer le
+         disque dur du Faucon de Fer était assez compliqué. Il
+         m'aurait fallu pour cela, <a
+         href="../sysupdt.html#hdd">comme en 2003</a>, retirer la
+         carte graphique.
+      </p>
+      <p>
+         Le transfert de synthoniseur TV a eu lieu samedi matin, 7
+         janvier 2006. J'éprouvais une certaine crainte à rouvrir
+         ma machine puisqu'elle avait très bien fonctionné
+         jusque-là et je ne voulais pas la détraquer. Pourtant,
+         pour que Salvator devienne mon ordinateur principal, il
+         devait comporter un synthoniseur TV.
+      </p>
+      <p>
+         D'abord, j'examinai le travail du technicien et parvins à
+         retrouver, dans ce labyrinthe de fils, le connecteur pour
+         la lumière bleue qui ne s'allumait pas. Ce ne fut pas
+         chose facile, car les fils avaient été attachés ensemble
+         pour éviter qu'ils n'obstruent le ventilateur à processeur
+         et je ne souhaitais pas retirer l'attache, craignant de ne
+         pas pouvoir la remettre par la suite. Je raccordai le fil
+         de la lumière bleue à un connecteur du bloc
+         d'alimentation. Je branchai aussi le power fan pour
+         obtenir la vitesse de rotation du ventilateur du bloc
+         d'alimentation. J'apprendrais ainsi que ce ventilateur
+         tourne environ à 1000 tours par minute. Ceci est la
+         vitesse du ventilateur arrière du bloc, qui souffle de
+         l'air du boîtier vers l'intérieur de l'unité, tandis que
+         le ventilateur avant, dont la vitesse ne peut pas être
+         mesurée par la carte mère, est normalement inactif. Ce
+         ventilateur avant soufflant de l'air vers l'extérieur,
+         toujours activé sur bon nombre de blocs d'alimentation, ne
+         s'active sur mon bloc Antec que lorsque la température est
+         très élevée.
+      </p>
+      <p>
+         Les branchements effectués, j'allumai la machine pour
+         tester que ce simple ajustement n'avait rien fait sauter
+         et par chance, cela fonctionna. En cas de défaillance,
+         j'aurais été forcé de tout rapporter au magasin et de
+         m'acheter un nouveau synthoniseur, modèle USB, pour éviter
+         d'avoir à planter une carte PCI dans la machine! Pire
+         encore, cette expérience aurait pu me rendre trop craintif
+         pour installer quoi que ce soit dans une machine, à
+         l'avenir.
+      </p>
+      <p>
+         Vint ensuite le moment d'ouvrir ma vieille tour et d'en
+         extraire le synthoniseur TV. Cela se passa très bien, trop
+         bien peut-être. Je plaçai le synthoniseur sur mon bureau
+         et refermai la tour. Ensuite, j'installai la carte dans la
+         fente PCI centrale de ma nouvelle machine, afin de laisser
+         un bon espace entre elle et la carte graphique. Puis
+         j'allumai la machine.
+      </p>
+      <p>
+         Un nouveau bogue apparut alors: mystérieusement, la
+         machine planta au démarrage. Elle me refit ce coup
+         quelques autres fois et eut du mal à entrer dans le setup
+         du BIOS. Heureusement, appuyer CTRL+ALT+DEL et faire une
+         nouvelle tentative suffisait pour rétablir la situation.
+         Néanmoins, cela m'inquiétait et il me faudrait,
+         éventuellement, résoudre ce problème. Dimanche matin, 8
+         janvier 2006, je tentai de modifier le temps de détection
+         des périphériques IDE, le faisant passer de 35s à 10s,
+         mais cela ne changea rien. J'examinai aussi la possibilité
+         d'un conflit d'IRQ entre ma carte TV et une autre
+         composante du système. Je dus écarter cette hypothèse, car
+         la carte TV ne partage pas son IRQ dans la fente où elle
+         se trouve.
+      </p>
+      <p>
+         Malheureusement, le bogue revint régulièrement,
+         pratiquement à chaque démarrage de la machine. Pendant
+         trois mois, pratiquement à chaque fois que le bogue
+         revenait, je grinçais des dents en pensant que la seule
+         solution pour l'enrayer complètement serait de retirer mon
+         synthoniseur TV, retirer ma carte graphique NVIDIA,
+         installer une carte graphique ATI All-In-Wonder PCI
+         Express (avec synthoniseur TV intégré) et <i>espérer</i>
+         qu'au moins l'accélération 2D fonctionnerait sous Linux.
+      </p>
+      <p>
+         Dimanche, 12 mars 2006, une nouvelle hypothèse me vint à
+         l'esprit: se pourrait-il que ce soit le connecteur power
+         fan? Plutôt que tenter de le débrancher, j'essayai, dans
+         le setup du BIOS, de désactiver son effet. Pour ce faire,
+         dans l'onglet <b>Power</b>, j'accédai à <b>Hardware
+         Monitor</b>. Je configurai alors l'option <b>Power fan</b>
+         sur <b>Ignore</b> plutôt que sur la vitesse de rotation.
+         Le démarrage se fit alors normalement! J'aurais également
+         pu résoudre le problème en débranchant le connecteur
+         puisque ce dernier ne sert qu'à communiquer la vitesse de
+         rotation à la carte mère. Le bloc d'alimentation alimente
+         le ventilateur en électricité, que le fil soit branché ou
+         pas.
+      </p>
+      <p>
+         Le problème semble dû au fait que le BIOS attend que le
+         ventilateur du bloc d'alimentation ait atteint une
+         certaine vitesse avant de démarrer le système. Toutefois,
+         en raison de la conception de mon bloc d'alimentation
+         Antec, le ventilateur n'a pas besoin de tourner aussi vite
+         que pour les autres blocs. En indiquant au BIOS d'ignorer
+         la vitesse de rotation du ventilateur, j'ai contourné
+         cette incompatibilité mineure entre ma carte mère et mon
+         bloc d'alimentation. Cette hypothèse a été étayée par le
+         fait que, samedi, 18 mars 2006, Asus PC Probe a signalé un
+         problème de ventilateur de bloc d'alimentation lorsque
+         j'ai tenté de le démarrer. Le logiciel me rapportait
+         pourtant une vitesse de rotation «normale» de 1000 tours
+         par minute, environ. Ce bogue n'avait donc aucun lien avec
+         mon synthoniseur TV et le bus PCI de ma carte mère, ce qui
+         est un soulagement, une bénédiction, même!
+      </p>
+      <p>
+         L'installation des pilotes Hauppage se passa très bien et
+         le synthoniseur fonctionna #1, y compris la télécommande.
+         La machine continua de bien fonctionner et ne planta pas
+         une seule fois!
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

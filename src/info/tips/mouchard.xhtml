@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         À bas l'espionnage!
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css"
+      href="../../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../../index.xhtml" class="parents">Le
+               royaume de Eric Buist</a> &gt;&gt; <a
+               href="../index.xhtml"
+               class="parents">Informatique</a> &gt;&gt;
+               Quelques-unes de mes recherches personnelles
+               &gt;&gt; <a href="index.xhtml" class="parents">Trucs
+               et astuces</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../../sitemap.xhtml" class="sitemap">Plan
+               du site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="java.xhtml"
+               class="leftsibling">Faire tourner une applet Swing
+               dans un navigateur</a>
+            </td>
+            <td class="thispage">
+               À bas l'espionnage!
+            </td>
+            <td class="rightsibling">
+               <a href="linkeyb.xhtml"
+               class="rightsibling">Configuration du clavier sous
+               Linux</a> &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         À bas l'espionnage!
+      </h1>
+      <p>
+         Pour des raisons diverses, il est intéressant pour des
+         compagnies d'obtenir des informations sur le contenu et le
+         type de nos machines. Par exemple, quoi de mieux pour
+         savoir où se trouvent des logiciels potentiellement
+         piratés ou quelle est la puissance CPU moyenne afin de
+         mettre au point une version future d'un produit qui
+         nécessitera plus de puissance afin de permettre aux
+         concepteurs de processeurs de vendre leurs produits! On ne
+         pourra certes pas éviter tout cela, mais on peut au moins
+         tenter de les empêcher d'espionner.
+      </p>
+      <p>
+         Tout d'abord, il faudrait bien savoir comment ils font! La
+         technique consiste à dissimuler un mouchard dans le code
+         de certains logiciels fréquemment utilisés! Le logiciel
+         démarre, prend ses informations puis les envoie en
+         cachette à son concepteur par le biais de Internet. La
+         solution, direz-vous: ne plus utiliser Internet. Mais il
+         ne faut pas se priver d'une ressource utile en raison de
+         quelques espions, non? Cette page explique la procédure
+         pour désamorcer deux mouchards, je suis certain qu'il en
+         existe d'autres et si quelqu'un lisant cette page en
+         connaît, faites-le-moi savoir, je les incluerai ici.
+      </p>
+      <h2>
+         L'espion à la solde de Microsoft
+      </h2>
+      <p>
+         Windows 98 comporte notre premier mouchard à désactiver,
+         il se trouve dans <tt>regwizc.dll</tt>, un contrôle
+         ActiveX servant à gérer l'enregistrement du produit
+         Windows. Désactiver cette bêbite est d'une simplicité
+         fulgurante! Dans le menu Démarrer, sélectionnez Exécuter
+         puis tapez ce qui suit dans la zone de saisie avant de
+         valider par OK: <tt>regsvr32 /u
+         c:\windows\system\regwizc.dll</tt>. Voilà, c'est fait, pas
+         même de redémarrage! Cette manipulation fonctionne pour
+         Windows 98, Windows 98SE, Windows ME, mais je n'ai pas
+         testé pour Windows NT et Windows 2000. Vous pouvez
+         toujours remettre l'espion en service en effectuant la
+         même manipulation, mais en enlevant le <tt>/u</tt> de la
+         ligne de commande.
+      </p>
+      <h2>
+         ICQ comporte un agent secret!
+      </h2>
+      <p>
+         Eh oui, ce logiciel aussi est mouchardé. Avant de
+         précipiter votre pointeur de souris sur la petite fleur,
+         double-cliquer dessus puis fermer et désinstaller le
+         logiciel, lisez ceci, vous n'aurez pas à vous priver de ce
+         fantastique outil de communication en ligne! La procédure
+         est malheureusement un peu moins simple, il faut jouer
+         dans la Base de Registres. <b>ATTENTION:</b> la Base de
+         Registres est un endroit dangereux, soyez prudents, suivez
+         les consignes suivantes à la lettre!
+      </p>
+      <ol>
+         <li>
+            Fermez ICQ, pour vous assurer qu'en quittant, le
+            logiciel ne va pas restaurer l'option qu'on va se tuer
+            à modifier!
+         </li>
+         <li>
+            Dans le menu Démarrer, sélectionnez Exécuter puis tapez
+            <tt>regedit</tt> dans la zone de saisie. Validez par
+            OK. L'Éditeur du Registre devrait surgir.
+         </li>
+         <li>
+            Dans la portion gauche de l'application, ouvrez
+            l'élément (clé) <tt>HKEY_CURRENT_USER</tt>. On ouvre
+            une clé en cliquant sur le symbole <b>+</b> à sa
+            gauche.
+         </li>
+         <li>
+            Ouvrez les clés <tt>Software</tt>, <tt>Mirabilis</tt>,
+            <tt>ICQ</tt> puis <tt>DefaultPrefs</tt>, chacune des
+            clés étant une sous-clé de la précédente.
+         </li>
+         <li>
+            Dans la partie de droite, repérez la valeur <tt>Auto
+            Update</tt>. <tt>Yes</tt> lui est assigné par défaut.
+         </li>
+         <li>
+            Double-cliquez sur <tt>Auto Update</tt>. Dans le champ
+            d'édition qui surgira, tapez <tt>No</tt> puis validez.
+            Fermez l'Éditeur du Registre puis démarrez ICQ. Voilà!
+         </li>
+      </ol>
+      <p>
+         Si vous souhaitez réactiver le mouchard, exécutez la même
+         manipulation en interchangeant <tt>Yes</tt> et
+         <tt>No</tt>.
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

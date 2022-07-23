@@ -1,0 +1,192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         Encore un autre bogue d'imprimante
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css"
+      href="../../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../../index.xhtml" class="parents">Le
+               royaume de Eric Buist</a> &gt;&gt; <a
+               href="../index.xhtml"
+               class="parents">Informatique</a> &gt;&gt; Problèmes
+               marquants &gt;&gt; <a href="../resolved.xhtml"
+               class="parents">Quelques bogues résolus</a> &gt;&gt;
+               <a href="index.xhtml" class="parents">Bogues
+               matériels résolus</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../../sitemap.xhtml" class="sitemap">Plan
+               du site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="psbomb.xhtml"
+               class="leftsibling">La bombe du power supply</a>
+            </td>
+            <td class="thispage">
+               Encore un autre bogue d'imprimante
+            </td>
+            <td class="rightsibling">
+               <a href="cpubomb.xhtml" class="rightsibling">La
+               bombe du CPU</a> &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         Encore un autre bogue d'imprimante
+      </h1>
+      <p>
+         Mon imprimante Epson Stylus C82 fonctionnait plutôt bien,
+         mais je trouvais qu'elle n'imprimait pas beaucoup de pages
+         avec une cartouche d'encre noire et je trouvais étrange
+         qu'elle soit bruyante sous Windows et pratiquement
+         silencieuse sous Linux. Dimanche, 26 octobre 2003, je
+         décidai de tenter la mise à jour du pilote de cette
+         imprimante. Je visitai ainsi le site de la compagnie Epson
+         et y obtins le pilote voulu. La version de mon pilote
+         était le 5.42N, mais le site offrait la 5.42. Je ne
+         parvins pas à obtenir un pilote en français, si bien que
+         j'installai une version anglaise. Malgré tout, j'installai
+         la mise à jour afin de voir si l'imprimante serait moins
+         bruyante lors du chargement du papier. Cela ne changea
+         rien, mais je conservai malgré tout le nouveau pilote.
+      </p>
+      <p>
+         Le lendemain, j'avais quelque chose à imprimer.
+         L'imprimante effectua son nettoyage des têtes, cela
+         prenait déjà pas mal de temps, puis elle mit encore du
+         temps avant de commencer l'impression. Sous Windows, le
+         niveau d'encre des cartouches ne s'affichait qu'après
+         plusieurs longues secondes. L'imprimante commença
+         finalement à imprimer une page très lentement. Après
+         quelques secondes, elle éjecta la page non terminée. Il
+         semblait qu'il y avait un problème subit avec l'interface
+         USB entre l'imprimante et l'ordinateur. Je ne pouvais
+         tester avec un câble parallèle, car je ne suis pas certain
+         de disposer d'un fil bidirectionnel. Lors d'une
+         impression, Windows rapportait que le document n'avait pas
+         pu être imprimé et dans la file d'attente de l'imprimante,
+         il apparaissait de nombreux documents intitulés Checking
+         status que l'imprimante semblait incapable de traiter. Non
+         seulement ces envois répétés troublaient l'impression,
+         mais ils ralentissaient mon système de plus en plus.
+         L'interface répondait très mal, cela devenait de moins en
+         moins supportable.
+      </p>
+      <p>
+         J'utilisai le Panneau de configuration pour accéder à
+         l'icône Ajout/suppression de programmes. De là, je
+         supprimai le pilote d'impression en Anglais et en
+         Français. L'imprimante, par contre, n'avait pas disparu.
+         Lorsque j'accédai aux Imprimantes, elle s'y trouvait
+         toujours et il me fallut cliquer droit dessus et
+         sélectionner <b>Annuler tous les documents</b>; elle
+         disparut après quelques secondes. Ensuite, je réinstallai
+         le pilote téléchargé sur Internet. Après le traitement,
+         l'imprimante pouvait sortir une page de test.
+      </p>
+      <p>
+         Mardi, 28 octobre 2003, l'imprimante n'affichait plus les
+         niveaux d'encre du tout et ne parvenait pas à sortir un
+         document. Après queques infructueuses tentatives
+         d'imprimer mon document, l'imprimante cria «WOW! Les
+         nerfs!» et ne fit plus rien du tout! La diode rouge
+         indiquant l'absence de papier était allumée tandis que la
+         machine contenait du papier. Si j'appuyais sur le bouton
+         indiqué par la diode allumée, l'imprimante émettait
+         quelques sons puis s'arrêtait de nouveau; la diode rouge
+         demeurait allumée. Pensant que Windows avait envoyé des
+         séquences de commandes incorrectes à l'imprimante dont un
+         élément logiciel venait tout simplement de planter, je
+         débranchai le câble USB afin de l'isoler de cette source
+         de bogues. Ensuite, j'éteignis l'imprimante et la rallumai
+         afin qu'elle se réinitialise sans le concours de Windows
+         pour la faire boguer de nouveau. Même ainsi isolée,
+         l'imprimante s'obstinait à garder sa diode de papier
+         allumée. Surmenage, il lui faudrait un psychologue pour
+         soigner sa dépression! Avant de laisser tomber et faire
+         appel à ma garantie d'un an, je tentai d'éteindre
+         l'imprimante, la débrancher puis la rallumer. Il n'y eut
+         aucun changement! Au bord de conclure que l'imprimante
+         avait rendu l'âme, je lui retirai ses feuilles et
+         découvris alors que deux d'entre elles s'étaient enfoncées
+         dans la machine. Je tentai de tirer dessus pour les en
+         extraire et il n'y eut aucune résistance. Après ce
+         traitement, l'appui sur le bouton du papier provoqua de
+         nouveau une réaction de l'imprimante. Après des bruits
+         mécaniques qui en disent long sur la fiabilité de ce genre
+         d'appareils en général, la diode s'éteignit! Je remis les
+         feuilles en place et tentai de nouveau d'appuyer sur le
+         bouton du papier. L'imprimante ramassa une page et la
+         chargea. J'appuyai de nouveau sur le bouton et la page fut
+         éjectée! Puisque la mécanique semblait correcte, je
+         rebranchai l'interface USB.
+      </p>
+      <p>
+         L'impression d'une page de test ne fut de nouveau pas
+         possible. Il semblait bien qu'un problème était né sous
+         mon Windows. Je tentai de nouveau de supprimer le pilote
+         d'impression Anglais et cette fois, je supprimai également
+         le Ink Monitor. Il me fallut une seconde fois annuler tous
+         les documents pour faire disparaître mon imprimante de
+         Windows après quoi j'installai le pilote Français depuis
+         mon CD. Malheureusement, le programme d'installation se
+         bloqua plutôt que me laisser choisir la langue. Après
+         avoir fermé le programme de force et réessayai de deux à
+         trois reprises, je me résolus à tenter l'installation
+         manuellement. Avec l'Explorateur, je découvris qu'il
+         semblait falloir exécuter
+         <tt>Drivers\Français\setup.exe</tt>. Après une
+         installation avec erreurs, l'imprimante se remit à
+         fonctionner, mais je ne pouvais plus obtenir les niveaux
+         d'encre. Alors, j'éteignis l'imprimante, désinstallai le
+         pilote Epson et le Ink Monitor puis redémarrai mon
+         ordinateur. Après avoir vérifié que l'imprimante avait
+         bien disparu, je réinstallai le pilote du CD original,
+         cette fois sans aucune difficulté. L'imprimante fonctionna
+         ensuite, ainsi que les niveaux d'encre.
+      </p>
+      <p>
+         Il semble que le bogue soit dû à un conflit entre la
+         version anglaise et française du pilote et/ou du moniteur
+         de niveau d'encre. Le redémarrage était nécessaire, car il
+         a permis de supprimer de la mémoire les deux versions du
+         moniteur de niveau d'encre et ainsi permettre de retrouver
+         une configuration correcte. L'imprimante n'avait aucun
+         problème matériel!
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

@@ -1,0 +1,1058 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         La bombe du CPU
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css"
+      href="../../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../../index.xhtml" class="parents">Le
+               royaume de Eric Buist</a> &gt;&gt; <a
+               href="../index.xhtml"
+               class="parents">Informatique</a> &gt;&gt; Problèmes
+               marquants &gt;&gt; <a href="../resolved.xhtml"
+               class="parents">Quelques bogues résolus</a> &gt;&gt;
+               <a href="index.xhtml" class="parents">Bogues
+               matériels résolus</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../../sitemap.xhtml" class="sitemap">Plan
+               du site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="epsonbug.xhtml"
+               class="leftsibling">Encore un autre bogue
+               d'imprimante</a>
+            </td>
+            <td class="thispage">
+               La bombe du CPU
+            </td>
+            <td class="rightsibling">
+               <a href="psbuist.xhtml" class="rightsibling">Le jour
+               où la machine Buist fit PAF!</a> &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         La bombe du CPU
+      </h1>
+      <p>
+         Après quatre ou cinq ans, la mort menace la plupart des
+         machines domestiques. Certains ordinateurs se mettent à
+         mal fonctionner, plantant sans cesse pour un bon jour ne
+         plus allumer du tout. D'autres font des bruits de tondeuse
+         à rendre fou et d'autres encore fonctionnent mais très
+         lentement. Je dirais qu'en juillet 2005, je m'en allais
+         progressivement vers la dernière catégorie, mais qui sait,
+         cela pourrait changer. Afin d'éviter la mort subite du
+         Faucon de Fer, il me fallait rester à l'affût, surveiller
+         le moindre signe de faiblesse et prévenir plutôt que
+         guérir. C'est ce que j'ai fait, plutôt que j'ai tenté de
+         faire, vendredi, 15 juillet 2005.
+      </p>
+      <h2>
+         La machine qui a chaud
+      </h2>
+      <p>
+         Une semaine avant le cataclysme que je vais décrire ici,
+         j'ai commencé à entendre un bruit étrange venant de mon
+         ordinateur. Ça ressemblait au disque dur en train de
+         gratter, mais la diode d'activité sur le boîtier de ma
+         machine n'était pas allumée. J'en conclus donc que c'était
+         le disque dur sur le point de péter ou un ventilateur.
+      </p>
+      <p>
+         Afin d'éliminer le disque dur des variables, je
+         m'arrangeai pour faire planter Windows, ce qui était
+         facile à cause de cette plaie de <a
+         href="../mysteries/xpcrash.xhtml">ZoomText</a>! J'avais
+         aussi essayé de le mettre en mode veille, mais le bruit
+         cessait. Mais puisque le ventilateur à CPU ralentissait,
+         ce n'était pas un test concluant. Windows ne tarda pas à
+         afficher un écran bleu sous l'effet d'une manipulation
+         bien simple impliquant ZoomText et le disque dur cessa de
+         tourner. Par contre, le bruit inhabituel persista. FIOU!
+         C'était donc simplement un ventilateur. Mais au fond, il
+         aurait peut-être mieux valu que ce soit le disque dur, ça
+         aurait sauvé ma carte mère de façon certaine!
+      </p>
+      <p>
+         Quelques jours avant le jour fatidique, je découvris que
+         la température de mon processeur pouvait monter à 72
+         degrés Celsius tandis qu'en 2003, elle était à 56 degrés.
+         Lors du démarrage de la machine, en 2005, il n'y avait
+         aucun bruit suspect et la température du CPU était
+         d'environ 35 degrés. Toutefois, sous Linux, si je
+         démarrais <tt>yes &gt; /dev/null</tt> pendant un certain
+         temps, pour faire travailler le processeur, la température
+         grimpait au-dessus de 72 degrés! C'était à ce moment que
+         le bruit suspect commençait. De plus, la vitesse de
+         rotation avait chuté à 5000 tours/min tandis qu'elle était
+         entre 5500 tours/min en 2003.
+      </p>
+      <p>
+         Il se pouvait que la température monte davantage et la
+         machine allait alors devenir de plus en plus lente et
+         finalement instable. Dans le pire cas, cela pouvait même
+         endommager mon processeur et me forcer à le changer, ainsi
+         que la carte mère et la mémoire. La nouvelle machine
+         serait un AMD64 et je voulais bénéficier de <a
+         href="../../info/sata.xhtml">Serial ATA</a> pour un
+         maximum de performance. Toutefois, certains contrôleurs
+         Serial ATA ont des difficultés sous Linux, si bien que ce
+         bogue pouvait me faire perdre Linux! Il me fallait donc
+         éviter cela le plus longtemps possible, alors faire
+         survivre le Faucon de Fer était une nécessité. Je
+         prévoyais tenter de nettoyer le ventilateur à CPU, puisque
+         le bogue de température allait dans ce sens plutôt que
+         dans celui du <a href="psbomb.xhtml">power supply</a>
+         comme en 2003,
+      </p>
+      <h2>
+         Tentative de nettoyage
+      </h2>
+      <p>
+         Vendredi, 15 juillet 2005, j'ai ouvert le boîtier de mon
+         ordinateur afin d'enlever les quatre vis de rétention du
+         ventilateur à CPU. J'eus beaucoup de difficulté, car le
+         tournevis ne faisait que sortir de la vis et cela ne
+         tournait pas. Je finis par avoir les quatre vis, en
+         utilisant un autre tournevis, et le ventilateur put alors
+         se détacher du dissipateur de chaleur. Comme ça, je
+         pourrais nettoyer le ventilateur sans enlever le
+         dissipateur.
+      </p>
+      <p>
+         J'en profitai pour relever un maximum d'informations au
+         sujet de ce ventilateur, au cas où la seule solution pour
+         faire cesser les bruits de picouille serait de le
+         remplacer. J'espérais pouvoir changer le ventilateur
+         seulement, sans remplacer le dissipateur au complet. D'un
+         côté du ventilateur, je pus lire
+      </p>
+<pre>
+FDF EFB0612MMA
+12V   0.25A
+50mm
+</pre>
+      tandis que de l'autre, il é inscrit 
+<pre>
+AMD-ATHLON
+30102240
+1000 MHz
+</pre>
+      <p>
+         Avec une guénille mouillée, je m'escrimai à enlever la
+         poussière de chaque palette, cela prit un temps fou et il
+         en restait tout le temps. C'est après que je remarquai la
+         quantité incroyable de poussière dans le dissipateur.
+         Cette poussière pouvait bien bloquer la circulation d'air
+         dans le dispositif et en diminuer son efficacité. Un
+         nettoyage du ventilateur ne serait donc efficace que s'il
+         était accompagné d'un nettoyage du dissipateur. J'essayai
+         avec l'aspirateur, mais j'étais presque certain qu'il en
+         restait. Quelque chose de plus radical s'imposait.
+      </p>
+      <h2>
+         Erreurs fatales
+      </h2>
+      <p>
+         Je finis par me décider à pousser mon idée jusqu'au bout,
+         mais pour ce faire, il me fallait retirer le dissipateur
+         au complet. J'employai pour cela un tournevis plat pour
+         faire bouger la clip de rétention, mais le tournevis ne
+         faisait que glisser, menaçant ma carte mère. Il pouvait en
+         effet graffigner les circuits imprimés et rendre la
+         machine inutilisable. Je finis par réussir à décrocher le
+         dissipateur et, tandis qu'il n'y avait plus de ventilateur
+         attaché après, je le passai sous le robinet! J'évitai
+         autant que possible de mettre de l'eau en-dessous, afin de
+         ne pas retirer la pâte thermoconductrice déjà en place.
+         Cette pâte est essentielle pour le transfert de la chaleur
+         entre le processeur et le dissipateur.
+      </p>
+      <p>
+         Le dissipateur est une pièce relativement simple, en fait,
+         complètement dépourvue de circuits électriques ou
+         électroniques, à l'exception du ventilateur que j'avais
+         enlevé. Une surface métallique est destiné à être mise à
+         plat sur le processeur et un grand nombre de tiges
+         verticales et parallèles y sont soudées. Ces tiges
+         permettent de répartir la chaleur émise par le processeur
+         qui peut alors être dissipée à l'intérieur du boîtier par
+         le ventilateur. Un autre ventilateur, celui du boîtier ou
+         du bloc d'alimentation, se charge de créer une pression
+         négative qui finit par évacuer l'air chaud provenant du
+         processeur. Mon idée était de tenter d'envoyer de l'eau
+         entre les tiges métalliques du dispositif afin d'en
+         chasser la poussière qui s'y était logée. Cela fut d'une
+         efficacité que très relative et en fait, souffler entre
+         les tiges eut un meilleur résultat. L'idéal pour nettoyer
+         un dissipateur est donc d'envoyer de l'air entre les
+         tiges, pas autre chose. Cela peut même se faire sans
+         décrocher le dissipateur!
+      </p>
+      <p>
+         Vint ensuite le moment de remettre le dissipateur à sa
+         place. Avant, j'essayai de remettre le ventilateur, mais
+         les vis ne rentraient plus. Elles bloquaient toujours et
+         j'allais devoir attendre d'avoir remis le dissipateur sur
+         le processeur avant d'essayer de nouveau. La clip résista,
+         le tournevis glissa maintes fois, je finis par perdre
+         espoir et demandai à mon père de le poser pour moi.
+         C'était la seule façon d'éviter de perdre ma carte mère.
+         Depuis ce temps, j'ai eu quelques idées pour fixer le
+         dissipateur plus facilement, l'idéal étant une pince
+         spéciale dont je n'ai pas encore totalement conçu la forme
+         et qui n'existe peut-être même pas. Cette pince devrait
+         être recourbée de façon à se loger dans l'emplacement où
+         va actuellement le tournevis plat et à entourer la clip de
+         rétention pour ne pas glisser. Il serait alors possible de
+         manoeuvrer la clip autant que nécessaire, sans problème de
+         stabilité. Toutefois, créer des prototypes ne serait pas
+         trop évident et les tester non plus.
+      </p>
+      <p>
+         Le ventilateur remis en place et rebranché, j'essayai de
+         serrer les vis, sans succès total. Malgré tout, j'allumai
+         ma machine. Je constatai alors que le ventilateur ne
+         tournait plus! Le démarrage semblait quant à lui plus
+         lent, mais je ne lui donnai pas le temps de finir.
+         J'essayai de faire tourner le ventilateur manuellement et
+         il semblait coincé. Je retirai de nouveau les vis, tentai
+         de les replacer, rien à faire. Je finis par comprendre
+         qu'il était du mauvais côté et les vis entrèrent
+         complètement lorsque je le retournai. Voilà, ça tournait!
+         Toutefois, le ventilateur tournait toujours plus lentement
+         qu'en 2003, si bien que rien ne semblait réglé.
+      </p>
+      <p>
+         Quelques minutes après que j'aie démarré Windows XP pour
+         jouer à King's Quest VIII, j'eus une très mauvaise
+         surprise: plantage! La machine s'était mise à bipper sans
+         cesse. Je redémarrai, le coeur battant, et constatai que
+         rien ne se passait. Ça bloquait je ne sais plus trop où.
+         J'éteignis la machine, attendis quelques secondes,
+         profitant de ce délai pour calmer ma nervosité croissante,
+         puis rallumai. La température était à 40 degrés Celsius,
+         correct. J'observai le Hardware Monitor, dans le Setup du
+         BIOS, pendant quelques temps, puis constatai que la
+         température ne cessait d'augmenter puis la machine
+         plantait. Bien que le processeur soit à 44 degrés Celsius,
+         ça plantait. Ça ne cessait plus de geler, la machine
+         semblait finie.
+      </p>
+      <p>
+         Il fallait probablement remettre de la pâte
+         thermoconductrice, telle était ma seule hypothèse de
+         travail, ma seule planche de salut. Si ce n'était pas la
+         solution, il ne me restait qu'à changer de carte mère et
+         la possibilité que cela implique devoir renoncer à Linux à
+         cause de Serial ATA me frustrait tellement que j'avais
+         envie de ne pas racheter de machine du tout! Une nouvelle
+         information vint diminuer la probabilité de succès de ma
+         mesure corrective: il y avait 700Mo de mémoire RAM, plus
+         768Mo! Le BIOS ne détectait plus la bonne quantité de
+         mémoire. Sans informations additionnelles, la seule
+         hypothèse possible est la défaillance de la carte mère.
+         Toutefois, il y avait un espoir, un très mince espoir...
+      </p>
+      <p>
+         Avant de faire mes symagrées avec le dissipateur, j'avais
+         aussi tenté de retirer ma carte graphique afin d'enlever
+         un fil qui s'était glissé entre la carte et la carte mère.
+         Probablement que c'était arrivé quand j'avais installé ma
+         mémoire ou mon disque dur, en 2003, opérations qui avaient
+         toutes deux exigé de retirer la carte. C'était un miracle
+         que la machine ait bien fonctionné malgré ça et pendant
+         tout ce temps! Il me fallut retirer deux fois la carte
+         graphique pour réussir, car la première fois, un autre fil
+         alla se coincer! Ce qu'il faut savoir, c'est que la
+         mémoire se trouve très près de la fente AGP; j'ai pu
+         l'accrocher en travaillant dans cette région. La
+         possibilité d'une graffigne sur la carte mère était aussi
+         plus là que jamais, de même que la statique.
+      </p>
+      <h2>
+         Une pièce qui n'existe plus!
+      </h2>
+      <p>
+         Je dus passer une nuit troublée, car il me fallut attendre
+         le lendemain pour obtenir la pâte thermoconductrice, ainsi
+         qu'un nouveau dissipateur de chaleur. Ainsi, j'aurais un
+         nouveau ventilateur à CPU et il ne ferait pas de bruits de
+         picouille comme l'autre. Puisqu'il fallait de toute
+         manière retirer le dissipateur pour remettre la pâte,
+         autant le changer. Ça allait complètement régler le
+         problème et <i>peut-être</i> ressusciter ma machine. Selon
+         la vendeuse, le problème était toutefois plus grave et un
+         changement de carte mère s'imposait, ce qui confirmait
+         bien mes craintes. Malgré tout, j'essayai de tester
+         l'hypothèse de la pâte thermoconductrice. J'allais tenter
+         de remédier au problème de la mémoire plus tard, à moins
+         qu'il ne disparaisse de lui-même. Peut-être était-ce le
+         processeur qui devenait fou, parce qu'il avait trop chaud?
+         Peu probable, mais bon, c'était mon seul espoir.
+      </p>
+      <p>
+         Encore une fois, je laissai à mon père le soin de poser le
+         truc pour ne pas empirer mon cas déjà désespéré à mon
+         avis. La suppression de Linux et le reformatage de mon
+         nouveau disque dur SATA en NTFS semblaient pour bientôt...
+         À moins de ne plus avoir d'ordinateur chez moi du tout, ce
+         qui nécessiterait de faire tous mes travaux à l'Université
+         de Montréal et éventuellement déménager à Montréal pour
+         être plus proche de mon lieu d'études. Mon père découvrit
+         que le dissipateur que la vendeuse m'avait fourni était
+         plus petit que le précédent, le ventilateur aussi! C'était
+         un dissipateur pour Pentium MMX, AMD K6 et autres petites
+         machines du genre!
+      </p>
+      <p>
+         Nous l'avons ainsi retourné pour le faire échanger et
+         c'est là que ça devient intéressant: il ne semblait y
+         avoir aucun dissipateur pour Athlon Thunderbird! Il y en a
+         pour les Athlon XP, les Intel P4, mais pas les
+         Thunderbird! La vendeuse a pris un autre dissipateur plus
+         gros et lui a vissé un ventilateur venant de je ne sais
+         où! Le ventilateur n'avait que deux fils plutôt que trois,
+         mais c'était supposé marcher!
+      </p>
+      <h2>
+         Eh bien, ça ne fonctionne pas!
+      </h2>
+      <p>
+         À présent, la machine n'avait plus que 512Mo, ce qui
+         signifiait que la barrette de 256Mo était mal branchée ou
+         endommagée. Il ne restait que celle de 512Mo de l'été
+         2003. De plus, la vitesse de rotation du nouveau
+         ventilateur, plus silencieux mais avec moins de palettes
+         que l'ancien, était de 0 tours/min. Ce n'était guère
+         étonnant puisque le fil manquant sert justement pour le
+         compte-tours. La machine démarra sous Windows et tout
+         semblait bien aller, à part que c'était lent par moments.
+         J'attribuai cela à l'anti-virus McAfee VirusScan que
+         j'avais installé voilà quelques temps.
+      </p>
+      <p>
+         Avant toute chose, il me fallait régler le problème de la
+         mémoire. Pour ce faire, je retirai une troisième fois la
+         carte graphique et tentai de retirer puis réinsérer ma
+         barrette de 256Mo. C'était la barrette d'origine, pas
+         celle de 512Mo ajoutée en 2003. Cela n'eut aucun effet.
+         J'essayai ensuite, après avoir retiré la carte graphique
+         une quatrième fois, d'intervertir les deux barrettes afin
+         de savoir si ma barrette de 256Mo était défectueuse ou si
+         c'était la fente sur la carte mère. En cas de défaut de la
+         fente, j'allais tenter d'insérer la barrette dans la
+         troisième fente qui n'avait jamais servi. Toutefois, il
+         était fort possible que la machine refuse de démarrer sans
+         barrette dans la première fente. Heureusement, rien de
+         cela ne fut nécessaire, car miraculeusement, la machine
+         retrouva ses 768Mo!
+      </p>
+      <p>
+         Je découvris, lors d'un des nombreux démarrages, que ma
+         carte mère Gigabyte 7ZX affichait <tt>Check System Health
+         !</tt> plutôt que <tt>Check System Health OK</tt> comme je
+         croyais avoir déjà vu. Cela ajouta à mon inquiétude
+         grandissante. Ma machine semblait à tel point finie que je
+         ne pourrais même pas récupérer mes données sans brancher
+         le disque dur dans une autre machine.
+      </p>
+      <p>
+         Je redémarrai sous Linux afin de faire des sauvegardes le
+         plus tôt possible, au cas où en fait, la machine ne
+         fonctionnerait plus jamais bien. Tandis que je copiais des
+         fichiers, le clavier se mit à boguer. De temps en temps,
+         il se mettait à afficher continuellement la même lettre,
+         comme si je maintenais la touche enfoncée. Plus rien ne
+         répondait correctement. Décidément, ma machine allait
+         sauter, pièce par pièce! J'éteignis tout, débranchai le
+         clavier, le rebranchai puis tentai de rallumer. Ça
+         <i>semblait</i> fonctionner, mais mon degré de confiance
+         était très relatif...
+      </p>
+      <p>
+         Pour accélérer les tests, je tentai de taper <tt>yes &gt;
+         /dev/null</tt> et laissai le programme tourner pendant un
+         certain temps. Régulièrement, j'utilisais la commande
+         <tt>sensors</tt> pour voir la température du processeur.
+         Celle-ci monta pour atteindre les soixante-dix degrés puis
+         dépassa la barre des quatre-vingt! Peu de temps après,
+         tandis que je commençais des recherches préventives pour
+         l'achat d'une nouvelle machine, tout gela.
+      </p>
+      <h2>
+         Un sursis plus long
+      </h2>
+      <p>
+         Suite à ce plantage, il était clair que le nouveau
+         dissipateur ne suffisait pas. Mon père et moi tentâmes
+         ainsi de remettre l'original. La pâte thermoconductrice
+         d'origine avait séché et faisait apparemment moins bien
+         son travail. Avec la nouvelle pâte, la machine redevint
+         fonctionnelle! Mon père a aussi tenté de grater la vieille
+         pâte du dissipateur original pour améliorer les chances de
+         succès de l'opération. Le nouveau dissipateur retourna
+         ainsi au magasin et la machine put fonctionner pendant un
+         bon bout de temps sans planter. Je refis le test avec
+         <tt>yes</tt> et <tt>sensors</tt>: la température demeura
+         stable.
+      </p>
+      <p>
+         Le lendemain, j'ai vu que le message de démarrage était
+         redevenu <tt>Check System Health OK</tt>! Il est fort
+         possible que le test ait échoué, samedi matin, à cause du
+         ventilateur qui ne pouvait pas indiquer sa vitesse de
+         rotation. La carte mère pensait alors qu'il n'y avait pas
+         de ventilateur à CPU. Mieux encore, la température n'est
+         plus remontée à 70 degrés depuis l'intervention. La
+         nouvelle pâte thermoconductrice est donc plus efficace que
+         celle qui se trouvait avant. Il est toutefois possible que
+         sans cette expérimentation, la machine aurait bien
+         fonctionné encore longtemps. À présent, il se pouvait
+         qu'elle plante encore et je passai plusieurs jours à
+         craindre qu'elle ne se mette à biper à l'infini ou ne gèle
+         pour rien. Dans cette optique, je me mis le jour même à
+         imprimer des informations qui pourraient m'être utiles
+         pour sélectionner les pièces d'une nouvelle machine. En
+         effet, tant qu'à changer la carte mère, j'allais changer
+         tout le reste et me construire une bombe.
+      </p>
+      <p>
+         Je crois que le véritable problème n'était pas la pâte
+         thermoconductrice mais la contact électrique entre la
+         carte mère et la mémoire qui était devenu instable. Le
+         soir du plantage, le contact était intermittent et cela
+         faisait geler la machine périodiquement. C'est la seule
+         explication pour le fait que même quand la température du
+         processeur était à 45 degrés, la machine plantait. Si
+         j'avais pu mettre la pâte thermoconductrice le soir même
+         ou bien changer le dissipateur, il se peut que la machine
+         soit demeurée aussi instable que si je n'avais rien fait.
+         J'aurais alors cru que ma carte mère était finie et je ne
+         serais pas allé plus loin. Le lendemain matin, le contact
+         électrique était stable mais pas complet, si bien que la
+         machine pouvait tourner avec une quantité réduite de
+         mémoire. Jouer avec les puces a alors rétabli la
+         situation.
+      </p>
+      <p>
+         Cet exemple montre l'importance de la chance et de l'ordre
+         d'occurrence des événements pour le diagnostic d'un PC.
+         C'est triste qu'il en soit ainsi et je ne connais pas
+         vraiment de technique ou d'équipement qui pourraient
+         corriger cette situation d'une façon générale.
+      </p>
+      <h2>
+         Le problème du dissipateur de chaleur
+      </h2>
+      <p>
+         Ce bogue a remis en question ma capacité à monter une
+         machine de A à Z. En effet, je ne suis pas parvenu à
+         réinstaller le dissipateur de chaleur que j'avais enlevé.
+         Pour lever ce doute, il me fallait trouver ce qui avait
+         mal tourné et comment, dans le futur, je pourrais
+         contourner l'obstacle. Bien entendu, toutes ces analyses
+         ne s'appliqueront que pour les dissipateurs AMD Athlon et
+         Intel Pentium 3. Si j'ai à monter un AMD Athlon 64
+         (probable) ou un Pentium 4, je me retrouverai encore une
+         fois devant un casse-tête. Heureusement, il semble que,
+         dans le cas du Pentium 4, la fixation soit plus simple et
+         moins hasardeuse que l'ancien système. La fixation du AMD
+         Athlon 64 est pas mal semblable à celle du Athlon et du
+         Athlon XP, mais la clip est moins difficile à poser. Elle
+         peut être mise en place sans tournevis plat, car elle
+         n'exerce pas de force tant que le levier de verrouillage
+         n'est pas basculé. J'ai obtenu ces informations sur <a
+         href="http://www.mechbgon.com/build/AMD64.html">mechBgon's
+         guide for first-time PC builders</a>.
+      </p>
+      <p>
+         Le dissipateur pour AMD Athlon et anciens Pentium se
+         présente, comme je l'ai écrit plus tôt, comme une plaque
+         métallique sur laquelle est fixé un grand nombre de tiges
+         parallèles et régulièrement espacées. Ces tiges
+         métalliques conduisent la chaleur et un ventilateur
+         souffle entre elles pour la dissiper. Le problème de ce
+         dispositif réside dans son mécanisme de rétention qui est
+         plutôt difficile à mettre en place. Le mécanisme se
+         présente sous la forme d'une clip métallique ayant
+         approximativement la forme d'un fer à cheval applati. À
+         chaque extrémité se trouve un trou permettant d'accrocher
+         le disopsitif sur des fixations de la carte mère. L'une de
+         ces extrémités est pourvue d'un crochet permettant de la
+         manoeuvrer avec un tournevis plat. Lorsque la clip est
+         correctement fixée, elle agit comme un ressort qui pousse
+         le dissipateur sur le socle à processeur, permettant
+         d'exercer une pression sur ce dernier. Dans le cas de
+         l'AMD, cette pression s'élève à 30 livres!
+      </p>
+      <p>
+         Pour fixer le dissipateur, il faut d'abord, après avoir
+         appliqué la pâte thermoconductrice, le placer à plat sur
+         le processeur. Il est alors facile de faire entrer la
+         première extrémité de la clip dans la fixation adéquate de
+         la carte mère. Ensuite, c'est là que cela devient
+         intéressant... Pour mettre en place la seconde extrémité
+         de la clip, celle pourvu du crochet, il faut d'abord
+         appliquer une pression vers le bas pour que l'extrémité
+         touche la fixation de la carte mère, puis une pression
+         vers l'extérieur pour légèrement écarter la clip, ce qui
+         permet d'aligner le trou avec la fixation. La clip est
+         difficile à manipuler en raison de sa petite taille et la
+         force relativement élevée qu'il faut appliquer si bien
+         qu'il faut habituellement utiliser un tournevis plat pour
+         réussir l'installation (voir figure 1).
+      </p>
+      <center>
+         <table width="80%">
+            <caption>
+               Figure 1: Diagramme montrant la clip pourvue d'un
+               crochet pour tournevis plat
+            </caption>
+            <tr>
+               <td align="center">
+                  <img src="cbcaptions.png" />
+               </td>
+            </tr>
+         </table>
+      </center>
+      <p>
+         Pendant la manoeuvre, plusieurs bavures peuvent survenir.
+         D'abord, le dissipateur peut glisser d'un côté ou de
+         l'autre et répandre de la pâte thermoconductrice un peu
+         partout. Ce n'est pas très grave puisque la pâte ne
+         conduit pas l'électricité, mais cela nuit à l'esthétique
+         et il peut être nécessaire d'appliquer de la nouvelle pâte
+         sur le processeur si jamais la fausse manoeuvre survient
+         trop de fois avant le succès (ou la mort du
+         processeur...). Pendant la pose, l'extrémité de la clip
+         devra s'approcher très près de la carte mère pour que le
+         trou soit aligné avec la fixation. Très près ne veut pas
+         dire trop près! Si la clip frotte sur la carte mère, cela
+         peut suffire à égratigner des circuits imprimés et rendre
+         la machine inutilisable! Finalement, il se peut que la
+         clip soit bien installée mais que le dissipateur soit
+         croche, ce qui occasionnera l'application d'une force
+         inégale sur le processeur et le fera craquer. Dans ce cas,
+         c'est la mort du processeur. C'était ma pire crainte, car
+         si cela m'était arrivé, il m'aurait fallu changer la
+         machine au complet! En 2005, il n'est plus possible et de
+         toute façon il ne vaut pas la peine de trouver un
+         processeur compatible avec ma carte mère, à moins
+         peut-être de le prendre usagé.
+      </p>
+      <p>
+         Le gros problème a été, dans mon cas, de manoeuvrer la
+         clip avec le tournevis plat. De la main gauche, craignant
+         une catastrophe, je m'efforçais de tenir le dissipateur en
+         place tandis que de la main droite, je manipulais le
+         tournevis. Je plaçai l'outil dans la cavité en forme de
+         crochet pour bouger la clip et appuyai pour la faire
+         descendre. Ensuite, lorsque je croyais qu'elle avait
+         touché la fixation, je tentais d'induire le mouvement
+         latéral. Cela avait pour effet inévitable de faire sortir
+         le tournevis du crochet de la clip et me valait une bonne
+         frousse. Quoi de pire pour la carte mère qu'un bon coup de
+         tournevis. Cela pouvait l'égratigner, voire même la
+         craqueler. Il est facile d'imaginer le résultat... Au
+         figuré, l'effet pourrait être comme un coup de couteau au
+         coeur! La figure 2 montre le phénomène, les flèches rouges
+         représentant les forces en jeu lors du processus.
+      </p>
+      <center>
+         <table width="80%">
+            <caption>
+               Figure 2: La force de pression est dominée par la
+               force latérale si bien que le tournevis cherche à
+               sortir de la cavité
+            </caption>
+            <tr>
+               <td align="center">
+                  <img src="cbprob.png" />
+               </td>
+            </tr>
+         </table>
+      </center>
+      <p>
+         Maintenant, que pourrais-je faire pour empêcher cela? Tout
+         réside dans l'application de forces. La force de pression
+         doit bien entendu être supérieure à la force latérale
+         nécessaire pour écarter la clip. Ma première idée a été
+         d'utiliser mes doigts plutôt que le tournevis pour induire
+         le mouvement latéral (voir figure 3). Le tournevis n'est
+         nécessaire que pour appliquer la force de pression et pour
+         la maintenir suffisamment longtemps pour venir à bout de
+         fixer la clip. Cette technique semble avoir du bon sens,
+         car physiquement, si le tournevis applique seulement une
+         force verticale, il ne peut pas, en principe, quitter la
+         clip! Toutefois, la technique ne garantit plus que le
+         dissipateur ne va pas bouger pendant l'opération, pouvant
+         occasionner le problème de la force inégale.
+      </p>
+      <center>
+         <table width="80%">
+            <caption>
+               Figure 3: Le problème semble disparaître si la force
+               latérale n'est plus appliquée par le tournevis
+            </caption>
+            <tr>
+               <td align="center">
+                  <img src="cbsol1.png" />
+               </td>
+            </tr>
+         </table>
+      </center>
+      <p>
+         Tous les outils spéciaux que je peux imaginer, et qui
+         n'existent pas nécessairement, se fondent sur cette idée.
+         Par exemple, un tournevis plat modifié pourrait être muni
+         d'une pince capable de retenir la clip. Plutôt qu'une lame
+         plate carrée ou rectangulaire, il serait imaginable
+         d'utiliser une lame en forme de fer à cheval empêchant des
+         mouvements latéraux sur un axe perpendiculaire à celui qui
+         me causait problème.
+      </p>
+      <p>
+         Depuis le début, seule la pointe du tournevis exerce une
+         force. Si cette force forme un angle trop petit par
+         rapport au plan formé par la carte mère, la clip peut
+         certes finir par bouger latéralement, mais il semble y
+         avoir plus de chance que le tournevis saute du crochet,
+         comme sur la figure 2. La seconde technique que je
+         pourrais essayer consiste alors à faire en sorte que deux
+         forces soient appliquées par le tournevis sur la clip.
+         Pour ce faire, le tournevis plat doit être non pas
+         vertical mais légèrement oblique, incliné non pas vers le
+         dissipateur mais vers l'extérieur. De cette façon, comme
+         l'illustre la figure 4, tandis que la pointe continue de
+         pousser vers le bas et légèrement vers la droite, la force
+         latérale est en partie appliquée par une autre portion de
+         la lame du tournevis! De cette façon, il reste possible de
+         tenir le dissipateur pour éviter qu'il ne bouge pendant la
+         fixation de la clip, mais la technique est plus
+         hasardeuse. La force latérale pourrait encore et toujours
+         dominer la force de pression avant que la clip ne bouge
+         suffisamment, de façon à ce que le tournevis glisse hors
+         de son logement et aille se planter droit dans la carte
+         mère, près du socle à processeur.
+      </p>
+      <center>
+         <table width="80%">
+            <caption>
+               Figure 4: Le problème semble disparaître si la force
+               latérale n'est plus appliquée uniquement par la
+               pointe du tournevis
+            </caption>
+            <tr>
+               <td align="center">
+                  <img src="cbsol2.png" />
+               </td>
+            </tr>
+         </table>
+      </center>
+      <p>
+         Je n'ai pas encore testé ces idées, car je ne souhaite pas
+         tenter le démon en retirant mon dissipateur après avoir
+         stabilisé ma machine! Ces cogitations montrent bien le
+         problème que pose la fixation du dissipateur et mènent à
+         espérer qu'un jour, AMD adoptera le système des Pentium 4!
+      </p>
+      <h2>
+         Désamorçage définitif
+      </h2>
+      <p>
+         Pendant tout le reste de l'été, tout le mois de septembre
+         et une grande partie d'octobre, le Faucon de Fer continua
+         de fonctionner normalement, à part le ventilateur à CPU
+         qui émettait toujours des sons étranges, appelés «bruits
+         de picouille.» C'était agaçant, mais ça fonctionnait. Il
+         me sembla que les bruits de picouille augmentèrent après
+         l'achat de ma <a href="../pvr.xhtml">nouvelle carte
+         graphique</a>, ce qui me fit regretter ce choix.
+         Premièrement, j'aurais pu ramasser un nouveau dissipateur
+         de chaleur lors de ma visite chez Microbytes et
+         deuxièmement, à quoi bon mettre la carte graphique d'une
+         machine mourante à jour. Si la machine est pour lâcher
+         dans les mois suivant l'achat, même soixante dollars,
+         c'est trop! La carte graphique AGP n'était pas
+         transférable dans une nouvelle machine, car je planifiais
+         un système PCI Express qui n'aurait pas de fente AGP.
+      </p>
+      <p>
+         Mercredi après-midi, 19 octobre 2005, j'eus une idée qui
+         s'avéra en fait une des plus destructrices pour ma pauvre
+         machine. Le bruit de picouille de ce ventilateur serait dû
+         à une vibration. Avec le temps, les vis de rétention se
+         seraient désserrées. Mon intervention de juillet a permis
+         de resserrer les vis, ce qui a diminué l'intensité des
+         bruits de picouille. Toutefois, les vis n'étaient pas
+         encore assez serrées. J'ai eu beaucoup de mal à les ôter
+         tandis que pour les remettre, je ne me battis pas
+         beaucoup. Cette théorie, si elle était fondée, me
+         fournissait une solution: resserrer les foutues vis ou
+         demander à mon père de trouver un moyen de les serrer
+         comme il faut! Peut-être disposerait-il d'un outil plus
+         approprié, un tournevis de la bonne taille, que je
+         n'aurais pas trouvé.
+      </p>
+      <p>
+         Pour tester cette nouvelle théorie, j'ouvris le panneau
+         latéral de la tour de ma machine en marche et tentai, avec
+         précaution, d'appuyer légèrement sur un coin du
+         ventilateur en train de faire des bruits de picouille. Je
+         dus pour cette opération risquée m'installer une lumière
+         pour bien voir où je mettais mes doigts. Une lampe de
+         lecture de soixante watts que j'avais depuis quelques
+         temps s'avéra parfaite. Malheureusement, ma théorie ne se
+         vérifia pas, car appuyer ne faisait pas varier le bruit à
+         tout coup. Je tentai d'appuyer sur deux coins à la fois,
+         pas trop fort bien entendu pour ne pas engendrer une force
+         inégale sur le processeur et le faire craquer!
+      </p>
+      <p>
+         Il fallut finalement que j'accroche les palettes du
+         ventilateur avec mon doigt. Cela eut un effet
+         catastrophique. D'abord, il y eut un claquement sec qui,
+         si j'avais eu soixante ans, aurait pu suffire à me faire
+         frôler la crise cardiaque! Je crus d'abord que le
+         dissipateur de chaleur s'était décroché et que le
+         processeur, grillé, était dès lors inutilisable. Le bruit
+         de tondeuse qu'émettait dès lors le ventilateur faisait
+         croire qu'il était tombé et que les palettes se cognaient
+         contre quelque chose dans la machine. J'éteignis tout en
+         catastrophe et constatai avec soulagement que le
+         ventilateur était toujours à sa place. La machine pouvait
+         donc encore fonctionner!
+      </p>
+      <p>
+         Morale de l'histoire: ne jamais travailler dans une
+         machine en marche! Mais ça, je le savais déjà. Je n'aurais
+         pas dû faire ce stupide test! Coût de l'erreur:
+         <i>beaucoup</i> de stress! Mais je sais qu'il est minime;
+         ça aurait pu me coûter la machine au complet!
+      </p>
+      <p>
+         Je constatai qu'une palette du ventilateur était partie.
+         Il est inquiétant de savoir que jamais je ne retrouvai
+         cette palette. Elle pouvait être n'importe où, aussi
+         simple que ça. Heureusement, puisqu'elle était en
+         plastique et non en métal, elle ne pouvait pas conduire
+         l'électricité. Elle ne provoquerait donc pas de
+         court-circuit sur la carte mère.
+      </p>
+      <p>
+         J'essayai de rallumer la machine et constatai que le
+         ventilateur émettait désormais un affreux bruit de
+         tondeuse. J'éteignis tout et dévissai le ventilateur
+         endommagé afin de tenter de retrouver la palette peut-être
+         coincée dedans. J'eus de la misère noire avec une des
+         quatre vis qui nécessita au moins dix minutes de gossage
+         acharné. Je dus, pour réussir, essayer avec plusieurs
+         tournevis Philipps et, avec le plus approprié, tourner
+         très très lentement pour que la vis daigne bouger. En
+         juillet, j'eus de la misère semblable avec les quatre vis,
+         mais il me semble que cette nouvelle fois, c'était plus
+         difficile encore. Probablement que la rouille a commencé à
+         attaquer les filets, ce qui rend le dévissage pas mal
+         ardu. Dire que les mécaniciens doivent rencontrer bien
+         pire encore!
+      </p>
+      <p>
+         Je ne parvins toujours pas à retrouver la palette perdue
+         si bien que je ne pus résoudre le problème du bruit de
+         tondeuse. J'ai tenté de faire fonctionner le ventilateur
+         sans le coller sur le dissipateur de chaleur et j'ai
+         constaté qu'il émettait un bruit normal. Il vibrait
+         beaucoup, plus que je ne le croyais. Ma théorie des
+         vibrations était donc partiellement vraie!
+      </p>
+      <p>
+         Je tentai ensuite de poser le ventilateur sur le
+         dissipateur sans le fixer puis allumai la machine. Le
+         ventilateur vibra et sauta de sa position, les palettes
+         allant se coincer je ne sais plus où. J'éteignis tout au
+         plus sacrant, espérant éviter un massacre. Il n'y eut
+         aucune conséquence désastreuse pour cette erreur
+         additionnelle.
+      </p>
+      <p>
+         Puisque tous les tests que je pouvais imaginer risquaient
+         uniquement d'empirer la situation, jusqu'au point de non
+         retour où la machine n'allumerait plus, je revissai le
+         ventilateur, vérifiai si tout allumait toujours, puis
+         refermai mon boîtier. Je rallumai la machine, fis un test
+         de stabilité comme l'été dernier et constatai avec
+         soulagement qu'au moins, la température du processeur
+         demeurait stable. Toutefois, la machine émettait un bruit
+         de tondeuse et vibrait de façon anormale. La vibration
+         passait par le ventilateur, le dissipateur de chaleur, la
+         carte mère, le boîtier puis je la sentais sur ma tablette
+         à clavier! Pas très fort mais assez pour inquiéter. Le son
+         était très inquiétant, lui aussi, et tout donnait à croire
+         qu'une catastrophe s'en venait.
+      </p>
+      <p>
+         Soit le ventilateur, qui visiblement forçait pour rien,
+         finirait par s'arrêter bien net, soit les vibrations
+         affecteraient la fixation du dissipateur de chaleur et il
+         se décrocherait! Dans le premier cas, soit la machine
+         finirait par planter et rien de plus, soit le processeur
+         grillerait et tout serait fini. Dans le pire cas, bien
+         entendu, le processeur grillerait, encore une fois.
+         Néanmoins, la machine fonctionna ainsi pendant quelques
+         heures. J'utilisai même mon synthoniseur TV jeudi soir.
+      </p>
+      <p>
+         Il fallait faire quelque chose, car ce bruit me tapait sur
+         les nerfs et suscitait beaucoup d'anxiété en moi. J'eus
+         beaucoup de mal à dormir pendant la nuit de mercredi à
+         jeudi, ne pouvant me résoudre à devoir changer tout mon
+         ordinateur pour un simple ventilateur. Je pensai beaucoup
+         à comment j'allais procéder pour changer le dissipateur,
+         craignant que mes théories exposées dans la section
+         précédentes ne servent à rien.
+      </p>
+      <p>
+         Jeudi soir, 20 octobre 2005, j'allai chercher le nouveau
+         dissipateur de chaleur. Cette fois-ci, je savais quoi
+         faire: prendre un dissipateur d'Athlon XP. Le magasin où
+         j'avais tenté d'acheter la composante l'été dernier étant
+         désormais en faillite, j'en essayai un autre à Chambly.
+         J'obtins juste ce qu'il fallut, avec une seringue de pâte
+         thermoconductrice grise de haute qualité.
+      </p>
+      <p>
+         Avnat d'opérer la machine, je m'efforçai de me préparer
+         mentalement à un désastre. Il me fallait me résigner à
+         risquer ma machine pour apprendre à installer ce foutu
+         dissipateur. Si je ne le faisais pas, je risquais de
+         ressentir une crainte à chaque nouvelle manipulation
+         matérielle à faire dans une machine. Au pire, j'aurais une
+         nouvelle machine, plus rapide et surtout, fonctionnelle
+         sous Linux. Oui, il y avait encore moyen de bâtir un
+         système satisfaisant cette contrainte. Bien entendu, je
+         n'aurais pas raisonné comme cela si j'avais eu un
+         ordinateur dernier cri. Mais une machine dernier cri
+         n'aurait pas souffert de ce problème de ventilateur, sinon
+         elle serait retournée au magasin.
+      </p>
+      <p>
+         Je ne tentai pas l'opération jeudi soir, car je craignais
+         ne pas réussir, manquer de temps et mal dormir une seconde
+         nuit. Deux nuits d'insomnie consécutives risquaient de me
+         rendre malade, ce qui bien entendu était à éviter.
+      </p>
+      <p>
+         Le lendemain soir, j'ouvrais mon boîtier pour tenter le
+         remplacement. Tout d'abord, j'enfilai mon bracelet
+         anti-statique acheté juste avant ma mise à jour de carte
+         graphique pour éviter une défaillance stupide et
+         quasi-inexplicable de la carte mère, puis je me mis à
+         zigonner au tournevis plat pour débarquer l'ancien
+         dissipateur. Il me fallut deux ou trois tentatives dans le
+         sens de la seconde théorie de la section précédente pour
+         réussir. Toutefois, je ne pouvais pas incliner le
+         tournevis autant que je voulais, le bloc d'alimentation me
+         bloquant la voie. Il ne fut pas nécessaire de le dévisser
+         de là pour mener mon opération à bien, quoique j'y songeai
+         à quelques reprises.
+      </p>
+      <p>
+         C'est ensuite que le fun commença. La clip du nouveau
+         dissipateur avait, d'un côté, un crochet apparemment pour
+         tournevis et de l'autre, une cavité apparemment aussi pour
+         tournevis. Le crochet était plus petit que celui sur mon
+         ancienne clip, mais la cavité semblait une amélioration
+         notable. Enfin, le tournevis ne risquerait plus de glisser
+         et de frapper la carte mère. Toutefois, le trou était trop
+         petit! J'essayai toutes sortes de tournevis plats, mais
+         aucun, je dis bien aucun, n'entra dans la cavité. Le
+         tournevis permettant de serrer mes vis de lunettes aurait
+         peut-être réussi à faire le travail, mais je ne le trouvai
+         jamais! Je tentai donc avec le côté du crochet, mais cela
+         ne fonctionnait pas du tout. On aurait dit que la clip
+         était trop longue.
+      </p>
+      <p>
+         Je finis par comprendre que le dissipateur ne se posait
+         que dans un sens. La surface métallique en contact avec le
+         processeur n'est pas totalement plate; il y a une partie
+         surélevée sur un des côtés de la clip. En retournant le
+         dissipateur dans le bon sens, l'extrémité de la clip avec
+         crochet était du côté où il y avait beaucoup trop de
+         composantes de carte mère pour risquer trop de coups de
+         tournevis. Du côté où je gossais, il n'y avait qu'une
+         petite partie de carte mère, peut-être même aucun circuit
+         imprimé.
+      </p>
+      <p>
+         Même du bon côté, ça ne fonctionnait pas du tout. Je
+         passai au moins une demi-heure à essayer et à pester sans
+         succès. Le tournevis entrait seulement partiellement dans
+         la cavité et menaçait toujours de glisser. Il semblait
+         qu'il me serait impossible de fixer ce dissipateur à mon
+         processeur. Pourtant, les dimensions physiques
+         correspondaient. Il était de la même longueur et la même
+         largeur, contrairement à celui acheté l'été dernier. Au
+         fur et à mesure que frustration et sentiment d'impuissance
+         montaient en moi, j'envisageais de plus en plus apporter
+         ma machine au magasin pour qu'on teste différents
+         dissipateurs jusqu'à trouver le bon.
+      </p>
+      <p>
+         Je finis, peut-être avec un peu de chance, par l'avoir!
+         Pour parvenir à mon objectif, j'ai dû d'abord insérer la
+         clip avec crochet dans la fixation centrale inférieure du
+         socket A. J'ai ensuite mis le dissipateur à plat sur le
+         processeur, puis j'ai glissé le tournevis plat dans la
+         cavité. J'essayai ensuite d'abaisser l'ouverture de la
+         clip au niveau de la fixation centrale supérieure du
+         socket A. Le mouvement latéral exposé dans mes théories ne
+         fut pas nécessaire. Je crois que la clip est recourbée aux
+         extrémités de façon à faciliter son installation,
+         contrairement à la clip précédente. Si la clip n'entrait
+         pas, je tentais de tourner légèrement le dissipateur et,
+         finalement, peut-être par miracle mais bon, la clip entra
+         et tout tint en place! Chaque fois que je devais déplacer
+         le dissipateur, il me fallait remonter la clip de façon à
+         ce qu'elle ne graffigne pas la carte mère. Toutefois, trop
+         remonter la clip faisait perdre prise au tournevis; il
+         fallait alors tout recommencer.
+      </p>
+      <p>
+         Bien entendu, pendant l'opération, il faut absolument que
+         le dissipateur reste en contact avec les quatre coussinets
+         de caoutchouc du processeur. Si le dissipateur est assez
+         croche pour ne pas toucher à ces coussinets pendant que la
+         clip est manipulée, il est possible qu'une force inégale
+         soit appliquée sur la puce; c'est alors la mort de la
+         machine. Ces coussinets sont la seule protection contre ce
+         problème. Il est dommage qu'AMD n'ait pas adopté un design
+         semblable à Intel pour les nouveaux dissipateurs de
+         chaleur, car ce design évite complètement le problème de
+         force inégale.
+      </p>
+      <p>
+         Ok, voilà que le dissipateur s'ajustait à mon socle à
+         processeur. Il restait maintenant à remettre de la pâte
+         thermoconductrice pour que le transfert de chaleur se
+         fasse correctement. Je dus ainsi enlever le dissipateur
+         installé à la sueur de mon front et j'eus encore de la
+         misère noire. Le tournevis ne voulait pas s'accrocher dans
+         la cavité et ne cessait de glisser à côté. Je ne sais plus
+         exactement comment, mais un moment donné, je réussis à le
+         décrocher.
+      </p>
+      <p>
+         J'examinai ensuite le processeur, tentant de savoir où
+         appliquer la pâte. Je remarquai les quatre petits
+         coussinets mous dont je connaissais l'existence seulement
+         en théorie jusque-là et un carré métallique au centre. Il
+         ne semblait plus y avoir de pâte nulle part. Pour tester
+         le débit de la seringue et bien voir ce que je faisais, je
+         commençai par appliquer la pâte au centre du dissipateur.
+         Je ne mis de la pâte que dans une zone circulaire au
+         centre de la surface métallique, correspondant
+         approximativement au carré métallique sur le processeur.
+         La substance grise ressemblait à de la pâte à modeler que
+         j'étendis avec mon doigt, comme recommandé par le vendeur.
+         J'appliquai un peu de pâte sur le processeur et la
+         répartis un peu partout, incluant le carré métallique.
+         Sachant que la pâte n'est pas électroconductrice, en
+         mettre au mauvais endroit n'est pas un gros drame. Il est
+         possible qu'en fait, seul le carré métallique ait besoin
+         de la pâte, mais je ne voulais pas avoir à rectifier et
+         ôter une nouvelle fois le dissipateur.
+      </p>
+      <p>
+         Je remis ensuite le dissipateur en place, m'efforçant de
+         ne pas trop le faire bouger. La pression de trente livres
+         aida sans doute à homogénéiser la couche de pâte et crever
+         les bulles d'air. Le fait que j'aie choisi de la pâte de
+         bonne qualité a possiblement contribué au succès de mon
+         opération, car je ne pouvais être certain de l'avoir
+         étendue au bon endroit et parfaitement uniformément. Je
+         dus tasser le dissipateur de quelques millimètres afin que
+         la clip supérieure, celle près de mon bloc d'alimentation,
+         entre dans la fixation sur le socle. Enfin, ce fut fait!
+      </p>
+      <p>
+         Je branchai le ventilateur dans ma carte mère, me préparai
+         au pire puis mis le tout sous tension. D'abord, je crus
+         que tout allait planter puis je vis avec soulagement
+         l'écran du BIOS. Je vérifiai que le température du
+         processeur demeurait stable puis remis ma tour sous mon
+         bureau. J'allumai ma machine sous Linux et vérifiai que
+         tout était toujours stable. Sans activer CPU, tout était
+         beau. Je dus l'éteindre encore une fois pour repasser mes
+         fils de clavier et de souris correctement, car ils
+         s'étaient entremêlés en arrière de la tour. Je fis ensuite
+         un nouveau test de stabilité: pendant une heure, avec une
+         intensité de travail maximale, le processeur ne chauffa
+         pas plus que 53 degrés! J'avais donc réussi!
+      </p>
+      <p>
+         Pendant quelques temps, je craignis que la dilatation
+         thermique ne fasse tomber mon dissipateur pendant une nuit
+         et que je ne m'en rende pas compte. Cette crainte me cause
+         un peu de mal à m'endormir la nuit suivant l'intervention,
+         mais je parvins malgré tout à trouver le sommeil. Pendant
+         plusieurs semaines suivant l'intervention, chaque petit
+         bruit que j'entendais dans ma chambre suscitait la
+         crainte; cela pouvait être le dissipateur en train de se
+         décrocher lentement. Je craignis aussi pour l'efficacité
+         de mon interface thermoconductrice: peut-être que
+         l'efficacité de la pâte diminuerait avec le temps et si je
+         n'en avais pas mis assez au bon endroit, cela cesserait de
+         bien fonctionner. Mais rien de cela ne se produisit.
+      </p>
+      <p>
+         Ainsi, la bombe du CPU n'était plus un problème pour le
+         Faucon de Fer. La machine allait pouvoir fonctionner
+         encore des mois, voire des années, et remplacer la machine
+         familiale lorsque l'autre serait morte et que j'aurais une
+         nouvelle machine plus puissante. Bien entendu, il était
+         bien possible qu'autre chose brise dans la machine ou
+         qu'un bon jour, sans aucune raison, elle n'allume plus.
+         Cela peut <i>toujours</i> arriver, même avec une machine
+         neuve... Heureusement, dans ce dernier cas, il y a la
+         garantie.
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

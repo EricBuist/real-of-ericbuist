@@ -1,0 +1,410 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         Impression de pages Web sous Linux
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css"
+      href="../../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../../index.xhtml" class="parents">Le
+               royaume de Eric Buist</a> &gt;&gt; <a
+               href="../index.xhtml"
+               class="parents">Informatique</a> &gt;&gt;
+               Quelques-unes de mes recherches personnelles
+               &gt;&gt; <a href="index.xhtml" class="parents">Trucs
+               et astuces</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../../sitemap.xhtml" class="sitemap">Plan
+               du site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="duplex.xhtml"
+               class="leftsibling">Impression recto-verso</a>
+            </td>
+            <td class="thispage">
+               Impression de pages Web sous Linux
+            </td>
+            <td class="rightsibling">
+               <a href="xscrsav.xhtml"
+               class="rightsibling">Configurer XScreenSaver pour
+               KDE</a> &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         Impression de pages Web sous Linux
+      </h1>
+      <p>
+         Quelle tâche simple et courante que l'impression d'une
+         page Web issue d'Internet! Et pourtant, sous Linux, cette
+         simple opération causera des problèmes, en tout cas ce fut
+         le cas pour moi. À l'heure actuelle, il n'existe aucune
+         solution complète, comme c'est le cas de bien des
+         difficultés.
+      </p>
+      <p>
+         Il existe deux grandes classes de problèmes qui se
+         présenteront, soit les bogues d'encodage et ceux de
+         présentation. L'encodage constitue la correspondance entre
+         le code numérique d'un caractère et un symbole effectif
+         dans la police d'affichage ou d'impression. Pour le cas
+         des 128 premiers caractères, le jeu ASCII demeure standard
+         et ainsi, toute page Web en Anglais (sans accents et
+         symboles spéciaux d'aucune sorte) ne devrait pas être
+         touchée par ce bogue. Une page en Français,
+         malheureusement, contient souvent des caractères du jeu
+         étendu Latin1 et des problème d'impression peuvent
+         survenir sous Linux. UTF-8, une variante de Unicode sur 8
+         bits, pourrait résoudre ce problème, mais il n'est pas
+         employé de façon totalement universelle. Une solution pour
+         le développeur Web consiste à remplacer, dans les pages,
+         tout caractère étendu par des codes ampersand (&amp;). Ces
+         codes seront alors transformés correctement par le
+         navigateur et les accents seront bien affichés. Toutefois,
+         cela cause un problème quand on veut imprimer une page
+         déjà conçue. Les bogues de présentation, quant à eux, ne
+         provoquent que des altérations esthétiques: fond noir
+         gaspillant de l'encre, tableau trop grand pour la page,
+         polices trop grandes ou trop petites, etc. Il arrive que
+         ces altérations ne sont pas du tout acceptables, comme par
+         exemple si la couleur du texte le rend illisible ou si un
+         fond complexe veut s'imprimer coûte que coûte.
+      </p>
+      <p>
+         Les solution présentées ici cherchent à contourner ces
+         problèmes, mais elles ne sont pas parfaites.
+      </p>
+      <ul>
+         <li>
+            <a href="#lynx">Lynx</a>
+         </li>
+         <li>
+            <a href="#konqueror">Konqueror</a>
+         </li>
+         <li>
+            <a href="#ns4">Netscape 4</a>
+         </li>
+         <li>
+            <a href="#opera">Opera</a>
+         </li>
+         <li>
+            <a href="#ns6">Netscape 6/Mozilla/Firefox</a>
+         </li>
+         <li>
+            <a href="#so">StarOffice/OpenOffice.org</a>
+         </li>
+         <li>
+            <a href="#nsso">StarOffice/OpenOffice.org et Netscape
+            6/Mozilla/Firefox</a>
+         </li>
+         <li>
+            <a href="#html2ps">HTML2Ps</a>
+         </li>
+         <li>
+            <a href="#ie">Internet Explorer</a>
+         </li>
+      </ul>
+      <h2>
+         <a id="lynx" name="lynx">Lynx</a>
+      </h2>
+      <p>
+         Lynx est un navigateur en mode texte permettant d'afficher
+         des pages Web et de naviguer sans recourir à une interface
+         graphique. Il permet également de convertir toute page Web
+         en texte brut, ce qui permet par la suite de l'imprimer.
+         La première étape consiste donc à générer le fichier texte
+         en utilisant la commande <tt>lynx --dump &lt;url&gt; &gt;
+         &lt;fichier&gt;</tt> où <tt>&lt;url&gt;</tt> représente
+         l'adresse complète de la page et <tt>&lt;fichier&gt;</tt>,
+         le fichier texte qui sera créé. Le fichier texte se
+         trouvera alors prêt à l'impression, la plupart du temps en
+         mode Latin1. Si tel n'est pas le cas, on peut envisager
+         l'utilisation de <tt>recode</tt> pour corriger cet état de
+         fait.
+      </p>
+      <p>
+         Il est commode de générer un fichier PostScript pour
+         imprimer le texte, ce que <tt>a2ps</tt> fait très bien. La
+         commande <tt>a2ps -f12 --columns=1 -R --borders=no
+         --left-footer="" --right-footer="" --medium=letter -o
+         fichier.ps fichier</tt> devrait faire un travail
+         convenable. Le fichier PostScript peut finalement être
+         imprimé et on supprime ensuite les fichiers.
+      </p>
+      <p>
+         Cette solution fonctionne assez bien, mais elle retire
+         toutes les images et la plupart des effets spéciaux de la
+         page Web. C'est donc bon uniquement pour des pages
+         textuelles et encore... De plus, elle exige la création de
+         deux fichiers intermédiaires et le copier/coller de l'URL
+         sur la ligne de commande invoquant Lynx.
+      </p>
+      <h2>
+         <a id="konqueror" name="konqueror">Konqueror</a>
+      </h2>
+      <p>
+         Le navigateur de KDE ressemble fort bien à Internet
+         Explorer. Il est donc logique de penser à utiliser la
+         commande <b>Print</b> de ce programme afin de sortir sur
+         papier une ou des pages affichées à l'écran.
+      </p>
+      <p>
+         <img src="kprint.png"
+         alt="Fenêtre d'impression de Konqueror" />
+      </p>
+      <p>
+         Après avoir choisi la bonne imprimante, il faut utiliser
+         le bouton <b>Properties</b> afin de définir les propriétés
+         de l'imprimante, ne pas oublier de définir le bon type de
+         papier qui est parfois A4 par défaut. Un clic sur
+         <b>OK</b> lancera ensuite l'impression. Simple comme
+         bonjour? Pas vraiment...
+      </p>
+      <p>
+         Si la page Web comprend un fond, ce dernier sera imprimé,
+         peu importe s'il est foncé ou pas, ce qui n'est pas
+         toujours souhaitable. Après plusieurs parcours des boîtes
+         à options du programme, je n'en ai trouvé aucune
+         permettant de désactiver l'impression du fond. Une mise à
+         jour à KDE 2.2, qui a mis Konqueror à niveau, n'a pas
+         amené l'apparition d'une telle option. Il faut donc, si on
+         veut le faire, sauvegarder la page sur son système et en
+         modifier le code source!
+      </p>
+      <p>
+         Pire encore, les accents ne sont pas toujours bien
+         imprimés. Les é sortent correctement, mais les autres
+         peuvent être remplacés par des boîtes carrées. Il arrive
+         également que le navigateur imprime des textes troués
+         plutôt que tout le contenu, ce qui en fait un outil très
+         peu fiable pour ce qui est de l'impression de pages
+         françaises, à moins de les passer au crible et leur
+         retirer les accents! C'est une solution qui est, à mon
+         avis, totalement inacceptable.
+      </p>
+      <h2>
+         <a id="ns4" name="ns4">Netscape 4</a>
+      </h2>
+      <p>
+         Installé par défaut sous Red Hat 7.1, ce navigateur bien
+         que pesant et instable permet l'impression correcte de
+         pages Web. La commande <b>Print</b> fournit une sortie
+         correcte des caractères accentués, mais les marges sont
+         trop petites.
+      </p>
+      <p>
+         <img src="n4print.png"
+         alt="Fenêtre d'impression de Netscape 4" />
+      </p>
+      <p>
+         Encore une fois, il faut définir la taille du papier et
+         comme on peut le voir, aucune option ne permet de corriger
+         les marges. Il faudrait effectuer ce correctif au niveau
+         du fichier PostScript ou disposer d'une imprimante ou d'un
+         logiciel capable de le faire.
+      </p>
+      <h2>
+         <a id="opera" name="opera">Opera</a>
+      </h2>
+      <p>
+         Ce navigateur alternatif pour Windows et Linux dispose lui
+         aussi de sa fonction d'impression qui a donné de bons
+         résultats avec les caractères accentués. Toutefois, les
+         changements de police ne sont pas bien gérés du tout. Un
+         mot en gras au milieu d'un texte, ainsi que des liens,
+         sont superposés sur le texte environnant, rendant le
+         résultat difficilement lisible.
+      </p>
+      <h2>
+         <a id="ns6" name="ns6">Netscape 6/Mozilla/Firefox</a>
+      </h2>
+      <p>
+         Netscape 6 permet quant à lui une sortie correcte en règle
+         générale.
+      </p>
+      <p>
+         <img src="n6print.png"
+         alt="Fenêtre d'impression de Netscape 6" />
+      </p>
+      <p>
+         Encore une fois, on peut y définir la taille du papier.
+         Toutefois, l'impression ne sera correcte que si des fontes
+         adéquates sont choisies. Dans le menu <b>Edit</b>,
+         l'option <b>Preferences</b>, section <b>Fonts</b>, permet
+         de modifier cette configuration.
+      </p>
+      <p>
+         <img src="n6prefs.png"
+         alt="Section Fonts des Preferences de Netscape 6" />
+      </p>
+      <p>
+         Les fontes doivent se trouver dans l'encodage ISO8859-1
+         pour que les accents français sortent correctement. Pour
+         certaines pages, les encodages UTF-8 ou Unicode doit être
+         utilisé. Malheureusement, cela ne permet pas l'impression
+         correcte des documents Word convertis en HTML. Les
+         fichiers issus de Office 97 posent problème avec
+         l'impression des apostrophes tandis que les fichiers issus
+         de Office 2000 provoquent des textes troués et des
+         caractères accentués remplacés par des boîtes.
+      </p>
+      <p>
+         Mozilla et Firefox héritent de la fonctionnalité
+         d'impression de Netscape 6 et l'ont peut-être améliorée.
+         Il est ossible que les versions les plus récentes de ces
+         navigateurs puissent imprimer des fichiers HTML produits
+         par Microsoft Word.
+      </p>
+      <h2>
+         <a id="so" name="so">StarOffice/OpenOffice.org</a>
+      </h2>
+      <p>
+         Comme on peut le constater, Netscape 6, Mozilla ou Firefox
+         sont de bons outils pour l'impression de pages Web sous
+         Linux, et cela en mode graphique sans le fond d'écran, si
+         on omet les documents issus de la suite Microsoft Office.
+         Pour traiter ces cas, il est logique de se tourner vers le
+         clone le plus proche, soit OpenOffice.org pour Linux. Ce
+         logiciel permet bien d'ouvrir des documents HTML et leur
+         affichage à l'écran s'avère correct. StarOffice, l'ancêtre
+         de OpenOffice.org, peut également faire ce travail.
+      </p>
+      <p>
+         Malheureusement, en tout cas dans mon cas, l'impression ne
+         fonctionnait pas bien avec StarOffice. Le logiciel ne
+         parvenait pas à générer un fichier PostScript couvrant
+         toute la surface de la page imprimable. Soit la surface
+         couverte était trop petite et le texte était difficile à
+         lire, soit elle était trop grande et il manquait les
+         phrases en début et en fin de page. StarOffice était
+         encore une fois le mauvais outil pour ce travail...
+         OpenOffice.org a peut-être amélioré cet aspect.
+      </p>
+      <h2>
+         <a id="nsso" name="nsso">StarOffice/OpenOffice.org et
+         Netscape 6/Mozilla/Firefox</a>
+      </h2>
+      <p>
+         Puisque Netscape 6 peut imprimer et que StarOffice peut
+         afficher, dans le cas des documents Office, pourquoi ne
+         pas tenter de combiner les deux? La technique consiste à
+         ouvrir la page Web sous StarOffice ou OpenOffice.org, ce
+         qui peut se faire en utilisant la commande <b>Open with
+         StarOffice</b> du menu <b>Location</b> sous Konqueror.
+         Avec d'autres navigateurs, il faudra sauvegarder le
+         fichier HTML sur disque et le réouvrir dans StarOffice ou
+         OpenOffice.org. Dans tous les cas, pour appliquer la
+         technique, une sauvegarde sera nécessaire, alors...
+      </p>
+      <p>
+         Lorsque le fichier est ouvert sous le traitement de texte,
+         il suffit alors de le réenregistrer avec la commande
+         <b>Save As</b>, encore au format HTML. En ouvrant ce
+         nouveau fichier dans tout bon éditeur de texte, il est
+         facile de constater que tous les caractères spéciaux ont
+         été remplacés par des équivalents ASCII utilisant le
+         &amp;, ce qui permettra leur impression correcte sous
+         Netscape 6, Mozilla ou Firefox.
+      </p>
+      <h2>
+         <a id="html2ps" name="html2ps">HTML2Ps</a>
+      </h2>
+      <p>
+         <a
+         href="http://user.it.uu.se/~jan/html2ps.html">HTML2Ps</a>
+         permet la conversion d'un ou plusieurs fichiers HTML en
+         fichier PostScript pouvant être directement imprimé. Ce
+         script Perl complexe remplace ainsi la fonction
+         d'impression des navigateurs qui ne traite qu'une page Web
+         à la fois. La force de HTML2Ps réside dans sa possibilité
+         de formater un groupe de fichiers HTML en un seul fichier
+         PostScript qui peut par la suite être imprimé. Il arrive
+         également que le navigateur imprime mal une page Web
+         tandis que HTML2Ps la traite correctement. Toutefois, si
+         HTML2Ps reçoit du code HTML invalide, il peut générer du
+         code PostScript invalide et inutilisable. Néanmoins, si
+         rien ne fonctionne, c'est une excellente solution à
+         essayer avant d'utiliser Internet Explorer.
+      </p>
+      <h2>
+         <a id="ie" name="ie">Internet Explorer</a>
+      </h2>
+      <p>
+         Il arrive malheureusement que rien ne permette d'imprimer
+         une page Web donnée, à part utiliser la fonction
+         d'impression du classique Microsoft Internet Explorer.
+         Encore de nos jours, certains sites Web ne fonctionnent
+         bien qu'avec ce navigateur, ce qui est très restrictif,
+         bien entendu. Normalement, appliquer cette solution
+         nécessite un redémarrage de la machine sous Microsoft
+         Windows, ce qui est plutôt agaçant. Windows peut également
+         tourner dans une machine virtuelle <a
+         href="http://www.vmware.com">VMWare</a>, mais cette
+         solution n'est pas très avantageuse puisqu'elle double le
+         temps d'amorçage du PC; il faut démarrer Linux puis
+         ensuite Windows à l'intérieur de VMWare, et le démarrage
+         du système tournant dans la machine virtuelle est plus
+         lent que sur une machine réelle!
+      </p>
+      <p>
+         Au cas où un utilisateur rencontrerait souvent le cas où
+         seul Internet Explorer peut imprimer une page Web, il
+         existe une autre solution à essayer que VMWare: CrossOver
+         Office de <a
+         href="http://www.codeweavers.com">CodeWeavers</a>. Ce
+         logiciel commercial (mais pas très coûteux) est une
+         variante de <a href="http://www.winehq.com">Wine</a>
+         permettant de faire tourner plusieurs logiciels de
+         bureautique, notamment Microsoft Office et le bon vieux
+         Internet Explorer sous Linux. Bien qu'il soit dommage de
+         devoir employer le navigateur Microsoft sous Linux, cette
+         solution n'impose pas un redémarrage ou un dédoublement du
+         temps d'amorçage (sans compter le coût élevé de VMWare!)
+         pour simplement imprimer des pages Web!
+      </p>
+      <p>
+         Utiliser Internet Explorer est une solution de dernier
+         recours que je n'ai jamais eu à utiliser. Je n'ai donc
+         jamais ressenti le réel besoin d'acheter CrossOver Office.
+         Chaque fois, j'ai pu réussir à imprimer avec Firefox ou
+         HTML2Ps. Un concepteur Web devrait, de son côté, éviter de
+         forcer l'usager à employer Internet Explorer puisque ce
+         navigateur ne fonctionne pas sous Linux et permet
+         l'adjonction de composantes pouvant perturber le système.
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

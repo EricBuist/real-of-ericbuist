@@ -1,0 +1,232 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         Impression d'enveloppes: encore des problèmes!
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css"
+      href="../../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../../index.xhtml" class="parents">Le
+               royaume de Eric Buist</a> &gt;&gt; <a
+               href="../index.xhtml"
+               class="parents">Informatique</a> &gt;&gt; Problèmes
+               marquants &gt;&gt; <a href="../resolved.xhtml"
+               class="parents">Quelques bogues résolus</a> &gt;&gt;
+               <a href="index.xhtml" class="parents">Bogues
+               logiciels résolus</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../../sitemap.xhtml" class="sitemap">Plan
+               du site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="labels.xhtml"
+               class="leftsibling">Problèmes multiples pour faire
+               des étiquettes</a>
+            </td>
+            <td class="thispage">
+               Impression d'enveloppes: encore des problèmes!
+            </td>
+            <td class="rightsibling">
+               <a href="dmres16.xhtml" class="rightsibling">Un
+               enregistreur DVD qui crée des disques incompatibles
+               à l'occasion</a> &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         Impression d'enveloppes: encore des problèmes!
+      </h1>
+      <p>
+         Jeudi, 25 août 2005, j'avais une lettre à envoyer et je
+         voulais addresser l'enveloppe à l'ordinateur puisque je
+         trouve cela plus propre qu'à la main. J'ai déjà imprimé
+         sur des enveloppes, avec Word ou peut-être même avec
+         OpenOffice.org, si bien que ça ne devait que fonctionner!
+         La première difficulté fut de trouver comment indiquer à
+         OpenOffice.org de créer une enveloppe: il fallait utiliser
+         la commande <b>Enveloppe</b> du menu <b>Insérer</b>. Il me
+         fallut entrer la taille de l'enveloppe: 24.13cm par
+         10.48cm. Cela correspondait au format prédéfini Env. 10.
+         Inscrire l'adresse sur l'enveloppe se passa bien, mais les
+         problèmes commencèrent à la phase d'impression.
+      </p>
+      <h2>
+         L'imprimante n'est pas suffisamment large
+      </h2>
+      <p>
+         Pour que OpenOffice.org puisse imprimer mon enveloppe, il
+         semblait falloir que cette dernière entre dans un angle
+         horizontal dans mon imprimante. Toutefois, la largeur
+         maximale d'une feuille admise par ma Epson était de
+         21.59cm, ce qui est trop petit pour accueillir
+         l'enveloppe. J'essayai de reconfigurer mon document afin
+         de faire faire une rotation de 90 degrés à l'enveloppe,
+         mais cela échoua. Je pouvais certes modifier le format de
+         papier pour avoir une feuille de la bonne dimension, mais
+         il m'était totalement impossible de retourner le texte.
+         Aucune option de rotation n'était fournie si bien qu'il me
+         fallut encore une fois redémarrer sous Windows pour
+         utiliser Microsoft Word. Comme avec les <a
+         href="labels.xhtml">étiquettes</a>, il semblait
+         qu'OpenOffice.org Writer ne faisait pas le travail
+         complètement.
+      </p>
+      <p>
+         Sous Word, je trouvai heureusement une option permettant
+         d'indiquer dans quel sens l'enveloppe serait insérée dans
+         l'imprimante. J'indiquai que je l'insérerais de côté. Je
+         vérifiai et Word semblait pouvoir effectuer la rotation,
+         quoique dans l'aperçu, ça apparaissait toujours à
+         l'endroit. Non, je ne pouvais gaspiller une enveloppe: il
+         me fallait tester avant.
+      </p>
+      <h2>
+         Un méga paper jam!
+      </h2>
+      <p>
+         Pour le test, je pris une feuille 8.5"x11" et la pliai en
+         deux dans le sens de la hauteur. De cette façon, je
+         disposais d'une feuille de 4.25"x11" dont la largeur était
+         proche de la hauteur de mon enveloppe. Ce n'était pas
+         parfait, un peu plus grand que la vraie enveloppe, mais ça
+         ferait l'affaire. Malheureusement, ma Epson tenta de
+         séparer ce qu'elle considéra comme un paquet de deux
+         feuilles et puisque les feuilles étaient toujours liées
+         par le pli que j'avais fait, le pliage se froissa et se
+         bloqua totalement dans l'imprimante. Le moteur força,
+         menaçant de complètement saboter le mécanisme
+         d'entraînement du papier de ma Epson Stylus C82. Tandis
+         que le moteur forçait, l'imprimante, idiote, appliquait de
+         l'encre sur le papier et un peu partout à l'intérieur de
+         sa carcasse.
+      </p>
+      <p>
+         Lorsque Windows cessa enfin de torturer l'imprimante en
+         lui envoyant des commandes exigeant de toujours imprimer,
+         j'éteignis l'appareil et tentai de tirer la feuille de
+         papier coincée vers le haut, doucement pour éviter de
+         causer plus de dégâts encore. Je craignais en effet
+         qu'elle ne se déchire et que des morceaux de papier ne
+         restent coincés partout dans l'imprimante. Cela fit encore
+         forcer le mécanisme d'entraînement. Bien que ma Epson
+         semblait avoir survécu au choc, il allait falloir attendre
+         et imprimer d'autres documents pour être certain qu'elle
+         fonctionnait encore parfaitement. Il se pouvait qu'elle
+         fonctionne moins bien suite à ce bourrage hors du commun,
+         par exemple prendre souvent plusieurs feuilles plutôt
+         qu'une. Par chance, il ne fut pas nécessaire de démonter
+         l'appareil pour retirer le papier coincé!
+      </p>
+      <p>
+         Lorsque ce fut décoincé, je pris une nouvelle feuille et
+         la pliai de la même façon que la première, sauf que cette
+         fois je détachai les deux moitiés. Ainsi, une seule moitié
+         de page entra dans l'imprimante. Cette fois-ci, le test
+         s'avéra concluant: Word faisait bel et bien la rotation
+         requise pour imprimer mon enveloppe. Malheureusement,
+         l'imprimante barbouilla ma feuille, laissant
+         d'inacceptables taches d'encre sur toute la page!
+      </p>
+      <p>
+         Loin de me laisser démonter, je tentai d'imprimer
+         plusieurs fois sur la feuille de test, espérant que
+         l'encre déposée sur les composantes internes de l'appareil
+         se transfère sur la feuille. J'essayai également un
+         nettoyage de la tête d'impression. Après cinq ou six
+         passages, l'impression sembla redevenir acceptable, si
+         bien que j'essayai sur la vraie enveloppe. Mon imprimante
+         la sabota, y laissant des taches d'encre noire. Je dus
+         prendre une nouvelle enveloppe et cette fois, cela
+         réussit.
+      </p>
+      <p>
+         Si ça n'avait pas fonctionné, j'en étais rendu à tenter de
+         lui passer une feuille imbibée d'alcool à friction, mais
+         je craignais que la feuille ne se déchire au passage et
+         sabote complètement l'imprimante. Il se pouvait carrément
+         que ce bourrage cause la mort de l'imprimante, mais il
+         semblait que je l'avais réchappée. Il se pouvait que
+         l'appareil soit désormais taché d'encre noire, mais cela
+         ne semblait pas perturber la qualité d'impression. Cela
+         restait bien entendu à voir, en imprimant un document de
+         plusieurs pages de texte.
+      </p>
+      <h2>
+         De retour sous OpenOffice.org
+      </h2>
+      <p>
+         Après ce bogue, je voulus tenter de trouver le moyen
+         d'imprimer une enveloppe sous OpenOffice.org. Je découvris
+         que le logiciel disposait d'une fonction de rotation
+         similaire à Word, dans les options affichées par la
+         commande <b>Enveloppe</b> du menu <b>Insérer</b>.
+         Toutefois, si j'indiquais d'effectuer une rotation de 90
+         degrés, OpenOffice.org pensait que je souhaitais coller
+         mon enveloppe sur une feuille 8.5"x11" et imprimer de
+         cette façon! En effet, le document produit n'avait pas les
+         dimensions d'une enveloppe mais plutôt la largeur d'une
+         feuille ordinaire! OpenOffice.org se mêlait les pinceaux
+         et ne produisait pas le bon format. Exporter en PDF plutôt
+         qu'imprimer ne changea rien et tenter de modifier la
+         taille du papier dans les options d'impression non plus!
+      </p>
+      <p>
+         Pourtant, le lendemain, je refis la même manipulation et
+         cette fois-ci, cela fonctionna! Je ne savais pas
+         exactement quel était le problème, il semblait qu'il y
+         avait un bogue dans OpenOffice.org, peut-être parce que
+         c'est une version beta. Fedora Core 4, en effet, inclut
+         OpenOffice.org beta 1.9 plutôt que la version stable 1.1.
+         Jusque-là, je ne m'en plaignais pas, mais à la lumière de
+         ces difficultés, il semblait que cette beta n'était pas au
+         point. Je ne parvins à trouver aucune information sur
+         Internet à propos de cet étrange problème.
+      </p>
+      <p>
+         Les seules solutions disponibles semblaient de m'acheter
+         une nouvelle imprimante suffisamment large pour accueillir
+         l'enveloppe dans le bon sens ou, si je souhaitais vraiment
+         faire cette tâche sous Linux sans changer mon imprimante,
+         acheter CrossOver Office de <a
+         href="http://www.codeweavers.com/">CodeWeavers</a> et
+         <i>espérer</i> que ça allait fonctionner! Ce logiciel, une
+         variante de <a href="http://www.winehq.org">Wine</a>,
+         permet de faire tourner Microsoft Office et d'autres
+         logiciels de bureautique sous Linux.
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

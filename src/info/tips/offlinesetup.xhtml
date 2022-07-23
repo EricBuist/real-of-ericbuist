@@ -1,0 +1,323 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         Installer des logiciels sans connexion Internet, de plus
+         en plus difficile!
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css"
+      href="../../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../../index.xhtml" class="parents">Le
+               royaume de Eric Buist</a> &gt;&gt; <a
+               href="../index.xhtml"
+               class="parents">Informatique</a> &gt;&gt;
+               Quelques-unes de mes recherches personnelles
+               &gt;&gt; <a href="index.xhtml" class="parents">Trucs
+               et astuces</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../../sitemap.xhtml" class="sitemap">Plan
+               du site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="mdkdvd.xhtml"
+               class="leftsibling">Comment graver Mandrake 10 sur
+               un DVD</a>
+            </td>
+            <td class="thispage">
+               Installer des logiciels sans connexion Internet, de
+               plus en plus difficile!
+            </td>
+            <td class="rightsibling">
+               <a href="pvrlinux.xhtml"
+               class="rightsibling">Configuration d'un synthoniseur
+               TV Hauppauge WinTV sous Linux</a> &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         Installer des logiciels sans connexion Internet, de plus
+         en plus difficile!
+      </h1>
+      <p>
+         Lorsqu'Internet en était à ses débuts, l'installation d'un
+         logiciel obtenu sur un site Web se passait en deux étapes:
+         téléchargement d'un exécutable et installation.
+         Actuellement, ce processus est en cours d'évolution. À
+         présent, après le téléchargement initial d'un petit
+         fichier de quelques kilo-octets, il faut démarrer un
+         exécutable qui télécharge souvent d'autres fichiers,
+         installe le logiciel et supprime les fichiers téléchargés.
+         Cette approche, parce qu'adoptée par Microsoft pour son
+         système Windows Update, a été suivie par d'autres
+         fabricants de logiciels comme Apple et Sun.
+      </p>
+      <p>
+         Pour l'utilisateur moyen, cela peut diminuer la taille des
+         téléchargements et donc leur durée, mais à chaque
+         installation du logiciel, un nouveau téléchargement est
+         nécessaire. Si un administrateur doit installer un tel
+         logiciel sur plusieurs machines dans un réseau, il doit
+         alors télécharger, pour chaque machine, une copie
+         identique des fichiers. Cela mobilise inutilement la bande
+         passante qui est une ressource limitée, surtout pour le
+         serveur hébergeant le logiciel téléchargé répétitivement
+         des millions et des millions de fois. Une installation
+         avec téléchargement est souvent plus longue que son
+         analogue hors ligne et elle ne peut être effectuée sur une
+         machine sans connexion Internet.
+      </p>
+      <p>
+         Cette page traite de certains logiciels de ce type et des
+         techniques qui sont (parfois) disponibles pour contourner
+         et effectuer une installation hors ligne. Une installation
+         hors ligne ne nécessite aucune connexion Internet,
+         s'effectuant à partir de fichiers sur le disque dur ou sur
+         disque compact.
+      </p>
+      <ul>
+         <li>
+            <a href="#gen">Technique générale</a>
+         </li>
+         <li>
+            <a href="#ie">Microsoft Internet Explorer</a>
+         </li>
+         <li>
+            <a href="#miktex">MikTeX</a>
+         </li>
+         <li>
+            <a href="#cygwin">Cygwin</a>
+         </li>
+      </ul>
+      <h2>
+         <a name="gen" id="gen">Technique générale</a>
+      </h2>
+      <p>
+         La première étape consiste bien entendu à bien examiner le
+         site Web du fabricant du logiciel et de vérifier que la
+         version téléchargée est hors ligne (offline ou
+         standalone). Certains fabricants, comme Sun, Adobe et
+         Apple, offrent, en plus de la version en ligne, une telle
+         version complète. La version en ligne fait quelques
+         kilo-octets tandis que son équivalent hors ligne fait
+         plusieurs méga-octets. Il est bien entendu recommandé de
+         conserver ces versions téléchargées sur disques compacts
+         pour un usage futur. En effet, à quoi bon se casser la
+         tête à rechercher des versions hors ligne si c'est pour
+         les télécharger de nouveau à la prochaine réinstallation
+         de Windows? Bien entendu, si le logiciel à installer doit
+         être mis à jour, il faut de nouveau le télécharger. Une
+         autre technique pour obtenir une version hors ligne d'un
+         programme d'installation est d'acheter ce programme sur un
+         CD-ROM. Ce n'est malheureusement pas toujours possible et
+         pratique.
+      </p>
+      <p>
+         D'autres fabricants, notamment Microsoft, cachent ces
+         versions hors ligne dans une section s'adressant aux
+         administrateurs. Il faut souvent chercher cette section un
+         certain temps avant de la trouver, mais il faut savoir
+         qu'il existe des versions hors ligne des Service Packs de
+         Windows 2000, Windows XP, Office 2000, Office XP, etc. Il
+         s'agit de réussir à les trouver et leur emplacement peut
+         varier avec le temps. C'est pourquoi cette page ne peut
+         pas indiquer la procédure exacte pour obtenir des versions
+         hors ligne de tous les logiciels imaginables!
+      </p>
+      <h2>
+         <a name="ie" id="ie">Internet Explorer</a>
+      </h2>
+      <p>
+         La procédure normale d'installation d'Internet Explorer
+         consiste à télécharger un programme d'installation et à
+         l'appeler. Ce programme se charge alors de télécharger
+         (beaucoup) d'autres fichiers, à chaque installation du
+         navigateur. Avec la version 4 et 5 d'Internet Explorer, il
+         était possible d'utiliser une option, dans le programme
+         d'installation, pour créer une installation hors ligne.
+         Les fichiers téléchargés étaient alors placés dans un
+         répertoire choisi par l'usager et ce répertoire pouvait
+         être gravé sur CD, copié sur un serveur réseau, etc.
+      </p>
+      <p>
+         Malheureusement, avec Internet Explorer 6, cette option a
+         disparu. La seule solution pour créer une installation
+         hors ligne est d'utiliser la ligne de commande suivante:
+      </p>
+<pre>
+ie6setup.exe /c:"ie6wzd.exe /d /s:""#E"""
+</pre>
+      Eh oui, il y a bel et bien trois guillemets successifs à la
+      fin de cette étrange ligne de commande dont j'ai oublié la
+      source exacte! De toute façon, une telle installation hors
+      ligne est souvent incomplète et le programme d'installation
+      cherchera à télécharger des fichiers supplémentaires dans le
+      cas de certaines versions de Windows. Par chance, Internet
+      Explorer 6 est livré avec Windows XP et se met à jour
+      automatiquement avec les Service Packs. Obtenir une version
+      hors ligne du programme d'installation d'Internet Explorer
+      n'est donc utile que pour les usagers d'anciennes versions de
+      Windows. 
+      <h2>
+         <a name="miktex" id="miktex"></a><a
+         href="http://www.miktex.org">MikTeX</a>
+      </h2>
+      <p>
+         MikTeX est une version de l'environnement LaTeX pour
+         Windows. Il comporte une implantation du compilateur TeX,
+         les paquetages de base de LaTeX et beaucoup de paquetages
+         d'extension. Son installation passe par un programme
+         <tt>setup.exe</tt> de petite taille qui va malheureusement
+         tout télécharger depuis Internet!
+      </p>
+      <p>
+         Pour installer MikTeX hors ligne, outre acheter le CD
+         contenant toute la distribution depuis le site de son
+         fabricant, il est possible d'utiliser <tt>setup.exe</tt>
+         pour télécharger les fichiers sans les installer.
+         Malheureusement, le succès de cette technique n'est
+         garanti que si aucune version de MikTeX n'est installée au
+         moment du téléchargement. Dans le cas contraire,
+         <tt>setup.exe</tt> risque de ne télécharger que les mises
+         à jour et la distribution hors ligne ainsi produite ne
+         sera pas utilisable pour installer MikTeX sur plusieurs
+         machines. En pratique, je n'ai toutefois jamais observé ce
+         comportement erroné si j'indique au programme de
+         télécharger les fichiers dans un répertoire vide.
+      </p>
+      <p>
+         Une technique plus sûre pour télécharger MikTeX consiste à
+         utiliser un script faisant appel à un utilitaire de
+         téléchargement nommé WGet. La première étape de cette
+         procédure consiste à trouver un mirroir <a
+         href="http://www.ctan.org">CTAN</a> à partir duquel
+         télécharger MikTeX, ce que nous appellerons ici un
+         <i>mirroir MikTeX</i>. Sur ce site FTP, il faudra accéder
+         au répertoire <tt>systems/win32/miktex</tt>. Par exemple,
+         l'emplacement de téléchargement primaire de MikTeX est <a
+         href="ftp://ftp.ctan.org/pub/systems/win32/miktex">ftp.ctan.org/pub/systems/win32/miktex</a>.
+      </p>
+      <p>
+         Ensuite, un répertoire de téléchargement, par exemple
+         <tt>C:\MikTeXSetup</tt> doit être créé et les fichiers
+         <tt>setup.exe</tt>, <tt>getrpr.bat</tt> et
+         <tt>wget.exe</tt>, qui se trouvent dans le sous-répertoire
+         <tt>setup</tt> du mirroir MikTeX, doivent y être déposés.
+         Il existe également une version Linux/Cygwin,
+         <tt>getrpr</tt>, de ce script de téléchargement. Il faut
+         ensuite ouvrir une Invite MS-DOS et appeler le programme
+         pour télécharger les fichiers. Le programme nécessite de
+         connaître l'emplacement des paquetages, le type
+         d'installation prévu et l'emplacement de téléchargement.
+         L'emplacement des paquetages est le sous-répertoire
+         <tt>tm/packages</tt> du mirroir MikTeX utilisé. Appeler
+         <tt>getrpr</tt> sans argument permet d'obtenir son mode
+         d'utilisation. Par exemple, les lignes de commande
+         suivantes permettent de télécharger MikTeX depuis le
+         mirroir primaire. Il faut se rappeler que l'installation
+         totale fait environ 250Mo.
+      </p>
+<pre>
+cd C:\MikTeXSetup
+c:
+getrpr ftp.ctan.org/pub/systems/win32/miktex/tm/packages total C:\MikTeXSetup
+</pre>
+      <p>
+         Le téléchargement terminé, il est possible de supprimer
+         <tt>getrpr.bat</tt> et <tt>wget.exe</tt> puisqu'ils ne
+         sont pas nécessaires pour installer MikTeX. Le répertoire
+         <tt>C:\MikTeXSetup</tt> peut ensuite être utilisé pour
+         installer MikTeX ou son contenu peut être gravé sur disque
+         compact pour un usage futur.
+      </p>
+      <h2>
+         <a name="cygwin" id="cygwin"></a><a
+         href="http://www.cygwin.com">Cygwin</a>
+      </h2>
+      <p>
+         Cygwin est une couche logicielle permettant d'offrir un
+         certain niveau de compatibilité POSIX sous Windows. Cela
+         permet le portage d'un très grand nombre d'utilitaires
+         Linux et la constitution d'un environnement très semblable
+         à ce système d'exploitation.
+      </p>
+      <p>
+         Cygwin pose le même problème d'installation que MikTeX:
+         l'installation s'effectue en appelant <tt>setup.exe</tt>
+         qui télécharge une foule de fichiers à chaque fois.
+         Malheureusement, la création d'une installation hors ligne
+         est plus difficile qu'avec MikTeX: le programme
+         <tt>setup.exe</tt> ne télécharge que les mises à jour
+         plutôt que toute la distribution et aucun script officiel
+         n'est disponible comme avec MikTeX. Pire encore, il
+         n'existe aucun CD tenu à jour qui peut être acheté, du
+         moins pas sur le site officiel de Cygwin. Sous Windows, la
+         seule façon de créer une installation hors ligne de Cygwin
+         est de désinstaller toute version actuelle de
+         l'environnement, utiliser <tt>setup.exe</tt> pour
+         télécharger la distribution, puis réinstaller! Si une
+         version de Cygwin est installée pendant le téléchargement,
+         <tt>setup.exe</tt> ne téléchargera que les mises à jour.
+      </p>
+      <p>
+         Sous Linux et probablement Cygwin, il est possible
+         d'utiliser un script nommé <tt>mkcygwget</tt> pour
+         effectuer le téléchargement de façon plus sûre. Ce script
+         n'est pas disponible sur les mirroirs Cygwin ou le site
+         officiel: il faut le retrouver, à l'aide de Google, dans
+         les archives de la liste de diffusion de Cygwin! Encore
+         une fois, il faut choisir un mirroir Cygwin à partir
+         duquel télécharger les fichiers. La liste des mirroirs est
+         disponible sur le site officiel de Cygwin. Appeler
+         <tt>mkcygwget</tt> sans argument fournit les informations
+         d'utilisation. Par exemple, les lignes de commandes
+         suivantes permettent de télécharger Cygwin sous
+         l'hypothèse que <tt>mkcygwget</tt> se trouve dans
+         <tt>~/cygwinsetup</tt>.
+      </p>
+<pre>
+cd ~/cygwinsetup
+ ./mkcygwget ftp://ftp.rediris.es/mirror/cygwin/ bz2 shrun bin
+</pre>
+      <p>
+         Après le téléchargement (d'une taille d'environ 900Mo!),
+         les fichiers <tt>mkcygwget</tt> et <tt>cygwget</tt>
+         peuvent être supprimés et le contenu de
+         <tt>~/cygwinsetup</tt>, gravé sur disque compact
+         (plusieurs CD ou un DVD).
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

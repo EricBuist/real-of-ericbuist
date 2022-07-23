@@ -1,0 +1,326 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         Le bogue d'un graveur Mustek M4432
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css"
+      href="../../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../../index.xhtml" class="parents">Le
+               royaume de Eric Buist</a> &gt;&gt; <a
+               href="../index.xhtml"
+               class="parents">Informatique</a> &gt;&gt; Problèmes
+               marquants &gt;&gt; <a href="index.xhtml"
+               class="parents">Quelques mystères</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../../sitemap.xhtml" class="sitemap">Plan
+               du site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+            </td>
+            <td class="thispage">
+               Le bogue d'un graveur Mustek M4432
+            </td>
+            <td class="rightsibling">
+               <a href="cdbug.xhtml" class="rightsibling">Un
+               lecteur de CD-ROM ou un ventilateur?</a> &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         Le bogue d'un graveur Mustek M4432
+      </h1>
+      <p>
+         <img src="graveur.jpg" alt="Le graveur en question" />
+      </p>
+      <h2>
+         De mauvais CD ou une mauvaise configuration?
+      </h2>
+      <p>
+         La première utilisation de ce graveur, le vendredi soir 11
+         février 2000, la date d'achat du Pentium III, entraîna un
+         plantage catastrophe de la machine! L'ordinateur gela
+         complètement et le redémarrage avec le bouton reset
+         entraîna un message d'erreur totalement horrifiant:
+         <tt>Primary Master Failed</tt>! Avant de ramener la
+         machine chez le vendeur, j'ai pensé éteindre complèment
+         l'ordinateur et le rallumer. Ce qui l'a ressuscité. Chaque
+         gravure comporta ce risque de plantage système critique et
+         inexplicable pendant un bout de temps. Inutile de dire que
+         le disque devait être jeté si le plantage se produisait.
+         Un bon jour, j'avais acheté des disques de type Imation à
+         la coop du Collège Édouard-Montpetit, à Longueuil. Les
+         disques se gravaient sans problèmes, sauf qu'il était
+         impossible de les relire. Le 20 février 2000, j'allai voir
+         le vendeur de la machine et il me conseilla de créer une
+         partition dédiée d'environ 800MB qui ne se fragmenterait
+         pas et qui contiendrait les données lors de la gravure de
+         CD. Heureusement, Partition Magic permet ce genre
+         d'opérations en général sans pertes de données. Mais cela
+         ne fit pas cesser les plantages, ce n'était ainsi pas la
+         solution... Le 2 mars 2000, sur les conseils d'un
+         technicien de la coop que j'étais allé voir pour les CD
+         Imation, je tentai de désactiver le transfert DMA dans les
+         options du graveur du Gestionnaire de périphériques et la
+         machine put fonctionner normalement. Sauf que...
+      </p>
+      <ul>
+         <li>
+            Un CD gravé en Mode 1 Disk-At-Once s'est avéré
+            pratiquement illisible sur mon portable Toshiba
+            Satellite 310CDS. La lecture était si lente qu'il
+            aurait mieux valu stocker le contenu du disque sur des
+            disquettes! Puisqu'il est facile de démontrer qu'il
+            faut environ 432 disquettes pour stocker l'intégralité
+            d'un CD-ROM de 650 MB, cela donne un indice de la
+            lenteur d'accès du disque, non?
+         </li>
+         <li>
+            Je ne trouvais aucun site Web sur le graveur et aucune
+            mention nulle part de la marque Mustek, ni sur le
+            produit, ni dans Windows.
+         </li>
+      </ul>
+      <p>
+         Il ne faut pas oublier que j'ai tout mis en oeuvre pour
+         éviter le fameux syndrome du buffer underrun si connu des
+         utilisateurs du graveur de CD. J'ai créé une partion
+         dédiée d'une taille de 800 Mb, ce qui évite toute
+         fragmentation du disque, alors le problème n'a pas
+         beaucoup de chances de venir de là. Bien entendu, je
+         n'utilisais pas l'ordinateur pendant la gravure!
+      </p>
+      <p>
+         Lorsque j'ai passé à Windows 98 Deuxième Édition, il n'y
+         avait plus le problème des disques bizarres. J'ai donc pu
+         utiliser le graveur normalement pendant un certain temps.
+         En début septembre 2000, le bogue refit surface! Le 22
+         août 2000, j'avais réinstallé Windows 98 avec le paramètre
+         <tt>/p j</tt> sur la ligne de commande, forçant le système
+         à utiliser le BIOS ACPI. Tout fonctionnait parfaitement,
+         sauf le graveur!
+      </p>
+      <p>
+         Si le disque était gravé peu de temps après le démarrage
+         de l'ordinateur, aucun problème. Sinon, beaucoup de
+         problèmes! Le disque était gravé sans incident, sauf que
+         sa lecture relevait du tour de magie! Le début du disque
+         fonctionnait bien, mais la fin s'avérait criblée de
+         défauts. Pour un CD Audio, cela se caractérisait par des
+         grésillements très agaçants environ à partir de la dixième
+         piste. Sur un CD de données, les fichiers de cette zone
+         étaient illisibles ou l'accès était lent. J'ai donc dû
+         réinstaller Windows 98 sans ACPI et et le problème a
+         disparu. En fait, il n'est pas totalement disparu,
+         puisqu'il n'y a non pas un bogue mais plutôt trois!
+      </p>
+      <ul>
+         <li>
+            Lorsque le mode DMA est utilisé, il y a plantages de la
+            machine et le CD ne peut pas être complètement gravé.
+         </li>
+         <li>
+            Lorsque le système fonctionne en mode ACPI et que la
+            machine fonctionne depuis un laps de temps assez long,
+            le graveur, si utilisé, créera des disques défectueux à
+            peu près inutilisables.
+         </li>
+         <li>
+            Récemment découvert, lorsqu'on grave un CD en Mode 1 de
+            type Maxell ou TDK (je ne sais pas si cela se produit
+            avec les autres marques), il est très lent sur un
+            portable Toshiba Satellite 310CDS et probablement sur
+            d'autres lecteurs.
+         </li>
+      </ul>
+      <p>
+         Lundi, le 23 avril 2001, je décidai de tenter l'ultime
+         recours imaginé depuis longtemps pour résoudre
+         complètement ce bogue: <a href="../biosupdt.xhtml">mettre
+         le BIOS du système à jour</a>. La mise à jour a eu pour
+         résultat de forcer Windows 98 à s'installer en mode ACPI,
+         mais j'ai pu graver un disque avec le DMA activé et il n'y
+         a pas eu de problème, ni pour graver le disque, ni pour le
+         relire. Mais il faudra plus de tests pour conclure...
+      </p>
+      <h2>
+         Le DMA doit être inactif et APM doit être utilisé, pas
+         ACPI; il n'y a AUCUNE autre solution!
+      </h2>
+      <p>
+         Jeudi soir, le 4 avril 2002, la conclusion me fut donnée,
+         et elle fut négative. Ma soeur avait tenté de graver un CD
+         Audio et à mon retour de l'université, j'ai découvert
+         l'écran d'ordinateur ouvert, la machine avait gelé, comme
+         dans les premiers temps. Cette fois-ci, il y eut pertes de
+         données systèmes et la réinstallation de Windows fut une
+         nécessité. Aucune perte de données critiques ne fut
+         occasionnée, par bonheur. Il demeure deux possibilités:
+         incompatibilité matérielle entre le graveur et la carte
+         mère ou dysfonctionnement très peu étonnant de Windows 98.
+         Dans le second cas, l'installation de Windows XP, qui eut
+         lieu ce soir-là, devrait apporter solution au problème.
+         L'ajout de mémoire a permis une augmentation appréciable
+         de la vitesse, ce qui favorisa la sauvegarde du système
+         plutôt qu'un retour en arrière à Windows 98.
+      </p>
+      <p>
+         Mercredi, le 8 mai 2002, lorsque mon frère grava des CD,
+         je constatai que la machine plantait après la gravure.
+         Bien que les disques Audio soient utilisables malgré le
+         plantage (qui exigea un reset), la situation demeurait
+         inacceptable. La machine ne devrait pas planter à l'issue
+         de chaque gravure! Je sentais bien que nous étions
+         retournés à la case départ et sans une désactivation du
+         mode ACPI, désactiver DMA ramènerait le bogue des CD qui
+         grichent.
+      </p>
+      <p>
+         Je ne pus ce soir-là tenter la désactivation, car
+         l'opération semblait risquée. Il se pouvait que j'aie à
+         réinstaller Windows XP complètement. Je tentai le coup
+         vendredi, 10 mai 2002, et l'opération se passa bien. Après
+         la désactivation, le système redémarra en 640x480, parvint
+         à détecter tous ses éléments et retrouva un fonctionnement
+         nominal. Ce constat effectué, je désactivai le DMA pour le
+         graveur en espérant que tout cela suffise.
+      </p>
+      <p>
+         Malheureusement, cette procédure a amené un nouveau bogue.
+         La désactivation de ACPI a laissé des traces et APM ne
+         voulait plus s'activer, ce qui empêchait Windows
+         d'éteindre l'ordinateur après sa fermeture. Il me fallait
+         soit un moyen de modifier la Base de Registre Windows pour
+         remettre en fonction APM, soit une procédure pour indiquer
+         au programme d'installation de Windows XP d'activer APM
+         plutôt qu'ACPI (réinstallation nécessaire), soit une
+         technique pour truquer le BIOS afin de désactiver son
+         support ACPI (TRÈS RISQUÉ! Le BIOS de la machine touchée
+         ne dispose pas de l'option qu'il faudrait.).
+      </p>
+      <h2>
+         Et maintenant, cela ne fonctionne qu'en 2x avec certains
+         disques!
+      </h2>
+      <p>
+         Dimanche, 14 juillet 2002, ma soeur tenta de graver un CD
+         Audio et Easy CD Creator reporta une erreur de calibration
+         du laser. Après la gravure incorrecte, le CD semblait
+         toujours vierge et enregistrable, si bien qu'elle tenta
+         plusieurs fois d'effectuer l'écriture, sans succès. Je
+         tentai moi-même l'expérience et me rendit compte que le
+         logiciel ne reportait pas la progression lors de
+         l'écriture de la table des matiès au début du disque gravé
+         en mode Disk-At-Once. Je tentai de diminuer la vitesse à
+         2x, mais le même symptôme surgissait, si bien que
+         j'annulai l'écriture. Malheureusement, la machine se
+         bloqua en raison de cette requête.
+      </p>
+      <p>
+         Je commençais sérieusement à me demander si le bogue
+         pouvait provenir d'un nouveau défaut du graveur, cette
+         fois-ci un véritable dysfonctionnement matériel.
+         L'après-midi même, j'entrepris des tests plus poussés,
+         utilisant pour cela un CD-RW qui se grava sans aucune
+         difficulté. Avant la gravure, je tentai quelques
+         modifications du BIOS. Dans la section <b>Power
+         Management</b>, je désactivai <b>PM Controlled by APM</b>.
+         Je désactivai également <b>Spectrum Spread</b> dans
+         <b>Advanced Chipset Features</b> qui, à ma grande
+         surprise, était actif.
+      </p>
+      <p>
+         L'hypothèse actuelle réside en un nouveau bogue
+         indépendant des précédents. Sous Windows 98, la gravure
+         des CD de marque Memorex se faisait toujours plus
+         lentement. Il fallait trente minutes pour graver un disque
+         tandis qu'en 4x, il en faudrait théoriquement dix-huit!
+         Bien que ce bogue ne soit pas grave en soi, il permet
+         d'expliquer le problème actuel. Ce graveur ne supporterait
+         pas la calibration de puissance du laser sur un CD Memorex
+         (Plus généralement, le bogue doit s'étendre à une classe
+         plus vaste de disques CD-R si on regroupe les marques en
+         terme de colorants organiques utilisés.) et Windows 98
+         serait capable de le détecter, ou bien Easy CD Creator 4.
+         Avec Easy CD Creator 5, que j'ai installé en même temps
+         que XP, cette détection serait absente et le graveur
+         graverait en 4x malgré le problème.
+      </p>
+      <p>
+         Il est envisageable que le disque n'ait pas été touché par
+         le laser lors des tentatives à 4x, d'où le fait que le CD
+         restait vierge. Lors de ma tentative à 2x, que j'ai
+         annulée en croyant au bogue, une table des matières a été
+         inscrite, ce qui a créé des pistes invalides sur le CD!
+         Voilà pourquoi je n'ai pas pu graver sur le disque lorsque
+         j'ai effectué les tests ultérieurs. Il faudra ainsi graver
+         les Memorex à 2x plutôt que 4x et tout devrait bien se
+         passer.
+      </p>
+      <h2>
+         Mort subite
+      </h2>
+      <p>
+         Vendredi, 28 novembre 2003, lorsque j'allumai
+         l'ordinateur, la machine prit au moins une minute avant
+         d'atteindre l'écran de Bienvenue de Windows XP. Pendant
+         tout ce temps, elle affichait Windows XP avec le logo et
+         semblait charger quelque chose de gros ou ne rien faire du
+         tout. J'ai ouvert une session utilisateur afin de
+         contrôler le matériel et découvert, à mon grand
+         étonnement, que le graveur n'était plus là. Je redémarrai
+         la machine et me rendis compte que même le BIOS ne
+         reportait plus la présence du graveur. Je tentai de
+         débrancher et rebrrancher le câble plat IDE reliant le
+         graveur à la carte mère, à l'extrêmité graveur, puis du
+         côté carte mère: rien n'y fit. Si j'allumais la machine,
+         éjectais le tiroir du graveur puis appuyais sur reset, le
+         tiroir rentrait automatiquement quand le flat cable était
+         branché. Si ce n'était pas le cas, le tiroir du graveur
+         restait ouvert perpétuellement, jusqu'à ce que j'appuie de
+         nouveau sur le bouton d'éjection. Ce test montre que le
+         graveur recevait toujours des commandes IDE, mais il ne
+         renvoyait plus rien à la carte mère. Le débranchement du
+         graveur redonnait à XP son temps de démarrage normal. Le
+         lendemain, mon père parvint à obtenir un bon prix pour un
+         graveur 52x LG et le Mustek quitta alors la machine. Ceci
+         termine cette histoire et «résoud» ce bogue mystérieux. Je
+         ne saurai tout simplement jamais pourquoi ce graveur
+         fonctionna si mal.
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

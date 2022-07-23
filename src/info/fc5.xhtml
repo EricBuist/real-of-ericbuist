@@ -1,0 +1,901 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         Passage à Fedora Core 5
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css" href="../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../index.xhtml" class="parents">Le royaume
+               de Eric Buist</a> &gt;&gt; <a href="index.xhtml"
+               class="parents">Informatique</a> &gt;&gt;
+               Configuration informatique
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../sitemap.xhtml" class="sitemap">Plan du
+               site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="salvator/index.xhtml"
+               class="leftsibling">Le Salvator, successeur du
+               Faucon de Fer</a>
+            </td>
+            <td class="thispage">
+               Passage à Fedora Core 5
+            </td>
+            <td class="rightsibling">
+               <a href="nightmare/index.xhtml"
+               class="rightsibling">Le Nightmare, second du
+               Salvator</a> &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         Passage à Fedora Core 5
+      </h1>
+      <p>
+         Était-il nécessaire de passer de Fedora Core 4 à Fedora
+         Core 5? Pas vraiment. Est-ce que ce fut une bonne idée?
+         Pas vraiment. Mais malgré tout, la curiosité me poussa à
+         faire le passage et j'ai dû en payer le prix, autant en
+         perte de temps qu'en désespoir. Cette page raconte mon
+         aventure et, espérons-le, ne dissuadera pas trop de gens
+         d'essayer Linux. Mais bon, autant que la vérité éclate au
+         grand jour et que les gens qui ont le pouvoir d'améliorer
+         les choses en usent enfin! Le plus grand problème que j'ai
+         rencontré a été celui du pilote NVIDIA qui, pour la
+         première fois depuis que j'ai commencé à l'utiliser en
+         septembre 2005, a refusé de fonctionner correctement.
+      </p>
+      <ul>
+         <li>
+            <a href="#download">Le téléchargement, déjà un
+            obstacle</a>
+         </li>
+         <li>
+            <a href="#install">Une installation sans problème</a>
+         </li>
+         <li>
+            <a href="#800x600">En 800x600 et pas de synthoniseur
+            TV!</a>
+         </li>
+         <li>
+            <a href="#soft">Des logiciels qui fonctionnent mal,
+            vive le progrès!</a>
+         </li>
+         <li>
+            <a href="#nv">Réouverture du dossier NVIDIA</a>
+         </li>
+         <li>
+            <a href="#nv2">Encore des problèmes avec le pilote de
+            NVIDIA</a>
+         </li>
+         <li>
+            <a href="#nv3">La bonne façon d'installer le pilote
+            NVIDIA</a>
+         </li>
+         <li>
+            <a href="#btn">Les boutons latéraux de la souris</a>
+         </li>
+         <li>
+            <a href="#bugx">Le bugX</a>
+         </li>
+         <li>
+            <a href="#misc">Problèmes divers</a>
+         </li>
+         <li>
+            <a href="#conclusion">Conclusion</a>
+         </li>
+      </ul>
+      <h2>
+         <a id="download" name="download">Le téléchargement, déjà
+         un obstacle</a>
+      </h2>
+      <p>
+         Première erreur: tenter de télécharger Fedora Core 5
+         x86_64 le jour même de sa sortie, lundi le 20 mars 2006!
+         Bien que j'aie utilisé <a
+         href="http://www.bittorrent.com">BitTorrent</a> pour
+         parvenir à mes fins, l'opération s'avéra longue, car il
+         devait y avoir un grand nombre de personnes en train de
+         tenter le téléchargement et peu l'ayant terminé et offrant
+         en partage l'image ISO DVD complète.
+      </p>
+      <p>
+         Heureusement, malgré la longueur du téléchargement, je
+         pouvais continuer à travailler sur mon ordinateur. Ainsi,
+         après avoir démarré BitTorrent, j'ai pu continuer à
+         travailler sur mon doctorat. J'ai même pu, le soir venu,
+         stopper le téléchargement et le reprendre le lendemain,
+         sans devoir le recommencer. Mardi soir, 21 mars 2006, je
+         disposais donc de l'image ISO DVD de Fedora Core 5 et j'en
+         avais partagé 65% à d'autres utilisateurs de BitTorrent!
+         Afin de ne pas épuiser ma limite de transfert en amont
+         imposée par Vidéotron, je stoppai BitTorrent et
+         m'empressai de graver mon image ISO sur un DVD+R.
+      </p>
+      <h2>
+         <a id="install" name="install">Une installation sans
+         problème</a>
+      </h2>
+      <p>
+         Contrairement à ma <a href="salvator/lin.xhtml">dernière
+         installation de Fedora Core 4</a> sur le Salvator, tout se
+         passa très bien ce vendredi 24 mars 2006. Le programme
+         d'installation démarra sans le moindre plantage et afficha
+         son écran de bienvenue. Je faillis commettre la gaffe de
+         laisser le programme reformater entièrement le disque dur.
+         Sans le message de confirmation, je n'aurais pas pu éviter
+         l'apocalypse! Si j'avais cliqué sur <b>Oui</b>, j'aurais
+         eu à réinstaller Windows XP, recharger toutes mes données
+         depuis des CD et des DVD et peut-être même redimensionner
+         ma partition Linux avant de pouvoir faire tout ça. Après
+         avoir évité le pire, j'ai indiqué au programme d'installer
+         Fedora Core 5 dans ma partition vierge de façon à ne pas
+         déranger Windows XP et Fedora Core 4. De cette façon, en
+         cas de problème, il serait possible sans trop de
+         difficultés de revenir à Fedora Core 4.
+      </p>
+      <p>
+         L'interface graphique de l'installeur était améliorée par
+         rapport à Fedora Core 4. On est loin de l'interface Aqua
+         d'Apple pour Mac OS X, mais c'est quand même bien. La
+         carte réseau Marvell fut détectée, ce qui me ravit: un
+         pilote de moins à installer manuellement et une
+         configuration plus facile! La carte son aussi fut trouvée,
+         donc pas de régression à ce niveau. Mieux encore, la
+         configuration du pare-feu m'offrait l'option de
+         déverrouiller les ports pour Samba, ce qui me permit
+         d'activer le pare-feu sans travailler d'arrache-pied à le
+         configurer manuellement pour Samba. Sous Fedora Core 4,
+         j'avais désactivé le pare-feu, car je trouvais trop
+         compliqué de trouver la syntaxe exacte des règles à
+         ajouter pour Samba et mon routeur sert déjà de pare-feu
+         élémentaire. Premier aspect négatif: impossible de dire à
+         l'installeur de copier tous les paquetages sur le disque
+         dur. Comme avec Mandrake, il fallait sélectionner les
+         paquetages un par un. Les paquetages sélectionnés,
+         l'installation se passa sans difficulté après quoi je
+         démarrai sous mon nouveau jouet.
+      </p>
+      <p>
+         Ma première surprise fut de constater que le noyau 2.6.15
+         installé n'était pas SMP. Une petite recherche avec Yum
+         m'indiqua qu'il n'y avait aucun noyau SMP, ce qui me déçut
+         puisque ce noyau était essentiel pour tirer parti de mon
+         Pentium D. Par contre, <tt>cat /proc/cpuinfo</tt>
+         affichait bien deux proceseurs. De même, <tt>top</tt> en
+         affichait deux si j'appuyais sur <tt>1</tt> dans le
+         programme pour montrer les processeurs séparément. Je
+         constatai plus tard, avec la commande <tt>dmesg</tt>, que
+         le noyau était bien SMP. Pour x86_64, seul le noyau SMP
+         est disponible sous Fedora Core 5. Dans le cas d'un
+         système monoprocesseur, c'est-à-dire un AMD Athlon 64 pas
+         x2, le noyau SMP ne gère qu'un processeur. Les Pentium 4
+         d'Intel peuvent faire surgir deux processeurs en raison de
+         la technologie HyperThreading.
+      </p>
+      <h2>
+         <a id="800x600" name="800x600">En 800x600 et pas de
+         synthoniseur TV!</a>
+      </h2>
+      <p>
+         Je constatai bien assez vite deux manques: j'étais encore
+         coincé en 800x600 et mon synthoniseur TV ne fonctionnait
+         pas. Je commençai par essayer d'installer le pilote de
+         NVIDIA comme j'avais fait avec Fedora Core 4 et constatai
+         que cette fois, l'installation échouait! Le programme
+         d'installation affichait une erreur, ne pouvant pas
+         compiler le module de noyau de NVIDIA! Il n'y avait donc
+         aucun moyen de faire fonctionner la carte graphique en
+         1280x1024, ce qui était loin d'être idéal avec mon LCD.
+         Pour empirer les choses, il fallut que le pilote <a
+         href="http://ivtvdriver.org">IVTV</a> 0.4.1 pour mon
+         synthoniseur TV refuse lui aussi de compiler lui aussi.
+      </p>
+      <p>
+         À bout de patience, je décidai de prendre les grands
+         moyens: télécharger le noyau 2.6.15 sur <a
+         href="http://www.kernel.org">Kernel.org</a> et le
+         recompiler! J'avais lu que Fedora Core 5 intégrait un
+         noyau 2.6.15 avec des fonctionnalités du noyau 2.6.16 et
+         j'avais eu de très mauvaises expériences avec ce genre de
+         noyaux hybrides sous Red Hat 9: jamais le pilote ATI de <a
+         href="http://gatos.sourceforge.net">GATOS</a> n'avait
+         compilé sous Red Hat 9 si bien que je n'attendrais pas des
+         mois en vain. Retour au noyau 2.6.15 classique et ça
+         finirait là!
+      </p>
+      <p>
+         Pendant la longue compilation du noyau, je poursuivis mes
+         recherches pour trouver une meilleure solution. Je
+         n'aimais pas l'idée de recompiler le noyau, car je n'étais
+         pas certain que le noyau fonctionnerait; en particulier,
+         j'avais de grandes craintes pour le Serial ATA. En effet,
+         je n'avais vu aucune option relative à libATA qu'il
+         fallait pourtant activer pour le support des disques
+         Serial ATA.
+      </p>
+      <p>
+         Je finis par télécharger IVTV 0.6.1 et le compilai:
+         succès! Au moins, quelque chose pouvait fonctionner et ce,
+         sans recompiler le noyau. Cela me soulagea un peu et je me
+         dis que j'en resterais là si je pouvais au moins obtenir
+         un affichage en 1280x1024 avec le pilote NV de X.Org. Ce
+         pilote NV est à code source ouvert et permet l'utilisation
+         de l'accélération graphique avec la plupart des cartes
+         NVIDIA. La 3D ne fonctionnerait pas avec NV, mais au
+         moins, le reste oui. Il faut s'attendre à ce qu'un jour,
+         la 3D cesse de fonctionner sous X.Org, car les fabricants
+         de cartes graphiques veulent garder leurs spécifications
+         pour eux et les API de X.Org et surtout du noyau ne
+         cessent de changer d'une version à l'autre si bien que
+         l'écriture de pilotes est trop coûteuse et complexe.
+      </p>
+      <p>
+         Je pensai d'abord que ça pouvait être le pilote NV qui
+         causait des difficultés, m'empêchant d'accéder à une
+         résolution supérieure à 800x600, et le remplaçai par le
+         pilote VESA. Pour ce faire, dans
+         <tt>/etc/X11/xorg.conf</tt>, je substituai <tt>nv</tt>
+         pour <tt>vesa</tt> dans la section <tt>Device</tt>
+         correspondant à ma carte graphique. Lorsque je redémarrai
+         X.Org, je constatai avec désespoir que rien n'avait
+         changé. J'étais toujours coincé en résolution 800x600.
+      </p>
+      <p>
+         J'examinai donc le fichier <tt>/var/log/X.Org.0.log</tt>
+         pour y trouver des messages d'erreur indiquant vaguement
+         que le pilote graphique rejetait des modes non supportés
+         par l'écran. J'en vins à supposer que l'affichage DVI
+         causait désormais des difficultés, mais je ne pouvais me
+         résoudre à rebrancher mon écran en mode VGA. En fouillant
+         davantage dans le fichier, je découvris que des lignes
+         dans le fichier de configuration verrouillaient la
+         fréquence acceptée des modes graphiques et qu'en
+         commentant ces lignes, je pourrais activer
+         l'auto-détection via DDC. C'est ainsi que, dans
+         <tt>/etc/X11/xorg.conf</tt>, je commentai les lignes
+         <tt>HorizSync</tt> et <tt>VertRefresh</tt> dans la section
+         <tt>Monitor</tt>. Bien entendu, dans la section
+         <tt>Screen</tt>, j'avais déjà ajouté les résolutions
+         supérieures à 800x600. Un redémarrage de X.Org plus tard,
+         j'obtenais un écran de bienvenue en mode 1280x1024!
+      </p>
+      <p>
+         Mais cette astuce s'avéra bonne uniquement avec le pilote
+         VESA, ce qui était très limitatif. En effet, ce pilote ne
+         propose aucune accélération graphique, pas même 2D. Les
+         performances de mon système seraient donc fortement
+         réduites si j'employais ce pilote et il se pouvait même
+         que DPMS, permettant l'extinction automatique de l'écran
+         après un temps fixé, ne fonctionne pas. C'était
+         inacceptable si bien que je poussai plus loin.
+      </p>
+      <p>
+         Pour ce faire, je repris les paramètres obtenus en 2003
+         avec <a href="sysupdt.html#lcd">ReadEDID</a> et les plaçai
+         dans la section <tt>Monitor</tt> de mon fichier de
+         configuration X.Org. J'ajoutai ainsi les lignes suivantes
+         dans la section <tt>Monitor</tt>.
+      </p>
+<pre>
+    HorizSync       30.0 - 82.0
+    VertRefresh     50.0 - 75.0
+</pre>
+      <p>
+         Je changeai le pilote VESA pour NV, redémarrai X.Org et
+         constatai avec joie que j'obtenais un affichage en
+         1280x1024, avec pilote NVIDIA open source! J'aurais donc
+         au moins une accélération 2D de base.
+      </p>
+      <h2>
+         <a id="soft" name="soft">Des logiciels qui fonctionnent
+         mal, vive le progrès!</a>
+      </h2>
+      <p>
+         Samedi, 25 mars 2006, je constatai que GMplayer, installé
+         depuis <a href="http://rpm.livna.org">LIVNA</a>, ne
+         fonctionnait pas bien du tout. Lorsque j'essayai de lui
+         faire ouvrir <tt>/dev/video</tt> pour tester mon
+         synthoniseur TV, le logiciel afficha un message d'erreur.
+         Ensuite, une seconde tentative laissa une copie fantôme du
+         logiciel qui ne voulait plus se fermer; je dus le tuer
+         avec <tt>killall -9 gmplayer</tt>. L'erreur ne se
+         reproduisit plus si bien qu'elle est probablement dûe à
+         une erreur typographique dans le nom du fichier à lire.
+      </p>
+      <p>
+         Autre problème: Adobe Reader 7 refusait de démarrer,
+         fermant spontanément à chaque tentative sans afficher quoi
+         que ce soit. Aucun message d'erreur, aucune fenêtre, rien.
+         Il ne semblait y avoir aucune solution pour faire
+         fonctionner cela, mais ce n'était pas un gros drame
+         puisque je n'utilise pas très souvent Adobe Reader. Je me
+         sers plutôt de XPDF et KPDF pour lire des fichiers PDF.
+      </p>
+      <p>
+         Mais la version 32 bits de Firefox 1.5 refusa aussi de
+         démarrer, cherchant <tt>libstdc++.so.5</tt> qui était
+         disparu, remplacé par <tt>libstdc++.so.6</tt>. Sans cette
+         version de Firefox, je n'aurais pas les plug-ins pour Java
+         et Flash. Pour faire démarrer Firefox, je dus installer,
+         via Yum, le paquetage <tt>compat-libstdc++-33</tt>. Cela
+         permit de faire démarrer Firefox, mais il prend plus de
+         temps à se charger que sous Fedora Core 4.
+      </p>
+      <p>
+         Quant à Thunderbird, il n'était même pas installé; il
+         fallait utiliser des mastodontes comme Evolution, à
+         présent! Heureusement, je pus l'installer par le biais de
+         Yum et il fonctionna sans rechigner. Je peux utiliser la
+         version 64 bits, car, contrairement à Firefox, je n'ai pas
+         besoin de plug-ins Java ou Flash.
+      </p>
+      <p>
+         J'espérais que l'installation de la bibliothèque C++ 5
+         ferait fonctionner Adobe Reader, mais il n'en fut rien. Au
+         lieu de stopper sans rien afficher, le logiciel se
+         contentait dès lors de figer et d'entrer dans une boucle
+         infinie, encore sans afficher quoi que ce soit.
+      </p>
+      <h2>
+         <a id="nv" name="nv">Réouverture du dossier NVIDIA</a>
+      </h2>
+      <p>
+         Après avoir constaté que même GLXGears, un petit programme
+         tout simple, refusait de démarrer, je voulus de nouveau
+         faire fonctionner le pilote NVIDIA. Si, au moins, GLXGears
+         avait fonctionné lentement, j'aurais pu tolérer que le
+         pilote ne fonctionne pas. Je m'attendais à cela quand j'ai
+         acheté ma carte graphique; je me disais que je devrais
+         choisir, un jour, entre garder une ancienne version de
+         Linux ou me passer des fonctions du pilote. Ce jour était
+         venu plus tôt que prévu, voilà tout.
+      </p>
+      <p>
+         Malheureusement, personne ne semblait éprouver mon
+         problème. Il ne semblait y avoir aucun moyen de faire
+         fonctionner le pilote NVIDIA sous Fedora Core 5. On aurait
+         même dit que j'étais le seul à avoir essayé! Le désespoir
+         augmenta lorsque je vis, sur <a
+         href="http://www.fedoraforum.org">FedoraForum</a>, un
+         message indiquant que quelqu'un avait réussi à faire
+         fonctionner sa carte ATI sous Fedora Core 5. Eh oui, à
+         présent, c'était ATI qui fonctionnait et non plus NVIDIA!
+         La perspective de devoir jouer au yoyo avec des cartes
+         graphiques, passant de temps en temps de NVIDIA à ATI, de
+         ATI à NVIDIA, d'ATI ou de NVIDIA vers une autre marque,
+         etc., s'imposa à moi et ne me réjouissait pas du tout!
+         Autant, dans ce cas, me débarrasser de Linux qui était
+         devenu beaucoup trop contraignant.
+      </p>
+      <p>
+         Je finis par trouver la première pièce du casse-tête: une
+         patch sur <a
+         href="http://www.nvnews.net/vbulletin/showthread.php?t=62021">NVNews</a>
+         qui semblait pouvoir réparer le pilote et le rendre
+         fonctionnel. Je la téléchargeai et l'appliquai avec les
+         commandes suivantes:
+      </p>
+<pre>
+sh NVIDIA-Linux-x86_64-1.0-8178-pkg2.run --extract-only
+cd NVIDIA-Linux-x86_64-1.0-8178-pkg2
+patch -p0 &lt; NVIDIA_kernel-1.0-8178-U012206.diff.txt
+</pre>
+      <p>
+         Le fichier <tt>NVIDIA-Linux-x86_64-1.0-8178-pkg2.run</tt>
+         est le pilote NVIDIA original tandis que le fichier
+         <tt>NVIDIA_kernel-1.0-8178-U012206.diff.txt</tt> est la
+         patch obtenue sur NVNews. La patch modifia quelques
+         fichiers dans le code source du module NVIDIA, ce qui me
+         donnait un certain espoir de voir le module se compiler.
+         J'utilisai donc <tt>./nvidia-installer</tt> pour démarrer
+         l'installation qui, cette fois, alla un petit peu plus
+         loin mais pas vraiment. En effet, le module se compila,
+         mais il refusa de se charger! Cela montrait qu'il y avait
+         bel et bien un bogue avec le noyau 2.6.15 de Fedora.
+      </p>
+      <p>
+         Je tentai donc d'utiliser le noyau 2.6.15.6 recompilé la
+         veille. Pour mettre en oeuvre ce noyau, il faut d'abord le
+         décompresser dans <tt>/usr/src/kernels</tt> et y appliquer
+         la patch Marvell pour la carte réseau. Ensuite, avec
+         <tt>make menuconfig</tt>, j'ai réglé les diverses options.
+         En fait, je n'ai pas changé grand-chose, à part activer le
+         module NTFS. <tt>make</tt> a déclenché la compilation et
+         <tt>make modules_install</tt> a installé les modules. Je
+         dus ensuite copier le fichier <tt>bzImage</tt> dans
+         <tt>/boot/vmlinuz-2.6.15.6</tt> et créer une image INITRD
+         avec <tt>/sbin/mkinitrd</tt> et la copier dans
+         <tt>/boot/initrd-2.6.15.6.img</tt>. Cette image est
+         nécessaire pour permettre au noyau de charger les modules
+         pour le SCSI et le Serial ATA. Je dus ensuite modifier
+         <tt>/etc/grub.conf</tt> pour établir les liens avec le
+         nouveau noyau après quoi je redémarrai. Cela fonctionna!
+         En fait, je dus me reprendre à deux fois, une fois pour le
+         pilote Marvell Yukon et une seconde pour le NTFS, mais
+         j'ai ici résumé la procédure globale à employer pour que
+         cela fonctionne du premier coup.
+      </p>
+      <p>
+         L'installation du pilote IVTV réussit, mais celle du
+         pilote NVIDIA échoua lamentablement, encore une fois.
+         J'essayai avec la patch et cette fois, je réussis: le
+         module compilait, se chargeait et l'installation du pilote
+         se terminait! Par contre, X.Org refusait de démarrer avec
+         le pilote NVIDIA! Je dus remettre le pilote NV,
+         désinstaller le pilote NVIDIA et je retournai sous le
+         noyau 2.6.15 de Fedora Core.
+      </p>
+      <p>
+         Après d'autres recherches sur Internet et un message sur
+         FedoraForum, j'essayai le noyau 2.6.16-1.2074_FC5 encore
+         en développement. En fait, tout noyau 2.6.16 maintenant
+         disponible par Yum pourrait fonctionner. Par contre, ce
+         samedi, le noyau n'était pas disponible sous Yum et
+         j'obtins donc des RPMs. J'eus le malheur d'utiliser
+         <tt>rpm -Uvh</tt> pour installer le noyau, ce qui écrasa
+         mon noyau 2.6.15 fonctionnel! À contre-coeur, je
+         redémarrai sous le nouveau noyau, tentai l'installation et
+         cela échoua. Avec la patch, cela réussit, mais X.Org ne
+         voulait pas démarrer!
+      </p>
+      <p>
+         Je disposais donc de deux des trois pièces du casse-tête:
+         la patch pour modifier le module de noyau et un noyau
+         sain. Par contre, cela ne suffisait pas, car X.Org 7.0 se
+         révélait incompatible avec le pilote de NVIDIA. De longs
+         mois d'attente seraient nécessaires pour ravoir un nouveau
+         pilote et ces mois, je les passerais sous Fedora Core 4,
+         me dis-je, choqué. Je ne voyais que peu de différences
+         entre X.Org 6.8 et X.Org 7 si bien qu'il n'y avait aucune
+         raison pour que le pilote cesse de fonctionner. De plus,
+         pour rétablir mon système, j'allais devoir désinstaller le
+         pilote NVIDIA, reconfigurer X.Org pour utiliser NV et
+         compiler moi-même le module NTFS.
+      </p>
+      <p>
+         L'idée d'essayer d'installer X.Org 6.8 ou XFree86 4.4 ou
+         4.5 me passa par la tête, mais j'y renonçai, car je ne
+         pouvais pas le faire de façon propre. Si j'utilisais RPM
+         pour supprimer X.Org, il voudrait supprimer tout ce qui
+         dépend de X.Org, incluant GNOME, KDE, etc. La meilleure
+         solution serait donc d'installer X.Org 6.8 ou XFree86
+         par-dessus les fichiers actuels de X.Org 7.0, ce qui
+         créerait un joli méli-mêlo qui ne pourrait se réparer que
+         par la réinstallation de Fedora Core 5! Autant, dans ce
+         cas, redémarrer sous Fedora Core 4 de toute façon déjà
+         installé et prêt à l'emploi que de perdre mon temps avec
+         cette nouvelle version qui ne fonctionnerait pour moi que
+         d'ici quelques mois. Encore une fois, j'étais obligé de
+         revenir à la version précédente, mais contrairement à mon
+         expérience avec Mandriva 2005 LE, j'avais encore cette
+         version sur mon disque!
+      </p>
+      <p>
+         C'est ainsi que je redémarrai sous Fedora Core 4, laissant
+         Fedora Core 5 en chantier sans prendre la peine de le
+         rendre de nouveau fonctionnel. Je réinstallai même GRUB de
+         Fedora Core 4, comme si Fedora Core 5 n'avait jamais été
+         installé sur la machine. Voilà, fini le cauchemar! Mais
+         cela me choquait et j'avais de plus en plus de me
+         débarrasser de Linux complètement.
+      </p>
+      <p>
+         Mais en soirée, je découvris la troisième pièce du
+         casse-tête: X.Org 7.0 plaçait les fichiers à un autre
+         endroit que X.Org 6.8 et le pilote NVIDIA ne connaissait
+         pas le nouvel emplacement. Je découvris cela par
+         tâtonnement, en examinant les fichiers log de X.Org et la
+         structure des répertoires. Je me dis que peut-être un
+         déplacement des fichiers pourrait résoudre le problème,
+         mais je savais qu'il se pouvait fort bien que X.Org refuse
+         de démarrer par incompatibilité du format binaire du
+         pilote. En résumé, tous les fichiers dans
+         <tt>/usr/X11R6/lib64</tt> doivent être déplacés dans
+         <tt>/usr/lib64/xorg</tt>. Les commandes utilisées pour la
+         réparation sont les suivantes. Elles pourraient être
+         adaptées pour un Linux 32 bits en remplaçant
+         <tt>lib64</tt> par <tt>lib</tt>.
+      </p>
+<pre>
+cd /usr/X11R6/lib64
+cp -a lib* ../../lib64/xorg
+cp -a modules/drivers/nvidia* ../../lib64/xorg/modules/drivers
+cd ../../lib64/xorg/modules/extensions
+mv libglx.so libglx.so.backup
+cd -
+cp -a modules/extensions/libglx*
+../../lib64/xorg/modules/extensions
+</pre>
+      <p>
+         La suppression du pilote pourrait se faire par les
+         commandes suivantes.
+      </p>
+<pre>
+cd /usr/lib64/xorg
+rm libXvMCNVIDIA*
+rm modules/extensions/libglx.so
+rm modules/extensions/libglx.so.1.0.8178
+mv modules/extensions/libglx.so.backup modules/extensions/libglx.so
+rm modules/drivers/nvidia_drv.so
+</pre>
+      <p>
+         Après avoir fait les ajustements depuis Fedora Core 4,
+         j'ai configuré GRUB pour me ménager une porte vers Fedora
+         Core 5 avant de redémarrer la machine. Le déplacement des
+         fichiers était la bonne solution, car enfin, X.Org
+         démarra! GLXGears fonctionna et même, pour une raison
+         mystérieuse, Adobe Reader se remit à fonctionner! J'ai
+         donc réinstallé GRUB de Fedora Core 5 tout en gardant une
+         porte de sortie vers Fedora Core 4, au cas où.
+      </p>
+      <p>
+         Inverser le déplacement ne sera nécessaire que lorsque
+         NVIDIA sortira un nouveau pilote adapté à X.Org 7.0. En
+         attendant, il est possible de le faire une seule fois puis
+         d'utiliser la version patchée du pilote pour réinstaller
+         ce dernier lors des mises à jour du noyau.
+      </p>
+      <p>
+         J'installai ensuite <tt>xscreensaver-gl-extras</tt> pour
+         avoir les écrans de veille OpenGL.
+      </p>
+      <h2>
+         <a id="nv2" name="nv2">Encore des problèmes avec le pilote
+         de NVIDIA</a>
+      </h2>
+      <p>
+         Vendredi, 14 avril 2006, j'ai constaté avec agacement que
+         ma session GNOME se fermait toute seule après un certain
+         temps d'inactivité. J'ai fini par supposer que l'écran de
+         veille faisait planter X.Org et c'était bel et bien cela:
+         chaque fois que je démarrais GLXGears, X.Org plantait.
+         Ainsi, tout écran de veille OpenGL faisait planter le
+         système. La cause ne pouvait être que le pilote NVIDIA
+         dont un fichier avait été perturbé par une mise à jour.
+      </p>
+      <p>
+         Je dus réinstaller le pilote pour réparer le mal, mais je
+         vérifiai sur le site de NVIDIA et constatai qu'une
+         nouvelle version, la 8756, était disponible. Je la testai
+         et constatai que le module de noyau compilait dès lors
+         sans patch. Par contre, les fichiers sont toujours copiés
+         au mauvais endroit. Il semble donc que la modification a
+         été faite par Fedora Core et non X.Org si bien que chaque
+         installation du pilote NVIDIA sur Fedora Core 5 posera ces
+         difficultés!
+      </p>
+      <h2>
+         <a id="nv3" name="nv3">La bonne façon d'installer le
+         pilote NVIDIA</a>
+      </h2>
+      <p>
+         Après toutes ces mauvaises expériences, j'en suis venu à
+         la conclusion que j'étais sur la mauvaise voie quant à la
+         façon d'installer le pilote de NVIDIA sous Fedora Core 5.
+         Utiliser l'installeur générique de NVIDIA n'est pas une
+         très bonne solution, car il court-circuite le système RPM
+         de la distribution, provoquant divers problèmes:
+      </p>
+      <ul>
+         <li>
+            Chaque mise à jour du noyau ou du serveur X rend
+            l'interface graphique inopérante jusqu'à la
+            réinstallation du pilote de NVIDIA.
+         </li>
+         <li>
+            Chaque mise à jour du pilote de NVIDIA nécessite le
+            déplacement des fichiers installés au bon endroit comme
+            indiqué précédemment. Ceci est un nouveau problème
+            apparu dans Fedora Core 5.
+         </li>
+         <li>
+            De nombreuses difficultés peuvent surgir si la carte
+            graphique doit être remplacée par une carte d'une autre
+            marque, par exemple ATI ou une potentielle marque
+            produisant une carte à spécification ouverte. Il
+            pourrait être difficile, voire impossible, de faire
+            fonctionner l'accélération 3D avec la nouvelle carte,
+            car des fichiers cruciaux ont été remplacés par le
+            pilote de NVIDIA.
+         </li>
+      </ul>
+      <p>
+         Ces mêmes difficultés s'appliquent avec le pilote closed
+         source d'ATI. L'article <a
+         href="https://www.redhat.com/archives/fedora-test-list/2006-February/msg01565.html">Attention:
+         Proprietary video driver users (ATI, Nvidia, etc.)</a>
+         explique plus en détails les problèmes causés par
+         l'utilisation de l'installeur générique provenant du
+         fabricant.
+      </p>
+      <p>
+         Pour réparer mon système, j'ai dû désinstaller le pilote
+         de NVIDIA, supprimer les fichiers que j'avais déplacés et
+         réinstaller les paquetages <tt>xorg-x11-server</tt>,
+         <tt>xorg-x11-utils</tt> et <tt>mesa-libGLU</tt>.
+      </p>
+      <p>
+         La meilleure solution est d'utiliser Yum pour installer le
+         pilote de NVIDIA adapté à Fedora Core 5. Le seul
+         désavantage, largement compensé par la simplification du
+         processus, est qu'en cas de mise à jour du noyau, il
+         faudra peut-être attendre quelques jours avant que la mise
+         à jour du module soit disponible.
+      </p>
+      <p>
+         Tout d'abord, il faut configurer Yum pour qu'il accède au
+         dépôt externe Livna, ce qui était déjà fait dans mon cas.
+         La meilleure façon d'installer <a
+         href="http://rpm.livna.org">Livna</a> est d'aller sur la
+         page Web de Livna, cliquer sur <b>Configuration</b> et
+         suivre les instructions. Cela installera un paquetage
+         ajoutant les fichiers nécessaires dans
+         <tt>/etc/yum.repos.d</tt> ainsi que les clés GPG pour
+         vérifier les signatures des paquetages téléchargés.
+      </p>
+      <p>
+         Ensuite, il suffit d'exécuter <tt>yum update</tt>; cela
+         installera si nécessaire une version 2.6.16 du noyau.
+         Ensuite, il suffit d'exécuter <tt>yum install kmod-nvidia
+         xorg-x11-drv-nvidia xorg-x11-drv-nvidia-devel
+         xorg-x11-drv-nvidia-libs-32bit</tt> pour installer le
+         pilote NVIDIA. Si un nouveau noyau a été installé, un
+         redémarrage du système sera nécessaire avant de pouvoir
+         utiliser le pilote.
+      </p>
+      <p>
+         Il existe par contre une difficulté qui rendra souvent
+         cette procédure inopérante. Lors d'une nouvelle
+         installation de Linux, <tt>yum update</tt> installera la
+         plus récente version du noyau. Malheureusement, il arrive
+         que le module de NVIDIA ne soit pas disponible sur Livna
+         pour ce nouveau noyau. Pour pouvoir utiliser le pilote
+         sans devoir attendre, outre employer la version générique
+         de NVIDIA, il suffit de taper <tt>yum list kernel\*</tt>
+         pour afficher la liste des noyaux disponibles par
+         l'intermédiaire de Yum et <tt>yum list kmod-nvidia\*</tt>
+         pour obtenir la liste des modules NVIDIA disponibles.
+         Ensuite, il suffit d'installer l'ancien noyau le plus
+         récent pour lequel le module existe en donnant son nom
+         complètement qualifié, par exemple <tt>yum install
+         kernel-2.6.16-1.2080_FC5</tt>. Il faudra bien entendu
+         redémarrer l'ordinateur avec ce noyau et non pas le plus
+         récent. Il est à espérer que le module de NVIDIA sera
+         disponible dans les jours qui suivront si bien qu'il est
+         bon de vérifier régulièrement.
+      </p>
+      <h2>
+         <a id="btn" name="btn">Les boutons latéraux de la
+         souris</a>
+      </h2>
+      <p>
+         Samedi, 25 mars 2006, j'essayai aussi de faire fonctionner
+         les boutons latéraux de ma souris et cela ne fonctionnait
+         pas! Après avoir appliqué la même procédure qu'avec Fedora
+         Core 3 et 4, même la roulette de défilement ne
+         fonctionnait plus. Cela me boguait que cette fonction soit
+         disparue! Je pus heureusement trouver la façon de
+         reconfigurer les choses. Dans <tt>/etc/X11/xorg.conf</tt>,
+         il faut toujours la section <tt>InputDevice</tt> suivante.
+      </p>
+<pre>
+Section "InputDevice"
+
+    Identifier     "Mouse0"
+    Driver         "mouse"
+    Option         "Device" "/dev/input/mice"
+    Option         "Protocol" "ExplorerPS/2"
+    Option         "Buttons" "7"
+    Option         "ZAxisMapping" "6 7"
+EndSection
+</pre>
+      <p>
+         Par contre, XModMap change un peu. Il faut définir 11
+         boutons pour que les choses fonctionnent et j'ai dû
+         tâtonner pour trouver la bonne combinaison pour mon
+         IntelliMouse Optical de Microsoft. La solution consiste à
+         ajouter, dans <tt>/etc/X11/Xmodmap</tt>, la ligne
+      </p>
+<pre>
+pointer = 1 2 3 8 9 4 5 6 7 10 11
+</pre>
+      <h2>
+         <a id="bugx" name="bugx">Le bugX</a>
+      </h2>
+      <p>
+         Le bugX ne s'est pas beaucoup manifesté sous Fedora Core
+         5. Le plus gros problème vécu a été celui du pointeur de
+         souris qui demeurait obstinément petit, même si je créais
+         le fichier <tt>.Xresources</tt>. Pour remédier au
+         problème, j'ai dû fouiller dans les options de GNOME et
+         j'ai constaté non sans agacement que GNOME 2.14 prenait en
+         charge le pointeur de souris. Heureusement, parmi les
+         pointeurs proposés, j'en trouvai un avec une taille
+         correcte.
+      </p>
+      <p>
+         Comme d'habitude, je dus ajuster la taille des caractères
+         sous GNOME, KDE, Firefox, Thunderbird, Emacs et je dus
+         créer des fichier <tt>.gtkrc</tt> pour les programmes GTK
+         1. Tous ces efforts portèrent fruit et les ajustements
+         furent rapides en raison de la possibilité de recopier des
+         informations de ma partition Fedora Core 4.
+      </p>
+      <h2>
+         <a id="misc" name="misc">Problèmes divers</a>
+      </h2>
+      <p>
+         Je constatai avec agacement que <tt>smbmount</tt> avait
+         disparu. Il faut à présent utiliser CIFS et ce dernier
+         n'effectue pas la résolution des noms NetBIOS. Il me
+         fallut donc modifier tous mes scripts de sauvegarde
+         automatique pour mettre des adresses IP statiques à la
+         place. C'était plus simple que de chercher comment
+         configurer un DNS!
+      </p>
+      <p>
+         Pour pouvoir monter les points d'accès réseau sans être
+         super-utilisateur, il faut mettre
+         <tt>/sbin/mount.cifs</tt> et <tt>/sbin/umount.cifs</tt>
+         SUID et utiliser ces commandes pour faire le montage et le
+         démontage. De même, les points de montage doivent être des
+         répertoires accessibles en écriture par l'usager. Par
+         exemple, voici une commande qui se trouve dans un script
+         d'initialisation pour faire une sauvegarde de fichiers sur
+         la machine familiale.
+      </p>
+<pre>
+/sbin/mount.cifs //192.168.1.5/data    ~/fdfdata   iocharset=utf8,username=...,password=...
+</pre>
+      <p>
+         Autre problème: impossible de démonter CD, DVD et clé USB
+         depuis la ligne de commande sans devenir
+         super-utilisateur. Pour résoudre le problème, outre
+         utiliser le Bureau de GNOME, j'ai trouvé la commande
+         <tt>gnome-mount</tt>. Par exemple, <tt>gnome-mount -u -d
+         /dev/cdrom</tt> permet de démonter un CD dans le graveur.
+      </p>
+      <p>
+         Je dus encore une fois recompiler moi-même le module pour
+         le NTFS, car il n'était pas disponible pour le noyau
+         2.6.16-1.2074_FC5. Heureusement, avec le noyau
+         2.6.16-1.2080_FC5 obtenu sur Yum, je pus avoir le module
+         NTFS.
+      </p>
+      <p>
+         Vendredi, 31 mars 2006, j'ai constaté que
+         Gnome-ScreenSaver n'affichait plus que quatre ou cinq
+         écrans de veille qui n'était pas très beaux. Ce bogue
+         semble être apparu depuis que Yum a mis à jour
+         XScreenSaver à la version 4.24-2. Heureusement, suite à
+         quelques recherches sur Internet, je trouvai une parade.
+         Je dus, pour récupérer les écrans de veille, utiliser les
+         deux commandes suivantes, la deuxième en root. C'est une
+         <a
+         href="http://live.gnome.org/GnomeScreensaver/FrequentlyAskedQuestions">FAQ
+         de GNOME</a> qui me mit sur la piste de la solution et un
+         peu de tâtonnement fit le reste.
+      </p>
+<pre>
+/usr/libexec/gnome-screensaver/migrate-xscreensaver-config.sh /usr/share/xscreensaver/config/*.xml
+mv *.desktop /usr/share/gnome-screensaver/themes
+</pre>
+      <p>
+         Malheureusement, vendredi, 7 avril 2006, je constatai que
+         Gnome-ScreenSaver supprimait les fichier <tt>.desktop</tt>
+         concernant XScreenSaver de façon périodique. La
+         suppression a lieu au moins à chaque fois que le paquetage
+         Gnome-ScreenSaver est mis à jour par Yum. Par contre, je
+         ne suis pas certain que la première suppression des
+         fichiers coïncide avec une mise à jour. La seule solution
+         semblait consister à mettre l'appel à
+         <tt>gnome-screensaver/migrate-xscreensaver-config.sh</tt>
+         dans un script d'initialisation! Je n'en fis rien; j'optai
+         plutôt pour désactiver l'écran de veille. Je considérai
+         cela comme un bogue insoluble dont les deux seules
+         solutions étaient d'attendre une éventuelle mise à jour ou
+         de revenir à Fedora Core 4. Puisque cela n'en valait pas
+         la peine pour des écrans de veille, tout désactiver était
+         la meilleure chose à faire. Quelques minutes plus tard, je
+         désinstallai Gnome-ScreenSaver qui ne servait plus à rien
+         de toute façon. J'essayai ensuite d'accéder aux
+         préférences de l'économiseur d'écran de GNOME pour voir le
+         message d'erreur qu'il afficherait et constatai avec
+         étonnement que XScreenSaver avait pris le relais! La
+         suppression de Gnome-ScreenSaver a redonné sa place à
+         XScreenSaver si bien que les écrans de veille fonctionnent
+         dès lors correctement, comme sous Fedora Core 4.
+      </p>
+      <h2>
+         <a id="conclusion" name="conclusion">Conclusion</a>
+      </h2>
+      <p>
+         La configuration de Fedora Core 5 nécessita de nombreuses
+         passes-passes et fut plus difficile que celle de Fedora
+         Core 4 en raison du pilote NVIDIA. Le problème n'est par
+         contre pas dû à NVIDIA qui a fait son possible pour
+         produire un pilote de très bonne qualité mais aux
+         développeurs de Fedora Core qui ont changé des fichiers
+         d'endroit. L'environnement logiciel et les interfaces
+         d'accès ne cessant de changer sous Linux, il est très
+         difficile, voire impossible, de produire un pilote stable.
+         Cela m'a mené à penser que dans le futur, NVIDIA finira
+         peut-être par cesser le développement du pilote en
+         attendant des jours ou un système d'exploitation
+         meilleurs. Cela serait très dommage, car il n'existerait
+         alors plus de carte graphique moderne avec accélération 3D
+         fonctionnant parfaitement sous Linux. La seule façon de
+         bénéficier de l'accélération 3D serait alors d'utiliser
+         une ancienne version de Linux ou une ancienne carte
+         graphique. Une autre solution, plus qu'acceptable pour mes
+         besoins du moins, serait simplement de recourrir à
+         l'accélération 3D logicielle. Comme j'ai écrit plus haut,
+         si GLXGears avait daigné démarrer, je ne me serais pas
+         autant cassé la tête pour faire fonctionner le pilote
+         closed source de NVIDIA. J'aurais gardé le pilote NV qui
+         semblait faire un bon travail.
+      </p>
+      <p>
+         Fedora Core 5 a par contre apporté des améliorations
+         intéressantes. D'abord, GNOME est plus rapide à démarrer.
+         Sous FC3 et FC4, il se bloquait lorsque je démarrais une
+         console tandis que ce problème a disparu. De même, Emacs a
+         cessé de lambiner au démarrage comme il le faisait depuis
+         que j'ai activé UTF-8. L'interface graphique a été
+         améliorée et Eclipse fonctionne parfaitement! Jamais
+         l'environnement de développement ne m'a planté à la figure
+         comme il le faisait sous Fedora Core 4 x86_64, à
+         l'Université de Montréal. Je n'ai eu qu'un problème avec
+         le déboguage d'une application multithreads. L'accès à
+         Internet, l'impression, la gravure de CD et de DVD,
+         l'accès à la clé USB, tout cela continue de fonctionner!
+         Dans le futur, les utilisateurs de Fedora Core 5
+         pourraient également profiter de <a
+         href="http://fedoraproject.org/wiki/RenderingProject/aiglx">AIGLX</a>,
+         une extension de X.Org et de GNOME permettant d'utiliser
+         OpenGL pour produire des effets graphiques, comme des
+         animations lors de la réduction des fenêtres ou de
+         l'apparition des menus. Ces effets graphiques pourraient
+         rivaliser avec ceux de Mac OS X et du futur Windows Vista.
+         En utilisant Yum pour installer le pilote de NVIDIA,
+         installer Fedora Core 5 est aussi simple que d'installer
+         Fedora Core 4. Cette nouvelle version de Linux est donc
+         une bonne option.
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

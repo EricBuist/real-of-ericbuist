@@ -1,0 +1,149 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.1//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>10.4 Stockage de disques</TITLE>
+<META NAME="description" CONTENT="10.4 Stockage de disques">
+<META NAME="keywords" CONTENT="cdwriting">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cdwriting.css">
+
+<LINK REL="next" HREF="node55.html">
+<LINK REL="previous" HREF="node53.html">
+<LINK REL="up" HREF="node50.html">
+<LINK REL="next" HREF="node55.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1745"
+  HREF="node55.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1739"
+  HREF="node50.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1733"
+  HREF="node53.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1741"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1743"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html1746"
+  HREF="node55.html">10.5 La copie de</A>
+<B> monter:</B> <A NAME="tex2html1740"
+  HREF="node50.html">10. Copie d'un CD</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html1734"
+  HREF="node53.html">10.3 Disques protégés contre</A>
+ &nbsp; <B>  <A NAME="tex2html1742"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1744"
+  HREF="node106.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION06240000000000000000">
+<SPAN CLASS="arabic">10</SPAN>.<SPAN CLASS="arabic">4</SPAN> Stockage de disques</A>
+</H1>
+
+<P>
+Lors de la copie, le disque source est lu, parfois copié sur le disque
+dur, puis gravé sur le disque de destination. Parfois, il est
+intéressant de pouvoir séparer le processus de copie en deux
+parties. Le disque source est lu puis stocké sur le disque dur pour
+ensuite être gravé ultérieurement, une ou plusieurs fois.
+La plupart des logiciels de copie permettent la copie d'un CD vers un
+fichier image ou la gravure d'une image vers un CD. Malheureusement,
+certains utilisent le format d'images ISO, d'autres utilisent BIN/CUE,
+d'autres utilisent des formats propriétaires. Le logiciel
+MagicISO<A NAME="1719"></A> [<A HREF="node105.html#url:magiciso">URL46</A>]
+permet d'ouvrir les formats
+d'images CD/DVD les plus courants afin d'en extraire leurs fichiers
+sans graver sur un CD ou d'effectuer une conversion de BIN vers
+ISO. La version complète (et payante) du logiciel permet même la
+création d'images ISO. L'utilitaire ISO Buster<A NAME="1721"></A>
+[<A HREF="node105.html#url:isobuster">URL38</A>] est une alternative à MagicISO qui permet en
+particulier l'extraction de l'image d'amorce d'un disque. Cela est
+essentiel pour le <SPAN  CLASS="textit">slipstreaming</SPAN>, c'est-à-dire
+l'intégration de mises à jour à un CD d'installation de
+Windows dans une langue autre que l'Anglais (voir par exemple
+[<A HREF="node105.html#url:slipstream1">URL89</A>, <A HREF="node105.html#url:slipstream2">URL90</A>]).
+Il existe d'autres logiciels que MagicISO et ISO Buster, mais
+tous ne permettent pas le traitement adéquat des images ISO DVD et
+certains, tels que WinImage<A NAME="1726"></A> [<A HREF="node105.html#url:winimage">URL73</A>],
+du moins la version que j'ai
+testée, se plantent plutôt que déclarer
+forfait en affichant un message d'erreur clair et précis.
+
+<P>
+Le stockage d'images DVD sur disque dur pose problème, car ces
+images
+font souvent plus de 4 Go<A NAME="1728"></A>. Pour créer un fichier
+d'une taille
+supérieure à 4Go, le fichier doit résider sur un système de fichiers
+adéquat
+et l'application qui le gère doit utiliser des fonctionnalités
+spéciales du système d'exploitation. NTFS et FAT32 peuvent gérer ces
+gros fichiers, mais
+FAT16 ne le peut pas. Dans les fonctions standard de gestion de
+fichiers, le système utilise une variable de 32 bits pour représenter
+la position courante dans le fichier. Cette position ne peut excéder
+<SPAN CLASS="MATH">2<SUP>32</SUP> - 1</SPAN>, ce qui limite la taille des fichiers à <SPAN CLASS="MATH">2<SUP>32</SUP></SPAN> octets,
+c'est-à-dire 4Go. Pour dépasser cette limite, un logiciel doit
+utiliser des fonctions différentes supportant une position dans le
+fichier sur 64 bits. Puisque tous les logiciels n'utilisent pas ce
+support de gros ficheirs (large file support), tous ne peuvent créer
+ou même gérer des images ISO DVD dépassant 4Go.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1745"
+  HREF="node55.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1739"
+  HREF="node50.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1733"
+  HREF="node53.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1741"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1743"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html1746"
+  HREF="node55.html">10.5 La copie de</A>
+<B> monter:</B> <A NAME="tex2html1740"
+  HREF="node50.html">10. Copie d'un CD</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html1734"
+  HREF="node53.html">10.3 Disques protégés contre</A>
+ &nbsp; <B>  <A NAME="tex2html1742"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1744"
+  HREF="node106.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Eric Buist
+2005-11-13
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,1825 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <meta name="generator" content="Bluefish 1.0.7" />
+      <title>
+         Passage à Fedora Core 6
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css" href="../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../index.xhtml" class="parents">Le royaume
+               de Eric Buist</a> &gt;&gt; <a href="index.xhtml"
+               class="parents">Informatique</a> &gt;&gt;
+               Configuration informatique
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../sitemap.xhtml" class="sitemap">Plan du
+               site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="nightmare/index.xhtml"
+               class="leftsibling">Le Nightmare, second du
+               Salvator</a>
+            </td>
+            <td class="thispage">
+               Passage à Fedora Core 6
+            </td>
+            <td class="rightsibling">
+               <a href="ubuntu7.xhtml" class="rightsibling">Passage
+               à Ubuntu 7.04</a> &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         Passage à Fedora Core 6
+      </h1>
+      <p>
+         J'ai hésité avant de faire le passage à Fedora Core 6, car
+         je me suis demandé si ça en vaudrait vraiment la peine.
+         J'envisageais d'innombrables difficultés, surtout avec mon
+         portable, et il demeurait toujours possible que la seule
+         solution soit de revenir à Fedora Core 5, ce qui aurait
+         fait de cette tentative de migration une vraie perte de
+         temps. En début novembre 2006, je téléchargeai finalement
+         la nouvelle version, comme d'habitude avec <a
+         href="http://www.bittorrent.com">BitTorrent</a>, et cela
+         se passa bien. Par contre, cette fois, j'avais besoin de
+         deux DVD: la version x86_64 pour le <a
+         href="salvator/index.xhtml">Salvator</a> et la version
+         i386 pour le <a
+         href="nightmare/index.xhtml">Nightmare</a>. L'installation
+         se passa relativement bien sur les deux machines, mais il
+         y eut plusieurs difficultés dans le cas de mon portable.
+      </p>
+      <ul>
+         <li>
+            <a href="#salvator">Installation sur le Salvator</a> 
+            <ul>
+               <li>
+                  <a href="#instsalva">L'installation bogue mais
+                  finit par fonctionner</a>
+               </li>
+               <li>
+                  <a href="#nvidiacrash">Problèmes avec le noyau à
+                  cause du pilote NVIDIA</a>
+               </li>
+               <li>
+                  <a href="#tvtuner">Problème avec le synthoniseur
+                  TV</a>
+               </li>
+               <li>
+                  <a href="#yum">Yum pose des difficultés</a>
+               </li>
+               <li>
+                  <a href="#aiglx">AIGLX</a>
+               </li>
+               <li>
+                  <a href="#btnsalva">Boutons latéraux de la souris
+                  et touches spéciales du clavier</a>
+               </li>
+               <li>
+                  <a href="#adobe">Adobe Reader refuse de
+                  démarrer!</a>
+               </li>
+               <li>
+                  <a href="#firefox2">Firefox 2</a>
+               </li>
+               <li>
+                  <a href="#misc">Problèmes divers</a>
+               </li>
+            </ul>
+         </li>
+         <li>
+            <a href="#nightmare">Installation sur le Nightmare</a> 
+            <ul>
+               <li>
+                  <a href="#instnight">Trois bogues
+                  d'installation</a>
+               </li>
+               <li>
+                  <a href="#xen">Le noyau Xen cause encore des
+                  problèmes</a>
+               </li>
+               <li>
+                  <a href="#gma">Carte graphique</a>
+               </li>
+               <li>
+                  <a href="#wifi">Réseau sans fil</a>&lt;
+               </li>
+               <li>
+                  <a href="#btnnight">Boutons latéraux de la
+                  souris</a>
+               </li>
+               <li>
+                  <a href="#crt">Écran externe</a>
+               </li>
+               <li>
+                  <a href="#pppoe">Connexion PPPoE</a>
+               </li>
+            </ul>
+         </li>
+         <li>
+            <a href="#conclusion">Conclusion</a>
+         </li>
+      </ul>
+      <h1>
+         <a name="salvator" id="salvator">Installation sur le
+         Salvator</a>
+      </h1>
+      <p>
+         L'installation se fit samedi, 4 novembre 2006, et se passa
+         très bien. Il y eut quelques problèmes mineurs de
+         configuration, mais en une journée, j'obtins un système
+         fonctionnel qui se stabilisa complètement après quelques
+         temps. Cette migration a été la plus facile de toutes les
+         installations de Linux depuis Fedora Core 3.
+      </p>
+      <h2>
+         <a name="instsalva" id="instsalva">L'installation bogue
+         mais finit par fonctionner</a>
+      </h2>
+      D'abord, j'insérai le DVD d'installation dans le lecteur et
+      démarrai la machine. Le DVD s'amorça sans difficulté et
+      j'appuyai sur Entrée pour démarrer l'installeur. La
+      vérification du DVD se passa sans difficulté et j'aboutis
+      dans l'interface graphique. Bien entendu, il est encore
+      possible de sauter cette étape de vérification. Il suffit de
+      l'effectuer une seule fois, pour tester le disque fraîchement
+      gravé. 
+      <p>
+         Arrivé dans l'interface graphique, je suivis les
+         instructions, choisissant la langue, le clavier, les
+         partitions d'installation, etc. J'eus ensuite la
+         possibilité de configurer la carte réseau. Je lui assignai
+         une IP fixe comme d'habitude, afin de pouvoir utiliser la
+         redirection de ports avec mon routeur. Juste avant de me
+         laisser choisir les paquetages à installer, l'installeur
+         me proposa des options générales: installer les serveurs,
+         les outils de développement, etc. Il y avait aussi une
+         case à cocher pour accéder au dépôt Fedora Extras via
+         Internet. Je la cochai, mais malheureusement, cela
+         occasionna un plantage de l'installeur! Le programme
+         afficha une erreur que je n'ai pas notée; la seule façon
+         électronique de la mémoriser aurait été d'utiliser une
+         disquette et je n'avais pas envie de niaiser avec ça.
+         J'utilisai donc le bouton de fermeture de la boîte
+         affichant l'erreur et à mon grand désespoir, le programme
+         ne poursuivit même pas l'installation; il redémarra la
+         machine!
+      </p>
+      <p>
+         Je dus donc tout reprendre depuis le début. Cette fois-ci,
+         je ne perdis pas de temps à configurer une IP statique
+         pour ma carte réseau. À quoi bon peaufiner les options si
+         l'installeur était bogué et brisait tout avant la fin du
+         parcours? J'envisageais avec appréhension la nécessité de
+         patcher l'installeur, ce qui impliquait la modification de
+         plusieurs fichiers, la reconstruction de l'ISO du DVD et
+         la regravure d'un nouveau disque. Ce serait cela ou le
+         téléchargement d'une nouvelle version, patchée, de l'image
+         DVD, à supposer que le bogue touchait la majorité des
+         utilisateurs essayant d'installer Linux.
+      </p>
+      <p>
+         Par chance, au second essai, l'installeur se connecta à
+         Fedora Extras au lieu de planter bêtement. Si le problème
+         était revenu, j'aurais tenté de ne pas sélectionner Fedora
+         Extras, ce qui m'aurait sans doute sauvé du patchage de
+         l'installeur que je craignais avoir à faire. J'aboutis
+         donc à mon grand soulagement dans le sélecteur de
+         paquetages. Je choisis les éléments logiciels à installer
+         puis reçus un inquiétant message indiquant que
+         l'installation nécessiterait les six CD de la
+         distribution. Ce message me mena à penser que l'installeur
+         ne reconnaissait pas le DVD dans mon lecteur et risquait
+         de vouloir les CD absolument! Par chance, pareille
+         absurdité, qui est malheureusement monnaie courante dans
+         le monde de Linux, ne se produisit pas. L'installation se
+         passa sans autre anicroche.
+      </p>
+      <h2>
+         <a name="nvidiacrash" id="nvidiacrash">Problèmes avec le
+         noyau à cause du pilote NVIDIA</a>
+      </h2>
+      <p>
+         Après l'installation, je constatai avec étonnement que
+         l'horloge était décalée de cinq heures. Je la réajustai
+         puis entrepris de configurer le système. Je ne changeai
+         pas l'IP assignée à ma carte réseau, car la redirection de
+         ports ne servait qu'à faire fonctionner <a
+         href="http:/amule.sourceforge.net">aMule</a> qui ne m'a
+         donné que de mauvais fichiers ces derniers temps. Je fis
+         plusieurs mises à jour avec Yum puis en vins à installer
+         le pilote de NVIDIA. C'est là que le fun commença.
+      </p>
+      <p>
+         Je dus d'abord configurer le dépôt <a
+         href="http://rpm.livna.org">LIVNA</a> après quoi je pus
+         installer le pilote. Pour ce faire, il me fallut installer
+         <tt>kmod-nvidia-xen</tt>, <tt>xorg-x11-drv-nvidia</tt>,
+         <tt>xorg-x11-drv-nvidia-devel</tt> et
+         <tt>xorg-x11-drv-nvidia-libs-32bit</tt>. Malheureusement,
+         tandis que Yum installait ces paquetages ainsi que
+         d'autres que j'avais obtenus en même temps, notamment
+         <tt>kmod-ntfs</tt> et <tt>kmod-ntfs-xen</tt> pour la prise
+         en charge du NTFS en lecture seule, la machine redémarra
+         toute seule. Elle amorça de nouveau Linux puis redémarra
+         encore. Ainsi, mon système venait de planter. Je découvris
+         vite que la machine faisait un kernel panic, mais je
+         n'avais pas le temps de lire le message d'erreur exact. Je
+         soupçonnai vite le pilote NVIDIA en raison des suspects
+         messages d'avertissement du noyau Xen relatifs à AGPGART.
+      </p>
+      <p>
+         Visiblement, je n'aurais pas un Fedora Core 6 fonctionnel
+         à temps. J'avais besoin de la machine pour enregistrer une
+         émission si bien que je devais à mon grand regret
+         retourner dans Fedora Core 5. Je redémarrai avec le DVD
+         d'installation, activai le mode rescue puis modifiai
+         <tt>/etc/grub.conf</tt> pour pouvoir redémarrer sous
+         Fedora Core 5. J'essayai en passant de supprimer le
+         paquetage <tt>kmod-nvidia</tt>, la cause la plus probable
+         de ce bogue, sans y parvenir. La commande RPM bloquait et
+         ne faisait rien.
+      </p>
+      <p>
+         Tandis que mon émission de TV s'enregistrait, produisant
+         un fichier MPEG destiné à un traitement futur (je
+         prévoyais extraire un reportage pour une compilation sur
+         un DVD), je fis des recherches au sujet du pilote NVIDIA.
+         Je n'obtins pas grand-chose, mais il restait une hypothèse
+         à tester: le noyau Xen pouvait poser problème. Ce noyau
+         permet d'exécuter plusieurs copies de Linux dans des
+         machines virtuelles, chose dont je n'ai pas besoin. Xen
+         dérangeait peut-être le pilote NVIDIA qui devenait alors
+         fou. Mais pour tester cela, je devais redémarrer sous
+         Fedora Core 6.
+      </p>
+      <p>
+         Depuis Fedora Core 5, je pus monter ma partition Fedora
+         Core 6 plantée et y trouvai le module <tt>nvidia.ko</tt>
+         que je renommai. Je redémarrai ensuite la machine et
+         choisis Fedora Core 6 dans le menu de GRUB. Le système ne
+         put retrouver le pilote NVIDIA que j'avais renommé, ce qui
+         évita qu'il ne se plante de nouveau avec cela. Mon
+         hypothèse était bonne, car j'aboutis de nouveau sous
+         X.Org, avec le pilote graphique ouvert NV sans
+         accélération 3D. C'était bien le pilote NVIDIA qui
+         boguait. Restait à voir si le pilote fonctionnerait en
+         l'absence de Xen. Si tel n'était pas le cas, ce serait
+         très dommage: plus de 3D et perte définitive de la
+         possibilité d'utiliser AIGLX.
+      </p>
+      <p>
+         Pour tester l'hypothèse Xen, j'installai les paquetages
+         <tt>kernel</tt> et <tt>kernel-devel</tt> (j'aurais besoin
+         du second pour le module IVTV) et supprimai
+         <tt>kmod-xen-nvidia</tt> qui boguait. J'installai ensuite
+         <tt>kmod-nvidia</tt> et redémarrai la machine. Cela
+         fonctionna #1! Le problème était le noyau Xen qui faisait
+         planter le pilote de NVIDIA. J'avais donc récupéré
+         l'accélération 3D.
+      </p>
+      <p>
+         Je découvris également, au second démarrage de Fedora Core
+         6, que l'horloge était encore décalée. Le problème était
+         dû au fait que j'avais oublié de décocher la case
+         configurant l'horloge en UTC pendant ma seconde tentative
+         d'installation. Voilà: tout fonctionnait à présent!
+      </p>
+      <h2>
+         <a name="tvtuner" id="tvtuner">Problème avec le
+         synthoniseur TV</a>
+      </h2>
+      <p>
+         Cette fois-ci, le pilote <a
+         href="http://www.ivtvdriver.org">IVTV</a> 0.8 refusa de
+         compiler, même après installation du paquetage
+         <tt>kernel-devel</tt>. Il se plaignait de l'absence du
+         fichier <tt>linux/config.h</tt> qui était effectivement
+         absent. Je fis des recherches, comparai avec Fedora Core 5
+         et découvris que l'ancien système contenait un tel fichier
+         qui ne faisait qu'afficher un avertissement avant
+         d'importer <tt>linux/autoconf.h</tt>. Ainsi, dans
+         <tt>ivtv-driver.h</tt>, je remplaçai
+         <tt>linux/config.h</tt> par <tt>linux/autoconf.h</tt>.
+         Cela suffit à rendre la compilation du module possible!
+         Après copie des firmware depuis Fedora Core 5, le
+         chargement du module réussit et le synthoniseur TV
+         fonctionna de nouveau. J'installai ensuite MPlayer, comme
+         décrit sur ma page traitant de la <a
+         href="../info/tips/pvrlinux.xhtml">configuration d'un
+         synthoniseur TV Hauppage WinTV sous Linux</a>.
+      </p>
+      <h2>
+         <a name="yum" id="yum">Yum pose des difficultés</a>
+      </h2>
+      <p>
+         Dès ma première tentative d'installer des mises à jour,
+         j'eus des difficultés avec Yum. D'abord, la commande
+         <tt>yum</tt> refusait de démarrer, se plaignant de la
+         présence d'un fichier de verrouillage. Ce désagrément
+         était dû au fait que Yum-updatesd était en train de
+         vérifier les mises à jour. Lorsqu'il trouve des mises à
+         jour, il envoie un message DBUS qui est reçu par Puplet,
+         un logiciel de la suite Pirut introduit avec Fedora Core
+         6. Je dus alors utiliser l'application de mises à jour de
+         GNOME, Puplet, qui prit deux fois plus de temps à vérifier
+         les mises à jour et planta lors de la tentative
+         d'installation: problèmes de dépendances avec plusieurs
+         paquetages. Il fallait visiblement que j'exclue à tâton
+         des paquetages jusqu'à ce que cela fonctionne! Plutôt que
+         me résoudre à cela, je réessayai Yum en ligne de commande
+         et il finit par fonctionner. Pour réussir la mise à jour,
+         je dus utiliser <tt>yum --exclude kdepim\* --exclude
+         kdegraphics\* update</tt>, ce qui excluait les deux
+         paquetages problématiques. Par contre, à chaque démarrage
+         de la machine, GNOME m'indiquait que deux mises à jour
+         étaient disponibles mais refusait de les installer si je
+         le lui demandais.
+      </p>
+      <p>
+         Pour résoudre complètement ce problème, je dus
+         désinstaller <tt>kdegraphics-devel</tt> et
+         <tt>kdepim-devel</tt>. J'installai ensuite
+         <tt>kdegraphics-devel.x86_64</tt> et
+         <tt>kdepim-devel.x86_64</tt> sans problème; c'étaient les
+         versions 32 bits de ces paquetages qui posaient des
+         difficultés.
+      </p>
+      <p>
+         Dimanche, 12 novembre 2006, Yum niaisa de nouveau: un
+         nouveau noyau (2.6.18- 1.2849) semblait disponible mais
+         non présent sur tous les mirroirs. Lundi, 13 novembre
+         2006, le paquetage <tt>nfs-utils</tt> était non signé et
+         Yum refusait de l'installer. Je dus l'installer
+         manuellement avec <tt>rpm -Uvh</tt> pour débloquer la
+         situation.
+      </p>
+      <p>
+         De même, à quelques reprises, l'application de Yum dans
+         GNOME refusait de rechercher les mises à jour et <tt>yum
+         update</tt> refusait de démarrer puisque l'application de
+         GNOME ou yum-updatesd étaient encore actifs. On dirait
+         qu'il faut absolument que la connexion Internet soit
+         disponible au démarrage, mais ce n'est pas toujours
+         possible avec mon portable puisque je le branche parfois
+         en sans fil, parfois en filaire. Je ne peux donc pas
+         activer d'interfaces réseau au démarrage, mais comme Linux
+         était à l'origine un système rigide sans aucun
+         plug'n'play, cela me retombe à la figure comme un solide
+         poing d'acier! Une fois, je perdis patience, supprimai le
+         fichier de verrouillage et cela me permit de démarrer Yum.
+         Il n'y eut aucun effet secondaire à cette manipulation
+         risquée. Le redémarrage spontané, après plantage du pilote
+         de NVIDIA dans le noyau Xen, ne planta pas ma base de
+         données de paquetages non plus.
+      </p>
+      <h2>
+         <a name="aiglx" id="aiglx">AIGLX</a>
+      </h2>
+      <p>
+         Fedora Core 6 vient avec X.Org 7.1 qui permet
+         l'utilisation de <a
+         href="http://fr.wikipedia.org/wiki/AIGLX">AIGLX</a>. Cette
+         extension autorise des effets spéciaux lors de la
+         manipulation des fenêtres de l'écran. Malheureusement,
+         AIGLX ne fonctionne que pour un nombre limité de cartes
+         graphiques et NVIDIA ne faisait pas partie de la liste au
+         moment où j'ai installé Fedora Core 6. Ainsi, je ne pus
+         profiter des effets du bureau.
+      </p>
+      <p>
+         Par contre, jeudi, 9 novembre 2006, j'eus accès au pilote
+         1.0.9629 qui supportait l'extension
+         GLX_Extension_Textures_from_pixmap nécessaire. Après son
+         installation, il me suffit de sélectionner <b>Desktop
+         Effects</b> dans les préférences pour activer les effets.
+         Cela permet de faire quelques pas vers Mac OS X et le
+         futur Windows Vista. Par contre, l'interface graphique est
+         à mon avis loin derrière Aqua que j'aimerais bien, de plus
+         en plus, pouvoir examiner en détail. Si seulement je
+         pouvais mettre la main sur un Mac...
+      </p>
+      <p>
+         Activer les effets de bureau remplace le gestionnaire de
+         fenêtres <a
+         href="http://fr.wikipedia.org/wiki/Metacity">Metacity</a>
+         par <a href="http://www.go-compiz.org">Compiz</a> qui
+         autorise ce genre d'effets. La page <a
+         href="http://doc.fedora-fr.org/index.php?title=Configuration_et_installation_de_Compiz&amp;printable=yes">Configuration
+         et installation de Compiz</a> indique les divers réglages
+         disponibles sous Compiz et même comment activer Compiz
+         sous KDE.
+      </p>
+      <p>
+         Un effet de fondu est appliqué sur chaque fenêtre qui
+         s'ouvre ou se referme. Une animation marque la réduction
+         et l'agrandissement des fenêtres tandis que les fenêtre se
+         tordent si elles sont déplacées rapidement avec la souris.
+         Heureusement, la fenêtre tordue reprend sa forme initiale
+         après le déplacement!
+      </p>
+      <p>
+         Compiz projette également les espaces de travail de GNOME
+         sur un cube qui subit une rotation lors du changement
+         d'espace. Appuyer sur ALT-Tab pour changer de fenêtre fait
+         également surgir des miniatures des fenêtres plutôt que de
+         simples icônes.
+      </p>
+      <p>
+         Compiz affiche également toutes les fenêtres de l'espace
+         de travail courant lorsque le pointeur de la souris est
+         ramené dans le coin supérieur droit de l'écran. Cliquer
+         sur une fenêtre la sélectionne et la ramène au premier
+         plan tandis que cliquer à l'extérieur des fenêtres réduit
+         toutes les fenêtres pour afficher le bureau. Cette
+         fonctionnalité est très agaçante et pourrait me pousser,
+         éventuellement, à désactiver les effets de bureau.
+      </p>
+      <p>
+         Ceci n'est que la pointe du iceberg. Pour aller au fond
+         des choses, j'ai dû installer GConf editor et taper
+         <tt>gconf-editor</tt>. En parcourant l'arborescence sous
+         <tt>apps/compiz</tt>, j'ai découvert les touches de
+         raccourci pour appliquer beaucoup d'effets surprenants et
+         j'ai pu désactiver la fonctionnalité qui m'énervait. Pour
+         ce faire, j'ai accédé à
+         <tt>apps/compiz/plugins/scale/allscreens/options</tt> pour
+         ensuite régler <tt>initiate_edge</tt> à <tt>[]</tt>.
+      </p>
+      <p>
+         Voici donc un résumé des touches que j'ai découvertes.
+         D'abord, SHIFT-F10 permet de ralentir les animations, ce
+         qui est intéressant pour bien les voir mais pas pour
+         travailler avec le système! Un autre appui sur SHIFT-F10
+         ramène les animations à leur vitesse nominale. Appuyer sur
+         ALT tout en maniant la roulette de la souris rend la
+         fenêtre pointée par le curseur transparente ou opaque,
+         selon le sens du mouvement. Si la souris est déplacée
+         tandis que les touches CTRL et ALT sont activées, cela
+         permet de retourner le bureau de façon graduelle, ce qui
+         permet de bien voir le cube sur lequel les espaces de
+         travail sont projetés. Mieux encore, les fenêtres sur le
+         cube continuent de se mettre à jour; Compiz n'anime pas un
+         cliché des fenêtres mais peut bel et bien tenir compte de
+         leur mise à jour! De même, appuyer sur CTRL-ALT-flèche bas
+         sans relâcher CTRL-ALT applatit le cube et permet de voir
+         trois espaces de travail simultanément. Relâcher les
+         touches ramène l'espace du centre au premier plan.
+      </p>
+      <p>
+         D'autres effets sont accessibles en appuyant sur la touche
+         Window du clavier. En particulier, manipuler la molette de
+         la souris pendant que la touche Window est enfoncée
+         déclenche un zoom de l'espace de travail courant. Appuyer
+         sur le bouton droit de la souris tout en maintenant la
+         touche Window permet de désactiver le zoom. Si CTRL et
+         Window sont enfoncées, tout déplacement de la souris
+         provoque un effet d'eau sur l'espace de travail en cours.
+         Les vagues produites se dissipent dès que les touches sont
+         relâchées; c'est juste beau, cela ne brise rien!
+         Finalement, si la touche ALT et le bouton central de la
+         souris sont enfoncés simultanément, tout déplacement de la
+         souris provoque une torsion de la fenêtre courante. La
+         fenêtre devient comme un morceau de caoutchouc ancré à ses
+         quatre coins et reprend sa forme dès que le bouton de la
+         souris est relâché.
+      </p>
+      <p>
+         Cela fonctionne relativement bien, mais de temps en temps,
+         des artefacts apparaissent à l'écran, des bouts de fenêtre
+         n'étaient pas mis à jour correctement. Mais étrangement,
+         XMMS fonctionna correctement depuis que AIGLX fut activé.
+         Avant, appuyer sur CTRL-D pour passer en fenêtre de taille
+         double faisait planter le logiciel de lecture multimédia.
+         Les effets de bureau occasionnèrent aussi quelques
+         plantages de la machine pendant la mise en veille. Il
+         semble que Compiz prenne de plus en plus de mémoire, ce
+         qui conduit la machine à swapper. Le système a pu
+         récupérer d'un blocage du genre vendredi, 24 novembre
+         2006, mais il était très lent par la suite. À d'autres
+         occasions, la machine ne revint pas du plantage et il me
+         fallut utiliser le bouton reset! De même, Compiz empêche
+         l'exécution correcte de programmes Java tels que NetBeans
+         (que je n'utilise heureusement pas). La solution la plus
+         simple donnée par <a
+         href="http://bugs.sun.com/bugdatabase/view_bug.do;jsessionid=b1ebca460d8d217222b2ff93875c:WuuT?bug_id=6429775">un
+         rapport de bogue de Sun</a> consiste à affecter la valeur
+         <tt>MToolkit</tt> à la variable d'environnement
+         <tt>AWT_TOOLKIT</tt>. Certains sites indiquent que les
+         versions les plus récentes de Compiz ne souffrent pas de
+         ce bogue, mais ces versions ne sont pas disponibles sous
+         Fedora Core 6, à moins de recompiler Compiz soi-même. Au
+         moment d'écrire la version initiale de cette page, samedi
+         le 18 novembre 2006, les effets de bureau étaient encore
+         activés, mais les choses pourraient bien changer.
+      </p>
+      <p>
+         En effet, vendredi, 8 décembre 2006, AIGLX planta une fois
+         de trop et je désactivai tout cela. Ce plantage est
+         apparemment dû à X.Org lui-même, car même avec Beryl, un
+         gestionnaire de fenêtres semblable à Compiz, le problème
+         survient toujours. Avec Beryl aussi, les programmes Java
+         utilisant AWT ou Swing ne fonctionnent pas correctement.
+         Mes recherches m'ont suggéré que le plantage serait causé
+         par une fuite de mémoire dans X.Org et que le problème se
+         manifesterait autant avec les cartes graphiques de marque
+         NVIDIA et ATI (pour celles qui fonctionnent avec le pilote
+         de X.Org. Avec le pilote d'ATI, AIGLX ne fonctionnera
+         pas!). Seules les puces bas de gamme Intel, intégrées aux
+         cartes mères de même marque, semblent fonctionner
+         correctement avec AIGLX. En effet, je n'ai eu aucun
+         problème avec mon portable. C'est vraiment très décevant,
+         car ces puces graphiques ne sont pas très performantes
+         comparativement aux cartes graphiques NVIDIA ou ATI et il
+         est impossible d'installer une telle puce dans une machine
+         dont la carte mère en est dépourvue, à moins évidemment de
+         remplacer ladite carte mère.
+      </p>
+      <h2>
+         <a name="btnsalva" id="btnsalva">Boutons latéraux de la
+         souris et touches spéciales du clavier</a>
+      </h2>
+      <p>
+         Samedi, 4 novembre 2006, je constatai avec joie que la
+         souris avait été correctement détectée par X.Org sans même
+         qu'il y ait une section dédiée dans
+         <tt>/etc/X11/xorg.conf</tt>! En effet, avec X.Org 7.1, le
+         fichier de configuration est beaucoup plus léger puisque
+         X.Org est en mesure de se passer de plusieurs sections qui
+         devaient être spécifiées avant. Malheureusement, les
+         boutons latéraux de la souris demeuraient toujours
+         dysfonctionnels. Décidément, il faudrait vraiment
+         recompiler Firefox pour qu'il réponde aux boutons 8 et 9
+         au lieu de 6 et 7! Mais je voulais une solution plus
+         simple que ça!
+      </p>
+      <p>
+         Je l'obtins en modifiant le fichier
+         <tt>/etc/X11/Xmodmap</tt> comme sous Fedora Core 5. Je dus
+         par contre tâtonner pour trouver la bonne séquence de
+         boutons qui différait de la version précédente. Tant qu'à
+         modifier XModmap, j'ajoutai les lignes nécessaires,
+         recopiées depuis mon ancien fichier de configuration, pour
+         les touches multimédia de mon clavier Logitech. Les lignes
+         ajoutées sont:
+      </p>
+<pre>
+keycode 230 = XF86Favorites
+keycode 130 = XF86HomePage
+keycode 162 = XF86AudioPlay
+keycode 164 = XF86AudioStop
+keycode 174 = XF86AudioLowerVolume
+keycode 176 = XF86AudioRaiseVolume
+keycode 160 = XF86AudioMute
+keycode 144 = XF86AudioPrev
+keycode 153 = XF86AudioNext
+keycode 237 = XF86AudioMedia
+keycode 236 = XF86Mail
+keycode 234 = XF86Back
+keycode 233 = XF86Forward
+keycode 229 = XF86Search
+keycode 161 = XF86Calculator
+
+pointer = 1 2 3 4 5 8 9 6 7
+</pre>
+      <p>
+         Un redémarrage du serveur X.Org plus tard, les boutons
+         latéraux de ma souris optique IntelliMouse fonctionnaient
+         à la perfection et je pus configurer les touches
+         multimédia de mon clavier dans GNOME.
+      </p>
+      <h2>
+         <a name="adobe" id="adobe">Adobe Reader refuse de
+         démarrer!</a>
+      </h2>
+      <p>
+         Dimanche, 5 novembre 2006, je constatai que comme avec
+         Fedora Core 5, Adobe Reader plantait au lieu de démarrer.
+         Par contre, installer les bibliothèques de compatibilité
+         ne suffit pas, cette fois, à résoudre le problème. Après
+         quelques recherches sur Internet, j'appris que
+         <tt>acroread</tt> était un script qui démarrait un autre
+         exécutable. Je dus bidouiller dans ce script pour réparer
+         la ligne chargée de la détection de GTK+. Le logiciel
+         plantait, car Fedora Core 6 utilisait la version 2.10 de
+         GTK+. Pour arranger les choses, je dus remplacer la ligne
+         418, qui se lit comme suit:
+      </p>
+<pre>
+                   echo $mfile| sed 's/libgtk-x11-\([0-9]*\).0.so.0.\([0-9]\)00.\([0-9]*\)\|\(.*\)/\1\2\3/g'
+</pre>
+      par 
+<pre>
+                   echo $mfile| sed 's/libgtk-x11-\([0-9]*\).0.so.0.\([1-9]\?[0-9]\)00.\([0-9]*\)\|\(.*\)/\1\2\3/g'
+</pre>
+      <p>
+         Cette astuce s'inspire de <a
+         href="http://remi.collet.free.fr/index.php?2006/10/28/229-acrobat-reader-708-et-fedora-core-6">ce
+         site</a>. Cela fonctionna très bien et résolut entièrement
+         le problème.
+      </p>
+      <h2>
+         <a name="firefox2" id="firefox2">Firefox 2</a>
+      </h2>
+      <p>
+         Initialement, je ne me cassai pas la tête avec Firefox,
+         conservant la version 1.5.0.7 x86_64 qui fut mise à jour à
+         1.5.0.8 par Yum. Le plug-in Java ne me donne presque rien
+         et le plug-in Flash ne m'est plus utile non plus, car le
+         seule site avec du Flash que je consultais a été mis à
+         jour pour utiliser Flash 9. Comme Flash 9 n'était pas
+         disponible pour Linux en novembre 2006, cela ne servait
+         plus à rien.
+      </p>
+      <p>
+         Par contre, lorsque je découvris l'existence de Firefox 2
+         et voulus l'installer, je constatai que Yum ne m'offrirait
+         sans doute aucune mise à jour vers Firefox 2 avant la
+         sortie de Fedora Core 7, dans plus de six mois!
+         J'installai donc la version 32 bits disponible sur <a
+         href="http://www.mozilla.com">Mozilla.com</a> ainsi que le
+         paquetage <tt>compat-libstdc++-33</tt> pour qu'elle puisse
+         s'exécuter.
+      </p>
+      <p>
+         Il m'a fallu, en root, décompresser l'archive
+         <tt>.tar.gz</tt> de Firefox de façon à créer un répertoire
+         <tt>/usr/local/firefox</tt> dans lequel se trouvait le
+         navigateur que je démarrai avec succès avec
+         <tt>/usr/local/firefox/firefox</tt>. Dans un fichier du
+         répertoire <tt>/etc/profile</tt>, j'ajoutai ensuite la
+         ligne <tt>pathmunge /usr/local/firefox before</tt> pour
+         que Firefox 2 puisse être démarré depuis la ligne de
+         commande.
+      </p>
+      <p>
+         Pour ce qui est du plug-in Java, il me fallu créer, dans
+         le répertoire <tt>/usr/local/firefox/plugins</tt>, un lien
+         symbolique vers
+         <tt>$JAVA_HOME/jre/plugin/i386/ns7/libjavaplugin_oji.so</tt>.
+         Ici, <tt>$JAVA_HOME</tt> représente le chemin d'accès vers
+         une machine virtuelle Java 32 bits. Pour le plug-in Adobe
+         Reader, il suffit de copier le fichier
+         <tt>/usr/local/Adobe/Acrobat7.0/Browser/intellinux/nppdf.so</tt>
+         dans <tt>/usr/local/firefox/plugins</tt>. Finalement, pour
+         ce qui est de Flash 9, j'ai décidé d'essayer la <a
+         href="http://labs.adobe.com/downloads/flashplayer9.html">beta</a>.
+         L'archive décompressée me donna un fichier
+         <tt>libflashplayer.so</tt> que je copiai simplement dans
+         <tt>/usr/local/firefox/plugins</tt>.
+      </p>
+      <p>
+         Lorsque tout cela fut fait, il restait un dernier problème
+         à résoudre: SELinux empêchait le démarrage des plug-ins.
+         Pour résoudre cette difficulté sans désactiver SELinux, il
+         suffit de taper <tt>chcon
+         system_u:object_r:textrel_shlib_t
+         /usr/local/firefox/plugins/*.so</tt>. Sous Fedora Core 5,
+         cela n'a malheureusement pas suffi: à chaque mise à jour
+         de la politique de sécurité, il fallait rappeler cette
+         commande, ce qui me poussa à la mettre dans
+         <tt>/etc/rc.d/rc.local</tt>. Peut-être devrai-je
+         éventuellement le faire pour Fedora Core 6 aussi.
+      </p>
+      <h2>
+         <a name="misc" id="misc">Problèmes divers</a>
+      </h2>
+      <p>
+         Gnome-ScreenSaver ne fournit décidément qu'une gamme très
+         limitée d'écrans de veille comparativement à XScreenSaver.
+         C'est encore comme ça avec Fedora Core 6 si bien que je ne
+         tardai pas à le désinstaller pour bénéficier de
+         XScreenSaver.
+      </p>
+      <p>
+         Pour pouvoir lire les DVD Vidéo, je supprimai le paquetage
+         <tt>totem</tt> et le remplaçai par <tt>totem-xine</tt>.
+         J'installai également <tt>libdvdread</tt>,
+         <tt>libdvdcss</tt> et <tt>xine-lib-extras-nonfree</tt>.
+      </p>
+      <p>
+         Pour pouvoir lire les MP3, je dus installer
+         <tt>xmms-mp3</tt>, <tt>gstreamer-plugins-ugly</tt>,
+         <tt>kdemultimedia-extras-nonfree</tt> et <tt>mpg321</tt>.
+      </p>
+      <p>
+         Je découvris le paquetage <tt>ntfs-3g</tt> avec <tt>yum
+         list \*ntfs\*</tt>. J'appris que <a
+         href="http://www.ntfs-3g.org/">NTFS-3g</a> fournissait un
+         pilote NTFS supportant la lecture et <i>l'écriture</i>!
+         ENFIN! Je m'empressai de le tester, mais je découvris vite
+         son incompatibilité avec SELinux. En effet, dimanche, 5
+         novembre 2006, je constatais que ma partition NTFS ne
+         s'était pas montée au démarrage et je découvris vite des
+         erreurs d'accès refusé dans <tt>/var/log/messages</tt>. La
+         seule et unique solution semblait de reconfigurer SELinux
+         en mode permissif ou tant qu'à faire le désactiver
+         puisqu'en mode permissif, SELinux ne sert absolument à
+         rien! Je découvris des pistes de recherche avec
+         <tt>audit2allow</tt>, mais cette commande se contenta de
+         m'afficher du texte à l'écran sans rien modifier du tout.
+         Il fallait apparemment intégrer des modules dans la
+         politique de SELinux tandis qu'aucune documentation
+         indiquait comment faire. Je me contentai donc de revenir
+         au module NTFS habituel, en lecture seule. Je fis un
+         nouvel essai vendredi, 8 décembre 2006, mais cela ne
+         fonctionna pas davantage. Le bogue est connu d'après mes
+         recherches, mais rien n'est fait pour le corriger.
+      </p>
+      <p>
+         <a href="http://www.eclipse.org">Eclipse</a> aussi planta,
+         fermant tout seul régulièrement. J'eus des problèmes à
+         démarrer le débogueur et dus, pour contourner, remplacer
+         <tt>::1</tt> par <tt>127.0.0.1</tt> dans la ligne relative
+         à <tt>localhost</tt> de <tt>/etc/hosts</tt>. En bout de
+         ligne, il faut que <tt>ping localhost</tt> fonctionne. Je
+         dus finalement démarrer Eclipse avec l'option <tt>-vm
+         /usr/bin/java</tt>, car Fedora Eclipse ne semblait être
+         compatible qu'avec GCJ et non la machine virtuelle de Sun.
+         Cela fonctionna un bout de temps puis Eclipse se mit à
+         afficher sans cesse qu'une erreur s'était produite. Je
+         découvris, en consultant les journaux de l'environnement,
+         que des exceptions <tt>ClassNotFoundException</tt> se
+         produisaient sans cesse. Eclipse devait tenter de charger
+         une classe compilée pour Java 5 tandis que les
+         développeurs de GCJ ont, comme ceux de XDoclet, commis
+         l'erreur de considérer les ajouts de Java 5 comme des
+         éléments syntaxiques superflus et sont restés à Java 1.4,
+         ce qui fait de GCJ une technologie dépassée, une nuisance
+         causant problèmes par-dessus problèmes! S'ils essayaient
+         pour voir de construire le petit script supprimant les
+         génériques, les annotations et les boucles <tt>for</tt>
+         étendues d'un programme Java 5 pour le rendre compilable
+         avec Java 1.4, ils verraient que ça n'a pas de bon sens
+         d'imposer cette tâche à tout le monde qui veut utiliser
+         Java 5. On peut par contre espérer une amélioration de la
+         situation dans les mois à venir avec la mise sous GPL du
+         code de Sun: GCJ disparaîtra, remplacé par la machine de
+         Sun, ou incorporera des éléments du compilateur Java 5 de
+         Sun ou d'Eclipse. Pour résoudre mon problème avec GCJ dans
+         le présent, je revins à la machine virtuelle de Sun, qui
+         prend Java 5 en charge, et n'éprouvai plus ces problèmes
+         d'erreurs répétitives. Mystérieusement, Eclipse ne
+         plantait plus. Malheureusement, le débogueur me posa des
+         difficultés: la fenêtre Variables pratiquement essentielle
+         devint inaccessible lorsque je tentai de redisposer les
+         fenêtres et je dus complètement réinitialiser mes
+         paramètres pour la récupérer! Bref, Eclipse est plutôt
+         instable sous Fedora Core, peut-être à cause de la
+         compilation native pour GCJ mais ce n'est qu'une
+         hypothèse, et je me demande s'il ne sera pas
+         éventuellement nécessaire d'utiliser encore une fois la
+         version officielle, voire un autre environnement tel que
+         NetBeans.
+      </p>
+      <p>
+         Mon imprimante n'apparaissait pas dans la liste dans les
+         HP. Je dus donc fournir mon propre PPD, obtenu sur <a
+         href="http://www.linuxprinting.org">LinuxPrinting</a>.
+         Heureusement, le PPD suffit à rendre l'imprimante
+         fonctionnelle comme sous Fedora Core 5.
+      </p>
+      <h1>
+         <a name="nightmare" id="nightmare">Installation sur le
+         Nightmare</a>
+      </h1>
+      <p>
+         L'installation de Linux sur mon portable eut lieu samedi,
+         11 novembre 2006, et fut plus problématique que celle sur
+         le Salvator de la semaine précédente. L'installation bogua
+         une nouvelle fois et il y eut de nombreux problèmes de
+         configuration, surtout avec la connexion sans fil. Bon
+         nombre de difficultés rencontrées sur le Salvator,
+         notamment Adobe Reader, Eclipse, l'imprimante, etc.
+         revinrent bien entendu sur le Nightmare et nécessitèrent
+         les mêmes ajustements. Par chance, cela finit par
+         fonctionner et la migration améliora le niveau de
+         fonctionnalité de mon portable!
+      </p>
+      <p>
+         Cette section ne fait que résumer les problèmes
+         spécifiques à Fedora Core 6. Pour une description plus
+         détaillée des astuces qui ont été utilisées pour Fedora
+         Core 5 et qui fonctionnent encore sous Fedora Core 6, voir
+         <a href="nightmare/lin.xhtml">ma page portant sur mon
+         portable sous Linux</a>.
+      </p>
+      <h2>
+         <a name="instnight" id="instnight">Trois bogues
+         d'installation</a>
+      </h2>
+      D'abord, le lecteur DVD était encore et toujours mal géré. Je
+      dus, après avoir amorcé le DVD, taper <tt>linux
+      hdc=noprobe</tt> avant d'appuyer sur Entrée. Cette ligne de
+      commande permet de faire en sorte que le lecteur DVD est pris
+      en charge comme un lecteur Serial ATA. Sans cela, le DMA
+      n'est pas fonctionnel et le lecteur, très lent. 
+      <p>
+         Le première tentative d'installation échoua, car je
+         découvris que j'avais par erreur créé une partition swap
+         de 8Mo seulement. J'ai fait cette gaffe samedi, 30
+         septembre 2006, en réarrangeant le disque dur de ma
+         machine pour y réinstaller <a
+         href="nightmare/md.xhtml">MediaDirect</a>. Je tentai donc
+         de détruire cette partition Swap ainsi que ma partition
+         ext3 contenant Fedora Core 5 pour créer un Swap de 1,5Go
+         et une partition ext3 occupant le reste du disque.
+         Malheureusement, l'utilitaire de partitionnement de
+         l'installeur refusa de créer ma partition ext3 à moins que
+         je laisse plus de 100Mo d'espace non alloué sur le disque!
+      </p>
+      <p>
+         Refusant de perdre de l'espace aussi stupidement, je
+         redémarrai la machine et utilisai Partition Expert pour
+         réarranger le disque. Lorsque ce fut fait, je redémarrai
+         l'installeur de Fedora Core 6 et repassai par les diverses
+         options. Encore une fois, je choisis d'activer Fedora
+         Extras et sélectionnai les paquetages.
+      </p>
+      <p>
+         Malheureusement, après plusieurs minutes, l'installeur
+         rapporta un conflit de fichier et lorsque je fermai la
+         boîte affichant le message d'erreur, il redémarra le
+         système, annulant l'installation. Je dus ainsi, furieux,
+         tout recommencer encore une fois! Décidément, cet
+         installeur ne fonctionne pas bien du tout!
+      </p>
+      <p>
+         Pour mon troisième essai, je faillis bien tout laisser les
+         options par défaut tellement j'étais tanné de répéter ces
+         réglages. Je me contentai en fin de compte de simplement
+         éviter d'activer Fedora Extras. L'installation réussit
+         alors sans problème. L'installeur téléchargeait sans doute
+         des versions à jour des différents paquetages depuis
+         Fedora Extras et ces nouveaux paquetages entraient en
+         conflit avec les paquetages originaux sur le DVD.
+      </p>
+      <h2>
+         <a name="xen" id="xen">Le noyau Xen cause encore des
+         problèmes</a>
+      </h2>
+      <p>
+         Cette fois-ci, la carte réseau Broadcom, qui fonctionnait
+         super bien sous Fedora Core 5, n'était pas détectée sous
+         Fedora Core 6. L'application de configuration réseau
+         affichait bien <tt>eth0</tt>, mais <tt>ifconfig</tt>
+         affichait un autre nom! Pour résoudre ce problème,
+         j'essayai de démarrer sous le noyau ordinaire, pas Xen, et
+         cela suffit: la carte réseau fut détectée et s'avéra
+         fonctionnelle! En effet, je m'étais branché sur réseau
+         filaire pour l'installation afin de pouvoir effectuer les
+         mises à jour avant de configurer la connexion sans fil.
+      </p>
+      <p>
+         Je vérifiai ensuite si j'étais victime du bogue i586. En
+         effet, j'ai lu qu'il arrivait qu'Anaconda, l'installeur de
+         Fedora Core, mettait le noyau i586 au lieu de i686 sur
+         certaines machines. Cela posait divers problèmes que je
+         préférais de loin éviter. J'utilisai donc <tt>ls -l
+         /lib/modules/`uname -r`</tt> et constatai avec soulagement
+         que le répertoire <tt>build</tt> pointait sur un
+         répertoire se terminant par <tt>i686</tt>; je disposais
+         donc du bon noyau! Je dus également, pendant la
+         configuration, modifier <tt>/etc/grub.conf</tt> pour
+         passer l'option <tt>hdc=noprobe</tt> au noyau afin que le
+         lecteur DVD fonctionne à vitesse nominale.
+      </p>
+      <h2>
+         <a name="gma" id="gma">Carte graphique</a>
+      </h2>
+      <p>
+         Les mises à jour avec <tt>yum update</tt> se passèrent
+         très bien. Ce fut juste long, aucun problème de
+         dépendances. Par contre, la carte graphique s'obstinait à
+         afficher en 1024x768. Comme le pilote i810 de X.Org 7.1,
+         qui prend désormais en charge ma puce graphique 945GM,
+         utilise le BIOS vidéo pour commuter le mode graphique, il
+         fallait encore et toujours employer <a
+         href="http://www.geocities.com/stomljen">915resolution</a>
+         pour patcher le BIOS. Je dus, pour résoudre le problème,
+         ajouter, dans <tt>/etc/rc.d/rc.local</tt>, la ligne
+      </p>
+<pre>
+915resolution 4d 1280 800
+</pre>
+      <p>
+         X.Org a automatiquement sélectionné la résolution
+         optimale, sans modification dans <tt>xorg.conf</tt>. Les
+         effets de bureau fonctionnèrent aussi sans aucune
+         difficulté.
+      </p>
+      <p>
+         Avec une carte ATI, ça aurait été une autre affaire. Avec
+         un peu (beaucoup?) de chance, la carte aurait été prise en
+         charge par le pilote <tt>radeon</tt> de X.Org. Cela aurait
+         permis une résolution optimale dès le départ et les effets
+         3D auraient fonctionné super. Par contre, si seul le
+         pilote <tt>vesa</tt> pouvait prendre la carte en charge,
+         installer le pilote à code source fermé disponible sur <a
+         href="http://rpm.livna.org">LIVNA</a> aurait permis
+         d'obtenir l'accélération 2D/3D mais pas les effets de
+         bureau. En effet, le pilote d'ATI, du moins en novembre
+         2006, ne supportait pas l'extension GL_Texture_from_pixmap
+         nécessaire pour ces effets.
+      </p>
+      <h2>
+         <a name="wifi" id="wifi">Réseau sans fil</a>
+      </h2>
+      <p>
+         Encore une fois, j'eus des difficultés avec la
+         configuration du réseau sans fil. Je dus effectuer les
+         mêmes manipulations qu'avec Fedora Core 5, y compris le
+         patchage des scripts pour que WPA fonctionne. Cette partie
+         de la mise à jour me déçut beaucoup, car je m'attendais à
+         des améliorations de ce côté-là.
+      </p>
+      <h2>
+         <a name="btnnight" id="btnnight">Boutons latéraux de la
+         souris</a>
+      </h2>
+      <p>
+         Dimanche, 12 novembre 2006, je tentai de faire fonctionner
+         les boutons latéraux de ma souris Logitech externe. Cela
+         s'avéra plus difficile que prévu en raison de la présence
+         de la souris intégrée! En effet, X.Org considérait le
+         périphérique de pointage Synaptics comme primaire et la
+         souris Logitech comme secondaire. Il s'adonne que la ligne
+         <tt>pointer</tt> dans XModmap n'affecte que le
+         périphérique de pointage primaire. Cela signifiait que je
+         devais faire de ma Logitech MX310 le périphérique de
+         pointage primaire, mais cela allait empêcher le démarrage
+         de X.Org si ma souris USB n'était pas branchée! Il ne
+         semblait y avoir aucun moyen de m'en tirer sans créer deux
+         fichiers <tt>xorg.conf</tt> distincts et commuter
+         manuellement de l'un à l'autre! Comme il n'existe aucun
+         programme pour sélectionner un fichier de configuration au
+         démarrage, cette solution me déplaisait beaucoup.
+      </p>
+      <p>
+         Par chance, je parvins à trouver mieux, beaucoup mieux,
+         une solution quasiment parfaite en fait! J'obtins les
+         informations nécessaires pour la concocter en tapant
+         <tt>man mouse-driver</tt>. J'y découvris l'existence de
+         l'option <tt>ButtonMapping</tt> qui est la clé de toute la
+         solution! L'idée est de définir une section
+         <tt>InputDevice</tt> dédiée à la souris USB et d'y
+         spécifier le mappage correct des boutons. Il me fallut
+         tâtonner pour trouver les bonnes valeurs numériques et
+         comment faire en sorte que X.Org traite cette nouvelle
+         section, mais lorsque ce fut fait...
+      </p>
+      <p>
+         Alors, voilà l'astuce. D'abord, j'ai ajouté la section
+         suivante dans mon fichier:
+      </p>
+<pre>
+Section "InputDevice"
+      Identifier "USB Mouse"
+      Driver   "mouse"
+      Option      "Device"    "/dev/input/mice"
+      Option      "Protocol"     "auto"
+      Option      "Emulate3Buttons"    "false"
+      Option      "ButtonMapping"    "1 2 3 6 7 8 9"
+EndSection
+</pre>
+      <p>
+         Je dus ensuite modifier la section <tt>ServerLayout</tt>
+         pour faire appel à cette nouvelle section. La section
+         devient:
+      </p>
+<pre>
+Section "ServerLayout"
+        Identifier     "DefaultLayout"
+        Screen      0  "Screen0" 0 0
+        InputDevice    "Keyboard0" "CoreKeyboard"
+        InputDevice    "Synaptics" "CorePointer"
+            InputDevice    "USB Mouse" "SendCoreEvents"
+EndSection
+</pre>
+      <p>
+         Le périphérique d'entrée primaire (<tt>CorePointer</tt>)
+         est toujours Synaptics. Le fichier contient une section
+         nommée <tt>Synaptics</tt> qui fait référence au pilote
+         <tt>synaptics</tt> qui convertit les événements de la
+         tablette en événements de déplacement d'une souris. Il
+         s'occupe même de subdiviser la tablette en portions pour
+         gérer lui-même le défilement. La souris USB, quant à elle,
+         envoie tous les événements qu'elle produit au pointeur
+         principal, ce qui la rend fonctionnelle sous toute
+         application X.Org!
+      </p>
+      <p>
+         C'est étonnant que cette solution fonctionne. D'abord, on
+         pourrait penser que X.Org va planter s'il ne trouve pas la
+         souris USB à laquelle se réfère la section
+         <tt>ServerLayout</tt>. Il n'en est rien! Plus étrange
+         encore, les deux souris partagent le même périphérique
+         <tt>/dev/input/mice</tt>. Non seulement cela
+         fonctionne-t-il parfaitement mais en plus, il est possible
+         de brancher la souris USB <i>après</i> avoir démarré
+         X.Org! Et même dans ces conditions, les boutons latéraux
+         fonctionnent! C'est le paramétrage de X.Org le plus
+         surprenant que j'ai effectué depuis que j'utilise Linux.
+      </p>
+      <p>
+         Mon astuce semble assez générique et devrait fonctionner
+         avec d'autres souris que la Logitech MX310, par exemple la
+         IntelliMouse Optical. Il se peut par contre qu'il soit
+         nécessaire de changer le <tt>ButtonMapping</tt>. Le seule
+         point faible de la solution est le fait que le bouton sur
+         le dessus de la souris réagit comme le bouton de gauche.
+      </p>
+      <h2>
+         <a name="crt" id="crt">Écran externe</a>
+      </h2>
+      <p>
+         Pour l'écran externe, c'est malheureusement plus
+         difficile, car le pilote vidéo utilise l'écran LCD intégré
+         comme écran primaire. Cet écran reste donc toujours allumé
+         et l'écran externe, considéré secondaire, adopte la
+         résolution de l'écran primaire qui est généralement
+         inférieure. Si l'écran externe est de rapport 4:3, l'image
+         qui résulte de ce mauvais traitement est distordue. Pour
+         résoudre ce problème, il faut désactiver l'écran LCD
+         intégré et n'afficher que sur l'écran externe, ce qui est
+         très facile avec le pilote pour Windows d'Intel. Avec
+         X.Org, c'est possible, à condition de configurer une
+         option dans la section <tt>Device</tt> correspondant à la
+         carte graphique. Toutefois, cette option n'est pas
+         compatible avec le mode normal d'utilisation du portable,
+         avec l'écran LCD intégré.
+      </p>
+      <p>
+         L'option nécessaire dépend, malheureusement, de la carte
+         graphique utilisée. Le tableau suivant donne l'option à
+         ajouter ainsi que sa valeur pour différents pilotes de
+         X.Org. Par contre, dans le cas des cartes ATI ou NVIDIA,
+         il se peut que ceci ne soit pas nécessaire avec les
+         pilotes des fabricants <tt>fglrx</tt> et <tt>nvidia</tt>.
+         Ces pilotes viennent avec des outils plus évolués pour
+         effectuer la configuration de X.Org.
+      </p>
+      <center>
+         <table border="1">
+            <tr>
+               <th>
+                  Pilote
+               </th>
+               <th>
+                  Option
+               </th>
+               <th>
+                  Valeur pour CRT
+               </th>
+               <th>
+                  Valeur pour LCD
+               </th>
+               <th>
+                  Valeur pour TV
+               </th>
+            </tr>
+            <tr>
+               <td>
+                  <tt>i810</tt>
+               </td>
+               <td>
+                  MonitorLayout
+               </td>
+               <td>
+                  CRT
+               </td>
+               <td>
+                  LFP
+               </td>
+               <td>
+                  TV
+               </td>
+            </tr>
+            <tr>
+               <td>
+                  <tt>radeon</tt>
+               </td>
+               <td>
+                  MonitorLayout
+               </td>
+               <td>
+                  CRT
+               </td>
+               <td>
+                  LVDS
+               </td>
+               <td>
+                  -
+               </td>
+            </tr>
+            <tr>
+               <td>
+                  <tt>nv</tt>
+               </td>
+               <td>
+                  -
+               </td>
+               <td>
+                  -
+               </td>
+               <td>
+                  -
+               </td>
+               <td>
+                  -
+               </td>
+            </tr>
+            <tr>
+               <td>
+                  <tt>fglrx</tt>
+               </td>
+               <td>
+                  EnableMonitor
+               </td>
+               <td>
+                  crt
+               </td>
+               <td>
+                  lvds
+               </td>
+               <td>
+                  -
+               </td>
+            </tr>
+            <tr>
+               <td>
+                  <tt>nvidia</tt>
+               </td>
+               <td>
+                  EnableMonitor
+               </td>
+               <td>
+                  CRT
+               </td>
+               <td>
+                  DFP
+               </td>
+               <td>
+                  TV
+               </td>
+            </tr>
+         </table>
+      </center>
+      <p>
+         Dans le cas de la Intel GMA, l'option additionnelle
+         <tt>DevicePresence</tt> permet de mieux gérer le cas où la
+         configuration change en cours d'utilisation. Par exemple,
+         si le portable est allumé sans écran externe branché,
+         X.Org détectera le LCD intégré comme écran primaire et
+         configurera sa résolution sur 1280x800, à condition
+         évidemment que <tt>915resolution</tt> ait été employé pour
+         patcher le BIOS vidéo. Si, ensuite, la disposition est
+         modifiée et X.Org est redémarré, sans l'option
+         <tt>DevicePresence</tt>, X.Org ne détectera pas l'écran
+         externe et lui enverra une image en 1280x800! En
+         contrepartie, cette option, désactivée par défaut, peut
+         poser des problèmes avec certains BIOS. Mais dans le cas
+         de mon portable (BIOS A12), cela a fonctionné sans
+         problème.
+      </p>
+      <p>
+         Bien qu'il soit en théorie possible de brancher l'écran
+         externe et d'obtenir un affichage correct, cela impose de
+         modifier le fichier <tt>xorg.conf</tt> selon que l'écran
+         est branché ou pas. La solution naïve à ce problème est
+         bien entendu le dédoublement. Nous pouvons d'abord penser
+         à dédoubler l'installation de Linux au complet, mais ceci
+         est vite écarté après un peu de réflexion: deux partitions
+         avec Linux, deux fois plus d'espace pris par le système
+         d'exploitation, deux systèmes à mettre à jour, etc.
+         Évitons cela! Une solution moins extrême consiste à
+         dupliquer le fichier <tt>xorg.conf</tt> seulement. Ce
+         n'est pas idéal non plus, car toute modification apportée
+         à un fichier doit être apportée à l'autre. Par chance, il
+         existe une meilleure solution: créer plusieurs sections
+         <tt>ServerLayout</tt> dans un même fichier de
+         configuration. Chacune de ces sections définit une
+         <i>disposition</i> possible pour le serveur, c'est-à-dire
+         un ensemble d'entrées et de sorties.
+      </p>
+      <p>
+         Pour obtenir le fichier modifié, il suffit de prendre la
+         section <tt>ServerLayout</tt> par défaut, la copier,
+         donner un nouveau nom à la copie et en modifier l'élément
+         <tt>Screen</tt> afin qu'il se réfère à un nouveau
+         dispositif d'affichage. Bien entendu, une nouvelle section
+         <tt>Screen</tt> représentant ce nouveau dispositif doit
+         être créée; ce sera simplement une copie de l'ancienne
+         avec un nouveau nom. Cette nouvelle section
+         <tt>Screen</tt> comprend un élément <tt>Device</tt> qui
+         pointe sur une nouvelle section <tt>Device</tt>
+         représentant une carte vidéo. Cette section
+         <tt>Device</tt> est une copie de l'ancienne avec l'option
+         nécessaire pour l'écran externe! Bien entendu, ce
+         processus peut être répété autant de fois que nécessaire,
+         par exemple pour ajouter la possibilité de raccorder
+         l'ordinateur à un téléviseur.
+      </p>
+      <p>
+         Il reste un dernier problème à résoudre: la sélection de
+         la bonne disposition. Par défaut, X.Org choisit la
+         première section <tt>ServerLayout</tt> qu'il trouve dans
+         le fichier, ce qui n'est pas très intéressant pour notre
+         cas, car pour changer la disposition, il faudrait inverser
+         des sections dans le fichier de configuration. Cela
+         constitue une édition dangereuse quand elle devient
+         routinière; il est facile de commettre des erreurs.
+         Heureusement, il existe deux mécanismes pour imposer une
+         section: le passage d'arguments à X.Org ou une option dans
+         le fichier de configuration.
+      </p>
+      <h3>
+         Automatiser le changement de configuration
+      </h3>
+      <p>
+         Samedi, 23 mars 2007, je suis parvenu à résoudre
+         partiellement le problème de sélection d'une configuration
+         de X.Org. Pour ce faire, il existe plusieurs techniques:
+      </p>
+      <dl>
+         <dt>
+            Utiliser l'option <tt>-layout</tt> de <tt>startx</tt>
+         </dt>
+         <dd>
+            Grâce à cette option, il est possible de démarrer X.Org
+            avec n'importe quelle disposition se trouvant dans
+            <tt>xorg.conf</tt>. Cela permet donc de démarrer sur un
+            écran externe. Par contre, le nom des dispositions ne
+            doivent contenir aucun espace et il faut démarrer
+            <tt>startx</tt> depuis une console. Cette solution
+            n'est intéressante que si le serveur X.Org est démarré
+            après un branchement sur un console. Habituellement,
+            l'inverse se produit: X.Org démarre au début et offre
+            une interface de branchement.
+         </dd>
+         <dt>
+            Passer l'optioni <tt>-layout</tt> à la commande
+            démarrée par le gestionnaire de connexion
+         </dt>
+         <dd>
+            Cette solution est un peu plus intéressante que la
+            précédente, mais elle impose de découvrir comment le
+            gestionnaire de branchement démarre X.Org. Son
+            application dépend donc du gestionnaire choisi et il
+            n'est pas nécessairement possible de parvenir à passer
+            l'option souhaitée. Avec GDM, le gestionnaire de GNOME,
+            par chance, c'est possible.
+         </dd>
+         <dt>
+            Modifier <tt>xorg.conf</tt> dynamiquement
+         </dt>
+         <dd>
+            La troisième option, la plus générale, consiste à
+            modifier l'option <tt>DefaultServerLayout</tt> de la
+            section <tt>ServerFlags</tt> de <tt>xorg.conf</tt>. De
+            cette manière, il n'est pas nécessaire de modifier la
+            commande utilisée pour démarrer X.Org. Par contre, un
+            script mal conçu peut facilement endommager le fichier
+            de configuration en tentant de modifier l'élément.
+         </dd>
+      </dl>
+      <h4>
+         GDM
+      </h4>
+      <p>
+         Reconfigurer GDM pour supporter le changement de
+         configuration se fait en plusieurs étapes. D'abord, il
+         nous faut construire un petit script qui contient les
+         lignes suivantes:
+      </p>
+<pre>
+#!/bin/sh
+
+exec /usr/bin/Xorg $* -layout "`cat /etc/sysconfig/xlayout`"
+</pre>
+      <p>
+         Appelons-le <tt>/etc/gdm/startXorg</tt> et n'oublions pas
+         de le rendre exécutable. Ce script doit être appelé par
+         GDM en lieu et place de <tt>Xorg</tt> pour démarrer le
+         serveur X. Pour ce faire, à la fin de
+         <tt>/etc/gdm/custom.conf</tt>, il faut ajouter le contenu
+         suivant.
+      </p>
+<pre>
+[server-Standard]
+name=Standard server
+command=/etc/gdm/startXorg -br -audit 0
+flexible=true
+chooser=false
+handled=true
+priority=0
+</pre>
+      <p>
+         Cela indique à GDM de démarrer notre nouvelle commande.
+         Finalement, le fichier <tt>/etc/sysconfig/xlayout</tt>
+         doit être créé et contenir le nom de la configuration
+         active. Cette technique réduit le changement de
+         configuration à un simple écrasement d'un fichier qui peut
+         être effectué avec un script du genre
+      </p>
+<pre>
+#/bin/sh
+
+echo DefaultLayout &gt; /etc/sysconfig/xlayout
+</pre>
+      <p>
+         Ce script doit bien évidemment être démarré en mode root.
+         Pour remédier à cet agaçante contrainte, il suffit
+         d'utiliser <tt>sudo</tt>. Supposons par exemple que nous
+         disposions de trois scripts de ce genre,
+         <tt>defaultLayout</tt>, <tt>crtLayout</tt> et
+         <tt>tvLayout</tt>, permettant respectivement de revenir à
+         la configuration par défaut (écran intégré), passer à
+         l'écran externe et passer à l'affichage sur un téléviseur.
+         La ligne suivante, ajoutée à <tt>/etc/sudoers</tt>, permet
+         à tous de commuter entre les trois configurations.
+      </p>
+<pre>
+ALL ALL = /usr/bin/defaultLayout, /usr/bin/crtLayout, /usr/bin/tvLayout
+</pre>
+      <p>
+         Après toutes ces manipulations, il suffit, pour commuter
+         sur écran externe, de taper <tt>sudo crtLayout</tt> avant
+         de redémarrer X.Org. Si jamais le portable est démarré
+         sans écran branché et que la configuration est crtLayout,
+         l'écran deviendra noir et plus rien ne se passera. Il
+         suffit alors de basculer sur la console, avec CTRL-ALT-F1,
+         de se brancher et de taper <tt>sudo defaultLayout</tt>.
+         Ensuite, ALT-F7 ramène à l'écran de branchement et
+         CTRL-ALT-Backspace tue le serveur X, qui se recharge
+         immédiatement après et affiche l'écran de branchement sur
+         l'écran intégré!
+      </p>
+      <h4>
+         Modification de <tt>xorg.conf</tt>
+      </h4>
+      <p>
+         Cette seconde solution est incompatible avec la
+         précédente, car l'option <tt>-layout</tt> passée à X.Org a
+         précédence sur le contenu de <tt>xorg.conf</tt>. Le script
+         suivant, écrit en Python et utilisant le paquetage
+         pyxf86config, permet de changer la configuration de X.Org
+         en modifiant le fichier <tt>/etc/X11/xorg.conf</tt>. Son
+         écriture n'a pas été simple, car l'extension utilisée
+         n'est pas documentée du tout. J'y suis parvenu en
+         examinant les fichiers <tt>.h</tt> correspondant à
+         libxf86config, qui est appelée par l'extension Python, et
+         en m'inspirant du script servant à configurer X.Org pour
+         ma carte graphique NVIDIA.
+      </p>
+<pre>
+#!/usr/bin/python
+
+import ixf86config
+import xf86config
+import sys
+import os
+
+def printError(err):
+    print "Error: ", err
+
+def printLayouts (xconfig):
+    print "Available layouts:"
+    for layout in xconfig.layout:
+        print layout.identifier
+
+def layoutExists (xconfig, layoutIdentifier):
+    for layout in xconfig.layout:
+        if layout.identifier == layoutIdentifier:
+            return True
+    return False
+
+try:
+    (xconfig, xconfigpath) = ixf86config.readConfigFile()
+except:
+    printError("Could not read X config file")
+    sys.exit(1)
+
+if len(sys.argv) != 2:
+    print "No layout name specified"
+    printLayouts (xconfig)
+    sys.exit(1)
+
+layoutIdentifier = sys.argv[1]
+if not layoutExists (xconfig, layoutIdentifier):
+    print "Layout identifier " + layoutIdentifier + " does not exist"
+    printLayouts (xconfig)
+    sys.exit(1)
+                  
+# Create a default ServerFlags section if there is not
+if xconfig.flags == None:
+    xconfig.flags = xf86config.XF86ConfFlags()
+optcount = -1
+for opt in xconfig.flags.options:
+    optcount += 1
+    if opt.name == "DefaultServerLayout":
+        xconfig.flags.options.remove(optcount)
+
+xconfig.flags.options.insert (ixf86config.XF86Option ("DefaultServerLayout", layoutIdentifier))
+
+backup_file = None
+if xconfigpath != None and os.access(xconfigpath, os.F_OK):
+    backup_file = xconfigpath + ".backup-selectLayout"
+    try:
+        os.rename (xconfigpath, backup_file)
+    except:
+        printError("Cannot write backup file")
+        sys.exit(1)
+else:
+    print ("Cannot open X config file")
+    sys.exit(1)
+try:
+    xconfig.write (xconfigpath)
+except:
+    printError("Editing failed, restoring backup")
+    try:
+        os.rename(backup_file, xconfigpath)
+    except:
+        printError("Failed to restore backup")
+</pre>
+      <p>
+         Sans argument, le script imprime le nom des sections
+         <tt>ServerLayout</tt> disponibles. Si un argument est
+         donné, le script vérifie d'abord qu'il correspond à un nom
+         valide de configuration. Si tel est le cas, la valeur de
+         l'option <tt>DefaultServerLayout</tt> est changée après
+         quoi le fichier <tt>xorg.conf</tt> est récrit. Par souci
+         de sécurité, une sauvegarde du fichier est effectuée avant
+         la récriture. Supposons que le script s'appelle
+         <tt>/usr/bin/selectLayout</tt> (et est exécutable). Pour
+         améliorer l'utilisabilité de notre solution, nous pouvons
+         ajouter la ligne
+      </p>
+<pre>
+ALL ALL = /usr/bin/selectLayout
+</pre>
+      <p>
+         Le changement de disposition se fait alors par <tt>sudo
+         selectLayout nomLayout</tt>, où <tt>nomLayout</tt> doit
+         être remplacé par le nom de la disposition. Si jamais ce
+         nom comporte des espaces, ceci peut être traité en le
+         mettant entre guillemets, par exemple <tt>sudo
+         selectLayout "Default Layout"</tt>
+      </p>
+      <h3>
+         Mon fichier de configuration
+      </h3>
+      <p>
+         Voici mon fichier <tt>xorg.conf</tt> complet, avec
+         l'astuce pour l'écran externe et celle pour la souris de
+         la section précédente. J'ai placé la section
+         <tt>ServerFlags</tt> pour illustrer comment une
+         disposition peut être choisie arbitrairement, sans changer
+         l'ordre des sections dans le fichier. Remarquons que la
+         section <tt>Screen</tt> correspondant à mon écran externe
+         ne contient aucune résolution fixée. X.Org 7.1 va
+         automatiquement deviner la résolution et, en cas d'erreur,
+         <tt>xrandr</tt> peut être employé pour rectifier.
+      </p>
+<pre>
+# Xorg configuration created by pyxf86config
+
+Section "ServerFlags"
+   Option "DefaultServerLayout" "DefaultLayout"
+EndSection
+
+Section "ServerLayout"
+        Identifier     "DefaultLayout"
+        Screen      0  "Screen0" 0 0
+        InputDevice    "Keyboard0" "CoreKeyboard"
+        InputDevice    "Synaptics" "CorePointer"
+            InputDevice    "USB Mouse" "SendCoreEvents"
+EndSection
+
+Section "ServerLayout"
+        Identifier     "CRTLayout"
+        Screen      0  "ScreenCRT" 0 0
+        InputDevice    "Keyboard0" "CoreKeyboard"
+        InputDevice    "Synaptics" "CorePointer"
+            InputDevice    "USB Mouse" "SendCoreEvents"
+EndSection
+
+Section "ServerLayout"
+        Identifier     "TVLayout"
+        Screen      0  "ScreenTV" 0 0
+        InputDevice    "Keyboard0" "CoreKeyboard"
+        InputDevice    "Synaptics" "CorePointer"
+            InputDevice    "USB Mouse" "SendCoreEvents"
+EndSection
+
+Section "InputDevice"
+        Identifier  "Keyboard0"
+        Driver      "kbd"
+        Option      "XkbModel" "pc105"
+        Option      "XkbLayout" "ca(fr)"
+EndSection
+
+Section "InputDevice"
+        Identifier  "Synaptics"
+        Driver      "synaptics"
+        Option      "Device" "/dev/input/mice"
+        Option      "Protocol" "auto-dev"
+        Option      "Emulate3Buttons" "yes"
+            Option               "MaxTapTime" "0"
+            Option               "SHMConfig" "true"
+EndSection
+
+Section "InputDevice"
+      Identifier "USB Mouse"
+      Driver   "mouse"
+      Option      "Device"    "/dev/input/mice"
+      Option      "Protocol"     "auto"
+      Option      "Emulate3Buttons"    "false"
+      Option      "ButtonMapping"    "1 2 3 6 7 8 9"
+EndSection
+
+Section "Device"
+        Identifier  "Videocard0"
+        Driver      "i810"
+            Option     "DevicePresence" "yes"
+EndSection
+
+Section "Device"
+        Identifier  "VideocardCRT"
+        Driver      "i810"
+            Option      "MonitorLayout" "CRT"
+            Option     "DevicePresence" "yes"
+EndSection
+
+Section "Device"
+        Identifier  "VideocardTV"
+        Driver      "i810"
+            Option      "MonitorLayout" "TV"
+            Option     "DevicePresence" "yes"
+EndSection
+
+Section "Screen"
+        Identifier "Screen0"
+        Device     "Videocard0"
+        DefaultDepth     24
+        SubSection "Display"
+                Viewport   0 0
+                Depth     24
+        EndSubSection
+EndSection
+
+Section "Screen"
+        Identifier "ScreenCRT"
+        Device     "VideocardCRT"
+        DefaultDepth     24
+        SubSection "Display"
+                Viewport   0 0
+                Depth     24
+        EndSubSection
+EndSection
+
+Section "Screen"
+        Identifier "ScreenTV"
+        Device     "VideocardTV"
+        DefaultDepth     24
+        SubSection "Display"
+                Viewport   0 0
+                Depth     24
+        EndSubSection
+EndSection
+</pre>
+      <h2>
+         <a name="pppoe" id="pppoe">Connexion PPPoE</a>
+      </h2>
+      <p>
+         Vendredi, 10 novembre 2006, j'ai commencé à passer des
+         journées chez <a href="http://www.bell.ca">Bell Canada</a>
+         pour satisfaire les exigences du <a
+         href="http://www.crsng.ca">CRSNG</a> pour une bourse à
+         incidence industrielle. Je dus dans ce cadre utiliser mon
+         portable que je branchai là-bas pour travailler. C'est à
+         ce moment que je découvris que j'avais fait un très bon
+         travail de configuration si bien que la machine
+         fonctionnait très bien sous Linux!
+      </p>
+      <p>
+         Mardi, 14 novembre 2006, on me brancha à Internet à l'aide
+         d'un modem haute vitesse. Ce branchement me posa quelques
+         difficultés sous Linux, mais je n'eus heureusement pas
+         trop de bidouillage à faire pour l'effectuer. D'abord, que
+         fait ce modem? Il est raccordé d'un côté au système
+         téléphonique et de l'autre, à l'ordinateur par Ethernet ou
+         USB. Je choisis naturellement Ethernet afin de m'éviter
+         des difficultés avec un pilote USB. Le modem permet
+         d'encoder et décoder les paquets Ethernet pour les faire
+         transiter sur le lien téléphonique, en utilisant une bande
+         de fréquences non employée pour les communications
+         vocales.
+      </p>
+      <p>
+         Alors, c'est comme si j'étais directement relié, par le
+         modem, au fournisseur d'accès Internet. Avec <a
+         href="http://internet.videotron.ca">Vidéotron</a>, il
+         suffit alors de diffuser une requête DHCP sur le réseau
+         pour que le serveur attribue une IP à la machine.
+         Malheureusement, dans le cas de <a
+         href="http://www.sympatico.ca">Sympatico</a> de Bell, cela
+         ne suffit pas: il faut avant tout établir un lien PPPoE,
+         ce qui nécessite un nom d'utilisateur et un mot de passe.
+      </p>
+      <p>
+         Toutefois, je n'avais pas cette information et celui qui
+         m'apporta le modem ne semblait pas la connaître. À tout
+         hasard, j'essayai donc d'établir une liaison par DHCP en
+         utilisant <tt>/sbin/ifup eth0</tt>. Cela activa ma carte
+         Ethernet et communiqua avec le modem pour envoyer une
+         requête DHCP. Il semble alors que le modem lui-même, qui
+         s'était transformé en routeur, ait répondu à cette requête
+         DHCP et m'a fourni l'adresse IP 192.168.2.2. Bien entendu,
+         cette adresse ne me permettait aucun accès Internet,
+         <tt>ping www.google.ca</tt> en témoignant bien.
+      </p>
+      <p>
+         Je découvris, si je me souviens bien avec
+         <tt>/sbin/ifconfig</tt>, que ma passerelle était
+         192.168.2.1 et j'eus l'idée, je ne me souviens plus
+         exactement pourquoi, d'aller pointer Firefox là-dessus.
+         J'aboutis alors dans une interface Web qui m'offrait la
+         possibilité d'entrer mon nom d'utilisateur et mon mot de
+         passe PPPoE. Et justement, on finit par me trouver ces
+         données qui se trouvaient sur une feuille que je n'avais
+         pas remarquée.
+      </p>
+      <p>
+         J'accédai alors aux options de configuration réseau de
+         Fedora Core 6 et créai une nouvelle connexion. J'indiquai
+         xDSL comme type et choisis ma carte réseau habituelle. On
+         me demanda alors le nom de mon fournisseur, le nom
+         d'utilisateur et le mot de passe. J'essayai les
+         coordonnées que j'avais obtenues et cela échoua. J'essayai
+         dans l'interface Web et cela échoua également. Rien ne
+         semblait marcher et il restait un CD d'installation, pour
+         Windows seulement, à tester.
+      </p>
+      <p>
+         Heureusement, je trouvai la solution avant d'en arriver
+         là. Dans l'interface Web, je tapai
+         <tt>utilisateur@bellnexxia.net</tt> où
+         <tt>utilisateur</tt> était le code d'utilisateur donné sur
+         le papier qu'on m'avait fourni. Le papier indiquait aussi
+         <tt>bellnexxia.net</tt> comme nom de domaine, sans donner
+         l'indice de les unir par un @! Comme mot de passe,
+         j'utilisai celui du papier tel quel. Cette forme de nom
+         d'utilisateur fonctionne pour Sympatico Haute vitesse
+         d'affaire. Pour le service résidentielle, il semble
+         falloir utiliser le code d'accès (forme b1xxxx) seulement.
+      </p>
+      <p>
+         Le routeur-modem se brancha donc à Internet et cela me
+         permit d'accéder au réseau depuis mon portable. Mais je
+         voulais faire mieux que ça: établir le branchement PPPoE
+         avec ma machine Linux. Pour ce faire, je fouillai de
+         nouveau dans les options de l'interface Web et trouvai un
+         moyen de commuter le routeur en mode pont (<i>Bridge</i>).
+         Rendu en mode pont, le modem ne m'affectait plus d'IP par
+         DHCP et pire encore, le paramétrage de PPPoE sous Linux
+         continuait toujours à échouer lamentablement.
+      </p>
+      <p>
+         Par contre, je finis par trouver la combinaison: mettre
+         <tt>utilisateur@bellnexxia.net</tt> comme nom
+         d'utilisateur et laisser <tt>bellnexxia</tt> comme
+         fournisseur PPPoE. En fait, le fournisseur ne semble pas
+         avoir une grande importance ici. Après tous ces essais, il
+         devenait possible d'établir la connexion à Internet par
+         <tt>/sbin/ifup ppp0</tt>.
+      </p>
+      <p>
+         En fait, il n'était pas nécessaire de commuter le modem en
+         mode pont. D'après ce que j'ai lu sur Internet, le mode
+         par défaut, pont-routeur, autorise les liaisons PPPoE. La
+         commutation en mode pont est irréversible, àm oins de
+         réinitialiser le modem avec un bouton que je n'avais pas
+         encore trouvé au moment d'écrire la première version de
+         cette page.
+      </p>
+      <p>
+         C'est chez Bell Canada que la mise en veille prolongée
+         fonctionna parfaitement pour la première fois. Je la
+         testai avant d'aller dîner et au retour, le portable
+         ralluma parfaitement. Je testai brièvement le son (avant
+         de le désactiver de nouveau pour ne pas déranger) et il
+         fonctionna lui aussi! Le son ne revenait pas dimanche, 12
+         novembre 2006, avant la mise à jour du noyau 2.6.18. C'est
+         cette mise à jour qui semble donc l'avoir réparé.
+      </p>
+      <h1>
+         <a name="conclusion" id="conclusion">Conclusion</a>
+      </h1>
+      <p>
+         Fedora Core 6 a d'abord apporté bogues et instabilité,
+         surtout dans le cas de Java et Eclipse. Les nouvelles
+         fonctionnalités offertes ne font que planter en pratique:
+         les effets spéciaux ne fonctionnent que sur les puces
+         graphiques Intel, les desklets sont totalement absents,
+         l'écriture NTFS avec ntfs-3g est incompatible avec SELinux
+         et rien n'est fait pour corriger cela, Yum-Updatesd ne
+         trouve pas de mises à jour tandis qu'il y en a (en plus,
+         il interdit le démarrage de Yum), le démarrage de GNOME
+         est deux à trois fois plus long que sous Fedora Core 5
+         (surtout lorsque AIGLX est activé), etc. Même après plus
+         d'un mois, aucune évolution n'a eu lieu pour ces bogues.
+         De plus en plus, Fedora Core 6 me semble une version
+         d'évaluation du vrai produit, Red Hat Enterprise Linux,
+         qui corrigera peut-être ces bogues, mais à un prix de fou
+         (plus de 1000$!). Tant qu'à payer 1000$, autant acheter
+         Windows Vista lorsqu'il sortira; il sera probablement
+         moins coûteux et les effets graphiques fonctionneront sans
+         difficulté après au pire quelques semaines et quelques
+         mises à jour. Par chance, il existe d'autres distributions
+         de Linux à essayer si Fedora Core 6 cesse bel et bien
+         d'évoluer. Revenir à Windows n'est donc pas, pour le
+         moment, l'unique solution! J'envisageai, après avoir
+         désactivé AIGLX, d'essayer Ubuntu ou Debian pendant ou
+         après le temps des fêtes.
+      </p>
+      <p>
+         À quelques moments, j'étais tellement fatigué de tous ces
+         bogues sans bon sens que je fis des recherches pour faire
+         tourner Mac OS X sur mon PC! Je découvris vite que ce
+         serait une frustrante lutte à plus finir, chaque patch
+         d'Apple risquant de rendre le système inutilisable à moins
+         de chercher un remède pendant des heures. Non, Mac OS X
+         implique un changement complet de machine et je n'ai pas
+         envie de me casser la tête à revendre mes ordinateurs
+         (trouver des acheteurs, leur réinstaller Windows et leur
+         apporter la machine prête) puis ensuite me retrouver avec
+         un bidule d'Apple que je ne pourrai ni mettre à jour, ni
+         personnaliser et qui me coûtera plus cher que mes machines
+         actuelles. Mac OS X, bien qu'il semble un meilleur système
+         d'exploitation que Linux et surtout Windows, est beaucoup
+         trop coûteux vu les sacrifices qu'il impose. Si seulement
+         il pouvait tourner sur un PC...
+      </p>
+      <p>
+         Mais Fedora Core 6 s'est avéré une bonne chose, surtout
+         pour mon portable dont la mise en veille fonctionne
+         désormais à la perfection! Il est à espérer que le nombre
+         de mises à jour sur Yum diminuera avec le temps et que le
+         système se stabilisera. Beaucoup des nouvelles
+         fonctionnalités de Fedora Core 6 se sont avérées
+         inutilisables, comme par exemple NTFS-3g, les desklets
+         (petits gadgets sur le bureau) et Orca (synthèse vocale
+         sous GNOME), mais au moins, je n'ai perdu la prise en
+         charge d'aucun élément de mon matériel. Mon graveur
+         fonctionne toujours, même chose pour ma carte graphique et
+         mon synthoniseur TV, mon imprimante fonctionne aussi mal
+         qu'avant (sérieux problèmes matériels d'impression
+         recto-version, il faudrait idéalement sortir une page à la
+         fois) et ma clé USB est encore détectée! Mieux encore,
+         GNOME m'affiche un message au moment du démontage de la
+         clé si des fichiers doivent être recopiés avant que je ne
+         retire le disque dur portable.
+      </p>
+      <p>
+         L'utilisateur qui ne veut pas trop perdre son temps n'a
+         peut-être grand-chose à gagner à passer à Fedora Core 6,
+         mais quelqu'un qui voudrait passer à Linux est aussi bien
+         de prendre Fedora Core 6 plutôt que Fedora Core 5.
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

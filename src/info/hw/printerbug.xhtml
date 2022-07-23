@@ -1,0 +1,209 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         Une imprimante qui fait la folle
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css"
+      href="../../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../../index.xhtml" class="parents">Le
+               royaume de Eric Buist</a> &gt;&gt; <a
+               href="../index.xhtml"
+               class="parents">Informatique</a> &gt;&gt; Problèmes
+               marquants &gt;&gt; <a href="../resolved.xhtml"
+               class="parents">Quelques bogues résolus</a> &gt;&gt;
+               <a href="index.xhtml" class="parents">Bogues
+               matériels résolus</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../../sitemap.xhtml" class="sitemap">Plan
+               du site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="dvdbug.xhtml"
+               class="leftsibling">Pas de DVD!</a>
+            </td>
+            <td class="thispage">
+               Une imprimante qui fait la folle
+            </td>
+            <td class="rightsibling">
+               <a href="swdevil.xhtml" class="rightsibling">Le
+               démon du subwoofer</a> &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         Une imprimante qui fait la folle
+      </h1>
+      <p>
+         C'est une imprimante couleur à jet d'encre de type Canon
+         BJC-250. Elle était branchée à mon portable, un Toshiba
+         310CDS. Jusque-là, rien de trop anormal. Toutefois, il est
+         arrivé à quelques reprises que cette imprimante n'a pas
+         terminé une page avant de l'éjecter. Cela arrivait surtout
+         lorsque je travaillais sur la machine durant l'impression.
+         Pourtant, avec le système d'exploitation Windows 98, il
+         est possible de travailler en mode multitâche.
+         L'imprimante pouvait s'arrêter en plein milieu de la page
+         et passer à la suivante comme si de rien n'était, faisant
+         de cette machine un outil peu fiable pour l'impression de
+         documents importants. Imaginez imprimer un CV et ne pas
+         vous rendre compte que la dernière ligne n'a pas été
+         imprimée! Je n'ai pas le temps de relire une fois de plus,
+         après impression, l'ensemble de mes travaux. Je les
+         peaufine déjà à l'écran, si l'imprimante fait des gaffes,
+         il y a un problème. La seule façon connue jusqu'à
+         longtemps d'empêcher le problème de se produire consiste à
+         ne pas me servir de l'ordinateur durant l'impression.
+      </p>
+      <p>
+         Un jour, j'ai eu la bonne idée de flasher mon BIOS pour
+         intégrer les fonctions ACPI. C'est alors qu'est apparu un
+         tout nouveau bogue. De temps en temps, lorsque je
+         démarrais une impression, la machine se plantait et
+         affichait un frustrant écran bleu (Blue Screen of Death,
+         comme on dit.) avec erreur fatale 0E! Il me fallait
+         ensuite redémarrer au complet la machine, sinon repartir
+         l'impression n'apportait aucun résultat. Parfois même, il
+         fallait débrancher l'imprimante puis la rebrancher pour
+         être certain qu'elle fonctionnerait comme il faut! Pour
+         enrayer l'anomalie, il m'a fallu modifier les paramètres
+         du BIOS et lui dire d'utiliser un port parallèle standard
+         plutôt que ECP/EPP. J'aimerais bien utiliser ECP/EPP ou au
+         moins savoir pourquoi l'imprimante fait planter la machine
+         si je l'active.
+      </p>
+      <p>
+         Lorsque j'ai branché l'imprimante sur ma nouvelle machine,
+         j'ai finalement constaté un retour du problème sous
+         Windows ME. Cette fois-ci, même lorsque je ne touche pas à
+         l'ordinateur durant l'impression, elle saute des feuilles!
+         En effet, pour que l'appareil fonctionne sous Windows
+         2000, il m'a fallu activer la fonction ECP/EPP et ça bogue
+         encore... Sous Windows 2000, toutefois, tout va bien, sauf
+         que...
+      </p>
+      <p>
+         Des problèmes de détection de la cartouche sont apparus!
+         La première tentative d'impression couleur sous Windows
+         2000 s'est solvée par un message d'erreur: Cartridge
+         mismatch! Le message me disait que le travail que je
+         demandais exigeait la cartouche couleur tandis que mon
+         imprimante contenait la cartouche Photo! Pourtant, je ne
+         possède même pas une telle cartouche!
+      </p>
+      <p>
+         J'ai tenté d'installer le plus récent driver de Canon et
+         tout est rentré dans l'ordre. Toutefois, lorsque j'ai
+         voulu imprimer en noir et et blanc, il me disait encore
+         que j'avais inséré la cartouche Photo! Dans le Menu
+         Démarrer, Paramètres, Imprimantes, si je clique sur ma
+         Canon avec le bouton droit puis j'active Options de
+         l'imprimante, une boîte de dialogue apparaît.
+      </p>
+      <p>
+         <img src="prnopt.png"
+         alt="Options d'impression sous Windows 2000" />
+      </p>
+      <p>
+         Si je cliquais sur le bouton Detect, cela détectait la
+         cartouche Photo. Il me fallut tenter de retirer et de
+         réinsérer la cartouche à plusieurs reprises, voire même
+         sélectionner la cartouche Photo puis imprimer une page,
+         pour qu'il accepte enfin de paser à la Black! Si j'imprime
+         avec la cartouche Photo, cela oblige à utiliser
+         High-resolution paper comme Media Type et c'est TRÈS lent!
+      </p>
+      <p>
+         Toutefois, ma cartouche s'est épuisée peu de temps après
+         les tests et je n'ai pas eu de nouveau le problème avec ma
+         nouvelle. Peut-être la cartouche était trop vide pour
+         qu'il puisse détecter l'encre à l'intérieur.
+      </p>
+      <p>
+         Samedi, le 6 octobre 2001, j'ai consulté le site de <a
+         href="http://www.canon.ca">Canon</a> afin de leur exposer
+         le problème. En chemin, j'ai trouvé une page FAQ, j'y suis
+         allé et j'ai lu que l'imprimante pouvait imprimer des
+         pages partielles si on activait le mode ECP/EPP pour le
+         port parallèle. Ce qui prouve malheureusement que cette
+         imprimante ne supporte pas ce mode de communication.
+      </p>
+      <p>
+         Suite à cette nouvelle, j'ai désactivé ECP/EPP pour
+         remettre le mode Normal. Windows ME a remplacé son
+         <tt>Port Imprimante ECP</tt> par un <tt>Port
+         Imprimante</tt> et l'impression d'une grosse page couleur
+         n'a pas provoqué de page partielle. Toutefois, le support
+         sous Windows 2000 était nul. J'ai tenté d'ajouter
+         manuellement le port parallèle puis j'ai dû spécifier son
+         adresse. Le meilleur choix offert était 378h-37Ah, ce que
+         je pris, ainsi que l'IRQ 7. L'impression causait une
+         erreur.
+      </p>
+      <p>
+         De retour sous Windows ME, j'ai découvert que l'adresse
+         était 378h-37Fh et j'ai tenté d'effectuer la correction.
+         L'impression démarrait à présent, mais l'imprimante
+         n'émettait aucun son! Windows n'était pas capable de
+         communiquer avec l'imprimante, mais ne pouvait même pas
+         détecter qu'il ne l'était pas!
+      </p>
+      <p>
+         J'ai tenté d'indiquer à Windows de toujours utiliser une
+         IRQ pour ce port, aucun effet. Mercredi, le 11 octobre, je
+         tentai un coup audacieux. Dans le BIOS, j'ai réactivé le
+         port parallèle ECP/EPP puis j'ai démarré Windows ME. Le
+         système a détecté le port et a installé le pilote adéquat.
+      </p>
+      <p>
+         Ensuite, je suis allé dans le Gestionnaire de
+         Périphériques et dans Ports, j'ai sélectionné le Port
+         Imprimante ECP. J'ai double-cliqué dessus et je suis allé
+         mettre à jour le driver. J'ai alors indiqué à Windows
+         d'utiliser le Port Imprimante! La machine a redémarré et a
+         gardé la nouvelle modification!
+      </p>
+      <p>
+         L'imprimante a bien fonctionné depuis. Sous Windows XP, il
+         n'y a eu aucun problème; le système utilise l'option
+         ECP+EPP sans aucune difficulté. Malheureusement, cette
+         imprimante, comme je l'ai constaté dimanche, le 13 janvier
+         2002, ralentit l'ordinateur de façon significative lors
+         des impressions.
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

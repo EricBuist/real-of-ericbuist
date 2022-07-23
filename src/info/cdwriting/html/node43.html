@@ -1,0 +1,153 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.1//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>8.4 Usage d'un disque réinscriptible pour les tests</TITLE>
+<META NAME="description" CONTENT="8.4 Usage d'un disque réinscriptible pour les tests">
+<META NAME="keywords" CONTENT="cdwriting">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cdwriting.css">
+
+<LINK REL="next" HREF="node44.html">
+<LINK REL="previous" HREF="node42.html">
+<LINK REL="up" HREF="node39.html">
+<LINK REL="next" HREF="node44.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html1538"
+  HREF="node44.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1532"
+  HREF="node39.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1526"
+  HREF="node42.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1534"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1536"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html1539"
+  HREF="node44.html">8.5 Quelques solutions à</A>
+<B> monter:</B> <A NAME="tex2html1533"
+  HREF="node39.html">8. Et si cela</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html1527"
+  HREF="node42.html">8.3 Tests</A>
+ &nbsp; <B>  <A NAME="tex2html1535"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1537"
+  HREF="node106.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION05740000000000000000"></A>
+<A NAME="1488"></A>
+<BR>
+<SPAN CLASS="arabic">8</SPAN>.<SPAN CLASS="arabic">4</SPAN> Usage d'un disque réinscriptible pour les tests
+</H1>
+
+<P>
+Le disque réinscriptible se manipule de la même façon qu'un CD-R
+normal, à l'exception qu'il peut être effacé au besoin. Vous pouvez
+donc y graver le même contenu que sur un disque non réinscriptible,
+mais sa capacité de
+relecture est fortement limitée. Plusieurs lecteurs de CD Audio ne
+savent pas lire de tels disques, à peu près seuls les ordinateurs
+peuvent les décoder, parfois avec une difficulté accrue ou une vitesse
+réduite. Seuls les DVD+RW font exception à cette règle, des lecteurs
+DVD-ROM pouvant les déchiffrer sans trop de problèmes.
+
+<P>
+Le disque réinscriptible peut contenir des pistes et des sessions,
+comme le disque non réinscriptible. Il
+peut même être finalisé, c'est-à-dire que toute écriture subséquente
+sera interdite... à moins de l'effacer! Contrairement à la disquette,
+le disque réinscriptible ne dispose d'aucune protection mécanique contre
+l'écriture. Il est donc relativement aisé de l'effacer à l'aide d'un
+graveur le supportant. Sous  Easy CD Creator, la commande
+<SPAN  CLASS="textbf">Disque -&gt;
+
+Effacer un disque</SPAN> permet d'effectuer
+l'effacement.
+
+<P>
+Vous devez choisir entre <SPAN  CLASS="textbf">Effacement rapide</SPAN> et
+<SPAN  CLASS="textbf">Effacement complet</SPAN>. L'effacement rapide convient
+dans la plupart des
+cas. Il n'efface que la table des matières, ce qui fait croire que le
+disque est vierge tandis qu'il regorge encore de données. L'opération
+dure d'une à deux minutes. Si le disque
+ne fonctionne plus après un test et que l'effacement ne le rend pas de
+nouveau utilisable, avant de le jeter, tentez l'effacement
+complet. Elle nécessitera toutefois de vingt à trente minutes, car
+tout le disque sera balayé et effacé!
+
+<P>
+Sous Linux, vous pouvez effacer un réinscriptible en utilisant
+<TT>cdrecord -v blank=fast</TT>. Pour un effacement complet, utilisez
+<TT>cdrecord -v blank=all</TT>. Avec CDRDAO, l'effacement partiel se
+fait avec <TT>cdrdao blank -blank-mode minimal</TT>.
+La commande <TT>cdrdao blank -blank-mode full</TT> effectue un
+effacement complet. Pour effacer un DVD+RW, il suffit d'utiliser
+l'option <TT>-Z</TT> avec <TT>growisofs</TT>. Si le DVD+RW contient
+des données, vous obtiendrez un avertissement puis le logiciel écrira
+sur le disque de façon à rendre inaccessible l'ancien contenu. Pour
+effectuer un effacement complet sur un tel disque, vous devrez
+utiliser la ruse: <TT>growisofs -Z /dev/hdc=/dev/zero</TT>. Ce qui
+remplira le disque de 0, après quoi vous devrez y récrire des fichiers
+pour le rendre de nouveau utilisable.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1538"
+  HREF="node44.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html1532"
+  HREF="node39.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html1526"
+  HREF="node42.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html1534"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html1536"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html1539"
+  HREF="node44.html">8.5 Quelques solutions à</A>
+<B> monter:</B> <A NAME="tex2html1533"
+  HREF="node39.html">8. Et si cela</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html1527"
+  HREF="node42.html">8.3 Tests</A>
+ &nbsp; <B>  <A NAME="tex2html1535"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1537"
+  HREF="node106.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Eric Buist
+2005-11-13
+</ADDRESS>
+</BODY>
+</HTML>

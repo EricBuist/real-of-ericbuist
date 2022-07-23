@@ -1,0 +1,436 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         Expérience personnelle de mise à jour d'un BIOS
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css" href="../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../index.xhtml" class="parents">Le royaume
+               de Eric Buist</a> &gt;&gt; <a href="index.xhtml"
+               class="parents">Informatique</a> &gt;&gt;
+               Configuration informatique
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../sitemap.xhtml" class="sitemap">Plan du
+               site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="firststeps.xhtml"
+               class="leftsibling">Mes premiers pas sous Linux</a>
+            </td>
+            <td class="thispage">
+               Expérience personnelle de mise à jour d'un BIOS
+            </td>
+            <td class="rightsibling">
+               <a href="rebirth.xhtml" class="rightsibling">La
+               renaissance de ma quête Linux</a> &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         Expérience personnelle de mise à jour d'un BIOS
+      </h1>
+      <h2>
+         Qu'est-ce qu'une mise à jour du BIOS?
+      </h2>
+      <p>
+         BIOS signifie Basic Input/Output System, ie. Système
+         d'entrées/sorties de base. C'est en quelque sorte un petit
+         programme qui démarre chaque fois qu'on allume
+         l'ordinateur et qui s'occupe d'initialiser le matériel,
+         d'effectuer quelques tests de base puis de passer la main
+         au système d'exploitation se trouvant sur le disque dur.
+         Lors de mes premières incursions dans le monde PC, je me
+         demandais bien ce qui se passait dans le cas d'un
+         formatage du disque dur. La machine pouvait-elle démarrer
+         de nouveau après l'opération si elle était effectuée de
+         façon mal contrôlée?
+      </p>
+      <p>
+         L'existence du BIOS m'a confirméUne mise que la réponse
+         était OUI, car le programme primaire, le BIOS, se trouve
+         non pas sur le disque dur mais dans une mémoire spéciale
+         que l'on nomme ROM pour Read Only Memory. Avec le temps,
+         on s'est aperçu que ce type de mémoire n'était pas tout à
+         fait adéquat, car il fallait changer toute la puce mémoire
+         dans le cas d'une mise à jour. Il devenait alors plus
+         simple et moins coûteux de changer la carte mère tout
+         entière plutôt que de modifier le simple petit programme
+         qu'est le BIOS. Par analogie, c'est comme si vous deviez
+         changer le disque dur pour pouvoir mettre Windows à jour!
+      </p>
+      <p>
+         La mémoire non volatile en lecture seule a évolué et est
+         passée du ROM ou PROM, une mémoire programmable une seule
+         fois. Puis on en est arrivé à l'EPROM, l'Electrically
+         Programmable Read Only Memory. Cette mémoire était
+         inscriptible une seule fois par un courant électrique,
+         mais il fallait des ultra-violets pour l'effacer, pas très
+         commode pour mettre à jour. Les mises à jour ne seront
+         possibles qu'avec l'arrivée des EEPROM (Electrically
+         Eraseable PROM) et les Flash ROM sur les cartes mères de
+         Pentium.
+      </p>
+      <p>
+         Une mise à jour du BIOS modifie donc le programme exécuté
+         par la machine au démarrage, ce qui peut entraîner des
+         corrections de bogues mais aussi de sérieux problèmes,
+         comme l'impossibilité de démarrer la machine. Dans le cas
+         d'une erreur de mise à jour du BIOS, la machine peut
+         devenir inutilisable et il peut s'avérer nécessaire, si
+         des dispositifs de secours (BIOS minimal, DualBIOS, ...)
+         ne sont pas prévus sur la carte mère.
+      </p>
+      <p>
+         On tente une mise à jour du BIOS si on veut corriger un
+         bogue dont on est à peu près certain du lien avec le BIOS
+         ou si on veut profiter d'une nouvelle fonctionnalité
+         technologique, telle le support de disques durs plus gros,
+         par exemple.
+      </p>
+      <h2>
+         Le problème qui me poussa à tenter l'expérience
+      </h2>
+      <p>
+         Le problème consistait en un mystérieux bogue avec <a
+         href="mysteries/cdrbug.xhtml">le graveur</a> du PIII 500.
+         Toute tentative logicielle s'avérait vaine pour résoudre
+         le problème de façon complète.
+      </p>
+      <p>
+         Une personne non initiée m'aurait dit que le graveur
+         fonctionnait correctement, mais il faut connaître un peu
+         l'arrière du décor pour comprendre le sacrifice qu'il
+         fallait effectuer pour que cela fonctionne bien. La
+         désactivation du DMA, essentielle pour que le vieux
+         graveur fonctionne correctement, entraîne une plus grande
+         charge de travail au CPU lors de la gravure d'un disque.
+         En effet, c'est le processeur qui doit envoyer de façon
+         programmée chaque octet au graveur. Toutefois, ce problème
+         ne constituait pas vraiment un handicap pour la machine,
+         car le lecteur de CD-ROM pouvait fonctionner en mode DMA.
+      </p>
+      <p>
+         Toutefois, en raison de ce bogue, je ne pouvais pas
+         installer la gestion d'énergie <a
+         href="../info/acpi.xhtml">ACPI</a> de Windows 98. Cette
+         gestion s'avère encore une fois d'une piètre utilité, mais
+         j'ai lu que Windows 2000 en avait besoin pour fonctionner.
+         Si je ne pouvais pas utiliser ACPI sur cette machine, je
+         pensais que je ne pourrais pas lui installer, dans un
+         futur loin pour le moment, Windows 2000, encore moins
+         Windows XP. Il se pouvait également que je ne puisse pas
+         non plus lui installer Windows ME! Ainsi, la machine,
+         après seulement un an, se voyait limitée au niveau du
+         système d'exploitation et ce n'était pas bon signe. Si je
+         ne pouvais pas faire tourner Windows ME, 2000, toute
+         version future de Windows, comme Windows XP, si
+         performante soit-elle (peu probable qu'elle soit
+         performante, mais on peut espérer...) risquait fort d'être
+         inutilisable!
+      </p>
+      <p>
+         Un bon jour, je tentai de trouver des informations au
+         sujet de la carte mère de la machine et je parvins, en
+         utilisant un petit utilitaire, à extraire le Award BIOS ID
+         qui me donna enfin le fabriquant de la carte: FICA. Je
+         consultai son site dans la section des mises à jour de
+         BIOS au cas où et je trouvai des informations au sujet
+         d'un bogue avec le mode Ultra DMA. La carte mère ne
+         supportait que le Ultra DMA 33, mais si on lui donnait un
+         disque dur Ultra DMA 66, elle détectait mais le gérait
+         mal, provoquant des plantages.
+      </p>
+      <p>
+         Je me suis dit qu'il pourrait y avoir un lien, ou que le
+         correctif de la prochaine version du BIOS pourrait
+         solutionner le problème, mais pendant bien longtemps,
+         cette information demeurait trop vague pour valoir le coup
+         d'une tentative.
+      </p>
+      <p>
+         De plus, les dates ne coïncidaient pas avec celle de mon
+         propre BIOS et je craignais ainsi un terrible problème de
+         fonctionnement à la suite de la tentative de mise à jour.
+         Si je commettais une erreur, si je flashais le mauvais
+         BIOS, je ne pouvais pas être à 100% certain de pouvoir
+         «ressusciter» la machine!
+      </p>
+      <p>
+         La nouvelle version du BIOS, la MI415, ne fonctionnait que
+         sur la carte version PCB 1.4, mais je ne savais pas quelle
+         version j'avais entre les mains et pour l'obtenir, il
+         aurait fallu ouvrir le boîtier de l'ordinateur et lire une
+         petite étiquette sur la carte mère, ce qui me semblait pas
+         mal pénible... L'idée resta toutefois en suspens,
+         continuant à me trotter dans la tête de temps en temps.
+         Parfois, je retournais visiter le site du manufacturier:
+         pas de nouvelles informations.
+      </p>
+      <h2>
+         De la théorie à la pratique
+      </h2>
+      <p>
+         Dimanche soir, le 22 avril 2001, je relisais la partie au
+         sujet du bogue du graveur, au cas où je ne trouverais pas
+         quelques informations à rajouter. Et c'est là que m'est
+         revenue l'idée: il fallait que je tente la mise à jour! Je
+         suis retourné sur le site du manufacturier de la carte
+         mère et j'ai commencé à lire tout ce que je trouvais au
+         sujet de la mise à jour du BIOS. J'ai fini par apprendre
+         que seules les cartes PCB 1.4 supportaient les Pentium III
+         et cela écarta un doute par logique: la machine familiale
+         est un Pentium III. Je lus et relus les procédures de mise
+         à jour, surtout la procédure de récupération d'urgence, la
+         seule façon de remettre sur pied la machine si quelque
+         chose devait mal tourner. Il ne semblait pas y avoir de
+         cavaliers (jumpers) à modifier pour flasher le BIOS ou
+         appliquer la procédure d'urgence, heureusement!
+      </p>
+      <p>
+         Toutefois, je savais que cette procédure devait se faire à
+         l'aveuglette. Le Boot Block BIOS, un espèce de BIOS
+         minimal de secours, était trop élémentaire pour contenir
+         du code d'initialisation des périphériques PCI et AGP, ce
+         qui exclut la carte graphique. Si on ne veut pas effectuer
+         la procédure d'urgence sans ne rien voir, il faut ouvrir
+         la tour et enficher une vieille carte graphique ISA qui,
+         elle, fonctionnera!
+      </p>
+      <p>
+         Je sais que j'aurais pu, en cas de problème, effectuer la
+         procédure, mais si une erreur se produisait, je n'aurais
+         pas vu le message et jamais je n'aurais su ce qui n'allait
+         pas! De plus, le Boot Block BIOS se met en marche
+         automatiquement, donc il peut décider que le BIOS flashé
+         est correct et ne rien faire, même si la machine ne
+         démarre pas et que l'écran reste noir!
+      </p>
+      <p>
+         Il y avait aussi les données Plug-and-Play, CMOS et DMI
+         qui pouvaient devenir invalides suite à la mise à jour! Je
+         craignais de pouvoir démarrer le BIOS, mais que la machine
+         se fige en affichant <tt>Verifying DMI Pool Data...</tt>.
+         Malgré les lectures précédentes dans des livres traitant
+         du BIOS, ainsi que celles effectuées sur le site du
+         manufacturier de la carte mère, je ne me sentais pas prêt
+         à affronter toute situation problématique. Je craignais
+         que le vendeur de la machine ne me soit lui aussi d'aucun
+         secours, profitant de ce bogue pour me vendre une nouvelle
+         carte mère plutôt que m'aider!
+      </p>
+      <p>
+         Entre dimanche et lundi après-midi, j'étais très nerveux.
+         À quelques reprises, j'ai pensé renoncer à la mise à jour
+         trop risquée, mais je me disais que l'idée reviendrait et
+         qu'un jour, il me faudrait la tenter. Les premières
+         tentatives de jouer dans les fichiers de configuration
+         tels <tt>autoexec.bat</tt> et <tt>config.sys</tt> me
+         rendaient nerveux et c'est normal. Mettre le BIOS à jour
+         constituait seulement une nouvelle étape qu'il fallait
+         franchir.
+      </p>
+      <p>
+         Lundi, le 23 avril 2001, vers 14h, je commençai le travail
+         de prévention pour limiter l'impact négatif en cas de
+         problème. Je me suis créé deux disquettes systèmes, une
+         qui contenait le BIOS MI415 et son programme de flashage
+         <tt>flash73</tt> et une seconde qui contenait MI413 et son
+         programme <tt>flash703</tt>. Sur chaque disquette, je
+         créai un fichier <tt>restore.bat</tt> qui appellerait
+         <tt>flash73</tt> ou <tt>flash703</tt>, selon la disquette,
+         de façon à pouvoir effectuer automatiquement et à
+         l'aveuglette la restauration si je devais me retrouver
+         dans la procédure d'urgence.
+      </p>
+      <p>
+         La disquette du BIOS MI415, par exemple, contenait
+         <tt>flash73 mi413.bin /py/sn</tt> dans le fichier
+         <tt>restore.bat</tt>. En cas de problème, la machine
+         devait démarrer sur la disquette système, sans affichage,
+         et je devrais taper <tt>restore</tt> dès que la diode du
+         lecteur s'éteindrait, taper Enter et prier... Le paramètre
+         <tt>/py</tt> indiquait au programme d'effectuer la
+         reprogrammation et <tt>/sn</tt>, de ne pas sauvegarder sur
+         disquette le BIOS en EEPROM avant la reprogramme, BIOS qui
+         ne fonctionnerait pas dans le cas de la procédure
+         d'urgence.
+      </p>
+      <p>
+         Je me dirigeai ensuite vers la machine familiale, celle
+         qui allait subir la mise à jour, mais je me rendis compte
+         que j'avais oublié d'effectuer les sauvegardes des données
+         sensibles. Si la machine ne démarrait plus après la
+         tentative et que la seule solution restante avait été de
+         faire vérifier l'ordinateur, voire faire changer la carte
+         mère, il aurait fallu que mon portable ou mon Faucon de
+         Fer prennent la relève en attendant que la machine
+         familiale ne revienne.
+      </p>
+      <p>
+         Les sauvegardes effectuées, je revins à la charge,
+         disquette système en main, je redémarrai la machine avec
+         la disquette puis je tapai la commande fatidique:
+         <tt>flash73 mi415.bin</tt>. Inutile de mentionner que
+         j'avais chaud! Un écran apparut et on me demandait si je
+         voulais effectuer une sauvegarde de l'ancien BIOS.
+         J'appuyai sur <tt>y</tt> pour signifier Yes et le
+         programme me demanda dans quel fichier je voulais
+         effectuer la sauvegarde. Je tapai <tt>a:\mi413.bin</tt>,
+         le nom du BIOS actuel tel que vu au démarrage. Le
+         programme se mit à lire et écrivit le BIOS sur la
+         disquette.
+      </p>
+      <p>
+         Ensuite, il me demanda si je voulais vraiment reprogrammer
+         le BIOS. Après une brève hésitation, j'appuyai sur
+         <tt>y</tt> et une barre de progression m'indiqua la
+         progression de l'opération. Au bas de l'écran figurait une
+         avertissement de ne pas éteindre ni redémarrer a machine
+         pendant la procédure.
+      </p>
+      <p>
+         Le fichier de 256k fut finalement complètement écrit dans
+         l'EEPROM et le programme m'offrait maintenant de
+         redémarrer, je le fis et l'écran devint noir...
+      </p>
+      <h2>
+         Les conséquences de la mise à jour pour le système
+      </h2>
+      <p>
+         Pendant une fraction de seconde, je crus que ça y était,
+         que la machine ne redémarrerait plus. Mais telle ne fut
+         pas ma joie de voir l'écran se rallumer et le système
+         afficher la progression de la vérification de la mémoire!
+         La machine redémarra ensuite sous Windows, comme si de
+         rien n'était. Dans ma joie d'avoir réussi, j'avais oublié
+         de vérifier si la nouvelle version du BIOS était bien
+         MI415, je dus redémarrer pour vérifier: c'était bien le
+         cas.
+      </p>
+      <p>
+         Tout d'abord, je prévoyais laisser la machine dans cet
+         état, attendant de savoir si tout fonctionnait bien. Plus
+         tard, je réactiverais le transfert DMA et je verrais si
+         cela fonctionnait bien avec le graveur. Ensuite,
+         finalement, la réinstallation de Windows aurait lieu en
+         mode ACPI et on verrait bien si tout fonctionne...
+      </p>
+      <p>
+         Mais que se passerait-il si, par exemple, le DMA
+         fonctionnait mais pas ACPI? Il me fallait bien savoir si
+         Windows détecterait à présent automatiquement ce mode.
+         Avant la mise à jour, il me fallait taper <tt>setup /p
+         j</tt> au lieu de <tt>setup</tt> lors de l'installation de
+         Windows pour qu'il utilise ACPI. Mais qu'en était-il à
+         présent?
+      </p>
+      <p>
+         Pour le savoir, il suffisait d'appeler la commande
+         <b>Ajout de nouveau matériel</b> du Panneau de
+         Configuration. Windows allait ainsi détecter le BIOS ACPI
+         et m'offrir de l'installer. J'annulerais la procédure
+         avant qu'il ne la commence et je saurais ensuite pour
+         ACPI. Si aucun nouveau matériel n'était détecté, cela
+         signifierait que je pourrais rester en APM aussi longtemps
+         que bon me semblerait, même après réinstallation de
+         Windows.
+      </p>
+      <p>
+         La détection du matériel se termina enfin et Windows
+         m'offrait d'installer le nouveau matériel, à présent. Je
+         m'attendais, en cliquant sur <b>Terminer</b>, à voir la
+         liste des composantes à installer, mais malheur, il amorça
+         l'installation! Il m'aurait fallu utiliser le bouton
+         <b>Détails</b> puis ensuite annuler, pas le bouton
+         <b>Terminer</b>! Windows me demanda d'insérer le CD pour y
+         lire des fichiers. Au lieu de le faire, j'annulai, ne
+         voulant pas passer tout de suite en mode ACPI! Mais
+         c'était une erreur, il était déjà trop tard pour revenir
+         en arrière.
+      </p>
+      <p>
+         Windows m'offrit de redémarrer, je dis non et je me mis à
+         vérifier si le matériel était toujours là. Dans le
+         Gestionnaire de Périphériques, il n'y avait plus de cartes
+         réseaux, plus de carte son, carte graphique, et bien des
+         périphériques systèmes avaient disparu! Je tentai à tout
+         hasard une nouvelle détection du matériel, mais elle se
+         solda par un redémarrage spontané de la machine! Au retour
+         de ce reboot imprévisible digne d'un vieux 486 en train de
+         rendre l'âme, l'affichage était en 16 couleurs et Windows
+         me disait que la carte graphique n'était pas bien
+         installée.
+      </p>
+      <p>
+         Le démarrage était devenu très lent, car le contrôleur Bus
+         Master IDE avait disparu lui aussi! Je tentai une
+         troisième détection du matériel, sans succès: seul le
+         Partage de connexion Internet était détecté comme nouveau
+         «matériel»!
+      </p>
+      <p>
+         Je tentai une nouvelle fois la détection, cette fois en
+         lui disant que le Partage n'était pas le matériel que je
+         recherchais. Windows recommença sa détection et trouva
+         quelques composantes mais pas toutes! Le contrôleur ne se
+         trouvait toujours pas là et l'ajouter manuellement ne
+         provoquait tout bêtement aucun effet! Les pilotes pour la
+         carte graphique et la carte son seraient à réinstaller et
+         la machine ne détectait pas de port USB! Cela aurait
+         empêché le reconfiguration du scanner! Je commençais à
+         m'énerver un peu, là...
+      </p>
+      <p>
+         Bref, le système d'exploitation, et peut-être même la
+         machine, était irrécupérables et il fallait tenter la
+         réinstallation de Windows. Je dus formater le C: et tout
+         réinstaller, craignant chaque seconde que même après le
+         travail, il manque toujours des périphériques. Il était
+         maintenant 15h30 et je voulais l'ordinateur en voie de
+         redevenir fonctionnel à 17h, à l'arrivée de mon frère qui
+         voudrait peut-être travailler dessus durant la soirée!
+      </p>
+      <p>
+         Fort heureusement, la réinstallation fit ressurgir les
+         composantes disparues et je tentai à tout hasard d'activer
+         le transfert DMA pour le graveur. Tout cela fut inutile,
+         car le bogue du graveur persista. Il n'y eut aucune
+         solution qu'attendre la mort subite de ce graveur pour
+         ensuite le remplacer.
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

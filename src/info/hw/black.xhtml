@@ -1,0 +1,425 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         Écran noir et plus rien
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css"
+      href="../../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../../index.xhtml" class="parents">Le
+               royaume de Eric Buist</a> &gt;&gt; <a
+               href="../index.xhtml"
+               class="parents">Informatique</a> &gt;&gt; Problèmes
+               marquants &gt;&gt; <a href="../resolved.xhtml"
+               class="parents">Quelques bogues résolus</a> &gt;&gt;
+               <a href="index.xhtml" class="parents">Bogues
+               matériels résolus</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../../sitemap.xhtml" class="sitemap">Plan
+               du site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="psbuist.xhtml"
+               class="leftsibling">Le jour où la machine Buist fit
+               PAF!</a>
+            </td>
+            <td class="thispage">
+               Écran noir et plus rien
+            </td>
+            <td class="rightsibling">
+               <a href="hd.xhtml" class="rightsibling">Panne de
+               disque dur sur le Nightmare</a> &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         Écran noir et plus rien
+      </h1>
+      <p>
+         Lundi, 31 décembre 2007 a failli être le dernier jour du
+         <a href="../salvator/index.xhtml">Salvator</a>, la machine
+         de table que j'ai achetée à peine deux ans auparavant.
+         Heureusement, mes pire craintes s'avérèrent infondées; le
+         problème était bénin, quoiqu'un peu surprenant.
+      </p>
+      <h2>
+         Encore un autre plantage d'Ubuntu
+      </h2>
+      <p>
+         Depuis que je suis passé à <a
+         href="../ubuntu7.xhtml">Ubuntu 7.10</a>, j'éprouve divers
+         problèmes, le plus frustrant étant un plantage régulier du
+         système peu après son démarrage. Lors du plantage, je peux
+         bouger la souris, mais peu importe où je clique, peu
+         importe sur quelle touche j'appuie, rien ne se passe. Les
+         seules façons de redémarrer l'ordinateur sont le bouton de
+         réinitialisation ou un branchement via SSH depuis une
+         autre machine. En effet, je peux récupérer le contrôle en
+         me branchant à la machine à distance puis en tuant le
+         serveur graphique X.Org. Le serveur redémarre alors et je
+         me trouve devant l'écran de branchement, comme si de rien
+         n'était. Cette méthode est très agaçante, car je n'ai pas
+         toujours une seconde machine ouverte sous la main.
+         Heureusement, si la machine fonctionne bien pendant une
+         dizaine de minutes suivant le démarrage, elle demeure
+         stable par la suite.
+      </p>
+      <p>
+         Apparemment, selon des recherches sur Google et des
+         forums, le problème serait lié au pilote de carte
+         graphique <a href="http://www.nvidia.com">NVIDIA</a>. La
+         version la plus récente du pilote était susceptible de
+         résoudre le problème, mais elle n'était pas disponible via
+         les dépôts d'Ubuntu. Installer la version provenant
+         directement de NVIDIA occasionne divers problèmes lors de
+         la mise à jour automatique du système si bien que je
+         préférais avoir une mise à jour provenant des dépôts de
+         Ubuntu.
+      </p>
+      <p>
+         Alors, lundi, 31 décembre 2007, la machine planta une fois
+         de trop, après que j'aie éprouvé des difficultés à accéder
+         à mon courrier électronique. Ce second problème, qui
+         survenait de plus en plus régulièrement en fin 2007,
+         n'avait strictement aucun lien avec le premier, mais la
+         combinaison des deux bogues avait de quoi frustrer. Alors,
+         ce lundi matin, j'appuyai de nouveau sur le bouton de
+         réinitialisation de la machine, peut-être un peu trop
+         énergiquement. Ou peut-être pas, non plus.
+      </p>
+      <p>
+         Toujours est-il que l'effet était là: la machine
+         n'allumait plus. L'écran restait noir et aucun bip de
+         démarrage ne se faisait entendre. Le disque dur et les
+         lecteurs optiques se mettaient en marche, mais ça n'allait
+         pas plus loin que cela. J'essayai d'appuyer de nouveau sur
+         le bouton de réinitialisation, en vain. Je tentai
+         d'appuyer sur le bouton de mise sous tension pour éteindre
+         la machine; je dus le maintenir enfoncé pendant cinq
+         secondes pour réussir. Ensuite, je redémarrai l'ordinateur
+         qui figea encore une fois avant même d'alimenter l'écran.
+      </p>
+      <p>
+         Furieux à l'idée que Ubuntu ait fait sauter ma carte mère
+         d'une façon ou d'une autre, j'étais de plus en plus résolu
+         à débrancher cette maudite machine de malheur, qui n'avait
+         fait que planter et lambiner pendant les semaines
+         précédant le plantage final, pour l'envoyer à la
+         récupération. Je ne changerai pas la carte mère, ai-je
+         songé, c'est fini! Après m'être débarrassé de la machine,
+         j'utiliserais mon portable qui, heureusement, fonctionnait
+         encore au moment où j'écrivais cette page.
+      </p>
+      <p>
+         Ce problème inattendu était particulièrement enrageant,
+         car quelques jours après, le 3 janvier 2008, je partais
+         pour Cuba avec mes parents. Je ne reviendrais que le 11
+         janvier et ne pourrais pas faire inspecter la machine
+         avant cette date. En effet, vu le peu d'indices dont je
+         disposais, mes options se résumaient essentiellement à
+         tenter un remplacement de carte mère ou à envoyer la
+         machine au magasin pour qu'ils essaient de remplacer
+         chaque pièce (incluant la carte mère...) une à une. Je ne
+         disposais pas chez moi d'une réserve de pièces suffisante
+         pour faire ce genre de tests moi-même. Non seulement ma
+         machine ne serait pas prête pour commencer ma session
+         d'hiver 2008, mais en plus, je ne pourrais cesser de
+         penser à ça pendant tout mon voyage à Cuba!
+      </p>
+      <h2>
+         Vaines tentatives
+      </h2>
+      <p>
+         Avant d'en venir à déclarer la machine morte pour de bon
+         et l'envoyer au recyclage, possiblement sans même essayer
+         de récupérer des pièces, j'essayai tout ce que je pus pour
+         la faire rallumer! Voici un résumé des vaines tentatives
+         que j'ai faites.
+      </p>
+      <ul>
+         <li>
+            J'ai essayé d'éteindre la machine, couper le courant,
+            attendre 30 secondes puis rallumer. Niet! J'espérais
+            que cette réinitialisation sortirait la machine d'un
+            éventuel état transitoire la rendant inopérante. Eh
+            non.
+         </li>
+         <li>
+            Suspectant la carte graphique, j'ai tenté de débrancher
+            l'écran. Niet! Rebrancher l'écran a été super difficile
+            en raison de l'anxiété et de la frustration qui
+            s'étaient emparées de moi. Heureusement, j'y parvins
+            sans tout casser.
+         </li>
+         <li>
+            J'ouvris le boîtier et essayai de débrancher le disque
+            dur. Il était peut-être sauté et empêchait la bêbite de
+            se mettre en marche. Eh non, aucun changement.
+            Évidemment, la perspective de changer le disque dur (et
+            tout réinstaller) ne m'enchantait pas du tout, mais
+            c'était déjà mieux que remplacer la carte mère.
+         </li>
+         <li>
+            Je sortis le manuel de ma carte mère et tentai de
+            débrancher le fil du bouton de réinitialisation après
+            l'avoir localisé à l'aide du manuel et de mes doigts.
+            Peut-être le bouton était bloqué en position
+            partiellement enfoncée si bien que la machine se
+            comportait comme si je maintenais le bouton enfoncé. Eh
+            non!
+         </li>
+         <li>
+            Je rebranchai le bouton, avec peine et misère, puis
+            débranchai le câble plat reliant mes lecteurs optiques
+            à ma carte mère. Encore une fois, cela ne changea
+            strictement rien. Je rebranchai donc le câble afin
+            d'éviter d'en venir progressivement à tout débrancher
+            ce qui était raccordé à ma carte mère.
+         </li>
+      </ul>
+      <h2>
+         Incroyable mais vrai: le lecteur de disquettes!
+      </h2>
+      <p>
+         Après toutes ces tentatives, j'en vins à essayer de
+         débrancher le lecteur de disquettes. C'était à tout
+         hasard; je ne voyais pas comment cette antiquité pouvait
+         perturber le démarrage à ce point-là. Mais bon, avant de
+         mettre la machine aux rebuts, il faut évidemment essayer
+         tout ce qu'on peut pour la faire rallumer! Et là, la
+         machine <i>alluma</i>! Du moins, j'entendis le bip. Par
+         contre, elle se bloquait au moment de charger le système
+         d'exploitation. Un peu anxieux à l'idée que ce soit le
+         disque dur qui ait rendu l'âme mais m'accrochant à
+         l'espoir que ce soit le lecteur de disquettes débranché
+         qui suscite ce blocage, j'éteignis de nouveau la machine
+         et rebranchai le lecteur.
+      </p>
+      <p>
+         J'aboutis cette fois au menu de lancement du système
+         d'exploitation mais seulement après un délai de plusieurs
+         secondes. Comme la diode du lecteur de disquettes
+         n'allumait plus au démarrage de la machine, je tentai de
+         débrancher et rebrancher le lecteur. Enfin, je finis par
+         l'avoir et la machine continua à allumer!
+      </p>
+      <p>
+         J'étais soulagé de ne pas avoir à inspecter les broches du
+         lecteur comme j'avais eu à le faire quelques mois
+         auparavant avec le lecteur de la machine Buist, une
+         vieille picouille datant de février 2000. En effet, ce
+         jour-là, le lecteur ne fonctionnait plus, peu importe que
+         je le débranche et le rebranche. J'avais fini par
+         découvrir qu'une des broches, sur le lecteur, était croche
+         et par la redresser avec mes doigts, ce qui avait
+         ressuscité le lecteur. Ceci est loin d'être idéal, car la
+         broche aurait pu casser ou s'encrasser au contact du gras
+         sur la peau; c'était un coup de chance que ça ait
+         fonctionné! Je n'eus pas à en arriver là sur le Salvator,
+         en cette veille du nouvel an!
+      </p>
+      <p>
+         Le 2 janvier 2008, je résolus également le problème de
+         plantages de Linux en mettant le pilote de carte graphique
+         NVIDIA à jour. J'utilisai pour cela un script appelé <a
+         href="http://albertomilone.com/nvidia_scripts1.html">Envy</a>.
+      </p>
+      <h2>
+         Ça ne pouvait pas être aussi simple...
+      </h2>
+      <p>
+         Tout lecteur initié parcourant cette page se dira que je
+         me suis fait des illusions, qu'il était très improbable
+         que mon problème de démarrage soit dû à un simple lecteur
+         de disquettes. Effectivement, le problème était bel et
+         bien plus complexe que cela! La machine a en effet redonné
+         des misères le 2 janvier 2008, puis de temps en temps par
+         la suite. Je craignais de plus en plus que le bogue
+         n'empire et qu'éventuellement, la machine ne démarre plus
+         du tout.
+      </p>
+      <p>
+         En particulier, l'installation de Windows Vista qui eut
+         lieu samedi, le 19 janvier 2008 exigea une quantité non
+         négligeable de redémarrages. Vers la fin de la journée,
+         plutôt que redémarrer convenablement, la machine bloquait
+         et l'écran restait noir. Je devais alors éteindre
+         l'ordinateur, attendre quelques secondes puis, avec un peu
+         de chance, la machine rallumait. Au pire, il me fallait
+         deux ou trois frustrants essais avant de l'avoir.
+      </p>
+      <p>
+         Un jour, je tentai d'ouvrir la tour pour débrancher le fil
+         du ventilateur du bloc d'alimentation. Ce fil ne permet à
+         la carte mère que de recevoir la vitesse de rotation du
+         ventilateur, non pas de l'alimenter en électricité. Son
+         débranchement ne pouvait donc pas affecter le bon
+         fonctionnement du bloc d'alimentation. Par contre, la
+         carte mère Asus P5LD2 considère que mon ventilateur de
+         bloc Antec tourne trop lentement et se bloque au démarrage
+         si je n'indique pas dans les réglages du BIOS d'ignorer
+         cette vitesse. Je me suis dit que le problème avait empiré
+         et que maintenant, le système plantait si la vitesse
+         n'était pas suffisante au démarrage. Rappelons qu'après le
+         démarrage, la machine demeurait stable si bien que je
+         croyais avoir affaire à un problème de BIOS. Débrancher le
+         fil me donna la paix pour quelques semaines.
+      </p>
+      <h2>
+         La deuxième bombe du CPU
+      </h2>
+      <p>
+         La <a href="../cpubomb.xhtml">première bombe du CPU</a>
+         m'en a fait voir de toutes les couleurs en m'initiant à
+         l'installation des dissipateurs de chaleur, une tâche qui
+         s'avère pratiquement un art en raison du nombre incroyable
+         de mécanismes de rétention et de la relative habileté
+         manuelle nécessaire pour installer ces bidules essentiels
+         sans tout faire sauter. Bon, installer un dissipateur de
+         chaleur n'est rien à côté de l'assemblage d'une voiture ou
+         d'un avion, mais c'est quand même quelque chose en soit...
+         Eh bien, il fallut qu'une seconde bombe du CPU apparaisse
+         dans mon Salvator.
+      </p>
+      <p>
+         Alors, peu de temps après avoir «stabilisé» ma machine en
+         débranchant le fil du ventilateur du bloc d'alimentation,
+         j'ai découvert que la température du processeur montait à
+         90 degrés. Si j'exécutais deux programmes simultanément,
+         mettant en oeuvre les deux coeurs de mon processeur, je
+         pouvais même faire monter la température à 100 degrés! Au
+         repos, la température se stabilisait à 80 degrés. C'était
+         plutôt haut et cela pouvait expliquer les difficultés de
+         démarrage de la machine, voire même un fonctionnement plus
+         lent surtout sous Windows Vista. En effet, si le
+         processeur était trop chaud dès le démarrage, le BIOS
+         pouvait très bien stopper le système. Un message d'erreur
+         clair et précis aurait été apprécié, par contre. J'ai
+         également lu que la vitesse d'un processeur Intel diminue
+         si sa température est trop élevée. Lundi, 4 février 2008,
+         n'y tenant plus, j'ai poussé les choses à bout: j'ai fait
+         tourner deux programmes simultanément jusqu'à ce que
+         quelque chose se passe. La température est montée à 104
+         degrés, l'écran de veille est parti et tournait lentement,
+         puis la machine s'est éteinte d'un coup sec. Par chance,
+         elle a rallumé peu après. Évidemment, il n'était pas
+         acceptable que la machine perde la carte de cette façon!
+      </p>
+      <p>
+         Samedi, 9 février 2008, j'ai donc décidé d'opérer la
+         machine afin de lui redonner une température normale de
+         fonctionnement. Pour ce faire, j'ai démonté le dissipateur
+         de chaleur du processeur, l'ai inspecté à la recherche de
+         pins cassées, n'en ai pas trouvées, j'ai soufflé entre les
+         tiges du dispositif pour évacuer la poussière, puis j'ai
+         remis une nouvelle couche de pâte thermoconductrice. J'ai
+         ensuite remis le dissipateur en place, ce qui s'est avéré
+         plus facile que prévu. Je m'attendais à devoir exercer une
+         pression excessive pour enfin entendre les quatre clics,
+         trouver des pins cassées après avoir ôté le dissipateur,
+         constater que ma pâte thermoconductrice avait séché, etc.
+         Rien de cela ne se passa! Cette fois-ci, les quatre clips
+         s'enclenchèrent avec un clic audible.
+      </p>
+      <p>
+         La machine démarra après ce traitement, ce qui ne manqua
+         de provoquer chez moi une vague de soulagement. J'accédai
+         alors aux réglages du BIOS pour voir la température du
+         processeur. Celle-ci semblait se stabiliser à 45 degrés si
+         bien que je démarrai la machine sous Linux.
+         Malheureusement, lorsque j'ouvris une session, la machine
+         redémarra toute seule et se bloqua! Deux très frustrantes
+         tentatives plus tard, elle rallumait et demeurait stable
+         quelques minutes. La température montait à 70 degrés si
+         j'exécutais des programmes, puis se stabilisait à environ
+         50 degrés au repos. C'était beaucoup mieux qu'avant
+         l'intervention! Et c'était à mon avis acceptable. Je ne
+         pourrais pas faire mieux sans investir dans un nouveau
+         dissipateur de chaleur, en tout cas.
+      </p>
+      <p>
+         Malheureusement, la machine gela quelques temps après que
+         je l'aie laissée au repos. Je la redémarrai et elle gela
+         presqu'aussitôt après le démarrage de ma session sous
+         GNOME. Un nouveau démarrage suivi d'un plantage me firent
+         perdre les pédales encore une fois. De nouveau, je songeai
+         jeter la machine par la fenêtre après avoir sauté dessus à
+         pieds joints plutôt que remplacer cette foutue carte mère!
+         Heureusement, je n'en fis rien.
+      </p>
+      <p>
+         La première chose intelligente que je fis après m'être
+         calmé un peu, c'est d'exécuter Memtest86 pour tester la
+         mémoire. Pendant plus d'une heure, le programme fonctionna
+         et la machine ne planta jamais! Il y avait donc de
+         l'espoir! Je tentai donc de démarrer la machine sous
+         Windows Vista pour tester et pendant plusieurs heures,
+         elle fonctionna sans planter.
+      </p>
+      <p>
+         Le problème était que les plantages de Linux à cause du
+         pilote de NVIDIA avaient recommencé et empiré. Puisque
+         cela coïncidait avec une récente mise à jour du noyau, il
+         y avait lieu de croire que réutiliser le script Envy
+         pourrait résoudre mon problème. Je le fis dimanche matin,
+         10 février 2008, et cela redonna stabilité à ma machine
+         éprouvée!
+      </p>
+      <h2>
+         Conclusion
+      </h2>
+      <p>
+         Pour résumer, nous avons ici affaire à deux problèmes
+         distincts: le pilote de NVIDIA qui, à présent, fonctionne
+         mal et une instabilité matérielle de ma carte mère. Je
+         peux travailler sur le premier problème en mettant le
+         pilote à jour ou, au pire, en remplaçant la carte
+         graphique pour une autre de marque ATI en <i>espérant</i>
+         que le pilote aille mieux, ce qui est loin d'être
+         prometteur... Je pourrais aussi renoncer à Linux ou
+         réinstaller une ancienne version qui fonctionnait bien.
+      </p>
+      <p>
+         Par contre, pour le second problème, il n'y a pas
+         grand-chose à faire à part espérer et changer la carte
+         mère lorsque la machine ne démarrera plus du tout. Cela
+         promet de mettre ma patience et mes nerfs à rude épreuve.
+         Il se peut aussi que cela reste stationnaire pendant des
+         mois, peut-être des années.
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

@@ -1,0 +1,794 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         Passage à Fedora Core 4
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css" href="../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../index.xhtml" class="parents">Le royaume
+               de Eric Buist</a> &gt;&gt; <a href="index.xhtml"
+               class="parents">Informatique</a> &gt;&gt;
+               Configuration informatique
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../sitemap.xhtml" class="sitemap">Plan du
+               site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="frontusb.xhtml"
+               class="leftsibling">Installation de ports USB avant:
+               un voyage en enfer cybernétique</a>
+            </td>
+            <td class="thispage">
+               Passage à Fedora Core 4
+            </td>
+            <td class="rightsibling">
+               <a href="pvr.xhtml"
+               class="rightsibling">Remplacement de mon
+               synthoniseur TV</a> &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         Passage à Fedora Core 4
+      </h1>
+      <p>
+         En juin 2005, voilà que Fedora Core 4 était sorti. GNOME
+         2.10, KDE 3.4, GCC 4, teTeX 3, intéressant. Mardi, le 14
+         juin exactement, je disposais d'un DVD+R contenant la
+         nouvelle version de cette distribution de Linux, obtenu
+         encore une fois par BitTorrent. Toutefois, au moment du
+         téléchargement, je n'étais pas certain de l'installer,
+         puisque Fedora Core 3 fonctionnait assez bien et je
+         n'avais pas envie de me taper du déboguage à plus finir.
+         Comme d'habitude, j'éprouvai de multiples problèmes mais
+         seulement après une réinstallation.
+      </p>
+      <ul>
+         <li>
+            <a href="#first">Première installation, un franc
+            succès!</a>
+         </li>
+         <li>
+            <a href="#screwedup">Sabotage!</a>
+         </li>
+         <li>
+            <a href="#reinstall">La réinstallation cause des
+            problèmes</a>
+         </li>
+         <li>
+            <a href="#smb">Plus de partage de fichiers</a>
+         </li>
+         <li>
+            <a href="#internet">La haute vitesse, plus si rapide
+            que ça</a>
+         </li>
+         <li>
+            <a href="#sound">Plus de son!</a>
+         </li>
+         <li>
+            <a href="#fuse">FUSE et l'écriture sur NTFS</a>
+         </li>
+         <li>
+            <a href="#win">Possibilité de me débarrasser de
+            Linux</a>
+         </li>
+      </ul>
+      <h2>
+         <a name="first" id="first">Première installation, un franc
+         succès!</a>
+      </h2>
+      <p>
+         Vendredi, 17 juin, j'eus de la misère noire avec Linux. Je
+         tentai pendant un temps fou de régler ALSAMixer pour
+         obtenir un son correct, mais ça ne cessait de gricher
+         légèrement dans mon haut-parleur avant gauche. Je tentai
+         aussi de transférer des CD sur mon disque dur et GRip, le
+         programme que j'utilise habituellement pour ça, ne cessait
+         de me faire redémarrer. J'essayai, tanné, avec Sound
+         Juicer, un autre logiciel d'extraction audio, mais ce
+         dernier refusait de démarrer. Il y eut de multiples
+         problèmes avec Linux et avec mon ordinateur en général:
+         des sites Web difficiles à lire, la connexion à Internet
+         devenue trop lente, etc. Je passai plus de trois quarts
+         d'heure, un bon soir, à tenter d'imprimer un simple
+         document sous Linux! C'était une page Web traitant de
+         SELinux et venant du site de <a
+         href="http://fedora.redhat.com">Fedora Core</a>. Bientôt,
+         il faudra que j'utilise Windows simplement pour imprimer
+         des informations sur Linux! Cette contradiction me
+         frustrait au plus haut point. Je dus aussi désactiver
+         SELinux, car Fedora a modifié la politique de sécurité,
+         empêchant GnuPG et Adobe Reader de fonctionner. Il
+         faudrait probablement recompiler GnuPG pour une édition de
+         liens statique plutôt que dynamique et me passer d'Adobe
+         Reader en attendant une hypothétique version ultérieure
+         qui résoudrait peut-être le problème. Désactiver SELinux
+         était la meilleure solution!
+      </p>
+      <p>
+         Mardi, 28 juin 2005, je me résolus à tester Fedora Core 4.
+         Si je perdais des plumes après l'installation, par exemple
+         le graveur cessant de fonctionner ou l'accélération 3D, je
+         débarrasserais ma machine de Linux et reformaterais tout
+         en NTFS. J'allais attendre la noyau 2.8 avant d'essayer de
+         nouveau le système.
+      </p>
+      <p>
+         L'installation de Fedora Core 4, qui eut lieu samedi, 2
+         juillet 2005, se passa très bien! Cette fois-ci, je
+         n'activai pas SELinux, mais j'essayai le pare-feu. Je dus
+         le désactiver, car il m'empêchait d'utiliser Samba pour
+         partager des fichiers. Aucune option ne permettait de
+         déverrouiller les ports nécessaires, il fallait tout faire
+         manuellement. Désactiver le pare-feu IPTables régla le
+         problème et évita beaucoup de niaisage. Je suis tanné
+         d'écrire des commandes qui sont tellement complexes
+         qu'elles ne fonctionnent jamais et les commandes pour
+         configurer IPTables sont de cette catégorie. La solution
+         est de copier/coller les commandes depuis une page Web
+         quelconque, et encore. Je ne pus utiliser le fichier
+         <tt>yum.conf</tt> de <a
+         href="http://www.fedorafaq.org">Fedora FAQ</a>, car YUM
+         plantait avec ce dernier. Il me fallut extraire des
+         informations de ce fichier afin de créer plusieurs
+         fichiers de configuration dans <tt>/etc/yum.repos.d</tt>.
+         Le fichier le plus important est
+         <tt>livna-stable.repo</tt> qui contient ceci:
+      </p>
+<pre>
+[livna-stable]
+name=Livna.org - Fedora Compatible Packages (stable)
+baseurl=http://rpm.livna.org/fedora/$releasever/$basearch/RPMS.lvn
+  http://livna.cat.pdx.edu/fedora/$releasever/$basearch/RPMS.lvn
+gpgcheck=0
+</pre>
+      <p>
+         Je dus inférer les chemins à partir de ceux de Fedora Core
+         3, en accédant au site Web avec Mozilla. Livna m'a permis
+         d'installer le support MP3 dans XMMS, le lecteur DVD
+         Kaffeine, etc.
+      </p>
+      <p>
+         Contrairement à la dernière fois, j'ai conservé Fedora
+         Core 3 sur mon disque dur, sur une autre partition. Comme
+         ça, je pourrais revenir à l'ancienne distribution si
+         celle-là ne me convient pas; le besoin ne se fit jamais
+         sentir! Toutefois, conserver FC3 m'a permis de recopier
+         bon nombre de fichiers de configuration, me sauvant temps
+         et tâtonnement. Il y a malheureusement deux bogues. Tout
+         d'abord, la mise à jour automatique ne fonctionne plus.
+         L'icône reste verte, comme sous Mandrake, même s'il y a de
+         nouvelles mises à jour. Sur la console, il me faut ainsi
+         appeler <tt>yum update</tt> régulièrement. Il y eut aussi
+         le son qui était beaucoup moins bon que sous Fedora Core
+         3. Pour résoudre ce bogue très tannant, je dus démarrer
+         <tt>alsamixer</tt> et mettre <b>Sigmatel 4-Speaker
+         stereo</b> sur Muet.
+      </p>
+      <p>
+         Pour Java, j'ai voulu tenter une autre approche
+         qu'auparavant: construire un RPM personnalisé compatible
+         <a href="http://www.jpackage.org/">JPackage</a>. Le projet
+         JPackage met à disposition des utilisateurs Linux des RPMs
+         contenant différentes applications et bibliothèques Java.
+         Ils ne proposent pas des RPMs pour JDK de Sun, car sa
+         distribution est interdite. Il faut ainsi créer les RPMs
+         manuellement; j'ai tenté de le faire et ça a fonctionné.
+         La procédure est détaillée sur le site JPackage et un lien
+         vers cette dernière est disponible sur FedoraFAQ. Puisque
+         Java est à présent intégré à JPackage, il ne devrait plus
+         y avoir de conflits avec GCJ, comme j'ai déjà vécu par le
+         passé.
+      </p>
+      <p>
+         Ainsi, le passage à Fedora Core 4 n'a pas occasionné de
+         problèmes insolubles. C'est donc une très bonne chose et
+         la distribution fonctionne très bien. FC4 est même plus
+         rapide à démarrer que FC3, peut-être à cause des
+         optimisations dans GCC 4 utilisé pour compiler les
+         éléments du système. J'ai bien cru que ce nouveau Linux
+         allait redonner vie à ma machine qui me semblait de plus
+         en plus déclinante, mais une nouvelle <a
+         href="hw/cpubomb.xhtml">expérience hasardeuse</a> viendra
+         troubler ma confiance.
+      </p>
+      <h2>
+         <a name="screwedup" id="screwedup">Sabotage!</a>
+      </h2>
+      <p>
+         Vendredi, 23 septembre 2005, j'ai effectué un grand nombre
+         d'expérimentations dans le but de faire fonctionner mon <a
+         href="pvr.xhtml">nouveau TV tuner</a> Hauppage WinTV
+         PVR-150 sous Linux. J'ai découvert qu'il fallait installer
+         <a href="http://ivtv.sourceforge.net">IvTV</a>, un module
+         de noyau qui n'était pas intégré en standard et la version
+         0.2-rc3j de ce module ne compilait pas avec le noyau
+         2.6.12 de Fedora Core 4! Je parvins non sans mal à
+         bidouiller son code source pour le rendre compilable, mais
+         je ne pus obtenir que de la statique, comme sur un
+         téléviseur qui ne serait pas raccordé au câble ou à une
+         antenne. Je découvrirais dimanche, 2 octobre 2005, que je
+         ne disposais pas de la version la plus récente du module.
+         La version 0.2-rc3k compilait mais ne fonctionnait pas
+         mieux. Seule la version 0.3.9 de développement me permit
+         d'avoir une image de façon stable.
+      </p>
+      <p>
+         Revenons maintenant au 23 septembre, le premier soir de
+         test. Ce soir-là, je n'obtenais rien du tout et je pensai
+         qu'installer le logiciel <a
+         href="http://mythtv.sourceforge.net">MythTV</a> pourrait
+         améliorer mon sort. Étant donné que <tt>yum install
+         mythtv</tt> ne fonctionnait pas, je téléchargeai son code
+         source et tentai de le compiler. Surprise: MythTV 0.18.1
+         ne compile pas sous Fedora Core 4, probablement une
+         incompatibilité avec GCC 4! Je parvins à faire avancer le
+         processus de compilation en modifiant des fichiers source,
+         mais je finis par tomber sur une partie en code assembleur
+         qui ne compilait même pas!
+      </p>
+      <p>
+         Je tentai alors d'installer une version précompilée de
+         MythTV à travers <a href="http://atrpms.net">ATRpms</a>.
+         Je dus pour cela ajouter un nouveau fichier
+         <tt>atrpms.repo</tt> dans <tt>/etc/ym.repos.d</tt> et
+         taper <tt>yum install mythtv-suite</tt>. Il en résulta
+         l'installation d'une cinquantaine de paquetages et la mise
+         à jour de certains paquetages de mon système. MythTV
+         s'avéra complexe à configurer, nécessitant la création
+         d'une base de données MySQL. De plus, jamais le logiciel
+         ne voulut détecter mon TV tuner. Lorsque je découvris
+         comment le configurer correctement pour qu'il produise de
+         la statique plutôt que rien du tout, le tuner put être
+         détecté par MythTV, mais MythTV ne voulut jamais démarrer.
+         MythTV me demandait d'appeler <tt>mythtv-frontend</tt>
+         qui, lui, cherchait <tt>mythtv-backend</tt>. MythTV semble
+         un gros logiciel dont plusieurs éléments sont superflus.
+         Il est probable qu'il ne fonctionne que sous certaines
+         versions de certaines distributions de Linux seulement.
+         Malheureusement, beaucoup de sites Web qui ne sont pas
+         actualisés en fonction des nouvelles versions de MythTV
+         et/ou de Linux considèrent uniquement ce logiciel comme
+         solution pour exploiter un TV tuner. Il faut décidément
+         trouver une autre alternative, car MythTV n'est pas viable
+         sous Fedora Core 4.
+      </p>
+      <p>
+         Au cours de la journée de samedi, j'utilisai la commande
+         <tt>yum update</tt>, ce qui installa une centaine de mises
+         à jour. Étant donné que ATRpms se trouvait désormais parmi
+         mes sources de mises à jour, Yum installa tout ce qu'il
+         put y trouver! Le lendemain, Yum me proposa encore une
+         centaine de mises à jour! Je compris vite qu'il y avait un
+         problème et découvris que ATRpms avait installé de
+         nouveaux fichiers dans <tt>/etc/ym.repos.d</tt>. Ces
+         fichiers incluaient des liens vers ATRpms et d'autres
+         sites, ce qui avait provoqué le remplacement de mes
+         paquetages par des versions de test que je ne voulais pas.
+         Il n'y eut aucun moyen de revenir en arrière. Mon unique
+         tentative pour stopper le mal me supprima l'accès à Yum
+         que je pus retrouver en réinstallant manuellement le
+         paquetage supprimé. C'est dimanche, 25 septembre 2005, que
+         je dus déclarer mon installation de Linux sabotée et à
+         refaire!
+      </p>
+      <h2>
+         <a name="reinstall" id="reinstall">La réinstallation cause
+         des problèmes</a>
+      </h2>
+      <p>
+         Dimanche, 25 septembre 2005, j'entrepris ainsi de
+         réinstaller Linux. J'optai encore une fois pour une
+         installation complète et désactivai SELinux et le
+         pare-feu. L'installation se passa très bien, comme la
+         dernière fois, si bien que j'aboutis sous GNOME. J'ouvris
+         une console et tapai <tt>yum update</tt> pour télécharger
+         toutes les mises à jour.
+      </p>
+      <p>
+         Après un temps fou, l'opération échoua, Yum rapportant un
+         conflit entre des paquetages. Pour résoudre le conflit, je
+         dus taper
+      </p>
+<pre>
+rpm -e cman-kernel cman-kernheaders cman dlm-kernel dlm-kernheaders dlm dlm-devel gnbd gnbd-kernel gnbd-kernheaders
+</pre>
+      <p>
+         Cela permit à Yum d'accomplir toute la phase de
+         téléchargement des nouveaux paquetages, mais il planta au
+         moment d'installer! Je dus, pour résoudre ce second
+         plantage, supprimer le paquetage
+         <tt>kdelibs-i18n-Polish</tt>. Comme on peut le deviner à
+         partir de son nom, ce paquetage s'avère parfaitement
+         inutile pour moi et le supprimer ne me fit pas un pli.
+      </p>
+      <p>
+         Le reste de la configuration se passa comme avec mon
+         installation précédente et ne souleva pas de problèmes
+         particuliers. En une journée, je disposais déjà d'un
+         système Linux à peu près complet et fonctionnel, pilote
+         NVIDIA installé et fontes ajustées. Malheureusement, c'est
+         à partir de ce jour que Fedora Core a commencé à perdre
+         des fonctionnalités. La plupart des bogues purent être
+         résolus, mais ils me firent tous perdre un temps précieux.
+      </p>
+      <h2>
+         <a name="smb" id="smb">Plus de partage de fichiers</a>
+      </h2>
+      <p>
+         Lundi, 26 septembre 2005, je constatai que Samba ne
+         fonctionnait plus du tout. L'appel de <tt>smbclient -L
+         faucondefer</tt> provoquait l'effet escompté, mais si
+         j'utilisais <tt>smbclient -L buist</tt> pour afficher la
+         liste des partages sur la machine familiale, rien ne se
+         passait. Le logiciel attendait pendant plusieurs secondes
+         avant de déclarer qu'il ne pouvait pas se connecter.
+         J'essayai vers une autre machine, une vieille picouille
+         tournant sous Windows 95, et obtins le même résultat.
+         L'erreur contenait le message <tt>Called name not
+         present</tt>, comme si la machine distante ne répondait
+         pas. Sous Windows, par contre, tout fonctionnait très
+         bien. La seule façon, désormais, de me brancher sur les
+         machines distantes était d'utiliser des adresses IP plutôt
+         que des noms en clair. Par exemple, je devrais utiliser
+         <tt>//192.168.1.2/data</tt> plutôt que
+         <tt>//buist/data</tt> comme nom de partage réseau pour
+         accéder aux données de la machine familiale. Cela
+         impliquait des modifications dans mes scripts de
+         sauvegarde automatique que je trouvais totalement
+         ridicules. Pourquoi, à présent, est-ce que je perdais
+         cette fonctionnalité qui n'avait jamais bogué auparavant?
+      </p>
+      <p>
+         Notez que puisque mon routeur n'implante pas le protocole
+         SMB, ces partages ne sont pas accessibles depuis
+         l'extérieur si bien que je peux donner leur nom en toute
+         sécurité. En théorie du moins...
+      </p>
+      <p>
+         Si je tapais <tt>nslookup faucondefer</tt>, j'obtenais une
+         IP locale: 192.168.1.5. NSLookup permet de transformer un
+         nom de machine NetBIOS en une IP. Toutefois, si je tapais
+         <tt>host faucondefer</tt>, j'obtenais une IP différente,
+         celle de mon domaine ericbuist.com! Il y avait donc un
+         défaut de configuration; il ne fallait pas mettre
+         <tt>faucondefer.ericbuist.com</tt> comme nom d'hôte de la
+         machine. Corriger le bogue Samba nécessita plusieurs
+         étapes simples.
+      </p>
+      <ol>
+         <li>
+            Dans /etc/hosts, changer
+            <tt>faucondefer.ericbuist.com</tt> par un nom d'hôte
+            bidon: <tt>faucondefer.buistgroup.ca</tt>.
+         </li>
+         <li>
+            Dans ce même fichier, remplacer l'IP par mon IP
+            interne: 192.168.1.5.
+         </li>
+         <li>
+            Dans les fichiers <tt>/etc/resolv.conf</tt>,
+            <tt>/etc/printcap</tt> et
+            <tt>/etc/sysconfig/network</tt>, remplacer
+            ericbuist.com par buistgroup.ca.
+         </li>
+         <li>
+            Redémarrer la machine. Réinitialiser Samba et la
+            gestion réseau n'a pas suffi.
+         </li>
+      </ol>
+      <p>
+         Pour mes scripts de sauvegarde, j'utilisais
+         <tt>smbmount</tt> qui ne fonctionnait plus. Je dus, pour
+         le réparer, utiliser <tt>chmod u+s /usr/bin/smbmnt
+         /usr/bin/smbumount</tt>. Une alternative a SMBMount est
+         l'usage du système de fichiers CIFS. Il faut par contre
+         inclure des lignes additionnelles dans <tt>/etc/fstab</tt>
+         qui est mystérieusement tripoté par un programme. Rien ne
+         me disait que les lignes que j'ajouteraient ne
+         disparaîtraient pas au prochain démarrage.
+      </p>
+      <p>
+         Par exemple, à l'insertion de ma clé USB, le périphérique
+         <tt>/dev/sda</tt> que j'avais pris soin de configurer
+         s'était modifié de lui-même. Il est par contre possible
+         que cette fonctionnalité rende possible l'usage de clés
+         USB sur des machines Linux sans disposer d'un accès root
+         pour configurer le système, ce qui est plus
+         qu'intéressant.
+      </p>
+      <h2>
+         <a name="internet" id="internet">La haute vitesse, plus si
+         rapide que ça</a>
+      </h2>
+      <p>
+         Mardi, 27 septembre 2005, j'eus plusieurs recherches à
+         faire sur Internet pour un projet de cours. Sous Linux, le
+         réseau était très lent tandis que je gagnai de la vitesse
+         en redémarrant sous Windows. Pourtant, j'avais bien ajouté
+         la ligne <tt>alias net-pf-10 off</tt> dans
+         <tt>/etc/modprobe.conf</tt> pour désactiver IPv6.
+      </p>
+      <p>
+         Pour tenter de résoudre ce problème, j'essayai de me
+         brancher à mon routeur et obtins les serveurs DNS de
+         Vidéotron. Dans mon fichier <tt>/etc/resolv.conf</tt>, je
+         remplaçai 192.168.1.1 (mon routeur) par ces DNS, une IP
+         par ligne. Cela semblait avoir accru la vitesse de
+         recherche des pages Web et résolu le problème.
+      </p>
+      <h2>
+         <a name="sound" id="sound">Plus de son!</a>
+      </h2>
+      <p>
+         Vendredi, 30 septembre, l'appel de <tt>yum update</tt>
+         installa le noyau 2.6.13-1.1526. Je dus, pour faire face à
+         cette mise à jour, télécharger un nouveau module NTFS,
+         recompiler le pilote IvTV de mon TV tuner et réinstaller
+         le pilote NVIDIA de ma carte graphique après un
+         redémarrage dans le noyau 2.6.13. Je constatai toutefois
+         que le volume du son était réduit de beaucoup.
+      </p>
+      <p>
+         J'activai alors <tt>alsamixer</tt> et constatai que
+         plusieurs réglages du mixer étaient disparus. Je me rendis
+         ensuite compte que le son ne jouait que dans les
+         haut-parleurs centre et arrière. Si je reconfigurais mes
+         haut-parleurs pour qu'ils ne considèrent comme signal
+         d'entrée que les canaux avant gauche et avant droit, il
+         n'y avait plus de son du tout, ce qui confirmait mon
+         diagnostic. Il n'y eut absolument rien à faire pour
+         résoudre le bogue, à part revenir au noyau 2.6.12-1.1456!
+      </p>
+      <p>
+         Ce problème semblait lié au noyau 2.6.13 lui-même et il se
+         pouvait fort bien qu'il se manifeste pour toutes les
+         versions futures du noyau, à moins de changer ma carte
+         son. Toutefois, je constatai que même avec une Sound
+         Blaster Audigy, j'éprouverais le même bogue, car cette
+         carte est aussi gérée par le module EMU10k1. Tant que
+         Fedora Core 5 ne devenait pas disponible, rester avec le
+         noyau 2.6.12 demeurait la meilleure solution. Toutefois,
+         lorsqu'une nouvelle version de Linux verrait le jour, elle
+         comporterait le noyau 2.6.13 ou 2.6.14. Si le son ne
+         fonctionnait toujours pas, il allait falloir m'en passer
+         ou recompiler le noyau 2.6.12. Je pourrais toujours tenter
+         ma chance avec <a href="http://www.opensound.com">OSS</a>,
+         mais ce serait encore un ensemble de modules à code source
+         fermé causant problèmes par-dessus problèmes.
+      </p>
+      <p>
+         Cela me désespéra, mais je me résolus à attendre la sortie
+         de Fedora Core 5 pour agir. Il était possible qu'une mise
+         à jour vienne entre temps corriger le bogue. Dans le cas
+         contraire, si Fedora Core 5 éprouvait le même bogue et
+         qu'il n'était pas possible de le résoudre sans recompiler
+         manuellement le noyau 2.6.12, je me débarrasserais de
+         Linux. Le son serait la dernière fonctionnalité qu'on
+         m'enlèverait.
+      </p>
+      <p>
+         Heureusement, vendredi, 21 octobre 2005, j'installai le
+         nouveau noyau 2.6.13-1.1532_FC4 et tout rentra dans
+         l'ordre. Je dus par contre, dans <tt>alsamixer</tt>,
+         reconfigurer certains volumes et réactiver des sources
+         audio, dont Master.
+      </p>
+      <h2>
+         <a name="fuse" id="fuse">FUSE et l'écriture sur NTFS</a>
+      </h2>
+      <p>
+         Voilà quelques temps, je suis tombé sur Filesystem in
+         Userspace (<a
+         href="http://fuse.sourceforge.net">FUSE</a>), une
+         extension très intéressante qui permet d'incorporer de
+         nouveaux systèmes de fichiers dans le noyau. Certains
+         systèmes de fichiers sont en effet trop complexes pour
+         être implémentés dans un module de noyau sans récrire
+         beaucoup de code qui existe déjà. FUSE permet
+         d'implémenter de tels systèmes dans des programmes
+         traditionnels, dits <i>user space</i>, plutôt que dans des
+         modules, dits <i>kernel space</i>. Cela permet entre autre
+         toutes sortes d'implémentations ésotériques du système de
+         fichiers NTFS de Microsoft, comme par exemple <a
+         href="http://www.jankratochvil.net/project/captive/">Captive
+         NTFS</a> qui utilise carrément le code de Microsoft! Mes
+         premiers essais avec FUSE échouèrent, car il fallait
+         compiler un module de noyau qui refusa de fonctionner. Mes
+         expérimentations avec Captive furent également un échec,
+         car il ne voulut jamais charger le gestionnaire NTFS de
+         Microsoft.
+      </p>
+      <p>
+         Par hasard, un bon jour, je découvris que FUSE était
+         désormais intégré au noyau 2.6.14, ce qui simplifiait
+         grandement les choses. Pour utiliser FUSE, avec Yum,
+         j'installai les paquetages <tt>fuse</tt>,
+         <tt>fuse-libs</tt>, <tt>fuse-devel</tt> et
+         <tt>fuse-sshfs</tt>.
+      </p>
+      <p>
+         Ce n'est que lundi, 23 janvier 2006, sur ma nouvelle
+         machine <a href="salvator/index.xhtml">Salvator</a>, que
+         je fis de véritables expérimentations. Cela commença par
+         une visite sur <a href="http://www.linux-ntfs.org">Linux
+         NTFS</a> pour obtenir des informations plus détaillées à
+         propos de NTFS. J'essayais de savoir pourquoi l'écriture
+         sur NTFS n'était toujours pas possible sous Linux sans
+         installer des modules qui ne fonctionnent que sur un
+         système sur deux. Est-ce en raison de l'incroyable
+         complexité du système de fichiers lui-même ou est-ce par
+         manque d'informations? S'il n'est pas possible d'obtenir
+         la spécification du système NTFS, peut-être a-t-il été
+         possible de découvrir les structures de base suffisantes
+         pour la lecture, mais toute la structure doit être connue
+         pour la modifier sans tout casser. Je découvris qu'il
+         existait désormais un module FUSE implémentant
+         partiellement l'écriture sur NTFS, ce qui me surprit
+         agréablement! Bien que ce module ne traitait pas encore
+         tous les cas et que l'écriture échouait de temps en temps,
+         sa présence signifiait une progression: peut-être un jour
+         serait-il possible d'écrire sur du NTFS comme sur du
+         FAT32! Je dus, pour utiliser le nouveau pilote NTFS,
+         télécharger <tt>ntfsprogs</tt> et le compiler. Utiliser le
+         paquetage RPM était hors de question, car il n'était pas
+         fait pour x86_64. J'aurais pu l'essayer, ça aurait sans
+         doute très bien fonctionné, mais autant avoir une version
+         64 bits. La compilation réussit, mais le logiciel que je
+         cherchais, <tt>ntfsmount</tt>, brillait par son absence.
+         Je dus installer le paquetage <tt>fuse-devel</tt> et
+         tenter de recompiler <tt>ntfsprogs</tt>: cela fonctionna!
+      </p>
+      <p>
+         Grâce à <tt>ntfsmount</tt>, en root, je parvins à monter
+         ma partition NTFS de données et j'y transférai un
+         gigantesque fichier de 7Go créé la veille sur ma partition
+         de données Ext3. Le transfert était impossible autrement,
+         car le fichier n'aurait pas tenu sur une partition FAT32.
+         J'aurais été forcé de le casser en deux parties. Ce
+         fichier contenait un film que j'ai enregistré avec mon
+         synthoniseur TV et qui était destiné à divers traitements
+         expérimentaux dont une gravure sur DVD. Des logiciels pour
+         Windows étaient nécessaires pour la coupure des pauses
+         publicitaires ainsi que pour la création simple de la
+         structure DVD-Video. La copie fonctionna à merveille, bien
+         qu'elle fut un peu longue.
+      </p>
+      <p>
+         Je décidai donc de rendre ma partition de données NTFS
+         accessible en écriture de façon permanente en modifiant
+         <tt>/etc/fstab</tt>. La ligne permettant cela dans mon cas
+         se présente comme suit:
+      </p>
+<pre>
+/dev/sda7      /mnt/windata ntfs-fuse umask=0,default_permissions,allow_other 0 0
+</pre>
+      <p>
+         Étant donné que ce module FUSE n'implémente pas tous les
+         aspects de l'écriture NTFS et qu'il est possible que le
+         système de fichiers soit endommagé par une écriture
+         incorrecte, je décidai de laisser ma partition Windows,
+         sur <tt>/dev/sda1</tt>, en lecture seule. Je n'avais pas
+         du tout envie de devoir réinstaller Windows à cause du
+         module NTFS de Linux!
+      </p>
+      <p>
+         Une seconde expérience avec FUSE échoua complètement, du
+         moins la première tentative. En tant qu'utilisateur,
+         j'essayai <tt>sshfs</tt>. Cette commande pourrait me
+         permettre d'accéder à mon compte à l'université comme à un
+         répertoire sur mon système, ce qui simplifierait les
+         transferts de fichiers. Malheureusement, <tt>sshfs</tt>
+         refusa de démarrer en mode utilisateur, prétextant que
+         <tt>fusermount</tt> n'avait pas les permissions
+         nécessaires.
+      </p>
+      <p>
+         La solution consistait à ajouter mon utilisateur dans le
+         groupe <tt>fuse</tt> et à redémarrer ma session. Je ne fis
+         que l'ajout au groupe et n'obtins aucun résultat. Je
+         tentai vainement de trouver des indices sur Internet, ce
+         qui me mena à une telle frustration que je tentai de voir
+         si je ne pourrais pas passer à Mandriva 2006. Cette
+         distribution, au moins, a plus de fonctionnalités
+         intégrées que Fedora Core 4; il y avait des chances que
+         SSHFS fonctionne bien, ainsi que bien d'autres choses.
+         Mais le x86_64, faudrait oublier, à moins de prendre la
+         version CD plutôt que la version DVD!
+      </p>
+      <p>
+         Mardi soir, 24 janvier 2006, je réessayai SSHFS et cette
+         fois-ci, cela fonctionnait! Je dus me créer un répertoire
+         dans mon compte (<tt>mkdir tst</tt>) et utiliser <tt>sshfs
+         buisteri@frontal.iro.umontreal.ca: tst</tt>. Je dus entrer
+         mon mot de passe DIRO après quoi le répertoire
+         <tt>tst</tt> contenait mon compte. Malheureusement, les
+         liens symboliques ne fonctionnaient pas, mais c'était déjà
+         impressionnant. Je dus utiliser <tt>fusermount -u tst</tt>
+         pour démonter le système SSH après avoir supprimé quelques
+         fichiers inutiles sur mon compte.
+      </p>
+      <h2>
+         <a name="win" id="win">Possibilité de me débarrasser de
+         Linux</a>
+      </h2>
+      <p>
+         Ces bogues remirent en question ma résolution à conserver
+         Linux sur ma machine. En effet, toutes les raisons pour
+         lesquelles je conserve ce système d'exploitation
+         devenaient de moins en moins valables.
+      </p>
+      <dl>
+         <dt>
+            Support des bureaux virtuels
+         </dt>
+         <dd>
+            Aussitôt qu'il y a plus de deux programmes ouverts sous
+            Windows, la touche Alt-Tab permettant de commuter entre
+            les fenêtres plus efficacement qu'avec la souris
+            devient plutôt imprévisible. Sous Linux, je peux
+            résoudre ce problème par la création de plusieurs
+            bureaux virtuels. Sur le premier bureau, je mets
+            habituellement un terminal et Emacs. Sur le second
+            apparaissent les fenêtres Internet. Sur le troisième,
+            je place XMMS et parfois aMule. Sur le quatrième se
+            trouvait GAIM que j'ai cessé d'utiliser, car il n'était
+            plus qu'une source de perte de temps. Windows ne
+            prévoit aucune fonctionnalité du genre de façon
+            standard. Le module de bureaux multiples de Microsoft
+            ne convient pas, car la fonction de la touche Alt-Tab
+            ignore la frontière entre les bureaux! Toutefois, ATI
+            fournit HydraVISION, un module de multi-bureau très
+            bien fait. Le pilote NVIDIA fournit nView, un module de
+            multi-bureau qui fonctionne lui aussi très bien. Ainsi,
+            il y a des solutions pour le multi-bureau, si bien que
+            cette raison de garder Linux ne suffit plus!
+         </dd>
+         <dt>
+            Stabilité
+         </dt>
+         <dd>
+            Linux était beaucoup plus stable et robuste que Windows
+            98 et surtout Windows Me. Toutefois, la stabilité du
+            système Microsoft a subi une nette amélioration avec
+            l'apparition de Windows XP. Sous Linux, le système est
+            stable à une seule condition: ne jamais installer
+            quelque mise à jour que ce soit. Autrement, certaines
+            fonctionnalités disparaissent périodiquement.
+         </dd>
+         <dt>
+            Vitesse d'exécution
+         </dt>
+         <dd>
+            Il m'est arrivé à maintes reprises de trouver Windows
+            XP lent et gourmand en mémoire. Cette lenteur était en
+            grande partie dûe à Norton Antivirus ou McAfee
+            VirusScan. Supprimer l'anti-virus et installer AVG/Free
+            a réglé ce problème de performance sans nécessiter le
+            remplacement de toute ma machine. Pire encore, Linux
+            est en train de devenir plus lent que Windows! Après le
+            démarrage de GNOME, j'appuie sur Alt-F2 pour démarrer
+            un terminal, mon logiciel de courrier électrique ou le
+            navigateur Internet. C'est moins long que trouver
+            l'icône ou la commande dans le menu. La fenêtre prend
+            du temps (au moins cinq secondes, sinon dix) avant de
+            se dessiner complètement. Ensuite, il faut au moins
+            entre cinq et dix secondes supplémentaires pour que
+            GNOME me laisse écrire dedans! Finalement, Firefox ou
+            Thunderbird tardent à démarrer. Il faudrait utiliser un
+            navigateur plus petit tel que Lynx ou Opera, mais
+            ceux-ci n'ouvrent pas toutes les pages Web, n'ayant pas
+            toutes les fonctionnalités nécessaires. Il faudrait
+            également utiliser un gestionnaire de bureau plus
+            petit, comme BlackBox, et ces mini-logiciels ne
+            réagissent pas du tout au clavier! Cela va me rendre la
+            vie dure et ce sera au bout du compte plus difficile à
+            utiliser que Windows. Pour résoudre ce problème de
+            performance, il semble qu'il me faudrait ajouter une
+            carte contrôleur PCI pour bénéficier de ATA/133 plutôt
+            que ATA/66. Toutefois, je trouve que ça n'en vaut pas
+            le coup et qu'il vaudrait autant mieux pour moi de
+            remplacer toute la machine. C'est cela que j'ai fait en
+            décembre 2006!
+         </dd>
+         <dt>
+            Usage de la ligne de commande
+         </dt>
+         <dd>
+            Linux est imbattable sur ce point-là! Sous Windows XP,
+            il y a certes l'invite de commandes MS-DOS, mais la
+            complétion ne fonctionne pas très bien. Le seul
+            palliatif est Cygwin, mais puisqu'il ajoute une couche
+            par-dessus Windows, il ralentit beaucoup le système.
+         </dd>
+         <dt>
+            Disponibilité de logiciels
+         </dt>
+         <dd>
+            Sous Linux, plusieurs logiciels sont gratuits et déjà
+            installés. Par exemple, <a
+            href="http://www.gimp.org">Gimp</a> est un atout pour
+            la création d'images. Gimp est certes disponible sous
+            Windows, mais il fonctionne moins bien sous cet
+            environnement. Par exemple, la fonction d'impression
+            est moins complète. Seule solution: employer un
+            logiciel commercial tel que Adobe Photoshop ou Corel
+            Photo-PAINT pour imprimer.
+         </dd>
+         <dt>
+            Linux est gratuit
+         </dt>
+         <dd>
+            Windows est commercial et son prix tend à augmenter au
+            fil des versions. Pour environ 150$, il était possible
+            d'obtenir Windows 98. Pour Windows XP, il faut prévoir
+            un minimum de 250$ et ajouter à cela des possibles
+            pertes de temps avec le service téléphonique. En effet,
+            étant donné que le numéro de série est relié à la
+            machine sur laquelle le système est installé, il reste
+            toujours possible qu'il ne soit plus possible d'activer
+            le système après une réinstallation! Il faut alors
+            téléphoner au service technique de Microsoft et sans
+            doute faire parvenir une preuve d'achat, par la poste
+            (prend du temps) ou par télécopie (il faut avoir
+            l'appareil pour le faire). La prochaine itération de ce
+            processus destiné à prendre la population à la gorge
+            est d'imposer un abonnement pour l'utilisation de tout
+            produit Microsoft, voire de tout logiciel en général!
+            Imaginez devoir payer 10$ par mois simplement pour
+            pouvoir allumer votre ordinateur. Cela n'inclut ni
+            Internet, ni le traitement de texte, ni le tableur, ni
+            l'éditeur d'images, etc. Utiliser Linux me protège
+            contre ce genre de pratique et si je cesse d'explorer
+            cette alternative, je n'aurai aucune porte de sortie
+            pour le jour où la dictature de Bill Gates sera à son
+            paroxysme. À ce moment-là, il sera possible de
+            supprimer Windows et sacrifier tout ce que je pouvais y
+            faire. Pour que le sacrifice soit léger, je dois en
+            faire le moins possible sous ce système!
+         </dd>
+      </dl>
+      <p>
+         C'est ainsi que je souhaite conserver Linux le plus
+         longtemps possible sur ma machine. Lorsque j'aurai cessé
+         d'utiliser le système, Bill Gates aura gagné contre moi et
+         je devrai éventuellement choisir entre ne plus avoir de
+         machine personnelle ou payer un abonnement pour Windows
+         lorsque Microsoft en sera rendu à ce point.
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

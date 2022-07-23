@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.1//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>18.2 La méthode du moine copiste</TITLE>
+<META NAME="description" CONTENT="18.2 La méthode du moine copiste">
+<META NAME="keywords" CONTENT="cdwriting">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cdwriting.css">
+
+<LINK REL="next" HREF="node87.html">
+<LINK REL="previous" HREF="node85.html">
+<LINK REL="up" HREF="node84.html">
+<LINK REL="next" HREF="node87.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2366"
+  HREF="node87.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2360"
+  HREF="node84.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2354"
+  HREF="node85.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2362"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2364"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html2367"
+  HREF="node87.html">18.3 Pourquoi créer des</A>
+<B> monter:</B> <A NAME="tex2html2361"
+  HREF="node84.html">18. La création de</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2355"
+  HREF="node85.html">18.1 L'obtention des fichiers</A>
+ &nbsp; <B>  <A NAME="tex2html2363"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2365"
+  HREF="node106.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION07520000000000000000">
+<SPAN CLASS="arabic">18</SPAN>.<SPAN CLASS="arabic">2</SPAN> La méthode du moine copiste</A>
+</H1>
+
+<P>
+Voyons à présent quel type de travail vous attendra si vous
+n'utilisez aucun script ou interface graphique.
+Tout d'abord, vous utiliserez
+XMMS<A NAME="4087"></A> [<A HREF="node105.html#url:xmms">URL76</A>]
+pour bâtir
+une liste de fichiers que vous ordonnerez comme bon vous
+semblera. XMMS, comme Winamp, permet de décoder la liste dans autant
+de fichiers WAV qu'il y a de MP3 et il indique également la durée de
+votre futur disque. C'est donc l'outil de choix pour organiser les
+pistes? Eh bien non, car XMMS ne numérote pas vos fichiers WAV! Au
+lieu de cela, il attribuera le même nom aux fichiers WAV qu'aux
+fichiers MP3, l'ordre de vos fichiers sera perdu!
+
+<P>
+Vous pouvez ensuite appliquer des transformations sonores et sous
+Linux, elles sont possibles de façon beaucoup plus commode. Sous
+Windows, il vous faudra un logiciel à interface graphique tel
+qu'Audacity pour
+réaliser la simple normalisation et elle sera longue, car le fichier
+devra être ouvert en entier et affiché à l'écran sous forme
+graphique. Avec <TT>normalize</TT> [<A HREF="node105.html#url:normalize">URL52</A>], vous pourrez
+normaliser sans tout ce tracas!
+
+<P>
+Ensuite, vous devrez créer la TOC pour fournir les instructions à
+CDRDAO. Cette TOC se présente sous la forme suivante.
+
+<P>
+<TT>CD_DA</TT>
+
+<P>
+Pour chaque piste <TT>track.wav</TT>,
+
+<P>
+<TT>TRACK AUDIO AUDIOFILE "track.wav"</TT>
+
+<P>
+Ce qui vous forcera à retranscrire tous les noms des fichiers WAV
+et constituera pour vous l'occasion de rétablir l'ordre des pistes
+créé sous XMMS.
+Si vous souhaitez inclure du contenu CD-Text sur votre
+disque, vous deverz encore récrire les noms des chansons dans les bons
+champs d'informations. Enfin, vous pourrez graver la TOC ainsi
+générée. Finalement, il vous faudra encore une fois retranscrire les
+pistes dans un autre logiciel pour créer la jaquette!
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2366"
+  HREF="node87.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2360"
+  HREF="node84.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2354"
+  HREF="node85.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2362"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2364"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html2367"
+  HREF="node87.html">18.3 Pourquoi créer des</A>
+<B> monter:</B> <A NAME="tex2html2361"
+  HREF="node84.html">18. La création de</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2355"
+  HREF="node85.html">18.1 L'obtention des fichiers</A>
+ &nbsp; <B>  <A NAME="tex2html2363"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2365"
+  HREF="node106.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Eric Buist
+2005-11-13
+</ADDRESS>
+</BODY>
+</HTML>

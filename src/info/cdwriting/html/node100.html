@@ -1,0 +1,156 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.1//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>B.3 Solutions pour le développeur</TITLE>
+<META NAME="description" CONTENT="B.3 Solutions pour le développeur">
+<META NAME="keywords" CONTENT="cdwriting">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cdwriting.css">
+
+<LINK REL="previous" HREF="node99.html">
+<LINK REL="up" HREF="node97.html">
+<LINK REL="next" HREF="node101.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2582"
+  HREF="node101.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2576"
+  HREF="node97.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2572"
+  HREF="node99.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2578"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2580"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html2583"
+  HREF="node101.html">C. Les bits</A>
+<B> monter:</B> <A NAME="tex2html2577"
+  HREF="node97.html">B. Problème de gravure</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2573"
+  HREF="node99.html">B.2 Solutions pour l'utilisateur</A>
+ &nbsp; <B>  <A NAME="tex2html2579"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2581"
+  HREF="node106.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Sous-sections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html2584"
+  HREF="node100.html#SECTION07831000000000000000">B.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">1</SPAN> Distribution Linux</A>
+<LI><A NAME="tex2html2585"
+  HREF="node100.html#SECTION07832000000000000000">B.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">2</SPAN> Les logiciels de gravure</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION07830000000000000000">
+B.<SPAN CLASS="arabic">3</SPAN> Solutions pour le développeur</A>
+</H1>
+
+<P>
+Une solution permanente réside malheureusement dans l'adaptation des
+logiciels de gravure. Il se peut qu'à l'heure où vous lisez ces
+lignes, elle soit déjà en place puisque sous Mandrake 10.1 Official,
+j'ai pu
+graver sans difficulté et le noyau 2.6.8.1 est présent. La solution
+peut venir soit de la distribution Linux, soit des logiciels de
+gravure.
+
+<P>
+
+<H2><A NAME="SECTION07831000000000000000">
+B.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">1</SPAN> Distribution Linux</A>
+</H2>
+
+<P>
+Les distributeurs Linux peuvent configurer les nouvelles distributions
+afin que la gravure soit possible sans difficulté, même avec le noyau
+2.6.8.
+Il est possible de le faire en modifiant le noyau ou les logiciels de
+gravure avant de les recompiler pour les incorporer à la distribution.
+Cette solution temporaire, bien que plus commode pour l'utilisateur
+que les solutions précédentes, est loin d'être parfaite, car certaines
+distributions fourniront le noyau et les logiciels sans modifications
+et le problème sera toujours là. Il est probable que Mandrake effectue
+ce genre de modification, mais il est possible qu'elles n'apparaissent
+pas dans Fedora Core.
+
+<P>
+
+<H2><A NAME="SECTION07832000000000000000">
+B.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">2</SPAN> Les logiciels de gravure</A>
+</H2>
+
+<P>
+L'idéal serait une adaptation de CDRecord, CDRDAO et Growisofs de la
+part des concepteurs des logiciels. Par exemple, CDRecord pourrait
+effectuer ses commandes d'écriture en root et abandonner ses
+privilèges uniquement lorsqu'il effectue des commandes autorisées. La
+solution parfaite résiderait dans un service système de gravure, un
+peu comme le Nero BurnRights sous Windows. Le
+service tournerait possiblement en root et offrirait, par l'entremise
+d'un protocole réseau, des services de gravure. Le protocole serait
+bien entendu à définir et le service à sécuriser. Ceci est possible si
+le logiciel en question est à code source ouvert (accessible au regard
+de nombreux experts) et est utilisé par tous les logiciels de gravure
+actuels.
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2582"
+  HREF="node101.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2576"
+  HREF="node97.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2572"
+  HREF="node99.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2578"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2580"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html2583"
+  HREF="node101.html">C. Les bits</A>
+<B> monter:</B> <A NAME="tex2html2577"
+  HREF="node97.html">B. Problème de gravure</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2573"
+  HREF="node99.html">B.2 Solutions pour l'utilisateur</A>
+ &nbsp; <B>  <A NAME="tex2html2579"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2581"
+  HREF="node106.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Eric Buist
+2005-11-13
+</ADDRESS>
+</BODY>
+</HTML>

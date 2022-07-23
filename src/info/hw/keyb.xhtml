@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         Des touches qui ne servent à rien!
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css"
+      href="../../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../../index.xhtml" class="parents">Le
+               royaume de Eric Buist</a> &gt;&gt; <a
+               href="../index.xhtml"
+               class="parents">Informatique</a> &gt;&gt; Problèmes
+               marquants &gt;&gt; <a href="../resolved.xhtml"
+               class="parents">Quelques bogues résolus</a> &gt;&gt;
+               <a href="index.xhtml" class="parents">Bogues
+               matériels résolus</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../../sitemap.xhtml" class="sitemap">Plan
+               du site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="ham.xhtml" class="leftsibling">La
+               petite histoire de mon modem</a>
+            </td>
+            <td class="thispage">
+               Des touches qui ne servent à rien!
+            </td>
+            <td class="rightsibling">
+               <a href="dvdbug.xhtml" class="rightsibling">Pas de
+               DVD!</a> &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         Des touches qui ne servent à rien!
+      </h1>
+      <p>
+         Avec le Faucon de Fer, j'ai acheté un nouveau clavier,
+         plus ergonomique et avec des touches Multimedia. Lorsque
+         j'ai branché l'appareil et ouvert l'ordinateur, je me suis
+         rendu compte qu'appuyer sur WWW ou toute autre touche
+         additionnelle spéciale ne provoquait tout simplement aucun
+         résultat. Loin de m'inquiéter, je sortis le CD-ROM livré
+         avec le clavier, il se nomme <tt>Multimedia Keyboard
+         Install Program</tt> et contient un logiciel qui permet,
+         lorsqu'installé, de rendre les touches spéciales
+         utilisables. L'installation de Versato, le logiciel, n'a
+         pas été très difficile et j'ai pu utiliser les touches.
+      </p>
+      <p>
+         Toutefois, un problème est apparu, car le programme
+         contient un module de vérification périodique du courriel.
+         Je me suis tout d'abord dit que cela pourrait servir, mais
+         il ne gère que le POP3 et je ne dispose que d'adresses
+         IMAP, alors il ne fonctionnera jamais bien. Toutefois,
+         lorsque je le désactivais, il apparaissait un écran au
+         démarrage de Windows.
+      </p>
+      <p>
+         <img src="mailchk.png"
+         alt="Une fenêtre qui apparaissait au démarrage de ma machine." />
+      </p>
+      <p>
+         Pour que le logiciel arrête d'achaler, il fallait ne pas
+         cocher Désactiver la détection automatique, mais dans ce
+         cas, il tentait régulièrement de consulter mon courrier et
+         émettait un bip en raison d'une erreur. La solution aurait
+         été soit de désactiver les sons, soit de mettre l'adresse
+         POP3 familiale, mais les deux comportaient des
+         désagréments et je voulais donc trouver mieux.
+      </p>
+      <p>
+         J'ai commencé à analyser pour me rendre compte que la
+         fonction était activée par Versato lui-même. Si je ne la
+         voulais plus, il semblait bien qu'il allait me falloir
+         désactiver tout le logiciel et rendre de nouveau
+         inutilisables les touches spéciales du clavier. Ces
+         touches étaient-elles destinées à ne servir à rien?
+      </p>
+      <p>
+         Je tentai de regarder dans le répertoire où est installé
+         le produit, <tt>C:\Program Files\Ortek\Versato</tt> et je
+         finis par y trouver un fichier du nom de
+         <tt>MailChk.exe</tt>, c'était l'application qui causait
+         problème. Je tentai de renommer le fichier
+         <tt>MailChk.exe</tt> <tt>MailChk.bak</tt> en espérant que
+         le programme ne lancerait pas un message d'erreur à chaque
+         démarrage de Windows. Heureusement, il n'en fut rien et je
+         suis ainsi libéré de ce tannant bogue!
+      </p>
+      <p>
+         Malheureusement, lorsque j'ai passé à Windows ME,
+         l'application Versato provoquait des plantages
+         inexplicables de la machine. Après des recherches, j'en ai
+         conclu que le programme était le fautif et lorsque je l'ai
+         désactivé, Windows ME ne gelait plus sans raisons.
+         Heureusement, sous Windows XP, Versato fonctionne
+         correctement.
+      </p>
+      <p>
+         Dans le cas des systèmes récents, il convient toutefois de
+         mettre Versato à jour, la version du CD-ROM n'étant
+         parfois pas adaptée aux nouveaux systèmes. Pour ce faire,
+         il me fallut découvrir la marque (Ortek dans mon cas) et
+         le modèle (MCK-800) de mon clavier et télécharger Versato
+         depuis le site du fabricant du clavier. Versato est
+         utilisé par plusieurs fabricants de claviers et il faut
+         donc vérifier la marque et le modèle pour le télécharger
+         du bon endroit. L'information vitale se trouvait à la fois
+         sur la boîte du clavier ainsi que sous ce dernier. Il faut
+         également distinguer les claviers USB (prise rectangulaire
+         plate) et les PS/2 (prise ronde). Dans le cas de mon
+         clavier Ortek, j'ai trouvé la mise à jour sur <a
+         href="http://www.ortek.com">www.ortek.com</a>. Lors de
+         l'installation de la nouvelle version, j'ai pu utiliser le
+         numéro de série de l'ancienne et elle fonctionne sans
+         problèmes sous Windows XP, sans le bogue avec la fonction
+         du courriel. Malheureusement, Linux ne peut prendre en
+         charge ces touches spéciales. De plus, il m'a été
+         impossible d'interfacer Versato avec Winamp.
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

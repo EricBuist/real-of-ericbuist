@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.1//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>B.1 Le problème de sécurité corrigé dans le noyau 2.6.8</TITLE>
+<META NAME="description" CONTENT="B.1 Le problème de sécurité corrigé dans le noyau 2.6.8">
+<META NAME="keywords" CONTENT="cdwriting">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cdwriting.css">
+
+<LINK REL="next" HREF="node99.html">
+<LINK REL="previous" HREF="node97.html">
+<LINK REL="up" HREF="node97.html">
+<LINK REL="next" HREF="node99.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2552"
+  HREF="node99.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2546"
+  HREF="node97.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2540"
+  HREF="node97.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2548"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2550"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html2553"
+  HREF="node99.html">B.2 Solutions pour l'utilisateur</A>
+<B> monter:</B> <A NAME="tex2html2547"
+  HREF="node97.html">B. Problème de gravure</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2541"
+  HREF="node97.html">B. Problème de gravure</A>
+ &nbsp; <B>  <A NAME="tex2html2549"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2551"
+  HREF="node106.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION07810000000000000000">
+B.<SPAN CLASS="arabic">1</SPAN> Le problème de sécurité corrigé dans le noyau 2.6.8</A>
+</H1>
+
+<P>
+Avec les noyaux précédant la version 2.6.8, un processus tournant avec
+des privilèges d'utilisateur régulier pouvait endommager un disque dur
+ou un lecteur/graveur CD/DVD [<A HREF="node105.html#url:268cddvd">URL81</A>].
+L'ouverture d'un périphérique par un processus Linux donne accès, pour
+ce processus, à un certain nombre de commandes. Parmi les commandes
+utilisées pour graver des CD/DVD, certaines peuvent permettre à un
+processus malicieux de causer des pertes de données ou endommager le
+matériel. Pour corriger ce bogue, sous le noyau 2.6.8, les commandes
+accessibles par les processus utilisateur ont été restreintes.
+
+<P>
+Cela touche CDRecord, CDRDAO, de même que Growisofs. Avec
+l'avénement du noyau 2.6.8, tous ces utilitaires étaient désormais
+inopérants! Les logiciels à interface graphique tels que k3b furent
+également touchés puisqu'ils utilisent les logiciels en ligne de
+commande pour effectuer la gravure. Certains sites suggèrent d'activer
+ou d'inhiber le bit SUID des commandes de gravure, mais cela ne règle
+rien. Activer le bit SUID pour CDRecord démarre le processus en mode
+root, mais le logiciel, tout en ayant ses privilèges
+super-utilisateur, se souvient du nom de l'utilisateur qui l'a
+démarré. Après avoir accompli un certain nombre de tâches, il
+abandonne ses privilèges super-utilisateur et effectue la gravure en
+tant qu'utilisateur régulier! Malheureusement, avec le nouveau noyau,
+la graveur ne fonctionne pas pour un utilisateur régulier.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2552"
+  HREF="node99.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2546"
+  HREF="node97.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2540"
+  HREF="node97.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2548"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2550"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html2553"
+  HREF="node99.html">B.2 Solutions pour l'utilisateur</A>
+<B> monter:</B> <A NAME="tex2html2547"
+  HREF="node97.html">B. Problème de gravure</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2541"
+  HREF="node97.html">B. Problème de gravure</A>
+ &nbsp; <B>  <A NAME="tex2html2549"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2551"
+  HREF="node106.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Eric Buist
+2005-11-13
+</ADDRESS>
+</BODY>
+</HTML>

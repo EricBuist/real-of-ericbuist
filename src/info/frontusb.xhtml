@@ -1,0 +1,776 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         Installation de ports USB avant: un voyage en enfer
+         cybernétique
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css" href="../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../index.xhtml" class="parents">Le royaume
+               de Eric Buist</a> &gt;&gt; <a href="index.xhtml"
+               class="parents">Informatique</a> &gt;&gt;
+               Configuration informatique
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../sitemap.xhtml" class="sitemap">Plan du
+               site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="fc3.xhtml"
+               class="leftsibling">Passage à Fedora Core 3</a>
+            </td>
+            <td class="thispage">
+               Installation de ports USB avant: un voyage en enfer
+               cybernétique
+            </td>
+            <td class="rightsibling">
+               <a href="fc4.xhtml" class="rightsibling">Passage à
+               Fedora Core 4</a> &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         Installation de ports USB avant: un voyage en enfer
+         cybernétique
+      </h1>
+      <ul>
+         <li>
+            <a href="#intro">Introduction</a>
+         </li>
+         <li>
+            <a href="#achat">L'achat du boîtier FrontX</a>
+         </li>
+         <li>
+            <a href="#simple">Pratiquement aussi simple que
+            prévu</a>
+         </li>
+         <li>
+            <a href="#conusb">Le connecteur USB double</a>
+         </li>
+         <li>
+            <a href="#electro">L'électronique entre en jeu!</a>
+         </li>
+         <li>
+            <a href="#seconde">La seconde moitié du problème</a>
+         </li>
+         <li>
+            <a href="#doute">Le doute</a>
+         </li>
+         <li>
+            <a href="#test">Le genre de test qu'il vaut mieux faire
+            sur une picouille...</a>
+         </li>
+         <li>
+            <a href="#quatre">Le quatrième port</a>
+         </li>
+         <li>
+            <a href="#conclusion">Conclusion</a>
+         </li>
+      </ul>
+      <h2>
+         <a name="intro" id="intro">Introduction</a>
+      </h2>
+      <p>
+         Depuis que j'ai acheté une clé USB Verbatim Store'n'Go de
+         256Mo, il m'arrive plus souvent de brancher un
+         périphérique dans un de mes ports USB. Cette clé a soulevé
+         deux problèmes. Tout d'abord, les deux ports fournis par
+         ma carte mère sont déjà utilisés par mon scanner et mon
+         imprimante. Ensuite, aller derrière mon ordinateur pour
+         brancher la clé est difficile, surtout depuis que j'ai
+         changé mon bureau de travail en 2003. Ma tour, au lieu de
+         se trouver sur mon bureau à portée de main, est
+         en-dessous. Il me fallait donc créer ou libérer un nouveau
+         port USB et le rendre facilement accessible. Quelques
+         solutions s'offraient à moi pour résoudre ces problèmes.
+      </p>
+      <ul>
+         <li>
+            Rebrancher mon imprimante dans mon port parallèle. Pour
+            employer cette technique, il me faudra acheter un
+            nouveau fil d'imprimante et le fil USB actuel deviendra
+            inutile. Le port sera libre mais toujours difficile
+            d'accès. Cela ne règle que peu de choses en raison de
+            la possibilité de brancher les périphériques USB à
+            chaud. L'imprimante peut facilement être débranchée
+            pour faire place temporairement à la clé, sans
+            redémarrer l'ordinateur.
+         </li>
+         <li>
+            Acheter un concentrateur USB qui dupliquera les ports
+            d'un de mes connecteurs. Le concentrateur valant entre
+            30$ et 50$ se branche à un port USB et fournit entre 4
+            et 8 ports. La bébelle nécessite une fiche dans la
+            barre à prises multiples et prend de la place sur mon
+            bureau. Tant qu'à acheter un tel appareil, autant opter
+            pour un modèle USB 2 qui sera toujours actuel lorsque
+            j'aurai de tels ports. Toutefois, au moment de mes
+            investigations, certains magasins comme Bureau en Gros
+            vendaient encore des concentrateurs USB 1.1 tandis que
+            le choix en modèles USB 2.0 était plus limité.
+         </li>
+         <li>
+            Ma carte mère dispose de deux autres ports USB
+            optionnels qui, pensais-je, peuvent être activés
+            facilement. Pour les activer, il faut raccorder les
+            connecteurs internes (headers) à des ports externes.
+            Les ports sont la plupart du temps montés sur une
+            languette métallique remplaçant une fente d'extension
+            du boîtier. Cette solution est peu coûteuse, car elle
+            ne consiste qu'en un fil. Toute la logique USB se
+            trouve intégrée à la carte mère.
+         </li>
+         <li>
+            Il y a aussi la possibilité de me doter d'un contrôleur
+            USB 2 sous la forme d'une carte PCI. Ce contrôleur me
+            donnera des ports USB 2 plutôt que les USB 1.1 de ma
+            carte mère, mais il est possible, si j'opte pour une
+            puce sans marque, de ne pas disposer des ports sous
+            Linux! Une carte contrôleur USB avec marque sera plus
+            coûteuse, plus difficile à obtenir et fournira
+            possiblement trop de ports pour mes besoins. Par
+            exemple, que ferais-je des ports Firewire de l'Adaptec
+            DuoConnect en plus de ports USB? 
+            <p>
+               Toutefois, j'ai découvert plus tard que toute carte
+               compatible avec UHCI ou OHCI, donc (presque) toutes
+               les cartes, fonctionneront sous Linux.
+            </p>
+         </li>
+      </ul>
+      <p>
+         Toutefois, libérer ou ajouter un port USB ne solutionne
+         qu'une partie du problème. Ledit port demeure toujours
+         difficilement accessible, sauf dans le cas du
+         concentrateur. Pour augmenter l'accessibilité, il faut
+         ramener le port en avant, ce qui n'est malheureusement pas
+         simple à réaliser! Encore une fois, plusieurs solutions
+         s'offraient à moi.
+      </p>
+      <ul>
+         <li>
+            Avec ma clé USB, j'ai reçu une extension qui fournit
+            une solution convenable au problème. Une extrémité se
+            branche dans un port USB tandis que l'autre extrémité
+            devient en quelque sorte un tel port dans lequel peut
+            se brancher un périphérique USB. Jusqu'en mai 2005,
+            j'employais cette solution, mais je voulais plus de
+            défi... Lorsque je voulais utiliser ma clé, je
+            débranchais mon scanner raccordé à la rallonge et je
+            connectais le petit disque portable. Cela m'évitait de
+            me pencher sous le bureau pour tenter d'atteindre
+            l'arrière de la machine.
+         </li>
+         <li>
+            En théorie, il existe des systèmes de ports USB avant
+            se présentant sous le format d'un lecteur 5" 1/4. Le
+            boîtier USB se trouve fixé dans une baie normalement
+            réservée à un lecteur CD ou DVD et comporte des
+            connecteurs internes pour être relié à un port
+            optionnel sur la carte mère. Malheureusement, ces
+            gadgets ne sont pas répandus et plusieurs magasins ne
+            les offrent pas. Même MicroBytes, un magasin spécialisé
+            en informatique, n'offrait en mai 2005 qu'un boîtier 3"
+            1/2 pouvant s'enficher dans une baie à lecteur de
+            disquettes. Cela ne me convenait pas, car ma tour ne
+            dispose que d'une seule de ces baies qui est recouverte
+            de façon à ne laisser qu'une disquette passer.
+         </li>
+         <li>
+            Plusieurs boîtiers récents offrent les ports USB avant.
+            Changer mon boîtier est donc un moyen, plutôt radical
+            mais un moyen malgré tout, d'atteindre mon objectif.
+            Toutefois, le remplacement de la tour nécessite de
+            débrancher et rebrancher la plupart des composantes de
+            la machine. Cela nécessite du temps et amène, du moins
+            pour moi, la possibilité d'endommager une composante
+            (statique ou mauvaise manipulation). Le risque n'en
+            vaut pas la peine simplement pour des ports USB avant.
+            Autant attendre ma prochaine machine pour obtenir une
+            tour noire ou transparente dotée des ports tant
+            attendus.
+         </li>
+         <li>
+            Le système <a href="http://www.frontx.com">FrontX</a>
+            constitue sans doute l'une des meilleures solutions. Il
+            se présente sous la forme d'un boîtier 5" 1/4 qui
+            comporte une série de fentes dans lesquelles peuvent
+            être installés des connecteurs USB mais aussi Firewire,
+            audio, série, RCA, PS/2, etc. La compagnie en fournit
+            une véritable panoplie et projette d'étendre la
+            sélection dans le futur!
+         </li>
+      </ul>
+      <h2>
+         <a name="achat" id="achat">L'achat du boîtier FrontX</a>
+      </h2>
+      <p>
+         Par défi et par curiosité, j'ai finalement opté pour la
+         solution <a href="http://www.frontx.com">FrontX</a>. Comme
+         l'explique le site du fabricant de ce système unique, il
+         existe deux classes de connecteurs. La première classe
+         regroupe des rallonges compatibles avec le boîtier FrontX.
+         Un fil, inséré dans le boîtier FrontX, part de l'avant de
+         la tour, passe à l'intérieur de la machine et ressort par
+         une fente d'extension pour ensuite aller se ficher quelque
+         part à l'extérieur, derrière le boîtier! La seconde classe
+         est formée des connecteurs internes qui sont destinés à se
+         brancher sur des prises intégrées aux cartes mères ou aux
+         cartes d'extension. Ces connecteurs sont bien
+         intéressants, mais, comme on le verra plus loin, parfois
+         très compliqués à installer!
+      </p>
+      <p>
+         Acheter un système FrontX n'est pas une chose évidente,
+         car il faut commander plusieurs pièces et choisir les
+         bonnes. Tout d'abord, j'avais le choix entre le boîtier de
+         base avec aucun connecteur ou le boîtier multimédia. Le
+         second ne me donnait pas mes ports USB tant recherchés,
+         uniquement des ports audio pour raccorder des écouteurs,
+         un micro et une entrée ligne, en plus de la manette de
+         jeu. L'ajout des ports USB dans le boîtier multimédia
+         demeurait malgré tout possible, moyennant un coût. Je
+         n'avais pas besoin du port écouteur, car mon système de
+         haut-parleurs en a déjà un. Le port manette de jeu m'est
+         également inutile puisque je ne dispose même pas d'un tel
+         appareil. Avoir eu besoin de ces deux ports, j'aurais pu
+         acheter le boîtier multimédia et y ajouter le port USB
+         double interne.
+      </p>
+      <p>
+         J'optai plutôt pour une combinaison mieux adaptée à mes
+         besoins: boîtier de base, connecteur audio pour la ligne
+         d'entrée, connecteur pour microphone, connecteur série et
+         le USB double interne. Les trois premiers ports étant
+         externes, ils ne causeraient aucun problème. Le port USB,
+         quant à lui, nécessita de nombreuses vérifications.
+         Apparemment, il ne serait pas compatible avec ma carte
+         mère, mais il était possible de réarranger les broches sur
+         le connecteur. D'après les indications sur le site Web de
+         FrontX, l'opération semblait simple; le connecteur était
+         conçu pour être reconfiguré!
+      </p>
+      <p>
+         Dimanche soir, 1 mai 2005, je commandai les composantes
+         sur le site FrontX, après avoir bien vérifié que j'aurais
+         tout ce dont il me fallait. Pour chaque article, il est
+         possible d'obtenir la liste des pièces incluses et le mode
+         d'installation dans le cas des connecteurs internes.
+         Chaque item est disponible en trois couleurs: ivoire, gris
+         et noir. Je sélectionnai la couleur ivoire, puisqu'elle
+         correspondait avec mon boîtier.
+      </p>
+      <h2>
+         <a name="simple" id="simple">Pratiquement aussi simple que
+         prévu</a>
+      </h2>
+      <p>
+         Jeudi, 5 mai 2005, je reçus les éléments FrontX que
+         j'avais commandés. Tout était bien là. Dans un premier sac
+         se trouvait un assortiment de connecteurs: une extension
+         de port série, une extension de ports audio et le
+         connecteur USB double. Comme je m'en doutais trop bien, le
+         connecteur USB interne était plus petit que l'impression
+         donnée par le site Web.
+      </p>
+      <p>
+         Un second sac contenait quant à lui le boîtier vide et un
+         autre sac contenant une languette métallique et des vis.
+         Parfait, tout était là. Je déballai le boîtier et retirai
+         les élastiques retenant la porte avant. Avec précaution,
+         pour ne pas l'endommager, je retirai la porte pour ne pas
+         l'avoir dans les pattes. Il est bien important de la
+         courber un peu pour la retirer, afin d'éviter de casser
+         les fragiles pins de plastique la retenant au boîtier.
+         Pour ceux qui l'ont brisée, le site Web propose la porte
+         séparément. Heureusement, je ne me trouve pas parmi ces
+         malchanceux.
+      </p>
+      <p>
+         Le boîtier comporte trois petites baies verticales dans
+         lesquelles s'insèrent différents connecteurs. Des
+         plaquettes de plastique, fournies avec le kit de base (et
+         aussi vendues séparément en cas de perte) permettent de
+         recouvrir les ouvertures non utilisées. Les connecteurs se
+         glissent simplement dans des rainures avant l'insertion du
+         boîtier dans la tour de l'ordinateur. Installer les
+         connecteurs dans le boîtier fut ainsi un jeu d'enfant.
+      </p>
+      <h2>
+         <a name="conusb" id="conusb">Le connecteur USB double</a>
+      </h2>
+      <p>
+         Le connecteur USB a constitué la plus importante source de
+         problèmes lors de l'installation. Son extrémité visible
+         est destinée à être installée dans la baie large du
+         boîtier FrontX. Cette baie peut accueillir deux
+         connecteurs larges. L'extrémité cachée se présente sous la
+         forme d'une matrice de broches contenant deux rangées et
+         cinq colonnes. Sur la carte mère se trouve une matrice
+         similaire de broches métalliques destinées à recevoir des
+         connecteurs USB.
+      </p>
+      <p>
+         Chaque rangée comporte un fil rouge (+5V), un fil blanc
+         (D-), un fil vert (D+), un fil noir (GND) et un trou, dans
+         cet ordre. Dans le trou de la première rangée se trouve un
+         fil appelé S-GND servant en fait d'assymétrie pour éviter
+         à l'utilisateur de se tromper de sens lors du branchement.
+         Le +5V et le GND permettent d'acheminer du courant
+         électrique aux périphériques USB tandis que D+ et D-
+         transmettent les données.
+      </p>
+      <p>
+         Comme l'indique le site <a
+         href="http://www.directron.com/installusb.html">How to
+         Install Front USB Ports</a>, ce connecteur de
+         configuration Intel est présent sur 90% des cartes mères.
+         C'est pourquoi FrontX fournit cet arrangement par défaut.
+         Malheureusement, il a fallu que je tombe dans les 10% avec
+         ma carte mère Gigabyte! Le connecteur est totalement
+         différent! Le fil S-GND n'existe tout simplement pas
+         tandis que la première rangée contient respectivement un
+         GND, un trou, un D+, un D- et un +5V! La seconde rangée
+         contient quant à elle un +5V, un D-, un D+, un trou et un
+         GND! En bref, ce n'est pas compatible du tout et une
+         tentative de branchement du connecteur FrontX aurait
+         provoqué un court-circuit. J'aurais pu endommager le
+         connecteur ou le contrôleur USB intégré à ma carte mère.
+         Ce second dommage aurait pu faire disparaître à tout
+         jamais mes ports USB optionnels, supprimer mes ports
+         intégrés (Je n'aurais plus eu de USB du tout) ou carrément
+         empêcher la machine de redémarrer, à moins de remplacer la
+         carte mère! Un changement de carte mère n'allant
+         pratiquement pas sans un remplacement du processeur et de
+         la mémoire, cela équivaudrait à peu près à changer
+         d'ordinateur!
+      </p>
+      <p>
+         Le connecteur Gigabyte constitue une variation du
+         connecteur Intel dans laquelle le S-GND est retiré, les
+         fils GND sont décalés d'un trou et les fils de la première
+         rangée sont inversés. Je me doutais bien qu'il allait me
+         falloir transformer mon connecteur Intel en Gigabyte.
+         Lorsque je me rendis compte de la complexité de
+         l'opération, je cherchai sur Internet dans le but de
+         trouver un adaptateur qui convertirait ce connecteur non
+         standard en forme Intel, mais un tel adaptateur semble
+         tout simplement inexistant!
+      </p>
+      <h2>
+         <a name="electro" id="electro">L'électronique entre en
+         jeu!</a>
+      </h2>
+      <p>
+         Le connecteur USB interne constitue une matrice de
+         plastique de dix cellules (deux rangées sur cinq
+         colonnes). Chaque cellule peut accueillir un fil et est
+         dotée d'un levier permettant de le tenir en place. Un
+         terminal métallique sert d'interface entre le fil courant
+         dans le câble USB et la pin sur la carte mère. Ce terminal
+         est destiné à assurer un contact électrique stable sans
+         nécessiter de soudure.
+      </p>
+      <p>
+         La première étape consistait à extraire au moins un
+         terminal du connecteur. Lorsque j'aurais saisi comment
+         procéder, je pourrais réarranger le connecteur à souhait.
+         J'optai pour le fil S-GND qui pouvait bien être sacrifié,
+         ne servant à rien en bout de ligne. Ce que je ne savais
+         pas, c'était que le terminal ne risquait rien...
+      </p>
+      <p>
+         Le site FrontX indiquait de glisser la pointe d'une lame
+         sous le levier de rétention du terminal à retirer. Je
+         tentai mon coup avec une lame de ciseau, mais jamais la
+         maudite ne voulut entrer sous le levier de plastique.
+         J'essayai plusieurs fois avec les ciseaux, puis avec mes
+         ongles. Pendant mes tentatives, le connecteur se retourna
+         et je finis par faire pivoter le levier de rétention du
+         terminal correspondant à un fil rouge (+5V) plutôt que mon
+         S-GND expérimental. Le levier avait pivoté de 90 degrés et
+         semblait menacer de casser. Je le remis en place et tentai
+         de me battre avec le S-GND.
+      </p>
+      <p>
+         Après plusieurs minutes de désespérée tentative, je finis
+         par faire bouger le levier et éventuellement, le terminal
+         du S-GND sortit du connecteur. Toutefois, le malheur
+         commença à frapper. Le levier de rétention se détacha du
+         connecteur, empêchant tout futur terminal de demeurer
+         stable!
+      </p>
+      <p>
+         Je ne le savais pas et je tentai un premier déplacement.
+         Je voulais envoyer un fil rouge à la place du S-GND. Si je
+         me souviens bien, grâce à une épingle, le fil rouge daigna
+         se détacher du connecteur, mais cela me coûta un nouveau
+         levier de rétention brisé! Décidément, ce n'était pas fait
+         solide du tout. Je me rendis alors compte que le fil rouge
+         n'était pas stable dans son nouveau connecteur.
+      </p>
+      <p>
+         Les choses continuèrent malheureusement à s'envenimer.
+         Lors d'une tentative de débrancher le fil vert, le câble
+         se dissocia de son terminal! Cela me fit totalement perdre
+         espoir et me poussa au bord de la panique. Je me ressaisis
+         et tentai d'extraire le terminal métallique du connecteur
+         de plastique en le poussant avec mon épingle. La manoeuvre
+         réussit, je récupérai le terminal et tentai de le
+         réenfichier. Malheureusement, il semble falloir rouvrir
+         les clips retenant le fil et je ne suis pas certain que ce
+         soit possible. Je ne parvins jamais à quoi que ce soit,
+         l'objet étant trop petit et le câble dénué de terminal
+         finit par casser au cours des tentatives. Pour tenter un
+         nouveau coup, j'allais devoir dénuder le fil et en perdre
+         une partie de sa longueur, si bien que je décidai de ne
+         pas m'essayer. J'allais donner ce travail à mon père qui
+         est plus à l'aise que moi avec les fils électriques.
+      </p>
+      <p>
+         Mais y avait-il le moindre espoir que ce terminal puisse
+         être réparé? Pas certain. Plus ça allait, plus il me
+         semblait que le connecteur de plastique et le terminal
+         allaient devoir être remplacés. Il serait moins compliqué
+         et moins coûteux de racheter un nouveau connecteur USB
+         complet, pensai-je, ou acheter la carte USB 2 PCI (et
+         possiblement renoncer à Linux...) et le port USB externe
+         FrontX plutôt que la version interne.
+      </p>
+      <h2>
+         <a name="seconde" id="seconde">La seconde moitié du
+         problème</a>
+      </h2>
+      <p>
+         N'oublions pas que mon connecteur a des pins endommagées
+         dans une rangée seulement. Il y avait donc quelque chose à
+         faire avec, pensai-je. La rangée encore intacte pouvait
+         presque s'adapter à la première rangée de la matrice de
+         pins sur ma carte mère! Fort de l'expérience tactile
+         acquise avec la manipulation des connecteurs de la rangée
+         endommagée, je pus déloger le fil noir (GND) de la rangée
+         intacte sans briser le connecteur et le réenficher dans le
+         trou approprié. Grâce à mon épingle, je parvins à faire
+         pivoter légèrement le levier de rétention et dès qu'il eut
+         bougé, je commençai à tenter d'extraire le terminal. Il me
+         fallut tirer un peu avant d'enlever l'épingle qui
+         bloquait. La partie renflée du terminal censée se trouver
+         bloquée par le levier de rétention avait passé le goulet
+         d'étranglement et pouvait donc être extirpée. La
+         réinsertion fut beaucoup plus facile, le terminal se
+         clenchant simplement dans le nouveau connecteur. Voilà, je
+         disposais, en théorie du moins, d'un connecteur USB
+         fonctionnel adapté à ma carte mère bâtarde!
+      </p>
+      <p>
+         Restait toutefois la seconde rangée qui risquait tout
+         simplement de tuer ma machine. Au mieux, je perdrais
+         l'usage du quatrième port USB. Je pouvais aussi perdre les
+         deux ports optionnels, tous mes ports USB ou...
+         <i>toute</i> la carte mère! La machine, au démarrage,
+         émettrait alors un bip d'agonie et ne réagirait plus!
+         Fini, mort du Faucon de Fer! Tout ça pour de stupides
+         ports USB avant! En fin de compte, j'allais devoir changer
+         ma tour pour les avoir puisque je prévois un boîtier noir
+         ou transparent pour ma prochaine machine.
+      </p>
+      <h2>
+         <a name="doute" id="doute">Le doute</a>
+      </h2>
+      <p>
+         Jeudi soir, 5 mai 2005, je n'osai pas brancher le port USB
+         fonctionnel dans ma carte mère, de peur de tout faire
+         sauter. Je n'étais pas certain de la stabilité de la pin
+         rouge que j'avais possiblement tordue dès le début. Je la
+         testai en tirant dessus légèrement, elle ne bougea pas. La
+         pin noire déplacée aussi fut testée et sembla stable.
+         Toutefois, j'avais tenté à quelques reprises de faire
+         sortir les terminaux des connecteurs en poussant avec mon
+         épingle puisqu'ils se bloquaient sans cesse, même après
+         avoir poussé le levier de rétention. À quelques reprises,
+         l'épingle a pénétré dans le terminal et a peut-être,
+         pensai-je, déplacé le câble. Rien ne fonctionnerait ou ce
+         ne serait pas stable. Ou il y aurait un court-circuit. Ce
+         problème m'obséda au plus haut point, car je ne pouvais me
+         résoudre à jeter le connecteur endommagé et me résigner à
+         l'avoir acheté pour rien. Il me fallut démolir une à une
+         les possibilités de bogues avant de pouvoir prendre le
+         risque de tester le connecteur sur ma carte mère.
+      </p>
+      <ul>
+         <li>
+            D'abord, pour les court-circuits, j'étais protégé en
+            raison des cellules de plastique isolant chaque
+            terminaux les uns des autres. En posant le connecteur
+            sur ma carte mère, je ne risquais pas de créer un
+            contact électrique non souhaité entre deux pins.
+         </li>
+         <li>
+            Les terminaux encore enfichés <i>étaient</i>
+            fonctionnels! Ce bidule a comme rôle de tenir le fil
+            électrique par une clip et d'assurer le contact avec la
+            pin. Même si le fil a bougé, la clip le retient
+            toujours, si bien que le courant circulera dans le
+            terminal et atteindra la pin. Tout allait fonctionner!
+         </li>
+         <li>
+            Outre l'isolation électrique, ce foutu connecteur de
+            plastique ne servait à rien. Les terminaux s'adapteront
+            aux pins de la carte mère et tiendront en place.
+            Lorsque les terminaux seront bien enfoncés, même si le
+            levier de rétention est endommagé, tout tiendra. Je ne
+            verrai pas les ports USB disparaître et réapparaître,
+            faisant geler la machine périodiquement.
+         </li>
+      </ul>
+      <p>
+         Ainsi, il me suffisait de débrancher les connecteurs de la
+         rangée endommagée et tester la rangée saine. Si je pouvais
+         récupérer au moins un port sur deux, ce serait une bonne
+         chose. Si plus rien ne fonctionnait, il me restait qu'à
+         employer une solution alternative et me résigner à avoir
+         acheté le système FrontX pour rien. Réparer le connecteur
+         entier nécessiterait trop de pièces individuelles: un
+         nouveau connecteur et huit terminaux au cas où.
+      </p>
+      <h2>
+         <a name="test" id="test">Le genre de test qu'il vaut mieux
+         faire sur une picouille...</a>
+      </h2>
+      <p>
+         Ce bogue me valut beaucoup de stress et une nuit
+         d'insomnie. Vendredi matin, 6 mai 2005, je ne pus résister
+         à la tentation de tenter la connexion du port USB juste
+         avant de partir pour l'Université de Montréal. Si ma
+         machine devait sauter, autant qu'elle le fasse ce
+         vendredi, car le soir même, il se pouvait que j'aille chez
+         MicroBytes avec mon frère pour aller chercher sa nouvelle
+         machine. En même temps, j'achèterais les pièces
+         nécessaires pour réparer le Faucon de Fer (ou construire
+         une nouvelle machine...). Peut-être mon frère aurait-il
+         besoin de moi pour régler certains détails de dernière
+         minute. Et en effet, ce fut le cas, car sans moi, il
+         n'aurait sans doute pas bénéficié de la connexion
+         numérique DVI entre sa machine et son écran LCD, Viewsonic
+         ne fournissant à présent que le câble VGA en standard.
+      </p>
+      <p>
+         Je tombai assez rapidement sur le connecteur, mais cela me
+         prit un certain temps avant d'être certain que c'était
+         bien lui. Je m'assurai que toutes les broches étaient
+         alignées et tentai d'allumer la machine. J'aurais préféré
+         faire ce test sur une vieille machine plutôt que risquer
+         la mienne, mais les picouilles n'ont pas de ports USB.
+      </p>
+      <p>
+         Lorsque la machine eut démarré sans difficulté, je
+         branchai mon scanner dans mon nouveau port USB. Je
+         préférais sacrifier cet appareil plutôt que ma clé USB,
+         car il ne contient pas de données et cela sera moins pire
+         de devoir attendre des semaines, au pire cas, pour le
+         remplacer. J'étais également davantage certain de pouvoir
+         trouver un scanner chez MicroBytes qu'une clé USB; ma clé
+         actuelle vient de chez Bureau en Gros. Le scanner
+         fonctionna #1, si bien que je le débranchai. Le test avec
+         ma clé était toutefois indispensable afin de savoir si la
+         carte mère parvenait bien à envoyer du 5V dans le port.
+         Tout fonctionna #1!
+      </p>
+      <p>
+         J'éteignis la machine puis retirai le port de la carte
+         mère. C'est peu de temps après que je constatai que le
+         terminal du fil blanc était lui aussi en train de se
+         détacher! Non, pensai-je, ce serait trop compliqué à
+         réparer. Aussi bien sacrifier le quatrième port et me
+         contenter du nouveau que je venais de tester. C'est ainsi
+         que ce vendredi matin, j'installai tout le boîtier FrontX
+         dans ma machine.
+      </p>
+      <p>
+         Malheureusement, je fis ça trop vite et l'installai
+         croche. Il me faudrait éventuellement rouvrir la tour et
+         le redresser pour que ce soit plus esthétique. Le passage
+         des fils série et audio à l'intérieur de la tour se passa
+         assez bien, mais je passai plusieurs minutes à gosser avec
+         la languette métallique devant recouvrir la fente
+         d'extension. Elle ne voulait pas se mettre en place, à
+         croire que mon boîtier ne lui convenait pas!
+      </p>
+      <p>
+         Je finis par y parvenir, mais je ne trouvai aucune vis de
+         la taille exacte du trou pour soutenir la languette. Le
+         boîtier FrontX ne vient qu'avec quatre vis pour se
+         soutenir lui-même dans la tour de l'ordinateur. Je dus
+         ainsi prendre une vis venue d'une picouille morte démontée
+         pour fixer la languette et elle était un petit peu trop
+         grosse pour le trou. J'estime qu'il ne sera pas facile de
+         retirer cette vis-là si le besoin se fait sentir...
+      </p>
+      <h2>
+         <a name="quatre" id="quatre">Le quatrième port</a>
+      </h2>
+      <p>
+         Samedi, 14 mai 2005, Linux planta une nouvelle fois après
+         que j'aie utilisé ma clé USB. Chaque fois que j'insérais
+         ma clé dans un port (avant ou arrière) et que je la
+         retirais, Fedora Core 3 devenait instable. Soit il gelait
+         totalement, soit il m'affichait un Kernel Panic lors de la
+         fermeture du système. Ainsi, ce nouveau port USB avant ne
+         m'apporterait rien puisque Linux ne gérait plus les
+         périphériques amovibles USB correctement. De plus, je
+         n'aimais pas l'idée d'avoir des fils dénudés traînant à
+         l'intérieur de mon boîtier.
+      </p>
+      <p>
+         Le soir même, je consultai de nouveau le site FrontX et
+         examinai les terminaux afin d'évaluer la possibilité de
+         réenficher le fil. Si je parvenais d'une façon ou d'une
+         autre à écarter la clip assurant le contact électrique, je
+         pourrais y réinsérer le conducteur et refermer la clip.
+         Tout fonctionnerait ensuite #1.
+      </p>
+      <p>
+         Dimanche matin, je rouvris donc ma tour et démontai le
+         boîtier FrontX. Je me rendis compte que je m'étais trompé
+         vendredi matin (6 mai) en mettant une des vis dans le trou
+         du lecteur DVD au lieu de celui du FrontX. Je dus ensuite
+         extraire tous les connecteurs du boîtier, car le fil série
+         était emmêlé dans le fil USB qu'il me fallait extraire
+         complètement.
+      </p>
+      <p>
+         Ensuite, j'auscultai le terminai et tentai d'écarter la
+         clip avec des épingles. Cela ne fonctionna jamais et je me
+         rendis compte que deux fils sortaient du terminal blanc,
+         pas un seul! Je ne savais plus quoi faire, j'étais tout
+         mêlé. Je ne voulais pas remettre ce fichu connecteur dans
+         ma machine puisque cela ne fonctionnait pas bien sous
+         Linux et risquait de provoquer un court-circuit par
+         contact des terminaux libres avec ma carte mère.
+      </p>
+      <p>
+         Je montrai finalement la bête à mon père qui parvint à la
+         réparer en soudant les fils sur les terminaux décrochés.
+         Selon lui, le connecteur FrontX est plutôt cheap et c'est
+         pour cela que ça a tout brisé aussi facilement. Le levier,
+         à mon avis, ça se comprend puisque je l'ai maltraité, mais
+         jamais le terminal n'aurait dû s'arracher! Le fil blanc
+         était en train de sortir du terminal comme le vert et
+         probablement qu'il a cassé, expliquant pourquoi il y avait
+         deux fils à l'extérieur. Lorsque les deux terminaux
+         décrochés furent soudés à l'étain, mon père a tenté de les
+         verrouiller dans le connecteur avec de la colle chaude. Ça
+         n'a pas très bien fonctionné, car la colle est allée
+         bloquer le trou pour la pin et il a fallu qu'il l'enlève
+         d'une façon ou d'une autre. De plus, à présent, le
+         connecteur serait difficilement transférable sur une carte
+         mère non Gigabyte. Toutefois, ce n'est pas un gros
+         problème, car si je dois changer ma carte mère, je
+         changerai la tour et j'obtiendrai des ports USB avant
+         intégrés. Ou je ne rachèterai pas de nouvelle machine
+         puisqu'à quoi bon avoir un ordinateur si de plus en plus,
+         seul Windows peut y tourner?
+      </p>
+      <p>
+         Vint enfin le temps de brancher le connecteur réparé sur
+         ma carte mère. Seul un des deux ports USB fonctionnait et
+         c'était celui dont le connecteur n'avait pas subi
+         d'avaries. Il fallut donc débrancher ça et mon père se
+         rendit compte que le fil vert était ressorti du connecteur
+         lors du branchement.
+      </p>
+      <p>
+         Seconde tentative: mon père fit le branchement lui-même et
+         utilisa une pince pour pousser le connecteur vert en
+         place. Cette fois-ci, il n'y avait plus de ports du tout!
+         Windows reportait un périphérique USB inconnu lors de ma
+         tentative de brancher le scanner.
+      </p>
+      <p>
+         Je découvris alors que mon père avait branché le
+         connecteur au mauvais endroit, décalé d'une pin. Je
+         remercie le ciel que cette erreur de manipulation n'ait
+         pas signé l'arrêt de mort de ma carte mère! Cela aurait
+         été très dommage après tout ce travail.
+      </p>
+      <p>
+         Le troisième essai fut enfin fructueux. Les deux ports USB
+         devinrent fonctionnels et je remis en place le connecteur
+         dans le boîtier FrontX. Cette fois-ci, le boîtier est
+         parfaitement droit dans la tour.
+      </p>
+      <h2>
+         <a name="conclusion" id="conclusion">Conclusion</a>
+      </h2>
+      <p>
+         Le système FrontX est une excellente solution pour ramener
+         différents ports en avant, les rendant plus accessibles
+         pour l'utilisateur. C'est sans doute le seul système qui
+         est aussi flexible et général. L'installation est en
+         général assez simple, sauf pour le cas des connecteurs
+         internes lorsque les fils ne correspondent pas à ceux de
+         la carte mère.
+      </p>
+      <p>
+         En fait, pour une Gigabyte, la solution idéale pour
+         utiliser FrontX consiste à acheter deux ports USB simples.
+         Ce qui évitera de devoir inverser plusieurs fils!
+         Malheureusement, deux ports USB simples occupent toute la
+         baie large tandis qu'un port double n'en utilise que la
+         moitié.
+      </p>
+      <p>
+         La solution de la carte PCI USB 2 se déclara envisageable
+         lorsque je découvris que le pilote USB sous Linux n'est
+         pas spécifique à un chip donné. Le pilote utilisant
+         apparemment une interface unifiée OHCI ou UHCI, il est
+         possible qu'une carte PCI USB 2 dont le chip n'a pas de
+         marque connue soit parfaitement fonctionnelle sous Linux!
+         Mais il se peut aussi qu'il n'en soit rien, alors j'étais
+         content de ne pas avoir à l'employer.
+      </p>
+      <p>
+         Au fond, autant dire que les ports USB optionnels de la
+         carte mère ne servent à rien et qu'il est plus facile
+         d'installer une nouvelle carte contrôleur USB pour
+         utiliser les ports FrontX (simples ou doubles) de type
+         externe. Désormais, lorsque je verrai un port optionnel
+         sur une carte mère, je considérerai qu'il n'y a pas de
+         port du tout vu la complexité de branchement au connecteur
+         interne.
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

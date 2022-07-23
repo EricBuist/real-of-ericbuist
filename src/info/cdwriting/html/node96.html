@@ -1,0 +1,168 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.1//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>A.3 L'architecture x86_64</TITLE>
+<META NAME="description" CONTENT="A.3 L'architecture x86_64">
+<META NAME="keywords" CONTENT="cdwriting">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cdwriting.css">
+
+<LINK REL="previous" HREF="node95.html">
+<LINK REL="up" HREF="node93.html">
+<LINK REL="next" HREF="node97.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2515"
+  HREF="node97.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2509"
+  HREF="node93.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2505"
+  HREF="node95.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2511"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2513"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html2516"
+  HREF="node97.html">B. Problème de gravure</A>
+<B> monter:</B> <A NAME="tex2html2510"
+  HREF="node93.html">A. Gravure de CD</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2506"
+  HREF="node95.html">A.2 Désactiver le module</A>
+ &nbsp; <B>  <A NAME="tex2html2512"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2514"
+  HREF="node106.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION07730000000000000000">
+A.<SPAN CLASS="arabic">3</SPAN> L'architecture x86_64</A>
+</H1>
+
+<P>
+L'architecture 64 bits x86_64<A NAME="4366"></A>, ou AMD64<A NAME="4367"></A>,
+devient de plus en plus
+populaire. Toute la gamme de produits AMD et certains Pentium&nbsp;4 sont à
+présent dotés de cette nouvelle technologie.
+L'usage de registres sur 64 bits plutôt que 32 bits permet
+le traitement d'une plus grande quantité de données, ce qui pourrait
+s'avérer intéressant pour le traitement de la vidéo en vue de la
+création de DVD. Cette architecture brise également la limite des
+4 Go de mémoire imposée par l'architecture 32 bits. Les processeurs
+64 bits existent depuis longtemps, mais ils ne se sont démocratisés
+qu'avec l'apparition du x86_64 mis au point par AMD et repris par
+Intel sous le nom d'EMT64<A NAME="4368"></A>.
+x86_64, contrairement aux précédentes architectures 64 bits, permet
+d'utiliser des applications 64 bits côte à côte
+avec des applications 32 bits traditionnelles sans réduction de
+performance. Mieux encore, un système d'exploitation
+32 bits peut tourner sur un AMD64 sans aucun problème. Bien entendu,
+toute la puissance du AMD64 ne sera utilisée qu'en présence d'un
+système d'exploitation 64 bits.
+
+<P>
+Si les éditions familiale ou professionnelle de Windows&nbsp;XP sont
+installées sur un processeur AMD Athlon64, Opteron ou Intel Pentium&nbsp;4
+avec EMT64, la gravure de CD fonctionnera parfaitement, car le
+processeur contient le jeu d'instruction IA32 traditionnel. Le système
+Windows 32 bits tournera comme avant. Ainsi,
+votre bon vieux logiciel de gravure tournera sur une nouvelle machine,
+du moment qu'il est compatible Windows&nbsp;XP.
+
+<P>
+Toutefois, la nouvelle mouture de Microsoft, Windows&nbsp;XP
+Professionnelle Édition édition x64<A NAME="4369"></A>, pourrait
+poser des problèmes de
+compatibilité. Ce nouveau système, nécessaire pour tirer parti de
+toutes les possibilités d'un processeur 64 bits, peut certes faire
+tourner des applications 32 bits sans aucune difficulté, mais les
+pilotes doivent impérativement être 64 bits. Ainsi, tout logiciel de
+gravure devant utiliser un pilote pour accéder au graveur ne
+fonctionnera pas sous Windows&nbsp;XP x64! En particulier, les logiciels
+d'écriture par paquets tels que InCD inclus avec Nero et Drag-to-Disc
+inclus avec Easy CD Creator sont touchés. Toute tentative
+d'installation de ces logiciels peut provoquer des désagréments allant
+de simples messages d'erreur jusqu'à l'impossibilité de redémarrer le
+système! Heureusement, en cas de plantages de ce genre, Windows offira
+la possibilité de revenir à la dernière configuration
+fonctionnelle. Dans le pire cas, une réinstallation de Windows
+rétablira la situation. Il est donc possible, pour un utilisateur
+chevronné, de mener ses expériences sans risquer d'endommager sa
+nouvelle machine de façon matérielle.
+Il n'existe aucune parade pour résoudre cette incompatibilité, outre
+l'attente d'une nouvelle version du logiciel ou l'installation en
+double amorçage d'une version 32 bits de Windows&nbsp;XP.
+
+<P>
+Il faudra malheureusement quelques temps avant que de nouvelles
+versions 64 bits de ces logiciels ne voient le jour. Plusieurs
+fabricants de logiciels ne traitent même pas de la plate-forme 64 bits
+sur leurs sites Web. Ainsi, il se peut que le passage au 64 bits soit
+lent et
+que pendant quelques mois, voire quelques années, il n'y ait aucun
+avantage pour un utilisateur moyen à se procurer et à acheter
+Windows&nbsp;XP x64. Avant que la situation n'ait changé, seuls les
+utilisateurs de Linux verront à court terme un réel avantage à acheter
+un système 64 bits. Toutefois,
+en raison de la faible différence de prix entre un
+système 32 bits et un équivalent 64 bits, de plus en plus de nouvelles
+machines pourraient se voir dotées d'un processeur 64 bits dont les
+capacités, en sommeil, pourraient être réveillées lorsque
+l'environnement logiciel y sera plus propice.
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2515"
+  HREF="node97.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2509"
+  HREF="node93.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2505"
+  HREF="node95.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2511"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2513"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html2516"
+  HREF="node97.html">B. Problème de gravure</A>
+<B> monter:</B> <A NAME="tex2html2510"
+  HREF="node93.html">A. Gravure de CD</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2506"
+  HREF="node95.html">A.2 Désactiver le module</A>
+ &nbsp; <B>  <A NAME="tex2html2512"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2514"
+  HREF="node106.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Eric Buist
+2005-11-13
+</ADDRESS>
+</BODY>
+</HTML>

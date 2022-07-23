@@ -1,0 +1,404 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         Partage d'une connexion Internet
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css"
+      href="../../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../../index.xhtml" class="parents">Le
+               royaume de Eric Buist</a> &gt;&gt; <a
+               href="../index.xhtml"
+               class="parents">Informatique</a> &gt;&gt; Problèmes
+               marquants &gt;&gt; <a href="../resolved.xhtml"
+               class="parents">Quelques bogues résolus</a> &gt;&gt;
+               <a href="index.xhtml" class="parents">Bogues
+               matériels résolus</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../../sitemap.xhtml" class="sitemap">Plan
+               du site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+            </td>
+            <td class="thispage">
+               Partage d'une connexion Internet
+            </td>
+            <td class="rightsibling">
+               <a href="diablobug.xhtml" class="rightsibling">Le
+               bogue Diablo II</a> &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         Partage d'une connexion Internet
+      </h1>
+      <p>
+         Depuis longtemps, je pensais à la carte réseau et aux
+         problèmes qu'elle pourrait solutionner. Lundi, le 12 juin
+         2000, j'avais décidé que ce jour-là serait le moment
+         d'acheter la carte. Heureusement, (ou peut-être par
+         malheur!!!) la magasin Le Magicien de l'Informatique avait
+         la carte que j'avais besoin pour mon portable, une carte
+         miniature et donc plus chère que les autres, une PCMCIA.
+         Il fallait aussi un hub et deux câbles longs, dont un de
+         cinquante pieds. Il fallait bien que la connexion puisse
+         se faire entre l'ordinateur en haut et ma machine qui se
+         trouve au sous-sol, dans ma chambre, pour que je puisse
+         allier Internet et mon écran cathodique. Sinon, vallait
+         mieux aller sur Internet avec l'ordinateur d'en haut, le
+         mal de tête viendrait beaucoup moins vite.
+      </p>
+      <p>
+         En arrivant chez moi, j'ai inséré la carte dans le
+         portable et installé le pilote pour la faire fonctionner.
+         Ce pilote se trouvait sur une disquette dans laquelle on
+         trouvait un répertoire <tt>win98</tt>. Mais si, sous
+         Windows, je donnais <tt>A:\</tt> comme chemin de
+         recherche, il trouvait un pilote. La carte configurée, la
+         machine faisait un bip lors du démarrage, avertissement
+         que la carte était initialisée. Tout était beau, sauf que
+         Linux semblait, d'après les bips différents de ceux de
+         Windows, ne pas détecter, plutôt ne pas gérer la carte.
+         Mais, pour le moment, ce serait correct. Si Linux ne
+         voulait pas prendre en charge le réseau, il serait
+         supprimé une nouvelle fois, peut-être pour de bon. La
+         programmation Java peut tout aussi bien se faire en
+         Windows. Le C++, toutefois, cause plus de problèmes, car
+         seul Microsoft Visual C++ constitue un bon compilateur et
+         est intimement relié à un éditeur de texte qui fait mal le
+         travail d'indentation, comparé à Emacs.
+      </p>
+      <p>
+         L'installation de la carte réseau SMC en plus de la
+         Realtek a eu lieu le lendemain. Windows ajouta alors un
+         nouveau pilote, mais la machine faisait un bip au
+         démarrage, car l'émulation SB16 en DOS ne se chargeait
+         plus correctement. À part cela, le système fonctionnait
+         correctement. Malheur: Windows voyait la carte comme une
+         autre carte identique à celle déjà installée, cela
+         compliquerait l'installation de façon horrible. En clair,
+         il y avait deux Realtek! Le réseau interne, permettant de
+         transférer des fichiers, a vite été mis au point. Un
+         problème de protocoles NetBEUI non installés, vite résolu,
+         a été mon seul obstacle. Je pouvais dès lors transférer
+         des fichiers d'une machine à l'autre, plus rapidement
+         qu'avec l'ancienne méthode du port parallèle. Mais ça ne
+         pouvait pas s'arrêter là!
+      </p>
+      <p>
+         Il était maintenant temps de mettre en place le partage
+         Internet, composant logiciel de la Deuxième Édition de
+         Windows 98 qui permettrait de faire un lien logique entre
+         les deux cartes réseau et agirait comme relais pour toutes
+         les transactions Internet réalisées par mon portable, et
+         potentiellement, d'autres ordinateurs branchés sur le hub.
+         Le module n'a pas fait de misère à s'installer, sauf que
+         la disquette qu'il voulait créer n'a pas pu être créée,
+         parce que j'avais mis une disquette formatée en Linux. Il
+         m'a fallu la formater et tout réinstaller. Ensuite,
+         malheur, le portable ne pouvait pas accéder à Internet. Le
+         navigateur Internet Explorer ne trouvait pas la page de
+         recherche, aller savoir ce qui se passait.
+      </p>
+      <p>
+         Toute tentative pour parvenir à modifier la situation a
+         été vaine. Rien à faire: la machine n'accéderait jamais à
+         Internet. Il m'a donc fallu appeler le vendeur. Celui-ci,
+         ne sachant pas ce qui pouvait bien se tramer dans le coeur
+         des deux ordinateurs, m'a suggéré d'amener mon portable
+         pour qu'il le teste sur son réseau. Après quelques tests
+         infructueux et de plus en plus frustrants, je me suis
+         résolus à cette possibilité. Horreur: le portable ne
+         voulait pas se brancher sur le réseau de Mario non plus.
+         Mais sérieusement, je préférais que ce soit le portable
+         qui ne se branche pas. Au moins, on n'aurait pas à aller
+         jouer dans l'ordinateur une nouvelle fois.
+      </p>
+      <p>
+         Le vendeur m'a suggéré de réinstaller Windows, car des
+         bébelles que j'avais installées lui faisaient croire que
+         le problème venait de là. Parmi ces bébelles figuraient
+         LiteStep et WindowBlind. Mais j'avais une autre idée
+         derrière le crâne. Lors de mon stage, un employé était un
+         jour venu faire une vérification sur ma machine. Il
+         cherchait la source d'un problème sur le réseau et avait
+         besoin de retrouver la machine correspondant à une
+         certaine IP. Pour voir cette adresse, il s'est servi de
+         <tt>winipcfg</tt>, un programme accessible seulement par
+         la commande exécuter ou la ligne de commande. Ce programme
+         ne répertoriait pas ma carte réseau. Donc, la carte ne
+         gérait pas le TCP/IP! Pourtant, le protocole TCP/IP était
+         bien installé dans l'icône Réseau du Panneau de
+         Configuration! Et sur la disquette des pilotes, il y avait
+         un répertoire <tt>win98</tt> que je n'avais pas utilisé
+         pour installer le pilote. J'ai donc tenté de réinstaller
+         le pilote PCMCIA et la carte est enfin apparue dans
+         <tt>winipcfg</tt>.
+      </p>
+      <p>
+         J'ai décidé d'essayer de brancher mon ordinateur sur le
+         modem câble directement. Ainsi, je saurais si tout
+         fonctionnait. J'ai tout éteint, y compris le bouton power
+         du modem, j'ai fait le branchement nécessaire et rallumé.
+         Durant ce temps, je crois, le modem se rappelait de la
+         carte Realtek par son adresse MAC unique. Il a vu une
+         nouvelle carte apparaître et a cru que je tentais de
+         splitter ma connexion. Il a donc agi en interdisant de
+         lier la carte réseau au réseau de Vidéotron. J'espère
+         qu'il n'a pas émis une alerte qui sera perceptible par les
+         administrateurs systèmes, mais la chose reste entièrement
+         plausible! Résultat pour moi: je croyais qu'il fallait
+         réinstaller Windows et que mon opération n'avait rien
+         fait.
+      </p>
+      <p>
+         La réinstallation a été pénible, car je devais la faire
+         sur le réseau pour maximiser les chances de succès. Ce qui
+         impliquait que, le câble n'étant pas passé dans le mur, il
+         fallait que je la fasse sur écran LCD. J'avais décidé de
+         réinstaller Windows 95, car Windows 98 était vraiment
+         lent! Résultat: toujours aucune connexion. J'ai tenté le
+         coup avec le modem câble, cette fois en débranchant
+         l'appareil complètement, pas juste en l'éteignant avec le
+         bouton Power. Et oh! Tout fonctionnait, maintenant. Je
+         pouvais accéder à Internet. Donc, c'était le serveur,
+         l'ordinateur de bureau, qui causait des troubles.
+      </p>
+      <p>
+         Par un éclair de génie, je me suis rappelé que Vidéotron
+         avait fourni des drivers avec la carte. Il me faudrait
+         donc les installer pour que la carte soit reconnue
+         correctement. Cette carte est ainsi passé d'une Realtek à
+         une SMC! Mais à un prix très élevé: l'ordinateur ne
+         démarrait même plus! Il m'a finalement fallu réinstaller
+         l'autre pilote en mode sans échec et j'ai terminé cette
+         journée dans le désespoir et la peur que je sois obligé de
+         tout ramener, me faire rembourser, et peut-être oublier
+         cela, pour Internet! Je m'était dit que Internet, je n'y
+         toucherais plus si le réseau ne fonctionnait pas.
+         J'enlèverais mon compte ICQ et tout le reste, mon adresse
+         Hotmail, inutilisée, serait détruite.
+      </p>
+      <p>
+         Le vendeur croyait que le problème venait du fait que les
+         deux cartes étaient identiques, mais je venais de prouver
+         que ce n'était pas le cas. Le problème se corsait avec le
+         temps et mon cerveau n'en pouvait plus de tenter
+         d'extrapoler des solutions. Je me sentais dans une boucle
+         algorithmique mentale infinie qui me rendrait complètement
+         fou furieux une bonne fois! La nuit a été très longue, je
+         ne crois pas avoir beaucoup dormi. Mais j'avais une
+         nouvelle idée au sujet des pilotes. J'allais inverser les
+         connexions pour que le modem câble soit branché sur la
+         carte livrée avec Vidéotron. Puisque ça avait fonctionné
+         dans le Pentium 150, pourquoi pas dans le nouvel
+         ordinateur? L'autre carte, la Realtek, serait parfaitement
+         apte à accomplir les services réseaux et partager ma
+         connexion serait possible.
+      </p>
+      <p>
+         Mais mon frère David s'est levé à huit heures moins quart
+         et est allé sur l'ordinateur. Il m'a fallu attendre
+         l'après-midi pour le test, plutôt les tests!
+      </p>
+      <p>
+         Le pilote a de nouveau été installé. Il ne fonctionnait
+         pas bien. Une passe-passe m'a permis de le rendre
+         utilisable, mais sans le protocole TCP/IP. Le rajouter
+         plantait l'ordinateur. Il m'a fallu jouer dans le BIOS
+         pour rendre le fonctionnement correct. La carte utilisait
+         une IRQ mobilisée par un contrôleur ACPI qui ne servait à
+         rien d'autre que nuire! Verrouiller cette IRQ a permis, au
+         moins, de résoudre le conflit qui empêchait l'émulation de
+         la SB16 de démarrer. Ce qui supprimait un bip agaçant à
+         chaque démarrage de la machine. Mais le réseau s'obstinait
+         toujours à ne pas fonctionner. Windows semblait vouloir
+         faire fonctionner le modem seulement sur la première carte
+         réseau et pas les autres. Il faudrait peut-être mettre la
+         carte réseau SMC en premier, ce qui obligerait à ouvrir la
+         machine pour faire l'échange des cartes! MERDE! J'ai
+         essayé tout ce qui pouvait l'être durant tout
+         l'après-midi, jusqu'à en arriver à la conclusion qu'il me
+         faudrait de nouveau appeler le vendeur. Ce dernier m'a dit
+         d'amener portable et gros ordinateur, car un problème
+         réseau de cette ampleur ne pouvait se résoudre par
+         téléphone. Il y a trop de variables pour permettre un tel
+         miracle. Deux solution s'imposaient donc: soit je trouvais
+         seul ce qui ne va pas, soit on amènait les machines et on
+         se ferait charger une des cartes réseaux qu'il allait
+         falloir peut-être changer. Si c'était la SMC, il aurait
+         fallu payer, car elle ne vient pas de lui!
+      </p>
+      <p>
+         Mercerdi soir, l'échange des cartes a été tenté.
+         Finalement, la machine a démarré... correctement! Le BIOS
+         détectait les deux cartes, prouvant qu'elles étaient bien
+         enfichées. Et puisque la machine démarrait toujours, la
+         carte mère n'avait pas été endommagée par cette opération.
+      </p>
+      <p>
+         Mais ça ne fonctionnait toujours pas. Windows n'affichait
+         que la Realtek dans <tt>winipcfg</tt> et aucun accès
+         Internet n'était possible si on branchait le modem sur la
+         SMC! Cette carte était donc défectueuse! Il faudrait donc
+         absolument payer pour régler le problème. Comme si je
+         n'avais pas assez payé pour le créer!!! Je regrettais de
+         plus en plus amèrement mon achat, car il créait du trouble
+         et risquait à tout moment d'empêcher l'accès à Internet
+         pour de bon, et cela pour les deux machines! Chaque
+         modification logicielle ou matérielle pouvait entraîner
+         cet effet et peut-être qu'il me serait nécessaire de
+         réinstaller Windows pour parvenir à l'inverser. J'ai
+         finalement réussi à faire fonctionner Internet en
+         branchant le modem sur la Realtek comme avant. J'ai
+         vraiment cru qu'il faudrait échanger les cartes de
+         nouveau, mais ce ne fut pas le cas!
+      </p>
+      <p>
+         En regardant le guide utilisateur de la carte SMC, je me
+         suis rendu compte que cette carte était très bonne et
+         qu'elle comportait même des diodes permettant de savoir si
+         elle fonctionnait. Je voulais les voir! Je suis donc allé
+         derrière la machine et j'ai vu cette lumière verte. Mais
+         rien n'était inscrit dans le guide sur le type de carte
+         qu'il traitait. La Realtek pouvait elle aussi comporter
+         des diodes, mais le connecteur coaxial les dissimulait. En
+         essayant de les trouver, j'ai accroché le câble
+         d'alimentation du scanner. La fiche est tombée sur le
+         plancher, mais il était impossible de l'atteindre. Il m'a
+         fallu faire des acrobaties avec les fils pour parvenir à
+         joindre la fiche et l'entrée d'alimentation du scanner,
+         mais j'y suis parvenu. J'ai encore tenté d'aller voir la
+         carte, j'ai failli me cogner la tête sur une tablette.
+         J'ai finalement pu constater que la Realtek ne comportait
+         pas de diode. La carte SMC devait être fonctionnelle, il
+         le fallait.
+      </p>
+      <p>
+         Mon cours de karaté a été assez facile, c'était une
+         pratique vidéo. Mais je pensais toujours au réseau et à
+         une nouvelle hypothèse qui me permettrait de le faire
+         fonctionner.
+      </p>
+      <p>
+         J'ai eu envie de faire le test le soir même, mais j'ai
+         décidé de m'en abstenir. De toute façon, David était sur
+         l'ordinateur. Mon esprit bouclait de plus en plus sur la
+         solution hypothétique. Cela me permettrait de récupérer de
+         l'énergie et de mieux dormir, avant que ce problème n'ait
+         le temps de ronger ma raison. Le lendemain, je tenterais
+         d'autres tests et vendredi matin, on amènerait tout le
+         matériel chez Le Magicien et qu'il s'arrange avec. Si le
+         portable causait encore problème, j'appellerais l'<a
+         href="http://www.inlb.qc.ca">INLB</a> pour que <a
+         href="http://www.visuaide.com">VisuAide</a> puisse tenter
+         de quoi. La tentative valait la peine, car si je passais
+         par l'Institut, on ne me ferait peut-être pas payer le
+         technicien. Après tout, le problème pouvait bien venir du
+         portable. Et s'il n'y avait rien à faire, ils changeraient
+         peut-être ma machine si je leur disais que j'ai besoin de
+         cette carte pour mon université. J'aurais un disque dur
+         plus gros, au moins! J'ai effectivement mieux dormi que la
+         nuit passée.
+      </p>
+      <p>
+         David ne se levant pas, je suis donc allé faire le fameux
+         test le matin même. Le driver a vite été substitué et une
+         deuxième carte Realtek est apparu dans <tt>winipcfg</tt>.
+         Après une tentative inutile pour que ça devienne une SMC,
+         j'ai supposé un bogue. Windows avait la mémoire longue: la
+         Realtek correspondait à la SMC, mais il ne marquait pas le
+         bon nom. J'ai donc réinstallé le partage Internet et suis
+         allé chercher le portable. Le branchement effectué, je
+         l'ai démarré, exécuté par précaution le programme se
+         trouvant sur la disquette et j'ai redémarré. Le réseau
+         interne fonctionnait, le système m'avait assigné une
+         adresse IP, mais qu'en était-il de Internet? Au niveau
+         serveur, une des cartes Realtek s'était transformée en
+         ICSHARE dans <tt>winipcfg</tt>. Peut-être que... Internet
+         fonctionnait toujours sur le serveur... et a fonctionné
+         sur le portable!!! Oui, il fonctionnait, et aussi
+         rapidement.
+      </p>
+      <p>
+         Le problème était parfaitement connexe à celui du
+         portable: la carte n'était pas listée dans
+         <tt>winipcfg</tt>. Il y avait un driver pour Windows 98 et
+         Windows 95. Il fallait utiliser celui pour Windows 95,
+         même si le serveur fonctionnait en 98. Le Windows 98
+         possède le WDM et le ACPI, voilà les deux grandes
+         améliorations qui peuvent affecter des pilotes. Mais notre
+         ordinateur, si récent soit-il, ne prenait pas en charge
+         ACPI. Je ne peux pas savoir logiquement pourquoi, car je
+         n'ai pas lu les standards pour fonder mon hypothèse, mais
+         cela me semblait possible.
+      </p>
+      <p>
+         Puisque l'anomalie était connexe avec celle du portable,
+         peut-être que le vendeur n'aurait pas pu la résoudre et
+         aurait tenté la réinstallation, me causant plusieurs
+         heures de travail à réinstaller les applications. En plus,
+         il aurait réinstallé le driver Windows 98 (logique
+         s'impose!) et aurait peut-être encore eu des problèmes
+         réseaux. Il aurait testé le tout avec une autre carte, ça
+         aurait marché et il aurait fallu payer!
+      </p>
+      <p>
+         Sans <tt>winipcfg</tt>, je n'aurais peut-être pas trouver
+         la piste. C'est grâce à mon stage et à ma curiosité qui
+         m'a poussé à regarder ce que le gars faisait sur
+         l'ordinateur, ainsi que grâce à ma mémoire que je suis
+         parvenu à détruire l'ennemi. Je crois que c'est l'un des
+         problèmes les plus épineux que j'ai rencontrés. Jamais je
+         n'ai bûché aussi longtemps, à mon avis. L'autre fois que
+         j'avais gossé longtemps, c'était avec GNOME qui ne voulait
+         plus fonctionner correctement après une mise à jour avec
+         compilation du source.
+      </p>
+      <p>
+         Lorsque j'ai installé la machine avec support ACPI, il m'a
+         fallu installer le pilote Windows 98 plutôt que Windows 95
+         pour la carte SMC. Il m'a aussi fallu, ultérieurement,
+         remplacer le Partage Internet de Windows par SyGate Home
+         Network 4.0 pour bénéficier du port mapping automatique.
+         Il a aussi fallu que je mette à jour à la version 4.2 dans
+         le but de tester une solution à un mystérieux <a
+         href="../mysteries/stop.xhtml">bogue d'arrêt incorrect</a>
+         de l'ordinateur.
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

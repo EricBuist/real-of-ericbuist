@@ -1,0 +1,855 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         Installation de Linux Fedora Core 4
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css"
+      href="../../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../../index.xhtml" class="parents">Le
+               royaume de Eric Buist</a> &gt;&gt; <a
+               href="../index.xhtml"
+               class="parents">Informatique</a> &gt;&gt;
+               Configuration informatique &gt;&gt; <a
+               href="index.xhtml" class="parents">Le Salvator,
+               successeur du Faucon de Fer</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../../sitemap.xhtml" class="sitemap">Plan
+               du site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="win.xhtml"
+               class="leftsibling">Installation de Microsoft
+               Windows XP</a>
+            </td>
+            <td class="thispage">
+               Installation de Linux Fedora Core 4
+            </td>
+            <td class="rightsibling">
+               <a href="timing.xhtml" class="rightsibling">Tests de
+               performance</a> &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         Installation de Linux Fedora Core 4
+      </h1>
+      <ul>
+         <li>
+            <a href="#download">Téléchargement de Fedora Core 4
+            x86_64</a>
+         </li>
+         <li>
+            <a href="#fail">Première tentative: échec total!</a>
+         </li>
+         <li>
+            <a href="#net">La carte réseau, un gros problème!</a>
+         </li>
+         <li>
+            <a href="#sound">Le son qui griche</a>
+         </li>
+         <li>
+            <a href="#nvidia">Configuration de l'écran et de la
+            carte graphique</a>
+         </li>
+         <li>
+            <a href="#firefox">Firefox manque de pep</a>
+         </li>
+         <li>
+            <a href="#eclipse">Eclipse refuse de démarrer</a>
+         </li>
+         <li>
+            <a href="#misc">Problèmes divers</a>
+         </li>
+         <li>
+            <a href="#lspci"><tt>lspci</tt></a>
+         </li>
+      </ul>
+      <h2>
+         <a name="download" id="download">Téléchargement de Fedora
+         Core 4 x86_64</a>
+      </h2>
+      <p>
+         Vendredi soir, 6 janvier 2006, après avoir réussi à
+         installer et à configurer Windows XP sur ma nouvelle
+         machine, je téléchargeai la version 64 bits de Fedora Core
+         4 à l'aide de <a
+         href="http://www.bittorrent.com">BitTorrent</a>. Cela se
+         fit très rapidement, car la vitesse de téléchargement
+         grimpa à 500ko/s! Je me retrouvai donc le soir même avec
+         une image DVD de la distribution! Le lendemain, après la
+         transplantation réussie de mon synthoniseur TV, je testai
+         mon nouveau graveur de DVD en copiant cette image sur un
+         DVD+R. Cela se passa très bien et le DVD résultant
+         fonctionna. Il restait à voir si l'installation, elle, se
+         passerait bien...
+      </p>
+      <h2>
+         <a name="fail" id="fail">Première tentative: échec
+         total!</a>
+      </h2>
+      <p>
+         Dimanche, 8 janvier 2006, je tentai d'installer Fedora
+         Core 4 x86_64 sur ma nouvelle machine. Pour ce faire,
+         j'insérai mon DVD gravé la veille dans mon lecteur et
+         redémarrai la machine. J'obtins alors l'écran d'accueil de
+         Fedora et j'appuyai sur Entrée comme demandé. Le
+         gestionnaire d'amorçage chargea alors le noyau,
+         <tt>vmlinuz</tt>, ainsi que <tt>initrd.img</tt>, une image
+         contenant un système de fichiers. Ensuite, le gestionnaire
+         démarra le noyau et le système planta! Pour une raison
+         mystérieuse, le programme d'installation ne parvenait pas
+         à initialiser le disque RAM contenu dans
+         <tt>initrd.img</tt>. Normalement, le programme devrait
+         placer le contenu de <tt>initrd.img</tt> en mémoire et le
+         considérer comme un système de fichiers racine dans lequel
+         appeler le programme <tt>init</tt> pour amorcer
+         l'installation proprement dite. Toutefois, le noyau ne
+         parvenait pas à accéder au fichier <tt>initrd.img</tt> ou
+         à sa copie en RAM.
+      </p>
+      <p>
+         Je tentai avec la version 32 bits de Fedora Core 4, sans
+         plus de succès. J'essayai avec Mandrake 10.1 que j'avais
+         encore et obtins un message d'erreur indiquant qu'aucun
+         CD-ROM ne pouvait être détecté. Ce message était plus
+         précis que le plantage de Fedora et me fournit des pistes
+         de solution. Il semblait, d'après ce message d'erreur et
+         en supposant que j'avais affaire au même problème (ce qui
+         était faux), que le noyau confondait le disque dur et le
+         lecteur CD/DVD en raison de la configuration différente
+         des périphériques. Sur ma machine, le graveur DVD était
+         maître primaire si bien que Linux le voyait comme
+         <tt>/dev/hda</tt>, normalement le disque dur. Le lecteur
+         DVD, esclave primaire, se voyait attribuer le fichier
+         spécial <tt>/dev/hdb</tt>. Le vrai disque dur, Serial ATA,
+         recevait un fichier spécial correspondant à un
+         périphérique SCSI, par exemple <tt>/dev/sda</tt>.
+      </p>
+      <p>
+         Désespéré, j'essayai de changer le mode Serial ATA à
+         Enhanced IDE plutôt que AHCI, mais cela ne changea
+         absolument rien. Il semblait que la seule solution serait
+         de réaménager les périphériques de ma machine, voire
+         transférer mon ancien disque dur de 120Go. Toutefois, sans
+         ce disque, le Faucon de Fer perdait beaucoup de valeur et
+         ne pourrait plus remplacer la machine familiale. Si je
+         réalisais mon projet de le vendre à mes parents, il
+         faudrait alors transférer le disque de 30Go de la machine
+         Buist qui serait un peu trop petit à long terme. De plus,
+         que faire avec ce gros disque SATA de 200Go?
+      </p>
+      <p>
+         La réorganisation la plus prometteuse consistait à
+         installer un disque dur Parallel ATA (mon 120Go par
+         exemple) comme maître primaire et laisser le lecteur DVD
+         comme esclave primaire. Ensuite, le graveur deviendrait
+         maître sur le premier contrôleur IDE ITE. J'avais le câble
+         nécessaire, livré avec ma carte mère, pour réaliser ce
+         branchement, mais je trouvais l'opération longue et
+         compliquée. Sortir le disque dur de ma vieille tour ne se
+         ferait pas sans retirer la carte graphique et il faudrait
+         encore retirer la carte pour ajouter un autre disque (ou
+         le même disque) dans le futur. Je renonçai donc à cette
+         expérimentation et me résignai à n'utiliser que Windows si
+         jamais cela devenait nécessaire pour installer Linux.
+      </p>
+      <p>
+         Toutes mes recherches sur Internet s'avéraient vaines. Je
+         tombai sur des cas similaires au mien dans des forums,
+         mais aucune solution n'était présentée. Un utilisateur
+         posait une question, quelqu'un demandait quelques
+         précisions, l'utilisateur répondait puis fini, plus rien,
+         aucune solution au problème. Je fis différents tests qui
+         me menèrent vite à croire que l'architecture interne de la
+         machine était si différente de celle du Faucon de Fer que
+         plus aucune distribution de Linux ne pourrait s'exécuter.
+         Par exemple, j'essayai de démarrer depuis une disquette
+         système et de charger le noyau avec un utilitaire nommé
+         LoadLin. Ceci devait me permettre de charger
+         <tt>initrd.img</tt> d'une façon alternative, sans passer
+         par le CD-ROM. Lorsque le noyau serait amorcé, j'espérais
+         qu'il pourrait alors détecter mon lecteur DVD et que
+         l'installation pourrait commencer. Malheureusement,
+         LoadLin s'obstina à me dire qu'il y avait moins de 4Mo de
+         mémoire sur cette machine! Cela montrait que l'accès à la
+         mémoire était radicalement différent des machines
+         précédentes puisqu'il ne pouvait même pas détecter le
+         giga-octet de mémoire! Cela m'étonnait de plus en plus que
+         Windows XP, datant de 2002, ait pu s'installer aussi
+         facilement.
+      </p>
+      <p>
+         Je tentai de démarrer <a
+         href="http://www.knoppix.org">Knoppix</a> et cette fois,
+         cela fonctionna. Malheureusement, je n'avais que la
+         version 3.6 et il ne parvint même pas à trouver mon disque
+         dur, ce qui me frustra puisque j'avais choisi une carte
+         mère compatible AHCI justement pour éviter ce problème.
+         Cela semblait parti pour que le disque dur SATA ne soit
+         accessible que depuis Windows! Heureusement, avec Knoppix
+         4, que je téléchargeai pour tester, le disque fut détecté
+         mais pas la carte réseau. Je ne m'en inquiétai pas trop,
+         car je savais bien que Knoppix n'avait pas tous les
+         modules de noyau possibles puisque les concepteurs de ce
+         fantastique produit ont dû faire de lourds sacrifices pour
+         le faire tenir sur un seul CD amorçable. Fedora Core,
+         pensai-je, aurait le module nécessaire et la carte
+         fonctionnerait comme un charme.
+      </p>
+      <p>
+         Ainsi, au moins une distribution de Linux pouvait
+         s'exécuter sur cette machine! Je fis d'autres recherches
+         et appris que <a
+         href="http://www.mandrivalinux.com">Mandriva</a> 2006 ne
+         souffrait pas du problème rencontré avec Fedora Core 4 et
+         Mandrake 10.1. Malheureusement, il me fut impossible
+         d'obtenir le DVD de la version x86_64 de cette
+         distribution. Pour le télécharger via BitTorrent, il
+         fallait être membre du MandrivaClub. Je tentai d'obtenir
+         la version gratuite par le biais d'un miroir FTP, ce qui
+         ne demandait pas un abonnement au club, mais la plupart
+         des miroirs étaient lents ou ne fonctionnaient pas du
+         tout. Le miroir sur lequel je tombai n'avait pas la
+         version ISO DVD x86_64! De toute façon, même si je l'avais
+         trouvée, Mandriva ne me plaisait pas du tout, car je me
+         doutais bien que je ne pourrais pas mettre bon nombre de
+         paquetages à jour avant un an, suite à son installation.
+         Les mises à jour de Mandrake 10.1 étaient beaucoup moins
+         fréquentes que celles de Fedora Core et je ne voyais pas
+         comment les choses pourraient avoir changé avec Mandriva
+         2006.
+      </p>
+      <p>
+         J'essayai d'amorcer depuis un CD pour installer depuis le
+         disque dur, tentai de trouver comment amorcer depuis une
+         disquette sans trop de succès, examinai la possibilité
+         d'un amorçage depuis le réseau mais c'était trop
+         compliqué, etc. Aucune solution simple ne semblait exister
+         pour contourner le bogue.
+      </p>
+      <p>
+         Avant d'appliquer une procédure compliquée d'amorçage
+         alternatif en utilisant une disquette contenant <a
+         href="http://www.gnu.org/software/grub/">GRUB</a>, je me
+         rendis sur <a
+         href="http://www.fedoraforum.org">FedoraForum</a> pour y
+         poster une question au sujet de mon bogue. J'y découvris,
+         dans la section sur les problèmes d'installation, une
+         technique pour contourner justement le bogue auquel je
+         faisais face! Il semblait suffire de taper
+         <tt>garbage</tt> plutôt que <tt>linux</tt> ou rien du tout
+         lors de l'affichage de l'écran d'accueil. Ensuite, il
+         serait possible de procéder de façon usuelle. Jamais je
+         n'aurais pu trouver et sans doute que toutes mes
+         techniques les plus compliquées n'auraient mené à rien!
+      </p>
+      <p>
+         Je testai la technique le jour même! Lorsque je tapai
+         <tt>garbage</tt>, le chargeur m'indiqua qu'aucun noyau
+         correspondant n'existait. J'appuyai ensuite sur Entrée
+         pour constater avec une immense joie que l'installation de
+         Linux démarrait normalement! Je fus très heureux de
+         découvrir qu'il chargea un pilote AHCI et put alors
+         prendre mon disque dur en charge comme un périphérique
+         SCSI. Le reste de l'installation se passa très bien. Linux
+         détecta la carte son mais pas la carte réseau.
+      </p>
+      <h2>
+         <a name="net" id="net">La carte réseau, un gros
+         problème!</a>
+      </h2>
+      <p>
+         Lorsque je découvris, par <tt>ifconfig</tt>, que la carte
+         réseau Marvell Yukon intégrée à ma carte mère n'était pas
+         prise en charge par le noyau 2.6.11, je ne m'en fis pas
+         trop. Je redémarrai sous Windows et téléchargeai, sur <a
+         href="http://download.fedora.redhat.com">le site de
+         Fedora</a>, le noyau 2.6.14. Je téléchargeai les
+         paquetages <tt>kernel</tt>, <tt>kernel-devel</tt>,
+         <tt>kernel-smp</tt>, <tt>kernel-smp-devel</tt> et
+         <tt>kernel-doc</tt>. Je stockai ces fichiers dans une
+         répertoire de ma partition commune puis je redémarrai pour
+         tenter une mise à jour, avec <tt>rpm -ivh</tt>. Cela
+         réussit, mais au redémarrage avec le noyau 2.6.14, la
+         carte réseau n'était toujours pas prise en charge.
+         <tt>ifconfig</tt> s'obstinait à n'afficher que l'interface
+         <tt>lo</tt>. Si je tentais d'exécuter <tt>modprobe
+         sk98lin</tt> pour charger le module de gestion de la carte
+         réseau, rien ne se passait, pas même un message d'erreur.
+         <tt>/var/log/messages</tt> n'affichait rien lui non plus.
+      </p>
+      <p>
+         Ce problème peut être facilement résolu depuis que le
+         noyau 2.6.16 (et le noyau 2.6.17) est devenu disponible:
+         il suffit de remplacer, dans <tt>/etc/modprobe.conf</tt>,
+         <tt>sk98lin</tt> (dans la ligne <tt>alias eth0
+         sk98lin</tt>) par <tt>sky2</tt> ou <tt>skge</tt> avant de
+         redémarrer le système. La carte réseau apparaîtra comme
+         par magie! Cela fonctionne autant avec Fedora Core 4 que
+         Fedora Core 5.
+      </p>
+      <p>
+         Mais avec le noyau 2.6.14, les choses ne pouvaient être
+         aussi simples. J'essayai avec le pilote sur le CD de ma
+         carte mère Asus, mais la compilation échoua
+         lamentablement. Il semblait que ce pilote nécessitait le
+         code source du noyau, ce que je n'avais pas installé. Je
+         savais d'ores et déjà que l'installation serait vouée à
+         l'échec, même si j'installais le paquetage
+         <tt>kernel-source</tt>, car avec le noyau 2.6, la
+         compilation d'un module n'est pas censée exiger le code
+         source.
+      </p>
+      <p>
+         Je dus ainsi fouiller sur le site de <a
+         href="http://www.marvell.com">Marvell</a> pour obtenir un
+         nouveau pilote. J'allai pour cela dans la section
+         <b>Drivers</b> et je sélectionnai <b>PC Connectivity</b>
+         et <b>Yukon</b> pour ensuite lancer la recherche. Je pus
+         obtenir un pilote Linux parmi les éléments listés. Je
+         copiai le fichier, nommé <tt>install-8_28.tar.bz2</tt>,
+         sur ma partition commune et redémarrai pour un nouvel
+         essai.
+      </p>
+      <p>
+         Pour installer le pilote, je dus d'abord décompacter le
+         fichier, ce qui créa un répertoire <tt>DriverInstall</tt>.
+         Je me plaçai dans ce répertoire et, en root, tentai de
+         taper <tt>./install.sh</tt>. Je choisis une installation
+         plutôt que la création d'une patch de noyau, mais cela
+         échoua. Pour réussir, je dus taper les commandes
+         suivantes:
+      </p>
+<pre>
+export PATH=/sbin:/usr/sbin:$PATH
+export IGNORE_CC_MISMATCH=1
+ln -s /usr/src/kernels/2.6.14-1.1656_FC4-smp-x86_64 /usr/src/linux
+./install.sh
+</pre>
+      <p>
+         La première commande ajoute des répertoires dans la
+         variable <tt>PATH</tt>, permettant l'appel de
+         <tt>modprobe</tt> plutôt que <tt>/sbin/modprobe</tt>. La
+         seconde ligne permet de forcer le programme d'installation
+         à compiler le module même si la version du compilateur GCC
+         utilisée diffère de celle employée pour compiler le noyau.
+         La troisième ligne permet au programme d'installation de
+         retrouver les en-têtes du noyau nécessaires. La dernière
+         ligne exécute bien entendu l'installation.
+      </p>
+      <p>
+         C'est alors qu'un «miracle» se produisit: le module se
+         compila et se chargea! Par contre, <tt>ifconfig</tt>
+         s'obstinait à ne pas afficher la nouvelle interface
+         réseau! Il semblait bel et bien qu'il allait falloir
+         installer une carte réseau PCI. Cela me frustrait, car je
+         n'avais pas envie de le faire. Le Faucon de Fer n'aurait
+         plus de carte réseau puisque je prendrais sa Realtek qui a
+         toujours bien fonctionné avec Linux et je savais que
+         j'aurais du mal à mettre la carte réseau PCI en place dans
+         la nouvelle machine, à moins de la coller sur la carte
+         graphique.
+      </p>
+      <p>
+         Avant d'en arriver là, j'effectuai quelques manipulations
+         additionnelles. D'abord, dans <tt>/etc/modprobe.conf</tt>,
+         j'ajoutai les deux lignes suivantes:
+      </p>
+<pre>
+alias eth0 sk98lin
+alias net-pf-10 off
+</pre>
+      <p>
+         La première ligne associe le pilote Marvell au
+         périphérique réseau <tt>eth0</tt> tandis que la seconde
+         désactive IPv6 qui ralentit beaucoup Internet.
+      </p>
+      <p>
+         Ensuite, je démarrai le programme de configuration réseau
+         de Fedora. Sous GNOME, ce programme se trouve dans le menu
+         <b>Environnement</b>, sous-menu <b>Paramètres de
+         système</b>, icône <b>Réseau</b>. Sous l'onglet
+         <b>Matériel</b> de cette boîte de dialogue, j'aperçus ma
+         carte réseau; elle n'apparaissait pas avant l'installation
+         réussie du pilote.
+      </p>
+      <p>
+         Pour créer une nouvelle connexion, je cliquai sur le
+         bouton <b>Nouveau</b> et remplis les différents champs. Je
+         fixai les paramètres de façon statique afin de pouvoir
+         utiliser la redirection de ports de mon routeur, mais
+         j'aurais pu configurer le tout automatiquement, via DHCP.
+         Je cliquai ensuite sur <b>Activer</b> pour activer la
+         nouvelle interface réseau.
+      </p>
+      <p>
+         Sous l'onglet <b>DNS</b>, je configurai le nom d'hôte
+         comme <tt>salvator.buistgroup.ca</tt> et le DNS primaire
+         sur <tt>192.168.1.1</tt>, l'adresse locale de mon routeur.
+      </p>
+      <p>
+         Sous l'onglet <b>Hôtes</b>, je cliquai sur <b>Nouveau</b>
+         pour ajouter quelques noms d'hôte. À l'adresse IP
+         127.0.0.1, j'associai l'hôte
+         <tt>localhost.buistgroup.ca</tt> et les alias
+         <tt>localhost</tt>, <tt>salvator.buistgroup.ca</tt> et
+         <tt>salvator</tt>. À l'adresse 192.168.1.6, j'associai le
+         nom <tt>salvator.buistgroup.ca</tt> et l'alias
+         <tt>salvator</tt>. Je commis une erreur de frappe:
+         <tt>localhist</tt> au lieu de <tt>localhost</tt>. De plus,
+         il n'était pas nécessaire d'ajouter <tt>salvator</tt>
+         comme alias pour l'IP 127.0.0.1.
+      </p>
+      <p>
+         Lorsque je fermai la fenêtre, le logiciel m'offrit de
+         sauvegarder les modifications. Je répondis <b>Oui</b> pour
+         valider mes changements. En root, j'utilisai ensuite
+         <tt>/etc/init.d/network restart</tt> pour redémarrer le
+         service réseau. Je dus également redémarrer ma session
+         GNOME pour que la modification au nom d'hôte soit bien
+         prise en compte. Tous ces efforts furent courronnés de
+         succès, car la carte réseau fonctionna! Je pus ainsi
+         démarrer <tt>yum update</tt> pour installer les 695
+         paquetages offerts comme mises à jour.
+      </p>
+      <p>
+         Je me demandai par la suite si l'installation du module
+         Marvell avait été indispensable pour faire fonctionner la
+         carte réseau. La mise à jour au noyau 2.6.14 pouvait avoir
+         suffi à prendre la carte en charge et il suffisait, après
+         coup, de faire les ajustements dans les fichiers de
+         configuration. Toutefois, lors de la prochaine mise à jour
+         du noyau, la carte réseau cessa de nouveau de fonctionner
+         et je dus réinstaller le module Marvell. Ainsi, le module
+         de Marvell est nécessaire pour que la carte fonctionne,
+         même si le noyau comporte en standard un module du même
+         nom.
+      </p>
+      <p>
+         Il est à espérer que Fedora Core 5 ou le noyau 2.6.16
+         fourniront une version à jour de ce pilote. En effet,
+         l'installation du pilote réseau rend agaçante toute mise à
+         jour du noyau et il n'est pas impossible qu'un bon jour,
+         le pilote refuse de s'installer. Sans carte réseau, mon
+         installation de Linux sera vouée à la stase en attendant
+         des jours meilleurs; je devrai travailler sous Windows en
+         attendant de trouver une solution. Bien entendu, je
+         n'appliquerais pas cette alternative. J'opterais plutôt
+         pour revenir à la dernière version du noyau pour laquelle
+         le module fonctionnait ou j'installerais une carte réseau
+         PCI! Mais le problème n'en serait pas moins frustrant.
+      </p>
+      <h2>
+         <a name="sound" id="sound">Le son qui griche</a>
+      </h2>
+      <p>
+         Tandis que la longue mise à jour était en cours, je voulus
+         écouter de la musique. Comme le support MP3 n'était pas
+         encore installé, je choisis un de mes disques encodés en
+         Ogg Vorbis. Je me rendis vite compte avec déception que <a
+         href="http://www.xmms.org">XMMS</a> n'était pas installé
+         lui non plus. Je tentai mon coup avec ce qui me tomba sous
+         la main et je trouvai <a
+         href="http://www.gnome.org/projects/rhythmbox/">Rythmbox</a>,
+         un logiciel que je commençai à trouver intéressant,
+         presque fantastique. Malheureusement, la musique que je
+         démarrai s'avéra entachée d'un affreux grichement de fond.
+         Chaque chanson de mon disque grichait!
+      </p>
+      <p>
+         J'essayai de démarrer la lecture d'un des fichiers Ogg
+         Vorbis avec <tt>ogg123</tt> et cela gricha encore. Ainsi,
+         le problème se situait au niveau du noyau et non pas au
+         niveau de GNOME. J'essayai, au cas où <tt>ogg123</tt>
+         utiliserait OSS, avec <tt>aplay</tt> et finit par me
+         trouver un fichier WAV assez long pour gricher. C'était
+         agaçant, exaspérant, choquant, enrageant, même! Pourquoi
+         ce pilote était-il chargé s'il ne pouvait même pas gérer
+         cette carte son intégrée comme du monde?
+      </p>
+      <p>
+         J'essayai de faire varier le volume dans
+         <tt>alsamixer</tt>, mis diverses sources audio en sourdine
+         (Front Mic, IEC958, CD, Line, Side, etc.) sans aucun
+         résultat. Je tentai ensuite, sous l'hypothèse que le
+         pilote ne faisait pas bien la conversion de fréquence, de
+         fixer la fréquence de ESD à 48000Hz (fréquence native de
+         la carte son?). Pour ce faire, j'utilisai <tt>killall
+         esd</tt> puis démarrai <tt>esd -r 48000</tt>. Le bip qui
+         sortit de là fut tout simplement affreux!
+      </p>
+      <p>
+         Plus mes recherches sur Internet avançaient, plus j'avais
+         mal aux yeux à cause de la mauvaise configuration de mon
+         écran et moins je voyais de chance de solution simple.
+         Tout ce qui se trouvait sur le forum de Fedora ne
+         produisait aucun résultat. Il semblait nécessaire que je
+         tente d'installer le pilote de Realtek qui nécessitait au
+         minimum le noyau 2.2. Puisque seul OSS était disponible
+         sous ce noyau, il se pouvait bien que le pilote soit OSS
+         et que j'aie à complètement désactiver ALSA pour pouvoir
+         avoir le son! La seule façon simple d'obtenir un son
+         correct serait de transférer la Sound Blaster Live! 5.1 de
+         mon Faucon de Fer dans ma nouvelle machine. J'y perdrais
+         les ports audio avant sur ma tour, le son haute définition
+         et surtout, je devrais me taper la configuration d'un
+         cavalier sur ma vieille carte mère pour réactiver la carte
+         son intégrée. Comme je l'ai découvert lors de ma tentative
+         de déboguage de carte mère défectueuse, changer un
+         cavalier de position est assez ardu. Si je ne changeais
+         pas le cavalier, le Faucon de Fer n'aurait plus de carte
+         son, ce qui en diminuerait beaucoup la valeur.
+      </p>
+      <p>
+         Tandis que je cherchais et pestais, résistant à l'envie
+         d'éteindre cette machine, la ranger dans un placard et
+         rebrancher mon bon vieux Faucon de Fer, Yum travaillait et
+         effectuait des mises à jour. C'est ainsi que le paquetage
+         <tt>alsa-lib</tt> passa à une version plus actuelle et
+         stable. Lorsque je testai de nouveau le son, il était
+         clair et net: plus de grichement!
+      </p>
+      <p>
+         Je craignis par contre que le bogue ne revienne. Il se
+         pouvait qu'il soit dû à un conflit d'IRQ entre ma carte
+         son (PCI) et ma carte réseau (PCI Express) toutes deux
+         intégrées à la carte mère. Le pilote Windows pourrait
+         savoir gérer ce conflit correctement tandis que le pilote
+         Linux, bogué, pourrait ne pas le gérer, surtout avec une
+         carte PCI Express. Si cette hypothèse de conflit était
+         vérifiée, à chaque téléchargement massif (des mises à jour
+         par exemple), le son gricherait. Il se pouvait même que
+         peu importe la carte son utilisée, le problème se
+         manifeste. Heureusement, pareil scénario ne se réalisa
+         pas, du moins avec ma configuration.
+      </p>
+      <h2>
+         <a name="nvidia" id="nvidia">Configuration de l'écran et
+         de la carte graphique</a>
+      </h2>
+      <p>
+         Jusque-là, j'étais coincé en 800x600 à cause des
+         limitations du pilote <tt>nv</tt> et de l'impossibilité de
+         redémarrer X.org en raison des mises à jour en cours.
+         Lundi soir, 9 janvier 2005, je remédiai à ce problème de
+         configuration, car en 800x600, l'affichage sur mon LCD
+         était beaucoup moins net que dans sa résolution native de
+         1280x1024.
+      </p>
+      <p>
+         Je tentai d'utiliser <tt>xrandr</tt> pour énumérer les
+         résolutions disponibles et constater qu'il n'y avait que
+         800x600 et 640x480! Dans <tt>/var/log/Xorg.0.log</tt>, le
+         fichier log de X.org, je trouvai des entrées attestant que
+         le pilote <tt>nv</tt> traitait bien les autres
+         résolutions, mais il les rejettait toutes pour diverses
+         raisons: raison inconnue, fréquence d'horloge non
+         supportée, fréquence hors des limites, etc. Bref, tout
+         semblait parti pour que j'aie un sérieux problème
+         d'affichage sous Linux. Mais avant de tenter des solutions
+         bêtes comme rebrancher mon écran en mode VGA plutôt que
+         DVI, j'entrepris d'installer le pilote closed source de
+         NVIDIA.
+      </p>
+      <p>
+         Je regardai sur le CD d'Asus venu avec la carte graphique
+         pour ne trouver aucun pilote pour Linux. Je dus ainsi me
+         rendre sur le site de <a
+         href="http://www.nvidia.com">NVIDIA</a> pour télécharger
+         la version x86_64 de leur pilote. Je quittai ma session
+         GNOME, appuyai sur CTRL-ALT-F1 et me branchai en root sur
+         la première console texte. De là, je tapai <tt>init 3</tt>
+         pour passer sur le troisième niveau d'exécution, ce qui
+         tua le serveur X.org. Je démarrai ensuite le programme
+         d'installation du pilote de NVIDIA. Le pilote s'installa
+         comme un charme et l'utilitaire de configuration de X, que
+         je choisis d'employer, modifia juste ce qu'il fallait dans
+         mon fichier <tt>/etc/X11/xorg.conf</tt> pour que la carte
+         graphique fonctionne bien. Pour compléter la
+         configuration, j'ouvris ce fichier sous Emacs et ajoutai
+         les résolutions 1280x1024 et 1024x768 avant 800x600, dans
+         la section <tt>Screen</tt>. Lorsque je redémarrai X.org,
+         avec <tt>init 5</tt>, je constatai avec soulagement que
+         j'étais dans la résolution native de mon moniteur LCD. Un
+         appel à <tt>xrandr</tt> m'afficha un bien meilleur choix
+         de résolutions. Ainsi, si je n'avais pas installé le
+         pilote NVIDIA ou si le pilote avait eu le malheur de ne
+         pas s'installer correctement, je n'aurais pas eu d'autres
+         résolutions que 640x480 et 800x600! Peut-être aurais-je eu
+         accès aux autres résolutions en remplaçant <tt>nv</tt> par
+         <tt>vesa</tt> dans le fichier de configuration de X.org,
+         mais j'y aurais perdu toute l'accélération 2D/3D.
+      </p>
+      <h2>
+         <a name="firefox" id="firefox">Firefox manque de pep</a>
+      </h2>
+      <p>
+         Je rencontrai deux problèmes avec Mozilla Firefox sous
+         Fedora Core 4 x86_64. D'abord, les plug-ins Flash et Java
+         ne fonctionnaient pas du tout, car ils n'étaient pas
+         disponibles en version x86_64. Ensuite, chaque fois que je
+         voulais afficher un fichier PDF, j'obtenais un écran vide
+         et rien d'autre. MozPlugger ne parvenait pas à démarrer
+         Adobe Reader correctement et il n'y avait même pas moyen
+         de lui indiquer de télécharger le PDF au lieu de tenter de
+         l'afficher. La seule façon de visualiser un fichier PDF
+         consistait alors à cliquer du bouton droit sur le lien et
+         à sélectionner <b>Enregistrer la cible sous</b> pour
+         ensuite l'ouvrir avec le logiciel de mon choix. Ainsi,
+         Firefox manquait sérieusement de fonctionnalités.
+      </p>
+      <p>
+         Il ne semblait y avoir aucune autre solution qu'installer
+         la version 32 bits de Firefox, ce que je finis par me
+         résoudre à tenter.
+      </p>
+      <p>
+         Je tentai d'installer Firefox avec <tt>yum install
+         firefox.i386</tt>, mais cela échoua, Yum ne pouvant
+         trouver une version 32 bits du logiciel. Je téléchargeai
+         donc la version 1.5 du navigateur sur le site <a
+         href="http://www.mozilla.com">Mozilla</a> et décompactai
+         l'archive <tt>.tar.gz</tt> dans /usr/local. Je dus ensuite
+         modifier <tt>/etc/profile</tt> pour y ajouter
+         <tt>pathmunge /usr/local/firefox before</tt> afin que la
+         commande <tt>firefox</tt> démarre Firefox 1.5 32 bits
+         plutôt que Firefox 1.0.7 x86_64. Restait à installer les
+         plug-ins.
+      </p>
+      <p>
+         J'en profitai pour installer <a
+         href="http://www.helixcommunity.org">RealPlayer</a> 10
+         Gold pour pouvoir lire les fichiers RealAudio sous Linux.
+         Après l'installation du fichier RPM, j'utilisai les
+         commandes suivantes.
+      </p>
+<pre>
+cd /usr/local/RealPlayer/postinst
+./postinst.sh
+</pre>
+      <p>
+         Je tapai ensuite <tt>Y</tt> pour indiquer au programme de
+         créer les liens symboliques. Je dus utiliser <tt>cp -a
+         /usr/lib/mozilla/plugins/nphel*
+         /usr/local/firefox/plugins</tt> pour rendre le plug-in
+         accessible dans Firefox. Je tapai aussi, pour Adobe
+         Reader,
+      </p>
+<pre>
+cd /usr/local/Adobe/Acrobat7.0/Browser
+./install_browser_plugin
+</pre>
+      <p>
+         J'entrai <tt>/usr/local/firefox</tt> comme emplacement
+         d'installation du navigateur. Pour Java, j'avais déjà
+         installé JDK 1.5 versions 32 bits et 64 bits. Pour le
+         plug-in, j'utilisai <tt>ln -s
+         /usr/local/java/jvm32/jdk1.5.0_06/jre/plugin/i386/ns7/libjavaplugin_oji.so
+         /usr/local/firefox/plugins/libjavaplugin_oji.so</tt>.
+      </p>
+      <p>
+         Pour ce qui est de Flash, le programme d'installation de
+         Macromedia refusa de fonctionner en raison de
+         l'architecture x86_64. Je dus donc copier manuellement les
+         fichier <tt>libflashplayer.so</tt> et
+         <tt>flashplayer.xpt</tt> dans
+         <tt>/usr/local/firefox/plugins</tt>.
+      </p>
+      <p>
+         <a href="http://mozplugger.mozdev.org/">MozPlugger</a> me
+         causa lui aussi quelques problèmes. Je dus compiler une
+         version 32 bits de <tt>mozplugger.so</tt> et la
+         compilation ne cessa d'échouer. Je parvins à mes fins en
+         modifiant le fichier <tt>Makefile</tt> pour ajouter,
+         au-dessous de la ligne traitant de Linux, une nouvelle
+         ligne:
+      </p>
+<pre>
+linux32:
+        ${MAKE} all CC=gcc XCFLAGS="-fPIC -m32" LD=gcc XLDFLAGS="-shared -m32"
+</pre>
+      <p>
+         Cela permit de compiler le fichier <tt>.so</tt>, mais il
+         s'obstina à échouer avec <tt>mozplugger-helper</tt>.
+         Heureusement, je n'avais besoin que de
+         <tt>mozplugger.so</tt> que je copiai dans
+         <tt>/usr/local/firefox/plugins</tt>. Malheureusement, cela
+         ne régla rien pour ce qui est du problème des fichiers
+         PDF. MozPlugger ne fit que boguer si bien que je supprimai
+         <tt>mozplugger.so</tt> du répertoire des plug-ins!
+      </p>
+      <p>
+         Je tentai d'installer un plug-in additionnel pour que
+         Mozilla puisse lire les fichiers Windows Media et
+         QuickTime, mais cela ne réussit jamais. <a
+         href="http://mplayerplug-in.sourceforge.net/">MPlayerPlug-in</a>
+         était le plus prometteur, mais il refusa tout simplement
+         de s'installer. Le paquetage RPM ne fonctionna pas avec
+         Fedora Core 4 x86_64 et la recompilation du code source
+         échoua. Il semblait donc que la seule façon de jouer des
+         fichiers QuickTime et Windows Media était de réinstaller
+         Fedora Core 4 32 bits, ce qui en revient à ma question
+         fondamentale: à quoi sert un processeur 64 bits s'il n'y a
+         aucun moyen de lui faire exécuter du code 64 bits?
+         Heureusement, QuickTime et Windows Media sont des formats
+         que j'utilise rarement, sinon jamais.
+      </p>
+      <h2>
+         <a name="eclipse" id="eclipse">Eclipse refuse de
+         démarrer</a>
+      </h2>
+      <p>
+         <a href="http://www.eclipse.org">Eclipse</a>,
+         l'environnement de développement Java inclus avec Fedora
+         Core 4, refusa tout bonnement de démarrer, affichant que
+         la JVM avait quitté avec un code d'erreur 1. Si je
+         démarrais Eclipse depuis la console, j'obtenais un message
+         m'indiquant que <tt>startup.jar</tt> était introuvable. La
+         commande <tt>rpm -ql eclipse-platform | fgrep
+         startup.jar</tt> m'indiqua que ce fichier se trouvait dans
+         <tt>/usr/share/eclipse</tt>. Je pus résoudre ce mystérieux
+         problème en tapant, sur le terminal,
+      </p>
+<pre>
+export PATH=/usr/share/eclipse:$PATH
+eclipse 
+</pre>
+      <p>
+         Pour éviter d'avoir à taper la ligne <tt>export</tt> à
+         chaque fois, je tentai d'ajouter, dans
+         <tt>/etc/profile</tt>, l'instruction <tt>pathmunge
+         /usr/share/eclipse after</tt>. Cela ajouta
+         <tt>/usr/share/eclipse</tt> dans la variable
+         d'environnement <tt>PATH</tt> de façon permanente et
+         devait permettre à Java de trouver le fichier JAR.
+         Malheureusement, il n'en fut rien et la seule solution est
+         d'écrire la ligne <tt>PATH</tt> à chaque fois. Plus tard,
+         j'ai découvert qu'il suffisait d'appeler
+         <tt>/usr/share/eclipse/eclipse</tt> au lieu
+         d'<tt>eclipse</tt> directement pour démarrer
+         l'environnement. Une tentative de mettre
+         <tt>/usr/share/eclipse</tt> dans <tt>CLASSPATH</tt> n'eut
+         aucun résultat. Il semble donc qu'il y ait un bogue dans
+         Eclipse et la seule solution définitive serait d'attendre
+         Fedora Core 5 ou d'essayer la version originale de la
+         plateforme, que l'on peut obtenir sur <a
+         href="http://www.eclipse.org">www.eclipse.org</a>. J'ai
+         été chanceux de trouver une passe-passe qui, dans mon cas,
+         fonctionne, mais il pourrait exister des cas où il n'en
+         sera rien. Ce bogue pourrait toujours d'autres
+         utilisateurs de la version x86_64 de Fedora Core 4, car il
+         s'est manifesté à l'Université de Montréal sous une autre
+         forme, insoluble celle-là. Je ne sais pas exactement
+         comment il a pu être résolu, mais je crois que le support
+         technique a dû installer une autre version d'Eclipse.
+      </p>
+      <p>
+         J'ai aussi éprouvé des difficultés avec le débogueur
+         intégré d'Eclipse qui, au lieu de démarrer, affichait une
+         erreur étrange en lien avec la fonction C
+         <tt>gethostbyname</tt>. Ce n'est que vendredi, 17 mars
+         2006, que je me suis décidé à essayer de télécharger
+         Eclipse sur <a
+         href="http://www.eclipse.org">Eclipse.org</a> pour
+         constater que cela ne fonctionnait pas davantage. J'ai le
+         jour même découvert que <tt>ping localhost</tt> ne
+         fonctionnait pas, car il y avait une erreur de typographie
+         dans mon fichier <tt>/etc/hosts</tt>: <tt>localhist</tt>
+         au lieu de <tt>localhost</tt>. Cette erreur est apparue à
+         cause de la nécessité de configurer le réseau
+         manuellement, en raison de ma carte réseau non prise en
+         charge par le noyau sans module externe. Corriger l'erreur
+         a rendu le débogueur d'Eclipse fonctionnel! Le nouveau
+         fichier <tt>/etc/hosts</tt> est le suivant:
+      </p>
+<pre>
+127.0.0.1  localhost.buistgroup.ca localhost
+192.168.1.6     salvator.buistgroup.ca  salvator
+</pre>
+      <h2>
+         <a name="misc" id="misc">Problèmes divers</a>
+      </h2>
+      <p>
+         L'installation du pilote IVTV causa quelques difficultés,
+         car la nouvelle version, 0.4.1, cherchait les firmware à
+         un nouvel endroit. Quelques lectures sur le site de IVTV
+         me permirent fort heureusement de faire les ajustements
+         nécessaires et je finis par obtenir une image.
+      </p>
+      <p>
+         Le reste de la configuration de Linux se passa exactement
+         comme sur le Faucon de Fer. Je dus installer
+         d'innombrables paquetages avec Yum et effectuer plusieurs
+         ajustements pour la taille des caractères. Grâce à <a
+         href="http://www.livna.org/">LIVNA</a>, je m'évitai la
+         recompilation de bon nombre de paquetages, dont <a
+         href="http://www.mplayerhq.com/">MPlayer</a>.
+      </p>
+      <h2>
+         <a name="lspci" id="lspci"><tt>lspci</tt></a>
+      </h2>
+      <p>
+         La commande <tt>lspci</tt> de Linux permet d'afficher des
+         informations sur le matériel dans la machine.
+         L'information affichée est très utile pour déterminer les
+         puces exactes de chaque composante si bien qu'il est
+         courant de la partager. Voici donc le résultat de
+         <tt>lspci</tt> sur le Salvator.
+      </p>
+<pre>
+00:00.0 Host bridge: Intel Corporation 945G/P Memory Controller Hub (rev 81)
+00:01.0 PCI bridge: Intel Corporation 945G/P PCI Express Graphics Port (rev 81)
+00:1b.0 Audio device: Intel Corporation 82801G (ICH7 Family) High Definition Audio Controller (rev 01)
+00:1c.0 PCI bridge: Intel Corporation 82801G (ICH7 Family) PCI Express Port 1 (rev 01)
+00:1c.3 PCI bridge: Intel Corporation 82801G (ICH7 Family) PCI Express Port 4 (rev 01)
+00:1d.0 USB Controller: Intel Corporation 82801G (ICH7 Family) USB UHCI #1 (rev 01)
+00:1d.1 USB Controller: Intel Corporation 82801G (ICH7 Family) USB UHCI #2 (rev 01)
+00:1d.2 USB Controller: Intel Corporation 82801G (ICH7 Family) USB UHCI #3 (rev 01)
+00:1d.3 USB Controller: Intel Corporation 82801G (ICH7 Family) USB UHCI #4 (rev 01)
+00:1d.7 USB Controller: Intel Corporation 82801G (ICH7 Family) USB2 EHCI Controller (rev 01)
+00:1e.0 PCI bridge: Intel Corporation 82801 PCI Bridge (rev e1)
+00:1f.0 ISA bridge: Intel Corporation 82801GB/GR (ICH7 Family) LPC Interface Bridge (rev 01)
+00:1f.1 IDE interface: Intel Corporation 82801G (ICH7 Family) IDE Controller (rev 01)
+00:1f.2 SATA controller: Intel Corporation 82801GR/GH (ICH7 Family) Serial ATA Storage Controllers cc=AHCI (rev 01)
+00:1f.3 SMBus: Intel Corporation 82801G (ICH7 Family) SMBus Controller (rev 01)
+01:01.0 Multimedia video controller: Internext Compression Inc iTVC16 (CX23416) MPEG-2 Encoder (rev 01)
+02:00.0 Ethernet controller: Marvell Technology Group Ltd. 88E8053 PCI-E Gigabit Ethernet Controller (rev 19)
+04:00.0 VGA compatible controller: nVidia Corporation NV43 [GeForce 6600] (rev a2)
+</pre>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

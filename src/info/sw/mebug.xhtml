@@ -1,0 +1,347 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         Problème d'amorçage sous Windows Millennium Edition
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css"
+      href="../../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../../index.xhtml" class="parents">Le
+               royaume de Eric Buist</a> &gt;&gt; <a
+               href="../index.xhtml"
+               class="parents">Informatique</a> &gt;&gt; Problèmes
+               marquants &gt;&gt; <a href="../resolved.xhtml"
+               class="parents">Quelques bogues résolus</a> &gt;&gt;
+               <a href="index.xhtml" class="parents">Bogues
+               logiciels résolus</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../../sitemap.xhtml" class="sitemap">Plan
+               du site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="office2kbugs.xhtml"
+               class="leftsibling">Les bogues Office 2000</a>
+            </td>
+            <td class="thispage">
+               Problème d'amorçage sous Windows Millennium Edition
+            </td>
+            <td class="rightsibling">
+               <a href="cdjewelbug.xhtml" class="rightsibling">Une
+               pochette de CD pas mal longue à faire!</a> &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         Problème d'amorçage sous Windows Millennium Edition
+      </h1>
+      <p>
+         Peu de temps après l'installation de Windows Millennium
+         Edition sur mon portable Toshiba Satellite 310CDS, au
+         milieu du mois de décembre 2000, un mystérieux bogue est
+         apparu. Le système démarrait et travaillait suffisamment
+         rapidement pour que je puisse envisager de travailler sous
+         ce système et c'est seulement après l'installation de mes
+         applications que tout a commencé. Un bon jour, j'ai allumé
+         le portable, tout allait bien jusqu'à l'affichage du fond
+         d'écran. On voyait le curseur de souris devenir un sablier
+         ou un pointeur avec sablier, symbolisant un état de
+         chargement. Tout à coup, tout accès disque s'arrêtait et
+         le système se mettait à attendre le messie.
+      </p>
+      <p>
+         Croyant à un plantage, j'appuyais naturellement sur
+         ctrl+alt+del, la maudite combinaison de touches que tout
+         utilisateur de Windows connaît bien, trop bien... Dans le
+         meilleur des cas, la boîte <b>Fermer le programme</b>
+         s'affichait, mais aucun <b>pas de réponse</b> n'était
+         associé à un quelconque programme. Fermer cette boîte avec
+         le bouton Annuler ou la touche escape provoquait la
+         poursuite du chargement de Windows, comme si de rien
+         n'était. N'ayant pas envie de prendre une nouvelle
+         habitude de travail et de ccompliquer mon processus de
+         démarrage pour rien, j'ai voulu investiguer plus loin que
+         ce simple constat passif. De plus, l'appui sur
+         ctrl+alt+del pouvait aussi ne rien provoquer et dans ce
+         cas, il fallait attendre une dizaine de secondes pour voir
+         apparaître la foutue boîte. Comme si ce n'était pas encore
+         assez long mettre en marche cette tortue! Si on appuyait
+         une seconde fois durant l'attente, c'était l'écran bleu et
+         lorsqu'on appuyait sur une touche, la boîte surgissait sur
+         fond noir, souvent! Le démarrage pouvait quand même se
+         poursuivre normalement. Parfois, je me choquais et je
+         fermais la machine de force pour la rallumer jusqu'à ce
+         que le démarrage se fasse comme il le faut. Dans ce cas,
+         le ScanDisk embarquait et c'était pas mal plus long mettre
+         en marche Windows!
+      </p>
+      <p>
+         Dans cette boîte apparaissaient souvent les mêmes
+         programmes, tels <tt>thotkey</tt>, <tt>tfunckey</tt>,
+         <tt>statemgr</tt>, <tt>mprexe</tt> et <tt>rundll32</tt>.
+         J'ai essayé de désactiver <tt>thotkey</tt> et
+         <tt>tfunckey</tt>, des utilitaires Toshiba se chargeant
+         dans la Base de Registre, mais le plantage s'est manifesté
+         de nouveau. J'ai réinstallé Windows, même problème.
+      </p>
+      <p>
+         Plus le temps avançait, plus ce plantage me faisait
+         choquer et enrager. Je n'ai pas envie de revenir en
+         arrière avec Windows 98 Deuxième Édition. S'il faut
+         revenir en arrière, c'est qu'il n'y a plus une version de
+         bonne pour ce qui est de Windows et il en sera toujours
+         ainsi. Dans ce cas, autant quasiment retourner à Windows
+         3.1, ses problèmes et limitations innombrables mais sa
+         vitesse! J'ai pensé que le problème pouvait venir de ma
+         CPU trop lente et cela me choquait profondément. Cela
+         signifierait simplement que ce système d'exploitation ne
+         pourra pas travailler sur un portable en bas de
+         4000$-5000$, et peut-être même plus cher que cela encore
+         pour avoir une machine 300MHZ et plus!
+      </p>
+      <p>
+         Mais pourquoi cet OS nécessiterait plus de puissance CPU
+         que son prédécesseur? Je crois que c'est en raison de la
+         plus grande quantité de fichiers et de données à
+         manipuler. Le système se charge en mémoire, remplit la
+         mémoire de 64MB et commence à étirer le swap file afin de
+         se faire de l'espace mémoire virtuel. Toutefois, les
+         manipulations du swap file exigent encore plus de temps de
+         calcul que s'il y avait assez de mémoire ou... si on
+         fixait la taille du swap file à la main! Je l'ai fait,
+         sans résultats.
+      </p>
+      <p>
+         Mardi après-midi, le 16 janvier 2001, j'en ai eu ma claque
+         et j'ai tenté plusieurs tests en série. Avec
+         <tt>msconfig</tt>, je désactivais certains programmes lors
+         de la séquence de démarrage pour savoir si le problème
+         reviendrait et il revenait toujours. Cet après-midi-là,
+         j'ai trouvé un moyen de provoquer le problème quand je le
+         voulais. Pour y parvenir, il fallait éteindre la machine
+         et fermer le couvercle. Après une vingtaine de secondes,
+         on la rallumait et ça boguait!
+      </p>
+      <p>
+         Puisque le bogue s'était produit pour la première fois
+         dans la seconde installation de Me juste après le
+         redémarrage lors de l'installation de Norton Utilities
+         2000, j'avais cru que ce logiciel pouvait constituer la
+         cause du bogue et j'avais tenté de mettre le produit à
+         jour. J'avais obtenu Norton Utilities 2001 et je l'avais
+         installé, sans plus de résultats. Ce mardi soir, j'ai
+         désinstallé ces utilitaires qui se trouvaient sur mon
+         ordinateur depuis quelques semaines et toujours le bogue.
+         En suivant la piste de <tt>mprexe</tt>, dont j'ai pu
+         obtenir la description par les propriétés du fichier dans
+         l'Explorateur, j'ai retiré ma carte réseau PCMCIA,
+         toujours la même chose. J'ai réinstallé Norton Utilities
+         2001 et la carte, ce ne sont pas les causes du problème!
+      </p>
+      <p>
+         Après une fouille rapide, j'ai vu que seul la ligne
+         LoadPowerProfile appelait <tt>rundll32.exe</tt>. Elle se
+         trouve dans le Registre, à
+         <tt>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run</tt>
+         ainsi qu'à <tt>RunServices</tt>. Ce n'est que vendredi
+         soir, le 19 janvier 2001, que j'ai testé cela, en ayant
+         trouvé le courage. Mardi soir, j'avais tenté de désactiver
+         les lignes avec <tt>msconfig</tt> et cela semblait
+         concluant. Ce vendredi, les désactiver a de nouveau
+         provoqué le plantage! Il n'y avait ainsi plus rien qui
+         puisse solutionner le bogue!
+      </p>
+      <p>
+         J'ai aussi cru entre-temps que cela pourrait être dû au
+         fait que j'aie supprimé tous les modèles de gestion
+         d'énergie, sauf <b>Ordinateur portable</b>, dans les
+         options d'alimentation du Panneau de Configuration. J'ai
+         tenté de les rajouter, sans succès. Après une recherche
+         dans le Registre, j'ai trouvé ces options à
+         <tt>HKEY_USERS\DEFAULT\Control
+         Panel\PowerCfg\PowerPolicies</tt>. Il y avait là des
+         branches numérotées respectivement 1, 5 et 6! Je suis allé
+         voir sur l'ordinateur familial pour voir 0, 1 et 3. J'ai
+         ainsi remis en ordre les trois profils de gestion
+         d'énergie pour qu'ils correspondent le plus exactement
+         avec le standard. Ainsi, si LoadPowerProfile recherchait
+         le numéro suivant, il le trouverait et tout
+         fonctionnerait. Mais encore en vain...
+      </p>
+      <p>
+         Samedi, le 20 janvier 2001, la machine a de nouveau bloqué
+         au démarrage. Il existait à présent deux hypothèses. Le
+         bogue semblait se produire uniquement lorsque la batterie
+         du portable était en train de se recharger, ce qui se
+         déduit par la couleur de la troisième diode à partir de la
+         gauche à l'avant de la machine. Il aurait pu être possible
+         qu'il y ait un bogue ACPI avec Windows ME et le portable.
+         Il aurait aussi pu y avoir <u>DEUX</u> bogues: le bogue de
+         la batterie jumelé avec celui de la configuration du
+         LoadPowerProfile! En effet, il est arrivé que tout a bogué
+         lors d'un redémarrage, ce qui ne correspond pas aux
+         conditions de création du bogue qui se produisait
+         généralement lorsque j'ouvrais mon portable pour la
+         première fois durant une journée.
+      </p>
+      <p>
+         Je ne savais naturellement plus quoi faire, allié à la
+         lenteur de la machine, ce problème pouvait me nuire
+         beaucoup. Si le portable ne suffisait plus pour
+         l'université, il serait assez difficile de parvenir à me
+         rendre au bout.
+      </p>
+      <p>
+         Durant la semaine du 5 février 2001, j'ai effectué de
+         nouvelles expériences comme d'habitude peu concluantes.
+         Après quelquues essais de démarrage, je me suis rendu
+         compte que la machine démarrait comme il faut si je
+         retirais la batterie principale dont je n'ai pas besoin
+         lorsque je fonctionne sur alimentation secteur.
+         Malheureusement, jeudi le 8 février 2001, le test s'est
+         avéré peu concluant puisque la machine a de nouveau planté
+         au démarrage.
+      </p>
+      <p>
+         Ce dimanche, 11 février, j'en suis arrivé à l'hypothèse
+         farfelue du port infrarouge intégré au portable. Ce port
+         capte et émet des ondes électromagnétiques infrarouges
+         afin de savoir si un périphérique fonctionnant sur ce mode
+         de connexion, ou un autre ordinateur muni de ce port, se
+         trouve à proximité ou de communiquer avec le matériel
+         trouvé. Toutefois, près de la machine, à sa droite, se
+         trouve une souris optique Microsoft IntelliMouse Optical
+         en activité. Il est possible que cette souris émette un
+         rayonnement capable de perturber le port et Windows
+         croirait à moitié que quelque chose vient d'arriver dans
+         le rayon d'action du port et là, il tenterait
+         infructueusement de détecter ce qui vient d'arriver!
+      </p>
+      <p>
+         Bien que cette hypothèse soit un peu tirée par les
+         cheveux, la tester ne demandait que peu de ressources,
+         soit de boucher le port avec ma main lors du démarrage de
+         la machine. Si après une semaine, la machine démarrait
+         toujours bien, il ne m'aurait resté qu'à désactiver le
+         port et cela aurait été fait. Sinon... Désespoir!
+      </p>
+      <p>
+         Retirer la souris, outre le sacrifice que cela aurait
+         impliqué, n'aurait pas permis de tester complètement
+         l'affaire. En effet, il se pourrait que cela soit autre
+         chose qui perturbe le port infrarouge.
+      </p>
+      <p>
+         Il existait une autre hypothèse déjà prête si ce n'était
+         pas le port infrarouge. Lorsque j'installe le pilote de la
+         carte graphique Chips &amp; Technologies 65555, il
+         apparaît un fichier du nom de <tt>panning.sys</tt> dans
+         <tt>config.sys</tt>. Ce fichier, chargé par la commande
+         <tt>device=c:\windows\panning.sys</tt>, semble ne pas
+         servir mais peut-être constitue-t-il la clé de voûte pour
+         que Windows ne plante pas avec la carte graphique. Sous
+         Windows ME, ce fichier ne peut pas être chargé, car
+         Windows ne se soucie pas du <tt>config.sys</tt>! Il était
+         possible que ce fichier initialise certains paramètres
+         matériels et que lors du chargement de Windows, si ces
+         paramètres n'étaient pas bien définis, il y a plantage. Le
+         pilote corrigerait en redéfinissant les paramètres qui
+         auraient pu être stockés d'une façon que je ne connais pas
+         dans une mémoire qui prend un peu plus de temps que la
+         mémoire principale à s'effacer. Dans ce cas-là, la seule
+         solution aurait consisté à tenter mon coup avec le pilote
+         de Chips &amp; Technologies plutôt que Toshiba, ce qui
+         n'aurait pas exigé le chargement de <tt>panning.sys</tt>.
+         Toutefois, cela pourrait faire revivre des problèmes lors
+         du rallumage de l'écran lorsqu'il s'éteint après quelques
+         minutes d'inactivité.
+      </p>
+      <p>
+         C'est pourquoi je n'avais pas vraiment envie de tester
+         cette hypothèse avant que ce ne soit vraiment la dernière.
+         Samedi, le 17 février 2001, le désespoir est revenu
+         puisque la machine a planté lors du premier démarrage de
+         la journée. La veille au soir, elle avait planté et
+         j'avais tenté d'installer le pilote Toshiba pour le port
+         infrarouge, rien à faire. Cette fois-ci, mon hypothèse
+         portait sur la souris IntelliMouse. Cette souris vient
+         avec un logiciel, IntelliPoint, qui permet de modifier
+         certains paramètres tels le rôle des boutons et les
+         options habituelles. Lorsqu'on installe IntelliPoint, il
+         ajoute des options dans le Panneau de Configuration de
+         Windows.
+      </p>
+      <p>
+         D'un autre côté, j'avais installé des extensions souris
+         Toshiba afin de pouvoir utiliser des curseurs agrandis
+         sous Windows. Ces extensions ajoutent les curseurs dans la
+         Base de Registre et des options dans le Panneau de
+         Configuration. Toutefois, il s'adonne que ces options sont
+         répliquées dans IntelliPoint! Il se pouvait donc qu'il y
+         ait conflit entre les deux applications et que cela cause
+         problème. Lorsque j'ai installé Windows ME, IntelliPoint
+         livré avec ma souris (une très belle bébelle, soit dit en
+         passant!) ne fonctionnait pas avec ME. Je l'ai alors mis à
+         jour et il se peut que ce soit cette nouvelle version, et
+         non pas ME, qui soit en conflit avec les extensions
+         Toshiba de souris! Il est ainsi possible que sur une autre
+         machine, le bogue ne revienne!
+      </p>
+      <p>
+         Pour expérimennter la nouvelle supposition, j'ai
+         simplement désinstallé les extensions Toshiba, ce qui m'a
+         malheureusement fait perdre mes curseurs agrandis.
+         Toutefois, il semble qu'avec Windows ME, il soit livré des
+         curseurs qui ont du bon sens. J'ai effectué une sauvegarde
+         de ces fichiers au cas où je voudrais les installer sur
+         une autre machine et j'ai choisi les curseurs du modèle
+         <b>Grand</b>. Pour le moment, tout semble fonctionner,
+         j'ai ainsi résolu le problème!
+      </p>
+      <p>
+         La suppression a aussi modifié le comportement de la
+         souris. Le bouton central ne fait plus un double-clic, il
+         passe en mode de défilement automatique. Ce qui est plus
+         que rassurant puisqu'il y a eu un changement de fonction!
+         Le nouveau comportement reflète davantage l'option active
+         dans le Panneau de Configuration et je pourrais
+         probablement remettre le double-clic en service si je le
+         voulais. Espérons que j'ai la solution, après deux mois
+         avec ce problème, faudrait bien que je parvienne à le
+         résoudre un jour!
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

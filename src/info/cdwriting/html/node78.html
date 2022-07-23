@@ -1,0 +1,217 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.1//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>16.4 Copie de disques multisession</TITLE>
+<META NAME="description" CONTENT="16.4 Copie de disques multisession">
+<META NAME="keywords" CONTENT="cdwriting">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="cdwriting.css">
+
+<LINK REL="next" HREF="node79.html">
+<LINK REL="previous" HREF="node77.html">
+<LINK REL="up" HREF="node74.html">
+<LINK REL="next" HREF="node79.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html2220"
+  HREF="node79.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2214"
+  HREF="node74.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2208"
+  HREF="node77.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2216"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2218"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html2221"
+  HREF="node79.html">16.5 Stockage de disques</A>
+<B> monter:</B> <A NAME="tex2html2215"
+  HREF="node74.html">16. La copie de</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2209"
+  HREF="node77.html">16.3 Copie à la</A>
+ &nbsp; <B>  <A NAME="tex2html2217"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2219"
+  HREF="node106.html">Index</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Sous-sections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html2222"
+  HREF="node78.html#SECTION07341000000000000000"><SPAN CLASS="arabic">16</SPAN>.<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">1</SPAN> Copie des CD Extra</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+
+<H1><A NAME="SECTION07340000000000000000">
+<SPAN CLASS="arabic">16</SPAN>.<SPAN CLASS="arabic">4</SPAN> Copie de disques multisession</A>
+</H1>
+
+<P>
+La copie de disques multisession pose de sérieux problèmes sous
+Linux, car s'il est possible d'extraire individuellement les images
+des sessions, il n'est pas possible de restaurer le chaînage entre les
+sessions lors de l'écriture. Dans mes expérimentations, seule la
+première session du disque a été visible. Ainsi, en général, un CD
+multisession ne peut être reproduit exactement sous Linux. La
+technique la plus fiable de duplication consiste à recréer une image
+ISO toute neuve et à la graver sur le CD-R ou le CD-RW de
+destination.
+
+<P>
+
+<H2><A NAME="SECTION07341000000000000000"></A>
+<A NAME="3451"></A>
+<BR>
+<SPAN CLASS="arabic">16</SPAN>.<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">1</SPAN> Copie des CD Extra
+</H2>
+
+<P>
+Toutefois, le cas des CD Extra est particulier et peut être
+traité. Il vous faudra malheureusement procéder en deux étapes. Tout
+d'abord, il vous faut extraire les pistes audio et la piste de données
+puis regraver le tout. Il existe deux façons d'extraire la piste
+audio, soit avec CDRDAO, soit avec CDParanoia.
+
+<P>
+
+<DIV CLASS="alltt" ALIGN="LEFT">
+<TT>
+ 
+<BR>
+cdrdao read-cd -session 1 -datafile cd1.bin cd1.toc
+<BR></TT>
+</DIV>
+
+<P>
+ou
+
+<P>
+
+<DIV CLASS="alltt" ALIGN="LEFT">
+<TT>
+ 
+<BR>
+cdparanoia -Bw
+<BR></TT>
+</DIV>
+
+<P>
+Ensuite, il vous faut extraire la seconde session, à savoir la piste
+de données.
+
+<P>
+
+<DIV CLASS="alltt" ALIGN="LEFT">
+<TT>
+ 
+<BR>
+cdrdao read-cd -session 2 -datafile cd2.bin cd2.toc
+<BR></TT>
+</DIV>
+
+<P>
+La gravure du disque s'effectue en deux étapes. Si vous avez extrait
+les pistes audio avec CDRDAO, utilisez CDRDAO pour les regraver, sinon
+utilisez CDRecord.
+
+<P>
+
+<DIV CLASS="alltt" ALIGN="LEFT">
+<TT>
+ 
+<BR>
+cdrdao write -v 1 -multi cd1.toc
+<BR></TT>
+</DIV>
+
+<P>
+L'utilisation de <TT>-multi</TT> n'est pas compatible avec le pilote
+generic-mmc-raw. Vous devrez donc, dans bien des cas, ajouter l'option
+<TT>-driver generic-mmc</TT> pour que la gravure fonctionne. Si vous
+avez extrait les pistes individuelles, utilisez CDRecord.
+
+<P>
+
+<DIV CLASS="alltt" ALIGN="LEFT">
+<TT>
+ 
+<BR>
+cdrecord -v -multi -audio *.wav
+<BR></TT>
+</DIV>
+
+<P>
+Vous pouvez ensuite refermer le disque en gravant la piste de données,
+utilisant pour ce faire CDRDAO qui l'a lui-même extraite.
+
+<P>
+
+<DIV CLASS="alltt" ALIGN="LEFT">
+<TT>
+ 
+<BR>
+cdrdao write -v 1 cd2.toc
+<BR></TT>
+</DIV>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2220"
+  HREF="node79.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html2214"
+  HREF="node74.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html2208"
+  HREF="node77.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html2216"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A> 
+<A NAME="tex2html2218"
+  HREF="node106.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index" SRC="index.png"></A> 
+<BR>
+<B> suivant:</B> <A NAME="tex2html2221"
+  HREF="node79.html">16.5 Stockage de disques</A>
+<B> monter:</B> <A NAME="tex2html2215"
+  HREF="node74.html">16. La copie de</A>
+<B> pr&eacute;c&eacute;dent:</B> <A NAME="tex2html2209"
+  HREF="node77.html">16.3 Copie à la</A>
+ &nbsp; <B>  <A NAME="tex2html2217"
+  HREF="node1.html">Table des mati&#232;res</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2219"
+  HREF="node106.html">Index</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Eric Buist
+2005-11-13
+</ADDRESS>
+</BODY>
+</HTML>

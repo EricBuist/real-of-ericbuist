@@ -1,0 +1,337 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         Ajouter une touche personnelle
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css"
+      href="../../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../../index.xhtml" class="parents">Le
+               royaume de Eric Buist</a> &gt;&gt; <a
+               href="../index.xhtml"
+               class="parents">Informatique</a> &gt;&gt;
+               Quelques-unes de mes recherches personnelles
+               &gt;&gt; <a href="index.xhtml" class="parents">Trucs
+               et astuces</a> &gt;&gt; Astuces spécifiques au DIRO
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../../sitemap.xhtml" class="sitemap">Plan
+               du site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="profile.xhtml"
+               class="leftsibling">Établir le profil d'une machine
+               Linux</a>
+            </td>
+            <td class="thispage">
+               Ajouter une touche personnelle
+            </td>
+            <td class="rightsibling">
+               <a href="kdever.xhtml" class="rightsibling">Faire
+               cohabiter KDE 2 et KDE 3 harmonieusement</a>
+               &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         Ajouter une touche personnelle
+      </h1>
+      <p>
+         Il existe de multiples façons de personnaliser son
+         environnement Linux et il serait impossible d'en faire la
+         liste exhaustive. Ici, je me concentrerai sur des
+         manipulations peu usuelles, s'effectuant sous le shell.
+         Personnaliser KDE est assez intuitif, comme toute
+         interface graphique bien conçue. Il suffit d'activer le
+         panneau de contrôle et d'aller changer ce que l'on
+         souhaite. Sous le shell, c'est une autre histoire, car il
+         faut connaître les commandes et variables exactes, sinon
+         on ne peut pas aller bien loin.
+      </p>
+      <ul>
+         <li>
+            <a href="#prompt">Personnalisation de l'invite</a>
+         </li>
+         <li>
+            <a href="#convenience">Augmentation de la commodité
+            d'utilisation</a>
+         </li>
+         <li>
+            <a href="#bottle">Lancer une bouteille à la mer</a>
+         </li>
+         <li>
+            <a href="#nobeeps">Couper le sifflet au PC Speaker</a>
+         </li>
+      </ul>
+      <h2>
+         <a name="prompt" id="prompt">Personnalisation de
+         l'invite</a>
+      </h2>
+      <p>
+         Lors de votre premier branchement, vous avez vu apparaître
+         le nom de la machine sur l'invite de commande, ce qui
+         n'est pas très intéressant. Si vous naviguez dans le <a
+         href="../linux/uniquefs.xhtml">Système de Fichiers</a> et
+         que vous vous y perdez, vous ne pourrez pas vous retrouver
+         d'un simple coup d'oeil. Il vous faudra utiliser la
+         commande <tt>pwd</tt> et la nécessité de la mémoriser
+         ajoutera un obstacle dissuasif de plus à votre
+         exploration. Il existe deux solutions: se limiter à son
+         répertoire principal lors de nos périples sur le shell ou
+         changer cettte invite. Pour ce faire, il faudra modifier
+         une variable du C-shell. Il ne faut pas confondre ces
+         variables avec les variables d'environnement. Une variable
+         du shell, configurée par <tt>set</tt>, n'affecte que le
+         shell, tandis qu'une variable d'environnement, définie par
+         <tt>setenv</tt>, peut affecter d'autres applications qui
+         décident de s'en servir.
+      </p>
+      <p>
+         Pour modifier l'invite à même le shell, on tapera <tt>set
+         prompt="invite : "</tt>, par exemple. Pour retrouver cette
+         information, consultez la page <tt>man tcsh</tt>.
+         Toutefois, cela ne solutionne pas notre problème, bien que
+         pouvant rendre l'invite plus attrayante. Le C-Shell
+         prévoit heureusement des séquences de caractères pour de
+         tels cas de figure. La séquence <tt>%c</tt> retourne le
+         nom du répertoire courant. Pour obtenir plusieurs niveaux
+         de répertoires, on peut utiliser <tt>%cN</tt> où
+         <tt>N&gt;=1</tt>. La commande <tt>%/</tt> retourne le
+         chemin absolu complet du répertoire courant. Ainsi, la
+         commande <tt>set prompt="[%/]$ "</tt> solutionnera le
+         problème et créera une invite compatible avec le shell
+         sous Emacs.
+      </p>
+      <h2>
+         <a name="convenience" id="convenience">Augmentation de la
+         commodité d'utilisation</a>
+      </h2>
+      <p>
+         Le C-shell contient quelques aspects tannants que l'on
+         peut modifier. Tout d'abord, la touche TAB, responsable de
+         la complétion des noms de fichiers, n'affiche pas tous les
+         fichiers possibles lorsqu'il y en a plusieurs. Elle se
+         contente de faire bipper la machine et il faut, si on ne
+         connaît pas le nom d'un fichier, effacer notre ligne et
+         entrer un <tt>ls</tt> afin de le retrouver. Pour remédier
+         à ce désagrément, pour une fois, il ne faudra pas une
+         astuce digne de Albert Einstein! Il suffit d'ajouter la
+         ligne <tt>set autolist</tt> à votre fichier
+         <tt>.cshrc</tt> et c'est fait!
+      </p>
+      <p>
+         Un autre problème peut surgir lorsque vous tentez de
+         supprimer des fichiers. La commande <tt>rm</tt> va parfois
+         vous demander confirmation et cela peut devenir irritant.
+         À moins que vous ne préfériez cela ainsi, ajouter la ligne
+         <tt>alias rm 'rm -f'</tt> à votre fichier <tt>.cshrc</tt>
+         pour ne pas recevoir ces messages de confirmation. Sachez
+         toutefois que <tt>rm</tt> fera son travail dans tous les
+         cas si on l'appelle et qu'il est impossible de récupérer
+         un fichier supprimé! On peut aussi le faire pour
+         <tt>cp</tt>, le paramètre <tt>-f</tt> inhibant les
+         demandes de confirmation.
+      </p>
+      <p>
+         Finalement, la commande <tt>ls</tt> cause problème. Elle
+         ne permet pas d'opérer une distinction entre un fichier,
+         un répertoire et un lien symbolique! Outre deviner, quand
+         l'ambiguité se produit, il faudra utiliser le paramètre
+         <tt>-F</tt> qui affiche des indicateurs pour les fichiers,
+         les répertoires et les liens symboliques. Il suffirait de
+         mettre la ligne <tt>alias ls 'ls -F'</tt> dans
+         <tt>.cshrc</tt> pour exorciser le démon une fois pour
+         toutes!
+      </p>
+      <h2>
+         <a name="bottle" id="bottle">Lancer une bouteille à la
+         mer</a>
+      </h2>
+      <p>
+         Connaissez-vous la commande <tt>finger</tt>, peut-être
+         pas? Elle s'avère d'une grande utilité, car elle permet
+         d'obtenir le login d'un utilisateur dont on connaît le nom
+         usuel. On peut aussi retrouver le nom usuel de quelqu'un
+         en utilisant le login. Si vous entrez <tt>finger
+         buisteri</tt>, vous obtiendrez
+      </p>
+<pre>
+Login: buisteri                         Name: Eric Buist
+Directory: /u/buisteri                  Shell: /bin/psh
+On since Sun Nov 26 13:59 (EST) on pts/8 from modemcable148.213-202-24.nowhere.mc.videotron.ca
+No mail.
+Project:
+Bacc. Spécialisé en informatique
+Objectif personnel:
+Découvrir les secrets les plus impénétrables de
+l'informatique, éliminer Windows et faire triompher Linux! :)
+Plan:
+Présentement connecté sur phobos.IRO.UMontreal.CA
+
+Je vous invite à venir faire une petite visite sur mon site Web.
+L'adresse est 
+http://www-etud.iro.umontreal.ca/~buisteri
+
+Vous y trouverez des informations sur moi-même, mes bogues les plus 
+épineux rencontrés avec mon ordinateur, ma vision de Windows et Linux, 
+le CD DevIFTBacc (une de mes créations) ainsi qu'un tutoriel 
+sur la manière de se servir d'un graveur de CD.
+</pre>
+      <p>
+         Si vous utilisez <tt>finger</tt> sur un autre usager, vous
+         obtiendrez les mêmes résultats s'il existe, à une
+         différence près. En tant que Project:, il n'y aura que
+         etud et No plan dans la section Plan:. Comment changer
+         cela, direz-vous, et surtout à quoi cela sert de le
+         changer? À la deuxième question, je ne peux pas répondre.
+         C'est comme lancer une bouteille à la mer, il est possible
+         que personne ne voit ce message...
+      </p>
+      <p>
+         Mais effectuer le changement est on ne peut plus simple.
+         Il suffit d'éditer le fichier <tt>.project</tt> se
+         trouvant dans votre répertoire principal. Il faut que ce
+         fichier soit accessible par tous, ie qu'il soit accessible
+         en lecture pour le groupe et les autres et que le
+         répertoire principal qui le contient soit accessible en
+         exécution. Les mêmes règles s'appliquent pour le fichier
+         <tt>.plan</tt>.
+      </p>
+      <p>
+         Il peut s'avérer d'un grand intérêt de pouvoir modifier
+         dynamiquement un de ces fichiers, surtout le
+         <tt>.plan</tt>. Il suffit de mettre, dans <tt>.cshrc</tt>,
+         les lignes qu'il faut pour le générer. On peut alors
+         inclure des variables qui pourraient, par exemple,
+         indiquer sur quelle machine on est branché en ce moment.
+         Dans ce cas, il faudra indiquer lorsque nous sommes
+         débranché, en incluant du code de génération dans
+         <tt>.logout</tt>. Pour un exemple d'une telle structure,
+         regardez mes fichiers <tt>.cshrc</tt>, <tt>.logout</tt> et
+         <tt>plan.common</tt>. Si vous voulez une référence
+         absolue, ce sera <tt>~buisteri/.cshrc</tt> et similaire
+         pour les autres.
+      </p>
+      <p>
+         Dans le cas où vous voudriez copier ces fichiers,
+         n'oubliez pas d'enlever la ligne de <tt>.cshrc</tt>
+         traitant de Emacs. C'est une spécificité dans le but
+         d'apporter un palliatif au <a
+         href="../bugx/index.xhtml">bugX</a> et il pourrait vous
+         nuire en rétrécissant inutilement votre fenêtre Emacs sous
+         X.
+      </p>
+      <p>
+         Malheureusement, cette petite astuce comporte quelques
+         lacunes. Comme on me l'a fait remarquer, KDE,
+         l'environnement graphique par défaut du DIRO, n'appelle
+         pas <tt>.logout</tt> lorsqu'on le quitte. Ce qui signifie
+         que le fichier n'est pas modifié pour refléter la
+         déconnexion. De plus, il faut ouvrir une fenêtre de
+         terminal (Konsole, XTerm, ...) pour appeler
+         <tt>.cshrc</tt>, ce qui n'est pas nécessairement un acquis
+         dans tous les cas.
+      </p>
+      <p>
+         De plus, une solution de ce genre ne gère pas les appels
+         multiples. Par exemple, si un utilisateur X se connecte
+         sur une machine Y, laisse sa session ouverte puis va se
+         connecter sur la machine Z à côté, son <tt>.plan</tt>
+         affichera sa connexion à la machine Z. Lorsqu'il se
+         déconnectera de la machine Z, son <tt>.plan</tt> indiquera
+         qu'il n'est pas branché du tout, pourtant il l'est encore
+         sur la machine Y!
+      </p>
+      <p>
+         Pour pallier à ces limitations, la rédaction d'un
+         programme plus évolué en langage C++ sera de rigueur!
+         Toutefois, je ne pourrai pas travailler sur ce programme
+         avant de pouvoir installer Linux (et avoir la paix avec
+         l'espace disque!) chez moi.
+      </p>
+      <h2>
+         <a name="nobeeps" id="nobeeps">Couper le sifflet au PC
+         Speaker</a>
+      </h2>
+      <p>
+         Même si la machine est dotée d'une carte son (Les machines
+         du DIRO en ont une, mais le module n'est pas installé,
+         donc elle ne peut être utilisée.), Linux utilise parfois
+         encore ce vieux mode de production de sons qu'est le
+         haut-parleur interne du PC. Source de stress, ces beeps ne
+         font que fatiguer. Avant le jour où cette antiquité ne
+         sera plus intégrée aux cartes mères, il existe une façon
+         de le désactiver. Tout d'abord, créez ou modifiez le
+         fichier <tt>~/.Xresources</tt> et ajoutez-lui la ligne
+         <tt>*visualBell: True</tt>. Redémarrez la session ou tapez
+         <tt>xrdb ~/.Xresources</tt> pour activer le changement.
+         Les beeps ne se feront plus jamais entendre dans XTerm
+         ainsi que dans à peu près toutes les applications X.
+      </p>
+      <p>
+         Malheureusement, Emacs s'entêtera toujours à émettre des
+         beeps, et cela trop souvent! Vous devrez pour le faire
+         taire créer ou éditer le fichier <tt>~/.emacs</tt> et y
+         ajouter un petit peu de code Lisp, soit la ligne
+      </p>
+<pre>
+(setq visible-bell t)
+    
+</pre>
+      <p>
+         Les beeps seront remplacés par un clignotement des barres
+         supérieures et inférieures de GNU Emacs. Si cela devient
+         énervant, il faudra choisir entre les sons ou utiliser
+         XEmacs. Sous XEmacs, les lignes suivantes résolvent
+         complètement le problème.
+      </p>
+<pre>
+(setq visible-bell nil)
+(setq bell-volume 0)
+    
+</pre>
+      <p>
+         Ce n'est pas fini! Il reste encore quelque chose à faire
+         pour exorciser le démon! KDE aussi émet ses propres beeps!
+         Pour le faire taire, activez le menu <b>K</b>, puis
+         <b>Control Center</b>. Sous la branche <b>Sound</b>,
+         activez <b>System notification</b> et abaissez le volume
+         au minimum. Sous <b>System bell</b>, désactivez la case à
+         cocher afin que le PC Speaker ne soit pas utilisé pour les
+         notifications système.
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+

@@ -1,0 +1,6 @@
+# AddType 'text/html; charset=ISO-8859-1' html
+AddLanguage fr .html
+AddCharset UTF-8 .html
+# <Files "exception.html">
+#   AddCharset, addLanguage, etc.
+# </Files>

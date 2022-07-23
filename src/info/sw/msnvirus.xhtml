@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+   <head>
+      <meta name="generator"
+      content="HTML Tidy for Java (vers. 2009-12-01), see jtidy.sourceforge.net" />
+      <title>
+         Virus sur MSN
+      </title>
+      <meta http-equiv="Content-Type"
+      content="application/xhtml+xml; charset=UTF-8" />
+      <meta name="author" content="Eric Buist" />
+      <meta name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+      <meta name="HandheldFriendly" content="true" />
+      <link rel="stylesheet" type="text/css"
+      href="../../main.css" />
+   </head>
+   <body>
+      <table class="topnavbar" width="100%">
+         <tr>
+            <td class="parents" colspan="3">
+               <a href="../../index.xhtml" class="parents">Le
+               royaume de Eric Buist</a> &gt;&gt; <a
+               href="../index.xhtml"
+               class="parents">Informatique</a> &gt;&gt; Problèmes
+               marquants &gt;&gt; <a href="../resolved.xhtml"
+               class="parents">Quelques bogues résolus</a> &gt;&gt;
+               <a href="index.xhtml" class="parents">Bogues
+               logiciels résolus</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="contact">
+               <a href="../../contact.xhtml" class="contact">Me
+               contacter</a>
+            </td>
+            <td class="topnavbar">
+            </td>
+            <td class="sitemap">
+               <a href="../../sitemap.xhtml" class="sitemap">Plan
+               du site</a>
+            </td>
+         </tr>
+         <tr>
+            <td class="leftsibling">
+               &lt;&lt; <a href="kidnap.xhtml"
+               class="leftsibling">L'imprimante kidnappée</a>
+            </td>
+            <td class="thispage">
+               Virus sur MSN
+            </td>
+            <td class="rightsibling">
+               <a href="sircam.xhtml" class="rightsibling">SirCam,
+               un autre virus</a> &gt;&gt;
+            </td>
+         </tr>
+      </table>
+      <h1>
+         Virus sur MSN
+      </h1>
+      <p>
+         Jeudi, 23 août 2001
+      </p>
+      <p>
+         Ma soeur était en train de chatter sur MSN Messenger
+         Service quand tout à coup elle a reçu un message en
+         Anglais. C'était quelqu'un qui demandait si elle voulait
+         recevoir sa photo. Avant que ma soeur ne puisse faire quoi
+         que ce soit, le message rebondissait et était renvoyé à
+         ses amies qui se demandèrent alors pourquoi elle se
+         mettait à parler en Anglais. Elle a tenté de supprimer le
+         fichier qui était apparu dans les fichiers reçus, mais
+         sans succès. Heureusement, ce virus ne serait pas très
+         difficile à enrayer.
+      </p>
+      <p>
+         Après quelques petites recherches, j'ai trouvé une façon
+         qui pourrait permettre d'éradiquer le cossin, mais pas de
+         l'empêcher de revenir par un autre message MSN. Une façon
+         de s'immuniser: passer à Linux qui ne reconnaît pas les
+         exécutables Windows. AHAHAH :) Il est aussi envisageable
+         de mettre en fonction un anti-virus temps réel tel que
+         McAfee VShield livré avec McAfee VirusScan ou le logiciel
+         du même type de Norton AntiVirus. Mais ces outils
+         ralentissent la machine. Pour savoir si vous avez le
+         virus, regardez si un fichier suspect ne se trouve pas
+         dans <tt>C:\Mes Documents\Messenger Service Received
+         Files</tt>. Si tel est le cas...
+      </p>
+      <p>
+         Tout d'abord, avant d'entamer quoi que ce soit, fermez MSN
+         Messenger. Ce qui peut se faire en cliquant droit sur son
+         icône et en sélectionnant <b>Quitter</b>. L'icône va
+         disparaître, ce qui témoigne que le cossin a quitté la
+         mémoire. Cela permettra d'éviter que le virus ne revienne
+         tout de suite après avoir été enlevé.
+      </p>
+      <p>
+         Ensuite, il faut ôter le satanique cossin de la mémoire et
+         ce programme n'est pas très bien caché, heureusement.
+         Appuyez sur CTRL+ALT+DEL, puis dans la boîte qui surgit,
+         sélectionnez <b>MsgSprd</b>, puis cliquez sur <b>Fin de
+         tâche</b>. La boîte se fermera et, espérons-le, le virus
+         aussi! Réappuyez sur CTRL+ALT+DEL, vérifiez si le
+         programme n'est plus là et si tel est le cas, fermez par
+         la touche Escape ou le bouton <b>Annuler</b>. Sinon,
+         réessayer quelques fois puis si tout reste sans effet, il
+         faudra supprimer le fichier depuis le mode MS-DOS.
+      </p>
+      <p>
+         Bon, il faut maintenant enlever le fichier, sinon la chose
+         va revenir! Supprimez alors, dans le répertoire <tt>C:\Mes
+         Documents\Messenger Received Files</tt>, le fichier
+         <tt>PIC1324(1)(2)(1)(1)(1).exe</tt>. Le nom du fichier
+         pourrait différer, l'idée est que le nom est suspect. Là,
+         puisque l'exécutable a été déchargé de la mémoire, il ne
+         peut plus protéger le fichier et Windows va pouvoir,
+         encore avec un peu de chance, l'enlever.
+      </p>
+      <p>
+         Mais si on laisse les choses ainsi, au prochain démarrage,
+         Windows va chercher ce fichier et va peut-être même
+         chialer qu'il ne le trouve pas!!! Il va malheureusement
+         falloir aller jouer dans la Base de Registres pour
+         remédier au problème. Dans le menu <b>Démarrer</b>,
+         sélectionnez <b>Exécuter</b> puis tapez <tt>regedit</tt>.
+         L'éditeur de base de registre va apparaître. Sélectionnez
+         (cela fonctionne un peu comme l'Explorateur.) la clé
+         <tt>HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run</tt>,
+         ce qui correspond aux programmes démarrés lors du
+         démarrage de Windows. Enlevez la valeur <tt>MSN
+         Messenger</tt>, qui réfère au fichier maudit, en cliquant
+         dessus puis en appuyant sur Delete. Vous devrez confirmer
+         ce geste salvateur.
+      </p>
+      <p>
+         Ensuite, le best serait de forwarder un lien vers cette
+         page à tous ceux que vous connaissez et qui ont MSN
+         Messenger et espérer que la manoeuvre est suffisamment
+         compréhensible et faisable et que l'épidémie soit vite
+         éradiquée. Dans le cas de retours en force trop nombreux,
+         il faudra malheureusement fermer MSN pour un bout,
+         peut-être pour toujours... Puisse cela ne pas arriver à de
+         telles extrêmités...
+      </p>
+      <div class="footer">
+         <a href="http://validator.w3.org/check?uri=referer"><img
+         src="http://www.w3.org/Icons/valid-xhtml10"
+         alt="Valid XHTML" height="31" width="88" /></a><a
+         href="http://jigsaw.w3.org/css-validator/check/referer"><img
+          src="http://jigsaw.w3.org/css-validator/images/vcss"
+         alt="Valid CSS" height="31" width="88" /></a>
+      </div>
+   </body>
+</html>
+
