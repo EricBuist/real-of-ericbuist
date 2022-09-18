@@ -1,6 +1,13 @@
 # AddType 'text/html; charset=ISO-8859-1' html
 AddLanguage fr .html
 AddCharset UTF-8 .html
+AddLanguage fr .xhtml
+AddCharset UTF-8 .xhtml
 # <Files "exception.html">
 #   AddCharset, addLanguage, etc.
 # </Files>
+RewriteEngine On
+RewriteRule ^wpblog$ https://wpblog.ericbuist.com [R,L]
+RewriteRule ^wpblog/(.*)$ https://wpblog.ericbuist.com/$1 [R,L]
+RewriteRule ^en/wpblog$ https://wpblog.ericbuist.com [R,L]
+RewriteRule ^en/wpblog/(.*)$ https://wpblog.ericbuist.com/$1 [R,L]
