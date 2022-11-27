@@ -7,8 +7,8 @@ AddCharset UTF-8 .xhtml
 #   AddCharset, addLanguage, etc.
 # </Files>
 RewriteEngine On
-RewriteRule ^wpblog$ https://wpblog.ericbuist.com [R,L]
-RewriteRule ^wpblog/(.*)$ https://wpblog.ericbuist.com/$1 [R,L]
+# RewriteRule ^wpblog$ https://wpblog.ericbuist.com [R,L]
+# RewriteRule ^wpblog/(.*)$ https://wpblog.ericbuist.com/$1 [R,L]
 RewriteRule ^en/wpblog$ https://wpblog.ericbuist.com [R,L]
 RewriteRule ^en/wpblog/(.*)$ https://wpblog.ericbuist.com/$1 [R,L]
 
